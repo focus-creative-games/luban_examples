@@ -1,0 +1,16 @@
+{
+  "data_list": [
+    {
+      "id": 1,
+      "res": "Assets/Scenes/SampleScene.unity"
+    },
+    {
+      "id": 2,
+      "res": "abc"
+    },
+    {
+      "id": 3,
+      "res": ""
+    }
+  ]
+}

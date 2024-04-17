@@ -2,11 +2,8 @@ syntax = "proto3";
 
 package cfg;
 
-enum AiEExecutor {
-    AiEExecutor_CLIENT = 0;
-    AiEExecutor_SERVER = 1;
-}
 enum AiEKeyType {
+    AiEKeyType_EMPTY_PLACEHOLDER = 0;
     AiEKeyType_BOOL = 1;
     AiEKeyType_INT = 2;
     AiEKeyType_FLOAT = 3;
@@ -14,8 +11,8 @@ enum AiEKeyType {
     AiEKeyType_VECTOR = 5;
     AiEKeyType_ROTATOR = 6;
     AiEKeyType_NAME = 7;
-    AiEKeyType_CLASS = 8;
-    AiEKeyType_ENUM = 9;
+    AiEKeyType_CLASS1 = 8;
+    AiEKeyType_ENUM1 = 9;
     AiEKeyType_OBJECT = 10;
 }
 enum AiEFlowAbortMode {
@@ -23,10 +20,6 @@ enum AiEFlowAbortMode {
     AiEFlowAbortMode_LOWER_PRIORITY = 1;
     AiEFlowAbortMode_SELF = 2;
     AiEFlowAbortMode_BOTH = 3;
-}
-enum AiEFinishMode {
-    AiEFinishMode_IMMEDIATE = 0;
-    AiEFinishMode_DELAYED = 1;
 }
 enum AiENotifyObserverMode {
     AiENotifyObserverMode_ON_VALUE_CHANGE = 0;
@@ -42,30 +35,12 @@ enum AiEOperator {
     AiEOperator_CONTAINS = 6;
     AiEOperator_NOT_CONTAINS = 7;
 }
-enum AudioType {
-    AudioType_UNKNOWN = 0;
-    AudioType_ACC = 1;
-    AudioType_AIFF = 2;
-}
-enum CommonEBoolOperator {
-    CommonEBoolOperator_AND = 0;
-    CommonEBoolOperator_OR = 1;
-}
-enum ItemEItemQuality {
-    ItemEItemQuality_WHITE = 0;
-    ItemEItemQuality_GREEN = 1;
-    ItemEItemQuality_BLUE = 2;
-    ItemEItemQuality_PURPLE = 3;
-    ItemEItemQuality_GOLDEN = 4;
-}
-enum ItemECurrencyType {
-    ItemECurrencyType_DIAMOND = 1;
-    ItemECurrencyType_GOLD = 2;
-    ItemECurrencyType_SILVER = 3;
-    ItemECurrencyType_EXP = 4;
-    ItemECurrencyType_POWER_POINT = 5;
+enum AiEFinishMode {
+    AiEFinishMode_IMMEDIATE = 0;
+    AiEFinishMode_DELAYED = 1;
 }
 enum ItemEMajorType {
+    ItemEMajorType_EMPTY_PLACEHOLDER = 0;
     ItemEMajorType_CURRENCY = 1;
     ItemEMajorType_CLOTH = 2;
     ItemEMajorType_QUEST = 3;
@@ -79,6 +54,7 @@ enum ItemEMajorType {
     ItemEMajorType_MATERIAL = 11;
 }
 enum ItemEMinorType {
+    ItemEMinorType_EMPTY_PLACEHOLDER = 0;
     ItemEMinorType_DIAMOND = 101;
     ItemEMinorType_GOLD = 102;
     ItemEMinorType_SILVER = 103;
@@ -129,47 +105,12 @@ enum ItemEMinorType {
     ItemEMinorType_CONSTRUCTION_MATERIAL = 1101;
     ItemEMinorType_DESIGN_DRAWING = 1102;
 }
-enum ItemEClothersStarQualityType {
-    ItemEClothersStarQualityType_ONE = 1;
-    ItemEClothersStarQualityType_TWO = 2;
-    ItemEClothersStarQualityType_THREE = 3;
-    ItemEClothersStarQualityType_FOUR = 4;
-    ItemEClothersStarQualityType_FIVE = 5;
-    ItemEClothersStarQualityType_SIX = 6;
-    ItemEClothersStarQualityType_SEVEN = 7;
-    ItemEClothersStarQualityType_EIGHT = 8;
-    ItemEClothersStarQualityType_NINE = 9;
-    ItemEClothersStarQualityType_TEN = 10;
-}
-enum ItemEClothersTag {
-    ItemEClothersTag_FANG_SHAI = 1;
-    ItemEClothersTag_WU_ZHE = 2;
-}
-enum ItemEUseType {
-    ItemEUseType_MANUAL = 0;
-    ItemEUseType_AUTO = 1;
-}
-enum ItemEClothesHidePartType {
-    ItemEClothesHidePartType_CHEST = 0;
-    ItemEClothesHidePartType_HEAD = 1;
-    ItemEClothesHidePartType_SPINE_UPPER = 2;
-    ItemEClothesHidePartType_SPINE_LOWER = 3;
-    ItemEClothesHidePartType_HIP = 4;
-    ItemEClothesHidePartType_LEG_UPPER = 5;
-    ItemEClothesHidePartType_LEG_MIDDLE = 6;
-    ItemEClothesHidePartType_LEG_LOWER = 7;
-}
-enum ItemEClothesPropertyType {
-    ItemEClothesPropertyType_JIAN_YUE = 1;
-    ItemEClothesPropertyType_HUA_LI = 2;
-    ItemEClothesPropertyType_KE_AI = 3;
-    ItemEClothesPropertyType_CHENG_SHU = 4;
-    ItemEClothesPropertyType_HUO_PO = 5;
-    ItemEClothesPropertyType_YOU_YA = 6;
-    ItemEClothesPropertyType_QING_CHUN = 7;
-    ItemEClothesPropertyType_XING_GAN = 8;
-    ItemEClothesPropertyType_QING_LIANG = 9;
-    ItemEClothesPropertyType_BAO_NUAN = 10;
+enum ItemEItemQuality {
+    ItemEItemQuality_WHITE = 0;
+    ItemEItemQuality_GREEN = 1;
+    ItemEItemQuality_BLUE = 2;
+    ItemEItemQuality_PURPLE = 3;
+    ItemEItemQuality_GOLDEN = 4;
 }
 enum TestDemoEnum {
     TestDemoEnum_NONE = 0;
@@ -177,40 +118,42 @@ enum TestDemoEnum {
     TestDemoEnum_B = 2;
     TestDemoEnum_C = 4;
     TestDemoEnum_D = 5;
+    TestDemoEnum_Any = 6;
+}
+enum AudioType {
+    AudioType_UNKNOWN = 0;
+    AudioType_ACC = 1;
+    AudioType_AIFF = 2;
 }
 enum TestDemoFlag {
+    TestDemoFlag_EMPTY_PLACEHOLDER = 0;
     TestDemoFlag_A = 1;
     TestDemoFlag_B = 2;
     TestDemoFlag_C = 4;
     TestDemoFlag_D = 8;
 }
-enum TestETestUeType {
-    TestETestUeType_WHITE = 0;
-    TestETestUeType_BLACK = 1;
-}
-enum TestETestEmptyEnum {
 
-    TestETestEmptyEnum_EMPTY_PLACEHOLDER = 0;
+message vec2 {
+     float x = 1 ;
+     float y = 2 ;
 }
-enum TestETestEmptyEnum2 {
-    TestETestEmptyEnum2_SMALL_THAN_256 = 255;
-    TestETestEmptyEnum2_X_256 = 256;
-    TestETestEmptyEnum2_X_257 = 257;
+message vec3 {
+     float x = 1 ;
+     float y = 2 ;
+     float z = 3 ;
 }
-enum TestETestQuality {
-    TestETestQuality_A = 1;
-    TestETestQuality_B = 2;
-    TestETestQuality_C = 3;
-    TestETestQuality_D = 4;
+message vec4 {
+     float x = 1 ;
+     float y = 2 ;
+     float z = 3 ;
+     float w = 4 ;
 }
-enum TestAccessFlag {
-    TestAccessFlag_WRITE = 1;
-    TestAccessFlag_READ = 2;
-    TestAccessFlag_TRUNCATE = 4;
-    TestAccessFlag_NEW = 8;
-    TestAccessFlag_READ_WRITE = 3;
+message TestTestExcelBean1 {
+     int32 x1 = 1 ;
+     string x2 = 2 ;
+     int32 x3 = 3 ;
+     float x4 = 4 ;
 }
-
 message AiBlackboard {
      string name = 1 ;
      string desc = 2 ;
@@ -346,12 +289,12 @@ message AiUeBlackboard {
 }
 message AiKeyQueryOperator {
     oneof value {
-        AiIsSet IsSet = 1;
+        AiIsSet2 IsSet2 = 1;
         AiIsNotSet IsNotSet = 2;
         AiBinaryOperator BinaryOperator = 3;
     }
 }
-message AiIsSet {
+message AiIsSet2 {
 }
 message AiIsNotSet {
 }
@@ -528,8 +471,11 @@ message CommonGlobalConfig {
 message ItemItem {
      int32 id = 1 ;
      string name = 2 ;
+     ItemEMajorType major_type = 3 ;
      ItemEMinorType minor_type = 4 ;
+     int32 max_pile_num = 5 ;
      ItemEItemQuality quality = 6 ;
+     string icon = 7 ;
      string icon_backgroud = 8 ;
      string icon_mask = 9 ;
      string desc = 10 ;
@@ -713,21 +659,6 @@ message TestDemoPrimitiveTypesTable {
      vec4 v4 = 12 ;
      int64 t1 = 13 ;
 }
-message vec2 {
-     float x = 1 ;
-     float y = 2 ;
-}
-message vec3 {
-     float x = 1 ;
-     float y = 2 ;
-     float z = 3 ;
-}
-message vec4 {
-     float x = 1 ;
-     float y = 2 ;
-     float z = 3 ;
-     float w = 4 ;
-}
 message TestTestString {
      string id = 1 ;
      string s1 = 2 ;
@@ -742,10 +673,17 @@ message TestCompactString {
 }
 message TestDemoGroup {
      int32 id = 1 ;
+     int32 x1 = 2 ;
+     int32 x2 = 3 ;
+     int32 x3 = 4 ;
+     int32 x4 = 5 ;
      TestInnerGroup x5 = 6 ;
 }
 message TestInnerGroup {
      int32 y1 = 1 ;
+     int32 y2 = 2 ;
+     int32 y3 = 3 ;
+     int32 y4 = 4 ;
 }
 message TestTestGlobal {
      int32 unlock_equip = 1 ;
@@ -897,6 +835,10 @@ message TestTestScriptableObject {
      vec3 v3 = 6 ;
      vec4 v4 = 7 ;
 }
+message TestPath {
+     int32 id = 1 ;
+     string res = 2 ;
+}
 message TestTestMapper {
      int32 id = 1 ;
      AudioType audio_type = 2 ;
@@ -921,6 +863,7 @@ message DefineFromExcel2 {
     repeated TestDemoE2 k9 = 16 [packed = false];
     repeated vec3 k10 = 17 [packed = false];
     repeated vec4 k11 = 18 [packed = false];
+    optional vec3 v11 = 19 ;
 }
 message TestShape {
     oneof value {
@@ -996,6 +939,15 @@ message TestTbTestString {
 message TestTbDemoGroup {
     repeated TestDemoGroup data_list = 1 [packed = false];
 }
+message TestTbDemoGroup_C {
+    repeated TestDemoGroup data_list = 1 [packed = false];
+}
+message TestTbDemoGroup_S {
+    repeated TestDemoGroup data_list = 1 [packed = false];
+}
+message TestTbDemoGroup_E {
+    repeated TestDemoGroup data_list = 1 [packed = false];
+}
 message TestTbTestGlobal {
     repeated TestTestGlobal data_list = 1 [packed = false];
 }
@@ -1043,6 +995,9 @@ message TestTbExcelFromJsonMultiRow {
 }
 message TestTbTestScriptableObject {
     repeated TestTestScriptableObject data_list = 1 [packed = false];
+}
+message TestTbPath {
+    repeated TestPath data_list = 1 [packed = false];
 }
 message TestTbTestMapper {
     repeated TestTestMapper data_list = 1 [packed = false];
