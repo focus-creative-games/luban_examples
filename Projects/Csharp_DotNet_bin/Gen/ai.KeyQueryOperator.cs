@@ -22,7 +22,7 @@ public abstract partial class KeyQueryOperator : Luban.BeanBase
     {
         switch (_buf.ReadInt())
         {
-            case ai.IsSet.__ID__: return new ai.IsSet(_buf);
+            case ai.IsSet2.__ID__: return new ai.IsSet2(_buf);
             case ai.IsNotSet.__ID__: return new ai.IsNotSet(_buf);
             case ai.BinaryOperator.__ID__: return new ai.BinaryOperator(_buf);
             default: throw new SerializationException();

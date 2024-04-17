@@ -29,6 +29,11 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
             k9 = new System.Collections.Generic.List<test.DemoE2>();
             k10 = new System.Collections.Generic.List<vec3>();
             k11 = new System.Collections.Generic.List<vec4>();
+            c1 = System.Array.Empty<int[]>();
+            c2 = new System.Collections.Generic.List<System.Collections.Generic.List<int>>();
+            c3 = new System.Collections.Generic.List<System.Collections.Generic.HashSet<int>>();
+            c4 = new System.Collections.Generic.Dictionary<int,System.Collections.Generic.List<int>>();
+            c5 = new System.Collections.Generic.Dictionary<int,System.Collections.Generic.Dictionary<int, int>>();
     }
 
     public override void LoadJson(SimpleJSON.JSONObject _json)
@@ -177,6 +182,54 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
             }
         }
         
+        { 
+            var _fieldJson = _json["v11"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsObject) { throw new SerializationException(); }  v11 = vec3.LoadJsonvec3(_fieldJson);
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["c1"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n = _fieldJson.Count; c1 = new int[][_n]; int _index=0; foreach(SimpleJSON.JSONNode __e in _fieldJson.Children) { int[] __v;  if(!__e.IsArray) { throw new SerializationException(); } int _n = __e.Count; __v = new int[_n]; int _index=0; foreach(SimpleJSON.JSONNode __e in __e.Children) { int __v;  if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e;  __v[_index++] = __v; }    c1[_index++] = __v; }  
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["c2"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } c2 = new System.Collections.Generic.List<System.Collections.Generic.List<int>>(); foreach(JSONNode __e in _fieldJson.Children) { System.Collections.Generic.List<int> __v;  if(!__e.IsArray) { throw new SerializationException(); } __v = new System.Collections.Generic.List<int>(); foreach(JSONNode __e in __e.Children) { int __v;  if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e;  __v.Add(__v); }    c2.Add(__v); }  
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["c3"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } c3 = new System.Collections.Generic.List<System.Collections.Generic.HashSet<int>>(); foreach(JSONNode __e in _fieldJson.Children) { System.Collections.Generic.HashSet<int> __v;  if(!__e.IsArray) { throw new SerializationException(); } __v = new System.Collections.Generic.HashSet<int>(); foreach(JSONNode __e in __e.Children) { int __v;  if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e;  __v.Add(__v); }    c3.Add(__v); }  
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["c4"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } c4 = new System.Collections.Generic.Dictionary<int, System.Collections.Generic.List<int>>(); foreach(JSONNode __e in _fieldJson.Children) { int __k;  if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; System.Collections.Generic.List<int> __v;  if(!__e[1].IsArray) { throw new SerializationException(); } __v = new System.Collections.Generic.List<int>(); foreach(JSONNode __e in __e[1].Children) { int __v;  if(!__e.IsNumber) { throw new SerializationException(); }  __v = __e;  __v.Add(__v); }    c4.Add(__k, __v); }  
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["c5"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } c5 = new System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<int, int>>(); foreach(JSONNode __e in _fieldJson.Children) { int __k;  if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; System.Collections.Generic.Dictionary<int, int> __v;  if(!__e[1].IsArray) { throw new SerializationException(); } __v = new System.Collections.Generic.Dictionary<int, int>(); foreach(JSONNode __e in __e[1].Children) { int __k;  if(!__e[0].IsNumber) { throw new SerializationException(); }  __k = __e[0]; int __v;  if(!__e[1].IsNumber) { throw new SerializationException(); }  __v = __e[1];  __v.Add(__k, __v); }    c5.Add(__k, __v); }  
+            }
+        }
+        
     }
 
     public override void SaveJson(SimpleJSON.JSONObject _json)
@@ -218,8 +271,6 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
             { var __bjson = new JSONObject();  test.Shape.SaveJsonShape(x15, __bjson); _json["x15"] = __bjson; }
         }
         {
-
-            if (v2 == null) { throw new System.ArgumentNullException(); }
             { var __bjson = new JSONObject();  vec2.SaveJsonvec2(v2, __bjson); _json["v2"] = __bjson; }
         }
         {
@@ -254,6 +305,36 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
 
             if (k11 == null) { throw new System.ArgumentNullException(); }
             { var __cjson = new JSONArray(); foreach(var _e in k11) { { var __bjson = new JSONObject();  vec4.SaveJsonvec4(_e, __bjson); __cjson["null"] = __bjson; } } _json["k11"] = __cjson; }
+        }
+
+        if (v11 != null)
+        {
+            { var __bjson = new JSONObject();  vec3.SaveJsonvec3(v11, __bjson); _json["v11"] = __bjson; }
+        }
+        {
+
+            if (c1 == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in c1) { { var __cjson = new JSONArray(); foreach(var _e in _e) { __cjson["null"] = new JSONNumber(_e); } __cjson["null"] = __cjson; } } _json["c1"] = __cjson; }
+        }
+        {
+
+            if (c2 == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in c2) { { var __cjson = new JSONArray(); foreach(var _e in _e) { __cjson["null"] = new JSONNumber(_e); } __cjson["null"] = __cjson; } } _json["c2"] = __cjson; }
+        }
+        {
+
+            if (c3 == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in c3) { { var __cjson = new JSONArray(); foreach(var _e in _e) { __cjson["null"] = new JSONNumber(_e); } __cjson["null"] = __cjson; } } _json["c3"] = __cjson; }
+        }
+        {
+
+            if (c4 == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in c4) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); { var __cjson = new JSONArray(); foreach(var _e in _e.Value) { __cjson["null"] = new JSONNumber(_e); } __entry["null"] = __cjson; } } _json["c4"] = __cjson; }
+        }
+        {
+
+            if (c5 == null) { throw new System.ArgumentNullException(); }
+            { var __cjson = new JSONArray(); foreach(var _e in c5) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); { var __cjson = new JSONArray(); foreach(var _e in _e.Value) { var __entry = new JSONArray(); __cjson[null] = __entry; __entry["null"] = new JSONNumber(_e.Key); __entry["null"] = new JSONNumber(_e.Value); } __entry["null"] = __cjson; } } _json["c5"] = __cjson; }
         }
     }
 
@@ -310,6 +391,18 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
     public System.Collections.Generic.List<vec3> k10;
 
     public System.Collections.Generic.List<vec4> k11;
+
+    public vec3? v11;
+
+    public int[][] c1;
+
+    public System.Collections.Generic.List<System.Collections.Generic.List<int>> c2;
+
+    public System.Collections.Generic.List<System.Collections.Generic.HashSet<int>> c3;
+
+    public System.Collections.Generic.Dictionary<int, System.Collections.Generic.List<int>> c4;
+
+    public System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<int, int>> c5;
 
 }
 

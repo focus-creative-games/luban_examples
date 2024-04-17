@@ -14,9 +14,9 @@ using Luban;
 namespace editor.cfg.ai
 {
 
-public sealed class IsSet :  ai.KeyQueryOperator 
+public sealed class IsSet2 :  ai.KeyQueryOperator 
 {
-    public IsSet()
+    public IsSet2()
     {
     }
 
@@ -28,14 +28,14 @@ public sealed class IsSet :  ai.KeyQueryOperator
     {
     }
 
-    public static IsSet LoadJsonIsSet(SimpleJSON.JSONNode _json)
+    public static IsSet2 LoadJsonIsSet2(SimpleJSON.JSONNode _json)
     {
-        IsSet obj = new ai.IsSet();
+        IsSet2 obj = new ai.IsSet2();
         obj.LoadJson((SimpleJSON.JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonIsSet(IsSet _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonIsSet2(IsSet2 _obj, SimpleJSON.JSONNode _json)
     {
         _obj.SaveJson((SimpleJSON.JSONObject)_json);
     }

@@ -34,6 +34,12 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoE2 _e0;  _e0 = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e0);}}
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K10 = new System.Collections.Generic.List<System.Numerics.Vector3>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { System.Numerics.Vector3 _e0;  _e0 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf)); K10.Add(_e0);}}
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K11 = new System.Collections.Generic.List<System.Numerics.Vector4>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { System.Numerics.Vector4 _e0;  _e0 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(_buf)); K11.Add(_e0);}}
+        if(_buf.ReadBool()){ V11 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf)); } else { V11 = null; }
+        {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);C1 = new int[__n0][];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int[] __e0;{int __n1 = System.Math.Min(_buf.ReadSize(), _buf.Size);__e0 = new int[__n1];for(var __index1 = 0 ; __index1 < __n1 ; __index1++) { int __e1;__e1 = _buf.ReadInt(); __e0[__index1] = __e1;}} C1[__index0] = __e0;}}
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);C2 = new System.Collections.Generic.List<System.Collections.Generic.List<int>>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { System.Collections.Generic.List<int> _e0;  {int n1 = System.Math.Min(_buf.ReadSize(), _buf.Size);_e0 = new System.Collections.Generic.List<int>(n1);for(var i1 = 0 ; i1 < n1 ; i1++) { int _e1;  _e1 = _buf.ReadInt(); _e0.Add(_e1);}} C2.Add(_e0);}}
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);C3 = new System.Collections.Generic.List<System.Collections.Generic.HashSet<int>>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { System.Collections.Generic.HashSet<int> _e0;  {int n1 = System.Math.Min(_buf.ReadSize(), _buf.Size);_e0 = new System.Collections.Generic.HashSet<int>(/*n1 * 3 / 2*/);for(var i1 = 0 ; i1 < n1 ; i1++) { int _e1;  _e1 = _buf.ReadInt(); _e0.Add(_e1);}} C3.Add(_e0);}}
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);C4 = new System.Collections.Generic.Dictionary<int, System.Collections.Generic.List<int>>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); System.Collections.Generic.List<int> _v0;  {int n1 = System.Math.Min(_buf.ReadSize(), _buf.Size);_v0 = new System.Collections.Generic.List<int>(n1);for(var i1 = 0 ; i1 < n1 ; i1++) { int _e1;  _e1 = _buf.ReadInt(); _v0.Add(_e1);}}     C4.Add(_k0, _v0);}}
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);C5 = new System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<int, int>>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); System.Collections.Generic.Dictionary<int, int> _v0;  {int n1 = System.Math.Min(_buf.ReadSize(), _buf.Size);_v0 = new System.Collections.Generic.Dictionary<int, int>(n1 * 3 / 2);for(var i1 = 0 ; i1 < n1 ; i1++) { int _k1;  _k1 = _buf.ReadInt(); int _v1;  _v1 = _buf.ReadInt();     _v0.Add(_k1, _v1);}}     C5.Add(_k0, _v0);}}
     }
 
     public static DefineFromExcel2 DeserializeDefineFromExcel2(ByteBuf _buf)
@@ -65,6 +71,12 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
     public readonly System.Collections.Generic.List<System.Numerics.Vector3> K10;
     public readonly System.Collections.Generic.List<System.Numerics.Vector4> K11;
+    public readonly System.Numerics.Vector3? V11;
+    public readonly int[][] C1;
+    public readonly System.Collections.Generic.List<System.Collections.Generic.List<int>> C2;
+    public readonly System.Collections.Generic.List<System.Collections.Generic.HashSet<int>> C3;
+    public readonly System.Collections.Generic.Dictionary<int, System.Collections.Generic.List<int>> C4;
+    public readonly System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<int, int>> C5;
    
     public const int __ID__ = 482045152;
     public override int GetTypeId() => __ID__;
@@ -81,6 +93,12 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         
         X14?.ResolveRef(tables);
         X15?.ResolveRef(tables);
+        
+        
+        
+        
+        
+        
         
         
         
@@ -112,6 +130,12 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         + "k9:" + Luban.StringUtil.CollectionToString(K9) + ","
         + "k10:" + Luban.StringUtil.CollectionToString(K10) + ","
         + "k11:" + Luban.StringUtil.CollectionToString(K11) + ","
+        + "v11:" + V11 + ","
+        + "c1:" + Luban.StringUtil.CollectionToString(C1) + ","
+        + "c2:" + Luban.StringUtil.CollectionToString(C2) + ","
+        + "c3:" + Luban.StringUtil.CollectionToString(C3) + ","
+        + "c4:" + Luban.StringUtil.CollectionToString(C4) + ","
+        + "c5:" + Luban.StringUtil.CollectionToString(C5) + ","
         + "}";
     }
 }

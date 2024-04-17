@@ -23,7 +23,6 @@ public sealed partial class TestNull : Luban.BeanBase
         if(_buf.ReadBool()){ X4 = test.DemoDynamic.DeserializeDemoDynamic(_buf); } else { X4 = null; }
         if(_buf.ReadBool()){ S1 = _buf.ReadString(); } else { S1 = null; }
         if(_buf.ReadBool()){ S2 = _buf.ReadString(); } else { S2 = null; }
-        if(_buf.ReadBool()){ V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_buf)); } else { V2 = null; }
     }
 
     public static TestNull DeserializeTestNull(ByteBuf _buf)
@@ -38,7 +37,6 @@ public sealed partial class TestNull : Luban.BeanBase
     public readonly test.DemoDynamic X4;
     public readonly string S1;
     public readonly string S2;
-    public readonly System.Numerics.Vector2? V2;
    
     public const int __ID__ = 339868469;
     public override int GetTypeId() => __ID__;
@@ -50,7 +48,6 @@ public sealed partial class TestNull : Luban.BeanBase
         
         X3?.ResolveRef(tables);
         X4?.ResolveRef(tables);
-        
         
         
     }
@@ -65,7 +62,6 @@ public sealed partial class TestNull : Luban.BeanBase
         + "x4:" + X4 + ","
         + "s1:" + S1 + ","
         + "s2:" + S2 + ","
-        + "v2:" + V2 + ","
         + "}";
     }
 }

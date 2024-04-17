@@ -101,18 +101,12 @@ public sealed class TestScriptableObject :  Luban.EditorBeanBase
             _json["num"] = new JSONNumber(num);
         }
         {
-
-            if (v2 == null) { throw new System.ArgumentNullException(); }
             { var __bjson = new JSONObject();  vec2.SaveJsonvec2(v2, __bjson); _json["v2"] = __bjson; }
         }
         {
-
-            if (v3 == null) { throw new System.ArgumentNullException(); }
             { var __bjson = new JSONObject();  vec3.SaveJsonvec3(v3, __bjson); _json["v3"] = __bjson; }
         }
         {
-
-            if (v4 == null) { throw new System.ArgumentNullException(); }
             { var __bjson = new JSONObject();  vec4.SaveJsonvec4(v4, __bjson); _json["v4"] = __bjson; }
         }
     }

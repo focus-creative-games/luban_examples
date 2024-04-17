@@ -27,8 +27,8 @@ public abstract class KeyQueryOperator :  Luban.EditorBeanBase
         KeyQueryOperator obj;
         switch (type)
         {
-            case "ai.IsSet":   
-            case "IsSet":obj = new ai.IsSet(); break;
+            case "ai.IsSet2":   
+            case "IsSet2":obj = new ai.IsSet2(); break;
             case "ai.IsNotSet":   
             case "IsNotSet":obj = new ai.IsNotSet(); break;
             case "ai.BinaryOperator":   

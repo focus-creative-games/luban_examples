@@ -25,8 +25,8 @@ namespace ai {
         VECTOR = 5,
         ROTATOR = 6,
         NAME = 7,
-        CLASS = 8,
-        ENUM = 9,
+        CLASS1 = 8,
+        ENUM1 = 9,
         OBJECT = 10,
     };
 
@@ -438,7 +438,7 @@ namespace ai { struct UeCooldown; }
 namespace ai { struct UeTimeLimit; }
 namespace ai { struct UeBlackboard; }
 namespace ai { struct KeyQueryOperator; }
-namespace ai { struct IsSet; }
+namespace ai { struct IsSet2; }
 namespace ai { struct IsNotSet; }
 namespace ai { struct BinaryOperator; }
 namespace ai { struct KeyData; }
@@ -980,16 +980,16 @@ struct KeyQueryOperator : public luban::CfgBean
 
 namespace ai {
 
-struct IsSet : public ai::KeyQueryOperator 
+struct IsSet2 : public ai::KeyQueryOperator 
 {
-    static bool deserializeIsSet(::luban::ByteBuf& _buf, IsSet*& _out);
+    static bool deserializeIsSet2(::luban::ByteBuf& _buf, IsSet2*& _out);
 
-    virtual ~IsSet() {}
+    virtual ~IsSet2() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
 
-    static constexpr int __ID__ = 1635350898;
+    static constexpr int __ID__ = -843729664;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -2828,6 +2828,12 @@ struct DefineFromExcel2 : public luban::CfgBean
     ::luban::Vector<test::DemoE2*> k9;
     ::luban::Vector<vec3*> k10;
     ::luban::Vector<vec4*> k11;
+    vec3* v11;
+    ::luban::Array<::luban::Array<::luban::int32>> c1;
+    ::luban::Vector<::luban::Vector<::luban::int32>> c2;
+    ::luban::Vector<::luban::HashSet<::luban::int32>> c3;
+    ::luban::HashMap<::luban::int32, ::luban::Vector<::luban::int32>> c4;
+    ::luban::HashMap<::luban::int32, ::luban::HashMap<::luban::int32, ::luban::int32>> c5;
 
     static constexpr int __ID__ = 482045152;
 

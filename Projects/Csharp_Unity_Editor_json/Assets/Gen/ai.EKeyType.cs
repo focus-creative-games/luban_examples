@@ -19,8 +19,8 @@ namespace editor.cfg.ai
         VECTOR = 5,
         ROTATOR = 6,
         NAME = 7,
-        CLASS = 8,
-        ENUM = 9,
+        CLASS1 = 8,
+        ENUM1 = 9,
         OBJECT = 10,
     }
 
@@ -33,8 +33,8 @@ namespace editor.cfg.ai
         public static readonly Luban.EditorEnumItemInfo VECTOR = new Luban.EditorEnumItemInfo("VECTOR", "", 5, "");
         public static readonly Luban.EditorEnumItemInfo ROTATOR = new Luban.EditorEnumItemInfo("ROTATOR", "", 6, "");
         public static readonly Luban.EditorEnumItemInfo NAME = new Luban.EditorEnumItemInfo("NAME", "", 7, "");
-        public static readonly Luban.EditorEnumItemInfo CLASS = new Luban.EditorEnumItemInfo("CLASS", "", 8, "");
-        public static readonly Luban.EditorEnumItemInfo ENUM = new Luban.EditorEnumItemInfo("ENUM", "", 9, "");
+        public static readonly Luban.EditorEnumItemInfo CLASS1 = new Luban.EditorEnumItemInfo("CLASS1", "", 8, "");
+        public static readonly Luban.EditorEnumItemInfo ENUM1 = new Luban.EditorEnumItemInfo("ENUM1", "", 9, "");
         public static readonly Luban.EditorEnumItemInfo OBJECT = new Luban.EditorEnumItemInfo("OBJECT", "", 10, "");
 
         private static readonly System.Collections.Generic.List<Luban.EditorEnumItemInfo> __items = new System.Collections.Generic.List<Luban.EditorEnumItemInfo>
@@ -46,8 +46,8 @@ namespace editor.cfg.ai
             VECTOR,
             ROTATOR,
             NAME,
-            CLASS,
-            ENUM,
+            CLASS1,
+            ENUM1,
             OBJECT,
         };
 

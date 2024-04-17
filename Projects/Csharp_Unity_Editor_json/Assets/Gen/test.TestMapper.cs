@@ -59,8 +59,6 @@ public sealed class TestMapper :  Luban.EditorBeanBase
             _json["audio_type"] = new JSONNumber((int)audioType);
         }
         {
-
-            if (v2 == null) { throw new System.ArgumentNullException(); }
             { var __bjson = new JSONObject();  vec2.SaveJsonvec2(v2, __bjson); _json["v2"] = __bjson; }
         }
     }
