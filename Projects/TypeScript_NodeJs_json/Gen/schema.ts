@@ -17,8 +17,8 @@ export enum EKeyType {
     VECTOR = 5,
     ROTATOR = 6,
     NAME = 7,
-    CLASS = 8,
-    ENUM = 9,
+    CLASS1 = 8,
+    ENUM1 = 9,
     OBJECT = 10,
 }
 
@@ -396,6 +396,8 @@ export class vec2 {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -420,6 +422,9 @@ export class vec3 {
 
     resolve(tables:Tables)
     {
+        
+        
+        
     }
 }
 
@@ -447,6 +452,10 @@ export class vec4 {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
     }
 }
 
@@ -489,6 +498,10 @@ export class TestExcelBean1 {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
     }
 }
 
@@ -517,7 +530,10 @@ export class Blackboard {
 
     resolve(tables:Tables)
     {
+        
+        
         this.parentName_ref = tables.TbBlackboard.get(this.parentName)
+        for (let _e of this.keys) { _e?.resolve(tables); }
     }
 }
 
@@ -548,6 +564,11 @@ export class BlackboardKey {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
     }
 }
 
@@ -579,7 +600,11 @@ export class BehaviorTree {
 
     resolve(tables:Tables)
     {
+        
+        
+        
         this.blackboardId_ref = tables.TbBlackboard.get(this.blackboardId)
+        this.root?.resolve(tables);
     }
 }
 
@@ -629,6 +654,8 @@ export abstract class Node {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -677,6 +704,7 @@ export class UeSetDefaultFocus extends ai.Service {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -714,6 +742,7 @@ export class ChooseTarget extends ai.Service {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -734,6 +763,7 @@ export class KeepFaceTarget extends ai.Service {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -754,6 +784,7 @@ export class GetOwnerPlayer extends ai.Service {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -798,6 +829,15 @@ export class UpdateDailyBehaviorProps extends ai.Service {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
@@ -830,6 +870,7 @@ export abstract class Decorator extends ai.Node {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -856,6 +897,9 @@ export class UeLoop extends ai.Decorator {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
+        
     }
 }
 
@@ -876,6 +920,7 @@ export class UeCooldown extends ai.Decorator {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -896,6 +941,7 @@ export class UeTimeLimit extends ai.Decorator {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -922,6 +968,9 @@ export class UeBlackboard extends ai.Decorator {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
+        this.keyQuery?.resolve(tables);
     }
 }
 
@@ -932,7 +981,7 @@ export namespace ai {
 export abstract class KeyQueryOperator {
     static constructorFrom(_json_: any): KeyQueryOperator{
         switch (_json_["$type"]) {
-            case 'IsSet': return new ai.IsSet(_json_)
+            case 'IsSet2': return new ai.IsSet2(_json_)
             case 'IsNotSet': return new ai.IsNotSet(_json_)
             case 'BinaryOperator': return new ai.BinaryOperator(_json_)
             default: throw new Error()
@@ -952,7 +1001,7 @@ export abstract class KeyQueryOperator {
 
 
 export namespace ai {
-export class IsSet extends ai.KeyQueryOperator {
+export class IsSet2 extends ai.KeyQueryOperator {
 
     constructor(_json_: any) {
         super(_json_)
@@ -1002,6 +1051,8 @@ export class BinaryOperator extends ai.KeyQueryOperator {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        this.data?.resolve(tables);
     }
 }
 
@@ -1046,6 +1097,7 @@ export class FloatKeyData extends ai.KeyData {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1066,6 +1118,7 @@ export class IntKeyData extends ai.KeyData {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1086,6 +1139,7 @@ export class StringKeyData extends ai.KeyData {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1106,6 +1160,7 @@ export class BlackboardKeyData extends ai.KeyData {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1149,6 +1204,9 @@ export class IsAtLocation extends ai.Decorator {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
+        
     }
 }
 
@@ -1178,6 +1236,10 @@ export class DistanceLessThan extends ai.Decorator {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
+        
+        
     }
 }
 
@@ -1216,6 +1278,8 @@ export abstract class FlowNode extends ai.Node {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        for (let _e of this.decorators) { _e?.resolve(tables); }
+        for (let _e of this.services) { _e?.resolve(tables); }
     }
 }
 
@@ -1261,6 +1325,7 @@ export class Sequence extends ai.ComposeNode {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        for (let _e of this.children) { _e?.resolve(tables); }
     }
 }
 
@@ -1281,6 +1346,7 @@ export class Selector extends ai.ComposeNode {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        for (let _e of this.children) { _e?.resolve(tables); }
     }
 }
 
@@ -1307,6 +1373,9 @@ export class SimpleParallel extends ai.ComposeNode {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        this.mainTask?.resolve(tables);
+        this.backgroundNode?.resolve(tables);
     }
 }
 
@@ -1339,6 +1408,7 @@ export abstract class Task extends ai.FlowNode {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1362,6 +1432,8 @@ export class UeWait extends ai.Task {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
     }
 }
 
@@ -1382,6 +1454,7 @@ export class UeWaitBlackboardTime extends ai.Task {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1405,6 +1478,8 @@ export class MoveToTarget extends ai.Task {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
     }
 }
 
@@ -1428,6 +1503,8 @@ export class ChooseSkill extends ai.Task {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
     }
 }
 
@@ -1451,6 +1528,8 @@ export class MoveToRandomLocation extends ai.Task {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
     }
 }
 
@@ -1471,6 +1550,7 @@ export class MoveToLocation extends ai.Task {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1491,6 +1571,7 @@ export class DebugPrint extends ai.Task {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1530,6 +1611,13 @@ export class GlobalConfig {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
@@ -1584,6 +1672,17 @@ export class Item {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
@@ -1605,6 +1704,8 @@ export class L10NDemo {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -1626,6 +1727,8 @@ export class PatchDemo {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -1647,6 +1750,8 @@ export class TestTag {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -1728,6 +1833,28 @@ export class DemoType2 {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        this.x12?.resolve(tables);
+        
+        this.x14?.resolve(tables);
+        
+        
+        
+        
+        
+        
+        
+        for (let _e of this.k15) { _e?.resolve(tables); }
     }
 }
 
@@ -1746,6 +1873,7 @@ export class DemoType1 {
 
     resolve(tables:Tables)
     {
+        
     }
 }
 
@@ -1773,6 +1901,7 @@ export abstract class DemoDynamic {
 
     resolve(tables:Tables)
     {
+        
     }
 }
 
@@ -1793,6 +1922,7 @@ export class DemoD2 extends test.DemoDynamic {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1820,6 +1950,7 @@ export abstract class DemoD3 extends test.DemoDynamic {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1840,6 +1971,7 @@ export class DemoE1 extends test.DemoD3 {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1860,6 +1992,7 @@ export class RoleInfo extends test.DemoD3 {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -1880,6 +2013,7 @@ export class DemoD5 extends test.DemoDynamic {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        this.time?.resolve(tables);
     }
 }
 
@@ -1901,6 +2035,8 @@ export class DateTimeRange {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -1921,6 +2057,8 @@ export class DemoE2 {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -1945,6 +2083,9 @@ export class DemoSingletonType {
 
     resolve(tables:Tables)
     {
+        
+        
+        this.date?.resolve(tables);
     }
 }
 
@@ -1966,6 +2107,8 @@ export class NotIndexList {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -1996,6 +2139,11 @@ export class MultiUnionIndexList {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
     }
 }
 
@@ -2026,6 +2174,11 @@ export class MultiIndexList {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
     }
 }
 
@@ -2068,6 +2221,15 @@ export class MultiRowRecord {
 
     resolve(tables:Tables)
     {
+        
+        
+        for (let _e of this.oneRows) { _e?.resolve(tables); }
+        for (let _e of this.multiRows1) { _e?.resolve(tables); }
+        for (let _e of this.multiRows2) { _e?.resolve(tables); }
+        for (let [_, _e] of this.multiRows4) { _e?.resolve(tables); }
+        for (let _e of this.multiRows5) { _e?.resolve(tables); }
+        for (let [_, _e] of this.multiRows6) { _e?.resolve(tables); }
+        
     }
 }
 
@@ -2089,6 +2251,8 @@ export class MultiRowType1 {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -2113,6 +2277,9 @@ export class MultiRowType2 {
 
     resolve(tables:Tables)
     {
+        
+        
+        
     }
 }
 
@@ -2134,6 +2301,8 @@ export class MultiRowType3 {
 
     resolve(tables:Tables)
     {
+        
+        for (let _e of this.items) { _e?.resolve(tables); }
     }
 }
 
@@ -2161,6 +2330,10 @@ export class TestMultiColumn {
 
     resolve(tables:Tables)
     {
+        
+        this.a?.resolve(tables);
+        this.b?.resolve(tables);
+        this.c?.resolve(tables);
     }
 }
 
@@ -2185,6 +2358,9 @@ export class Foo {
 
     resolve(tables:Tables)
     {
+        
+        
+        
     }
 }
 
@@ -2220,6 +2396,13 @@ export class MultiRowTitle {
 
     resolve(tables:Tables)
     {
+        
+        
+        this.x1?.resolve(tables);
+        this.x20?.resolve(tables);
+        for (let _e of this.x2) { _e?.resolve(tables); }
+        for (let _e of this.x3) { _e?.resolve(tables); }
+        for (let _e of this.x4) { _e?.resolve(tables); }
     }
 }
 
@@ -2241,6 +2424,8 @@ export class H1 {
 
     resolve(tables:Tables)
     {
+        this.y2?.resolve(tables);
+        
     }
 }
 
@@ -2262,6 +2447,8 @@ export class H2 {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -2292,6 +2479,13 @@ export class TestNull {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        this.x3?.resolve(tables);
+        this.x4?.resolve(tables);
+        
+        
     }
 }
 
@@ -2346,6 +2540,19 @@ export class DemoPrimitiveTypesTable {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
@@ -2376,6 +2583,11 @@ export class TestString {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        this.cs1?.resolve(tables);
+        this.cs2?.resolve(tables);
     }
 }
 
@@ -2400,6 +2612,9 @@ export class CompactString {
 
     resolve(tables:Tables)
     {
+        
+        
+        
     }
 }
 
@@ -2436,9 +2651,12 @@ export class DemoGroup {
 
     resolve(tables:Tables)
     {
+        
         this.x1_ref = tables.TbDemoGroup_C.get(this.x1)
         this.x2_ref = tables.TbDemoGroup_S.get(this.x2)
         this.x3_ref = tables.TbDemoGroup_E.get(this.x3)
+        
+        this.x5?.resolve(tables);
     }
 }
 
@@ -2466,6 +2684,10 @@ export class InnerGroup {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
     }
 }
 
@@ -2487,6 +2709,8 @@ export class TestGlobal {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -2508,6 +2732,8 @@ export class TestBeRef {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -2589,9 +2815,27 @@ export class TestRef {
 
     resolve(tables:Tables)
     {
+        
         this.x1_ref = tables.TbTestBeRef.get(this.x1)
         this.x12_ref = tables.TbTestBeRef.get(this.x12)
+        
+        
         this.x4_ref = tables.TbTestTag.get(this.x4)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        this.s1?.resolve(tables);
     }
 }
 
@@ -2638,6 +2882,7 @@ export class RefBean extends test.RefDynamicBase {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -2668,6 +2913,11 @@ export class TestSize {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
     }
 }
 
@@ -2701,6 +2951,12 @@ export class TestSet {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
+        
     }
 }
 
@@ -2722,6 +2978,8 @@ export class DetectEncoding {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -2754,6 +3012,9 @@ export abstract class ItemBase {
 
     resolve(tables:Tables)
     {
+        
+        
+        
     }
 }
 
@@ -2777,6 +3038,8 @@ export class Item extends test.ItemBase {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
     }
 }
 
@@ -2800,6 +3063,8 @@ export class Equipment extends test.ItemBase {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
     }
 }
 
@@ -2820,6 +3085,7 @@ export class Decorator extends test.ItemBase {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -2841,6 +3107,8 @@ export class TestIndex {
 
     resolve(tables:Tables)
     {
+        
+        for (let _e of this.eles) { _e?.resolve(tables); }
     }
 }
 
@@ -2873,6 +3141,10 @@ export class TestMap {
     resolve(tables:Tables)
     {
         this.id_ref = tables.TbTestIndex.get(this.id)
+        
+        
+        
+        
     }
 }
 
@@ -2930,6 +3202,20 @@ export class ExcelFromJson {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
+        
+        
+        this.x12?.resolve(tables);
+        
+        this.x14?.resolve(tables);
+        
+        
+        
+        for (let _e of this.k15) { _e?.resolve(tables); }
     }
 }
 
@@ -2951,6 +3237,8 @@ export class CompositeJsonTable1 {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -2972,6 +3260,8 @@ export class CompositeJsonTable2 {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -2993,6 +3283,8 @@ export class CompositeJsonTable3 {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -3017,6 +3309,9 @@ export class ExcelFromJsonMultiRow {
 
     resolve(tables:Tables)
     {
+        
+        
+        for (let _e of this.items) { _e?.resolve(tables); }
     }
 }
 
@@ -3047,6 +3342,11 @@ export class TestRow {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        this.a?.resolve(tables);
+        
     }
 }
 
@@ -3068,6 +3368,8 @@ export class Test3 {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -3104,6 +3406,13 @@ export class TestScriptableObject {
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
@@ -3125,6 +3434,8 @@ export class Path {
 
     resolve(tables:Tables)
     {
+        
+        
     }
 }
 
@@ -3149,6 +3460,9 @@ export class TestMapper {
 
     resolve(tables:Tables)
     {
+        
+        
+        
     }
 }
 
@@ -3195,6 +3509,7 @@ export class DefineFromExcel2 {
         { this.k10 = []; for(let _ele0 of _json_.k10) { let _e0; _e0 = new vec3(_ele0); this.k10.push(_e0);}}
         if (_json_.k11 === undefined) { throw new Error() }
         { this.k11 = []; for(let _ele0 of _json_.k11) { let _e0; _e0 = new vec4(_ele0); this.k11.push(_e0);}}
+        if(_json_.v11 != undefined) { this.v11 = new vec3(_json_.v11) } else { this.v11 = undefined }
     }
 
     /**
@@ -3221,9 +3536,29 @@ export class DefineFromExcel2 {
     readonly k9: test.DemoE2[]
     readonly k10: vec3[]
     readonly k11: vec4[]
+    readonly v11: vec3|undefined
 
     resolve(tables:Tables)
     {
+        
+        
+        
+        
+        
+        
+        
+        
+        this.x14?.resolve(tables);
+        this.x15?.resolve(tables);
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
@@ -3272,6 +3607,7 @@ export class Circle extends test.Shape {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
     }
 }
 
@@ -3304,6 +3640,8 @@ export class Rectangle extends test.Shape {
     resolve(tables:Tables)
     {
         super.resolve(tables)
+        
+        
     }
 }
 
@@ -4802,3 +5140,4 @@ export class Tables {
         this._TbDefineFromExcel2.resolve(this)
     }
 }
+

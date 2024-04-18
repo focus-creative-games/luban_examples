@@ -34,6 +34,7 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoE2 _e0;  _e0 = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e0);}}
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K10 = new System.Collections.Generic.List<UnityEngine.Vector3>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { UnityEngine.Vector3 _e0;  _e0 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf)); K10.Add(_e0);}}
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K11 = new System.Collections.Generic.List<UnityEngine.Vector4>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { UnityEngine.Vector4 _e0;  _e0 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(_buf)); K11.Add(_e0);}}
+        if(_buf.ReadBool()){ V11 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf)); } else { V11 = null; }
     }
 
     public static DefineFromExcel2 DeserializeDefineFromExcel2(ByteBuf _buf)
@@ -65,6 +66,7 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
     public readonly System.Collections.Generic.List<UnityEngine.Vector3> K10;
     public readonly System.Collections.Generic.List<UnityEngine.Vector4> K11;
+    public readonly UnityEngine.Vector3? V11;
    
     public const int __ID__ = 482045152;
     public override int GetTypeId() => __ID__;
@@ -81,6 +83,7 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         
         X14?.ResolveRef(tables);
         X15?.ResolveRef(tables);
+        
         
         
         
@@ -112,6 +115,7 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         + "k9:" + Luban.StringUtil.CollectionToString(K9) + ","
         + "k10:" + Luban.StringUtil.CollectionToString(K10) + ","
         + "k11:" + Luban.StringUtil.CollectionToString(K11) + ","
+        + "v11:" + V11 + ","
         + "}";
     }
 }
