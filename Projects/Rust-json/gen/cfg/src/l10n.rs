@@ -11,7 +11,7 @@
 use super::*;
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct L10NDemo {
     pub id: i32,
     pub text: String,
@@ -26,7 +26,7 @@ impl L10NDemo{
     }
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct PatchDemo {
     pub id: i32,
     pub value: i32,
@@ -54,7 +54,7 @@ impl TbL10NDemo {
         let mut data_list: Vec<std::sync::Arc<crate::l10n::L10NDemo>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row: std::sync::Arc<crate::l10n::L10NDemo> = std::sync::Arc::new(crate::l10n::L10NDemo::new(x));
+            let row = std::sync::Arc::new(crate::l10n::L10NDemo::new(&x));
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
@@ -88,7 +88,7 @@ impl TbPatchDemo {
         let mut data_list: Vec<std::sync::Arc<crate::l10n::PatchDemo>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row: std::sync::Arc<crate::l10n::PatchDemo> = std::sync::Arc::new(crate::l10n::PatchDemo::new(x));
+            let row = std::sync::Arc::new(crate::l10n::PatchDemo::new(&x));
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }

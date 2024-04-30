@@ -11,7 +11,7 @@
 use super::*;
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct TestTag {
     pub id: i32,
     pub value: String,
@@ -39,7 +39,7 @@ impl TbTestTag {
         let mut data_list: Vec<std::sync::Arc<crate::tag::TestTag>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row: std::sync::Arc<crate::tag::TestTag> = std::sync::Arc::new(crate::tag::TestTag::new(x));
+            let row = std::sync::Arc::new(crate::tag::TestTag::new(&x));
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }

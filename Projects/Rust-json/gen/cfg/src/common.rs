@@ -11,7 +11,7 @@
 use super::*;
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct GlobalConfig {
     /// 背包容量
     pub x1: i32,
@@ -39,7 +39,6 @@ impl GlobalConfig{
 
 
 #[derive(Debug)]
-#[derive(Deserialize)]
 pub struct TbGlobalConfig {
     pub data: crate::common::GlobalConfig,
 }
@@ -49,7 +48,7 @@ impl TbGlobalConfig {
         let json = json.as_array().unwrap();
         let n = json.len();
         if n != 1 { panic!("table mode=one, but size != 1") }
-        let data = serde_json::from_value(json[0].clone()).unwrap();
+        let data = crate::common::GlobalConfig::new(&json[0]);
         std::sync::Arc::new(TbGlobalConfig { data })
     }
 }

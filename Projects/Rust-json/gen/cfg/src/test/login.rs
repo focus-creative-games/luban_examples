@@ -11,16 +11,20 @@
 use super::*;
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct RoleInfo {
+    pub x1: i32,
+    pub x3: i32,
     pub role_id: i64,
 }
 
 impl RoleInfo{
     pub fn new(json: &serde_json::Value) -> RoleInfo {
+        let x1 = json["x1"].as_i64().unwrap() as i32;
+        let x3 = json["x3"].as_i64().unwrap() as i32;
         let role_id = json["role_id"].as_i64().unwrap();
         
-        RoleInfo { role_id, }
+        RoleInfo { x1, x3, role_id, }
     }
 }
 

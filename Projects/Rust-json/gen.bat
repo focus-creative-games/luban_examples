@@ -8,7 +8,7 @@ dotnet %LUBAN_DLL% ^
     -c rust-json ^
     -d json  ^
     --conf %CONF_ROOT%\luban.conf ^
-    -x outputCodeDir=. ^
+    -x outputCodeDir=gen ^
     -x outputDataDir=..\GenerateDatas\json ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
     -x l10n.provider=default ^

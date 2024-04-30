@@ -35,7 +35,7 @@ impl From<i32> for AudioType {
     }
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct vec2 {
     pub x: f32,
     pub y: f32,
@@ -50,7 +50,7 @@ impl vec2{
     }
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct vec3 {
     pub x: f32,
     pub y: f32,
@@ -67,7 +67,7 @@ impl vec3{
     }
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct vec4 {
     pub x: f32,
     pub y: f32,
@@ -86,7 +86,7 @@ impl vec4{
     }
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct DefineFromExcel2 {
     /// 这是id
     pub id: i32,
@@ -98,8 +98,8 @@ pub struct DefineFromExcel2 {
     pub x10: String,
     pub x13: crate::test::DemoEnum,
     pub x13_2: crate::test::DemoFlag,
-    pub x14: crate::test::DemoDynamic,
-    pub x15: crate::test::Shape,
+    pub x14: std::sync::Arc<AbstractBase>,
+    pub x15: std::sync::Arc<AbstractBase>,
     pub v2: crate::vec2,
     pub t1: u64,
     pub k1: Box<[i32]>,
@@ -148,6 +148,701 @@ pub mod prelude{
     pub use crate::test::*;
     pub use crate::test::login::*;
     pub use crate::test2::*;
+}
+
+type AbstractBase = dyn std::any::Any + Sync + Send;
+
+pub trait GetBase<'a, T> {
+    fn get_base(&'a self) -> T;
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::Node {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::Node>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::Node".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::Service {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::Service>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::Service".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::UeSetDefaultFocus {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::UeSetDefaultFocus>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::UeSetDefaultFocus".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::ExecuteTimeStatistic {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::ExecuteTimeStatistic>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::ExecuteTimeStatistic".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::ChooseTarget {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::ChooseTarget>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::ChooseTarget".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::KeepFaceTarget {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::KeepFaceTarget>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::KeepFaceTarget".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::GetOwnerPlayer {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::GetOwnerPlayer>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::GetOwnerPlayer".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::UpdateDailyBehaviorProps {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::UpdateDailyBehaviorProps>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::UpdateDailyBehaviorProps".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::Decorator {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::Decorator>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::Decorator".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::UeLoop {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::UeLoop>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::UeLoop".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::UeCooldown {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::UeCooldown>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::UeCooldown".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::UeTimeLimit {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::UeTimeLimit>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::UeTimeLimit".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::UeBlackboard {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::UeBlackboard>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::UeBlackboard".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::KeyQueryOperator {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::KeyQueryOperator>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::KeyQueryOperator".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::IsSet2 {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::IsSet2>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::IsSet2".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::IsNotSet {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::IsNotSet>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::IsNotSet".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::BinaryOperator {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::BinaryOperator>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::BinaryOperator".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::KeyData {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::KeyData>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::KeyData".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::FloatKeyData {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::FloatKeyData>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::FloatKeyData".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::IntKeyData {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::IntKeyData>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::IntKeyData".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::StringKeyData {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::StringKeyData>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::StringKeyData".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::BlackboardKeyData {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::BlackboardKeyData>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::BlackboardKeyData".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::UeForceSuccess {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::UeForceSuccess>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::UeForceSuccess".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::IsAtLocation {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::IsAtLocation>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::IsAtLocation".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::DistanceLessThan {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::DistanceLessThan>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::DistanceLessThan".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::FlowNode {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::FlowNode>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::FlowNode".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::ComposeNode {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::ComposeNode>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::ComposeNode".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::Sequence {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::Sequence>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::Sequence".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::Selector {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::Selector>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::Selector".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::SimpleParallel {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::SimpleParallel>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::SimpleParallel".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::Task {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::Task>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::Task".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::UeWait {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::UeWait>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::UeWait".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::UeWaitBlackboardTime {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::UeWaitBlackboardTime>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::UeWaitBlackboardTime".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::MoveToTarget {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::MoveToTarget>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::MoveToTarget".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::ChooseSkill {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::ChooseSkill>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::ChooseSkill".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::MoveToRandomLocation {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::MoveToRandomLocation>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::MoveToRandomLocation".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::MoveToLocation {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::MoveToLocation>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::MoveToLocation".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::ai::DebugPrint {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::ai::DebugPrint>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::ai::DebugPrint".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::DemoDynamic {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::DemoDynamic>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::DemoDynamic".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::DemoD2 {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::DemoD2>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::DemoD2".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::DemoD3 {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::DemoD3>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::DemoD3".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::DemoE1 {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::DemoE1>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::DemoE1".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::login::RoleInfo {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::login::RoleInfo>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::login::RoleInfo".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::DemoD5 {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::DemoD5>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::DemoD5".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::RefDynamicBase {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::RefDynamicBase>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::RefDynamicBase".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::RefBean {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::RefBean>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::RefBean".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::ItemBase {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::ItemBase>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::ItemBase".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::Item {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::Item>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::Item".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::Equipment {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::Equipment>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::Equipment".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::Decorator {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::Decorator>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::Decorator".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::Shape {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::Shape>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::Shape".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test::Circle {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test::Circle>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test::Circle".to_string())
+    }
+}
+
+impl<'a> TryFrom<&'a AbstractBase> for &'a crate::test2::Rectangle {
+    type Error = String;
+
+    fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
+        let r = value.downcast_ref::<crate::test2::Rectangle>();
+        if let Some(v) = r {
+            return Ok(v);
+        }
+
+        Err("can not into to crate::test2::Rectangle".to_string())
+    }
 }
 
 pub struct Tables{
