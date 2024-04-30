@@ -243,7 +243,7 @@ impl From<i32> for EItemQuality {
     }
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct Item {
     /// 道具id
     pub id: i32,
@@ -291,7 +291,7 @@ impl TbItem {
         let mut data_list: Vec<std::sync::Arc<crate::item::Item>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row: std::sync::Arc<crate::item::Item> = std::sync::Arc::new(crate::item::Item::new(x));
+            let row = std::sync::Arc::new(crate::item::Item::new(&x));
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }

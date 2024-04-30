@@ -11,7 +11,7 @@
 use super::*;
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug)]
+#[derive(Debug)]
 pub struct Rectangle {
     /// 宽度
     pub width: f32,
