@@ -4,6 +4,6 @@ return {
 	parent_name = "",
 	keys =
 	{
-		{name="v1",desc="v1 haha", is_static=false, type="BOOL", type_class_name=""},
+		{name="v1",desc="v1 haha", is_static=false, key_type="BOOL", type_class_name=""},
 	},
 }
