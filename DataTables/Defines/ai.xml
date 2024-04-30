@@ -26,7 +26,7 @@
 	<var name="name" type="string"/>
 	<var name="desc" type="string"/>
 	<var name="is_static" type="bool"/> 是否为全局共享字段。 对应 ue 里 InstanceSynced 字段
-	<var name="type" type="EKeyType"/>
+	<var name="key_type" type="EKeyType"/>
 	<var name="type_class_name" type="string"/> 具体类型名. 只对 ENUM,OBJECT 类型有意义
 </bean>
 
