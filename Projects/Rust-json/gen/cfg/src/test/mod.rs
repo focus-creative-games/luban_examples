@@ -62,13 +62,13 @@ pub struct TestExcelBean1 {
 }
 
 impl TestExcelBean1{
-    pub fn new(json: &serde_json::Value) -> TestExcelBean1 {
-        let x1 = json["x1"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<TestExcelBean1, LubanError> {
+        let x1 = (json["x1"].as_i64().unwrap() as i32);
         let x2 = json["x2"].as_str().unwrap().to_string();
-        let x3 = json["x3"].as_i64().unwrap() as i32;
-        let x4 = json["x4"].as_f64().unwrap() as f32;
+        let x3 = (json["x3"].as_i64().unwrap() as i32);
+        let x4 = (json["x4"].as_f64().unwrap() as f32);
         
-        TestExcelBean1 { x1, x2, x3, x4, }
+        Ok(TestExcelBean1 { x1, x2, x3, x4, })
     }
 }
 
@@ -99,31 +99,31 @@ pub struct DemoType2 {
 }
 
 impl DemoType2{
-    pub fn new(json: &serde_json::Value) -> DemoType2 {
-        let x4 = json["x4"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<DemoType2, LubanError> {
+        let x4 = (json["x4"].as_i64().unwrap() as i32);
         let x1 = json["x1"].as_bool().unwrap();
-        let x2 = json["x2"].as_u64().unwrap() as u8;
-        let x3 = json["x3"].as_i64().unwrap() as i16;
+        let x2 = (json["x2"].as_u64().unwrap() as u8);
+        let x3 = (json["x3"].as_i64().unwrap() as i16);
         let x5 = json["x5"].as_i64().unwrap();
-        let x6 = json["x6"].as_f64().unwrap() as f32;
+        let x6 = (json["x6"].as_f64().unwrap() as f32);
         let x7 = json["x7"].as_f64().unwrap();
-        let x8_0 = json["x8_0"].as_i64().unwrap() as i16;
-        let x8 = json["x8"].as_i64().unwrap() as i32;
+        let x8_0 = (json["x8_0"].as_i64().unwrap() as i16);
+        let x8 = (json["x8"].as_i64().unwrap() as i32);
         let x9 = json["x9"].as_i64().unwrap();
         let x10 = json["x10"].as_str().unwrap().to_string();
-        let x12 = crate::test::DemoType1::new(&json["x12"]);
+        let x12 = crate::test::DemoType1::new(&json["x12"])?;
         let x13 = <i32 as std::str::FromStr>::from_str(&json["x13"].to_string()).unwrap().into();
-        let x14 = crate::test::DemoDynamic::new(&json["x14"]);
+        let x14 = crate::test::DemoDynamic::new(&json["x14"])?;
         let s1 = json["s1"].as_str().unwrap().to_string();
-        let t1 = json["t1"].as_i64().unwrap() as u64;
-        let k1 = json["k1"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let k2 = json["k2"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let k5 = json["k5"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let k8 = std::collections::HashMap::from_iter(json["k8"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, array[1].as_i64().unwrap() as i32)}).collect::<Vec<(i32, i32)>>());
-        let k9 = json["k9"].as_array().unwrap().iter().map(|field| crate::test::DemoE2::new(&field)).collect();
-        let k15 = json["k15"].as_array().unwrap().iter().map(|field| crate::test::DemoDynamic::new(&field)).collect();
+        let t1 = (json["t1"].as_i64().unwrap() as u64);
+        let k1 = json["k1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let k2 = json["k2"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let k5 = json["k5"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let k8 = std::collections::HashMap::from_iter(json["k8"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
+        let k9 = json["k9"].as_array().unwrap().iter().map(|field| crate::test::DemoE2::new(&field).unwrap()).collect();
+        let k15 = json["k15"].as_array().unwrap().iter().map(|field| crate::test::DemoDynamic::new(&field).unwrap()).collect();
         
-        DemoType2 { x4, x1, x2, x3, x5, x6, x7, x8_0, x8, x9, x10, x12, x13, x14, s1, t1, k1, k2, k5, k8, k9, k15, }
+        Ok(DemoType2 { x4, x1, x2, x3, x5, x6, x7, x8_0, x8, x9, x10, x12, x13, x14, s1, t1, k1, k2, k5, k8, k9, k15, })
     }
 }
 
@@ -133,10 +133,10 @@ pub struct DemoType1 {
 }
 
 impl DemoType1{
-    pub fn new(json: &serde_json::Value) -> DemoType1 {
-        let x1 = json["x1"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<DemoType1, LubanError> {
+        let x1 = (json["x1"].as_i64().unwrap() as i32);
         
-        DemoType1 { x1, }
+        Ok(DemoType1 { x1, })
     }
 }
 
@@ -146,14 +146,14 @@ pub struct DemoDynamic {
 }
 
 impl DemoDynamic {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "DemoD2" => std::sync::Arc::new(crate::test::DemoD2::new(json)),
-            "DemoE1" => std::sync::Arc::new(crate::test::DemoE1::new(json)),
-            "test.login.RoleInfo" => std::sync::Arc::new(crate::test::login::RoleInfo::new(json)),
-            "DemoD5" => std::sync::Arc::new(crate::test::DemoD5::new(json)),
-            _ => panic!("Invalid type for DemoDynamic:{}", type_id)
+            "DemoD2" => Ok(std::sync::Arc::new(crate::test::DemoD2::new(json)?)),
+            "DemoE1" => Ok(std::sync::Arc::new(crate::test::DemoE1::new(json)?)),
+            "test.login.RoleInfo" => Ok(std::sync::Arc::new(crate::test::login::RoleInfo::new(json)?)),
+            "DemoD5" => Ok(std::sync::Arc::new(crate::test::DemoD5::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for DemoDynamic:{}", type_id)))
         }
     }
 }
@@ -187,25 +187,25 @@ impl crate::test::TDemoDynamic for crate::test::DemoD5 {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::test::TDemoDynamic> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::test::TDemoDynamic {
+    fn get_base(&'a self) -> Result<&'a dyn crate::test::TDemoDynamic, LubanError> {
         let base: Result<&crate::test::DemoD2, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::test::DemoE1, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::test::login::RoleInfo, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::test::DemoD5, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -216,11 +216,11 @@ pub struct DemoD2 {
 }
 
 impl DemoD2{
-    pub fn new(json: &serde_json::Value) -> DemoD2 {
-        let x1 = json["x1"].as_i64().unwrap() as i32;
-        let x2 = json["x2"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<DemoD2, LubanError> {
+        let x1 = (json["x1"].as_i64().unwrap() as i32);
+        let x2 = (json["x2"].as_i64().unwrap() as i32);
         
-        DemoD2 { x1, x2, }
+        Ok(DemoD2 { x1, x2, })
     }
 }
 
@@ -231,12 +231,12 @@ pub struct DemoD3 {
 }
 
 impl DemoD3 {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "DemoE1" => std::sync::Arc::new(crate::test::DemoE1::new(json)),
-            "test.login.RoleInfo" => std::sync::Arc::new(crate::test::login::RoleInfo::new(json)),
-            _ => panic!("Invalid type for DemoD3:{}", type_id)
+            "DemoE1" => Ok(std::sync::Arc::new(crate::test::DemoE1::new(json)?)),
+            "test.login.RoleInfo" => Ok(std::sync::Arc::new(crate::test::login::RoleInfo::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for DemoD3:{}", type_id)))
         }
     }
 }
@@ -265,17 +265,17 @@ impl crate::test::TDemoD3 for crate::test::login::RoleInfo {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::test::TDemoD3> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::test::TDemoD3 {
+    fn get_base(&'a self) -> Result<&'a dyn crate::test::TDemoD3, LubanError> {
         let base: Result<&crate::test::DemoE1, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::test::login::RoleInfo, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -287,12 +287,12 @@ pub struct DemoE1 {
 }
 
 impl DemoE1{
-    pub fn new(json: &serde_json::Value) -> DemoE1 {
-        let x1 = json["x1"].as_i64().unwrap() as i32;
-        let x3 = json["x3"].as_i64().unwrap() as i32;
-        let x4 = json["x4"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<DemoE1, LubanError> {
+        let x1 = (json["x1"].as_i64().unwrap() as i32);
+        let x3 = (json["x3"].as_i64().unwrap() as i32);
+        let x4 = (json["x4"].as_i64().unwrap() as i32);
         
-        DemoE1 { x1, x3, x4, }
+        Ok(DemoE1 { x1, x3, x4, })
     }
 }
 
@@ -303,11 +303,11 @@ pub struct DemoD5 {
 }
 
 impl DemoD5{
-    pub fn new(json: &serde_json::Value) -> DemoD5 {
-        let x1 = json["x1"].as_i64().unwrap() as i32;
-        let time = crate::test::DateTimeRange::new(&json["time"]);
+    pub fn new(json: &serde_json::Value) -> Result<DemoD5, LubanError> {
+        let x1 = (json["x1"].as_i64().unwrap() as i32);
+        let time = crate::test::DateTimeRange::new(&json["time"])?;
         
-        DemoD5 { x1, time, }
+        Ok(DemoD5 { x1, time, })
     }
 }
 
@@ -318,11 +318,11 @@ pub struct DateTimeRange {
 }
 
 impl DateTimeRange{
-    pub fn new(json: &serde_json::Value) -> DateTimeRange {
-        let start_time = json["start_time"].as_i64().unwrap() as u64;
-        let end_time = json["end_time"].as_i64().unwrap() as u64;
+    pub fn new(json: &serde_json::Value) -> Result<DateTimeRange, LubanError> {
+        let start_time = (json["start_time"].as_i64().unwrap() as u64);
+        let end_time = (json["end_time"].as_i64().unwrap() as u64);
         
-        DateTimeRange { start_time, end_time, }
+        Ok(DateTimeRange { start_time, end_time, })
     }
 }
 
@@ -333,11 +333,11 @@ pub struct DemoE2 {
 }
 
 impl DemoE2{
-    pub fn new(json: &serde_json::Value) -> DemoE2 {
-        let mut y1 = None; if let Some(value) = json.get("y1") { y1 = Some(json["y1"].as_i64().unwrap() as i32); }
+    pub fn new(json: &serde_json::Value) -> Result<DemoE2, LubanError> {
+        let mut y1 = None; if let Some(value) = json.get("y1") { y1 = Some((json["y1"].as_i64().unwrap() as i32)); }
         let y2 = json["y2"].as_bool().unwrap();
         
-        DemoE2 { y1, y2, }
+        Ok(DemoE2 { y1, y2, })
     }
 }
 
@@ -349,12 +349,12 @@ pub struct DemoSingletonType {
 }
 
 impl DemoSingletonType{
-    pub fn new(json: &serde_json::Value) -> DemoSingletonType {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<DemoSingletonType, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
-        let date = crate::test::DemoDynamic::new(&json["date"]);
+        let date = crate::test::DemoDynamic::new(&json["date"])?;
         
-        DemoSingletonType { id, name, date, }
+        Ok(DemoSingletonType { id, name, date, })
     }
 }
 
@@ -365,11 +365,11 @@ pub struct NotIndexList {
 }
 
 impl NotIndexList{
-    pub fn new(json: &serde_json::Value) -> NotIndexList {
-        let x = json["x"].as_i64().unwrap() as i32;
-        let y = json["y"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<NotIndexList, LubanError> {
+        let x = (json["x"].as_i64().unwrap() as i32);
+        let y = (json["y"].as_i64().unwrap() as i32);
         
-        NotIndexList { x, y, }
+        Ok(NotIndexList { x, y, })
     }
 }
 
@@ -383,14 +383,14 @@ pub struct MultiUnionIndexList {
 }
 
 impl MultiUnionIndexList{
-    pub fn new(json: &serde_json::Value) -> MultiUnionIndexList {
-        let id1 = json["id1"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<MultiUnionIndexList, LubanError> {
+        let id1 = (json["id1"].as_i64().unwrap() as i32);
         let id2 = json["id2"].as_i64().unwrap();
         let id3 = json["id3"].as_str().unwrap().to_string();
-        let num = json["num"].as_i64().unwrap() as i32;
+        let num = (json["num"].as_i64().unwrap() as i32);
         let desc = json["desc"].as_str().unwrap().to_string();
         
-        MultiUnionIndexList { id1, id2, id3, num, desc, }
+        Ok(MultiUnionIndexList { id1, id2, id3, num, desc, })
     }
 }
 
@@ -404,14 +404,14 @@ pub struct MultiIndexList {
 }
 
 impl MultiIndexList{
-    pub fn new(json: &serde_json::Value) -> MultiIndexList {
-        let id1 = json["id1"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<MultiIndexList, LubanError> {
+        let id1 = (json["id1"].as_i64().unwrap() as i32);
         let id2 = json["id2"].as_i64().unwrap();
         let id3 = json["id3"].as_str().unwrap().to_string();
-        let num = json["num"].as_i64().unwrap() as i32;
+        let num = (json["num"].as_i64().unwrap() as i32);
         let desc = json["desc"].as_str().unwrap().to_string();
         
-        MultiIndexList { id1, id2, id3, num, desc, }
+        Ok(MultiIndexList { id1, id2, id3, num, desc, })
     }
 }
 
@@ -429,18 +429,18 @@ pub struct MultiRowRecord {
 }
 
 impl MultiRowRecord{
-    pub fn new(json: &serde_json::Value) -> MultiRowRecord {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<MultiRowRecord, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
-        let one_rows = json["one_rows"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType1::new(&field)).collect();
-        let multi_rows1 = json["multi_rows1"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType1::new(&field)).collect();
-        let multi_rows2 = json["multi_rows2"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType1::new(&field)).collect();
-        let multi_rows4 = std::collections::HashMap::from_iter(json["multi_rows4"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, crate::test::MultiRowType2::new(&array[1]))}).collect::<Vec<(i32, crate::test::MultiRowType2)>>());
-        let multi_rows5 = json["multi_rows5"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType3::new(&field)).collect();
-        let multi_rows6 = std::collections::HashMap::from_iter(json["multi_rows6"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, crate::test::MultiRowType2::new(&array[1]))}).collect::<Vec<(i32, crate::test::MultiRowType2)>>());
-        let multi_rows7 = std::collections::HashMap::from_iter(json["multi_rows7"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, array[1].as_i64().unwrap() as i32)}).collect::<Vec<(i32, i32)>>());
+        let one_rows = json["one_rows"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType1::new(&field).unwrap()).collect();
+        let multi_rows1 = json["multi_rows1"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType1::new(&field).unwrap()).collect();
+        let multi_rows2 = json["multi_rows2"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType1::new(&field).unwrap()).collect();
+        let multi_rows4 = std::collections::HashMap::from_iter(json["multi_rows4"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), crate::test::MultiRowType2::new(&array[1]).unwrap())}).collect::<Vec<(i32, crate::test::MultiRowType2)>>());
+        let multi_rows5 = json["multi_rows5"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType3::new(&field).unwrap()).collect();
+        let multi_rows6 = std::collections::HashMap::from_iter(json["multi_rows6"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), crate::test::MultiRowType2::new(&array[1]).unwrap())}).collect::<Vec<(i32, crate::test::MultiRowType2)>>());
+        let multi_rows7 = std::collections::HashMap::from_iter(json["multi_rows7"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
         
-        MultiRowRecord { id, name, one_rows, multi_rows1, multi_rows2, multi_rows4, multi_rows5, multi_rows6, multi_rows7, }
+        Ok(MultiRowRecord { id, name, one_rows, multi_rows1, multi_rows2, multi_rows4, multi_rows5, multi_rows6, multi_rows7, })
     }
 }
 
@@ -451,11 +451,11 @@ pub struct MultiRowType1 {
 }
 
 impl MultiRowType1{
-    pub fn new(json: &serde_json::Value) -> MultiRowType1 {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let x = json["x"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<MultiRowType1, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let x = (json["x"].as_i64().unwrap() as i32);
         
-        MultiRowType1 { id, x, }
+        Ok(MultiRowType1 { id, x, })
     }
 }
 
@@ -467,12 +467,12 @@ pub struct MultiRowType2 {
 }
 
 impl MultiRowType2{
-    pub fn new(json: &serde_json::Value) -> MultiRowType2 {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let x = json["x"].as_i64().unwrap() as i32;
-        let y = json["y"].as_f64().unwrap() as f32;
+    pub fn new(json: &serde_json::Value) -> Result<MultiRowType2, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let x = (json["x"].as_i64().unwrap() as i32);
+        let y = (json["y"].as_f64().unwrap() as f32);
         
-        MultiRowType2 { id, x, y, }
+        Ok(MultiRowType2 { id, x, y, })
     }
 }
 
@@ -483,11 +483,11 @@ pub struct MultiRowType3 {
 }
 
 impl MultiRowType3{
-    pub fn new(json: &serde_json::Value) -> MultiRowType3 {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let items = json["items"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType1::new(&field)).collect();
+    pub fn new(json: &serde_json::Value) -> Result<MultiRowType3, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let items = json["items"].as_array().unwrap().iter().map(|field| crate::test::MultiRowType1::new(&field).unwrap()).collect();
         
-        MultiRowType3 { id, items, }
+        Ok(MultiRowType3 { id, items, })
     }
 }
 
@@ -500,13 +500,13 @@ pub struct TestMultiColumn {
 }
 
 impl TestMultiColumn{
-    pub fn new(json: &serde_json::Value) -> TestMultiColumn {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let a = crate::test::Foo::new(&json["a"]);
-        let b = crate::test::Foo::new(&json["b"]);
-        let c = crate::test::Foo::new(&json["c"]);
+    pub fn new(json: &serde_json::Value) -> Result<TestMultiColumn, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let a = crate::test::Foo::new(&json["a"])?;
+        let b = crate::test::Foo::new(&json["b"])?;
+        let c = crate::test::Foo::new(&json["c"])?;
         
-        TestMultiColumn { id, a, b, c, }
+        Ok(TestMultiColumn { id, a, b, c, })
     }
 }
 
@@ -518,12 +518,12 @@ pub struct Foo {
 }
 
 impl Foo{
-    pub fn new(json: &serde_json::Value) -> Foo {
-        let y1 = json["y1"].as_i64().unwrap() as i32;
-        let y2 = json["y2"].as_i64().unwrap() as i32;
-        let y3 = json["y3"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<Foo, LubanError> {
+        let y1 = (json["y1"].as_i64().unwrap() as i32);
+        let y2 = (json["y2"].as_i64().unwrap() as i32);
+        let y3 = (json["y3"].as_i64().unwrap() as i32);
         
-        Foo { y1, y2, y3, }
+        Ok(Foo { y1, y2, y3, })
     }
 }
 
@@ -539,16 +539,16 @@ pub struct MultiRowTitle {
 }
 
 impl MultiRowTitle{
-    pub fn new(json: &serde_json::Value) -> MultiRowTitle {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<MultiRowTitle, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
-        let x1 = crate::test::H1::new(&json["x1"]);
-        let mut x2_0 = None; if let Some(value) = json.get("x2_0") { x2_0 = Some(crate::test::H2::new(&json["x2_0"])); }
-        let x2 = json["x2"].as_array().unwrap().iter().map(|field| crate::test::H2::new(&field)).collect();
-        let x3 = json["x3"].as_array().unwrap().iter().map(|field| crate::test::H2::new(&field)).collect();
-        let x4 = json["x4"].as_array().unwrap().iter().map(|field| crate::test::H2::new(&field)).collect();
+        let x1 = crate::test::H1::new(&json["x1"])?;
+        let mut x2_0 = None; if let Some(value) = json.get("x2_0") { x2_0 = Some(crate::test::H2::new(&json["x2_0"])?); }
+        let x2 = json["x2"].as_array().unwrap().iter().map(|field| crate::test::H2::new(&field).unwrap()).collect();
+        let x3 = json["x3"].as_array().unwrap().iter().map(|field| crate::test::H2::new(&field).unwrap()).collect();
+        let x4 = json["x4"].as_array().unwrap().iter().map(|field| crate::test::H2::new(&field).unwrap()).collect();
         
-        MultiRowTitle { id, name, x1, x2_0, x2, x3, x4, }
+        Ok(MultiRowTitle { id, name, x1, x2_0, x2, x3, x4, })
     }
 }
 
@@ -559,11 +559,11 @@ pub struct H1 {
 }
 
 impl H1{
-    pub fn new(json: &serde_json::Value) -> H1 {
-        let y2 = crate::test::H2::new(&json["y2"]);
-        let y3 = json["y3"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<H1, LubanError> {
+        let y2 = crate::test::H2::new(&json["y2"])?;
+        let y3 = (json["y3"].as_i64().unwrap() as i32);
         
-        H1 { y2, y3, }
+        Ok(H1 { y2, y3, })
     }
 }
 
@@ -574,11 +574,11 @@ pub struct H2 {
 }
 
 impl H2{
-    pub fn new(json: &serde_json::Value) -> H2 {
-        let z2 = json["z2"].as_i64().unwrap() as i32;
-        let z3 = json["z3"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<H2, LubanError> {
+        let z2 = (json["z2"].as_i64().unwrap() as i32);
+        let z3 = (json["z3"].as_i64().unwrap() as i32);
         
-        H2 { z2, z3, }
+        Ok(H2 { z2, z3, })
     }
 }
 
@@ -594,16 +594,16 @@ pub struct TestNull {
 }
 
 impl TestNull{
-    pub fn new(json: &serde_json::Value) -> TestNull {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let mut x1 = None; if let Some(value) = json.get("x1") { x1 = Some(json["x1"].as_i64().unwrap() as i32); }
+    pub fn new(json: &serde_json::Value) -> Result<TestNull, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let mut x1 = None; if let Some(value) = json.get("x1") { x1 = Some((json["x1"].as_i64().unwrap() as i32)); }
         let mut x2 = None; if let Some(value) = json.get("x2") { x2 = Some(<i32 as std::str::FromStr>::from_str(&json["x2"].to_string()).unwrap().into()); }
-        let mut x3 = None; if let Some(value) = json.get("x3") { x3 = Some(crate::test::DemoType1::new(&json["x3"])); }
-        let mut x4 = None; if let Some(value) = json.get("x4") { x4 = Some(crate::test::DemoDynamic::new(&json["x4"])); }
+        let mut x3 = None; if let Some(value) = json.get("x3") { x3 = Some(crate::test::DemoType1::new(&json["x3"])?); }
+        let mut x4 = None; if let Some(value) = json.get("x4") { x4 = Some(crate::test::DemoDynamic::new(&json["x4"])?); }
         let mut s1 = None; if let Some(value) = json.get("s1") { s1 = Some(json["s1"].as_str().unwrap().to_string()); }
         let mut s2 = None; if let Some(value) = json.get("s2") { s2 = Some(json["s2"].as_str().unwrap().to_string()); }
         
-        TestNull { id, x1, x2, x3, x4, s1, s2, }
+        Ok(TestNull { id, x1, x2, x3, x4, s1, s2, })
     }
 }
 
@@ -625,22 +625,22 @@ pub struct DemoPrimitiveTypesTable {
 }
 
 impl DemoPrimitiveTypesTable{
-    pub fn new(json: &serde_json::Value) -> DemoPrimitiveTypesTable {
+    pub fn new(json: &serde_json::Value) -> Result<DemoPrimitiveTypesTable, LubanError> {
         let x1 = json["x1"].as_bool().unwrap();
-        let x2 = json["x2"].as_u64().unwrap() as u8;
-        let x3 = json["x3"].as_i64().unwrap() as i16;
-        let x4 = json["x4"].as_i64().unwrap() as i32;
+        let x2 = (json["x2"].as_u64().unwrap() as u8);
+        let x3 = (json["x3"].as_i64().unwrap() as i16);
+        let x4 = (json["x4"].as_i64().unwrap() as i32);
         let x5 = json["x5"].as_i64().unwrap();
-        let x6 = json["x6"].as_f64().unwrap() as f32;
+        let x6 = (json["x6"].as_f64().unwrap() as f32);
         let x7 = json["x7"].as_f64().unwrap();
         let s1 = json["s1"].as_str().unwrap().to_string();
         let s2 = json["s2"].as_str().unwrap().to_string();
-        let v2 = crate::vec2::new(&json["v2"]);
-        let v3 = crate::vec3::new(&json["v3"]);
-        let v4 = crate::vec4::new(&json["v4"]);
-        let t1 = json["t1"].as_i64().unwrap() as u64;
+        let v2 = crate::vec2::new(&json["v2"])?;
+        let v3 = crate::vec3::new(&json["v3"])?;
+        let v4 = crate::vec4::new(&json["v4"])?;
+        let t1 = (json["t1"].as_i64().unwrap() as u64);
         
-        DemoPrimitiveTypesTable { x1, x2, x3, x4, x5, x6, x7, s1, s2, v2, v3, v4, t1, }
+        Ok(DemoPrimitiveTypesTable { x1, x2, x3, x4, x5, x6, x7, s1, s2, v2, v3, v4, t1, })
     }
 }
 
@@ -654,14 +654,14 @@ pub struct TestString {
 }
 
 impl TestString{
-    pub fn new(json: &serde_json::Value) -> TestString {
+    pub fn new(json: &serde_json::Value) -> Result<TestString, LubanError> {
         let id = json["id"].as_str().unwrap().to_string();
         let s1 = json["s1"].as_str().unwrap().to_string();
         let s2 = json["s2"].as_str().unwrap().to_string();
-        let cs1 = crate::test::CompactString::new(&json["cs1"]);
-        let cs2 = crate::test::CompactString::new(&json["cs2"]);
+        let cs1 = crate::test::CompactString::new(&json["cs1"])?;
+        let cs2 = crate::test::CompactString::new(&json["cs2"])?;
         
-        TestString { id, s1, s2, cs1, cs2, }
+        Ok(TestString { id, s1, s2, cs1, cs2, })
     }
 }
 
@@ -673,12 +673,12 @@ pub struct CompactString {
 }
 
 impl CompactString{
-    pub fn new(json: &serde_json::Value) -> CompactString {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<CompactString, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let s2 = json["s2"].as_str().unwrap().to_string();
         let s3 = json["s3"].as_str().unwrap().to_string();
         
-        CompactString { id, s2, s3, }
+        Ok(CompactString { id, s2, s3, })
     }
 }
 
@@ -693,15 +693,15 @@ pub struct DemoGroup {
 }
 
 impl DemoGroup{
-    pub fn new(json: &serde_json::Value) -> DemoGroup {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let x1 = json["x1"].as_i64().unwrap() as i32;
-        let x2 = json["x2"].as_i64().unwrap() as i32;
-        let x3 = json["x3"].as_i64().unwrap() as i32;
-        let x4 = json["x4"].as_i64().unwrap() as i32;
-        let x5 = crate::test::InnerGroup::new(&json["x5"]);
+    pub fn new(json: &serde_json::Value) -> Result<DemoGroup, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let x1 = (json["x1"].as_i64().unwrap() as i32);
+        let x2 = (json["x2"].as_i64().unwrap() as i32);
+        let x3 = (json["x3"].as_i64().unwrap() as i32);
+        let x4 = (json["x4"].as_i64().unwrap() as i32);
+        let x5 = crate::test::InnerGroup::new(&json["x5"])?;
         
-        DemoGroup { id, x1, x2, x3, x4, x5, }
+        Ok(DemoGroup { id, x1, x2, x3, x4, x5, })
     }
 }
 
@@ -714,13 +714,13 @@ pub struct InnerGroup {
 }
 
 impl InnerGroup{
-    pub fn new(json: &serde_json::Value) -> InnerGroup {
-        let y1 = json["y1"].as_i64().unwrap() as i32;
-        let y2 = json["y2"].as_i64().unwrap() as i32;
-        let y3 = json["y3"].as_i64().unwrap() as i32;
-        let y4 = json["y4"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<InnerGroup, LubanError> {
+        let y1 = (json["y1"].as_i64().unwrap() as i32);
+        let y2 = (json["y2"].as_i64().unwrap() as i32);
+        let y3 = (json["y3"].as_i64().unwrap() as i32);
+        let y4 = (json["y4"].as_i64().unwrap() as i32);
         
-        InnerGroup { y1, y2, y3, y4, }
+        Ok(InnerGroup { y1, y2, y3, y4, })
     }
 }
 
@@ -731,11 +731,11 @@ pub struct TestGlobal {
 }
 
 impl TestGlobal{
-    pub fn new(json: &serde_json::Value) -> TestGlobal {
-        let unlock_equip = json["unlock_equip"].as_i64().unwrap() as i32;
-        let unlock_hero = json["unlock_hero"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<TestGlobal, LubanError> {
+        let unlock_equip = (json["unlock_equip"].as_i64().unwrap() as i32);
+        let unlock_hero = (json["unlock_hero"].as_i64().unwrap() as i32);
         
-        TestGlobal { unlock_equip, unlock_hero, }
+        Ok(TestGlobal { unlock_equip, unlock_hero, })
     }
 }
 
@@ -746,11 +746,11 @@ pub struct TestBeRef {
 }
 
 impl TestBeRef{
-    pub fn new(json: &serde_json::Value) -> TestBeRef {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let count = json["count"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<TestBeRef, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let count = (json["count"].as_i64().unwrap() as i32);
         
-        TestBeRef { id, count, }
+        Ok(TestBeRef { id, count, })
     }
 }
 
@@ -780,30 +780,30 @@ pub struct TestRef {
 }
 
 impl TestRef{
-    pub fn new(json: &serde_json::Value) -> TestRef {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let x1 = json["x1"].as_i64().unwrap() as i32;
-        let x1_2 = json["x1_2"].as_i64().unwrap() as i32;
-        let x2 = json["x2"].as_i64().unwrap() as i32;
-        let x3 = json["x3"].as_i64().unwrap() as i32;
-        let x4 = json["x4"].as_i64().unwrap() as i32;
-        let a1 = json["a1"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let a2 = json["a2"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let b1 = json["b1"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let b2 = json["b2"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let c1 = json["c1"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let c2 = json["c2"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let d1 = std::collections::HashMap::from_iter(json["d1"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, array[1].as_i64().unwrap() as i32)}).collect::<Vec<(i32, i32)>>());
-        let d2 = std::collections::HashMap::from_iter(json["d2"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, array[1].as_i64().unwrap() as i32)}).collect::<Vec<(i32, i32)>>());
-        let e1 = json["e1"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<TestRef, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let x1 = (json["x1"].as_i64().unwrap() as i32);
+        let x1_2 = (json["x1_2"].as_i64().unwrap() as i32);
+        let x2 = (json["x2"].as_i64().unwrap() as i32);
+        let x3 = (json["x3"].as_i64().unwrap() as i32);
+        let x4 = (json["x4"].as_i64().unwrap() as i32);
+        let a1 = json["a1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let a2 = json["a2"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let b1 = json["b1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let b2 = json["b2"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let c1 = json["c1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let c2 = json["c2"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let d1 = std::collections::HashMap::from_iter(json["d1"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
+        let d2 = std::collections::HashMap::from_iter(json["d2"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
+        let e1 = (json["e1"].as_i64().unwrap() as i32);
         let e2 = json["e2"].as_i64().unwrap();
         let e3 = json["e3"].as_str().unwrap().to_string();
-        let f1 = json["f1"].as_i64().unwrap() as i32;
+        let f1 = (json["f1"].as_i64().unwrap() as i32);
         let f2 = json["f2"].as_i64().unwrap();
         let f3 = json["f3"].as_str().unwrap().to_string();
-        let s1 = crate::test::RefDynamicBase::new(&json["s1"]);
+        let s1 = crate::test::RefDynamicBase::new(&json["s1"])?;
         
-        TestRef { id, x1, x1_2, x2, x3, x4, a1, a2, b1, b2, c1, c2, d1, d2, e1, e2, e3, f1, f2, f3, s1, }
+        Ok(TestRef { id, x1, x1_2, x2, x3, x4, a1, a2, b1, b2, c1, c2, d1, d2, e1, e2, e3, f1, f2, f3, s1, })
     }
 }
 
@@ -813,11 +813,11 @@ pub struct RefDynamicBase {
 }
 
 impl RefDynamicBase {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "RefBean" => std::sync::Arc::new(crate::test::RefBean::new(json)),
-            _ => panic!("Invalid type for RefDynamicBase:{}", type_id)
+            "RefBean" => Ok(std::sync::Arc::new(crate::test::RefBean::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for RefDynamicBase:{}", type_id)))
         }
     }
 }
@@ -833,13 +833,13 @@ impl crate::test::TRefDynamicBase for crate::test::RefBean {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::test::TRefDynamicBase> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::test::TRefDynamicBase {
+    fn get_base(&'a self) -> Result<&'a dyn crate::test::TRefDynamicBase, LubanError> {
         let base: Result<&crate::test::RefBean, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -850,11 +850,11 @@ pub struct RefBean {
 }
 
 impl RefBean{
-    pub fn new(json: &serde_json::Value) -> RefBean {
-        let x = json["x"].as_i64().unwrap() as i32;
-        let arr = json["arr"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
+    pub fn new(json: &serde_json::Value) -> Result<RefBean, LubanError> {
+        let x = (json["x"].as_i64().unwrap() as i32);
+        let arr = json["arr"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
         
-        RefBean { x, arr, }
+        Ok(RefBean { x, arr, })
     }
 }
 
@@ -868,14 +868,14 @@ pub struct TestSize {
 }
 
 impl TestSize{
-    pub fn new(json: &serde_json::Value) -> TestSize {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let x1 = json["x1"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let x2 = json["x2"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let x3 = json["x3"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let x4 = std::collections::HashMap::from_iter(json["x4"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, array[1].as_i64().unwrap() as i32)}).collect::<Vec<(i32, i32)>>());
+    pub fn new(json: &serde_json::Value) -> Result<TestSize, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let x1 = json["x1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let x2 = json["x2"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let x3 = json["x3"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let x4 = std::collections::HashMap::from_iter(json["x4"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
         
-        TestSize { id, x1, x2, x3, x4, }
+        Ok(TestSize { id, x1, x2, x3, x4, })
     }
 }
 
@@ -890,15 +890,15 @@ pub struct TestSet {
 }
 
 impl TestSet{
-    pub fn new(json: &serde_json::Value) -> TestSet {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<TestSet, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let x0 = json["x0"].as_str().unwrap().to_string();
-        let x1 = json["x1"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
+        let x1 = json["x1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
         let x2 = json["x2"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap()).collect();
         let x3 = json["x3"].as_array().unwrap().iter().map(|field| field.as_str().unwrap().to_string()).collect();
         let x4 = json["x4"].as_array().unwrap().iter().map(|field| <i32 as std::str::FromStr>::from_str(&field.to_string()).unwrap().into()).collect();
         
-        TestSet { id, x0, x1, x2, x3, x4, }
+        Ok(TestSet { id, x0, x1, x2, x3, x4, })
     }
 }
 
@@ -909,11 +909,11 @@ pub struct DetectEncoding {
 }
 
 impl DetectEncoding{
-    pub fn new(json: &serde_json::Value) -> DetectEncoding {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<DetectEncoding, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
         
-        DetectEncoding { id, name, }
+        Ok(DetectEncoding { id, name, })
     }
 }
 
@@ -925,13 +925,13 @@ pub struct ItemBase {
 }
 
 impl ItemBase {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "Item" => std::sync::Arc::new(crate::test::Item::new(json)),
-            "Equipment" => std::sync::Arc::new(crate::test::Equipment::new(json)),
-            "Decorator" => std::sync::Arc::new(crate::test::Decorator::new(json)),
-            _ => panic!("Invalid type for ItemBase:{}", type_id)
+            "Item" => Ok(std::sync::Arc::new(crate::test::Item::new(json)?)),
+            "Equipment" => Ok(std::sync::Arc::new(crate::test::Equipment::new(json)?)),
+            "Decorator" => Ok(std::sync::Arc::new(crate::test::Decorator::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for ItemBase:{}", type_id)))
         }
     }
 }
@@ -979,21 +979,21 @@ impl crate::test::TItemBase for crate::test::Decorator {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::test::TItemBase> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::test::TItemBase {
+    fn get_base(&'a self) -> Result<&'a dyn crate::test::TItemBase, LubanError> {
         let base: Result<&crate::test::Item, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::test::Equipment, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::test::Decorator, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -1007,14 +1007,14 @@ pub struct Item {
 }
 
 impl Item{
-    pub fn new(json: &serde_json::Value) -> Item {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<Item, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
         let desc = json["desc"].as_str().unwrap().to_string();
-        let num = json["num"].as_i64().unwrap() as i32;
-        let price = json["price"].as_i64().unwrap() as i32;
+        let num = (json["num"].as_i64().unwrap() as i32);
+        let price = (json["price"].as_i64().unwrap() as i32);
         
-        Item { id, name, desc, num, price, }
+        Ok(Item { id, name, desc, num, price, })
     }
 }
 
@@ -1028,14 +1028,14 @@ pub struct Equipment {
 }
 
 impl Equipment{
-    pub fn new(json: &serde_json::Value) -> Equipment {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<Equipment, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
         let desc = json["desc"].as_str().unwrap().to_string();
         let attr = <i32 as std::str::FromStr>::from_str(&json["attr"].to_string()).unwrap().into();
-        let value = json["value"].as_i64().unwrap() as i32;
+        let value = (json["value"].as_i64().unwrap() as i32);
         
-        Equipment { id, name, desc, attr, value, }
+        Ok(Equipment { id, name, desc, attr, value, })
     }
 }
 
@@ -1048,13 +1048,13 @@ pub struct Decorator {
 }
 
 impl Decorator{
-    pub fn new(json: &serde_json::Value) -> Decorator {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<Decorator, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
         let desc = json["desc"].as_str().unwrap().to_string();
-        let duration = json["duration"].as_i64().unwrap() as i32;
+        let duration = (json["duration"].as_i64().unwrap() as i32);
         
-        Decorator { id, name, desc, duration, }
+        Ok(Decorator { id, name, desc, duration, })
     }
 }
 
@@ -1065,11 +1065,11 @@ pub struct TestIndex {
 }
 
 impl TestIndex{
-    pub fn new(json: &serde_json::Value) -> TestIndex {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let eles = json["eles"].as_array().unwrap().iter().map(|field| crate::test::DemoType1::new(&field)).collect();
+    pub fn new(json: &serde_json::Value) -> Result<TestIndex, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let eles = json["eles"].as_array().unwrap().iter().map(|field| crate::test::DemoType1::new(&field).unwrap()).collect();
         
-        TestIndex { id, eles, }
+        Ok(TestIndex { id, eles, })
     }
 }
 
@@ -1083,14 +1083,14 @@ pub struct TestMap {
 }
 
 impl TestMap{
-    pub fn new(json: &serde_json::Value) -> TestMap {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let x1 = std::collections::HashMap::from_iter(json["x1"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, array[1].as_i64().unwrap() as i32)}).collect::<Vec<(i32, i32)>>());
-        let x2 = std::collections::HashMap::from_iter(json["x2"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap(), array[1].as_i64().unwrap() as i32)}).collect::<Vec<(i64, i32)>>());
-        let x3 = std::collections::HashMap::from_iter(json["x3"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_str().unwrap().to_string(), array[1].as_i64().unwrap() as i32)}).collect::<Vec<(String, i32)>>());
-        let x4 = std::collections::HashMap::from_iter(json["x4"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(<i32 as std::str::FromStr>::from_str(&array[0].to_string()).unwrap().into(), array[1].as_i64().unwrap() as i32)}).collect::<Vec<(crate::test::DemoEnum, i32)>>());
+    pub fn new(json: &serde_json::Value) -> Result<TestMap, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let x1 = std::collections::HashMap::from_iter(json["x1"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
+        let x2 = std::collections::HashMap::from_iter(json["x2"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap(), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i64, i32)>>());
+        let x3 = std::collections::HashMap::from_iter(json["x3"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_str().unwrap().to_string(), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(String, i32)>>());
+        let x4 = std::collections::HashMap::from_iter(json["x4"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(<i32 as std::str::FromStr>::from_str(&array[0].to_string()).unwrap().into(), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(crate::test::DemoEnum, i32)>>());
         
-        TestMap { id, x1, x2, x3, x4, }
+        Ok(TestMap { id, x1, x2, x3, x4, })
     }
 }
 
@@ -1113,23 +1113,23 @@ pub struct ExcelFromJson {
 }
 
 impl ExcelFromJson{
-    pub fn new(json: &serde_json::Value) -> ExcelFromJson {
-        let x4 = json["x4"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<ExcelFromJson, LubanError> {
+        let x4 = (json["x4"].as_i64().unwrap() as i32);
         let x1 = json["x1"].as_bool().unwrap();
         let x5 = json["x5"].as_i64().unwrap();
-        let x6 = json["x6"].as_f64().unwrap() as f32;
+        let x6 = (json["x6"].as_f64().unwrap() as f32);
         let s1 = json["s1"].as_str().unwrap().to_string();
         let s2 = json["s2"].as_str().unwrap().to_string();
-        let t1 = json["t1"].as_i64().unwrap() as u64;
-        let x12 = crate::test::DemoType1::new(&json["x12"]);
+        let t1 = (json["t1"].as_i64().unwrap() as u64);
+        let x12 = crate::test::DemoType1::new(&json["x12"])?;
         let x13 = <i32 as std::str::FromStr>::from_str(&json["x13"].to_string()).unwrap().into();
-        let x14 = crate::test::DemoDynamic::new(&json["x14"]);
-        let k1 = json["k1"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let k8 = std::collections::HashMap::from_iter(json["k8"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, array[1].as_i64().unwrap() as i32)}).collect::<Vec<(i32, i32)>>());
-        let k9 = json["k9"].as_array().unwrap().iter().map(|field| crate::test::DemoE2::new(&field)).collect();
-        let k15 = json["k15"].as_array().unwrap().iter().map(|field| crate::test::DemoDynamic::new(&field)).collect();
+        let x14 = crate::test::DemoDynamic::new(&json["x14"])?;
+        let k1 = json["k1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let k8 = std::collections::HashMap::from_iter(json["k8"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
+        let k9 = json["k9"].as_array().unwrap().iter().map(|field| crate::test::DemoE2::new(&field).unwrap()).collect();
+        let k15 = json["k15"].as_array().unwrap().iter().map(|field| crate::test::DemoDynamic::new(&field).unwrap()).collect();
         
-        ExcelFromJson { x4, x1, x5, x6, s1, s2, t1, x12, x13, x14, k1, k8, k9, k15, }
+        Ok(ExcelFromJson { x4, x1, x5, x6, s1, s2, t1, x12, x13, x14, k1, k8, k9, k15, })
     }
 }
 
@@ -1140,11 +1140,11 @@ pub struct CompositeJsonTable1 {
 }
 
 impl CompositeJsonTable1{
-    pub fn new(json: &serde_json::Value) -> CompositeJsonTable1 {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<CompositeJsonTable1, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let x = json["x"].as_str().unwrap().to_string();
         
-        CompositeJsonTable1 { id, x, }
+        Ok(CompositeJsonTable1 { id, x, })
     }
 }
 
@@ -1155,11 +1155,11 @@ pub struct CompositeJsonTable2 {
 }
 
 impl CompositeJsonTable2{
-    pub fn new(json: &serde_json::Value) -> CompositeJsonTable2 {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let y = json["y"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<CompositeJsonTable2, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let y = (json["y"].as_i64().unwrap() as i32);
         
-        CompositeJsonTable2 { id, y, }
+        Ok(CompositeJsonTable2 { id, y, })
     }
 }
 
@@ -1170,11 +1170,11 @@ pub struct CompositeJsonTable3 {
 }
 
 impl CompositeJsonTable3{
-    pub fn new(json: &serde_json::Value) -> CompositeJsonTable3 {
-        let a = json["a"].as_i64().unwrap() as i32;
-        let b = json["b"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<CompositeJsonTable3, LubanError> {
+        let a = (json["a"].as_i64().unwrap() as i32);
+        let b = (json["b"].as_i64().unwrap() as i32);
         
-        CompositeJsonTable3 { a, b, }
+        Ok(CompositeJsonTable3 { a, b, })
     }
 }
 
@@ -1186,12 +1186,12 @@ pub struct ExcelFromJsonMultiRow {
 }
 
 impl ExcelFromJsonMultiRow{
-    pub fn new(json: &serde_json::Value) -> ExcelFromJsonMultiRow {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let x = json["x"].as_i64().unwrap() as i32;
-        let items = json["items"].as_array().unwrap().iter().map(|field| crate::test::TestRow::new(&field)).collect();
+    pub fn new(json: &serde_json::Value) -> Result<ExcelFromJsonMultiRow, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let x = (json["x"].as_i64().unwrap() as i32);
+        let items = json["items"].as_array().unwrap().iter().map(|field| crate::test::TestRow::new(&field).unwrap()).collect();
         
-        ExcelFromJsonMultiRow { id, x, items, }
+        Ok(ExcelFromJsonMultiRow { id, x, items, })
     }
 }
 
@@ -1205,14 +1205,14 @@ pub struct TestRow {
 }
 
 impl TestRow{
-    pub fn new(json: &serde_json::Value) -> TestRow {
-        let x = json["x"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<TestRow, LubanError> {
+        let x = (json["x"].as_i64().unwrap() as i32);
         let y = json["y"].as_bool().unwrap();
         let z = json["z"].as_str().unwrap().to_string();
-        let a = crate::test::Test3::new(&json["a"]);
-        let b = json["b"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
+        let a = crate::test::Test3::new(&json["a"])?;
+        let b = json["b"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
         
-        TestRow { x, y, z, a, b, }
+        Ok(TestRow { x, y, z, a, b, })
     }
 }
 
@@ -1223,11 +1223,11 @@ pub struct Test3 {
 }
 
 impl Test3{
-    pub fn new(json: &serde_json::Value) -> Test3 {
-        let x = json["x"].as_i64().unwrap() as i32;
-        let y = json["y"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<Test3, LubanError> {
+        let x = (json["x"].as_i64().unwrap() as i32);
+        let y = (json["y"].as_i64().unwrap() as i32);
         
-        Test3 { x, y, }
+        Ok(Test3 { x, y, })
     }
 }
 
@@ -1243,16 +1243,16 @@ pub struct TestScriptableObject {
 }
 
 impl TestScriptableObject{
-    pub fn new(json: &serde_json::Value) -> TestScriptableObject {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<TestScriptableObject, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let desc = json["desc"].as_str().unwrap().to_string();
-        let rate = json["rate"].as_f64().unwrap() as f32;
-        let num = json["num"].as_i64().unwrap() as i32;
-        let v2 = crate::vec2::new(&json["v2"]);
-        let v3 = crate::vec3::new(&json["v3"]);
-        let v4 = crate::vec4::new(&json["v4"]);
+        let rate = (json["rate"].as_f64().unwrap() as f32);
+        let num = (json["num"].as_i64().unwrap() as i32);
+        let v2 = crate::vec2::new(&json["v2"])?;
+        let v3 = crate::vec3::new(&json["v3"])?;
+        let v4 = crate::vec4::new(&json["v4"])?;
         
-        TestScriptableObject { id, desc, rate, num, v2, v3, v4, }
+        Ok(TestScriptableObject { id, desc, rate, num, v2, v3, v4, })
     }
 }
 
@@ -1263,11 +1263,11 @@ pub struct Path {
 }
 
 impl Path{
-    pub fn new(json: &serde_json::Value) -> Path {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<Path, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let res = json["res"].as_str().unwrap().to_string();
         
-        Path { id, res, }
+        Ok(Path { id, res, })
     }
 }
 
@@ -1279,12 +1279,12 @@ pub struct TestMapper {
 }
 
 impl TestMapper{
-    pub fn new(json: &serde_json::Value) -> TestMapper {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<TestMapper, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let audio_type = <i32 as std::str::FromStr>::from_str(&json["audio_type"].to_string()).unwrap().into();
-        let v2 = crate::vec2::new(&json["v2"]);
+        let v2 = crate::vec2::new(&json["v2"])?;
         
-        TestMapper { id, audio_type, v2, }
+        Ok(TestMapper { id, audio_type, v2, })
     }
 }
 
@@ -1293,12 +1293,12 @@ pub struct Shape {
 }
 
 impl Shape {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "Circle" => std::sync::Arc::new(crate::test::Circle::new(json)),
-            "test2.Rectangle" => std::sync::Arc::new(crate::test2::Rectangle::new(json)),
-            _ => panic!("Invalid type for Shape:{}", type_id)
+            "Circle" => Ok(std::sync::Arc::new(crate::test::Circle::new(json)?)),
+            "test2.Rectangle" => Ok(std::sync::Arc::new(crate::test2::Rectangle::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for Shape:{}", type_id)))
         }
     }
 }
@@ -1313,17 +1313,17 @@ impl crate::test::TShape for crate::test2::Rectangle {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::test::TShape> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::test::TShape {
+    fn get_base(&'a self) -> Result<&'a dyn crate::test::TShape, LubanError> {
         let base: Result<&crate::test::Circle, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::test2::Rectangle, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -1334,10 +1334,10 @@ pub struct Circle {
 }
 
 impl Circle{
-    pub fn new(json: &serde_json::Value) -> Circle {
-        let radius = json["radius"].as_f64().unwrap() as f32;
+    pub fn new(json: &serde_json::Value) -> Result<Circle, LubanError> {
+        let radius = (json["radius"].as_f64().unwrap() as f32);
         
-        Circle { radius, }
+        Ok(Circle { radius, })
     }
 }
 
@@ -1348,18 +1348,18 @@ pub struct TbFullTypes {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoType2>>,
 }
 
-impl TbFullTypes {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbFullTypes> {
+impl TbFullTypes {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbFullTypes>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoType2>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::DemoType2>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::DemoType2::new(&x));
+            let row = std::sync::Arc::new(crate::test::DemoType2::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.x4.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbFullTypes { data_map, data_list })
+        Ok(std::sync::Arc::new(TbFullTypes { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::DemoType2>> {
@@ -1382,12 +1382,12 @@ pub struct TbSingleton {
 }
 
 impl TbSingleton {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbSingleton> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbSingleton>, LubanError> {
         let json = json.as_array().unwrap();
         let n = json.len();
-        if n != 1 { panic!("table mode=one, but size != 1") }
-        let data = crate::test::DemoSingletonType::new(&json[0]);
-        std::sync::Arc::new(TbSingleton { data })
+        if n != 1 { return Err(LubanError::Table(format!("table mode=one, but size != 1"))); }
+        let data = crate::test::DemoSingletonType::new(&json[0])?;
+        Ok(std::sync::Arc::new(TbSingleton { data }))
     }
 }
 
@@ -1398,17 +1398,17 @@ pub struct TbNotIndexList {
 }
 
 impl TbNotIndexList {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbNotIndexList> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbNotIndexList>, LubanError> {
         let mut data_list: Vec<std::sync::Arc<crate::test::NotIndexList>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::NotIndexList::new(&x));
+            let row = std::sync::Arc::new(crate::test::NotIndexList::new(&x)?);
             data_list.push(row.clone());
         }
 
-        std::sync::Arc::new(TbNotIndexList { 
+    Ok(std::sync::Arc::new(TbNotIndexList { 
             data_list,
-        })
+        }))
     }
 
 }
@@ -1421,11 +1421,11 @@ pub struct TbMultiUnionIndexList {
 }
 
 impl TbMultiUnionIndexList {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbMultiUnionIndexList> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbMultiUnionIndexList>, LubanError> {
         let mut data_list: Vec<std::sync::Arc<crate::test::MultiUnionIndexList>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::MultiUnionIndexList::new(&x));
+            let row = std::sync::Arc::new(crate::test::MultiUnionIndexList::new(&x)?);
             data_list.push(row.clone());
         }
         let mut data_map_union: std::collections::HashMap<(i32, i64, String), std::sync::Arc<crate::test::MultiUnionIndexList>> = Default::default();
@@ -1433,10 +1433,10 @@ impl TbMultiUnionIndexList {
             data_map_union.insert((x.id1, x.id2, x.id3.clone()), x.clone());
         }
 
-        std::sync::Arc::new(TbMultiUnionIndexList { 
+    Ok(std::sync::Arc::new(TbMultiUnionIndexList { 
             data_list,
             data_map_union,
-        })
+        }))
     }
 
     pub fn get(&self, key: &(i32, i64, String)) -> Option<std::sync::Arc<crate::test::MultiUnionIndexList>> {
@@ -1454,11 +1454,11 @@ pub struct TbMultiIndexList {
 }
 
 impl TbMultiIndexList {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbMultiIndexList> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbMultiIndexList>, LubanError> {
         let mut data_list: Vec<std::sync::Arc<crate::test::MultiIndexList>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::MultiIndexList::new(&x));
+            let row = std::sync::Arc::new(crate::test::MultiIndexList::new(&x)?);
             data_list.push(row.clone());
         }
         let mut data_map_id1: std::collections::HashMap<i32, std::sync::Arc<crate::test::MultiIndexList>> = Default::default();
@@ -1470,12 +1470,12 @@ impl TbMultiIndexList {
             data_map_id3.insert(x.id3.clone(), x.clone());
         }
 
-        std::sync::Arc::new(TbMultiIndexList { 
+    Ok(std::sync::Arc::new(TbMultiIndexList { 
             data_list,
             data_map_id1,
             data_map_id2,
             data_map_id3,
-        })
+        }))
     }
 
     pub fn get_by_id1(&self, key: &i32) -> Option<std::sync::Arc<crate::test::MultiIndexList>> {
@@ -1496,18 +1496,18 @@ pub struct TbDataFromMisc {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoType2>>,
 }
 
-impl TbDataFromMisc {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbDataFromMisc> {
+impl TbDataFromMisc {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbDataFromMisc>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoType2>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::DemoType2>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::DemoType2::new(&x));
+            let row = std::sync::Arc::new(crate::test::DemoType2::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.x4.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbDataFromMisc { data_map, data_list })
+        Ok(std::sync::Arc::new(TbDataFromMisc { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::DemoType2>> {
@@ -1530,18 +1530,18 @@ pub struct TbMultiRowRecord {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::MultiRowRecord>>,
 }
 
-impl TbMultiRowRecord {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbMultiRowRecord> {
+impl TbMultiRowRecord {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbMultiRowRecord>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::MultiRowRecord>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::MultiRowRecord>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::MultiRowRecord::new(&x));
+            let row = std::sync::Arc::new(crate::test::MultiRowRecord::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbMultiRowRecord { data_map, data_list })
+        Ok(std::sync::Arc::new(TbMultiRowRecord { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::MultiRowRecord>> {
@@ -1564,18 +1564,18 @@ pub struct TbTestMultiColumn {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestMultiColumn>>,
 }
 
-impl TbTestMultiColumn {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestMultiColumn> {
+impl TbTestMultiColumn {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestMultiColumn>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestMultiColumn>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestMultiColumn>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestMultiColumn::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestMultiColumn::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestMultiColumn { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestMultiColumn { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestMultiColumn>> {
@@ -1598,18 +1598,18 @@ pub struct TbMultiRowTitle {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::MultiRowTitle>>,
 }
 
-impl TbMultiRowTitle {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbMultiRowTitle> {
+impl TbMultiRowTitle {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbMultiRowTitle>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::MultiRowTitle>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::MultiRowTitle>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::MultiRowTitle::new(&x));
+            let row = std::sync::Arc::new(crate::test::MultiRowTitle::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbMultiRowTitle { data_map, data_list })
+        Ok(std::sync::Arc::new(TbMultiRowTitle { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::MultiRowTitle>> {
@@ -1632,18 +1632,18 @@ pub struct TbTestNull {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestNull>>,
 }
 
-impl TbTestNull {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestNull> {
+impl TbTestNull {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestNull>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestNull>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestNull>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestNull::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestNull::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestNull { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestNull { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestNull>> {
@@ -1666,18 +1666,18 @@ pub struct TbDemoPrimitive {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoPrimitiveTypesTable>>,
 }
 
-impl TbDemoPrimitive {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbDemoPrimitive> {
+impl TbDemoPrimitive {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbDemoPrimitive>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoPrimitiveTypesTable>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::DemoPrimitiveTypesTable>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::DemoPrimitiveTypesTable::new(&x));
+            let row = std::sync::Arc::new(crate::test::DemoPrimitiveTypesTable::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.x4.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbDemoPrimitive { data_map, data_list })
+        Ok(std::sync::Arc::new(TbDemoPrimitive { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::DemoPrimitiveTypesTable>> {
@@ -1700,18 +1700,18 @@ pub struct TbTestString {
     pub data_map: std::collections::HashMap<String, std::sync::Arc<crate::test::TestString>>,
 }
 
-impl TbTestString {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestString> {
+impl TbTestString {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestString>, LubanError> {
         let mut data_map: std::collections::HashMap<String, std::sync::Arc<crate::test::TestString>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestString>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestString::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestString::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestString { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestString { data_map, data_list }))
     }
 
     pub fn get(&self, key: &String) -> Option<std::sync::Arc<crate::test::TestString>> {
@@ -1734,18 +1734,18 @@ pub struct TbDemoGroup {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoGroup>>,
 }
 
-impl TbDemoGroup {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbDemoGroup> {
+impl TbDemoGroup {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbDemoGroup>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoGroup>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::DemoGroup>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::DemoGroup::new(&x));
+            let row = std::sync::Arc::new(crate::test::DemoGroup::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbDemoGroup { data_map, data_list })
+        Ok(std::sync::Arc::new(TbDemoGroup { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::DemoGroup>> {
@@ -1768,18 +1768,18 @@ pub struct TbDemoGroup_C {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoGroup>>,
 }
 
-impl TbDemoGroup_C {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbDemoGroup_C> {
+impl TbDemoGroup_C {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbDemoGroup_C>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoGroup>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::DemoGroup>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::DemoGroup::new(&x));
+            let row = std::sync::Arc::new(crate::test::DemoGroup::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbDemoGroup_C { data_map, data_list })
+        Ok(std::sync::Arc::new(TbDemoGroup_C { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::DemoGroup>> {
@@ -1802,18 +1802,18 @@ pub struct TbDemoGroup_S {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoGroup>>,
 }
 
-impl TbDemoGroup_S {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbDemoGroup_S> {
+impl TbDemoGroup_S {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbDemoGroup_S>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoGroup>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::DemoGroup>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::DemoGroup::new(&x));
+            let row = std::sync::Arc::new(crate::test::DemoGroup::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbDemoGroup_S { data_map, data_list })
+        Ok(std::sync::Arc::new(TbDemoGroup_S { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::DemoGroup>> {
@@ -1836,18 +1836,18 @@ pub struct TbDemoGroup_E {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoGroup>>,
 }
 
-impl TbDemoGroup_E {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbDemoGroup_E> {
+impl TbDemoGroup_E {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbDemoGroup_E>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DemoGroup>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::DemoGroup>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::DemoGroup::new(&x));
+            let row = std::sync::Arc::new(crate::test::DemoGroup::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbDemoGroup_E { data_map, data_list })
+        Ok(std::sync::Arc::new(TbDemoGroup_E { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::DemoGroup>> {
@@ -1870,12 +1870,12 @@ pub struct TbTestGlobal {
 }
 
 impl TbTestGlobal {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestGlobal> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestGlobal>, LubanError> {
         let json = json.as_array().unwrap();
         let n = json.len();
-        if n != 1 { panic!("table mode=one, but size != 1") }
-        let data = crate::test::TestGlobal::new(&json[0]);
-        std::sync::Arc::new(TbTestGlobal { data })
+        if n != 1 { return Err(LubanError::Table(format!("table mode=one, but size != 1"))); }
+        let data = crate::test::TestGlobal::new(&json[0])?;
+        Ok(std::sync::Arc::new(TbTestGlobal { data }))
     }
 }
 
@@ -1886,18 +1886,18 @@ pub struct TbTestBeRef {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestBeRef>>,
 }
 
-impl TbTestBeRef {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestBeRef> {
+impl TbTestBeRef {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestBeRef>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestBeRef>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestBeRef>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestBeRef::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestBeRef::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestBeRef { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestBeRef { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestBeRef>> {
@@ -1920,18 +1920,18 @@ pub struct TbTestBeRef2 {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestBeRef>>,
 }
 
-impl TbTestBeRef2 {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestBeRef2> {
+impl TbTestBeRef2 {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestBeRef2>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestBeRef>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestBeRef>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestBeRef::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestBeRef::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestBeRef2 { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestBeRef2 { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestBeRef>> {
@@ -1954,18 +1954,18 @@ pub struct TbTestRef {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestRef>>,
 }
 
-impl TbTestRef {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestRef> {
+impl TbTestRef {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestRef>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestRef>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestRef>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestRef::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestRef::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestRef { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestRef { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestRef>> {
@@ -1988,18 +1988,18 @@ pub struct TbTestSize {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestSize>>,
 }
 
-impl TbTestSize {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestSize> {
+impl TbTestSize {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestSize>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestSize>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestSize>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestSize::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestSize::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestSize { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestSize { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestSize>> {
@@ -2022,18 +2022,18 @@ pub struct TbTestSet {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestSet>>,
 }
 
-impl TbTestSet {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestSet> {
+impl TbTestSet {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestSet>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestSet>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestSet>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestSet::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestSet::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestSet { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestSet { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestSet>> {
@@ -2056,18 +2056,18 @@ pub struct TbDetectCsvEncoding {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DetectEncoding>>,
 }
 
-impl TbDetectCsvEncoding {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbDetectCsvEncoding> {
+impl TbDetectCsvEncoding {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbDetectCsvEncoding>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::DetectEncoding>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::DetectEncoding>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::DetectEncoding::new(&x));
+            let row = std::sync::Arc::new(crate::test::DetectEncoding::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbDetectCsvEncoding { data_map, data_list })
+        Ok(std::sync::Arc::new(TbDetectCsvEncoding { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::DetectEncoding>> {
@@ -2090,19 +2090,19 @@ pub struct TbItem2 {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<AbstractBase>>,
 }
 
-impl TbItem2 {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbItem2> {
+impl TbItem2 {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbItem2>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<AbstractBase>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<AbstractBase>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = crate::test::ItemBase::new(&x);
+            let row = crate::test::ItemBase::new(&x)?;
             data_list.push(row.clone());
-            let key = <AbstractBase as GetBase<&dyn crate::test::TItemBase>>::get_base(std::ops::Deref::deref(&row));
+            let key = <AbstractBase as GetBase<&dyn crate::test::TItemBase>>::get_base(std::ops::Deref::deref(&row))?;
             data_map.insert(key.get_id().clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbItem2 { data_map, data_list })
+        Ok(std::sync::Arc::new(TbItem2 { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<AbstractBase>> {
@@ -2125,18 +2125,18 @@ pub struct TbTestIndex {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestIndex>>,
 }
 
-impl TbTestIndex {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestIndex> {
+impl TbTestIndex {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestIndex>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestIndex>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestIndex>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestIndex::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestIndex::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestIndex { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestIndex { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestIndex>> {
@@ -2159,18 +2159,18 @@ pub struct TbTestMap {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestMap>>,
 }
 
-impl TbTestMap {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestMap> {
+impl TbTestMap {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestMap>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestMap>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestMap>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestMap::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestMap::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestMap { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestMap { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestMap>> {
@@ -2193,18 +2193,18 @@ pub struct TbExcelFromJson {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::ExcelFromJson>>,
 }
 
-impl TbExcelFromJson {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbExcelFromJson> {
+impl TbExcelFromJson {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbExcelFromJson>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::ExcelFromJson>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::ExcelFromJson>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::ExcelFromJson::new(&x));
+            let row = std::sync::Arc::new(crate::test::ExcelFromJson::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.x4.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbExcelFromJson { data_map, data_list })
+        Ok(std::sync::Arc::new(TbExcelFromJson { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::ExcelFromJson>> {
@@ -2227,18 +2227,18 @@ pub struct TbCompositeJsonTable1 {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::CompositeJsonTable1>>,
 }
 
-impl TbCompositeJsonTable1 {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbCompositeJsonTable1> {
+impl TbCompositeJsonTable1 {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbCompositeJsonTable1>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::CompositeJsonTable1>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::CompositeJsonTable1>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::CompositeJsonTable1::new(&x));
+            let row = std::sync::Arc::new(crate::test::CompositeJsonTable1::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbCompositeJsonTable1 { data_map, data_list })
+        Ok(std::sync::Arc::new(TbCompositeJsonTable1 { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::CompositeJsonTable1>> {
@@ -2261,18 +2261,18 @@ pub struct TbCompositeJsonTable2 {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::CompositeJsonTable2>>,
 }
 
-impl TbCompositeJsonTable2 {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbCompositeJsonTable2> {
+impl TbCompositeJsonTable2 {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbCompositeJsonTable2>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::CompositeJsonTable2>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::CompositeJsonTable2>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::CompositeJsonTable2::new(&x));
+            let row = std::sync::Arc::new(crate::test::CompositeJsonTable2::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbCompositeJsonTable2 { data_map, data_list })
+        Ok(std::sync::Arc::new(TbCompositeJsonTable2 { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::CompositeJsonTable2>> {
@@ -2295,12 +2295,12 @@ pub struct TbCompositeJsonTable3 {
 }
 
 impl TbCompositeJsonTable3 {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbCompositeJsonTable3> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbCompositeJsonTable3>, LubanError> {
         let json = json.as_array().unwrap();
         let n = json.len();
-        if n != 1 { panic!("table mode=one, but size != 1") }
-        let data = crate::test::CompositeJsonTable3::new(&json[0]);
-        std::sync::Arc::new(TbCompositeJsonTable3 { data })
+        if n != 1 { return Err(LubanError::Table(format!("table mode=one, but size != 1"))); }
+        let data = crate::test::CompositeJsonTable3::new(&json[0])?;
+        Ok(std::sync::Arc::new(TbCompositeJsonTable3 { data }))
     }
 }
 
@@ -2311,18 +2311,18 @@ pub struct TbExcelFromJsonMultiRow {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::ExcelFromJsonMultiRow>>,
 }
 
-impl TbExcelFromJsonMultiRow {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbExcelFromJsonMultiRow> {
+impl TbExcelFromJsonMultiRow {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbExcelFromJsonMultiRow>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::ExcelFromJsonMultiRow>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::ExcelFromJsonMultiRow>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::ExcelFromJsonMultiRow::new(&x));
+            let row = std::sync::Arc::new(crate::test::ExcelFromJsonMultiRow::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbExcelFromJsonMultiRow { data_map, data_list })
+        Ok(std::sync::Arc::new(TbExcelFromJsonMultiRow { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::ExcelFromJsonMultiRow>> {
@@ -2345,18 +2345,18 @@ pub struct TbTestScriptableObject {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestScriptableObject>>,
 }
 
-impl TbTestScriptableObject {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestScriptableObject> {
+impl TbTestScriptableObject {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestScriptableObject>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestScriptableObject>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestScriptableObject>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestScriptableObject::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestScriptableObject::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestScriptableObject { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestScriptableObject { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestScriptableObject>> {
@@ -2379,18 +2379,18 @@ pub struct TbPath {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::Path>>,
 }
 
-impl TbPath {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbPath> {
+impl TbPath {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbPath>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::Path>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::Path>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::Path::new(&x));
+            let row = std::sync::Arc::new(crate::test::Path::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbPath { data_map, data_list })
+        Ok(std::sync::Arc::new(TbPath { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::Path>> {
@@ -2413,18 +2413,18 @@ pub struct TbTestMapper {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestMapper>>,
 }
 
-impl TbTestMapper {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestMapper> {
+impl TbTestMapper {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestMapper>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::test::TestMapper>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::test::TestMapper>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::test::TestMapper::new(&x));
+            let row = std::sync::Arc::new(crate::test::TestMapper::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestMapper { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestMapper { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::test::TestMapper>> {
@@ -2447,18 +2447,18 @@ pub struct TbDefineFromExcel2 {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::DefineFromExcel2>>,
 }
 
-impl TbDefineFromExcel2 {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbDefineFromExcel2> {
+impl TbDefineFromExcel2 {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbDefineFromExcel2>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::DefineFromExcel2>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::DefineFromExcel2>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::DefineFromExcel2::new(&x));
+            let row = std::sync::Arc::new(crate::DefineFromExcel2::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbDefineFromExcel2 { data_map, data_list })
+        Ok(std::sync::Arc::new(TbDefineFromExcel2 { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::DefineFromExcel2>> {

@@ -42,11 +42,11 @@ pub struct vec2 {
 }
 
 impl vec2{
-    pub fn new(json: &serde_json::Value) -> vec2 {
-        let x = json["x"].as_f64().unwrap() as f32;
-        let y = json["y"].as_f64().unwrap() as f32;
+    pub fn new(json: &serde_json::Value) -> Result<vec2, LubanError> {
+        let x = (json["x"].as_f64().unwrap() as f32);
+        let y = (json["y"].as_f64().unwrap() as f32);
         
-        vec2 { x, y, }
+        Ok(vec2 { x, y, })
     }
 }
 
@@ -58,12 +58,12 @@ pub struct vec3 {
 }
 
 impl vec3{
-    pub fn new(json: &serde_json::Value) -> vec3 {
-        let x = json["x"].as_f64().unwrap() as f32;
-        let y = json["y"].as_f64().unwrap() as f32;
-        let z = json["z"].as_f64().unwrap() as f32;
+    pub fn new(json: &serde_json::Value) -> Result<vec3, LubanError> {
+        let x = (json["x"].as_f64().unwrap() as f32);
+        let y = (json["y"].as_f64().unwrap() as f32);
+        let z = (json["z"].as_f64().unwrap() as f32);
         
-        vec3 { x, y, z, }
+        Ok(vec3 { x, y, z, })
     }
 }
 
@@ -76,13 +76,13 @@ pub struct vec4 {
 }
 
 impl vec4{
-    pub fn new(json: &serde_json::Value) -> vec4 {
-        let x = json["x"].as_f64().unwrap() as f32;
-        let y = json["y"].as_f64().unwrap() as f32;
-        let z = json["z"].as_f64().unwrap() as f32;
-        let w = json["w"].as_f64().unwrap() as f32;
+    pub fn new(json: &serde_json::Value) -> Result<vec4, LubanError> {
+        let x = (json["x"].as_f64().unwrap() as f32);
+        let y = (json["y"].as_f64().unwrap() as f32);
+        let z = (json["z"].as_f64().unwrap() as f32);
+        let w = (json["w"].as_f64().unwrap() as f32);
         
-        vec4 { x, y, z, w, }
+        Ok(vec4 { x, y, z, w, })
     }
 }
 
@@ -112,28 +112,28 @@ pub struct DefineFromExcel2 {
 }
 
 impl DefineFromExcel2{
-    pub fn new(json: &serde_json::Value) -> DefineFromExcel2 {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<DefineFromExcel2, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let x1 = json["x1"].as_bool().unwrap();
         let x5 = json["x5"].as_i64().unwrap();
-        let x6 = json["x6"].as_f64().unwrap() as f32;
-        let x8 = json["x8"].as_i64().unwrap() as i32;
+        let x6 = (json["x6"].as_f64().unwrap() as f32);
+        let x8 = (json["x8"].as_i64().unwrap() as i32);
         let x10 = json["x10"].as_str().unwrap().to_string();
         let x13 = <i32 as std::str::FromStr>::from_str(&json["x13"].to_string()).unwrap().into();
         let x13_2 = crate::test::DemoFlag::from_bits_truncate(<u32 as std::str::FromStr>::from_str(&json["x13_2"].to_string()).unwrap());
-        let x14 = crate::test::DemoDynamic::new(&json["x14"]);
-        let x15 = crate::test::Shape::new(&json["x15"]);
-        let v2 = crate::vec2::new(&json["v2"]);
-        let t1 = json["t1"].as_i64().unwrap() as u64;
-        let k1 = json["k1"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let k2 = json["k2"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
-        let k8 = std::collections::HashMap::from_iter(json["k8"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap() as i32, array[1].as_i64().unwrap() as i32)}).collect::<Vec<(i32, i32)>>());
-        let k9 = json["k9"].as_array().unwrap().iter().map(|field| crate::test::DemoE2::new(&field)).collect();
-        let k10 = json["k10"].as_array().unwrap().iter().map(|field| crate::vec3::new(&field)).collect();
-        let k11 = json["k11"].as_array().unwrap().iter().map(|field| crate::vec4::new(&field)).collect();
-        let mut v11 = None; if let Some(value) = json.get("v11") { v11 = Some(crate::vec3::new(&json["v11"])); }
+        let x14 = crate::test::DemoDynamic::new(&json["x14"])?;
+        let x15 = crate::test::Shape::new(&json["x15"])?;
+        let v2 = crate::vec2::new(&json["v2"])?;
+        let t1 = (json["t1"].as_i64().unwrap() as u64);
+        let k1 = json["k1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let k2 = json["k2"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let k8 = std::collections::HashMap::from_iter(json["k8"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
+        let k9 = json["k9"].as_array().unwrap().iter().map(|field| crate::test::DemoE2::new(&field).unwrap()).collect();
+        let k10 = json["k10"].as_array().unwrap().iter().map(|field| crate::vec3::new(&field).unwrap()).collect();
+        let k11 = json["k11"].as_array().unwrap().iter().map(|field| crate::vec4::new(&field).unwrap()).collect();
+        let mut v11 = None; if let Some(value) = json.get("v11") { v11 = Some(crate::vec3::new(&json["v11"])?); }
         
-        DefineFromExcel2 { id, x1, x5, x6, x8, x10, x13, x13_2, x14, x15, v2, t1, k1, k2, k8, k9, k10, k11, v11, }
+        Ok(DefineFromExcel2 { id, x1, x5, x6, x8, x10, x13, x13_2, x14, x15, v2, t1, k1, k2, k8, k9, k10, k11, v11, })
     }
 }
 
@@ -153,7 +153,7 @@ pub mod prelude{
 type AbstractBase = dyn std::any::Any + Sync + Send;
 
 pub trait GetBase<'a, T> {
-    fn get_base(&'a self) -> T;
+    fn get_base(&'a self) -> Result<T, LubanError>;
 }
 
 macro_rules! try_from {
@@ -176,6 +176,27 @@ macro_rules! try_from {
 }
 
 try_from!( crate::ai::Node, crate::ai::Service, crate::ai::UeSetDefaultFocus, crate::ai::ExecuteTimeStatistic, crate::ai::ChooseTarget, crate::ai::KeepFaceTarget, crate::ai::GetOwnerPlayer, crate::ai::UpdateDailyBehaviorProps, crate::ai::Decorator, crate::ai::UeLoop, crate::ai::UeCooldown, crate::ai::UeTimeLimit, crate::ai::UeBlackboard, crate::ai::KeyQueryOperator, crate::ai::IsSet2, crate::ai::IsNotSet, crate::ai::BinaryOperator, crate::ai::KeyData, crate::ai::FloatKeyData, crate::ai::IntKeyData, crate::ai::StringKeyData, crate::ai::BlackboardKeyData, crate::ai::UeForceSuccess, crate::ai::IsAtLocation, crate::ai::DistanceLessThan, crate::ai::FlowNode, crate::ai::ComposeNode, crate::ai::Sequence, crate::ai::Selector, crate::ai::SimpleParallel, crate::ai::Task, crate::ai::UeWait, crate::ai::UeWaitBlackboardTime, crate::ai::MoveToTarget, crate::ai::ChooseSkill, crate::ai::MoveToRandomLocation, crate::ai::MoveToLocation, crate::ai::DebugPrint, crate::test::DemoDynamic, crate::test::DemoD2, crate::test::DemoD3, crate::test::DemoE1, crate::test::login::RoleInfo, crate::test::DemoD5, crate::test::RefDynamicBase, crate::test::RefBean, crate::test::ItemBase, crate::test::Item, crate::test::Equipment, crate::test::Decorator, crate::test::Shape, crate::test::Circle, crate::test2::Rectangle);
+
+#[derive(Debug)]
+pub enum LubanError {
+    Loader(String),
+    Table(String),
+    Bean(String),
+    Polymorphic(String),
+    Unknown(String),
+}
+
+impl std::fmt::Display for LubanError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str(match self {
+            LubanError::Loader(msg) |
+            LubanError::Table(msg) |
+            LubanError::Bean(msg) |
+            LubanError::Polymorphic(msg) |
+            LubanError::Unknown(msg) => msg,
+        })
+    }
+}
 
 pub struct Tables{
     pub TbBlackboard: std::sync::Arc<crate::ai::TbBlackboard>,
@@ -223,50 +244,50 @@ pub struct Tables{
 }
 
 impl Tables {
-    pub fn new<T: Fn(&str) -> serde_json::Value>(loader: T) -> Tables {
-        Tables {
-            TbBlackboard: crate::ai::TbBlackboard::new(&loader("ai_tbblackboard")),
-            TbBehaviorTree: crate::ai::TbBehaviorTree::new(&loader("ai_tbbehaviortree")),
-            TbGlobalConfig: crate::common::TbGlobalConfig::new(&loader("common_tbglobalconfig")),
-            TbItem: crate::item::TbItem::new(&loader("item_tbitem")),
-            TbL10NDemo: crate::l10n::TbL10NDemo::new(&loader("l10n_tbl10ndemo")),
-            TbPatchDemo: crate::l10n::TbPatchDemo::new(&loader("l10n_tbpatchdemo")),
-            TbTestTag: crate::tag::TbTestTag::new(&loader("tag_tbtesttag")),
-            TbFullTypes: crate::test::TbFullTypes::new(&loader("test_tbfulltypes")),
-            TbSingleton: crate::test::TbSingleton::new(&loader("test_tbsingleton")),
-            TbNotIndexList: crate::test::TbNotIndexList::new(&loader("test_tbnotindexlist")),
-            TbMultiUnionIndexList: crate::test::TbMultiUnionIndexList::new(&loader("test_tbmultiunionindexlist")),
-            TbMultiIndexList: crate::test::TbMultiIndexList::new(&loader("test_tbmultiindexlist")),
-            TbDataFromMisc: crate::test::TbDataFromMisc::new(&loader("test_tbdatafrommisc")),
-            TbMultiRowRecord: crate::test::TbMultiRowRecord::new(&loader("test_tbmultirowrecord")),
-            TbTestMultiColumn: crate::test::TbTestMultiColumn::new(&loader("test_tbtestmulticolumn")),
-            TbMultiRowTitle: crate::test::TbMultiRowTitle::new(&loader("test_tbmultirowtitle")),
-            TbTestNull: crate::test::TbTestNull::new(&loader("test_tbtestnull")),
-            TbDemoPrimitive: crate::test::TbDemoPrimitive::new(&loader("test_tbdemoprimitive")),
-            TbTestString: crate::test::TbTestString::new(&loader("test_tbteststring")),
-            TbDemoGroup: crate::test::TbDemoGroup::new(&loader("test_tbdemogroup")),
-            TbDemoGroup_C: crate::test::TbDemoGroup_C::new(&loader("test_tbdemogroup_c")),
-            TbDemoGroup_S: crate::test::TbDemoGroup_S::new(&loader("test_tbdemogroup_s")),
-            TbDemoGroup_E: crate::test::TbDemoGroup_E::new(&loader("test_tbdemogroup_e")),
-            TbTestGlobal: crate::test::TbTestGlobal::new(&loader("test_tbtestglobal")),
-            TbTestBeRef: crate::test::TbTestBeRef::new(&loader("test_tbtestberef")),
-            TbTestBeRef2: crate::test::TbTestBeRef2::new(&loader("test_tbtestberef2")),
-            TbTestRef: crate::test::TbTestRef::new(&loader("test_tbtestref")),
-            TbTestSize: crate::test::TbTestSize::new(&loader("test_tbtestsize")),
-            TbTestSet: crate::test::TbTestSet::new(&loader("test_tbtestset")),
-            TbDetectCsvEncoding: crate::test::TbDetectCsvEncoding::new(&loader("test_tbdetectcsvencoding")),
-            TbItem2: crate::test::TbItem2::new(&loader("test_tbitem2")),
-            TbTestIndex: crate::test::TbTestIndex::new(&loader("test_tbtestindex")),
-            TbTestMap: crate::test::TbTestMap::new(&loader("test_tbtestmap")),
-            TbExcelFromJson: crate::test::TbExcelFromJson::new(&loader("test_tbexcelfromjson")),
-            TbCompositeJsonTable1: crate::test::TbCompositeJsonTable1::new(&loader("test_tbcompositejsontable1")),
-            TbCompositeJsonTable2: crate::test::TbCompositeJsonTable2::new(&loader("test_tbcompositejsontable2")),
-            TbCompositeJsonTable3: crate::test::TbCompositeJsonTable3::new(&loader("test_tbcompositejsontable3")),
-            TbExcelFromJsonMultiRow: crate::test::TbExcelFromJsonMultiRow::new(&loader("test_tbexcelfromjsonmultirow")),
-            TbTestScriptableObject: crate::test::TbTestScriptableObject::new(&loader("test_tbtestscriptableobject")),
-            TbPath: crate::test::TbPath::new(&loader("test_tbpath")),
-            TbTestMapper: crate::test::TbTestMapper::new(&loader("test_tbtestmapper")),
-            TbDefineFromExcel2: crate::test::TbDefineFromExcel2::new(&loader("test_tbdefinefromexcel2")),
-        }
+    pub fn new<T: Fn(&str) -> Result<serde_json::Value, LubanError>>(loader: T) -> Result<Tables, LubanError> {
+        Ok(Tables {
+            TbBlackboard: crate::ai::TbBlackboard::new(&loader("ai_tbblackboard")?)?,
+            TbBehaviorTree: crate::ai::TbBehaviorTree::new(&loader("ai_tbbehaviortree")?)?,
+            TbGlobalConfig: crate::common::TbGlobalConfig::new(&loader("common_tbglobalconfig")?)?,
+            TbItem: crate::item::TbItem::new(&loader("item_tbitem")?)?,
+            TbL10NDemo: crate::l10n::TbL10NDemo::new(&loader("l10n_tbl10ndemo")?)?,
+            TbPatchDemo: crate::l10n::TbPatchDemo::new(&loader("l10n_tbpatchdemo")?)?,
+            TbTestTag: crate::tag::TbTestTag::new(&loader("tag_tbtesttag")?)?,
+            TbFullTypes: crate::test::TbFullTypes::new(&loader("test_tbfulltypes")?)?,
+            TbSingleton: crate::test::TbSingleton::new(&loader("test_tbsingleton")?)?,
+            TbNotIndexList: crate::test::TbNotIndexList::new(&loader("test_tbnotindexlist")?)?,
+            TbMultiUnionIndexList: crate::test::TbMultiUnionIndexList::new(&loader("test_tbmultiunionindexlist")?)?,
+            TbMultiIndexList: crate::test::TbMultiIndexList::new(&loader("test_tbmultiindexlist")?)?,
+            TbDataFromMisc: crate::test::TbDataFromMisc::new(&loader("test_tbdatafrommisc")?)?,
+            TbMultiRowRecord: crate::test::TbMultiRowRecord::new(&loader("test_tbmultirowrecord")?)?,
+            TbTestMultiColumn: crate::test::TbTestMultiColumn::new(&loader("test_tbtestmulticolumn")?)?,
+            TbMultiRowTitle: crate::test::TbMultiRowTitle::new(&loader("test_tbmultirowtitle")?)?,
+            TbTestNull: crate::test::TbTestNull::new(&loader("test_tbtestnull")?)?,
+            TbDemoPrimitive: crate::test::TbDemoPrimitive::new(&loader("test_tbdemoprimitive")?)?,
+            TbTestString: crate::test::TbTestString::new(&loader("test_tbteststring")?)?,
+            TbDemoGroup: crate::test::TbDemoGroup::new(&loader("test_tbdemogroup")?)?,
+            TbDemoGroup_C: crate::test::TbDemoGroup_C::new(&loader("test_tbdemogroup_c")?)?,
+            TbDemoGroup_S: crate::test::TbDemoGroup_S::new(&loader("test_tbdemogroup_s")?)?,
+            TbDemoGroup_E: crate::test::TbDemoGroup_E::new(&loader("test_tbdemogroup_e")?)?,
+            TbTestGlobal: crate::test::TbTestGlobal::new(&loader("test_tbtestglobal")?)?,
+            TbTestBeRef: crate::test::TbTestBeRef::new(&loader("test_tbtestberef")?)?,
+            TbTestBeRef2: crate::test::TbTestBeRef2::new(&loader("test_tbtestberef2")?)?,
+            TbTestRef: crate::test::TbTestRef::new(&loader("test_tbtestref")?)?,
+            TbTestSize: crate::test::TbTestSize::new(&loader("test_tbtestsize")?)?,
+            TbTestSet: crate::test::TbTestSet::new(&loader("test_tbtestset")?)?,
+            TbDetectCsvEncoding: crate::test::TbDetectCsvEncoding::new(&loader("test_tbdetectcsvencoding")?)?,
+            TbItem2: crate::test::TbItem2::new(&loader("test_tbitem2")?)?,
+            TbTestIndex: crate::test::TbTestIndex::new(&loader("test_tbtestindex")?)?,
+            TbTestMap: crate::test::TbTestMap::new(&loader("test_tbtestmap")?)?,
+            TbExcelFromJson: crate::test::TbExcelFromJson::new(&loader("test_tbexcelfromjson")?)?,
+            TbCompositeJsonTable1: crate::test::TbCompositeJsonTable1::new(&loader("test_tbcompositejsontable1")?)?,
+            TbCompositeJsonTable2: crate::test::TbCompositeJsonTable2::new(&loader("test_tbcompositejsontable2")?)?,
+            TbCompositeJsonTable3: crate::test::TbCompositeJsonTable3::new(&loader("test_tbcompositejsontable3")?)?,
+            TbExcelFromJsonMultiRow: crate::test::TbExcelFromJsonMultiRow::new(&loader("test_tbexcelfromjsonmultirow")?)?,
+            TbTestScriptableObject: crate::test::TbTestScriptableObject::new(&loader("test_tbtestscriptableobject")?)?,
+            TbPath: crate::test::TbPath::new(&loader("test_tbpath")?)?,
+            TbTestMapper: crate::test::TbTestMapper::new(&loader("test_tbtestmapper")?)?,
+            TbDefineFromExcel2: crate::test::TbDefineFromExcel2::new(&loader("test_tbdefinefromexcel2")?)?,
+        })
     }
 }

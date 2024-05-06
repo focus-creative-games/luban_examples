@@ -260,20 +260,20 @@ pub struct Item {
 }
 
 impl Item{
-    pub fn new(json: &serde_json::Value) -> Item {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<Item, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
         let major_type = <i32 as std::str::FromStr>::from_str(&json["major_type"].to_string()).unwrap().into();
         let minor_type = <i32 as std::str::FromStr>::from_str(&json["minor_type"].to_string()).unwrap().into();
-        let max_pile_num = json["max_pile_num"].as_i64().unwrap() as i32;
+        let max_pile_num = (json["max_pile_num"].as_i64().unwrap() as i32);
         let quality = <i32 as std::str::FromStr>::from_str(&json["quality"].to_string()).unwrap().into();
         let icon = json["icon"].as_str().unwrap().to_string();
         let icon_backgroud = json["icon_backgroud"].as_str().unwrap().to_string();
         let icon_mask = json["icon_mask"].as_str().unwrap().to_string();
         let desc = json["desc"].as_str().unwrap().to_string();
-        let show_order = json["show_order"].as_i64().unwrap() as i32;
+        let show_order = (json["show_order"].as_i64().unwrap() as i32);
         
-        Item { id, name, major_type, minor_type, max_pile_num, quality, icon, icon_backgroud, icon_mask, desc, show_order, }
+        Ok(Item { id, name, major_type, minor_type, max_pile_num, quality, icon, icon_backgroud, icon_mask, desc, show_order, })
     }
 }
 
@@ -285,18 +285,18 @@ pub struct TbItem {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::item::Item>>,
 }
 
-impl TbItem {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbItem> {
+impl TbItem {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbItem>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::item::Item>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::item::Item>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::item::Item::new(&x));
+            let row = std::sync::Arc::new(crate::item::Item::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbItem { data_map, data_list })
+        Ok(std::sync::Arc::new(TbItem { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::item::Item>> {

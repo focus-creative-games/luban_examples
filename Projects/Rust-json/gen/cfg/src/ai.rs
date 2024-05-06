@@ -132,13 +132,13 @@ pub struct Blackboard {
 }
 
 impl Blackboard{
-    pub fn new(json: &serde_json::Value) -> Blackboard {
+    pub fn new(json: &serde_json::Value) -> Result<Blackboard, LubanError> {
         let name = json["name"].as_str().unwrap().to_string();
         let desc = json["desc"].as_str().unwrap().to_string();
         let parent_name = json["parent_name"].as_str().unwrap().to_string();
-        let keys = json["keys"].as_array().unwrap().iter().map(|field| crate::ai::BlackboardKey::new(&field)).collect();
+        let keys = json["keys"].as_array().unwrap().iter().map(|field| crate::ai::BlackboardKey::new(&field).unwrap()).collect();
         
-        Blackboard { name, desc, parent_name, keys, }
+        Ok(Blackboard { name, desc, parent_name, keys, })
     }
 }
 
@@ -152,14 +152,14 @@ pub struct BlackboardKey {
 }
 
 impl BlackboardKey{
-    pub fn new(json: &serde_json::Value) -> BlackboardKey {
+    pub fn new(json: &serde_json::Value) -> Result<BlackboardKey, LubanError> {
         let name = json["name"].as_str().unwrap().to_string();
         let desc = json["desc"].as_str().unwrap().to_string();
         let is_static = json["is_static"].as_bool().unwrap();
         let key_type = <i32 as std::str::FromStr>::from_str(&json["key_type"].to_string()).unwrap().into();
         let type_class_name = json["type_class_name"].as_str().unwrap().to_string();
         
-        BlackboardKey { name, desc, is_static, key_type, type_class_name, }
+        Ok(BlackboardKey { name, desc, is_static, key_type, type_class_name, })
     }
 }
 
@@ -173,14 +173,14 @@ pub struct BehaviorTree {
 }
 
 impl BehaviorTree{
-    pub fn new(json: &serde_json::Value) -> BehaviorTree {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<BehaviorTree, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
         let desc = json["desc"].as_str().unwrap().to_string();
         let blackboard_id = json["blackboard_id"].as_str().unwrap().to_string();
-        let root = crate::ai::ComposeNode::new(&json["root"]);
+        let root = crate::ai::ComposeNode::new(&json["root"])?;
         
-        BehaviorTree { id, name, desc, blackboard_id, root, }
+        Ok(BehaviorTree { id, name, desc, blackboard_id, root, })
     }
 }
 
@@ -191,33 +191,33 @@ pub struct Node {
 }
 
 impl Node {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "UeSetDefaultFocus" => std::sync::Arc::new(crate::ai::UeSetDefaultFocus::new(json)),
-            "ExecuteTimeStatistic" => std::sync::Arc::new(crate::ai::ExecuteTimeStatistic::new(json)),
-            "ChooseTarget" => std::sync::Arc::new(crate::ai::ChooseTarget::new(json)),
-            "KeepFaceTarget" => std::sync::Arc::new(crate::ai::KeepFaceTarget::new(json)),
-            "GetOwnerPlayer" => std::sync::Arc::new(crate::ai::GetOwnerPlayer::new(json)),
-            "UpdateDailyBehaviorProps" => std::sync::Arc::new(crate::ai::UpdateDailyBehaviorProps::new(json)),
-            "UeLoop" => std::sync::Arc::new(crate::ai::UeLoop::new(json)),
-            "UeCooldown" => std::sync::Arc::new(crate::ai::UeCooldown::new(json)),
-            "UeTimeLimit" => std::sync::Arc::new(crate::ai::UeTimeLimit::new(json)),
-            "UeBlackboard" => std::sync::Arc::new(crate::ai::UeBlackboard::new(json)),
-            "UeForceSuccess" => std::sync::Arc::new(crate::ai::UeForceSuccess::new(json)),
-            "IsAtLocation" => std::sync::Arc::new(crate::ai::IsAtLocation::new(json)),
-            "DistanceLessThan" => std::sync::Arc::new(crate::ai::DistanceLessThan::new(json)),
-            "Sequence" => std::sync::Arc::new(crate::ai::Sequence::new(json)),
-            "Selector" => std::sync::Arc::new(crate::ai::Selector::new(json)),
-            "SimpleParallel" => std::sync::Arc::new(crate::ai::SimpleParallel::new(json)),
-            "UeWait" => std::sync::Arc::new(crate::ai::UeWait::new(json)),
-            "UeWaitBlackboardTime" => std::sync::Arc::new(crate::ai::UeWaitBlackboardTime::new(json)),
-            "MoveToTarget" => std::sync::Arc::new(crate::ai::MoveToTarget::new(json)),
-            "ChooseSkill" => std::sync::Arc::new(crate::ai::ChooseSkill::new(json)),
-            "MoveToRandomLocation" => std::sync::Arc::new(crate::ai::MoveToRandomLocation::new(json)),
-            "MoveToLocation" => std::sync::Arc::new(crate::ai::MoveToLocation::new(json)),
-            "DebugPrint" => std::sync::Arc::new(crate::ai::DebugPrint::new(json)),
-            _ => panic!("Invalid type for Node:{}", type_id)
+            "UeSetDefaultFocus" => Ok(std::sync::Arc::new(crate::ai::UeSetDefaultFocus::new(json)?)),
+            "ExecuteTimeStatistic" => Ok(std::sync::Arc::new(crate::ai::ExecuteTimeStatistic::new(json)?)),
+            "ChooseTarget" => Ok(std::sync::Arc::new(crate::ai::ChooseTarget::new(json)?)),
+            "KeepFaceTarget" => Ok(std::sync::Arc::new(crate::ai::KeepFaceTarget::new(json)?)),
+            "GetOwnerPlayer" => Ok(std::sync::Arc::new(crate::ai::GetOwnerPlayer::new(json)?)),
+            "UpdateDailyBehaviorProps" => Ok(std::sync::Arc::new(crate::ai::UpdateDailyBehaviorProps::new(json)?)),
+            "UeLoop" => Ok(std::sync::Arc::new(crate::ai::UeLoop::new(json)?)),
+            "UeCooldown" => Ok(std::sync::Arc::new(crate::ai::UeCooldown::new(json)?)),
+            "UeTimeLimit" => Ok(std::sync::Arc::new(crate::ai::UeTimeLimit::new(json)?)),
+            "UeBlackboard" => Ok(std::sync::Arc::new(crate::ai::UeBlackboard::new(json)?)),
+            "UeForceSuccess" => Ok(std::sync::Arc::new(crate::ai::UeForceSuccess::new(json)?)),
+            "IsAtLocation" => Ok(std::sync::Arc::new(crate::ai::IsAtLocation::new(json)?)),
+            "DistanceLessThan" => Ok(std::sync::Arc::new(crate::ai::DistanceLessThan::new(json)?)),
+            "Sequence" => Ok(std::sync::Arc::new(crate::ai::Sequence::new(json)?)),
+            "Selector" => Ok(std::sync::Arc::new(crate::ai::Selector::new(json)?)),
+            "SimpleParallel" => Ok(std::sync::Arc::new(crate::ai::SimpleParallel::new(json)?)),
+            "UeWait" => Ok(std::sync::Arc::new(crate::ai::UeWait::new(json)?)),
+            "UeWaitBlackboardTime" => Ok(std::sync::Arc::new(crate::ai::UeWaitBlackboardTime::new(json)?)),
+            "MoveToTarget" => Ok(std::sync::Arc::new(crate::ai::MoveToTarget::new(json)?)),
+            "ChooseSkill" => Ok(std::sync::Arc::new(crate::ai::ChooseSkill::new(json)?)),
+            "MoveToRandomLocation" => Ok(std::sync::Arc::new(crate::ai::MoveToRandomLocation::new(json)?)),
+            "MoveToLocation" => Ok(std::sync::Arc::new(crate::ai::MoveToLocation::new(json)?)),
+            "DebugPrint" => Ok(std::sync::Arc::new(crate::ai::DebugPrint::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for Node:{}", type_id)))
         }
     }
 }
@@ -435,101 +435,101 @@ impl crate::ai::TNode for crate::ai::DebugPrint {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::ai::TNode> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::ai::TNode {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TNode, LubanError> {
         let base: Result<&crate::ai::UeSetDefaultFocus, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::ExecuteTimeStatistic, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::ChooseTarget, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::KeepFaceTarget, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::GetOwnerPlayer, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UpdateDailyBehaviorProps, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeLoop, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeCooldown, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeTimeLimit, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeBlackboard, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeForceSuccess, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::IsAtLocation, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::DistanceLessThan, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::Sequence, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::Selector, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::SimpleParallel, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeWait, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeWaitBlackboardTime, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::MoveToTarget, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::ChooseSkill, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::MoveToRandomLocation, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::MoveToLocation, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::DebugPrint, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -540,16 +540,16 @@ pub struct Service {
 }
 
 impl Service {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "UeSetDefaultFocus" => std::sync::Arc::new(crate::ai::UeSetDefaultFocus::new(json)),
-            "ExecuteTimeStatistic" => std::sync::Arc::new(crate::ai::ExecuteTimeStatistic::new(json)),
-            "ChooseTarget" => std::sync::Arc::new(crate::ai::ChooseTarget::new(json)),
-            "KeepFaceTarget" => std::sync::Arc::new(crate::ai::KeepFaceTarget::new(json)),
-            "GetOwnerPlayer" => std::sync::Arc::new(crate::ai::GetOwnerPlayer::new(json)),
-            "UpdateDailyBehaviorProps" => std::sync::Arc::new(crate::ai::UpdateDailyBehaviorProps::new(json)),
-            _ => panic!("Invalid type for Service:{}", type_id)
+            "UeSetDefaultFocus" => Ok(std::sync::Arc::new(crate::ai::UeSetDefaultFocus::new(json)?)),
+            "ExecuteTimeStatistic" => Ok(std::sync::Arc::new(crate::ai::ExecuteTimeStatistic::new(json)?)),
+            "ChooseTarget" => Ok(std::sync::Arc::new(crate::ai::ChooseTarget::new(json)?)),
+            "KeepFaceTarget" => Ok(std::sync::Arc::new(crate::ai::KeepFaceTarget::new(json)?)),
+            "GetOwnerPlayer" => Ok(std::sync::Arc::new(crate::ai::GetOwnerPlayer::new(json)?)),
+            "UpdateDailyBehaviorProps" => Ok(std::sync::Arc::new(crate::ai::UpdateDailyBehaviorProps::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for Service:{}", type_id)))
         }
     }
 }
@@ -614,33 +614,33 @@ impl crate::ai::TService for crate::ai::UpdateDailyBehaviorProps {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::ai::TService> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::ai::TService {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TService, LubanError> {
         let base: Result<&crate::ai::UeSetDefaultFocus, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::ExecuteTimeStatistic, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::ChooseTarget, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::KeepFaceTarget, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::GetOwnerPlayer, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UpdateDailyBehaviorProps, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -652,12 +652,12 @@ pub struct UeSetDefaultFocus {
 }
 
 impl UeSetDefaultFocus{
-    pub fn new(json: &serde_json::Value) -> UeSetDefaultFocus {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<UeSetDefaultFocus, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let keyboard_key = json["keyboard_key"].as_str().unwrap().to_string();
         
-        UeSetDefaultFocus { id, node_name, keyboard_key, }
+        Ok(UeSetDefaultFocus { id, node_name, keyboard_key, })
     }
 }
 
@@ -668,11 +668,11 @@ pub struct ExecuteTimeStatistic {
 }
 
 impl ExecuteTimeStatistic{
-    pub fn new(json: &serde_json::Value) -> ExecuteTimeStatistic {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<ExecuteTimeStatistic, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         
-        ExecuteTimeStatistic { id, node_name, }
+        Ok(ExecuteTimeStatistic { id, node_name, })
     }
 }
 
@@ -684,12 +684,12 @@ pub struct ChooseTarget {
 }
 
 impl ChooseTarget{
-    pub fn new(json: &serde_json::Value) -> ChooseTarget {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<ChooseTarget, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let result_target_key = json["result_target_key"].as_str().unwrap().to_string();
         
-        ChooseTarget { id, node_name, result_target_key, }
+        Ok(ChooseTarget { id, node_name, result_target_key, })
     }
 }
 
@@ -701,12 +701,12 @@ pub struct KeepFaceTarget {
 }
 
 impl KeepFaceTarget{
-    pub fn new(json: &serde_json::Value) -> KeepFaceTarget {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<KeepFaceTarget, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let target_actor_key = json["target_actor_key"].as_str().unwrap().to_string();
         
-        KeepFaceTarget { id, node_name, target_actor_key, }
+        Ok(KeepFaceTarget { id, node_name, target_actor_key, })
     }
 }
 
@@ -718,12 +718,12 @@ pub struct GetOwnerPlayer {
 }
 
 impl GetOwnerPlayer{
-    pub fn new(json: &serde_json::Value) -> GetOwnerPlayer {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<GetOwnerPlayer, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let player_actor_key = json["player_actor_key"].as_str().unwrap().to_string();
         
-        GetOwnerPlayer { id, node_name, player_actor_key, }
+        Ok(GetOwnerPlayer { id, node_name, player_actor_key, })
     }
 }
 
@@ -743,8 +743,8 @@ pub struct UpdateDailyBehaviorProps {
 }
 
 impl UpdateDailyBehaviorProps{
-    pub fn new(json: &serde_json::Value) -> UpdateDailyBehaviorProps {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<UpdateDailyBehaviorProps, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let satiety_key = json["satiety_key"].as_str().unwrap().to_string();
         let energy_key = json["energy_key"].as_str().unwrap().to_string();
@@ -756,7 +756,7 @@ impl UpdateDailyBehaviorProps{
         let mood_lower_threshold_key = json["mood_lower_threshold_key"].as_str().unwrap().to_string();
         let mood_upper_threshold_key = json["mood_upper_threshold_key"].as_str().unwrap().to_string();
         
-        UpdateDailyBehaviorProps { id, node_name, satiety_key, energy_key, mood_key, satiety_lower_threshold_key, satiety_upper_threshold_key, energy_lower_threshold_key, energy_upper_threshold_key, mood_lower_threshold_key, mood_upper_threshold_key, }
+        Ok(UpdateDailyBehaviorProps { id, node_name, satiety_key, energy_key, mood_key, satiety_lower_threshold_key, satiety_upper_threshold_key, energy_lower_threshold_key, energy_upper_threshold_key, mood_lower_threshold_key, mood_upper_threshold_key, })
     }
 }
 
@@ -768,17 +768,17 @@ pub struct Decorator {
 }
 
 impl Decorator {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "UeLoop" => std::sync::Arc::new(crate::ai::UeLoop::new(json)),
-            "UeCooldown" => std::sync::Arc::new(crate::ai::UeCooldown::new(json)),
-            "UeTimeLimit" => std::sync::Arc::new(crate::ai::UeTimeLimit::new(json)),
-            "UeBlackboard" => std::sync::Arc::new(crate::ai::UeBlackboard::new(json)),
-            "UeForceSuccess" => std::sync::Arc::new(crate::ai::UeForceSuccess::new(json)),
-            "IsAtLocation" => std::sync::Arc::new(crate::ai::IsAtLocation::new(json)),
-            "DistanceLessThan" => std::sync::Arc::new(crate::ai::DistanceLessThan::new(json)),
-            _ => panic!("Invalid type for Decorator:{}", type_id)
+            "UeLoop" => Ok(std::sync::Arc::new(crate::ai::UeLoop::new(json)?)),
+            "UeCooldown" => Ok(std::sync::Arc::new(crate::ai::UeCooldown::new(json)?)),
+            "UeTimeLimit" => Ok(std::sync::Arc::new(crate::ai::UeTimeLimit::new(json)?)),
+            "UeBlackboard" => Ok(std::sync::Arc::new(crate::ai::UeBlackboard::new(json)?)),
+            "UeForceSuccess" => Ok(std::sync::Arc::new(crate::ai::UeForceSuccess::new(json)?)),
+            "IsAtLocation" => Ok(std::sync::Arc::new(crate::ai::IsAtLocation::new(json)?)),
+            "DistanceLessThan" => Ok(std::sync::Arc::new(crate::ai::DistanceLessThan::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for Decorator:{}", type_id)))
         }
     }
 }
@@ -874,37 +874,37 @@ impl crate::ai::TDecorator for crate::ai::DistanceLessThan {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::ai::TDecorator> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::ai::TDecorator {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TDecorator, LubanError> {
         let base: Result<&crate::ai::UeLoop, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeCooldown, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeTimeLimit, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeBlackboard, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeForceSuccess, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::IsAtLocation, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::DistanceLessThan, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -919,15 +919,15 @@ pub struct UeLoop {
 }
 
 impl UeLoop{
-    pub fn new(json: &serde_json::Value) -> UeLoop {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<UeLoop, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
-        let num_loops = json["num_loops"].as_i64().unwrap() as i32;
+        let num_loops = (json["num_loops"].as_i64().unwrap() as i32);
         let infinite_loop = json["infinite_loop"].as_bool().unwrap();
-        let infinite_loop_timeout_time = json["infinite_loop_timeout_time"].as_f64().unwrap() as f32;
+        let infinite_loop_timeout_time = (json["infinite_loop_timeout_time"].as_f64().unwrap() as f32);
         
-        UeLoop { id, node_name, flow_abort_mode, num_loops, infinite_loop, infinite_loop_timeout_time, }
+        Ok(UeLoop { id, node_name, flow_abort_mode, num_loops, infinite_loop, infinite_loop_timeout_time, })
     }
 }
 
@@ -940,13 +940,13 @@ pub struct UeCooldown {
 }
 
 impl UeCooldown{
-    pub fn new(json: &serde_json::Value) -> UeCooldown {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<UeCooldown, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
-        let cooldown_time = json["cooldown_time"].as_f64().unwrap() as f32;
+        let cooldown_time = (json["cooldown_time"].as_f64().unwrap() as f32);
         
-        UeCooldown { id, node_name, flow_abort_mode, cooldown_time, }
+        Ok(UeCooldown { id, node_name, flow_abort_mode, cooldown_time, })
     }
 }
 
@@ -959,13 +959,13 @@ pub struct UeTimeLimit {
 }
 
 impl UeTimeLimit{
-    pub fn new(json: &serde_json::Value) -> UeTimeLimit {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<UeTimeLimit, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
-        let limit_time = json["limit_time"].as_f64().unwrap() as f32;
+        let limit_time = (json["limit_time"].as_f64().unwrap() as f32);
         
-        UeTimeLimit { id, node_name, flow_abort_mode, limit_time, }
+        Ok(UeTimeLimit { id, node_name, flow_abort_mode, limit_time, })
     }
 }
 
@@ -980,15 +980,15 @@ pub struct UeBlackboard {
 }
 
 impl UeBlackboard{
-    pub fn new(json: &serde_json::Value) -> UeBlackboard {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<UeBlackboard, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
         let notify_observer = <i32 as std::str::FromStr>::from_str(&json["notify_observer"].to_string()).unwrap().into();
         let blackboard_key = json["blackboard_key"].as_str().unwrap().to_string();
-        let key_query = crate::ai::KeyQueryOperator::new(&json["key_query"]);
+        let key_query = crate::ai::KeyQueryOperator::new(&json["key_query"])?;
         
-        UeBlackboard { id, node_name, flow_abort_mode, notify_observer, blackboard_key, key_query, }
+        Ok(UeBlackboard { id, node_name, flow_abort_mode, notify_observer, blackboard_key, key_query, })
     }
 }
 
@@ -997,13 +997,13 @@ pub struct KeyQueryOperator {
 }
 
 impl KeyQueryOperator {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "IsSet2" => std::sync::Arc::new(crate::ai::IsSet2::new(json)),
-            "IsNotSet" => std::sync::Arc::new(crate::ai::IsNotSet::new(json)),
-            "BinaryOperator" => std::sync::Arc::new(crate::ai::BinaryOperator::new(json)),
-            _ => panic!("Invalid type for KeyQueryOperator:{}", type_id)
+            "IsSet2" => Ok(std::sync::Arc::new(crate::ai::IsSet2::new(json)?)),
+            "IsNotSet" => Ok(std::sync::Arc::new(crate::ai::IsNotSet::new(json)?)),
+            "BinaryOperator" => Ok(std::sync::Arc::new(crate::ai::BinaryOperator::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for KeyQueryOperator:{}", type_id)))
         }
     }
 }
@@ -1021,21 +1021,21 @@ impl crate::ai::TKeyQueryOperator for crate::ai::BinaryOperator {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::ai::TKeyQueryOperator> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::ai::TKeyQueryOperator {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TKeyQueryOperator, LubanError> {
         let base: Result<&crate::ai::IsSet2, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::IsNotSet, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::BinaryOperator, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -1044,9 +1044,9 @@ pub struct IsSet2 {
 }
 
 impl IsSet2{
-    pub fn new(json: &serde_json::Value) -> IsSet2 {
+    pub fn new(json: &serde_json::Value) -> Result<IsSet2, LubanError> {
         
-        IsSet2 { }
+        Ok(IsSet2 { })
     }
 }
 
@@ -1055,9 +1055,9 @@ pub struct IsNotSet {
 }
 
 impl IsNotSet{
-    pub fn new(json: &serde_json::Value) -> IsNotSet {
+    pub fn new(json: &serde_json::Value) -> Result<IsNotSet, LubanError> {
         
-        IsNotSet { }
+        Ok(IsNotSet { })
     }
 }
 
@@ -1068,11 +1068,11 @@ pub struct BinaryOperator {
 }
 
 impl BinaryOperator{
-    pub fn new(json: &serde_json::Value) -> BinaryOperator {
+    pub fn new(json: &serde_json::Value) -> Result<BinaryOperator, LubanError> {
         let oper = <i32 as std::str::FromStr>::from_str(&json["oper"].to_string()).unwrap().into();
-        let data = crate::ai::KeyData::new(&json["data"]);
+        let data = crate::ai::KeyData::new(&json["data"])?;
         
-        BinaryOperator { oper, data, }
+        Ok(BinaryOperator { oper, data, })
     }
 }
 
@@ -1081,14 +1081,14 @@ pub struct KeyData {
 }
 
 impl KeyData {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "FloatKeyData" => std::sync::Arc::new(crate::ai::FloatKeyData::new(json)),
-            "IntKeyData" => std::sync::Arc::new(crate::ai::IntKeyData::new(json)),
-            "StringKeyData" => std::sync::Arc::new(crate::ai::StringKeyData::new(json)),
-            "BlackboardKeyData" => std::sync::Arc::new(crate::ai::BlackboardKeyData::new(json)),
-            _ => panic!("Invalid type for KeyData:{}", type_id)
+            "FloatKeyData" => Ok(std::sync::Arc::new(crate::ai::FloatKeyData::new(json)?)),
+            "IntKeyData" => Ok(std::sync::Arc::new(crate::ai::IntKeyData::new(json)?)),
+            "StringKeyData" => Ok(std::sync::Arc::new(crate::ai::StringKeyData::new(json)?)),
+            "BlackboardKeyData" => Ok(std::sync::Arc::new(crate::ai::BlackboardKeyData::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for KeyData:{}", type_id)))
         }
     }
 }
@@ -1109,25 +1109,25 @@ impl crate::ai::TKeyData for crate::ai::BlackboardKeyData {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::ai::TKeyData> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::ai::TKeyData {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TKeyData, LubanError> {
         let base: Result<&crate::ai::FloatKeyData, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::IntKeyData, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::StringKeyData, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::BlackboardKeyData, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -1137,10 +1137,10 @@ pub struct FloatKeyData {
 }
 
 impl FloatKeyData{
-    pub fn new(json: &serde_json::Value) -> FloatKeyData {
-        let value = json["value"].as_f64().unwrap() as f32;
+    pub fn new(json: &serde_json::Value) -> Result<FloatKeyData, LubanError> {
+        let value = (json["value"].as_f64().unwrap() as f32);
         
-        FloatKeyData { value, }
+        Ok(FloatKeyData { value, })
     }
 }
 
@@ -1150,10 +1150,10 @@ pub struct IntKeyData {
 }
 
 impl IntKeyData{
-    pub fn new(json: &serde_json::Value) -> IntKeyData {
-        let value = json["value"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<IntKeyData, LubanError> {
+        let value = (json["value"].as_i64().unwrap() as i32);
         
-        IntKeyData { value, }
+        Ok(IntKeyData { value, })
     }
 }
 
@@ -1163,10 +1163,10 @@ pub struct StringKeyData {
 }
 
 impl StringKeyData{
-    pub fn new(json: &serde_json::Value) -> StringKeyData {
+    pub fn new(json: &serde_json::Value) -> Result<StringKeyData, LubanError> {
         let value = json["value"].as_str().unwrap().to_string();
         
-        StringKeyData { value, }
+        Ok(StringKeyData { value, })
     }
 }
 
@@ -1176,10 +1176,10 @@ pub struct BlackboardKeyData {
 }
 
 impl BlackboardKeyData{
-    pub fn new(json: &serde_json::Value) -> BlackboardKeyData {
+    pub fn new(json: &serde_json::Value) -> Result<BlackboardKeyData, LubanError> {
         let value = json["value"].as_str().unwrap().to_string();
         
-        BlackboardKeyData { value, }
+        Ok(BlackboardKeyData { value, })
     }
 }
 
@@ -1191,12 +1191,12 @@ pub struct UeForceSuccess {
 }
 
 impl UeForceSuccess{
-    pub fn new(json: &serde_json::Value) -> UeForceSuccess {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<UeForceSuccess, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
         
-        UeForceSuccess { id, node_name, flow_abort_mode, }
+        Ok(UeForceSuccess { id, node_name, flow_abort_mode, })
     }
 }
 
@@ -1211,15 +1211,15 @@ pub struct IsAtLocation {
 }
 
 impl IsAtLocation{
-    pub fn new(json: &serde_json::Value) -> IsAtLocation {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<IsAtLocation, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
-        let acceptable_radius = json["acceptable_radius"].as_f64().unwrap() as f32;
+        let acceptable_radius = (json["acceptable_radius"].as_f64().unwrap() as f32);
         let keyboard_key = json["keyboard_key"].as_str().unwrap().to_string();
         let inverse_condition = json["inverse_condition"].as_bool().unwrap();
         
-        IsAtLocation { id, node_name, flow_abort_mode, acceptable_radius, keyboard_key, inverse_condition, }
+        Ok(IsAtLocation { id, node_name, flow_abort_mode, acceptable_radius, keyboard_key, inverse_condition, })
     }
 }
 
@@ -1235,16 +1235,16 @@ pub struct DistanceLessThan {
 }
 
 impl DistanceLessThan{
-    pub fn new(json: &serde_json::Value) -> DistanceLessThan {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<DistanceLessThan, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
         let actor1_key = json["actor1_key"].as_str().unwrap().to_string();
         let actor2_key = json["actor2_key"].as_str().unwrap().to_string();
-        let distance = json["distance"].as_f64().unwrap() as f32;
+        let distance = (json["distance"].as_f64().unwrap() as f32);
         let reverse_result = json["reverse_result"].as_bool().unwrap();
         
-        DistanceLessThan { id, node_name, flow_abort_mode, actor1_key, actor2_key, distance, reverse_result, }
+        Ok(DistanceLessThan { id, node_name, flow_abort_mode, actor1_key, actor2_key, distance, reverse_result, })
     }
 }
 
@@ -1257,20 +1257,20 @@ pub struct FlowNode {
 }
 
 impl FlowNode {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "Sequence" => std::sync::Arc::new(crate::ai::Sequence::new(json)),
-            "Selector" => std::sync::Arc::new(crate::ai::Selector::new(json)),
-            "SimpleParallel" => std::sync::Arc::new(crate::ai::SimpleParallel::new(json)),
-            "UeWait" => std::sync::Arc::new(crate::ai::UeWait::new(json)),
-            "UeWaitBlackboardTime" => std::sync::Arc::new(crate::ai::UeWaitBlackboardTime::new(json)),
-            "MoveToTarget" => std::sync::Arc::new(crate::ai::MoveToTarget::new(json)),
-            "ChooseSkill" => std::sync::Arc::new(crate::ai::ChooseSkill::new(json)),
-            "MoveToRandomLocation" => std::sync::Arc::new(crate::ai::MoveToRandomLocation::new(json)),
-            "MoveToLocation" => std::sync::Arc::new(crate::ai::MoveToLocation::new(json)),
-            "DebugPrint" => std::sync::Arc::new(crate::ai::DebugPrint::new(json)),
-            _ => panic!("Invalid type for FlowNode:{}", type_id)
+            "Sequence" => Ok(std::sync::Arc::new(crate::ai::Sequence::new(json)?)),
+            "Selector" => Ok(std::sync::Arc::new(crate::ai::Selector::new(json)?)),
+            "SimpleParallel" => Ok(std::sync::Arc::new(crate::ai::SimpleParallel::new(json)?)),
+            "UeWait" => Ok(std::sync::Arc::new(crate::ai::UeWait::new(json)?)),
+            "UeWaitBlackboardTime" => Ok(std::sync::Arc::new(crate::ai::UeWaitBlackboardTime::new(json)?)),
+            "MoveToTarget" => Ok(std::sync::Arc::new(crate::ai::MoveToTarget::new(json)?)),
+            "ChooseSkill" => Ok(std::sync::Arc::new(crate::ai::ChooseSkill::new(json)?)),
+            "MoveToRandomLocation" => Ok(std::sync::Arc::new(crate::ai::MoveToRandomLocation::new(json)?)),
+            "MoveToLocation" => Ok(std::sync::Arc::new(crate::ai::MoveToLocation::new(json)?)),
+            "DebugPrint" => Ok(std::sync::Arc::new(crate::ai::DebugPrint::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for FlowNode:{}", type_id)))
         }
     }
 }
@@ -1433,49 +1433,49 @@ impl crate::ai::TFlowNode for crate::ai::DebugPrint {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::ai::TFlowNode> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::ai::TFlowNode {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TFlowNode, LubanError> {
         let base: Result<&crate::ai::Sequence, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::Selector, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::SimpleParallel, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeWait, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeWaitBlackboardTime, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::MoveToTarget, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::ChooseSkill, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::MoveToRandomLocation, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::MoveToLocation, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::DebugPrint, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -1488,13 +1488,13 @@ pub struct ComposeNode {
 }
 
 impl ComposeNode {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "Sequence" => std::sync::Arc::new(crate::ai::Sequence::new(json)),
-            "Selector" => std::sync::Arc::new(crate::ai::Selector::new(json)),
-            "SimpleParallel" => std::sync::Arc::new(crate::ai::SimpleParallel::new(json)),
-            _ => panic!("Invalid type for ComposeNode:{}", type_id)
+            "Sequence" => Ok(std::sync::Arc::new(crate::ai::Sequence::new(json)?)),
+            "Selector" => Ok(std::sync::Arc::new(crate::ai::Selector::new(json)?)),
+            "SimpleParallel" => Ok(std::sync::Arc::new(crate::ai::SimpleParallel::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for ComposeNode:{}", type_id)))
         }
     }
 }
@@ -1552,21 +1552,21 @@ impl crate::ai::TComposeNode for crate::ai::SimpleParallel {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::ai::TComposeNode> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::ai::TComposeNode {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TComposeNode, LubanError> {
         let base: Result<&crate::ai::Sequence, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::Selector, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::SimpleParallel, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -1580,14 +1580,14 @@ pub struct Sequence {
 }
 
 impl Sequence{
-    pub fn new(json: &serde_json::Value) -> Sequence {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<Sequence, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
-        let children = json["children"].as_array().unwrap().iter().map(|field| crate::ai::FlowNode::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
+        let children = json["children"].as_array().unwrap().iter().map(|field| crate::ai::FlowNode::new(&field).unwrap()).collect();
         
-        Sequence { id, node_name, decorators, services, children, }
+        Ok(Sequence { id, node_name, decorators, services, children, })
     }
 }
 
@@ -1601,14 +1601,14 @@ pub struct Selector {
 }
 
 impl Selector{
-    pub fn new(json: &serde_json::Value) -> Selector {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<Selector, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
-        let children = json["children"].as_array().unwrap().iter().map(|field| crate::ai::FlowNode::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
+        let children = json["children"].as_array().unwrap().iter().map(|field| crate::ai::FlowNode::new(&field).unwrap()).collect();
         
-        Selector { id, node_name, decorators, services, children, }
+        Ok(Selector { id, node_name, decorators, services, children, })
     }
 }
 
@@ -1624,16 +1624,16 @@ pub struct SimpleParallel {
 }
 
 impl SimpleParallel{
-    pub fn new(json: &serde_json::Value) -> SimpleParallel {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<SimpleParallel, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
         let finish_mode = <i32 as std::str::FromStr>::from_str(&json["finish_mode"].to_string()).unwrap().into();
-        let main_task = crate::ai::Task::new(&json["main_task"]);
-        let background_node = crate::ai::FlowNode::new(&json["background_node"]);
+        let main_task = crate::ai::Task::new(&json["main_task"])?;
+        let background_node = crate::ai::FlowNode::new(&json["background_node"])?;
         
-        SimpleParallel { id, node_name, decorators, services, finish_mode, main_task, background_node, }
+        Ok(SimpleParallel { id, node_name, decorators, services, finish_mode, main_task, background_node, })
     }
 }
 
@@ -1647,17 +1647,17 @@ pub struct Task {
 }
 
 impl Task {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<AbstractBase> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
         let type_id = json["$type"].as_str().unwrap();
         match type_id {
-            "UeWait" => std::sync::Arc::new(crate::ai::UeWait::new(json)),
-            "UeWaitBlackboardTime" => std::sync::Arc::new(crate::ai::UeWaitBlackboardTime::new(json)),
-            "MoveToTarget" => std::sync::Arc::new(crate::ai::MoveToTarget::new(json)),
-            "ChooseSkill" => std::sync::Arc::new(crate::ai::ChooseSkill::new(json)),
-            "MoveToRandomLocation" => std::sync::Arc::new(crate::ai::MoveToRandomLocation::new(json)),
-            "MoveToLocation" => std::sync::Arc::new(crate::ai::MoveToLocation::new(json)),
-            "DebugPrint" => std::sync::Arc::new(crate::ai::DebugPrint::new(json)),
-            _ => panic!("Invalid type for Task:{}", type_id)
+            "UeWait" => Ok(std::sync::Arc::new(crate::ai::UeWait::new(json)?)),
+            "UeWaitBlackboardTime" => Ok(std::sync::Arc::new(crate::ai::UeWaitBlackboardTime::new(json)?)),
+            "MoveToTarget" => Ok(std::sync::Arc::new(crate::ai::MoveToTarget::new(json)?)),
+            "ChooseSkill" => Ok(std::sync::Arc::new(crate::ai::ChooseSkill::new(json)?)),
+            "MoveToRandomLocation" => Ok(std::sync::Arc::new(crate::ai::MoveToRandomLocation::new(json)?)),
+            "MoveToLocation" => Ok(std::sync::Arc::new(crate::ai::MoveToLocation::new(json)?)),
+            "DebugPrint" => Ok(std::sync::Arc::new(crate::ai::DebugPrint::new(json)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for Task:{}", type_id)))
         }
     }
 }
@@ -1797,37 +1797,37 @@ impl crate::ai::TTask for crate::ai::DebugPrint {
 }
 
 impl<'a> GetBase<'a, &'a dyn crate::ai::TTask> for AbstractBase {
-    fn get_base(&'a self) -> &'a dyn crate::ai::TTask {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TTask, LubanError> {
         let base: Result<&crate::ai::UeWait, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::UeWaitBlackboardTime, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::MoveToTarget, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::ChooseSkill, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::MoveToRandomLocation, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::MoveToLocation, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
         let base: Result<&crate::ai::DebugPrint, _> = self.try_into();
         if let Ok(r) = base {
-            return r;
+            return Ok(r);
         }
 
-        panic!("Invalid type for Shape")
+        Err(LubanError::Polymorphic(format!("Invalid type for Shape")))
     }
 }
 
@@ -1843,16 +1843,16 @@ pub struct UeWait {
 }
 
 impl UeWait{
-    pub fn new(json: &serde_json::Value) -> UeWait {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<UeWait, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
         let ignore_restart_self = json["ignore_restart_self"].as_bool().unwrap();
-        let wait_time = json["wait_time"].as_f64().unwrap() as f32;
-        let random_deviation = json["random_deviation"].as_f64().unwrap() as f32;
+        let wait_time = (json["wait_time"].as_f64().unwrap() as f32);
+        let random_deviation = (json["random_deviation"].as_f64().unwrap() as f32);
         
-        UeWait { id, node_name, decorators, services, ignore_restart_self, wait_time, random_deviation, }
+        Ok(UeWait { id, node_name, decorators, services, ignore_restart_self, wait_time, random_deviation, })
     }
 }
 
@@ -1867,15 +1867,15 @@ pub struct UeWaitBlackboardTime {
 }
 
 impl UeWaitBlackboardTime{
-    pub fn new(json: &serde_json::Value) -> UeWaitBlackboardTime {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<UeWaitBlackboardTime, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
         let ignore_restart_self = json["ignore_restart_self"].as_bool().unwrap();
         let blackboard_key = json["blackboard_key"].as_str().unwrap().to_string();
         
-        UeWaitBlackboardTime { id, node_name, decorators, services, ignore_restart_self, blackboard_key, }
+        Ok(UeWaitBlackboardTime { id, node_name, decorators, services, ignore_restart_self, blackboard_key, })
     }
 }
 
@@ -1891,16 +1891,16 @@ pub struct MoveToTarget {
 }
 
 impl MoveToTarget{
-    pub fn new(json: &serde_json::Value) -> MoveToTarget {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<MoveToTarget, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
         let ignore_restart_self = json["ignore_restart_self"].as_bool().unwrap();
         let target_actor_key = json["target_actor_key"].as_str().unwrap().to_string();
-        let acceptable_radius = json["acceptable_radius"].as_f64().unwrap() as f32;
+        let acceptable_radius = (json["acceptable_radius"].as_f64().unwrap() as f32);
         
-        MoveToTarget { id, node_name, decorators, services, ignore_restart_self, target_actor_key, acceptable_radius, }
+        Ok(MoveToTarget { id, node_name, decorators, services, ignore_restart_self, target_actor_key, acceptable_radius, })
     }
 }
 
@@ -1916,16 +1916,16 @@ pub struct ChooseSkill {
 }
 
 impl ChooseSkill{
-    pub fn new(json: &serde_json::Value) -> ChooseSkill {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<ChooseSkill, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
         let ignore_restart_self = json["ignore_restart_self"].as_bool().unwrap();
         let target_actor_key = json["target_actor_key"].as_str().unwrap().to_string();
         let result_skill_id_key = json["result_skill_id_key"].as_str().unwrap().to_string();
         
-        ChooseSkill { id, node_name, decorators, services, ignore_restart_self, target_actor_key, result_skill_id_key, }
+        Ok(ChooseSkill { id, node_name, decorators, services, ignore_restart_self, target_actor_key, result_skill_id_key, })
     }
 }
 
@@ -1941,16 +1941,16 @@ pub struct MoveToRandomLocation {
 }
 
 impl MoveToRandomLocation{
-    pub fn new(json: &serde_json::Value) -> MoveToRandomLocation {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<MoveToRandomLocation, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
         let ignore_restart_self = json["ignore_restart_self"].as_bool().unwrap();
         let origin_position_key = json["origin_position_key"].as_str().unwrap().to_string();
-        let radius = json["radius"].as_f64().unwrap() as f32;
+        let radius = (json["radius"].as_f64().unwrap() as f32);
         
-        MoveToRandomLocation { id, node_name, decorators, services, ignore_restart_self, origin_position_key, radius, }
+        Ok(MoveToRandomLocation { id, node_name, decorators, services, ignore_restart_self, origin_position_key, radius, })
     }
 }
 
@@ -1965,15 +1965,15 @@ pub struct MoveToLocation {
 }
 
 impl MoveToLocation{
-    pub fn new(json: &serde_json::Value) -> MoveToLocation {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<MoveToLocation, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
         let ignore_restart_self = json["ignore_restart_self"].as_bool().unwrap();
-        let acceptable_radius = json["acceptable_radius"].as_f64().unwrap() as f32;
+        let acceptable_radius = (json["acceptable_radius"].as_f64().unwrap() as f32);
         
-        MoveToLocation { id, node_name, decorators, services, ignore_restart_self, acceptable_radius, }
+        Ok(MoveToLocation { id, node_name, decorators, services, ignore_restart_self, acceptable_radius, })
     }
 }
 
@@ -1988,15 +1988,15 @@ pub struct DebugPrint {
 }
 
 impl DebugPrint{
-    pub fn new(json: &serde_json::Value) -> DebugPrint {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<DebugPrint, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field)).collect();
-        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field)).collect();
+        let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
+        let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
         let ignore_restart_self = json["ignore_restart_self"].as_bool().unwrap();
         let text = json["text"].as_str().unwrap().to_string();
         
-        DebugPrint { id, node_name, decorators, services, ignore_restart_self, text, }
+        Ok(DebugPrint { id, node_name, decorators, services, ignore_restart_self, text, })
     }
 }
 
@@ -2007,18 +2007,18 @@ pub struct TbBlackboard {
     pub data_map: std::collections::HashMap<String, std::sync::Arc<crate::ai::Blackboard>>,
 }
 
-impl TbBlackboard {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbBlackboard> {
+impl TbBlackboard {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbBlackboard>, LubanError> {
         let mut data_map: std::collections::HashMap<String, std::sync::Arc<crate::ai::Blackboard>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::ai::Blackboard>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::ai::Blackboard::new(&x));
+            let row = std::sync::Arc::new(crate::ai::Blackboard::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.name.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbBlackboard { data_map, data_list })
+        Ok(std::sync::Arc::new(TbBlackboard { data_map, data_list }))
     }
 
     pub fn get(&self, key: &String) -> Option<std::sync::Arc<crate::ai::Blackboard>> {
@@ -2041,18 +2041,18 @@ pub struct TbBehaviorTree {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::ai::BehaviorTree>>,
 }
 
-impl TbBehaviorTree {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbBehaviorTree> {
+impl TbBehaviorTree {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbBehaviorTree>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::ai::BehaviorTree>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::ai::BehaviorTree>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::ai::BehaviorTree::new(&x));
+            let row = std::sync::Arc::new(crate::ai::BehaviorTree::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbBehaviorTree { data_map, data_list })
+        Ok(std::sync::Arc::new(TbBehaviorTree { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::ai::BehaviorTree>> {
