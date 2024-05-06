@@ -20,11 +20,11 @@ pub struct Rectangle {
 }
 
 impl Rectangle{
-    pub fn new(json: &serde_json::Value) -> Rectangle {
-        let width = json["width"].as_f64().unwrap() as f32;
-        let height = json["height"].as_f64().unwrap() as f32;
+    pub fn new(json: &serde_json::Value) -> Result<Rectangle, LubanError> {
+        let width = (json["width"].as_f64().unwrap() as f32);
+        let height = (json["height"].as_f64().unwrap() as f32);
         
-        Rectangle { width, height, }
+        Ok(Rectangle { width, height, })
     }
 }
 

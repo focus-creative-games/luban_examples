@@ -24,16 +24,16 @@ pub struct GlobalConfig {
 }
 
 impl GlobalConfig{
-    pub fn new(json: &serde_json::Value) -> GlobalConfig {
-        let x1 = json["x1"].as_i64().unwrap() as i32;
-        let x2 = json["x2"].as_i64().unwrap() as i32;
-        let x3 = json["x3"].as_i64().unwrap() as i32;
-        let x4 = json["x4"].as_i64().unwrap() as i32;
-        let x5 = json["x5"].as_i64().unwrap() as i32;
-        let x6 = json["x6"].as_i64().unwrap() as i32;
-        let x7 = json["x7"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap() as i32).collect();
+    pub fn new(json: &serde_json::Value) -> Result<GlobalConfig, LubanError> {
+        let x1 = (json["x1"].as_i64().unwrap() as i32);
+        let x2 = (json["x2"].as_i64().unwrap() as i32);
+        let x3 = (json["x3"].as_i64().unwrap() as i32);
+        let x4 = (json["x4"].as_i64().unwrap() as i32);
+        let x5 = (json["x5"].as_i64().unwrap() as i32);
+        let x6 = (json["x6"].as_i64().unwrap() as i32);
+        let x7 = json["x7"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
         
-        GlobalConfig { x1, x2, x3, x4, x5, x6, x7, }
+        Ok(GlobalConfig { x1, x2, x3, x4, x5, x6, x7, })
     }
 }
 
@@ -44,12 +44,12 @@ pub struct TbGlobalConfig {
 }
 
 impl TbGlobalConfig {
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbGlobalConfig> {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbGlobalConfig>, LubanError> {
         let json = json.as_array().unwrap();
         let n = json.len();
-        if n != 1 { panic!("table mode=one, but size != 1") }
-        let data = crate::common::GlobalConfig::new(&json[0]);
-        std::sync::Arc::new(TbGlobalConfig { data })
+        if n != 1 { return Err(LubanError::Table(format!("table mode=one, but size != 1"))); }
+        let data = crate::common::GlobalConfig::new(&json[0])?;
+        Ok(std::sync::Arc::new(TbGlobalConfig { data }))
     }
 }
 

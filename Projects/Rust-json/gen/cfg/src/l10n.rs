@@ -18,11 +18,11 @@ pub struct L10NDemo {
 }
 
 impl L10NDemo{
-    pub fn new(json: &serde_json::Value) -> L10NDemo {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<L10NDemo, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let text = json["text"].as_str().unwrap().to_string();
         
-        L10NDemo { id, text, }
+        Ok(L10NDemo { id, text, })
     }
 }
 
@@ -33,11 +33,11 @@ pub struct PatchDemo {
 }
 
 impl PatchDemo{
-    pub fn new(json: &serde_json::Value) -> PatchDemo {
-        let id = json["id"].as_i64().unwrap() as i32;
-        let value = json["value"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<PatchDemo, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let value = (json["value"].as_i64().unwrap() as i32);
         
-        PatchDemo { id, value, }
+        Ok(PatchDemo { id, value, })
     }
 }
 
@@ -48,18 +48,18 @@ pub struct TbL10NDemo {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::l10n::L10NDemo>>,
 }
 
-impl TbL10NDemo {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbL10NDemo> {
+impl TbL10NDemo {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbL10NDemo>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::l10n::L10NDemo>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::l10n::L10NDemo>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::l10n::L10NDemo::new(&x));
+            let row = std::sync::Arc::new(crate::l10n::L10NDemo::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbL10NDemo { data_map, data_list })
+        Ok(std::sync::Arc::new(TbL10NDemo { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::l10n::L10NDemo>> {
@@ -82,18 +82,18 @@ pub struct TbPatchDemo {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::l10n::PatchDemo>>,
 }
 
-impl TbPatchDemo {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbPatchDemo> {
+impl TbPatchDemo {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbPatchDemo>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::l10n::PatchDemo>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::l10n::PatchDemo>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::l10n::PatchDemo::new(&x));
+            let row = std::sync::Arc::new(crate::l10n::PatchDemo::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbPatchDemo { data_map, data_list })
+        Ok(std::sync::Arc::new(TbPatchDemo { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::l10n::PatchDemo>> {

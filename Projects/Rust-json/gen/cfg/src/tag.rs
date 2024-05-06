@@ -18,11 +18,11 @@ pub struct TestTag {
 }
 
 impl TestTag{
-    pub fn new(json: &serde_json::Value) -> TestTag {
-        let id = json["id"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<TestTag, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
         let value = json["value"].as_str().unwrap().to_string();
         
-        TestTag { id, value, }
+        Ok(TestTag { id, value, })
     }
 }
 
@@ -33,18 +33,18 @@ pub struct TbTestTag {
     pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::tag::TestTag>>,
 }
 
-impl TbTestTag {    
-    pub fn new(json: &serde_json::Value) -> std::sync::Arc<TbTestTag> {
+impl TbTestTag {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<TbTestTag>, LubanError> {
         let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::tag::TestTag>> = Default::default();
         let mut data_list: Vec<std::sync::Arc<crate::tag::TestTag>> = vec![];
 
         for x in json.as_array().unwrap() {
-            let row = std::sync::Arc::new(crate::tag::TestTag::new(&x));
+            let row = std::sync::Arc::new(crate::tag::TestTag::new(&x)?);
             data_list.push(row.clone());
             data_map.insert(row.id.clone(), row.clone());
         }
 
-        std::sync::Arc::new(TbTestTag { data_map, data_list })
+        Ok(std::sync::Arc::new(TbTestTag { data_map, data_list }))
     }
 
     pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::tag::TestTag>> {

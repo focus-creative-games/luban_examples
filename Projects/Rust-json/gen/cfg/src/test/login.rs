@@ -19,12 +19,12 @@ pub struct RoleInfo {
 }
 
 impl RoleInfo{
-    pub fn new(json: &serde_json::Value) -> RoleInfo {
-        let x1 = json["x1"].as_i64().unwrap() as i32;
-        let x3 = json["x3"].as_i64().unwrap() as i32;
+    pub fn new(json: &serde_json::Value) -> Result<RoleInfo, LubanError> {
+        let x1 = (json["x1"].as_i64().unwrap() as i32);
+        let x3 = (json["x3"].as_i64().unwrap() as i32);
         let role_id = json["role_id"].as_i64().unwrap();
         
-        RoleInfo { x1, x3, role_id, }
+        Ok(RoleInfo { x1, x3, role_id, })
     }
 }
 
