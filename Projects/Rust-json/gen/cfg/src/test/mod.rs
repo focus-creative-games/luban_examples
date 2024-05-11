@@ -40,6 +40,8 @@ impl From<i32> for DemoEnum {
     }
 }
 
+enum_from_num!(DemoEnum);
+
 bitflags::bitflags!{    
     #[derive(Debug, Hash, Eq, PartialEq)]
     pub struct DemoFlag : u32 {
@@ -112,7 +114,7 @@ impl DemoType2{
         let x9 = json["x9"].as_i64().unwrap();
         let x10 = json["x10"].as_str().unwrap().to_string();
         let x12 = crate::test::DemoType1::new(&json["x12"])?;
-        let x13 = <i32 as std::str::FromStr>::from_str(&json["x13"].to_string()).unwrap().into();
+        let x13 = json["x13"].as_i64().unwrap().into();
         let x14 = crate::test::DemoDynamic::new(&json["x14"])?;
         let s1 = json["s1"].as_str().unwrap().to_string();
         let t1 = (json["t1"].as_i64().unwrap() as u64);
@@ -597,7 +599,7 @@ impl TestNull{
     pub fn new(json: &serde_json::Value) -> Result<TestNull, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
         let mut x1 = None; if let Some(value) = json.get("x1") { x1 = Some((json["x1"].as_i64().unwrap() as i32)); }
-        let mut x2 = None; if let Some(value) = json.get("x2") { x2 = Some(<i32 as std::str::FromStr>::from_str(&json["x2"].to_string()).unwrap().into()); }
+        let mut x2 = None; if let Some(value) = json.get("x2") { x2 = Some(json["x2"].as_i64().unwrap().into()); }
         let mut x3 = None; if let Some(value) = json.get("x3") { x3 = Some(crate::test::DemoType1::new(&json["x3"])?); }
         let mut x4 = None; if let Some(value) = json.get("x4") { x4 = Some(crate::test::DemoDynamic::new(&json["x4"])?); }
         let mut s1 = None; if let Some(value) = json.get("s1") { s1 = Some(json["s1"].as_str().unwrap().to_string()); }
@@ -896,7 +898,7 @@ impl TestSet{
         let x1 = json["x1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
         let x2 = json["x2"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap()).collect();
         let x3 = json["x3"].as_array().unwrap().iter().map(|field| field.as_str().unwrap().to_string()).collect();
-        let x4 = json["x4"].as_array().unwrap().iter().map(|field| <i32 as std::str::FromStr>::from_str(&field.to_string()).unwrap().into()).collect();
+        let x4 = json["x4"].as_array().unwrap().iter().map(|field| field.as_i64().unwrap().into()).collect();
         
         Ok(TestSet { id, x0, x1, x2, x3, x4, })
     }
@@ -1032,7 +1034,7 @@ impl Equipment{
         let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
         let desc = json["desc"].as_str().unwrap().to_string();
-        let attr = <i32 as std::str::FromStr>::from_str(&json["attr"].to_string()).unwrap().into();
+        let attr = json["attr"].as_i64().unwrap().into();
         let value = (json["value"].as_i64().unwrap() as i32);
         
         Ok(Equipment { id, name, desc, attr, value, })
@@ -1088,7 +1090,7 @@ impl TestMap{
         let x1 = std::collections::HashMap::from_iter(json["x1"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
         let x2 = std::collections::HashMap::from_iter(json["x2"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap(), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i64, i32)>>());
         let x3 = std::collections::HashMap::from_iter(json["x3"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_str().unwrap().to_string(), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(String, i32)>>());
-        let x4 = std::collections::HashMap::from_iter(json["x4"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(<i32 as std::str::FromStr>::from_str(&array[0].to_string()).unwrap().into(), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(crate::test::DemoEnum, i32)>>());
+        let x4 = std::collections::HashMap::from_iter(json["x4"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_i64().unwrap().into(), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(crate::test::DemoEnum, i32)>>());
         
         Ok(TestMap { id, x1, x2, x3, x4, })
     }
@@ -1122,7 +1124,7 @@ impl ExcelFromJson{
         let s2 = json["s2"].as_str().unwrap().to_string();
         let t1 = (json["t1"].as_i64().unwrap() as u64);
         let x12 = crate::test::DemoType1::new(&json["x12"])?;
-        let x13 = <i32 as std::str::FromStr>::from_str(&json["x13"].to_string()).unwrap().into();
+        let x13 = json["x13"].as_i64().unwrap().into();
         let x14 = crate::test::DemoDynamic::new(&json["x14"])?;
         let k1 = json["k1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
         let k8 = std::collections::HashMap::from_iter(json["k8"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
@@ -1281,7 +1283,7 @@ pub struct TestMapper {
 impl TestMapper{
     pub fn new(json: &serde_json::Value) -> Result<TestMapper, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
-        let audio_type = <i32 as std::str::FromStr>::from_str(&json["audio_type"].to_string()).unwrap().into();
+        let audio_type = json["audio_type"].as_i64().unwrap().into();
         let v2 = crate::vec2::new(&json["v2"])?;
         
         Ok(TestMapper { id, audio_type, v2, })

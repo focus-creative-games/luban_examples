@@ -56,6 +56,8 @@ impl From<i32> for EMajorType {
     }
 }
 
+enum_from_num!(EMajorType);
+
 #[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
 pub enum EMinorType {
     ///钻石
@@ -215,6 +217,8 @@ impl From<i32> for EMinorType {
     }
 }
 
+enum_from_num!(EMinorType);
+
 ///道具品质
 #[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
 pub enum EItemQuality {
@@ -243,6 +247,8 @@ impl From<i32> for EItemQuality {
     }
 }
 
+enum_from_num!(EItemQuality);
+
 #[derive(Debug)]
 pub struct Item {
     /// 道具id
@@ -263,10 +269,10 @@ impl Item{
     pub fn new(json: &serde_json::Value) -> Result<Item, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
         let name = json["name"].as_str().unwrap().to_string();
-        let major_type = <i32 as std::str::FromStr>::from_str(&json["major_type"].to_string()).unwrap().into();
-        let minor_type = <i32 as std::str::FromStr>::from_str(&json["minor_type"].to_string()).unwrap().into();
+        let major_type = json["major_type"].as_i64().unwrap().into();
+        let minor_type = json["minor_type"].as_i64().unwrap().into();
         let max_pile_num = (json["max_pile_num"].as_i64().unwrap() as i32);
-        let quality = <i32 as std::str::FromStr>::from_str(&json["quality"].to_string()).unwrap().into();
+        let quality = json["quality"].as_i64().unwrap().into();
         let icon = json["icon"].as_str().unwrap().to_string();
         let icon_backgroud = json["icon_backgroud"].as_str().unwrap().to_string();
         let icon_mask = json["icon_mask"].as_str().unwrap().to_string();

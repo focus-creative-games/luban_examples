@@ -7,137 +7,6 @@
 </auto-generated>
 */
 
-pub mod ai;
-pub mod common;
-pub mod item;
-pub mod l10n;
-pub mod tag;
-pub mod test;
-pub mod test2;
-
-use serde::Deserialize;
-
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
-pub enum AudioType {
-    UNKNOWN = 0,
-    ACC = 1,
-    AIFF = 2,
-}
-
-impl From<i32> for AudioType {
-    fn from(value: i32) -> Self {
-        match value { 
-            0 => AudioType::UNKNOWN,
-            1 => AudioType::ACC,
-            2 => AudioType::AIFF,
-            _ => panic!("Invalid value for AudioType:{}", value),
-        }
-    }
-}
-
-#[derive(Debug)]
-pub struct vec2 {
-    pub x: f32,
-    pub y: f32,
-}
-
-impl vec2{
-    pub fn new(json: &serde_json::Value) -> Result<vec2, LubanError> {
-        let x = (json["x"].as_f64().unwrap() as f32);
-        let y = (json["y"].as_f64().unwrap() as f32);
-        
-        Ok(vec2 { x, y, })
-    }
-}
-
-#[derive(Debug)]
-pub struct vec3 {
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
-}
-
-impl vec3{
-    pub fn new(json: &serde_json::Value) -> Result<vec3, LubanError> {
-        let x = (json["x"].as_f64().unwrap() as f32);
-        let y = (json["y"].as_f64().unwrap() as f32);
-        let z = (json["z"].as_f64().unwrap() as f32);
-        
-        Ok(vec3 { x, y, z, })
-    }
-}
-
-#[derive(Debug)]
-pub struct vec4 {
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
-    pub w: f32,
-}
-
-impl vec4{
-    pub fn new(json: &serde_json::Value) -> Result<vec4, LubanError> {
-        let x = (json["x"].as_f64().unwrap() as f32);
-        let y = (json["y"].as_f64().unwrap() as f32);
-        let z = (json["z"].as_f64().unwrap() as f32);
-        let w = (json["w"].as_f64().unwrap() as f32);
-        
-        Ok(vec4 { x, y, z, w, })
-    }
-}
-
-#[derive(Debug)]
-pub struct DefineFromExcel2 {
-    /// 这是id
-    pub id: i32,
-    /// 字段x1
-    pub x1: bool,
-    pub x5: i64,
-    pub x6: f32,
-    pub x8: i32,
-    pub x10: String,
-    pub x13: crate::test::DemoEnum,
-    pub x13_2: crate::test::DemoFlag,
-    pub x14: std::sync::Arc<AbstractBase>,
-    pub x15: std::sync::Arc<AbstractBase>,
-    pub v2: crate::vec2,
-    pub t1: u64,
-    pub k1: Box<[i32]>,
-    pub k2: Box<[i32]>,
-    pub k8: std::collections::HashMap<i32, i32>,
-    pub k9: Vec<crate::test::DemoE2>,
-    pub k10: Vec<crate::vec3>,
-    pub k11: Vec<crate::vec4>,
-    pub v11: Option<crate::vec3>,
-}
-
-impl DefineFromExcel2{
-    pub fn new(json: &serde_json::Value) -> Result<DefineFromExcel2, LubanError> {
-        let id = (json["id"].as_i64().unwrap() as i32);
-        let x1 = json["x1"].as_bool().unwrap();
-        let x5 = json["x5"].as_i64().unwrap();
-        let x6 = (json["x6"].as_f64().unwrap() as f32);
-        let x8 = (json["x8"].as_i64().unwrap() as i32);
-        let x10 = json["x10"].as_str().unwrap().to_string();
-        let x13 = <i32 as std::str::FromStr>::from_str(&json["x13"].to_string()).unwrap().into();
-        let x13_2 = crate::test::DemoFlag::from_bits_truncate(<u32 as std::str::FromStr>::from_str(&json["x13_2"].to_string()).unwrap());
-        let x14 = crate::test::DemoDynamic::new(&json["x14"])?;
-        let x15 = crate::test::Shape::new(&json["x15"])?;
-        let v2 = crate::vec2::new(&json["v2"])?;
-        let t1 = (json["t1"].as_i64().unwrap() as u64);
-        let k1 = json["k1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
-        let k2 = json["k2"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
-        let k8 = std::collections::HashMap::from_iter(json["k8"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
-        let k9 = json["k9"].as_array().unwrap().iter().map(|field| crate::test::DemoE2::new(&field).unwrap()).collect();
-        let k10 = json["k10"].as_array().unwrap().iter().map(|field| crate::vec3::new(&field).unwrap()).collect();
-        let k11 = json["k11"].as_array().unwrap().iter().map(|field| crate::vec4::new(&field).unwrap()).collect();
-        let mut v11 = None; if let Some(value) = json.get("v11") { v11 = Some(crate::vec3::new(&json["v11"])?); }
-        
-        Ok(DefineFromExcel2 { id, x1, x5, x6, x8, x10, x13, x13_2, x14, x15, v2, t1, k1, k2, k8, k9, k10, k11, v11, })
-    }
-}
-
-
 pub mod prelude{
     pub use crate::*;
     pub use crate::ai::*;
@@ -156,7 +25,8 @@ pub trait GetBase<'a, T> {
     fn get_base(&'a self) -> Result<T, LubanError>;
 }
 
-macro_rules! try_from {
+#[macro_export]
+macro_rules! base_try_from {
     ($($t:ty),+) => {
         $(
             impl<'a> TryFrom<&'a AbstractBase> for &'a $t {
@@ -175,7 +45,23 @@ macro_rules! try_from {
     };
 }
 
-try_from!( crate::ai::Node, crate::ai::Service, crate::ai::UeSetDefaultFocus, crate::ai::ExecuteTimeStatistic, crate::ai::ChooseTarget, crate::ai::KeepFaceTarget, crate::ai::GetOwnerPlayer, crate::ai::UpdateDailyBehaviorProps, crate::ai::Decorator, crate::ai::UeLoop, crate::ai::UeCooldown, crate::ai::UeTimeLimit, crate::ai::UeBlackboard, crate::ai::KeyQueryOperator, crate::ai::IsSet2, crate::ai::IsNotSet, crate::ai::BinaryOperator, crate::ai::KeyData, crate::ai::FloatKeyData, crate::ai::IntKeyData, crate::ai::StringKeyData, crate::ai::BlackboardKeyData, crate::ai::UeForceSuccess, crate::ai::IsAtLocation, crate::ai::DistanceLessThan, crate::ai::FlowNode, crate::ai::ComposeNode, crate::ai::Sequence, crate::ai::Selector, crate::ai::SimpleParallel, crate::ai::Task, crate::ai::UeWait, crate::ai::UeWaitBlackboardTime, crate::ai::MoveToTarget, crate::ai::ChooseSkill, crate::ai::MoveToRandomLocation, crate::ai::MoveToLocation, crate::ai::DebugPrint, crate::test::DemoDynamic, crate::test::DemoD2, crate::test::DemoD3, crate::test::DemoE1, crate::test::login::RoleInfo, crate::test::DemoD5, crate::test::RefDynamicBase, crate::test::RefBean, crate::test::ItemBase, crate::test::Item, crate::test::Equipment, crate::test::Decorator, crate::test::Shape, crate::test::Circle, crate::test2::Rectangle);
+#[macro_export]
+macro_rules! enum_from_num {
+    ($t:ty) => {
+        enum_from_num!($t, i64, i16, i8, u64, u32, u16, u8, f64, f32);
+    };
+    ($t:ty,$($num:ty),+) => {
+        $(
+            impl From<$num> for $t {
+                fn from(value: $num) -> Self {
+                    (value as i32).into()
+                }
+            }
+        )+
+    };
+}
+
+base_try_from!( crate::ai::Node, crate::ai::Service, crate::ai::UeSetDefaultFocus, crate::ai::ExecuteTimeStatistic, crate::ai::ChooseTarget, crate::ai::KeepFaceTarget, crate::ai::GetOwnerPlayer, crate::ai::UpdateDailyBehaviorProps, crate::ai::Decorator, crate::ai::UeLoop, crate::ai::UeCooldown, crate::ai::UeTimeLimit, crate::ai::UeBlackboard, crate::ai::KeyQueryOperator, crate::ai::IsSet2, crate::ai::IsNotSet, crate::ai::BinaryOperator, crate::ai::KeyData, crate::ai::FloatKeyData, crate::ai::IntKeyData, crate::ai::StringKeyData, crate::ai::BlackboardKeyData, crate::ai::UeForceSuccess, crate::ai::IsAtLocation, crate::ai::DistanceLessThan, crate::ai::FlowNode, crate::ai::ComposeNode, crate::ai::Sequence, crate::ai::Selector, crate::ai::SimpleParallel, crate::ai::Task, crate::ai::UeWait, crate::ai::UeWaitBlackboardTime, crate::ai::MoveToTarget, crate::ai::ChooseSkill, crate::ai::MoveToRandomLocation, crate::ai::MoveToLocation, crate::ai::DebugPrint, crate::test::DemoDynamic, crate::test::DemoD2, crate::test::DemoD3, crate::test::DemoE1, crate::test::login::RoleInfo, crate::test::DemoD5, crate::test::RefDynamicBase, crate::test::RefBean, crate::test::ItemBase, crate::test::Item, crate::test::Equipment, crate::test::Decorator, crate::test::Shape, crate::test::Circle, crate::test2::Rectangle);
 
 #[derive(Debug)]
 pub enum LubanError {
@@ -291,3 +177,136 @@ impl Tables {
         })
     }
 }
+pub mod ai;
+pub mod common;
+pub mod item;
+pub mod l10n;
+pub mod tag;
+pub mod test;
+pub mod test2;
+
+use serde::Deserialize;
+
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+pub enum AudioType {
+    UNKNOWN = 0,
+    ACC = 1,
+    AIFF = 2,
+}
+
+impl From<i32> for AudioType {
+    fn from(value: i32) -> Self {
+        match value { 
+            0 => AudioType::UNKNOWN,
+            1 => AudioType::ACC,
+            2 => AudioType::AIFF,
+            _ => panic!("Invalid value for AudioType:{}", value),
+        }
+    }
+}
+
+enum_from_num!(AudioType);
+
+#[derive(Debug)]
+pub struct vec2 {
+    pub x: f32,
+    pub y: f32,
+}
+
+impl vec2{
+    pub fn new(json: &serde_json::Value) -> Result<vec2, LubanError> {
+        let x = (json["x"].as_f64().unwrap() as f32);
+        let y = (json["y"].as_f64().unwrap() as f32);
+        
+        Ok(vec2 { x, y, })
+    }
+}
+
+#[derive(Debug)]
+pub struct vec3 {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+}
+
+impl vec3{
+    pub fn new(json: &serde_json::Value) -> Result<vec3, LubanError> {
+        let x = (json["x"].as_f64().unwrap() as f32);
+        let y = (json["y"].as_f64().unwrap() as f32);
+        let z = (json["z"].as_f64().unwrap() as f32);
+        
+        Ok(vec3 { x, y, z, })
+    }
+}
+
+#[derive(Debug)]
+pub struct vec4 {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+    pub w: f32,
+}
+
+impl vec4{
+    pub fn new(json: &serde_json::Value) -> Result<vec4, LubanError> {
+        let x = (json["x"].as_f64().unwrap() as f32);
+        let y = (json["y"].as_f64().unwrap() as f32);
+        let z = (json["z"].as_f64().unwrap() as f32);
+        let w = (json["w"].as_f64().unwrap() as f32);
+        
+        Ok(vec4 { x, y, z, w, })
+    }
+}
+
+#[derive(Debug)]
+pub struct DefineFromExcel2 {
+    /// 这是id
+    pub id: i32,
+    /// 字段x1
+    pub x1: bool,
+    pub x5: i64,
+    pub x6: f32,
+    pub x8: i32,
+    pub x10: String,
+    pub x13: crate::test::DemoEnum,
+    pub x13_2: crate::test::DemoFlag,
+    pub x14: std::sync::Arc<AbstractBase>,
+    pub x15: std::sync::Arc<AbstractBase>,
+    pub v2: crate::vec2,
+    pub t1: u64,
+    pub k1: Box<[i32]>,
+    pub k2: Box<[i32]>,
+    pub k8: std::collections::HashMap<i32, i32>,
+    pub k9: Vec<crate::test::DemoE2>,
+    pub k10: Vec<crate::vec3>,
+    pub k11: Vec<crate::vec4>,
+    pub v11: Option<crate::vec3>,
+}
+
+impl DefineFromExcel2{
+    pub fn new(json: &serde_json::Value) -> Result<DefineFromExcel2, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let x1 = json["x1"].as_bool().unwrap();
+        let x5 = json["x5"].as_i64().unwrap();
+        let x6 = (json["x6"].as_f64().unwrap() as f32);
+        let x8 = (json["x8"].as_i64().unwrap() as i32);
+        let x10 = json["x10"].as_str().unwrap().to_string();
+        let x13 = json["x13"].as_i64().unwrap().into();
+        let x13_2 = crate::test::DemoFlag::from_bits_truncate(<u32 as std::str::FromStr>::from_str(&json["x13_2"].to_string()).unwrap());
+        let x14 = crate::test::DemoDynamic::new(&json["x14"])?;
+        let x15 = crate::test::Shape::new(&json["x15"])?;
+        let v2 = crate::vec2::new(&json["v2"])?;
+        let t1 = (json["t1"].as_i64().unwrap() as u64);
+        let k1 = json["k1"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let k2 = json["k2"].as_array().unwrap().iter().map(|field| (field.as_i64().unwrap() as i32)).collect();
+        let k8 = std::collections::HashMap::from_iter(json["k8"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();((array[0].as_i64().unwrap() as i32), (array[1].as_i64().unwrap() as i32))}).collect::<Vec<(i32, i32)>>());
+        let k9 = json["k9"].as_array().unwrap().iter().map(|field| crate::test::DemoE2::new(&field).unwrap()).collect();
+        let k10 = json["k10"].as_array().unwrap().iter().map(|field| crate::vec3::new(&field).unwrap()).collect();
+        let k11 = json["k11"].as_array().unwrap().iter().map(|field| crate::vec4::new(&field).unwrap()).collect();
+        let mut v11 = None; if let Some(value) = json.get("v11") { v11 = Some(crate::vec3::new(&json["v11"])?); }
+        
+        Ok(DefineFromExcel2 { id, x1, x5, x6, x8, x10, x13, x13_2, x14, x15, v2, t1, k1, k2, k8, k9, k10, k11, v11, })
+    }
+}
+
+
