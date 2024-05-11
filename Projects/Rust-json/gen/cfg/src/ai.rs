@@ -43,6 +43,8 @@ impl From<i32> for EKeyType {
     }
 }
 
+enum_from_num!(EKeyType);
+
 #[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
 pub enum EFlowAbortMode {
     NONE = 0,
@@ -63,6 +65,8 @@ impl From<i32> for EFlowAbortMode {
     }
 }
 
+enum_from_num!(EFlowAbortMode);
+
 #[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
 pub enum ENotifyObserverMode {
     ON_VALUE_CHANGE = 0,
@@ -78,6 +82,8 @@ impl From<i32> for ENotifyObserverMode {
         }
     }
 }
+
+enum_from_num!(ENotifyObserverMode);
 
 #[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
 pub enum EOperator {
@@ -107,6 +113,8 @@ impl From<i32> for EOperator {
     }
 }
 
+enum_from_num!(EOperator);
+
 #[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
 pub enum EFinishMode {
     IMMEDIATE = 0,
@@ -122,6 +130,8 @@ impl From<i32> for EFinishMode {
         }
     }
 }
+
+enum_from_num!(EFinishMode);
 
 #[derive(Debug)]
 pub struct Blackboard {
@@ -156,7 +166,7 @@ impl BlackboardKey{
         let name = json["name"].as_str().unwrap().to_string();
         let desc = json["desc"].as_str().unwrap().to_string();
         let is_static = json["is_static"].as_bool().unwrap();
-        let key_type = <i32 as std::str::FromStr>::from_str(&json["key_type"].to_string()).unwrap().into();
+        let key_type = json["key_type"].as_i64().unwrap().into();
         let type_class_name = json["type_class_name"].as_str().unwrap().to_string();
         
         Ok(BlackboardKey { name, desc, is_static, key_type, type_class_name, })
@@ -922,7 +932,7 @@ impl UeLoop{
     pub fn new(json: &serde_json::Value) -> Result<UeLoop, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
+        let flow_abort_mode = json["flow_abort_mode"].as_i64().unwrap().into();
         let num_loops = (json["num_loops"].as_i64().unwrap() as i32);
         let infinite_loop = json["infinite_loop"].as_bool().unwrap();
         let infinite_loop_timeout_time = (json["infinite_loop_timeout_time"].as_f64().unwrap() as f32);
@@ -943,7 +953,7 @@ impl UeCooldown{
     pub fn new(json: &serde_json::Value) -> Result<UeCooldown, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
+        let flow_abort_mode = json["flow_abort_mode"].as_i64().unwrap().into();
         let cooldown_time = (json["cooldown_time"].as_f64().unwrap() as f32);
         
         Ok(UeCooldown { id, node_name, flow_abort_mode, cooldown_time, })
@@ -962,7 +972,7 @@ impl UeTimeLimit{
     pub fn new(json: &serde_json::Value) -> Result<UeTimeLimit, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
+        let flow_abort_mode = json["flow_abort_mode"].as_i64().unwrap().into();
         let limit_time = (json["limit_time"].as_f64().unwrap() as f32);
         
         Ok(UeTimeLimit { id, node_name, flow_abort_mode, limit_time, })
@@ -983,8 +993,8 @@ impl UeBlackboard{
     pub fn new(json: &serde_json::Value) -> Result<UeBlackboard, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
-        let notify_observer = <i32 as std::str::FromStr>::from_str(&json["notify_observer"].to_string()).unwrap().into();
+        let flow_abort_mode = json["flow_abort_mode"].as_i64().unwrap().into();
+        let notify_observer = json["notify_observer"].as_i64().unwrap().into();
         let blackboard_key = json["blackboard_key"].as_str().unwrap().to_string();
         let key_query = crate::ai::KeyQueryOperator::new(&json["key_query"])?;
         
@@ -1069,7 +1079,7 @@ pub struct BinaryOperator {
 
 impl BinaryOperator{
     pub fn new(json: &serde_json::Value) -> Result<BinaryOperator, LubanError> {
-        let oper = <i32 as std::str::FromStr>::from_str(&json["oper"].to_string()).unwrap().into();
+        let oper = json["oper"].as_i64().unwrap().into();
         let data = crate::ai::KeyData::new(&json["data"])?;
         
         Ok(BinaryOperator { oper, data, })
@@ -1194,7 +1204,7 @@ impl UeForceSuccess{
     pub fn new(json: &serde_json::Value) -> Result<UeForceSuccess, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
+        let flow_abort_mode = json["flow_abort_mode"].as_i64().unwrap().into();
         
         Ok(UeForceSuccess { id, node_name, flow_abort_mode, })
     }
@@ -1214,7 +1224,7 @@ impl IsAtLocation{
     pub fn new(json: &serde_json::Value) -> Result<IsAtLocation, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
+        let flow_abort_mode = json["flow_abort_mode"].as_i64().unwrap().into();
         let acceptable_radius = (json["acceptable_radius"].as_f64().unwrap() as f32);
         let keyboard_key = json["keyboard_key"].as_str().unwrap().to_string();
         let inverse_condition = json["inverse_condition"].as_bool().unwrap();
@@ -1238,7 +1248,7 @@ impl DistanceLessThan{
     pub fn new(json: &serde_json::Value) -> Result<DistanceLessThan, LubanError> {
         let id = (json["id"].as_i64().unwrap() as i32);
         let node_name = json["node_name"].as_str().unwrap().to_string();
-        let flow_abort_mode = <i32 as std::str::FromStr>::from_str(&json["flow_abort_mode"].to_string()).unwrap().into();
+        let flow_abort_mode = json["flow_abort_mode"].as_i64().unwrap().into();
         let actor1_key = json["actor1_key"].as_str().unwrap().to_string();
         let actor2_key = json["actor2_key"].as_str().unwrap().to_string();
         let distance = (json["distance"].as_f64().unwrap() as f32);
@@ -1629,7 +1639,7 @@ impl SimpleParallel{
         let node_name = json["node_name"].as_str().unwrap().to_string();
         let decorators = json["decorators"].as_array().unwrap().iter().map(|field| crate::ai::Decorator::new(&field).unwrap()).collect();
         let services = json["services"].as_array().unwrap().iter().map(|field| crate::ai::Service::new(&field).unwrap()).collect();
-        let finish_mode = <i32 as std::str::FromStr>::from_str(&json["finish_mode"].to_string()).unwrap().into();
+        let finish_mode = json["finish_mode"].as_i64().unwrap().into();
         let main_task = crate::ai::Task::new(&json["main_task"])?;
         let background_node = crate::ai::FlowNode::new(&json["background_node"])?;
         
