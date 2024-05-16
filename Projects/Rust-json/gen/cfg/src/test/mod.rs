@@ -12,7 +12,7 @@ pub mod login;
 use super::*;
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum DemoEnum {
     NONE = 0,
     ///aa
@@ -39,8 +39,6 @@ impl From<i32> for DemoEnum {
         }
     }
 }
-
-enum_from_num!(DemoEnum);
 
 bitflags::bitflags!{    
     #[derive(Debug, Hash, Eq, PartialEq)]
@@ -212,6 +210,7 @@ impl<'a> GetBase<'a, &'a dyn crate::test::TDemoDynamic> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct DemoD2 {
     pub x1: i32,
     pub x2: i32,
@@ -227,6 +226,7 @@ impl DemoD2{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct DemoD3 {
     pub x1: i32,
     pub x3: i32,
@@ -282,6 +282,7 @@ impl<'a> GetBase<'a, &'a dyn crate::test::TDemoD3> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct DemoE1 {
     pub x1: i32,
     pub x3: i32,
@@ -299,6 +300,7 @@ impl DemoE1{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct DemoD5 {
     pub x1: i32,
     pub time: crate::test::DateTimeRange,
@@ -846,6 +848,7 @@ impl<'a> GetBase<'a, &'a dyn crate::test::TRefDynamicBase> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct RefBean {
     pub x: i32,
     pub arr: Vec<i32>,
@@ -1000,6 +1003,7 @@ impl<'a> GetBase<'a, &'a dyn crate::test::TItemBase> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Item {
     pub id: i32,
     pub name: String,
@@ -1021,6 +1025,7 @@ impl Item{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Equipment {
     pub id: i32,
     pub name: String,
@@ -1042,6 +1047,7 @@ impl Equipment{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Decorator {
     pub id: i32,
     pub name: String,
@@ -1330,6 +1336,7 @@ impl<'a> GetBase<'a, &'a dyn crate::test::TShape> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Circle {
     /// 半径
     pub radius: f32,

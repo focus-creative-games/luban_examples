@@ -11,7 +11,7 @@
 use super::*;
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum EKeyType {
     BOOL = 1,
     INT = 2,
@@ -43,9 +43,7 @@ impl From<i32> for EKeyType {
     }
 }
 
-enum_from_num!(EKeyType);
-
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum EFlowAbortMode {
     NONE = 0,
     LOWER_PRIORITY = 1,
@@ -65,9 +63,7 @@ impl From<i32> for EFlowAbortMode {
     }
 }
 
-enum_from_num!(EFlowAbortMode);
-
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum ENotifyObserverMode {
     ON_VALUE_CHANGE = 0,
     ON_RESULT_CHANGE = 1,
@@ -83,9 +79,7 @@ impl From<i32> for ENotifyObserverMode {
     }
 }
 
-enum_from_num!(ENotifyObserverMode);
-
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum EOperator {
     IS_EQUAL_TO = 0,
     IS_NOT_EQUAL_TO = 1,
@@ -113,9 +107,7 @@ impl From<i32> for EOperator {
     }
 }
 
-enum_from_num!(EOperator);
-
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum EFinishMode {
     IMMEDIATE = 0,
     DELAYED = 1,
@@ -130,8 +122,6 @@ impl From<i32> for EFinishMode {
         }
     }
 }
-
-enum_from_num!(EFinishMode);
 
 #[derive(Debug)]
 pub struct Blackboard {
@@ -544,6 +534,7 @@ impl<'a> GetBase<'a, &'a dyn crate::ai::TNode> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Service {
     pub id: i32,
     pub node_name: String,
@@ -655,6 +646,7 @@ impl<'a> GetBase<'a, &'a dyn crate::ai::TService> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct UeSetDefaultFocus {
     pub id: i32,
     pub node_name: String,
@@ -672,6 +664,7 @@ impl UeSetDefaultFocus{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct ExecuteTimeStatistic {
     pub id: i32,
     pub node_name: String,
@@ -687,6 +680,7 @@ impl ExecuteTimeStatistic{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct ChooseTarget {
     pub id: i32,
     pub node_name: String,
@@ -704,6 +698,7 @@ impl ChooseTarget{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct KeepFaceTarget {
     pub id: i32,
     pub node_name: String,
@@ -721,6 +716,7 @@ impl KeepFaceTarget{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct GetOwnerPlayer {
     pub id: i32,
     pub node_name: String,
@@ -738,6 +734,7 @@ impl GetOwnerPlayer{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct UpdateDailyBehaviorProps {
     pub id: i32,
     pub node_name: String,
@@ -771,6 +768,7 @@ impl UpdateDailyBehaviorProps{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Decorator {
     pub id: i32,
     pub node_name: String,
@@ -919,6 +917,7 @@ impl<'a> GetBase<'a, &'a dyn crate::ai::TDecorator> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct UeLoop {
     pub id: i32,
     pub node_name: String,
@@ -942,6 +941,7 @@ impl UeLoop{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct UeCooldown {
     pub id: i32,
     pub node_name: String,
@@ -961,6 +961,7 @@ impl UeCooldown{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct UeTimeLimit {
     pub id: i32,
     pub node_name: String,
@@ -980,6 +981,7 @@ impl UeTimeLimit{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct UeBlackboard {
     pub id: i32,
     pub node_name: String,
@@ -1050,6 +1052,7 @@ impl<'a> GetBase<'a, &'a dyn crate::ai::TKeyQueryOperator> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct IsSet2 {
 }
 
@@ -1061,6 +1064,7 @@ impl IsSet2{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct IsNotSet {
 }
 
@@ -1072,6 +1076,7 @@ impl IsNotSet{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct BinaryOperator {
     pub oper: crate::ai::EOperator,
     pub data: std::sync::Arc<AbstractBase>,
@@ -1142,6 +1147,7 @@ impl<'a> GetBase<'a, &'a dyn crate::ai::TKeyData> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct FloatKeyData {
     pub value: f32,
 }
@@ -1155,6 +1161,7 @@ impl FloatKeyData{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct IntKeyData {
     pub value: i32,
 }
@@ -1168,6 +1175,7 @@ impl IntKeyData{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct StringKeyData {
     pub value: String,
 }
@@ -1181,6 +1189,7 @@ impl StringKeyData{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct BlackboardKeyData {
     pub value: String,
 }
@@ -1194,6 +1203,7 @@ impl BlackboardKeyData{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct UeForceSuccess {
     pub id: i32,
     pub node_name: String,
@@ -1211,6 +1221,7 @@ impl UeForceSuccess{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct IsAtLocation {
     pub id: i32,
     pub node_name: String,
@@ -1234,6 +1245,7 @@ impl IsAtLocation{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct DistanceLessThan {
     pub id: i32,
     pub node_name: String,
@@ -1259,6 +1271,7 @@ impl DistanceLessThan{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct FlowNode {
     pub id: i32,
     pub node_name: String,
@@ -1490,6 +1503,7 @@ impl<'a> GetBase<'a, &'a dyn crate::ai::TFlowNode> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct ComposeNode {
     pub id: i32,
     pub node_name: String,
@@ -1581,6 +1595,7 @@ impl<'a> GetBase<'a, &'a dyn crate::ai::TComposeNode> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Sequence {
     pub id: i32,
     pub node_name: String,
@@ -1602,6 +1617,7 @@ impl Sequence{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Selector {
     pub id: i32,
     pub node_name: String,
@@ -1623,6 +1639,7 @@ impl Selector{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct SimpleParallel {
     pub id: i32,
     pub node_name: String,
@@ -1648,6 +1665,7 @@ impl SimpleParallel{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Task {
     pub id: i32,
     pub node_name: String,
@@ -1842,6 +1860,7 @@ impl<'a> GetBase<'a, &'a dyn crate::ai::TTask> for AbstractBase {
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct UeWait {
     pub id: i32,
     pub node_name: String,
@@ -1867,6 +1886,7 @@ impl UeWait{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct UeWaitBlackboardTime {
     pub id: i32,
     pub node_name: String,
@@ -1890,6 +1910,7 @@ impl UeWaitBlackboardTime{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct MoveToTarget {
     pub id: i32,
     pub node_name: String,
@@ -1915,6 +1936,7 @@ impl MoveToTarget{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct ChooseSkill {
     pub id: i32,
     pub node_name: String,
@@ -1940,6 +1962,7 @@ impl ChooseSkill{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct MoveToRandomLocation {
     pub id: i32,
     pub node_name: String,
@@ -1965,6 +1988,7 @@ impl MoveToRandomLocation{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct MoveToLocation {
     pub id: i32,
     pub node_name: String,
@@ -1988,6 +2012,7 @@ impl MoveToLocation{
 }
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct DebugPrint {
     pub id: i32,
     pub node_name: String,

@@ -25,44 +25,6 @@ pub trait GetBase<'a, T> {
     fn get_base(&'a self) -> Result<T, LubanError>;
 }
 
-#[macro_export]
-macro_rules! base_try_from {
-    ($($t:ty),+) => {
-        $(
-            impl<'a> TryFrom<&'a AbstractBase> for &'a $t {
-                type Error = String;
-
-                fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
-                    let r = value.downcast_ref::<$t>();
-                    if let Some(v) = r {
-                        return Ok(v);
-                    }
-
-                    Err(concat!("can not into to ", stringify!($t)).to_string())
-                }
-            }
-        )+
-    };
-}
-
-#[macro_export]
-macro_rules! enum_from_num {
-    ($t:ty) => {
-        enum_from_num!($t, i64, i16, i8, u64, u32, u16, u8, f64, f32);
-    };
-    ($t:ty,$($num:ty),+) => {
-        $(
-            impl From<$num> for $t {
-                fn from(value: $num) -> Self {
-                    (value as i32).into()
-                }
-            }
-        )+
-    };
-}
-
-base_try_from!( crate::ai::Node, crate::ai::Service, crate::ai::UeSetDefaultFocus, crate::ai::ExecuteTimeStatistic, crate::ai::ChooseTarget, crate::ai::KeepFaceTarget, crate::ai::GetOwnerPlayer, crate::ai::UpdateDailyBehaviorProps, crate::ai::Decorator, crate::ai::UeLoop, crate::ai::UeCooldown, crate::ai::UeTimeLimit, crate::ai::UeBlackboard, crate::ai::KeyQueryOperator, crate::ai::IsSet2, crate::ai::IsNotSet, crate::ai::BinaryOperator, crate::ai::KeyData, crate::ai::FloatKeyData, crate::ai::IntKeyData, crate::ai::StringKeyData, crate::ai::BlackboardKeyData, crate::ai::UeForceSuccess, crate::ai::IsAtLocation, crate::ai::DistanceLessThan, crate::ai::FlowNode, crate::ai::ComposeNode, crate::ai::Sequence, crate::ai::Selector, crate::ai::SimpleParallel, crate::ai::Task, crate::ai::UeWait, crate::ai::UeWaitBlackboardTime, crate::ai::MoveToTarget, crate::ai::ChooseSkill, crate::ai::MoveToRandomLocation, crate::ai::MoveToLocation, crate::ai::DebugPrint, crate::test::DemoDynamic, crate::test::DemoD2, crate::test::DemoD3, crate::test::DemoE1, crate::test::login::RoleInfo, crate::test::DemoD5, crate::test::RefDynamicBase, crate::test::RefBean, crate::test::ItemBase, crate::test::Item, crate::test::Equipment, crate::test::Decorator, crate::test::Shape, crate::test::Circle, crate::test2::Rectangle);
-
 #[derive(Debug)]
 pub enum LubanError {
     Loader(String),
@@ -127,6 +89,7 @@ pub struct Tables{
     pub TbPath: std::sync::Arc<crate::test::TbPath>,
     pub TbTestMapper: std::sync::Arc<crate::test::TbTestMapper>,
     pub TbDefineFromExcel2: std::sync::Arc<crate::test::TbDefineFromExcel2>,
+    pub itetbm: std::sync::Arc<crate::itetbm>,
 }
 
 impl Tables {
@@ -174,6 +137,7 @@ impl Tables {
             TbPath: crate::test::TbPath::new(&loader("test_tbpath")?)?,
             TbTestMapper: crate::test::TbTestMapper::new(&loader("test_tbtestmapper")?)?,
             TbDefineFromExcel2: crate::test::TbDefineFromExcel2::new(&loader("test_tbdefinefromexcel2")?)?,
+            itetbm: crate::itetbm::new(&loader("itetbm")?)?,
         })
     }
 }
@@ -187,7 +151,7 @@ pub mod test2;
 
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum AudioType {
     UNKNOWN = 0,
     ACC = 1,
@@ -204,8 +168,6 @@ impl From<i32> for AudioType {
         }
     }
 }
-
-enum_from_num!(AudioType);
 
 #[derive(Debug)]
 pub struct vec2 {
@@ -306,6 +268,55 @@ impl DefineFromExcel2{
         let mut v11 = None; if let Some(value) = json.get("v11") { v11 = Some(crate::vec3::new(&json["v11"])?); }
         
         Ok(DefineFromExcel2 { id, x1, x5, x6, x8, x10, x13, x13_2, x14, x15, v2, t1, k1, k2, k8, k9, k10, k11, v11, })
+    }
+}
+
+#[derive(Debug)]
+pub struct aitem {
+    pub id: i32,
+    pub data: std::collections::HashMap<String, Vec<crate::vec3>>,
+}
+
+impl aitem{
+    pub fn new(json: &serde_json::Value) -> Result<aitem, LubanError> {
+        let id = (json["id"].as_i64().unwrap() as i32);
+        let data = std::collections::HashMap::from_iter(json["data"].as_array().unwrap().iter().map(|x| {let array = x.as_array().unwrap();(array[0].as_str().unwrap().to_string(), array[1].as_array().unwrap().iter().map(|field| crate::vec3::new(&field).unwrap()).collect())}).collect::<Vec<(String, Vec<crate::vec3>)>>());
+        
+        Ok(aitem { id, data, })
+    }
+}
+
+
+#[derive(Debug)]
+pub struct itetbm {
+    pub data_list: Vec<std::sync::Arc<crate::aitem>>,
+    pub data_map: std::collections::HashMap<i32, std::sync::Arc<crate::aitem>>,
+}
+
+impl itetbm {
+    pub fn new(json: &serde_json::Value) -> Result<std::sync::Arc<itetbm>, LubanError> {
+        let mut data_map: std::collections::HashMap<i32, std::sync::Arc<crate::aitem>> = Default::default();
+        let mut data_list: Vec<std::sync::Arc<crate::aitem>> = vec![];
+
+        for x in json.as_array().unwrap() {
+            let row = std::sync::Arc::new(crate::aitem::new(&x)?);
+            data_list.push(row.clone());
+            data_map.insert(row.id.clone(), row.clone());
+        }
+
+        Ok(std::sync::Arc::new(itetbm { data_map, data_list }))
+    }
+
+    pub fn get(&self, key: &i32) -> Option<std::sync::Arc<crate::aitem>> {
+        self.data_map.get(key).map(|x| x.clone())
+    }
+}
+
+impl std::ops::Index<i32> for itetbm {
+    type Output = std::sync::Arc<crate::aitem>;
+
+    fn index(&self, index: i32) -> &Self::Output {
+        &self.data_map.get(&index).unwrap()
     }
 }
 

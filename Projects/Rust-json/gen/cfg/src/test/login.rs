@@ -12,6 +12,7 @@ use super::*;
 use serde::Deserialize;
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct RoleInfo {
     pub x1: i32,
     pub x3: i32,
