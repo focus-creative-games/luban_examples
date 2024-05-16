@@ -11,7 +11,7 @@
 use super::*;
 use serde::Deserialize;
 
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum EMajorType {
     ///货币
     CURRENCY = 1,
@@ -56,9 +56,7 @@ impl From<i32> for EMajorType {
     }
 }
 
-enum_from_num!(EMajorType);
-
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum EMinorType {
     ///钻石
     DIAMOND = 101,
@@ -217,10 +215,8 @@ impl From<i32> for EMinorType {
     }
 }
 
-enum_from_num!(EMinorType);
-
 ///道具品质
-#[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
+#[derive(Deserialize, Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum EItemQuality {
     ///白
     WHITE = 0,
@@ -246,8 +242,6 @@ impl From<i32> for EItemQuality {
         }
     }
 }
-
-enum_from_num!(EItemQuality);
 
 #[derive(Debug)]
 pub struct Item {

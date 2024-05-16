@@ -12,6 +12,7 @@ use super::*;
 use serde::Deserialize;
 
 #[derive(Debug)]
+#[derive(macros::TryIntoBase)]
 pub struct Rectangle {
     /// 宽度
     pub width: f32,
