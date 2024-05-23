@@ -1,4 +1,4 @@
-use Rust_json::TABLES;
+use Rust_bin::TABLES;
 use cfg::prelude::*;
 
 #[test]
