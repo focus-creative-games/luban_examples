@@ -19,7 +19,7 @@ public sealed partial class BlackboardKey : Luban.BeanBase
         Name = _buf.ReadString();
         Desc = _buf.ReadString();
         IsStatic = _buf.ReadBool();
-        Type = (ai.EKeyType)_buf.ReadInt();
+        KeyType = (ai.EKeyType)_buf.ReadInt();
         TypeClassName = _buf.ReadString();
     }
 
@@ -31,7 +31,7 @@ public sealed partial class BlackboardKey : Luban.BeanBase
     public readonly string Name;
     public readonly string Desc;
     public readonly bool IsStatic;
-    public readonly ai.EKeyType Type;
+    public readonly ai.EKeyType KeyType;
     public readonly string TypeClassName;
    
     public const int __ID__ = -511559886;
@@ -52,7 +52,7 @@ public sealed partial class BlackboardKey : Luban.BeanBase
         + "name:" + Name + ","
         + "desc:" + Desc + ","
         + "isStatic:" + IsStatic + ","
-        + "type:" + Type + ","
+        + "keyType:" + KeyType + ","
         + "typeClassName:" + TypeClassName + ","
         + "}";
     }

@@ -26,15 +26,15 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         X132 = (test.DemoFlag)_buf.ReadInt();
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf);
         X15 = test.Shape.DeserializeShape(_buf);
-        V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_buf));
+        V2 = vec2.Deserializevec2(_buf);
         T1 = _buf.ReadLong();
         {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K1 = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); K1[__index0] = __e0;}}
         {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K2 = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); K2[__index0] = __e0;}}
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K8 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     K8.Add(_k0, _v0);}}
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoE2 _e0;  _e0 = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K10 = new System.Collections.Generic.List<UnityEngine.Vector3>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { UnityEngine.Vector3 _e0;  _e0 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf)); K10.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K11 = new System.Collections.Generic.List<UnityEngine.Vector4>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { UnityEngine.Vector4 _e0;  _e0 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(_buf)); K11.Add(_e0);}}
-        if(_buf.ReadBool()){ V11 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf)); } else { V11 = null; }
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K10 = new System.Collections.Generic.List<vec3>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { vec3 _e0;  _e0 = vec3.Deserializevec3(_buf); K10.Add(_e0);}}
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K11 = new System.Collections.Generic.List<vec4>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { vec4 _e0;  _e0 = vec4.Deserializevec4(_buf); K11.Add(_e0);}}
+        if(_buf.ReadBool()){ V11 = vec3.Deserializevec3(_buf); } else { V11 = null; }
     }
 
     public static DefineFromExcel2 DeserializeDefineFromExcel2(ByteBuf _buf)
@@ -58,15 +58,15 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
     public readonly test.DemoFlag X132;
     public readonly test.DemoDynamic X14;
     public readonly test.Shape X15;
-    public readonly UnityEngine.Vector2 V2;
+    public readonly vec2 V2;
     public readonly long T1;
     public readonly int[] K1;
     public readonly int[] K2;
     public readonly System.Collections.Generic.Dictionary<int, int> K8;
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
-    public readonly System.Collections.Generic.List<UnityEngine.Vector3> K10;
-    public readonly System.Collections.Generic.List<UnityEngine.Vector4> K11;
-    public readonly UnityEngine.Vector3? V11;
+    public readonly System.Collections.Generic.List<vec3> K10;
+    public readonly System.Collections.Generic.List<vec4> K11;
+    public readonly vec3? V11;
    
     public const int __ID__ = 482045152;
     public override int GetTypeId() => __ID__;
