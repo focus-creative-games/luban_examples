@@ -292,6 +292,7 @@
     <table name="TbDemoGroup_C" value="DemoGroup" group="c" input="test/demo_group.xlsx"/> 此表只属于c分组
     <table name="TbDemoGroup_S" value="DemoGroup" group="s" input="test/demo_group.xlsx"/> 此表只属于s分组
     <table name="TbDemoGroup_E" value="DemoGroup" group="e" input="test/demo_group.xlsx"/> 此表只属于e分组
+    <table name="TbDemoGroup_T" value="DemoGroup" group="t" input="test/demo_group.xlsx"/> 此表只属于e分组
     
     <bean name="TestGlobal">
         <var name="unlock_equip" type="int"/>
@@ -520,6 +521,12 @@
 
     <table name="TbTestMapper" value="TestMapper" input="test/type_mapper.xlsx"/>
 
+    <enum name="AudioType2">
+        <var name="UNKNOWN" value="0"/>
+        <var name="ACC" value="1"/>
+        <var name="AIFF" value="2"/>
+    </enum>
+    
     <module name="login">
         支持在一个定义文件中 定义多个模块。 一般来说一个定义文件中一个模块比较好，但有些情况下为了方便可以定义多个。
         <bean name="RoleInfo" parent="test.DemoD3">
