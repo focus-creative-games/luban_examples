@@ -24,75 +24,11 @@ public partial class Tables
     {
         TbItem = ItemTbItem.Parser.ParseFrom(loader("item_tbitem"));
         CollisionCfgs = CollisionCfgs.Parser.ParseFrom(loader("collisioncfgs"));
-
-        ResolveRef();
     }
-
-    Dictionary<Type, Dictionary<int, IMessage>> allTypesCfg;
-    Dictionary<Type, IMessage> instanceCfg;
-    void ResolveRef()
+    public Tables(System.Func<string, string> loader)
     {
-        allTypesCfg = new Dictionary<Type, Dictionary<int, IMessage>>();
-        instanceCfg = new Dictionary<Type, IMessage>();
-
-        ResolveMsg(TbItem.DataList);
-        ResolveMsg(CollisionCfgs.DataList);
-    }
-
-    void ResolveMsg<T>(RepeatedField<T> dataList) where T : IMessage
-    {
-        var type = typeof(T);
-
-        var idProperty = type.GetProperty("Id", BindingFlags.Public | BindingFlags.Instance);
-
-        if (idProperty != null)
-        {
-            var dic = new Dictionary<int, IMessage>(dataList.Count);
-            foreach (var item in dataList)
-            {
-                var id = (int)idProperty.GetValue(item);
-                dic[id] = item;
-            }
-            allTypesCfg.Add(type, dic);
-         }
-         else
-        {
-            instanceCfg.Add(type, dataList[0]);
-        }
-    }
-    public T Get<T>(int? id = null) where T : class, IMessage
-    {
-        var type = typeof(T);
-
-        if (id != null)
-        {
-            if (!allTypesCfg.TryGetValue(type, out var cfgDic))
-            {
-                return null;
-            }
-            if (!cfgDic.TryGetValue((int)id, out IMessage cfgObj))
-            {
-                return null;
-            }
-            return cfgObj as T;
-        }
-        else
-        {
-            if (!instanceCfg.TryGetValue(type, out IMessage cfgObj))
-            {
-                return null;
-            }
-            return cfgObj as T;
-        }
-    }
-    public Dictionary<int, IMessage> GetAll<T>() where T : class, IMessage
-    {
-        var type = typeof(T);
-        if (allTypesCfg.TryGetValue(type, out var dic))
-        {
-            return dic;
-        }
-        return null;
+        TbItem = ItemTbItem.Parser.ParseJson(loader("item_tbitem"));
+        CollisionCfgs = CollisionCfgs.Parser.ParseJson(loader("collisioncfgs"));
     }
 }
 
