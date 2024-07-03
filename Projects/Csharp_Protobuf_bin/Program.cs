@@ -13,9 +13,6 @@ class Program
 
         Console.WriteLine(tables.TbItem.DataList[0].Name);
 
-        Console.WriteLine(tables.Get<Item>(10000).Name);
-
-        Console.WriteLine(tables.Get<CollisionConfig>().WorldSize);
     }
     static byte[] Loader(string name)
     {
