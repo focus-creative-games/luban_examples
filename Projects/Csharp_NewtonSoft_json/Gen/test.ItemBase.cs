@@ -27,7 +27,8 @@ public abstract partial class ItemBase : Luban.BeanBase
 
     public static ItemBase DeserializeItemBase(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "Item": return new test.Item(_buf);
             case "Equipment": return new test.Equipment(_buf);

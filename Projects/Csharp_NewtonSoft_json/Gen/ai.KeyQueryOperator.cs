@@ -24,7 +24,8 @@ public abstract partial class KeyQueryOperator : Luban.BeanBase
 
     public static KeyQueryOperator DeserializeKeyQueryOperator(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "IsSet2": return new ai.IsSet2(_buf);
             case "IsNotSet": return new ai.IsNotSet(_buf);

@@ -25,7 +25,8 @@ public abstract partial class Task : ai.FlowNode
 
     public static Task DeserializeTask(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "UeWait": return new ai.UeWait(_buf);
             case "UeWaitBlackboardTime": return new ai.UeWaitBlackboardTime(_buf);

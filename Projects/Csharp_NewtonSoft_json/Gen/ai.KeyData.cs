@@ -24,7 +24,8 @@ public abstract partial class KeyData : Luban.BeanBase
 
     public static KeyData DeserializeKeyData(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "FloatKeyData": return new ai.FloatKeyData(_buf);
             case "IntKeyData": return new ai.IntKeyData(_buf);

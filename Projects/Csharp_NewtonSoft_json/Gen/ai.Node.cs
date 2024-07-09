@@ -26,7 +26,8 @@ public abstract partial class Node : Luban.BeanBase
 
     public static Node DeserializeNode(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_buf);
             case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_buf);

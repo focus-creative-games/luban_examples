@@ -24,7 +24,8 @@ public abstract partial class Service : ai.Node
 
     public static Service DeserializeService(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "UeSetDefaultFocus": return new ai.UeSetDefaultFocus(_buf);
             case "ExecuteTimeStatistic": return new ai.ExecuteTimeStatistic(_buf);

@@ -25,7 +25,8 @@ public abstract partial class DemoD3 : test.DemoDynamic
 
     public static DemoD3 DeserializeDemoD3(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "DemoE1": return new test.DemoE1(_buf);
             case "test.login.RoleInfo": return new test.login.RoleInfo(_buf);

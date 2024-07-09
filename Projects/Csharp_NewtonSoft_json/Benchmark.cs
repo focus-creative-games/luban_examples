@@ -1,30 +1,30 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
-using System.Text.Json;
 
 class CacheLoader
 {
     public string Dir { get; }
 
 
-    private readonly Dictionary<string, byte[]> cache = new();
+    private readonly Dictionary<string, string> cache = new();
 
     public CacheLoader(string dir)
     {
         Dir = dir;
     }
 
-    public JsonElement LoadOrFromCache(string name)
+    public JArray LoadOrFromCache(string name)
     {
-        if (!cache.TryGetValue(name, out byte[] result))
+        if (!cache.TryGetValue(name, out string result))
         {
-            result = File.ReadAllBytes($"{Dir}/{name}.json");
+            result = File.ReadAllText($"{Dir}/{name}.json");
             cache.Add(name, result);
         }
-        return JsonDocument.Parse(result).RootElement;
+        return JsonConvert.DeserializeObject(result) as JArray;
     }
 }
 

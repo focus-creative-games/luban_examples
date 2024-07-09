@@ -25,7 +25,8 @@ public abstract partial class Decorator : ai.Node
 
     public static Decorator DeserializeDecorator(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "UeLoop": return new ai.UeLoop(_buf);
             case "UeCooldown": return new ai.UeCooldown(_buf);

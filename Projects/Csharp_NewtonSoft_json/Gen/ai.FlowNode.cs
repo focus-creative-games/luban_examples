@@ -26,7 +26,8 @@ public abstract partial class FlowNode : ai.Node
 
     public static FlowNode DeserializeFlowNode(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "Sequence": return new ai.Sequence(_buf);
             case "Selector": return new ai.Selector(_buf);

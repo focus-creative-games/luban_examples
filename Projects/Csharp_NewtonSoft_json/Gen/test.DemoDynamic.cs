@@ -25,7 +25,8 @@ public abstract partial class DemoDynamic : Luban.BeanBase
 
     public static DemoDynamic DeserializeDemoDynamic(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "DemoD2": return new test.DemoD2(_buf);
             case "DemoE1": return new test.DemoE1(_buf);

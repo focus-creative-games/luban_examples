@@ -24,7 +24,8 @@ public abstract partial class Shape : Luban.BeanBase
 
     public static Shape DeserializeShape(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "Circle": return new test.Circle(_buf);
             case "test2.Rectangle": return new test2.Rectangle(_buf);

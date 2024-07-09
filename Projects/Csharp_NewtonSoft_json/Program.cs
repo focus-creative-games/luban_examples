@@ -11,6 +11,8 @@ namespace Csharp_NewtonSoft_json
         {
             var tables = new cfg.Tables(LoadJson);
             Console.WriteLine("== load succ ==");
+
+           
         }
 
         private static JArray LoadJson(string file)

@@ -26,7 +26,8 @@ public abstract partial class RefDynamicBase : Luban.BeanBase
 
     public static RefDynamicBase DeserializeRefDynamicBase(JToken _buf)
     {
-        switch (_buf.GetProperty("$type").GetString())
+        var _obj=_buf as JObject;
+        switch (_obj.GetValue("$type").ToString())
         {
             case "RefBean": return new test.RefBean(_buf);
             default: throw new SerializationException();
