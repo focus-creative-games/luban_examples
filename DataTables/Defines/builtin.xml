@@ -14,11 +14,11 @@
     <bean name="vec2" valueType="1" sep=",">
         <var name="x" type="float"/>
         <var name="y" type="float"/>
-        <mapper target="client" codeTarget="cs-bin,cs-simple-json">
+        <mapper target="client" codeTarget="cs-bin,cs-simple-json,cs-newtonsoft-json">
             <option name="type" value="UnityEngine.Vector2"/>
             <option name="constructor" value="ExternalTypeUtil.NewVector2"/>
         </mapper>
-        <mapper target="server" codeTarget="cs-bin,cs-dotnet-json">
+        <mapper target="server" codeTarget="cs-bin,cs-dotnet-json,cs-newtonsoft-json">
             <option name="type" value="System.Numerics.Vector2"/>
             <option name="constructor" value="ExternalTypeUtil.NewVector2"/>
         </mapper>
@@ -27,11 +27,11 @@
         <var name="x" type="float"/>
         <var name="y" type="float"/>
         <var name="z" type="float"/>
-        <mapper target="client" codeTarget="cs-bin,cs-simple-json">
+        <mapper target="client" codeTarget="cs-bin,cs-simple-json,cs-newtonsoft-json">
             <option name="type" value="UnityEngine.Vector3"/>
             <option name="constructor" value="ExternalTypeUtil.NewVector3"/>
         </mapper>
-        <mapper target="server" codeTarget="cs-bin,cs-dotnet-json">
+        <mapper target="server,all" codeTarget="cs-bin,cs-dotnet-json,cs-newtonsoft-json">
             <option name="type" value="System.Numerics.Vector3"/>
             <option name="constructor" value="ExternalTypeUtil.NewVector3"/>
         </mapper>
@@ -41,11 +41,11 @@
         <var name="y" type="float"/>
         <var name="z" type="float"/>
         <var name="w" type="float"/>
-        <mapper target="client" codeTarget="cs-bin,cs-simple-json">
+        <mapper target="client" codeTarget="cs-bin,cs-simple-json,cs-newtonsoft-json">
             <option name="type" value="UnityEngine.Vector4"/>
             <option name="constructor" value="ExternalTypeUtil.NewVector4"/>
         </mapper>
-        <mapper target="server" codeTarget="cs-bin,cs-dotnet-json">
+        <mapper target="server" codeTarget="cs-bin,cs-dotnet-json,cs-newtonsoft-json">
             <option name="type" value="System.Numerics.Vector4"/>
             <option name="constructor" value="ExternalTypeUtil.NewVector4"/>
         </mapper>
