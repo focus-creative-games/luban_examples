@@ -9,6 +9,13 @@
 
 
 export namespace ai { 
+export enum EExecutor {
+    CLIENT = 0,
+    SERVER = 1,
+}
+
+} 
+export namespace ai { 
 export enum EKeyType {
     BOOL = 1,
     INT = 2,
@@ -33,6 +40,13 @@ export enum EFlowAbortMode {
 
 } 
 export namespace ai { 
+export enum EFinishMode {
+    IMMEDIATE = 0,
+    DELAYED = 1,
+}
+
+} 
+export namespace ai { 
 export enum ENotifyObserverMode {
     ON_VALUE_CHANGE = 0,
     ON_RESULT_CHANGE = 1,
@@ -52,10 +66,71 @@ export enum EOperator {
 }
 
 } 
-export namespace ai { 
-export enum EFinishMode {
-    IMMEDIATE = 0,
-    DELAYED = 1,
+ 
+export enum AudioType {
+    UNKNOWN = 0,
+    ACC = 1,
+    AIFF = 2,
+}
+
+ 
+export namespace common { 
+export enum EBoolOperator {
+    AND = 0,
+    OR = 1,
+}
+
+} 
+export namespace item { 
+/**
+ * 道具品质
+ */
+export enum EItemQuality {
+    /**
+     * 白
+     */
+    WHITE = 0,
+    /**
+     * 绿
+     */
+    GREEN = 1,
+    /**
+     * 蓝
+     */
+    BLUE = 2,
+    /**
+     * 紫
+     */
+    PURPLE = 3,
+    /**
+     * 金
+     */
+    GOLDEN = 4,
+}
+
+} 
+export namespace item { 
+export enum ECurrencyType {
+    /**
+     * 钻石
+     */
+    DIAMOND = 1,
+    /**
+     * 金币
+     */
+    GOLD = 2,
+    /**
+     * 银币
+     */
+    SILVER = 3,
+    /**
+     * 经验
+     */
+    EXP = 4,
+    /**
+     * 能量点
+     */
+    POWER_POINT = 5,
 }
 
 } 
@@ -310,30 +385,155 @@ export enum EMinorType {
 
 } 
 export namespace item { 
-/**
- * 道具品质
- */
-export enum EItemQuality {
+export enum EClothersStarQualityType {
     /**
-     * 白
+     * 一星
      */
-    WHITE = 0,
+    ONE = 1,
     /**
-     * 绿
+     * 二星
      */
-    GREEN = 1,
+    TWO = 2,
     /**
-     * 蓝
+     * 三星
      */
-    BLUE = 2,
+    THREE = 3,
     /**
-     * 紫
+     * 四星
      */
-    PURPLE = 3,
+    FOUR = 4,
     /**
-     * 金
+     * 五星
      */
-    GOLDEN = 4,
+    FIVE = 5,
+    /**
+     * 六星
+     */
+    SIX = 6,
+    /**
+     * 七星
+     */
+    SEVEN = 7,
+    /**
+     * 八星
+     */
+    EIGHT = 8,
+    /**
+     * 九星
+     */
+    NINE = 9,
+    /**
+     * 十星
+     */
+    TEN = 10,
+}
+
+} 
+export namespace item { 
+export enum EClothersTag {
+    /**
+     * 防晒
+     */
+    FANG_SHAI = 1,
+    /**
+     * 舞者
+     */
+    WU_ZHE = 2,
+}
+
+} 
+export namespace item { 
+export enum EUseType {
+    /**
+     * 手动
+     */
+    MANUAL = 0,
+    /**
+     * 自动
+     */
+    AUTO = 1,
+}
+
+} 
+export namespace item { 
+export enum EClothesHidePartType {
+    /**
+     * 胸部
+     */
+    CHEST = 0,
+    /**
+     * 手
+     */
+    HEAD = 1,
+    /**
+     * 脊柱上
+     */
+    SPINE_UPPER = 2,
+    /**
+     * 脊柱下
+     */
+    SPINE_LOWER = 3,
+    /**
+     * 臀部
+     */
+    HIP = 4,
+    /**
+     * 腿上
+     */
+    LEG_UPPER = 5,
+    /**
+     * 腿中
+     */
+    LEG_MIDDLE = 6,
+    /**
+     * 腿下
+     */
+    LEG_LOWER = 7,
+}
+
+} 
+export namespace item { 
+export enum EClothesPropertyType {
+    /**
+     * 简约
+     */
+    JIAN_YUE = 1,
+    /**
+     * 华丽
+     */
+    HUA_LI = 2,
+    /**
+     * 可爱
+     */
+    KE_AI = 3,
+    /**
+     * 成熟
+     */
+    CHENG_SHU = 4,
+    /**
+     * 活泼
+     */
+    HUO_PO = 5,
+    /**
+     * 优雅
+     */
+    YOU_YA = 6,
+    /**
+     * 清纯
+     */
+    QING_CHUN = 7,
+    /**
+     * 性感
+     */
+    XING_GAN = 8,
+    /**
+     * 清凉
+     */
+    QING_LIANG = 9,
+    /**
+     * 保暖
+     */
+    BAO_NUAN = 10,
 }
 
 } 
@@ -360,14 +560,6 @@ export enum DemoEnum {
 }
 
 } 
- 
-export enum AudioType {
-    UNKNOWN = 0,
-    ACC = 1,
-    AIFF = 2,
-}
-
- 
 export namespace test { 
 export enum DemoFlag {
     A = 1,
@@ -377,127 +569,96 @@ export enum DemoFlag {
 }
 
 } 
-
-
-
-
-
-export class vec2 {
-
-    constructor(_json_: any) {
-        if (_json_.x === undefined) { throw new Error() }
-        this.x = _json_.x
-        if (_json_.y === undefined) { throw new Error() }
-        this.y = _json_.y
-    }
-
-    readonly x: number
-    readonly y: number
-
-    resolve(tables:Tables)
-    {
-        
-        
-    }
+export namespace test { 
+export enum ETestUeType {
+    /**
+     * 白
+     */
+    WHITE = 0,
+    BLACK = 1,
 }
 
-
-
-
-
-export class vec3 {
-
-    constructor(_json_: any) {
-        if (_json_.x === undefined) { throw new Error() }
-        this.x = _json_.x
-        if (_json_.y === undefined) { throw new Error() }
-        this.y = _json_.y
-        if (_json_.z === undefined) { throw new Error() }
-        this.z = _json_.z
-    }
-
-    readonly x: number
-    readonly y: number
-    readonly z: number
-
-    resolve(tables:Tables)
-    {
-        
-        
-        
-    }
+} 
+export namespace test { 
+export enum ETestEmptyEnum {
 }
 
-
-
-
-
-export class vec4 {
-
-    constructor(_json_: any) {
-        if (_json_.x === undefined) { throw new Error() }
-        this.x = _json_.x
-        if (_json_.y === undefined) { throw new Error() }
-        this.y = _json_.y
-        if (_json_.z === undefined) { throw new Error() }
-        this.z = _json_.z
-        if (_json_.w === undefined) { throw new Error() }
-        this.w = _json_.w
-    }
-
-    readonly x: number
-    readonly y: number
-    readonly z: number
-    readonly w: number
-
-    resolve(tables:Tables)
-    {
-        
-        
-        
-        
-    }
+} 
+export namespace test { 
+export enum ETestEmptyEnum2 {
+    SMALL_THAN_256 = 255,
+    X_256 = 256,
+    X_257 = 257,
 }
 
+} 
+export namespace test { 
+export enum AudioType2 {
+    UNKNOWN = 0,
+    ACC = 1,
+    AIFF = 2,
+}
 
-
-
-export namespace test {
-/**
- * 这是个测试excel结构
- */
-export class TestExcelBean1 {
-
-    constructor(_json_: any) {
-        if (_json_.x1 === undefined) { throw new Error() }
-        this.x1 = _json_.x1
-        if (_json_.x2 === undefined) { throw new Error() }
-        this.x2 = _json_.x2
-        if (_json_.x3 === undefined) { throw new Error() }
-        this.x3 = _json_.x3
-        if (_json_.x4 === undefined) { throw new Error() }
-        this.x4 = _json_.x4
-    }
-
+} 
+export namespace test { 
+export enum ETestQuality {
     /**
      * 最高品质
      */
-    readonly x1: number
+    A = 1,
     /**
      * 黑色的
      */
-    readonly x2: string
+    B = 2,
     /**
      * 蓝色的
      */
-    readonly x3: number
+    C = 3,
     /**
      * 最差品质
      */
-    readonly x4: number
+    D = 4,
+}
 
-    resolve(tables:Tables)
-    {
+} 
+export namespace test { 
+export enum AccessFlag {
+    WRITE = 1,
+    READ = 2,
+    TRUNCATE = 4,
+    NEW = 8,
+    READ_WRITE = WRITE|READ,
+}
+
+} 
+
+
+
+
+export namespace ai {
+export class BlackboardKey {
+
+    constructor(_json_: any) {
+        if (_json_.name === undefined) { throw new Error() }
+        this.name = _json_.name
+        if (_json_.desc === undefined) { throw new Error() }
+        this.desc = _json_.desc
+        if (_json_.is_static === undefined) { throw new Error() }
+        this.isStatic = _json_.is_static
+        if (_json_.key_type === undefined) { throw new Error() }
+        this.keyType = _json_.key_type
+        if (_json_.type_class_name === undefined) { throw new Error() }
+        this.typeClassName = _json_.type_class_name
+    }
+
+    readonly name: string
+    readonly desc: string
+    readonly isStatic: boolean
+    readonly keyType: ai.EKeyType
+    readonly typeClassName: string
+
+    resolve(tables:Tables) {
+        
         
         
         
@@ -528,8 +689,7 @@ export class Blackboard {
     parentName_ref: ai.Blackboard | undefined
     readonly keys: ai.BlackboardKey[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         this.parentName_ref = tables.TbBlackboard.get(this.parentName)
@@ -541,33 +701,41 @@ export class Blackboard {
 
 
 export namespace ai {
-export class BlackboardKey {
-
-    constructor(_json_: any) {
-        if (_json_.name === undefined) { throw new Error() }
-        this.name = _json_.name
-        if (_json_.desc === undefined) { throw new Error() }
-        this.desc = _json_.desc
-        if (_json_.is_static === undefined) { throw new Error() }
-        this.isStatic = _json_.is_static
-        if (_json_.type === undefined) { throw new Error() }
-        this.type = _json_.type
-        if (_json_.type_class_name === undefined) { throw new Error() }
-        this.typeClassName = _json_.type_class_name
+export abstract class KeyData {
+    static constructorFrom(_json_: any): KeyData{
+        switch (_json_["$type"]) {
+            case 'FloatKeyData': return new ai.FloatKeyData(_json_)
+            case 'IntKeyData': return new ai.IntKeyData(_json_)
+            case 'StringKeyData': return new ai.StringKeyData(_json_)
+            case 'BlackboardKeyData': return new ai.BlackboardKeyData(_json_)
+            default: throw new Error()
+        }
     }
 
-    readonly name: string
-    readonly desc: string
-    readonly isStatic: boolean
-    readonly type: ai.EKeyType
-    readonly typeClassName: string
+    constructor(_json_: any) {
+    }
 
-    resolve(tables:Tables)
-    {
-        
-        
-        
-        
+
+    resolve(tables:Tables) {
+    }
+}
+
+}
+
+
+export namespace ai {
+export class FloatKeyData extends ai.KeyData {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.value === undefined) { throw new Error() }
+        this.value = _json_.value
+    }
+
+    readonly value: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
         
     }
 }
@@ -576,35 +744,137 @@ export class BlackboardKey {
 
 
 export namespace ai {
-export class BehaviorTree {
+export class IntKeyData extends ai.KeyData {
 
     constructor(_json_: any) {
-        if (_json_.id === undefined) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.name === undefined) { throw new Error() }
-        this.name = _json_.name
-        if (_json_.desc === undefined) { throw new Error() }
-        this.desc = _json_.desc
-        if (_json_.blackboard_id === undefined) { throw new Error() }
-        this.blackboardId = _json_.blackboard_id
-        if (_json_.root === undefined) { throw new Error() }
-        this.root = ai.ComposeNode.constructorFrom(_json_.root)
+        super(_json_)
+        if (_json_.value === undefined) { throw new Error() }
+        this.value = _json_.value
     }
 
-    readonly id: number
-    readonly name: string
-    readonly desc: string
-    readonly blackboardId: string
-    blackboardId_ref: ai.Blackboard | undefined
-    readonly root: ai.ComposeNode
+    readonly value: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
+        super.resolve(tables)
         
+    }
+}
+
+}
+
+
+export namespace ai {
+export class StringKeyData extends ai.KeyData {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.value === undefined) { throw new Error() }
+        this.value = _json_.value
+    }
+
+    readonly value: string
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
         
+    }
+}
+
+}
+
+
+export namespace ai {
+export class BlackboardKeyData extends ai.KeyData {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.value === undefined) { throw new Error() }
+        this.value = _json_.value
+    }
+
+    readonly value: string
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
         
-        this.blackboardId_ref = tables.TbBlackboard.get(this.blackboardId)
-        this.root?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace ai {
+export abstract class KeyQueryOperator {
+    static constructorFrom(_json_: any): KeyQueryOperator{
+        switch (_json_["$type"]) {
+            case 'IsSet2': return new ai.IsSet2(_json_)
+            case 'IsNotSet': return new ai.IsNotSet(_json_)
+            case 'BinaryOperator': return new ai.BinaryOperator(_json_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_json_: any) {
+    }
+
+
+    resolve(tables:Tables) {
+    }
+}
+
+}
+
+
+export namespace ai {
+export class IsSet2 extends ai.KeyQueryOperator {
+
+    constructor(_json_: any) {
+        super(_json_)
+    }
+
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+    }
+}
+
+}
+
+
+export namespace ai {
+export class IsNotSet extends ai.KeyQueryOperator {
+
+    constructor(_json_: any) {
+        super(_json_)
+    }
+
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+    }
+}
+
+}
+
+
+export namespace ai {
+export class BinaryOperator extends ai.KeyQueryOperator {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.oper === undefined) { throw new Error() }
+        this.oper = _json_.oper
+        if (_json_.data === undefined) { throw new Error() }
+        this.data = ai.KeyData.constructorFrom(_json_.data)
+    }
+
+    readonly oper: ai.EOperator
+    readonly data: ai.KeyData
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+        this.data?.resolve(tables);
     }
 }
 
@@ -652,8 +922,7 @@ export abstract class Node {
     readonly id: number
     readonly nodeName: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -681,8 +950,7 @@ export abstract class Service extends ai.Node {
     }
 
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
     }
 }
@@ -701,8 +969,7 @@ export class UeSetDefaultFocus extends ai.Service {
 
     readonly keyboardKey: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -719,8 +986,7 @@ export class ExecuteTimeStatistic extends ai.Service {
     }
 
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
     }
 }
@@ -739,8 +1005,7 @@ export class ChooseTarget extends ai.Service {
 
     readonly resultTargetKey: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -760,8 +1025,7 @@ export class KeepFaceTarget extends ai.Service {
 
     readonly targetActorKey: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -781,8 +1045,7 @@ export class GetOwnerPlayer extends ai.Service {
 
     readonly playerActorKey: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -826,8 +1089,7 @@ export class UpdateDailyBehaviorProps extends ai.Service {
     readonly moodLowerThresholdKey: string
     readonly moodUpperThresholdKey: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -867,8 +1129,7 @@ export abstract class Decorator extends ai.Node {
 
     readonly flowAbortMode: ai.EFlowAbortMode
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -894,8 +1155,7 @@ export class UeLoop extends ai.Decorator {
     readonly infiniteLoop: boolean
     readonly infiniteLoopTimeoutTime: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -917,8 +1177,7 @@ export class UeCooldown extends ai.Decorator {
 
     readonly cooldownTime: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -938,8 +1197,7 @@ export class UeTimeLimit extends ai.Decorator {
 
     readonly limitTime: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -965,202 +1223,11 @@ export class UeBlackboard extends ai.Decorator {
     readonly blackboardKey: string
     readonly keyQuery: ai.KeyQueryOperator
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
         this.keyQuery?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace ai {
-export abstract class KeyQueryOperator {
-    static constructorFrom(_json_: any): KeyQueryOperator{
-        switch (_json_["$type"]) {
-            case 'IsSet2': return new ai.IsSet2(_json_)
-            case 'IsNotSet': return new ai.IsNotSet(_json_)
-            case 'BinaryOperator': return new ai.BinaryOperator(_json_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_json_: any) {
-    }
-
-
-    resolve(tables:Tables)
-    {
-    }
-}
-
-}
-
-
-export namespace ai {
-export class IsSet2 extends ai.KeyQueryOperator {
-
-    constructor(_json_: any) {
-        super(_json_)
-    }
-
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-    }
-}
-
-}
-
-
-export namespace ai {
-export class IsNotSet extends ai.KeyQueryOperator {
-
-    constructor(_json_: any) {
-        super(_json_)
-    }
-
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-    }
-}
-
-}
-
-
-export namespace ai {
-export class BinaryOperator extends ai.KeyQueryOperator {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.oper === undefined) { throw new Error() }
-        this.oper = _json_.oper
-        if (_json_.data === undefined) { throw new Error() }
-        this.data = ai.KeyData.constructorFrom(_json_.data)
-    }
-
-    readonly oper: ai.EOperator
-    readonly data: ai.KeyData
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-        this.data?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace ai {
-export abstract class KeyData {
-    static constructorFrom(_json_: any): KeyData{
-        switch (_json_["$type"]) {
-            case 'FloatKeyData': return new ai.FloatKeyData(_json_)
-            case 'IntKeyData': return new ai.IntKeyData(_json_)
-            case 'StringKeyData': return new ai.StringKeyData(_json_)
-            case 'BlackboardKeyData': return new ai.BlackboardKeyData(_json_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_json_: any) {
-    }
-
-
-    resolve(tables:Tables)
-    {
-    }
-}
-
-}
-
-
-export namespace ai {
-export class FloatKeyData extends ai.KeyData {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.value === undefined) { throw new Error() }
-        this.value = _json_.value
-    }
-
-    readonly value: number
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class IntKeyData extends ai.KeyData {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.value === undefined) { throw new Error() }
-        this.value = _json_.value
-    }
-
-    readonly value: number
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class StringKeyData extends ai.KeyData {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.value === undefined) { throw new Error() }
-        this.value = _json_.value
-    }
-
-    readonly value: string
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class BlackboardKeyData extends ai.KeyData {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.value === undefined) { throw new Error() }
-        this.value = _json_.value
-    }
-
-    readonly value: string
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
     }
 }
 
@@ -1175,8 +1242,7 @@ export class UeForceSuccess extends ai.Decorator {
     }
 
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
     }
 }
@@ -1201,8 +1267,7 @@ export class IsAtLocation extends ai.Decorator {
     readonly keyboardKey: string
     readonly inverseCondition: boolean
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -1233,8 +1298,7 @@ export class DistanceLessThan extends ai.Decorator {
     readonly distance: number
     readonly reverseResult: boolean
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -1275,8 +1339,7 @@ export abstract class FlowNode extends ai.Node {
     readonly decorators: ai.Decorator[]
     readonly services: ai.Service[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         for (let _e of this.decorators) { _e?.resolve(tables); }
         for (let _e of this.services) { _e?.resolve(tables); }
@@ -1302,8 +1365,7 @@ export abstract class ComposeNode extends ai.FlowNode {
     }
 
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
     }
 }
@@ -1322,8 +1384,7 @@ export class Sequence extends ai.ComposeNode {
 
     readonly children: ai.FlowNode[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         for (let _e of this.children) { _e?.resolve(tables); }
     }
@@ -1343,8 +1404,7 @@ export class Selector extends ai.ComposeNode {
 
     readonly children: ai.FlowNode[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         for (let _e of this.children) { _e?.resolve(tables); }
     }
@@ -1370,8 +1430,7 @@ export class SimpleParallel extends ai.ComposeNode {
     readonly mainTask: ai.Task
     readonly backgroundNode: ai.FlowNode
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         this.mainTask?.resolve(tables);
@@ -1405,8 +1464,7 @@ export abstract class Task extends ai.FlowNode {
 
     readonly ignoreRestartSelf: boolean
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -1429,8 +1487,7 @@ export class UeWait extends ai.Task {
     readonly waitTime: number
     readonly randomDeviation: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -1451,8 +1508,7 @@ export class UeWaitBlackboardTime extends ai.Task {
 
     readonly blackboardKey: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -1475,8 +1531,7 @@ export class MoveToTarget extends ai.Task {
     readonly targetActorKey: string
     readonly acceptableRadius: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -1500,8 +1555,7 @@ export class ChooseSkill extends ai.Task {
     readonly targetActorKey: string
     readonly resultSkillIdKey: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -1525,8 +1579,7 @@ export class MoveToRandomLocation extends ai.Task {
     readonly originPositionKey: string
     readonly radius: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -1547,8 +1600,7 @@ export class MoveToLocation extends ai.Task {
 
     readonly acceptableRadius: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -1568,9 +1620,233 @@ export class DebugPrint extends ai.Task {
 
     readonly text: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class BehaviorTree {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.name === undefined) { throw new Error() }
+        this.name = _json_.name
+        if (_json_.desc === undefined) { throw new Error() }
+        this.desc = _json_.desc
+        if (_json_.blackboard_id === undefined) { throw new Error() }
+        this.blackboardId = _json_.blackboard_id
+        if (_json_.root === undefined) { throw new Error() }
+        this.root = ai.ComposeNode.constructorFrom(_json_.root)
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly desc: string
+    readonly blackboardId: string
+    blackboardId_ref: ai.Blackboard | undefined
+    readonly root: ai.ComposeNode
+
+    resolve(tables:Tables) {
+        
+        
+        
+        this.blackboardId_ref = tables.TbBlackboard.get(this.blackboardId)
+        this.root?.resolve(tables);
+    }
+}
+
+}
+
+
+
+export class vec2 {
+
+    constructor(_json_: any) {
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.y === undefined) { throw new Error() }
+        this.y = _json_.y
+    }
+
+    readonly x: number
+    readonly y: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+
+
+
+
+export class vec3 {
+
+    constructor(_json_: any) {
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.y === undefined) { throw new Error() }
+        this.y = _json_.y
+        if (_json_.z === undefined) { throw new Error() }
+        this.z = _json_.z
+    }
+
+    readonly x: number
+    readonly y: number
+    readonly z: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+
+
+
+
+export class vec4 {
+
+    constructor(_json_: any) {
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.y === undefined) { throw new Error() }
+        this.y = _json_.y
+        if (_json_.z === undefined) { throw new Error() }
+        this.z = _json_.z
+        if (_json_.w === undefined) { throw new Error() }
+        this.w = _json_.w
+    }
+
+    readonly x: number
+    readonly y: number
+    readonly z: number
+    readonly w: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+    }
+}
+
+
+
+
+export namespace common {
+export class DateTimeRange {
+
+    constructor(_json_: any) {
+        if(_json_.start_time != undefined) { this.startTime = _json_.start_time } else { this.startTime = undefined }
+        if(_json_.end_time != undefined) { this.endTime = _json_.end_time } else { this.endTime = undefined }
+    }
+
+    readonly startTime: number|undefined
+    readonly endTime: number|undefined
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace common {
+export class TimeOfDay {
+
+    constructor(_json_: any) {
+        if (_json_.hour === undefined) { throw new Error() }
+        this.hour = _json_.hour
+        if (_json_.minute === undefined) { throw new Error() }
+        this.minute = _json_.minute
+        if (_json_.second === undefined) { throw new Error() }
+        this.second = _json_.second
+    }
+
+    readonly hour: number
+    readonly minute: number
+    readonly second: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace common {
+export class OneDayTimeRange {
+
+    constructor(_json_: any) {
+        if (_json_.start_time === undefined) { throw new Error() }
+        this.startTime = new common.TimeOfDay(_json_.start_time)
+        if (_json_.end_time === undefined) { throw new Error() }
+        this.endTime = new common.TimeOfDay(_json_.end_time)
+    }
+
+    readonly startTime: common.TimeOfDay
+    readonly endTime: common.TimeOfDay
+
+    resolve(tables:Tables) {
+        this.startTime?.resolve(tables);
+        this.endTime?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace common {
+export class IntRange {
+
+    constructor(_json_: any) {
+        if (_json_.min === undefined) { throw new Error() }
+        this.min = _json_.min
+        if (_json_.max === undefined) { throw new Error() }
+        this.max = _json_.max
+    }
+
+    readonly min: number
+    readonly max: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace common {
+export class FloatRange {
+
+    constructor(_json_: any) {
+        if (_json_.min === undefined) { throw new Error() }
+        this.min = _json_.min
+        if (_json_.max === undefined) { throw new Error() }
+        this.max = _json_.max
+    }
+
+    readonly min: number
+    readonly max: number
+
+    resolve(tables:Tables) {
+        
         
     }
 }
@@ -1609,8 +1885,7 @@ export class GlobalConfig {
     readonly x6: number
     readonly x7: number[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -1670,8 +1945,7 @@ export class Item {
     readonly desc: string
     readonly showOrder: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -1702,8 +1976,7 @@ export class L10NDemo {
     readonly id: number
     readonly text: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -1725,8 +1998,7 @@ export class PatchDemo {
     readonly id: number
     readonly value: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -1748,8 +2020,244 @@ export class TestTag {
     readonly id: number
     readonly value: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DemoType1 {
+
+    constructor(_json_: any) {
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+    }
+
+    readonly x1: number
+
+    resolve(tables:Tables) {
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export abstract class DemoDynamic {
+    static constructorFrom(_json_: any): DemoDynamic{
+        switch (_json_["$type"]) {
+            case 'DemoD2': return new test.DemoD2(_json_)
+            case 'DemoE1': return new test.DemoE1(_json_)
+            case 'test.login.RoleInfo': return new test.login.RoleInfo(_json_)
+            case 'DemoD5': return new test.DemoD5(_json_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_json_: any) {
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+    }
+
+    readonly x1: number
+
+    resolve(tables:Tables) {
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DemoD2 extends test.DemoDynamic {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.x2 === undefined) { throw new Error() }
+        this.x2 = _json_.x2
+    }
+
+    readonly x2: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export abstract class DemoD3 extends test.DemoDynamic {
+    static constructorFrom(_json_: any): DemoD3{
+        switch (_json_["$type"]) {
+            case 'DemoE1': return new test.DemoE1(_json_)
+            case 'test.login.RoleInfo': return new test.login.RoleInfo(_json_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.x3 === undefined) { throw new Error() }
+        this.x3 = _json_.x3
+    }
+
+    readonly x3: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DemoE1 extends test.DemoD3 {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.x4 === undefined) { throw new Error() }
+        this.x4 = _json_.x4
+    }
+
+    readonly x4: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace test {export namespace login {
+export class RoleInfo extends test.DemoD3 {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.role_id === undefined) { throw new Error() }
+        this.roleId = _json_.role_id
+    }
+
+    readonly roleId: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}}
+
+
+export namespace test {
+export class DemoD5 extends test.DemoDynamic {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.time === undefined) { throw new Error() }
+        this.time = new test.DateTimeRange(_json_.time)
+    }
+
+    readonly time: test.DateTimeRange
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        this.time?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace test {
+export class DateTimeRange {
+
+    constructor(_json_: any) {
+        if (_json_.start_time === undefined) { throw new Error() }
+        this.startTime = _json_.start_time
+        if (_json_.end_time === undefined) { throw new Error() }
+        this.endTime = _json_.end_time
+    }
+
+    readonly startTime: number
+    readonly endTime: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DemoE2 {
+
+    constructor(_json_: any) {
+        if(_json_.y1 != undefined) { this.y1 = _json_.y1 } else { this.y1 = undefined }
+        if (_json_.y2 === undefined) { throw new Error() }
+        this.y2 = _json_.y2
+    }
+
+    readonly y1: number|undefined
+    readonly y2: boolean
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DemoExplicitType {
+
+    constructor(_json_: any) {
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x2 === undefined) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.x3 === undefined) { throw new Error() }
+        this.x3 = _json_.x3
+        if (_json_.x4 === undefined) { throw new Error() }
+        this.x4 = _json_.x4
+        if (_json_.x5 === undefined) { throw new Error() }
+        this.x5 = _json_.x5
+        if (_json_.x6 === undefined) { throw new Error() }
+        this.x6 = _json_.x6
+        if (_json_.x7 === undefined) { throw new Error() }
+        this.x7 = _json_.x7
+    }
+
+    readonly x1: number
+    readonly x2: number
+    readonly x3: number
+    readonly x4: number
+    readonly x5: number
+    readonly x6: number
+    readonly x7: bigint
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
         
         
     }
@@ -1831,8 +2339,7 @@ export class DemoType2 {
     readonly k9: test.DemoE2[]
     readonly k15: test.DemoDynamic[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -1862,210 +2369,6 @@ export class DemoType2 {
 
 
 export namespace test {
-export class DemoType1 {
-
-    constructor(_json_: any) {
-        if (_json_.x1 === undefined) { throw new Error() }
-        this.x1 = _json_.x1
-    }
-
-    readonly x1: number
-
-    resolve(tables:Tables)
-    {
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export abstract class DemoDynamic {
-    static constructorFrom(_json_: any): DemoDynamic{
-        switch (_json_["$type"]) {
-            case 'DemoD2': return new test.DemoD2(_json_)
-            case 'DemoE1': return new test.DemoE1(_json_)
-            case 'test.login.RoleInfo': return new test.login.RoleInfo(_json_)
-            case 'DemoD5': return new test.DemoD5(_json_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_json_: any) {
-        if (_json_.x1 === undefined) { throw new Error() }
-        this.x1 = _json_.x1
-    }
-
-    readonly x1: number
-
-    resolve(tables:Tables)
-    {
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class DemoD2 extends test.DemoDynamic {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.x2 === undefined) { throw new Error() }
-        this.x2 = _json_.x2
-    }
-
-    readonly x2: number
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export abstract class DemoD3 extends test.DemoDynamic {
-    static constructorFrom(_json_: any): DemoD3{
-        switch (_json_["$type"]) {
-            case 'DemoE1': return new test.DemoE1(_json_)
-            case 'test.login.RoleInfo': return new test.login.RoleInfo(_json_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.x3 === undefined) { throw new Error() }
-        this.x3 = _json_.x3
-    }
-
-    readonly x3: number
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class DemoE1 extends test.DemoD3 {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.x4 === undefined) { throw new Error() }
-        this.x4 = _json_.x4
-    }
-
-    readonly x4: number
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace test {export namespace login {
-export class RoleInfo extends test.DemoD3 {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.role_id === undefined) { throw new Error() }
-        this.roleId = _json_.role_id
-    }
-
-    readonly roleId: number
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-    }
-}
-
-}}
-
-
-export namespace test {
-export class DemoD5 extends test.DemoDynamic {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.time === undefined) { throw new Error() }
-        this.time = new test.DateTimeRange(_json_.time)
-    }
-
-    readonly time: test.DateTimeRange
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        this.time?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace test {
-export class DateTimeRange {
-
-    constructor(_json_: any) {
-        if (_json_.start_time === undefined) { throw new Error() }
-        this.startTime = _json_.start_time
-        if (_json_.end_time === undefined) { throw new Error() }
-        this.endTime = _json_.end_time
-    }
-
-    readonly startTime: number
-    readonly endTime: number
-
-    resolve(tables:Tables)
-    {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class DemoE2 {
-
-    constructor(_json_: any) {
-        if(_json_.y1 != undefined) { this.y1 = _json_.y1 } else { this.y1 = undefined }
-        if (_json_.y2 === undefined) { throw new Error() }
-        this.y2 = _json_.y2
-    }
-
-    readonly y1: number|undefined
-    readonly y2: boolean
-
-    resolve(tables:Tables)
-    {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
 export class DemoSingletonType {
 
     constructor(_json_: any) {
@@ -2081,8 +2384,7 @@ export class DemoSingletonType {
     readonly name: string
     readonly date: test.DemoDynamic
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         this.date?.resolve(tables);
@@ -2105,8 +2407,7 @@ export class NotIndexList {
     readonly x: number
     readonly y: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -2137,8 +2438,7 @@ export class MultiUnionIndexList {
     readonly num: number
     readonly desc: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -2172,13 +2472,82 @@ export class MultiIndexList {
     readonly num: number
     readonly desc: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
         
         
+    }
+}
+
+}
+
+
+export namespace test {
+export class MultiRowType1 {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+    }
+
+    readonly id: number
+    readonly x: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class MultiRowType2 {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.y === undefined) { throw new Error() }
+        this.y = _json_.y
+    }
+
+    readonly id: number
+    readonly x: number
+    readonly y: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class MultiRowType3 {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.items === undefined) { throw new Error() }
+        { this.items = []; for(let _ele0 of _json_.items) { let _e0; _e0 = new test.MultiRowType1(_ele0); this.items.push(_e0);}}
+    }
+
+    readonly id: number
+    readonly items: test.MultiRowType1[]
+
+    resolve(tables:Tables) {
+        
+        for (let _e of this.items) { _e?.resolve(tables); }
     }
 }
 
@@ -2219,8 +2588,7 @@ export class MultiRowRecord {
     readonly multiRows6: Map<number, test.MultiRowType2>
     readonly multiRows7: Map<number, number>
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         for (let _e of this.oneRows) { _e?.resolve(tables); }
@@ -2237,72 +2605,25 @@ export class MultiRowRecord {
 
 
 export namespace test {
-export class MultiRowType1 {
+export class Foo {
 
     constructor(_json_: any) {
-        if (_json_.id === undefined) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.x === undefined) { throw new Error() }
-        this.x = _json_.x
+        if (_json_.y1 === undefined) { throw new Error() }
+        this.y1 = _json_.y1
+        if (_json_.y2 === undefined) { throw new Error() }
+        this.y2 = _json_.y2
+        if (_json_.y3 === undefined) { throw new Error() }
+        this.y3 = _json_.y3
     }
 
-    readonly id: number
-    readonly x: number
+    readonly y1: number
+    readonly y2: number
+    readonly y3: number
 
-    resolve(tables:Tables)
-    {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class MultiRowType2 {
-
-    constructor(_json_: any) {
-        if (_json_.id === undefined) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.x === undefined) { throw new Error() }
-        this.x = _json_.x
-        if (_json_.y === undefined) { throw new Error() }
-        this.y = _json_.y
-    }
-
-    readonly id: number
-    readonly x: number
-    readonly y: number
-
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
-    }
-}
-
-}
-
-
-export namespace test {
-export class MultiRowType3 {
-
-    constructor(_json_: any) {
-        if (_json_.id === undefined) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.items === undefined) { throw new Error() }
-        { this.items = []; for(let _ele0 of _json_.items) { let _e0; _e0 = new test.MultiRowType1(_ele0); this.items.push(_e0);}}
-    }
-
-    readonly id: number
-    readonly items: test.MultiRowType1[]
-
-    resolve(tables:Tables)
-    {
-        
-        for (let _e of this.items) { _e?.resolve(tables); }
     }
 }
 
@@ -2328,8 +2649,7 @@ export class TestMultiColumn {
     readonly b: test.Foo
     readonly c: test.Foo
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         this.a?.resolve(tables);
         this.b?.resolve(tables);
@@ -2341,24 +2661,115 @@ export class TestMultiColumn {
 
 
 export namespace test {
-export class Foo {
+export class TestUeType {
 
     constructor(_json_: any) {
-        if (_json_.y1 === undefined) { throw new Error() }
-        this.y1 = _json_.y1
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x2 === undefined) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.x3 === undefined) { throw new Error() }
+        this.x3 = _json_.x3
+        if (_json_.x4 === undefined) { throw new Error() }
+        this.x4 = _json_.x4
+        if (_json_.x5 === undefined) { throw new Error() }
+        this.x5 = _json_.x5
+        if (_json_.x6 === undefined) { throw new Error() }
+        this.x6 = _json_.x6
+        if (_json_.x10 === undefined) { throw new Error() }
+        this.x10 = _json_.x10
+        if (_json_.x12 === undefined) { throw new Error() }
+        this.x12 = new test.DemoType1(_json_.x12)
+        if (_json_.x13 === undefined) { throw new Error() }
+        this.x13 = _json_.x13
+        if (_json_.t1 === undefined) { throw new Error() }
+        this.t1 = _json_.t1
+        if (_json_.k1 === undefined) { throw new Error() }
+        { this.k1 = []; for(let _ele0 of _json_.k1) { let _e0; _e0 = _ele0; this.k1.push(_e0);}}
+        if (_json_.k2 === undefined) { throw new Error() }
+        { this.k2 = []; for(let _ele0 of _json_.k2) { let _e0; _e0 = _ele0; this.k2.push(_e0);}}
+        if (_json_.k5 === undefined) { throw new Error() }
+        this.k5 = _json_.k5
+        if (_json_.k8 === undefined) { throw new Error() }
+        this.k8 = new Map<number, number>(); for(var _entry0_ of _json_.k8) { let _k0; _k0 = _entry0_[0];  let _v0;  _v0 = _entry0_[1]; this.k8.set(_k0, _v0);  }
+        if (_json_.k9 === undefined) { throw new Error() }
+        { this.k9 = []; for(let _ele0 of _json_.k9) { let _e0; _e0 = new test.DemoE2(_ele0); this.k9.push(_e0);}}
+    }
+
+    readonly x1: boolean
+    readonly x2: number
+    readonly x3: number
+    readonly x4: number
+    readonly x5: number
+    readonly x6: number
+    readonly x10: string
+    readonly x12: test.DemoType1
+    readonly x13: test.ETestUeType
+    readonly t1: number
+    readonly k1: number[]
+    readonly k2: number[]
+    readonly k5: Set<number>
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        this.x12?.resolve(tables);
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class H1 {
+
+    constructor(_json_: any) {
         if (_json_.y2 === undefined) { throw new Error() }
-        this.y2 = _json_.y2
+        this.y2 = new test.H2(_json_.y2)
         if (_json_.y3 === undefined) { throw new Error() }
         this.y3 = _json_.y3
     }
 
-    readonly y1: number
-    readonly y2: number
+    readonly y2: test.H2
     readonly y3: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
+        this.y2?.resolve(tables);
         
+    }
+}
+
+}
+
+
+export namespace test {
+export class H2 {
+
+    constructor(_json_: any) {
+        if (_json_.z2 === undefined) { throw new Error() }
+        this.z2 = _json_.z2
+        if (_json_.z3 === undefined) { throw new Error() }
+        this.z3 = _json_.z3
+    }
+
+    readonly z2: number
+    readonly z3: number
+
+    resolve(tables:Tables) {
         
         
     }
@@ -2394,8 +2805,7 @@ export class MultiRowTitle {
     readonly x3: test.H2[]
     readonly x4: test.H2[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         this.x1?.resolve(tables);
@@ -2403,52 +2813,6 @@ export class MultiRowTitle {
         for (let _e of this.x2) { _e?.resolve(tables); }
         for (let _e of this.x3) { _e?.resolve(tables); }
         for (let _e of this.x4) { _e?.resolve(tables); }
-    }
-}
-
-}
-
-
-export namespace test {
-export class H1 {
-
-    constructor(_json_: any) {
-        if (_json_.y2 === undefined) { throw new Error() }
-        this.y2 = new test.H2(_json_.y2)
-        if (_json_.y3 === undefined) { throw new Error() }
-        this.y3 = _json_.y3
-    }
-
-    readonly y2: test.H2
-    readonly y3: number
-
-    resolve(tables:Tables)
-    {
-        this.y2?.resolve(tables);
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class H2 {
-
-    constructor(_json_: any) {
-        if (_json_.z2 === undefined) { throw new Error() }
-        this.z2 = _json_.z2
-        if (_json_.z3 === undefined) { throw new Error() }
-        this.z3 = _json_.z3
-    }
-
-    readonly z2: number
-    readonly z3: number
-
-    resolve(tables:Tables)
-    {
-        
-        
     }
 }
 
@@ -2477,8 +2841,7 @@ export class TestNull {
     readonly s1: string|undefined
     readonly s2: string|undefined
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -2538,8 +2901,7 @@ export class DemoPrimitiveTypesTable {
     readonly v4: vec4
     readonly t1: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -2550,6 +2912,32 @@ export class DemoPrimitiveTypesTable {
         
         
         
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class CompactString {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.s2 === undefined) { throw new Error() }
+        this.s2 = _json_.s2
+        if (_json_.s3 === undefined) { throw new Error() }
+        this.s3 = _json_.s3
+    }
+
+    readonly id: number
+    readonly s2: string
+    readonly s3: string
+
+    resolve(tables:Tables) {
         
         
         
@@ -2581,8 +2969,7 @@ export class TestString {
     readonly cs1: test.CompactString
     readonly cs2: test.CompactString
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -2595,23 +2982,26 @@ export class TestString {
 
 
 export namespace test {
-export class CompactString {
+export class InnerGroup {
 
     constructor(_json_: any) {
-        if (_json_.id === undefined) { throw new Error() }
-        this.id = _json_.id
-        if (_json_.s2 === undefined) { throw new Error() }
-        this.s2 = _json_.s2
-        if (_json_.s3 === undefined) { throw new Error() }
-        this.s3 = _json_.s3
+        if (_json_.y1 === undefined) { throw new Error() }
+        this.y1 = _json_.y1
+        if (_json_.y2 === undefined) { throw new Error() }
+        this.y2 = _json_.y2
+        if (_json_.y3 === undefined) { throw new Error() }
+        this.y3 = _json_.y3
+        if (_json_.y4 === undefined) { throw new Error() }
+        this.y4 = _json_.y4
     }
 
-    readonly id: number
-    readonly s2: string
-    readonly s3: string
+    readonly y1: number
+    readonly y2: number
+    readonly y3: number
+    readonly y4: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
+        
         
         
         
@@ -2649,45 +3039,13 @@ export class DemoGroup {
     readonly x4: number
     readonly x5: test.InnerGroup
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         this.x1_ref = tables.TbDemoGroup_C.get(this.x1)
         this.x2_ref = tables.TbDemoGroup_S.get(this.x2)
         this.x3_ref = tables.TbDemoGroup_E.get(this.x3)
         
         this.x5?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace test {
-export class InnerGroup {
-
-    constructor(_json_: any) {
-        if (_json_.y1 === undefined) { throw new Error() }
-        this.y1 = _json_.y1
-        if (_json_.y2 === undefined) { throw new Error() }
-        this.y2 = _json_.y2
-        if (_json_.y3 === undefined) { throw new Error() }
-        this.y3 = _json_.y3
-        if (_json_.y4 === undefined) { throw new Error() }
-        this.y4 = _json_.y4
-    }
-
-    readonly y1: number
-    readonly y2: number
-    readonly y3: number
-    readonly y4: number
-
-    resolve(tables:Tables)
-    {
-        
-        
-        
-        
     }
 }
 
@@ -2707,8 +3065,7 @@ export class TestGlobal {
     readonly unlockEquip: number
     readonly unlockHero: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -2730,9 +3087,53 @@ export class TestBeRef {
     readonly id: number
     readonly count: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export abstract class RefDynamicBase {
+    static constructorFrom(_json_: any): RefDynamicBase{
+        switch (_json_["$type"]) {
+            case 'RefBean': return new test.RefBean(_json_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_json_: any) {
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+    }
+
+    readonly x: number
+    x_ref: test.TestBeRef | undefined
+
+    resolve(tables:Tables) {
+        this.x_ref = tables.TbTestBeRef.get(this.x)
+    }
+}
+
+}
+
+
+export namespace test {
+export class RefBean extends test.RefDynamicBase {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.arr === undefined) { throw new Error() }
+        { this.arr = []; for(let _ele0 of _json_.arr) { let _e0; _e0 = _ele0; this.arr.push(_e0);}}
+    }
+
+    readonly arr: number[]
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
         
     }
 }
@@ -2813,8 +3214,7 @@ export class TestRef {
     readonly f3: string
     readonly s1: test.RefDynamicBase
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         this.x1_ref = tables.TbTestBeRef.get(this.x1)
         this.x12_ref = tables.TbTestBeRef.get(this.x12)
@@ -2843,53 +3243,6 @@ export class TestRef {
 
 
 export namespace test {
-export abstract class RefDynamicBase {
-    static constructorFrom(_json_: any): RefDynamicBase{
-        switch (_json_["$type"]) {
-            case 'RefBean': return new test.RefBean(_json_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_json_: any) {
-        if (_json_.x === undefined) { throw new Error() }
-        this.x = _json_.x
-    }
-
-    readonly x: number
-    x_ref: test.TestBeRef | undefined
-
-    resolve(tables:Tables)
-    {
-        this.x_ref = tables.TbTestBeRef.get(this.x)
-    }
-}
-
-}
-
-
-export namespace test {
-export class RefBean extends test.RefDynamicBase {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.arr === undefined) { throw new Error() }
-        { this.arr = []; for(let _ele0 of _json_.arr) { let _e0; _e0 = _ele0; this.arr.push(_e0);}}
-    }
-
-    readonly arr: number[]
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace test {
 export class TestSize {
 
     constructor(_json_: any) {
@@ -2911,8 +3264,7 @@ export class TestSize {
     readonly x3: Set<number>
     readonly x4: Map<number, number>
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -2949,8 +3301,7 @@ export class TestSet {
     readonly x3: string[]
     readonly x4: test.DemoEnum[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -2976,8 +3327,7 @@ export class DetectEncoding {
     readonly id: number
     readonly name: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -3010,8 +3360,7 @@ export abstract class ItemBase {
     readonly name: string
     readonly desc: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -3035,8 +3384,7 @@ export class Item extends test.ItemBase {
     readonly num: number
     readonly price: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -3060,8 +3408,7 @@ export class Equipment extends test.ItemBase {
     readonly attr: test.DemoEnum
     readonly value: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
         
@@ -3082,8 +3429,7 @@ export class Decorator extends test.ItemBase {
 
     readonly duration: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         super.resolve(tables)
         
     }
@@ -3105,8 +3451,7 @@ export class TestIndex {
     readonly id: number
     readonly eles: test.DemoType1[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         for (let _e of this.eles) { _e?.resolve(tables); }
     }
@@ -3138,8 +3483,7 @@ export class TestMap {
     readonly x3: Map<string, number>
     readonly x4: Map<test.DemoEnum, number>
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         this.id_ref = tables.TbTestIndex.get(this.id)
         
         
@@ -3200,8 +3544,7 @@ export class ExcelFromJson {
     readonly k9: test.DemoE2[]
     readonly k15: test.DemoDynamic[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -3235,8 +3578,7 @@ export class CompositeJsonTable1 {
     readonly id: number
     readonly x: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -3258,8 +3600,7 @@ export class CompositeJsonTable2 {
     readonly id: number
     readonly y: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -3281,8 +3622,7 @@ export class CompositeJsonTable3 {
     readonly a: number
     readonly b: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -3292,26 +3632,21 @@ export class CompositeJsonTable3 {
 
 
 export namespace test {
-export class ExcelFromJsonMultiRow {
+export class Test3 {
 
     constructor(_json_: any) {
-        if (_json_.id === undefined) { throw new Error() }
-        this.id = _json_.id
         if (_json_.x === undefined) { throw new Error() }
         this.x = _json_.x
-        if (_json_.items === undefined) { throw new Error() }
-        { this.items = []; for(let _ele0 of _json_.items) { let _e0; _e0 = new test.TestRow(_ele0); this.items.push(_e0);}}
+        if (_json_.y === undefined) { throw new Error() }
+        this.y = _json_.y
     }
 
-    readonly id: number
     readonly x: number
-    readonly items: test.TestRow[]
+    readonly y: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
-        for (let _e of this.items) { _e?.resolve(tables); }
     }
 }
 
@@ -3340,8 +3675,7 @@ export class TestRow {
     readonly a: test.Test3
     readonly b: number[]
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -3354,20 +3688,75 @@ export class TestRow {
 
 
 export namespace test {
-export class Test3 {
+export class ExcelFromJsonMultiRow {
+
+    constructor(_json_: any) {
+        if (_json_.id === undefined) { throw new Error() }
+        this.id = _json_.id
+        if (_json_.x === undefined) { throw new Error() }
+        this.x = _json_.x
+        if (_json_.items === undefined) { throw new Error() }
+        { this.items = []; for(let _ele0 of _json_.items) { let _e0; _e0 = new test.TestRow(_ele0); this.items.push(_e0);}}
+    }
+
+    readonly id: number
+    readonly x: number
+    readonly items: test.TestRow[]
+
+    resolve(tables:Tables) {
+        
+        
+        for (let _e of this.items) { _e?.resolve(tables); }
+    }
+}
+
+}
+
+
+export namespace test {
+export class SepVector {
 
     constructor(_json_: any) {
         if (_json_.x === undefined) { throw new Error() }
         this.x = _json_.x
         if (_json_.y === undefined) { throw new Error() }
         this.y = _json_.y
+        if (_json_.z === undefined) { throw new Error() }
+        this.z = _json_.z
     }
 
     readonly x: number
     readonly y: number
+    readonly z: number
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class SepBean1 {
+
+    constructor(_json_: any) {
+        if (_json_.a === undefined) { throw new Error() }
+        this.a = _json_.a
+        if (_json_.b === undefined) { throw new Error() }
+        this.b = _json_.b
+        if (_json_.c === undefined) { throw new Error() }
+        this.c = _json_.c
+    }
+
+    readonly a: number
+    readonly b: number
+    readonly c: string
+
+    resolve(tables:Tables) {
+        
         
         
     }
@@ -3404,8 +3793,7 @@ export class TestScriptableObject {
     readonly v3: vec3
     readonly v4: vec4
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -3432,8 +3820,7 @@ export class Path {
     readonly id: number
     readonly res: string
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
     }
@@ -3458,9 +3845,171 @@ export class TestMapper {
     readonly audioType: AudioType
     readonly v2: vec2
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+/**
+ * 这是个测试excel结构
+ */
+export class TestExcelBean1 {
+
+    constructor(_json_: any) {
+        if (_json_.x1 === undefined) { throw new Error() }
+        this.x1 = _json_.x1
+        if (_json_.x2 === undefined) { throw new Error() }
+        this.x2 = _json_.x2
+        if (_json_.x3 === undefined) { throw new Error() }
+        this.x3 = _json_.x3
+        if (_json_.x4 === undefined) { throw new Error() }
+        this.x4 = _json_.x4
+    }
+
+    /**
+     * 最高品质
+     */
+    readonly x1: number
+    /**
+     * 黑色的
+     */
+    readonly x2: string
+    /**
+     * 蓝色的
+     */
+    readonly x3: number
+    /**
+     * 最差品质
+     */
+    readonly x4: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+/**
+ * 这是个测试excel结构
+ */
+export class TestExcelBean2 {
+
+    constructor(_json_: any) {
+        if (_json_.y1 === undefined) { throw new Error() }
+        this.y1 = _json_.y1
+        if (_json_.y2 === undefined) { throw new Error() }
+        this.y2 = _json_.y2
+        if (_json_.y3 === undefined) { throw new Error() }
+        this.y3 = _json_.y3
+    }
+
+    /**
+     * 最高品质
+     */
+    readonly y1: number
+    /**
+     * 黑色的
+     */
+    readonly y2: string
+    /**
+     * 蓝色的
+     */
+    readonly y3: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export abstract class Shape {
+    static constructorFrom(_json_: any): Shape{
+        switch (_json_["$type"]) {
+            case 'Circle': return new test.Circle(_json_)
+            case 'test2.Rectangle': return new test2.Rectangle(_json_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_json_: any) {
+    }
+
+
+    resolve(tables:Tables) {
+    }
+}
+
+}
+
+
+export namespace test {
+/**
+ * 圆
+ */
+export class Circle extends test.Shape {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.radius === undefined) { throw new Error() }
+        this.radius = _json_.radius
+    }
+
+    /**
+     * 半径
+     */
+    readonly radius: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace test2 {
+/**
+ * 矩形
+ */
+export class Rectangle extends test.Shape {
+
+    constructor(_json_: any) {
+        super(_json_)
+        if (_json_.width === undefined) { throw new Error() }
+        this.width = _json_.width
+        if (_json_.height === undefined) { throw new Error() }
+        this.height = _json_.height
+    }
+
+    /**
+     * 宽度
+     */
+    readonly width: number
+    /**
+     * 高度
+     */
+    readonly height: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
         
         
     }
@@ -3538,8 +4087,7 @@ export class DefineFromExcel2 {
     readonly k11: vec4[]
     readonly v11: vec3|undefined
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         
         
         
@@ -3565,92 +4113,9 @@ export class DefineFromExcel2 {
 
 
 
-export namespace test {
-export abstract class Shape {
-    static constructorFrom(_json_: any): Shape{
-        switch (_json_["$type"]) {
-            case 'Circle': return new test.Circle(_json_)
-            case 'test2.Rectangle': return new test2.Rectangle(_json_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_json_: any) {
-    }
-
-
-    resolve(tables:Tables)
-    {
-    }
-}
-
-}
-
-
-export namespace test {
-/**
- * 圆
- */
-export class Circle extends test.Shape {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.radius === undefined) { throw new Error() }
-        this.radius = _json_.radius
-    }
-
-    /**
-     * 半径
-     */
-    readonly radius: number
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace test2 {
-/**
- * 矩形
- */
-export class Rectangle extends test.Shape {
-
-    constructor(_json_: any) {
-        super(_json_)
-        if (_json_.width === undefined) { throw new Error() }
-        this.width = _json_.width
-        if (_json_.height === undefined) { throw new Error() }
-        this.height = _json_.height
-    }
-
-    /**
-     * 宽度
-     */
-    readonly width: number
-    /**
-     * 高度
-     */
-    readonly height: number
-
-    resolve(tables:Tables)
-    {
-        super.resolve(tables)
-        
-        
-    }
-}
-
-}
-
-
 
 export namespace ai {
-export class TbBlackboard{
+export class TbBlackboard {
     private _dataMap: Map<string, ai.Blackboard>
     private _dataList: ai.Blackboard[]
     constructor(_json_: any) {
@@ -3669,8 +4134,7 @@ export class TbBlackboard{
 
     get(key: string): ai.Blackboard | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -3682,7 +4146,7 @@ export class TbBlackboard{
 
 
 export namespace ai {
-export class TbBehaviorTree{
+export class TbBehaviorTree {
     private _dataMap: Map<number, ai.BehaviorTree>
     private _dataList: ai.BehaviorTree[]
     constructor(_json_: any) {
@@ -3701,8 +4165,7 @@ export class TbBehaviorTree{
 
     get(key: number): ai.BehaviorTree | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -3714,7 +4177,7 @@ export class TbBehaviorTree{
 
 
 export namespace common {
-export class TbGlobalConfig{
+export class TbGlobalConfig {
 
     private _data: common.GlobalConfig
     constructor(_json_: any) {
@@ -3748,7 +4211,7 @@ export namespace item {
 /**
  * 道具表
  */
-export class TbItem{
+export class TbItem {
     private _dataMap: Map<number, item.Item>
     private _dataList: item.Item[]
     constructor(_json_: any) {
@@ -3767,8 +4230,7 @@ export class TbItem{
 
     get(key: number): item.Item | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -3780,7 +4242,7 @@ export class TbItem{
 
 
 export namespace l10n {
-export class TbL10NDemo{
+export class TbL10NDemo {
     private _dataMap: Map<number, l10n.L10NDemo>
     private _dataList: l10n.L10NDemo[]
     constructor(_json_: any) {
@@ -3799,8 +4261,7 @@ export class TbL10NDemo{
 
     get(key: number): l10n.L10NDemo | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -3812,7 +4273,7 @@ export class TbL10NDemo{
 
 
 export namespace l10n {
-export class TbPatchDemo{
+export class TbPatchDemo {
     private _dataMap: Map<number, l10n.PatchDemo>
     private _dataList: l10n.PatchDemo[]
     constructor(_json_: any) {
@@ -3831,8 +4292,7 @@ export class TbPatchDemo{
 
     get(key: number): l10n.PatchDemo | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -3844,7 +4304,7 @@ export class TbPatchDemo{
 
 
 export namespace tag {
-export class TbTestTag{
+export class TbTestTag {
     private _dataMap: Map<number, tag.TestTag>
     private _dataList: tag.TestTag[]
     constructor(_json_: any) {
@@ -3863,8 +4323,7 @@ export class TbTestTag{
 
     get(key: number): tag.TestTag | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -3876,7 +4335,7 @@ export class TbTestTag{
 
 
 export namespace test {
-export class TbFullTypes{
+export class TbFullTypes {
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
     constructor(_json_: any) {
@@ -3895,8 +4354,7 @@ export class TbFullTypes{
 
     get(key: number): test.DemoType2 | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -3908,7 +4366,7 @@ export class TbFullTypes{
 
 
 export namespace test {
-export class TbSingleton{
+export class TbSingleton {
 
     private _data: test.DemoSingletonType
     constructor(_json_: any) {
@@ -3932,7 +4390,7 @@ export class TbSingleton{
 
 
 export namespace test {
-export class TbNotIndexList{
+export class TbNotIndexList {
     private _dataList: test.NotIndexList[]
     
     constructor(_json_: any) {
@@ -3948,8 +4406,7 @@ export class TbNotIndexList{
 
     get(index: number): test.NotIndexList | undefined { return this._dataList[index] }
     
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -3961,7 +4418,7 @@ export class TbNotIndexList{
 
 
 export namespace test {
-export class TbMultiUnionIndexList{
+export class TbMultiUnionIndexList {
     private _dataList: test.MultiUnionIndexList[]
     
     constructor(_json_: any) {
@@ -3977,8 +4434,7 @@ export class TbMultiUnionIndexList{
 
     get(index: number): test.MultiUnionIndexList | undefined { return this._dataList[index] }
     
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -3990,7 +4446,7 @@ export class TbMultiUnionIndexList{
 
 
 export namespace test {
-export class TbMultiIndexList{
+export class TbMultiIndexList {
     private _dataList: test.MultiIndexList[]
     
     constructor(_json_: any) {
@@ -4006,8 +4462,7 @@ export class TbMultiIndexList{
 
     get(index: number): test.MultiIndexList | undefined { return this._dataList[index] }
     
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4019,7 +4474,7 @@ export class TbMultiIndexList{
 
 
 export namespace test {
-export class TbDataFromMisc{
+export class TbDataFromMisc {
     private _dataMap: Map<number, test.DemoType2>
     private _dataList: test.DemoType2[]
     constructor(_json_: any) {
@@ -4038,8 +4493,7 @@ export class TbDataFromMisc{
 
     get(key: number): test.DemoType2 | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4051,7 +4505,7 @@ export class TbDataFromMisc{
 
 
 export namespace test {
-export class TbMultiRowRecord{
+export class TbMultiRowRecord {
     private _dataMap: Map<number, test.MultiRowRecord>
     private _dataList: test.MultiRowRecord[]
     constructor(_json_: any) {
@@ -4070,8 +4524,7 @@ export class TbMultiRowRecord{
 
     get(key: number): test.MultiRowRecord | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4083,7 +4536,7 @@ export class TbMultiRowRecord{
 
 
 export namespace test {
-export class TbTestMultiColumn{
+export class TbTestMultiColumn {
     private _dataMap: Map<number, test.TestMultiColumn>
     private _dataList: test.TestMultiColumn[]
     constructor(_json_: any) {
@@ -4102,8 +4555,7 @@ export class TbTestMultiColumn{
 
     get(key: number): test.TestMultiColumn | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4115,7 +4567,7 @@ export class TbTestMultiColumn{
 
 
 export namespace test {
-export class TbMultiRowTitle{
+export class TbMultiRowTitle {
     private _dataMap: Map<number, test.MultiRowTitle>
     private _dataList: test.MultiRowTitle[]
     constructor(_json_: any) {
@@ -4134,8 +4586,7 @@ export class TbMultiRowTitle{
 
     get(key: number): test.MultiRowTitle | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4147,7 +4598,7 @@ export class TbMultiRowTitle{
 
 
 export namespace test {
-export class TbTestNull{
+export class TbTestNull {
     private _dataMap: Map<number, test.TestNull>
     private _dataList: test.TestNull[]
     constructor(_json_: any) {
@@ -4166,8 +4617,7 @@ export class TbTestNull{
 
     get(key: number): test.TestNull | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4179,7 +4629,7 @@ export class TbTestNull{
 
 
 export namespace test {
-export class TbDemoPrimitive{
+export class TbDemoPrimitive {
     private _dataMap: Map<number, test.DemoPrimitiveTypesTable>
     private _dataList: test.DemoPrimitiveTypesTable[]
     constructor(_json_: any) {
@@ -4198,8 +4648,7 @@ export class TbDemoPrimitive{
 
     get(key: number): test.DemoPrimitiveTypesTable | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4211,7 +4660,7 @@ export class TbDemoPrimitive{
 
 
 export namespace test {
-export class TbTestString{
+export class TbTestString {
     private _dataMap: Map<string, test.TestString>
     private _dataList: test.TestString[]
     constructor(_json_: any) {
@@ -4230,8 +4679,7 @@ export class TbTestString{
 
     get(key: string): test.TestString | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4243,7 +4691,7 @@ export class TbTestString{
 
 
 export namespace test {
-export class TbDemoGroup{
+export class TbDemoGroup {
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
     constructor(_json_: any) {
@@ -4262,8 +4710,7 @@ export class TbDemoGroup{
 
     get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4275,7 +4722,7 @@ export class TbDemoGroup{
 
 
 export namespace test {
-export class TbDemoGroup_C{
+export class TbDemoGroup_C {
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
     constructor(_json_: any) {
@@ -4294,8 +4741,7 @@ export class TbDemoGroup_C{
 
     get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4307,7 +4753,7 @@ export class TbDemoGroup_C{
 
 
 export namespace test {
-export class TbDemoGroup_S{
+export class TbDemoGroup_S {
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
     constructor(_json_: any) {
@@ -4326,8 +4772,7 @@ export class TbDemoGroup_S{
 
     get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4339,7 +4784,7 @@ export class TbDemoGroup_S{
 
 
 export namespace test {
-export class TbDemoGroup_E{
+export class TbDemoGroup_E {
     private _dataMap: Map<number, test.DemoGroup>
     private _dataList: test.DemoGroup[]
     constructor(_json_: any) {
@@ -4358,8 +4803,7 @@ export class TbDemoGroup_E{
 
     get(key: number): test.DemoGroup | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4371,7 +4815,7 @@ export class TbDemoGroup_E{
 
 
 export namespace test {
-export class TbTestGlobal{
+export class TbTestGlobal {
 
     private _data: test.TestGlobal
     constructor(_json_: any) {
@@ -4394,7 +4838,7 @@ export class TbTestGlobal{
 
 
 export namespace test {
-export class TbTestBeRef{
+export class TbTestBeRef {
     private _dataMap: Map<number, test.TestBeRef>
     private _dataList: test.TestBeRef[]
     constructor(_json_: any) {
@@ -4413,8 +4857,7 @@ export class TbTestBeRef{
 
     get(key: number): test.TestBeRef | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4426,7 +4869,7 @@ export class TbTestBeRef{
 
 
 export namespace test {
-export class TbTestBeRef2{
+export class TbTestBeRef2 {
     private _dataMap: Map<number, test.TestBeRef>
     private _dataList: test.TestBeRef[]
     constructor(_json_: any) {
@@ -4445,8 +4888,7 @@ export class TbTestBeRef2{
 
     get(key: number): test.TestBeRef | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4458,7 +4900,7 @@ export class TbTestBeRef2{
 
 
 export namespace test {
-export class TbTestRef{
+export class TbTestRef {
     private _dataMap: Map<number, test.TestRef>
     private _dataList: test.TestRef[]
     constructor(_json_: any) {
@@ -4477,8 +4919,7 @@ export class TbTestRef{
 
     get(key: number): test.TestRef | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4490,7 +4931,7 @@ export class TbTestRef{
 
 
 export namespace test {
-export class TbTestSize{
+export class TbTestSize {
     private _dataMap: Map<number, test.TestSize>
     private _dataList: test.TestSize[]
     constructor(_json_: any) {
@@ -4509,8 +4950,7 @@ export class TbTestSize{
 
     get(key: number): test.TestSize | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4522,7 +4962,7 @@ export class TbTestSize{
 
 
 export namespace test {
-export class TbTestSet{
+export class TbTestSet {
     private _dataMap: Map<number, test.TestSet>
     private _dataList: test.TestSet[]
     constructor(_json_: any) {
@@ -4541,8 +4981,7 @@ export class TbTestSet{
 
     get(key: number): test.TestSet | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4554,7 +4993,7 @@ export class TbTestSet{
 
 
 export namespace test {
-export class TbDetectCsvEncoding{
+export class TbDetectCsvEncoding {
     private _dataMap: Map<number, test.DetectEncoding>
     private _dataList: test.DetectEncoding[]
     constructor(_json_: any) {
@@ -4573,8 +5012,7 @@ export class TbDetectCsvEncoding{
 
     get(key: number): test.DetectEncoding | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4586,7 +5024,7 @@ export class TbDetectCsvEncoding{
 
 
 export namespace test {
-export class TbItem2{
+export class TbItem2 {
     private _dataMap: Map<number, test.ItemBase>
     private _dataList: test.ItemBase[]
     constructor(_json_: any) {
@@ -4605,8 +5043,7 @@ export class TbItem2{
 
     get(key: number): test.ItemBase | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4618,7 +5055,7 @@ export class TbItem2{
 
 
 export namespace test {
-export class TbTestIndex{
+export class TbTestIndex {
     private _dataMap: Map<number, test.TestIndex>
     private _dataList: test.TestIndex[]
     constructor(_json_: any) {
@@ -4637,8 +5074,7 @@ export class TbTestIndex{
 
     get(key: number): test.TestIndex | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4650,7 +5086,7 @@ export class TbTestIndex{
 
 
 export namespace test {
-export class TbTestMap{
+export class TbTestMap {
     private _dataMap: Map<number, test.TestMap>
     private _dataList: test.TestMap[]
     constructor(_json_: any) {
@@ -4669,8 +5105,7 @@ export class TbTestMap{
 
     get(key: number): test.TestMap | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4682,7 +5117,7 @@ export class TbTestMap{
 
 
 export namespace test {
-export class TbExcelFromJson{
+export class TbExcelFromJson {
     private _dataMap: Map<number, test.ExcelFromJson>
     private _dataList: test.ExcelFromJson[]
     constructor(_json_: any) {
@@ -4701,8 +5136,7 @@ export class TbExcelFromJson{
 
     get(key: number): test.ExcelFromJson | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4714,7 +5148,7 @@ export class TbExcelFromJson{
 
 
 export namespace test {
-export class TbCompositeJsonTable1{
+export class TbCompositeJsonTable1 {
     private _dataMap: Map<number, test.CompositeJsonTable1>
     private _dataList: test.CompositeJsonTable1[]
     constructor(_json_: any) {
@@ -4733,8 +5167,7 @@ export class TbCompositeJsonTable1{
 
     get(key: number): test.CompositeJsonTable1 | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4746,7 +5179,7 @@ export class TbCompositeJsonTable1{
 
 
 export namespace test {
-export class TbCompositeJsonTable2{
+export class TbCompositeJsonTable2 {
     private _dataMap: Map<number, test.CompositeJsonTable2>
     private _dataList: test.CompositeJsonTable2[]
     constructor(_json_: any) {
@@ -4765,8 +5198,7 @@ export class TbCompositeJsonTable2{
 
     get(key: number): test.CompositeJsonTable2 | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4778,7 +5210,7 @@ export class TbCompositeJsonTable2{
 
 
 export namespace test {
-export class TbCompositeJsonTable3{
+export class TbCompositeJsonTable3 {
 
     private _data: test.CompositeJsonTable3
     constructor(_json_: any) {
@@ -4801,7 +5233,7 @@ export class TbCompositeJsonTable3{
 
 
 export namespace test {
-export class TbExcelFromJsonMultiRow{
+export class TbExcelFromJsonMultiRow {
     private _dataMap: Map<number, test.ExcelFromJsonMultiRow>
     private _dataList: test.ExcelFromJsonMultiRow[]
     constructor(_json_: any) {
@@ -4820,8 +5252,7 @@ export class TbExcelFromJsonMultiRow{
 
     get(key: number): test.ExcelFromJsonMultiRow | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4833,7 +5264,7 @@ export class TbExcelFromJsonMultiRow{
 
 
 export namespace test {
-export class TbTestScriptableObject{
+export class TbTestScriptableObject {
     private _dataMap: Map<number, test.TestScriptableObject>
     private _dataList: test.TestScriptableObject[]
     constructor(_json_: any) {
@@ -4852,8 +5283,7 @@ export class TbTestScriptableObject{
 
     get(key: number): test.TestScriptableObject | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4865,7 +5295,7 @@ export class TbTestScriptableObject{
 
 
 export namespace test {
-export class TbPath{
+export class TbPath {
     private _dataMap: Map<number, test.Path>
     private _dataList: test.Path[]
     constructor(_json_: any) {
@@ -4884,8 +5314,7 @@ export class TbPath{
 
     get(key: number): test.Path | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4897,7 +5326,7 @@ export class TbPath{
 
 
 export namespace test {
-export class TbTestMapper{
+export class TbTestMapper {
     private _dataMap: Map<number, test.TestMapper>
     private _dataList: test.TestMapper[]
     constructor(_json_: any) {
@@ -4916,8 +5345,7 @@ export class TbTestMapper{
 
     get(key: number): test.TestMapper | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
@@ -4929,7 +5357,7 @@ export class TbTestMapper{
 
 
 export namespace test {
-export class TbDefineFromExcel2{
+export class TbDefineFromExcel2 {
     private _dataMap: Map<number, DefineFromExcel2>
     private _dataList: DefineFromExcel2[]
     constructor(_json_: any) {
@@ -4948,8 +5376,7 @@ export class TbDefineFromExcel2{
 
     get(key: number): DefineFromExcel2 | undefined { return this._dataMap.get(key); }
 
-    resolve(tables:Tables)
-    {
+    resolve(tables:Tables) {
         for(let  data of this._dataList)
         {
             data.resolve(tables)
