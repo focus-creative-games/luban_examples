@@ -48,3 +48,4 @@ public sealed partial class RefBean : test.RefDynamicBase
 }
 
 }
+

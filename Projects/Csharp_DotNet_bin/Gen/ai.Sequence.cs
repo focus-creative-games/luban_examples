@@ -48,3 +48,4 @@ public sealed partial class Sequence : ai.ComposeNode
 }
 
 }
+

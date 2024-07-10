@@ -36,7 +36,6 @@ public sealed partial class SimpleParallel : ai.ComposeNode
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
         MainTask?.ResolveRef(tables);
         BackgroundNode?.ResolveRef(tables);
     }
@@ -56,3 +55,4 @@ public sealed partial class SimpleParallel : ai.ComposeNode
 }
 
 }
+

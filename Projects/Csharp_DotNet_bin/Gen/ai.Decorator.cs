@@ -40,7 +40,6 @@ public abstract partial class Decorator : ai.Node
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
@@ -54,3 +53,4 @@ public abstract partial class Decorator : ai.Node
 }
 
 }
+

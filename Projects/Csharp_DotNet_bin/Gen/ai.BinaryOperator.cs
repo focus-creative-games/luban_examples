@@ -34,7 +34,6 @@ public sealed partial class BinaryOperator : ai.KeyQueryOperator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
         Data?.ResolveRef(tables);
     }
 
@@ -48,3 +47,4 @@ public sealed partial class BinaryOperator : ai.KeyQueryOperator
 }
 
 }
+

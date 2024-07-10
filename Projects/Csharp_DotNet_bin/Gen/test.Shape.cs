@@ -42,3 +42,4 @@ public abstract partial class Shape : Luban.BeanBase
 }
 
 }
+

@@ -36,8 +36,6 @@ public sealed partial class UeBlackboard : ai.Decorator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
         KeyQuery?.ResolveRef(tables);
     }
 
@@ -55,3 +53,4 @@ public sealed partial class UeBlackboard : ai.Decorator
 }
 
 }
+

@@ -31,7 +31,6 @@ public sealed partial class DemoType1 : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
     }
 
     public override string ToString()
@@ -43,3 +42,4 @@ public sealed partial class DemoType1 : Luban.BeanBase
 }
 
 }
+

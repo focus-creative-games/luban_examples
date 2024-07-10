@@ -59,21 +59,7 @@ public sealed partial class TestUeType : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
-        
-        
         X12?.ResolveRef(tables);
-        
-        
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
@@ -99,3 +85,4 @@ public sealed partial class TestUeType : Luban.BeanBase
 }
 
 }
+

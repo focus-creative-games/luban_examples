@@ -57,19 +57,8 @@ public sealed partial class ExcelFromJson : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
-        
-        
         X12?.ResolveRef(tables);
-        
         X14?.ResolveRef(tables);
-        
-        
-        
         foreach (var _e in K15) { _e?.ResolveRef(tables); }
     }
 
@@ -95,3 +84,4 @@ public sealed partial class ExcelFromJson : Luban.BeanBase
 }
 
 }
+

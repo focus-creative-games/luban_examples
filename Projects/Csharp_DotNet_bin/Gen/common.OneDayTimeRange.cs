@@ -47,3 +47,4 @@ public sealed partial class OneDayTimeRange : Luban.BeanBase
 }
 
 }
+

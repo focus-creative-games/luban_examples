@@ -43,13 +43,8 @@ public sealed partial class TestNull : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
         X3?.ResolveRef(tables);
         X4?.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
@@ -67,3 +62,4 @@ public sealed partial class TestNull : Luban.BeanBase
 }
 
 }
+

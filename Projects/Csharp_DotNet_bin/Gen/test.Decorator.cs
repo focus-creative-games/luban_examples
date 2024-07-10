@@ -32,7 +32,6 @@ public sealed partial class Decorator : test.ItemBase
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
@@ -47,3 +46,4 @@ public sealed partial class Decorator : test.ItemBase
 }
 
 }
+

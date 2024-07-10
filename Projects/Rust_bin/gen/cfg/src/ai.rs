@@ -12,6 +12,22 @@ use super::*;
 use luban_lib::*;
 
 #[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
+pub enum EExecutor {
+    CLIENT = 0,
+    SERVER = 1,
+}
+
+impl From<i32> for EExecutor {
+    fn from(value: i32) -> Self {
+        match value { 
+            0 => EExecutor::CLIENT,
+            1 => EExecutor::SERVER,
+            _ => panic!("Invalid value for EExecutor:{}", value),
+        }
+    }
+}
+
+#[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum EKeyType {
     BOOL = 1,
     INT = 2,
@@ -64,6 +80,22 @@ impl From<i32> for EFlowAbortMode {
 }
 
 #[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
+pub enum EFinishMode {
+    IMMEDIATE = 0,
+    DELAYED = 1,
+}
+
+impl From<i32> for EFinishMode {
+    fn from(value: i32) -> Self {
+        match value { 
+            0 => EFinishMode::IMMEDIATE,
+            1 => EFinishMode::DELAYED,
+            _ => panic!("Invalid value for EFinishMode:{}", value),
+        }
+    }
+}
+
+#[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum ENotifyObserverMode {
     ON_VALUE_CHANGE = 0,
     ON_RESULT_CHANGE = 1,
@@ -107,43 +139,6 @@ impl From<i32> for EOperator {
     }
 }
 
-#[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
-pub enum EFinishMode {
-    IMMEDIATE = 0,
-    DELAYED = 1,
-}
-
-impl From<i32> for EFinishMode {
-    fn from(value: i32) -> Self {
-        match value { 
-            0 => EFinishMode::IMMEDIATE,
-            1 => EFinishMode::DELAYED,
-            _ => panic!("Invalid value for EFinishMode:{}", value),
-        }
-    }
-}
-
-#[derive(Debug)]
-pub struct Blackboard {
-    pub name: String,
-    pub desc: String,
-    pub parent_name: String,
-    pub keys: Vec<crate::ai::BlackboardKey>,
-}
-
-impl Blackboard{
-    pub fn new(mut buf: &mut ByteBuf) -> Result<Blackboard, LubanError> {
-        let name = buf.read_string();
-        let desc = buf.read_string();
-        let parent_name = buf.read_string();
-        let keys = {let n0 = std::cmp::min(buf.read_size(), buf.size());let mut _e0 = vec![]; for i0 in 0..n0 { _e0.push(crate::ai::BlackboardKey::new(&mut buf)?); } _e0 };
-        
-        Ok(Blackboard { name, desc, parent_name, keys, })
-    }
-
-    pub const __ID__: i32 = 1576193005;
-}
-
 #[derive(Debug)]
 pub struct BlackboardKey {
     pub name: String,
@@ -168,26 +163,236 @@ impl BlackboardKey{
 }
 
 #[derive(Debug)]
-pub struct BehaviorTree {
-    pub id: i32,
+pub struct Blackboard {
     pub name: String,
     pub desc: String,
-    pub blackboard_id: String,
-    pub root: std::sync::Arc<AbstractBase>,
+    pub parent_name: String,
+    pub keys: Vec<crate::ai::BlackboardKey>,
 }
 
-impl BehaviorTree{
-    pub fn new(mut buf: &mut ByteBuf) -> Result<BehaviorTree, LubanError> {
-        let id = buf.read_int();
+impl Blackboard{
+    pub fn new(mut buf: &mut ByteBuf) -> Result<Blackboard, LubanError> {
         let name = buf.read_string();
         let desc = buf.read_string();
-        let blackboard_id = buf.read_string();
-        let root = crate::ai::ComposeNode::new(&mut buf)?;
+        let parent_name = buf.read_string();
+        let keys = {let n0 = std::cmp::min(buf.read_size(), buf.size());let mut _e0 = vec![]; for i0 in 0..n0 { _e0.push(crate::ai::BlackboardKey::new(&mut buf)?); } _e0 };
         
-        Ok(BehaviorTree { id, name, desc, blackboard_id, root, })
+        Ok(Blackboard { name, desc, parent_name, keys, })
     }
 
-    pub const __ID__: i32 = 159552822;
+    pub const __ID__: i32 = 1576193005;
+}
+
+#[derive(Debug)]
+pub struct KeyData {
+}
+
+impl KeyData {
+    pub fn new(mut buf: &mut ByteBuf) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
+        let type_id = buf.read_int();
+        match type_id {
+            crate::ai::FloatKeyData::__ID__ => Ok(std::sync::Arc::new(crate::ai::FloatKeyData::new(buf)?)),
+            crate::ai::IntKeyData::__ID__ => Ok(std::sync::Arc::new(crate::ai::IntKeyData::new(buf)?)),
+            crate::ai::StringKeyData::__ID__ => Ok(std::sync::Arc::new(crate::ai::StringKeyData::new(buf)?)),
+            crate::ai::BlackboardKeyData::__ID__ => Ok(std::sync::Arc::new(crate::ai::BlackboardKeyData::new(buf)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for KeyData:{}", type_id)))
+        }
+    }
+}
+
+pub trait TKeyData {
+}
+
+impl crate::ai::TKeyData for crate::ai::FloatKeyData {
+}
+
+impl crate::ai::TKeyData for crate::ai::IntKeyData {
+}
+
+impl crate::ai::TKeyData for crate::ai::StringKeyData {
+}
+
+impl crate::ai::TKeyData for crate::ai::BlackboardKeyData {
+}
+
+impl<'a> GetBase<'a, &'a dyn crate::ai::TKeyData> for AbstractBase {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TKeyData, LubanError> {
+        let base: Result<&crate::ai::FloatKeyData, _> = self.try_into();
+        if let Ok(r) = base {
+            return Ok(r);
+        }
+        let base: Result<&crate::ai::IntKeyData, _> = self.try_into();
+        if let Ok(r) = base {
+            return Ok(r);
+        }
+        let base: Result<&crate::ai::StringKeyData, _> = self.try_into();
+        if let Ok(r) = base {
+            return Ok(r);
+        }
+        let base: Result<&crate::ai::BlackboardKeyData, _> = self.try_into();
+        if let Ok(r) = base {
+            return Ok(r);
+        }
+
+        Err(LubanError::Polymorphic(format!("Invalid type for KeyData")))
+    }
+}
+
+#[derive(Debug)]
+#[derive(macros::TryIntoBase)]
+pub struct FloatKeyData {
+    pub value: f32,
+}
+
+impl FloatKeyData{
+    pub fn new(mut buf: &mut ByteBuf) -> Result<FloatKeyData, LubanError> {
+        let value = buf.read_float();
+        
+        Ok(FloatKeyData { value, })
+    }
+
+    pub const __ID__: i32 = -719747885;
+}
+
+#[derive(Debug)]
+#[derive(macros::TryIntoBase)]
+pub struct IntKeyData {
+    pub value: i32,
+}
+
+impl IntKeyData{
+    pub fn new(mut buf: &mut ByteBuf) -> Result<IntKeyData, LubanError> {
+        let value = buf.read_int();
+        
+        Ok(IntKeyData { value, })
+    }
+
+    pub const __ID__: i32 = -342751904;
+}
+
+#[derive(Debug)]
+#[derive(macros::TryIntoBase)]
+pub struct StringKeyData {
+    pub value: String,
+}
+
+impl StringKeyData{
+    pub fn new(mut buf: &mut ByteBuf) -> Result<StringKeyData, LubanError> {
+        let value = buf.read_string();
+        
+        Ok(StringKeyData { value, })
+    }
+
+    pub const __ID__: i32 = -307888654;
+}
+
+#[derive(Debug)]
+#[derive(macros::TryIntoBase)]
+pub struct BlackboardKeyData {
+    pub value: String,
+}
+
+impl BlackboardKeyData{
+    pub fn new(mut buf: &mut ByteBuf) -> Result<BlackboardKeyData, LubanError> {
+        let value = buf.read_string();
+        
+        Ok(BlackboardKeyData { value, })
+    }
+
+    pub const __ID__: i32 = 1517269500;
+}
+
+#[derive(Debug)]
+pub struct KeyQueryOperator {
+}
+
+impl KeyQueryOperator {
+    pub fn new(mut buf: &mut ByteBuf) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
+        let type_id = buf.read_int();
+        match type_id {
+            crate::ai::IsSet2::__ID__ => Ok(std::sync::Arc::new(crate::ai::IsSet2::new(buf)?)),
+            crate::ai::IsNotSet::__ID__ => Ok(std::sync::Arc::new(crate::ai::IsNotSet::new(buf)?)),
+            crate::ai::BinaryOperator::__ID__ => Ok(std::sync::Arc::new(crate::ai::BinaryOperator::new(buf)?)),
+            _ => Err(LubanError::Bean(format!("Invalid type for KeyQueryOperator:{}", type_id)))
+        }
+    }
+}
+
+pub trait TKeyQueryOperator {
+}
+
+impl crate::ai::TKeyQueryOperator for crate::ai::IsSet2 {
+}
+
+impl crate::ai::TKeyQueryOperator for crate::ai::IsNotSet {
+}
+
+impl crate::ai::TKeyQueryOperator for crate::ai::BinaryOperator {
+}
+
+impl<'a> GetBase<'a, &'a dyn crate::ai::TKeyQueryOperator> for AbstractBase {
+    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TKeyQueryOperator, LubanError> {
+        let base: Result<&crate::ai::IsSet2, _> = self.try_into();
+        if let Ok(r) = base {
+            return Ok(r);
+        }
+        let base: Result<&crate::ai::IsNotSet, _> = self.try_into();
+        if let Ok(r) = base {
+            return Ok(r);
+        }
+        let base: Result<&crate::ai::BinaryOperator, _> = self.try_into();
+        if let Ok(r) = base {
+            return Ok(r);
+        }
+
+        Err(LubanError::Polymorphic(format!("Invalid type for KeyQueryOperator")))
+    }
+}
+
+#[derive(Debug)]
+#[derive(macros::TryIntoBase)]
+pub struct IsSet2 {
+}
+
+impl IsSet2{
+    pub fn new(mut buf: &mut ByteBuf) -> Result<IsSet2, LubanError> {
+        
+        Ok(IsSet2 { })
+    }
+
+    pub const __ID__: i32 = -843729664;
+}
+
+#[derive(Debug)]
+#[derive(macros::TryIntoBase)]
+pub struct IsNotSet {
+}
+
+impl IsNotSet{
+    pub fn new(mut buf: &mut ByteBuf) -> Result<IsNotSet, LubanError> {
+        
+        Ok(IsNotSet { })
+    }
+
+    pub const __ID__: i32 = 790736255;
+}
+
+#[derive(Debug)]
+#[derive(macros::TryIntoBase)]
+pub struct BinaryOperator {
+    pub oper: crate::ai::EOperator,
+    pub data: std::sync::Arc<AbstractBase>,
+}
+
+impl BinaryOperator{
+    pub fn new(mut buf: &mut ByteBuf) -> Result<BinaryOperator, LubanError> {
+        let oper = buf.read_int().into();
+        let data = crate::ai::KeyData::new(&mut buf)?;
+        
+        Ok(BinaryOperator { oper, data, })
+    }
+
+    pub const __ID__: i32 = -979891605;
 }
 
 #[derive(Debug)]
@@ -1028,218 +1233,6 @@ impl UeBlackboard{
     }
 
     pub const __ID__: i32 = -315297507;
-}
-
-#[derive(Debug)]
-pub struct KeyQueryOperator {
-}
-
-impl KeyQueryOperator {
-    pub fn new(mut buf: &mut ByteBuf) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
-        let type_id = buf.read_int();
-        match type_id {
-            crate::ai::IsSet2::__ID__ => Ok(std::sync::Arc::new(crate::ai::IsSet2::new(buf)?)),
-            crate::ai::IsNotSet::__ID__ => Ok(std::sync::Arc::new(crate::ai::IsNotSet::new(buf)?)),
-            crate::ai::BinaryOperator::__ID__ => Ok(std::sync::Arc::new(crate::ai::BinaryOperator::new(buf)?)),
-            _ => Err(LubanError::Bean(format!("Invalid type for KeyQueryOperator:{}", type_id)))
-        }
-    }
-}
-
-pub trait TKeyQueryOperator {
-}
-
-impl crate::ai::TKeyQueryOperator for crate::ai::IsSet2 {
-}
-
-impl crate::ai::TKeyQueryOperator for crate::ai::IsNotSet {
-}
-
-impl crate::ai::TKeyQueryOperator for crate::ai::BinaryOperator {
-}
-
-impl<'a> GetBase<'a, &'a dyn crate::ai::TKeyQueryOperator> for AbstractBase {
-    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TKeyQueryOperator, LubanError> {
-        let base: Result<&crate::ai::IsSet2, _> = self.try_into();
-        if let Ok(r) = base {
-            return Ok(r);
-        }
-        let base: Result<&crate::ai::IsNotSet, _> = self.try_into();
-        if let Ok(r) = base {
-            return Ok(r);
-        }
-        let base: Result<&crate::ai::BinaryOperator, _> = self.try_into();
-        if let Ok(r) = base {
-            return Ok(r);
-        }
-
-        Err(LubanError::Polymorphic(format!("Invalid type for KeyQueryOperator")))
-    }
-}
-
-#[derive(Debug)]
-#[derive(macros::TryIntoBase)]
-pub struct IsSet2 {
-}
-
-impl IsSet2{
-    pub fn new(mut buf: &mut ByteBuf) -> Result<IsSet2, LubanError> {
-        
-        Ok(IsSet2 { })
-    }
-
-    pub const __ID__: i32 = -843729664;
-}
-
-#[derive(Debug)]
-#[derive(macros::TryIntoBase)]
-pub struct IsNotSet {
-}
-
-impl IsNotSet{
-    pub fn new(mut buf: &mut ByteBuf) -> Result<IsNotSet, LubanError> {
-        
-        Ok(IsNotSet { })
-    }
-
-    pub const __ID__: i32 = 790736255;
-}
-
-#[derive(Debug)]
-#[derive(macros::TryIntoBase)]
-pub struct BinaryOperator {
-    pub oper: crate::ai::EOperator,
-    pub data: std::sync::Arc<AbstractBase>,
-}
-
-impl BinaryOperator{
-    pub fn new(mut buf: &mut ByteBuf) -> Result<BinaryOperator, LubanError> {
-        let oper = buf.read_int().into();
-        let data = crate::ai::KeyData::new(&mut buf)?;
-        
-        Ok(BinaryOperator { oper, data, })
-    }
-
-    pub const __ID__: i32 = -979891605;
-}
-
-#[derive(Debug)]
-pub struct KeyData {
-}
-
-impl KeyData {
-    pub fn new(mut buf: &mut ByteBuf) -> Result<std::sync::Arc<AbstractBase>, LubanError> {
-        let type_id = buf.read_int();
-        match type_id {
-            crate::ai::FloatKeyData::__ID__ => Ok(std::sync::Arc::new(crate::ai::FloatKeyData::new(buf)?)),
-            crate::ai::IntKeyData::__ID__ => Ok(std::sync::Arc::new(crate::ai::IntKeyData::new(buf)?)),
-            crate::ai::StringKeyData::__ID__ => Ok(std::sync::Arc::new(crate::ai::StringKeyData::new(buf)?)),
-            crate::ai::BlackboardKeyData::__ID__ => Ok(std::sync::Arc::new(crate::ai::BlackboardKeyData::new(buf)?)),
-            _ => Err(LubanError::Bean(format!("Invalid type for KeyData:{}", type_id)))
-        }
-    }
-}
-
-pub trait TKeyData {
-}
-
-impl crate::ai::TKeyData for crate::ai::FloatKeyData {
-}
-
-impl crate::ai::TKeyData for crate::ai::IntKeyData {
-}
-
-impl crate::ai::TKeyData for crate::ai::StringKeyData {
-}
-
-impl crate::ai::TKeyData for crate::ai::BlackboardKeyData {
-}
-
-impl<'a> GetBase<'a, &'a dyn crate::ai::TKeyData> for AbstractBase {
-    fn get_base(&'a self) -> Result<&'a dyn crate::ai::TKeyData, LubanError> {
-        let base: Result<&crate::ai::FloatKeyData, _> = self.try_into();
-        if let Ok(r) = base {
-            return Ok(r);
-        }
-        let base: Result<&crate::ai::IntKeyData, _> = self.try_into();
-        if let Ok(r) = base {
-            return Ok(r);
-        }
-        let base: Result<&crate::ai::StringKeyData, _> = self.try_into();
-        if let Ok(r) = base {
-            return Ok(r);
-        }
-        let base: Result<&crate::ai::BlackboardKeyData, _> = self.try_into();
-        if let Ok(r) = base {
-            return Ok(r);
-        }
-
-        Err(LubanError::Polymorphic(format!("Invalid type for KeyData")))
-    }
-}
-
-#[derive(Debug)]
-#[derive(macros::TryIntoBase)]
-pub struct FloatKeyData {
-    pub value: f32,
-}
-
-impl FloatKeyData{
-    pub fn new(mut buf: &mut ByteBuf) -> Result<FloatKeyData, LubanError> {
-        let value = buf.read_float();
-        
-        Ok(FloatKeyData { value, })
-    }
-
-    pub const __ID__: i32 = -719747885;
-}
-
-#[derive(Debug)]
-#[derive(macros::TryIntoBase)]
-pub struct IntKeyData {
-    pub value: i32,
-}
-
-impl IntKeyData{
-    pub fn new(mut buf: &mut ByteBuf) -> Result<IntKeyData, LubanError> {
-        let value = buf.read_int();
-        
-        Ok(IntKeyData { value, })
-    }
-
-    pub const __ID__: i32 = -342751904;
-}
-
-#[derive(Debug)]
-#[derive(macros::TryIntoBase)]
-pub struct StringKeyData {
-    pub value: String,
-}
-
-impl StringKeyData{
-    pub fn new(mut buf: &mut ByteBuf) -> Result<StringKeyData, LubanError> {
-        let value = buf.read_string();
-        
-        Ok(StringKeyData { value, })
-    }
-
-    pub const __ID__: i32 = -307888654;
-}
-
-#[derive(Debug)]
-#[derive(macros::TryIntoBase)]
-pub struct BlackboardKeyData {
-    pub value: String,
-}
-
-impl BlackboardKeyData{
-    pub fn new(mut buf: &mut ByteBuf) -> Result<BlackboardKeyData, LubanError> {
-        let value = buf.read_string();
-        
-        Ok(BlackboardKeyData { value, })
-    }
-
-    pub const __ID__: i32 = 1517269500;
 }
 
 #[derive(Debug)]
@@ -2099,6 +2092,29 @@ impl DebugPrint{
     }
 
     pub const __ID__: i32 = 1357409728;
+}
+
+#[derive(Debug)]
+pub struct BehaviorTree {
+    pub id: i32,
+    pub name: String,
+    pub desc: String,
+    pub blackboard_id: String,
+    pub root: std::sync::Arc<AbstractBase>,
+}
+
+impl BehaviorTree{
+    pub fn new(mut buf: &mut ByteBuf) -> Result<BehaviorTree, LubanError> {
+        let id = buf.read_int();
+        let name = buf.read_string();
+        let desc = buf.read_string();
+        let blackboard_id = buf.read_string();
+        let root = crate::ai::ComposeNode::new(&mut buf)?;
+        
+        Ok(BehaviorTree { id, name, desc, blackboard_id, root, })
+    }
+
+    pub const __ID__: i32 = 159552822;
 }
 
 

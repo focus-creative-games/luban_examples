@@ -74,29 +74,11 @@ public sealed partial class DemoType2 : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         X12?.ResolveRef(tables);
-        
         X14?.ResolveRef(tables);
-        
-        
-        
-        
-        
         K8_Ref = new System.Collections.Generic.Dictionary<int, test.DemoType2>();
-        foreach (var (_k,_v) in K8) { K8_Ref.Add(_k, tables.TbFullTypes.GetOrDefault(_v)); }
+        foreach (var kvp in K8) { K8_Ref.Add(kvp.Key, tables.TbFullTypes.GetOrDefault(kvp.Value)); }
 
-        
         foreach (var _e in K15) { _e?.ResolveRef(tables); }
     }
 
@@ -130,3 +112,4 @@ public sealed partial class DemoType2 : Luban.BeanBase
 }
 
 }
+

@@ -32,7 +32,6 @@ public sealed partial class KeepFaceTarget : ai.Service
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
@@ -46,3 +45,4 @@ public sealed partial class KeepFaceTarget : ai.Service
 }
 
 }
+

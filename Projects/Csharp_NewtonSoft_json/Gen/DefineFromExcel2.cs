@@ -30,15 +30,15 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         X132 = (test.DemoFlag)(int)_obj.GetValue("x13_2");
         X14 = test.DemoDynamic.DeserializeDemoDynamic(_obj.GetValue("x14"));
         X15 = test.Shape.DeserializeShape(_obj.GetValue("x15"));
-        V2 = vec2.Deserializevec2(_obj.GetValue("v2"));
+        V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_obj.GetValue("v2")));
         T1 = (long)_obj.GetValue("t1");
         { var __json0 = _obj.GetValue("k1"); int _n0 = (__json0 as JArray).Count; K1 = new int[_n0]; int __index0=0; foreach(JToken __e0 in __json0) { int __v0;  __v0 = (int)__e0;  K1[__index0++] = __v0; }   }
         { var __json0 = _obj.GetValue("k2"); int _n0 = (__json0 as JArray).Count; K2 = new int[_n0]; int __index0=0; foreach(JToken __e0 in __json0) { int __v0;  __v0 = (int)__e0;  K2[__index0++] = __v0; }   }
         { var __json0 = _obj.GetValue("k8"); K8 = new System.Collections.Generic.Dictionary<int, int>((__json0 as JArray).Count); foreach(JToken __e0 in __json0) { int _k0;  _k0 = (int)__e0[0]; int _v0;  _v0 = (int)__e0[1];  K8.Add(_k0, _v0); }   }
         { var __json0 = _obj.GetValue("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>((__json0 as JArray).Count); foreach(JToken __e0 in __json0) { test.DemoE2 __v0;  __v0 = test.DemoE2.DeserializeDemoE2(__e0);  K9.Add(__v0); }   }
-        { var __json0 = _obj.GetValue("k10"); K10 = new System.Collections.Generic.List<vec3>((__json0 as JArray).Count); foreach(JToken __e0 in __json0) { vec3 __v0;  __v0 = vec3.Deserializevec3(__e0);  K10.Add(__v0); }   }
-        { var __json0 = _obj.GetValue("k11"); K11 = new System.Collections.Generic.List<vec4>((__json0 as JArray).Count); foreach(JToken __e0 in __json0) { vec4 __v0;  __v0 = vec4.Deserializevec4(__e0);  K11.Add(__v0); }   }
-        {if (_obj.TryGetValue("v11", out var _j)) { V11 = vec3.Deserializevec3(_j); } else { V11 = null; } }
+        { var __json0 = _obj.GetValue("k10"); K10 = new System.Collections.Generic.List<System.Numerics.Vector3>((__json0 as JArray).Count); foreach(JToken __e0 in __json0) { System.Numerics.Vector3 __v0;  __v0 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(__e0));  K10.Add(__v0); }   }
+        { var __json0 = _obj.GetValue("k11"); K11 = new System.Collections.Generic.List<System.Numerics.Vector4>((__json0 as JArray).Count); foreach(JToken __e0 in __json0) { System.Numerics.Vector4 __v0;  __v0 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(__e0));  K11.Add(__v0); }   }
+        {if (_obj.TryGetValue("v11", out var _j)) { V11 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_j)); } else { V11 = null; } }
     }
 
     public static DefineFromExcel2 DeserializeDefineFromExcel2(JToken _buf)
@@ -62,15 +62,15 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
     public readonly test.DemoFlag X132;
     public readonly test.DemoDynamic X14;
     public readonly test.Shape X15;
-    public readonly vec2 V2;
+    public readonly System.Numerics.Vector2 V2;
     public readonly long T1;
     public readonly int[] K1;
     public readonly int[] K2;
     public readonly System.Collections.Generic.Dictionary<int, int> K8;
     public readonly System.Collections.Generic.List<test.DemoE2> K9;
-    public readonly System.Collections.Generic.List<vec3> K10;
-    public readonly System.Collections.Generic.List<vec4> K11;
-    public readonly vec3? V11;
+    public readonly System.Collections.Generic.List<System.Numerics.Vector3> K10;
+    public readonly System.Collections.Generic.List<System.Numerics.Vector4> K11;
+    public readonly System.Numerics.Vector3? V11;
 
 
     public const int __ID__ = 482045152;

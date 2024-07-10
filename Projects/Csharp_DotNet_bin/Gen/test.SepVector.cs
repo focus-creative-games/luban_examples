@@ -35,9 +35,6 @@ public sealed partial class SepVector : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
     }
 
     public override string ToString()
@@ -51,3 +48,4 @@ public sealed partial class SepVector : Luban.BeanBase
 }
 
 }
+

@@ -39,9 +39,6 @@ public sealed partial class TestString : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
         Cs1?.ResolveRef(tables);
         Cs2?.ResolveRef(tables);
     }
@@ -59,3 +56,4 @@ public sealed partial class TestString : Luban.BeanBase
 }
 
 }
+

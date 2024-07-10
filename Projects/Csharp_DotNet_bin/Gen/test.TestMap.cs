@@ -42,10 +42,6 @@ public sealed partial class TestMap : Luban.BeanBase
     public  void ResolveRef(Tables tables)
     {
         Id_Ref = tables.TbTestIndex.GetOrDefault(Id);
-        
-        
-        
-        
     }
 
     public override string ToString()
@@ -61,3 +57,4 @@ public sealed partial class TestMap : Luban.BeanBase
 }
 
 }
+

@@ -57,8 +57,6 @@ public abstract partial class Node : Luban.BeanBase
 
     public virtual void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
@@ -71,3 +69,4 @@ public abstract partial class Node : Luban.BeanBase
 }
 
 }
+

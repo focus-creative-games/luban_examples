@@ -24,9 +24,9 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
         Desc = (string)_obj.GetValue("desc");
         Rate = (float)_obj.GetValue("rate");
         Num = (int)_obj.GetValue("num");
-        V2 = vec2.Deserializevec2(_obj.GetValue("v2"));
-        V3 = vec3.Deserializevec3(_obj.GetValue("v3"));
-        V4 = vec4.Deserializevec4(_obj.GetValue("v4"));
+        V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_obj.GetValue("v2")));
+        V3 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_obj.GetValue("v3")));
+        V4 = ExternalTypeUtil.NewVector4(vec4.Deserializevec4(_obj.GetValue("v4")));
     }
 
     public static TestScriptableObject DeserializeTestScriptableObject(JToken _buf)
@@ -38,9 +38,9 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
     public readonly string Desc;
     public readonly float Rate;
     public readonly int Num;
-    public readonly vec2 V2;
-    public readonly vec3 V3;
-    public readonly vec4 V4;
+    public readonly System.Numerics.Vector2 V2;
+    public readonly System.Numerics.Vector3 V3;
+    public readonly System.Numerics.Vector4 V4;
 
 
     public const int __ID__ = -1896814350;

@@ -11,6 +11,61 @@
 use super::*;
 use luban_lib::*;
 
+///道具品质
+#[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
+pub enum EItemQuality {
+    ///白
+    WHITE = 0,
+    ///绿
+    GREEN = 1,
+    ///蓝
+    BLUE = 2,
+    ///紫
+    PURPLE = 3,
+    ///金
+    GOLDEN = 4,
+}
+
+impl From<i32> for EItemQuality {
+    fn from(value: i32) -> Self {
+        match value { 
+            0 => EItemQuality::WHITE,
+            1 => EItemQuality::GREEN,
+            2 => EItemQuality::BLUE,
+            3 => EItemQuality::PURPLE,
+            4 => EItemQuality::GOLDEN,
+            _ => panic!("Invalid value for EItemQuality:{}", value),
+        }
+    }
+}
+
+#[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
+pub enum ECurrencyType {
+    ///钻石
+    DIAMOND = 1,
+    ///金币
+    GOLD = 2,
+    ///银币
+    SILVER = 3,
+    ///经验
+    EXP = 4,
+    ///能量点
+    POWER_POINT = 5,
+}
+
+impl From<i32> for ECurrencyType {
+    fn from(value: i32) -> Self {
+        match value { 
+            1 => ECurrencyType::DIAMOND,
+            2 => ECurrencyType::GOLD,
+            3 => ECurrencyType::SILVER,
+            4 => ECurrencyType::EXP,
+            5 => ECurrencyType::POWER_POINT,
+            _ => panic!("Invalid value for ECurrencyType:{}", value),
+        }
+    }
+}
+
 #[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
 pub enum EMajorType {
     ///货币
@@ -215,30 +270,158 @@ impl From<i32> for EMinorType {
     }
 }
 
-///道具品质
 #[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
-pub enum EItemQuality {
-    ///白
-    WHITE = 0,
-    ///绿
-    GREEN = 1,
-    ///蓝
-    BLUE = 2,
-    ///紫
-    PURPLE = 3,
-    ///金
-    GOLDEN = 4,
+pub enum EClothersStarQualityType {
+    ///一星
+    ONE = 1,
+    ///二星
+    TWO = 2,
+    ///三星
+    THREE = 3,
+    ///四星
+    FOUR = 4,
+    ///五星
+    FIVE = 5,
+    ///六星
+    SIX = 6,
+    ///七星
+    SEVEN = 7,
+    ///八星
+    EIGHT = 8,
+    ///九星
+    NINE = 9,
+    ///十星
+    TEN = 10,
 }
 
-impl From<i32> for EItemQuality {
+impl From<i32> for EClothersStarQualityType {
     fn from(value: i32) -> Self {
         match value { 
-            0 => EItemQuality::WHITE,
-            1 => EItemQuality::GREEN,
-            2 => EItemQuality::BLUE,
-            3 => EItemQuality::PURPLE,
-            4 => EItemQuality::GOLDEN,
-            _ => panic!("Invalid value for EItemQuality:{}", value),
+            1 => EClothersStarQualityType::ONE,
+            2 => EClothersStarQualityType::TWO,
+            3 => EClothersStarQualityType::THREE,
+            4 => EClothersStarQualityType::FOUR,
+            5 => EClothersStarQualityType::FIVE,
+            6 => EClothersStarQualityType::SIX,
+            7 => EClothersStarQualityType::SEVEN,
+            8 => EClothersStarQualityType::EIGHT,
+            9 => EClothersStarQualityType::NINE,
+            10 => EClothersStarQualityType::TEN,
+            _ => panic!("Invalid value for EClothersStarQualityType:{}", value),
+        }
+    }
+}
+
+#[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
+pub enum EClothersTag {
+    ///防晒
+    FANG_SHAI = 1,
+    ///舞者
+    WU_ZHE = 2,
+}
+
+impl From<i32> for EClothersTag {
+    fn from(value: i32) -> Self {
+        match value { 
+            1 => EClothersTag::FANG_SHAI,
+            2 => EClothersTag::WU_ZHE,
+            _ => panic!("Invalid value for EClothersTag:{}", value),
+        }
+    }
+}
+
+#[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
+pub enum EUseType {
+    ///手动
+    MANUAL = 0,
+    ///自动
+    AUTO = 1,
+}
+
+impl From<i32> for EUseType {
+    fn from(value: i32) -> Self {
+        match value { 
+            0 => EUseType::MANUAL,
+            1 => EUseType::AUTO,
+            _ => panic!("Invalid value for EUseType:{}", value),
+        }
+    }
+}
+
+#[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
+pub enum EClothesHidePartType {
+    ///胸部
+    CHEST = 0,
+    ///手
+    HEAD = 1,
+    ///脊柱上
+    SPINE_UPPER = 2,
+    ///脊柱下
+    SPINE_LOWER = 3,
+    ///臀部
+    HIP = 4,
+    ///腿上
+    LEG_UPPER = 5,
+    ///腿中
+    LEG_MIDDLE = 6,
+    ///腿下
+    LEG_LOWER = 7,
+}
+
+impl From<i32> for EClothesHidePartType {
+    fn from(value: i32) -> Self {
+        match value { 
+            0 => EClothesHidePartType::CHEST,
+            1 => EClothesHidePartType::HEAD,
+            2 => EClothesHidePartType::SPINE_UPPER,
+            3 => EClothesHidePartType::SPINE_LOWER,
+            4 => EClothesHidePartType::HIP,
+            5 => EClothesHidePartType::LEG_UPPER,
+            6 => EClothesHidePartType::LEG_MIDDLE,
+            7 => EClothesHidePartType::LEG_LOWER,
+            _ => panic!("Invalid value for EClothesHidePartType:{}", value),
+        }
+    }
+}
+
+#[derive(Debug, Hash, Eq, PartialEq, macros::EnumFromNum)]
+pub enum EClothesPropertyType {
+    ///简约
+    JIAN_YUE = 1,
+    ///华丽
+    HUA_LI = 2,
+    ///可爱
+    KE_AI = 3,
+    ///成熟
+    CHENG_SHU = 4,
+    ///活泼
+    HUO_PO = 5,
+    ///优雅
+    YOU_YA = 6,
+    ///清纯
+    QING_CHUN = 7,
+    ///性感
+    XING_GAN = 8,
+    ///清凉
+    QING_LIANG = 9,
+    ///保暖
+    BAO_NUAN = 10,
+}
+
+impl From<i32> for EClothesPropertyType {
+    fn from(value: i32) -> Self {
+        match value { 
+            1 => EClothesPropertyType::JIAN_YUE,
+            2 => EClothesPropertyType::HUA_LI,
+            3 => EClothesPropertyType::KE_AI,
+            4 => EClothesPropertyType::CHENG_SHU,
+            5 => EClothesPropertyType::HUO_PO,
+            6 => EClothesPropertyType::YOU_YA,
+            7 => EClothesPropertyType::QING_CHUN,
+            8 => EClothesPropertyType::XING_GAN,
+            9 => EClothesPropertyType::QING_LIANG,
+            10 => EClothesPropertyType::BAO_NUAN,
+            _ => panic!("Invalid value for EClothesPropertyType:{}", value),
         }
     }
 }

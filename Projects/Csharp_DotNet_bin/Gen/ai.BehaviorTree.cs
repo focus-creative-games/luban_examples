@@ -41,9 +41,6 @@ public sealed partial class BehaviorTree : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
         BlackboardId_Ref = tables.TbBlackboard.GetOrDefault(BlackboardId);
         Root?.ResolveRef(tables);
     }
@@ -61,3 +58,4 @@ public sealed partial class BehaviorTree : Luban.BeanBase
 }
 
 }
+

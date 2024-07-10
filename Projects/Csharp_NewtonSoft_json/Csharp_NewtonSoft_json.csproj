@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Core\" />
-    <Folder Include="Gen\" />
   </ItemGroup>
 
   <ItemGroup>

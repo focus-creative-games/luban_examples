@@ -73,25 +73,8 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
-        
-        
-        
         X14?.ResolveRef(tables);
         X15?.ResolveRef(tables);
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
@@ -121,3 +104,4 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
 }
 
 }
+

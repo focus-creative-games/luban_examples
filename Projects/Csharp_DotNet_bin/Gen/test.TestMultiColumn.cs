@@ -37,7 +37,6 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
         A?.ResolveRef(tables);
         B?.ResolveRef(tables);
         C?.ResolveRef(tables);
@@ -55,3 +54,4 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
 }
 
 }
+

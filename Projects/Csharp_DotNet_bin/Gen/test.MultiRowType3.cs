@@ -33,7 +33,6 @@ public sealed partial class MultiRowType3 : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
         foreach (var _e in Items) { _e?.ResolveRef(tables); }
     }
 
@@ -47,3 +46,4 @@ public sealed partial class MultiRowType3 : Luban.BeanBase
 }
 
 }
+

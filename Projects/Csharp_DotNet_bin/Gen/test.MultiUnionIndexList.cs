@@ -39,11 +39,6 @@ public sealed partial class MultiUnionIndexList : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
@@ -59,3 +54,4 @@ public sealed partial class MultiUnionIndexList : Luban.BeanBase
 }
 
 }
+

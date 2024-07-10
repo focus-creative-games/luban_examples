@@ -34,8 +34,6 @@ public sealed partial class Item : test.ItemBase
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
@@ -51,3 +49,4 @@ public sealed partial class Item : test.ItemBase
 }
 
 }
+

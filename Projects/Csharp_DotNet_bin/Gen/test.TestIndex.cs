@@ -38,7 +38,6 @@ public sealed partial class TestIndex : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
         foreach (var _e in Eles) { _e?.ResolveRef(tables); }
     }
 
@@ -52,3 +51,4 @@ public sealed partial class TestIndex : Luban.BeanBase
 }
 
 }
+

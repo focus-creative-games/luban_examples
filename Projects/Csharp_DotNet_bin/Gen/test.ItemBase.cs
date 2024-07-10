@@ -39,9 +39,6 @@ public abstract partial class ItemBase : Luban.BeanBase
 
     public virtual void ResolveRef(Tables tables)
     {
-        
-        
-        
     }
 
     public override string ToString()
@@ -55,3 +52,4 @@ public abstract partial class ItemBase : Luban.BeanBase
 }
 
 }
+

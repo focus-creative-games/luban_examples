@@ -39,8 +39,6 @@ public sealed partial class Blackboard : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
         ParentName_Ref = tables.TbBlackboard.GetOrDefault(ParentName);
         foreach (var _e in Keys) { _e?.ResolveRef(tables); }
     }
@@ -57,3 +55,4 @@ public sealed partial class Blackboard : Luban.BeanBase
 }
 
 }
+

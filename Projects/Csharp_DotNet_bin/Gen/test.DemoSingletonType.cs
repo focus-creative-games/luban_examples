@@ -35,8 +35,6 @@ public sealed partial class DemoSingletonType : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
         Date?.ResolveRef(tables);
     }
 
@@ -51,3 +49,4 @@ public sealed partial class DemoSingletonType : Luban.BeanBase
 }
 
 }
+

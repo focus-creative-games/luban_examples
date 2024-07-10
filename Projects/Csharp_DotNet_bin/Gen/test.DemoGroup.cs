@@ -39,9 +39,7 @@ public sealed partial class DemoGroup : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
         X2_Ref = tables.TbDemoGroupS.GetOrDefault(X2);
-        
         X5?.ResolveRef(tables);
     }
 
@@ -57,3 +55,4 @@ public sealed partial class DemoGroup : Luban.BeanBase
 }
 
 }
+

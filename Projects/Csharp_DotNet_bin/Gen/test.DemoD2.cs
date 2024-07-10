@@ -32,7 +32,6 @@ public sealed partial class DemoD2 : test.DemoDynamic
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
@@ -45,3 +44,4 @@ public sealed partial class DemoD2 : test.DemoDynamic
 }
 
 }
+

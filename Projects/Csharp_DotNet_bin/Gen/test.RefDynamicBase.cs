@@ -47,3 +47,4 @@ public abstract partial class RefDynamicBase : Luban.BeanBase
 }
 
 }
+

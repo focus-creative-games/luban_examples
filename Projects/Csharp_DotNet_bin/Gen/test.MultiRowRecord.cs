@@ -47,15 +47,12 @@ public sealed partial class MultiRowRecord : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
         foreach (var _e in OneRows) { _e?.ResolveRef(tables); }
         foreach (var _e in MultiRows1) { _e?.ResolveRef(tables); }
         foreach (var _e in MultiRows2) { _e?.ResolveRef(tables); }
         foreach (var _e in MultiRows4.Values) { _e?.ResolveRef(tables); }
         foreach (var _e in MultiRows5) { _e?.ResolveRef(tables); }
         foreach (var _e in MultiRows6.Values) { _e?.ResolveRef(tables); }
-        
     }
 
     public override string ToString()
@@ -75,3 +72,4 @@ public sealed partial class MultiRowRecord : Luban.BeanBase
 }
 
 }
+

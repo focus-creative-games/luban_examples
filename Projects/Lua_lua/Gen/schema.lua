@@ -22,10 +22,10 @@ local enums =
      ---@field public VECTOR integer
      ---@field public ROTATOR integer
      ---@field public NAME integer
-     ---@field public CLASS integer
-     ---@field public ENUM integer
+     ---@field public CLASS1 integer
+     ---@field public ENUM1 integer
      ---@field public OBJECT integer
-    ['ai.EKeyType'] = {   BOOL=1,  INT=2,  FLOAT=3,  STRING=4,  VECTOR=5,  ROTATOR=6,  NAME=7,  CLASS=8,  ENUM=9,  OBJECT=10,  };
+    ['ai.EKeyType'] = {   BOOL=1,  INT=2,  FLOAT=3,  STRING=4,  VECTOR=5,  ROTATOR=6,  NAME=7,  CLASS1=8,  ENUM1=9,  OBJECT=10,  };
     ---@class ai.EFlowAbortMode
      ---@field public NONE integer
      ---@field public LOWER_PRIORITY integer
@@ -59,125 +59,125 @@ local enums =
      ---@field public AND integer
      ---@field public OR integer
     ['common.EBoolOperator'] = {   AND=0,  OR=1,  };
-    ---@class item.EItemQuality @é“å…·å“è´¨
-     ---@field public WHITE integer @ç™½
-     ---@field public GREEN integer @ç»¿
-     ---@field public BLUE integer @è“
-     ---@field public PURPLE integer @ç´«
-     ---@field public GOLDEN integer @é‡‘
+    ---@class item.EItemQuality @µÀ¾ßÆ·ÖÊ
+     ---@field public WHITE integer @°×
+     ---@field public GREEN integer @ÂÌ
+     ---@field public BLUE integer @À¶
+     ---@field public PURPLE integer @×Ï
+     ---@field public GOLDEN integer @½ğ
     ['item.EItemQuality'] = {   WHITE=0,  GREEN=1,  BLUE=2,  PURPLE=3,  GOLDEN=4,  };
     ---@class item.ECurrencyType
-     ---@field public DIAMOND integer @é’»çŸ³
-     ---@field public GOLD integer @é‡‘å¸
-     ---@field public SILVER integer @é“¶å¸
-     ---@field public EXP integer @ç»éªŒ
-     ---@field public POWER_POINT integer @èƒ½é‡ç‚¹
+     ---@field public DIAMOND integer @×êÊ¯
+     ---@field public GOLD integer @½ğ±Ò
+     ---@field public SILVER integer @Òø±Ò
+     ---@field public EXP integer @¾­Ñé
+     ---@field public POWER_POINT integer @ÄÜÁ¿µã
     ['item.ECurrencyType'] = {   DIAMOND=1,  GOLD=2,  SILVER=3,  EXP=4,  POWER_POINT=5,  };
     ---@class item.EMajorType
-     ---@field public CURRENCY integer @è´§å¸
-     ---@field public CLOTH integer @æœè£…
-     ---@field public QUEST integer @ä»»åŠ¡
-     ---@field public CONSUMABLES integer @æ¶ˆè€—å“
-     ---@field public TREASURE_BOX integer @å®ç®±
-     ---@field public ACHIEVEMENT_AND_TITLE integer @æˆå°±å’Œç§°è°“
-     ---@field public HEAD_FRAME integer @å¤´åƒæ¡†
-     ---@field public VOICE integer @è¯­éŸ³
-     ---@field public ACTION integer @åŠ¨ä½œ
-     ---@field public EXPANSION integer @æ‰©å®¹é“å…·
-     ---@field public MATERIAL integer @åˆ¶ä½œææ–™
+     ---@field public CURRENCY integer @»õ±Ò
+     ---@field public CLOTH integer @·ş×°
+     ---@field public QUEST integer @ÈÎÎñ
+     ---@field public CONSUMABLES integer @ÏûºÄÆ·
+     ---@field public TREASURE_BOX integer @±¦Ïä
+     ---@field public ACHIEVEMENT_AND_TITLE integer @³É¾ÍºÍ³ÆÎ½
+     ---@field public HEAD_FRAME integer @Í·Ïñ¿ò
+     ---@field public VOICE integer @ÓïÒô
+     ---@field public ACTION integer @¶¯×÷
+     ---@field public EXPANSION integer @À©ÈİµÀ¾ß
+     ---@field public MATERIAL integer @ÖÆ×÷²ÄÁÏ
     ['item.EMajorType'] = {   CURRENCY=1,  CLOTH=2,  QUEST=3,  CONSUMABLES=4,  TREASURE_BOX=5,  ACHIEVEMENT_AND_TITLE=6,  HEAD_FRAME=7,  VOICE=8,  ACTION=9,  EXPANSION=10,  MATERIAL=11,  };
     ---@class item.EMinorType
-     ---@field public DIAMOND integer @é’»çŸ³
-     ---@field public GOLD integer @é‡‘å¸
-     ---@field public SILVER integer @é“¶å¸
-     ---@field public EXP integer @ç»éªŒ
-     ---@field public POWER_POINT integer @èƒ½é‡ç‚¹
-     ---@field public HAIR_STYLE integer @å‘å‹
-     ---@field public COAT integer @å¤–å¥—
-     ---@field public UPPER_JACKET integer @ä¸Šè¡£
-     ---@field public TROUSERS integer @è£¤å­
-     ---@field public SKIRT integer @è£™å­
-     ---@field public SOCKS integer @è¢œå­
-     ---@field public SHOES integer @é‹å­
-     ---@field public HAIR_ACCESSORY integer @å‘é¥°
-     ---@field public HAT integer @å¸½å­
-     ---@field public EARRING integer @è€³é¥°
-     ---@field public NECKLACE integer @é¢ˆé¥°
-     ---@field public BRACELET integer @è…•é¥°
-     ---@field public HAIR_CLASP integer @å‘ç®
-     ---@field public GLOVE integer @æ‰‹å¥—
-     ---@field public HANDHELD_OBJECT integer @æ‰‹æŒç‰©
-     ---@field public SPECIAL integer @ç‰¹æ®Š
-     ---@field public BASE_COSMETIC integer @åº•å¦†
-     ---@field public EYEBROW_COSMETIC integer @çœ‰å¦†
-     ---@field public EYELASH integer @ç«æ¯›
-     ---@field public COSMETIC_CONTACT_LENSES integer @ç¾ç³
-     ---@field public LIP_COSMETIC integer @å”‡å¦†
-     ---@field public SKIN_COLOR integer @è‚¤è‰²
-     ---@field public ONE_PIECE_DRESS integer @è¿è¡£è£™
-     ---@field public SWITCH_CLOTHES_SCENE integer @æ¢è£…åœºæ™¯
-     ---@field public QUEST integer @ä»»åŠ¡é“å…·
-     ---@field public CAST integer @æŠ•æ·ç‰©
-     ---@field public SWORD integer @åˆ€å‰‘
-     ---@field public BOW_ARROW integer @å¼“ç®­
-     ---@field public WANDS integer @æ³•æ–
-     ---@field public SPECIAL_TOOL integer @ç‰¹æ®Šå·¥å…·
-     ---@field public FOOD integer @é£Ÿç‰©
-     ---@field public TREASURE_BOX integer @å®ç®±
-     ---@field public KEY integer @é’¥åŒ™
-     ---@field public MULTI_CHOOSE_TREASURE_BOX integer @å¤šé€‰ä¸€å®ç®±
-     ---@field public ACHIEVEMENT integer @æˆå°±ç›¸å…³
-     ---@field public TITLE integer @ç§°è°“ç›¸å…³
-     ---@field public AVATAR_FRAME integer @å¤´åƒæ¡†
-     ---@field public VOICE integer @è¯­éŸ³
-     ---@field public IDLE_POSE integer @ç‰¹æ®Šå¾…æœºåŠ¨ä½œ
-     ---@field public PHOTO_POSE integer @æ‹ç…§åŠ¨ä½œ
-     ---@field public BAG integer @èƒŒåŒ…
-     ---@field public FRIEND_CAPACITY integer @å¥½å‹æ•°é‡
-     ---@field public CONSTRUCTION_MATERIAL integer @åˆ¶ä½œææ–™
-     ---@field public DESIGN_DRAWING integer @è®¾è®¡å›¾çº¸
+     ---@field public DIAMOND integer @×êÊ¯
+     ---@field public GOLD integer @½ğ±Ò
+     ---@field public SILVER integer @Òø±Ò
+     ---@field public EXP integer @¾­Ñé
+     ---@field public POWER_POINT integer @ÄÜÁ¿µã
+     ---@field public HAIR_STYLE integer @·¢ĞÍ
+     ---@field public COAT integer @ÍâÌ×
+     ---@field public UPPER_JACKET integer @ÉÏÒÂ
+     ---@field public TROUSERS integer @¿ã×Ó
+     ---@field public SKIRT integer @È¹×Ó
+     ---@field public SOCKS integer @Íà×Ó
+     ---@field public SHOES integer @Ğ¬×Ó
+     ---@field public HAIR_ACCESSORY integer @·¢ÊÎ
+     ---@field public HAT integer @Ã±×Ó
+     ---@field public EARRING integer @¶úÊÎ
+     ---@field public NECKLACE integer @¾±ÊÎ
+     ---@field public BRACELET integer @ÍóÊÎ
+     ---@field public HAIR_CLASP integer @·¢¹¿
+     ---@field public GLOVE integer @ÊÖÌ×
+     ---@field public HANDHELD_OBJECT integer @ÊÖ³ÖÎï
+     ---@field public SPECIAL integer @ÌØÊâ
+     ---@field public BASE_COSMETIC integer @µ××±
+     ---@field public EYEBROW_COSMETIC integer @Ã¼×±
+     ---@field public EYELASH integer @½ŞÃ«
+     ---@field public COSMETIC_CONTACT_LENSES integer @ÃÀÍ«
+     ---@field public LIP_COSMETIC integer @´½×±
+     ---@field public SKIN_COLOR integer @·ôÉ«
+     ---@field public ONE_PIECE_DRESS integer @Á¬ÒÂÈ¹
+     ---@field public SWITCH_CLOTHES_SCENE integer @»»×°³¡¾°
+     ---@field public QUEST integer @ÈÎÎñµÀ¾ß
+     ---@field public CAST integer @Í¶ÖÀÎï
+     ---@field public SWORD integer @µ¶½£
+     ---@field public BOW_ARROW integer @¹­¼ı
+     ---@field public WANDS integer @·¨ÕÈ
+     ---@field public SPECIAL_TOOL integer @ÌØÊâ¹¤¾ß
+     ---@field public FOOD integer @Ê³Îï
+     ---@field public TREASURE_BOX integer @±¦Ïä
+     ---@field public KEY integer @Ô¿³×
+     ---@field public MULTI_CHOOSE_TREASURE_BOX integer @¶àÑ¡Ò»±¦Ïä
+     ---@field public ACHIEVEMENT integer @³É¾ÍÏà¹Ø
+     ---@field public TITLE integer @³ÆÎ½Ïà¹Ø
+     ---@field public AVATAR_FRAME integer @Í·Ïñ¿ò
+     ---@field public VOICE integer @ÓïÒô
+     ---@field public IDLE_POSE integer @ÌØÊâ´ı»ú¶¯×÷
+     ---@field public PHOTO_POSE integer @ÅÄÕÕ¶¯×÷
+     ---@field public BAG integer @±³°ü
+     ---@field public FRIEND_CAPACITY integer @ºÃÓÑÊıÁ¿
+     ---@field public CONSTRUCTION_MATERIAL integer @ÖÆ×÷²ÄÁÏ
+     ---@field public DESIGN_DRAWING integer @Éè¼ÆÍ¼Ö½
     ['item.EMinorType'] = {   DIAMOND=101,  GOLD=102,  SILVER=103,  EXP=104,  POWER_POINT=105,  HAIR_STYLE=210,  COAT=220,  UPPER_JACKET=230,  TROUSERS=241,  SKIRT=242,  SOCKS=250,  SHOES=260,  HAIR_ACCESSORY=271,  HAT=272,  EARRING=273,  NECKLACE=274,  BRACELET=275,  HAIR_CLASP=276,  GLOVE=277,  HANDHELD_OBJECT=278,  SPECIAL=279,  BASE_COSMETIC=281,  EYEBROW_COSMETIC=282,  EYELASH=283,  COSMETIC_CONTACT_LENSES=284,  LIP_COSMETIC=285,  SKIN_COLOR=286,  ONE_PIECE_DRESS=290,  SWITCH_CLOTHES_SCENE=291,  QUEST=301,  CAST=401,  SWORD=421,  BOW_ARROW=422,  WANDS=423,  SPECIAL_TOOL=424,  FOOD=403,  TREASURE_BOX=501,  KEY=502,  MULTI_CHOOSE_TREASURE_BOX=503,  ACHIEVEMENT=601,  TITLE=602,  AVATAR_FRAME=701,  VOICE=801,  IDLE_POSE=901,  PHOTO_POSE=902,  BAG=1001,  FRIEND_CAPACITY=1002,  CONSTRUCTION_MATERIAL=1101,  DESIGN_DRAWING=1102,  };
     ---@class item.EClothersStarQualityType
-     ---@field public ONE integer @ä¸€æ˜Ÿ
-     ---@field public TWO integer @äºŒæ˜Ÿ
-     ---@field public THREE integer @ä¸‰æ˜Ÿ
-     ---@field public FOUR integer @å››æ˜Ÿ
-     ---@field public FIVE integer @äº”æ˜Ÿ
-     ---@field public SIX integer @å…­æ˜Ÿ
-     ---@field public SEVEN integer @ä¸ƒæ˜Ÿ
-     ---@field public EIGHT integer @å…«æ˜Ÿ
-     ---@field public NINE integer @ä¹æ˜Ÿ
-     ---@field public TEN integer @åæ˜Ÿ
+     ---@field public ONE integer @Ò»ĞÇ
+     ---@field public TWO integer @¶şĞÇ
+     ---@field public THREE integer @ÈıĞÇ
+     ---@field public FOUR integer @ËÄĞÇ
+     ---@field public FIVE integer @ÎåĞÇ
+     ---@field public SIX integer @ÁùĞÇ
+     ---@field public SEVEN integer @ÆßĞÇ
+     ---@field public EIGHT integer @°ËĞÇ
+     ---@field public NINE integer @¾ÅĞÇ
+     ---@field public TEN integer @Ê®ĞÇ
     ['item.EClothersStarQualityType'] = {   ONE=1,  TWO=2,  THREE=3,  FOUR=4,  FIVE=5,  SIX=6,  SEVEN=7,  EIGHT=8,  NINE=9,  TEN=10,  };
     ---@class item.EClothersTag
-     ---@field public FANG_SHAI integer @é˜²æ™’
-     ---@field public WU_ZHE integer @èˆè€…
+     ---@field public FANG_SHAI integer @·ÀÉ¹
+     ---@field public WU_ZHE integer @ÎèÕß
     ['item.EClothersTag'] = {   FANG_SHAI=1,  WU_ZHE=2,  };
     ---@class item.EUseType
-     ---@field public MANUAL integer @æ‰‹åŠ¨
-     ---@field public AUTO integer @è‡ªåŠ¨
+     ---@field public MANUAL integer @ÊÖ¶¯
+     ---@field public AUTO integer @×Ô¶¯
     ['item.EUseType'] = {   MANUAL=0,  AUTO=1,  };
     ---@class item.EClothesHidePartType
-     ---@field public CHEST integer @èƒ¸éƒ¨
-     ---@field public HEAD integer @æ‰‹
-     ---@field public SPINE_UPPER integer @è„ŠæŸ±ä¸Š
-     ---@field public SPINE_LOWER integer @è„ŠæŸ±ä¸‹
-     ---@field public HIP integer @è‡€éƒ¨
-     ---@field public LEG_UPPER integer @è…¿ä¸Š
-     ---@field public LEG_MIDDLE integer @è…¿ä¸­
-     ---@field public LEG_LOWER integer @è…¿ä¸‹
+     ---@field public CHEST integer @ĞØ²¿
+     ---@field public HEAD integer @ÊÖ
+     ---@field public SPINE_UPPER integer @¼¹ÖùÉÏ
+     ---@field public SPINE_LOWER integer @¼¹ÖùÏÂ
+     ---@field public HIP integer @ÍÎ²¿
+     ---@field public LEG_UPPER integer @ÍÈÉÏ
+     ---@field public LEG_MIDDLE integer @ÍÈÖĞ
+     ---@field public LEG_LOWER integer @ÍÈÏÂ
     ['item.EClothesHidePartType'] = {   CHEST=0,  HEAD=1,  SPINE_UPPER=2,  SPINE_LOWER=3,  HIP=4,  LEG_UPPER=5,  LEG_MIDDLE=6,  LEG_LOWER=7,  };
     ---@class item.EClothesPropertyType
-     ---@field public JIAN_YUE integer @ç®€çº¦
-     ---@field public HUA_LI integer @åä¸½
-     ---@field public KE_AI integer @å¯çˆ±
-     ---@field public CHENG_SHU integer @æˆç†Ÿ
-     ---@field public HUO_PO integer @æ´»æ³¼
-     ---@field public YOU_YA integer @ä¼˜é›…
-     ---@field public QING_CHUN integer @æ¸…çº¯
-     ---@field public XING_GAN integer @æ€§æ„Ÿ
-     ---@field public QING_LIANG integer @æ¸…å‡‰
-     ---@field public BAO_NUAN integer @ä¿æš–
+     ---@field public JIAN_YUE integer @¼òÔ¼
+     ---@field public HUA_LI integer @»ªÀö
+     ---@field public KE_AI integer @¿É°®
+     ---@field public CHENG_SHU integer @³ÉÊì
+     ---@field public HUO_PO integer @»îÆÃ
+     ---@field public YOU_YA integer @ÓÅÑÅ
+     ---@field public QING_CHUN integer @Çå´¿
+     ---@field public XING_GAN integer @ĞÔ¸Ğ
+     ---@field public QING_LIANG integer @ÇåÁ¹
+     ---@field public BAO_NUAN integer @±£Å¯
     ['item.EClothesPropertyType'] = {   JIAN_YUE=1,  HUA_LI=2,  KE_AI=3,  CHENG_SHU=4,  HUO_PO=5,  YOU_YA=6,  QING_CHUN=7,  XING_GAN=8,  QING_LIANG=9,  BAO_NUAN=10,  };
     ---@class test.DemoEnum
      ---@field public NONE integer
@@ -185,7 +185,8 @@ local enums =
      ---@field public B integer @bb
      ---@field public C integer @cc
      ---@field public D integer @dd
-    ['test.DemoEnum'] = {   NONE=0,  A=1,  B=2,  C=4,  D=5,  };
+     ---@field public Any integer
+    ['test.DemoEnum'] = {   NONE=0,  A=1,  B=2,  C=4,  D=5,  Any=6,  };
     ---@class test.DemoFlag
      ---@field public A integer
      ---@field public B integer
@@ -193,7 +194,7 @@ local enums =
      ---@field public D integer
     ['test.DemoFlag'] = {   A=1,  B=2,  C=4,  D=8,  };
     ---@class test.ETestUeType
-     ---@field public WHITE integer @ç™½
+     ---@field public WHITE integer @°×
      ---@field public BLACK integer
     ['test.ETestUeType'] = {   WHITE=0,  BLACK=1,  };
     ---@class test.ETestEmptyEnum
@@ -203,11 +204,16 @@ local enums =
      ---@field public X_256 integer
      ---@field public X_257 integer
     ['test.ETestEmptyEnum2'] = {   SMALL_THAN_256=255,  X_256=256,  X_257=257,  };
+    ---@class test.AudioType2
+     ---@field public UNKNOWN integer
+     ---@field public ACC integer
+     ---@field public AIFF integer
+    ['test.AudioType2'] = {   UNKNOWN=0,  ACC=1,  AIFF=2,  };
     ---@class test.ETestQuality
-     ---@field public A integer @æœ€é«˜å“è´¨
-     ---@field public B integer @é»‘è‰²çš„
-     ---@field public C integer @è“è‰²çš„
-     ---@field public D integer @æœ€å·®å“è´¨
+     ---@field public A integer @×î¸ßÆ·ÖÊ
+     ---@field public B integer @ºÚÉ«µÄ
+     ---@field public C integer @À¶É«µÄ
+     ---@field public D integer @×î²îÆ·ÖÊ
     ['test.ETestQuality'] = {   A=1,  B=2,  C=3,  D=4,  };
     ---@class test.AccessFlag
      ---@field public WRITE integer
@@ -219,6 +225,22 @@ local enums =
 }
 
 local beans = {}
+    do
+    ---@class ai.BlackboardKey 
+     ---@field public name string
+     ---@field public desc string
+     ---@field public is_static boolean
+     ---@field public key_type integer
+     ---@field public type_class_name string
+        local class = {
+            { name='name', type='string'},
+            { name='desc', type='string'},
+            { name='is_static', type='boolean'},
+            { name='key_type', type='integer'},
+            { name='type_class_name', type='string'},
+        }
+        beans['ai.BlackboardKey'] = class
+    end
     do
     ---@class ai.Blackboard 
      ---@field public name string
@@ -234,36 +256,70 @@ local beans = {}
         beans['ai.Blackboard'] = class
     end
     do
-    ---@class ai.BlackboardKey 
-     ---@field public name string
-     ---@field public desc string
-     ---@field public is_static boolean
-     ---@field public type integer
-     ---@field public type_class_name string
+    ---@class ai.KeyData 
         local class = {
-            { name='name', type='string'},
-            { name='desc', type='string'},
-            { name='is_static', type='boolean'},
-            { name='type', type='integer'},
-            { name='type_class_name', type='string'},
         }
-        beans['ai.BlackboardKey'] = class
+        beans['ai.KeyData'] = class
     end
     do
-    ---@class ai.BehaviorTree 
-     ---@field public id integer
-     ---@field public name string
-     ---@field public desc string
-     ---@field public blackboard_id string
-     ---@field public root ai.ComposeNode
+    ---@class ai.FloatKeyData :ai.KeyData 
+     ---@field public value number
         local class = {
-            { name='id', type='integer'},
-            { name='name', type='string'},
-            { name='desc', type='string'},
-            { name='blackboard_id', type='string'},
-            { name='root', type='ai.ComposeNode'},
+            { name='value', type='number'},
         }
-        beans['ai.BehaviorTree'] = class
+        beans['ai.FloatKeyData'] = class
+    end
+    do
+    ---@class ai.IntKeyData :ai.KeyData 
+     ---@field public value integer
+        local class = {
+            { name='value', type='integer'},
+        }
+        beans['ai.IntKeyData'] = class
+    end
+    do
+    ---@class ai.StringKeyData :ai.KeyData 
+     ---@field public value string
+        local class = {
+            { name='value', type='string'},
+        }
+        beans['ai.StringKeyData'] = class
+    end
+    do
+    ---@class ai.BlackboardKeyData :ai.KeyData 
+     ---@field public value string
+        local class = {
+            { name='value', type='string'},
+        }
+        beans['ai.BlackboardKeyData'] = class
+    end
+    do
+    ---@class ai.KeyQueryOperator 
+        local class = {
+        }
+        beans['ai.KeyQueryOperator'] = class
+    end
+    do
+    ---@class ai.IsSet2 :ai.KeyQueryOperator 
+        local class = {
+        }
+        beans['ai.IsSet2'] = class
+    end
+    do
+    ---@class ai.IsNotSet :ai.KeyQueryOperator 
+        local class = {
+        }
+        beans['ai.IsNotSet'] = class
+    end
+    do
+    ---@class ai.BinaryOperator :ai.KeyQueryOperator 
+     ---@field public oper integer
+     ---@field public data ai.KeyData
+        local class = {
+            { name='oper', type='integer'},
+            { name='data', type='ai.KeyData'},
+        }
+        beans['ai.BinaryOperator'] = class
     end
     do
     ---@class ai.Node 
@@ -390,72 +446,6 @@ local beans = {}
             { name='key_query', type='ai.KeyQueryOperator'},
         }
         beans['ai.UeBlackboard'] = class
-    end
-    do
-    ---@class ai.KeyQueryOperator 
-        local class = {
-        }
-        beans['ai.KeyQueryOperator'] = class
-    end
-    do
-    ---@class ai.IsSet :ai.KeyQueryOperator 
-        local class = {
-        }
-        beans['ai.IsSet'] = class
-    end
-    do
-    ---@class ai.IsNotSet :ai.KeyQueryOperator 
-        local class = {
-        }
-        beans['ai.IsNotSet'] = class
-    end
-    do
-    ---@class ai.BinaryOperator :ai.KeyQueryOperator 
-     ---@field public oper integer
-     ---@field public data ai.KeyData
-        local class = {
-            { name='oper', type='integer'},
-            { name='data', type='ai.KeyData'},
-        }
-        beans['ai.BinaryOperator'] = class
-    end
-    do
-    ---@class ai.KeyData 
-        local class = {
-        }
-        beans['ai.KeyData'] = class
-    end
-    do
-    ---@class ai.FloatKeyData :ai.KeyData 
-     ---@field public value number
-        local class = {
-            { name='value', type='number'},
-        }
-        beans['ai.FloatKeyData'] = class
-    end
-    do
-    ---@class ai.IntKeyData :ai.KeyData 
-     ---@field public value integer
-        local class = {
-            { name='value', type='integer'},
-        }
-        beans['ai.IntKeyData'] = class
-    end
-    do
-    ---@class ai.StringKeyData :ai.KeyData 
-     ---@field public value string
-        local class = {
-            { name='value', type='string'},
-        }
-        beans['ai.StringKeyData'] = class
-    end
-    do
-    ---@class ai.BlackboardKeyData :ai.KeyData 
-     ---@field public value string
-        local class = {
-            { name='value', type='string'},
-        }
-        beans['ai.BlackboardKeyData'] = class
     end
     do
     ---@class ai.UeForceSuccess :ai.Decorator 
@@ -606,8 +596,112 @@ local beans = {}
         beans['ai.DebugPrint'] = class
     end
     do
+    ---@class ai.BehaviorTree 
+     ---@field public id integer
+     ---@field public name string
+     ---@field public desc string
+     ---@field public blackboard_id string
+     ---@field public root ai.ComposeNode
+        local class = {
+            { name='id', type='integer'},
+            { name='name', type='string'},
+            { name='desc', type='string'},
+            { name='blackboard_id', type='string'},
+            { name='root', type='ai.ComposeNode'},
+        }
+        beans['ai.BehaviorTree'] = class
+    end
+    do
+    ---@class vec2 
+     ---@field public x number
+     ---@field public y number
+        local class = {
+            { name='x', type='number'},
+            { name='y', type='number'},
+        }
+        beans['vec2'] = class
+    end
+    do
+    ---@class vec3 
+     ---@field public x number
+     ---@field public y number
+     ---@field public z number
+        local class = {
+            { name='x', type='number'},
+            { name='y', type='number'},
+            { name='z', type='number'},
+        }
+        beans['vec3'] = class
+    end
+    do
+    ---@class vec4 
+     ---@field public x number
+     ---@field public y number
+     ---@field public z number
+     ---@field public w number
+        local class = {
+            { name='x', type='number'},
+            { name='y', type='number'},
+            { name='z', type='number'},
+            { name='w', type='number'},
+        }
+        beans['vec4'] = class
+    end
+    do
+    ---@class common.DateTimeRange 
+     ---@field public start_time integer
+     ---@field public end_time integer
+        local class = {
+            { name='start_time', type='integer'},
+            { name='end_time', type='integer'},
+        }
+        beans['common.DateTimeRange'] = class
+    end
+    do
+    ---@class common.TimeOfDay 
+     ---@field public hour integer
+     ---@field public minute integer
+     ---@field public second integer
+        local class = {
+            { name='hour', type='integer'},
+            { name='minute', type='integer'},
+            { name='second', type='integer'},
+        }
+        beans['common.TimeOfDay'] = class
+    end
+    do
+    ---@class common.OneDayTimeRange 
+     ---@field public start_time common.TimeOfDay
+     ---@field public end_time common.TimeOfDay
+        local class = {
+            { name='start_time', type='common.TimeOfDay'},
+            { name='end_time', type='common.TimeOfDay'},
+        }
+        beans['common.OneDayTimeRange'] = class
+    end
+    do
+    ---@class common.IntRange 
+     ---@field public min integer
+     ---@field public max integer
+        local class = {
+            { name='min', type='integer'},
+            { name='max', type='integer'},
+        }
+        beans['common.IntRange'] = class
+    end
+    do
+    ---@class common.FloatRange 
+     ---@field public min number
+     ---@field public max number
+        local class = {
+            { name='min', type='number'},
+            { name='max', type='number'},
+        }
+        beans['common.FloatRange'] = class
+    end
+    do
     ---@class common.GlobalConfig 
-     ---@field public x1 integer @èƒŒåŒ…å®¹é‡
+     ---@field public x1 integer @±³°üÈİÁ¿
      ---@field public x2 integer
      ---@field public x3 integer
      ---@field public x4 integer
@@ -626,11 +720,14 @@ local beans = {}
         beans['common.GlobalConfig'] = class
     end
     do
-    ---@class item.Item  @é“å…·
-     ---@field public id integer @é“å…·id
+    ---@class item.Item  @µÀ¾ß
+     ---@field public id integer @µÀ¾ßid
      ---@field public name string
+     ---@field public major_type integer
      ---@field public minor_type integer
+     ---@field public max_pile_num integer
      ---@field public quality integer
+     ---@field public icon string
      ---@field public icon_backgroud string
      ---@field public icon_mask string
      ---@field public desc string
@@ -638,8 +735,11 @@ local beans = {}
         local class = {
             { name='id', type='integer'},
             { name='name', type='string'},
+            { name='major_type', type='integer'},
             { name='minor_type', type='integer'},
+            { name='max_pile_num', type='integer'},
             { name='quality', type='integer'},
+            { name='icon', type='string'},
             { name='icon_backgroud', type='string'},
             { name='icon_mask', type='string'},
             { name='desc', type='string'},
@@ -676,56 +776,6 @@ local beans = {}
             { name='value', type='string'},
         }
         beans['tag.TestTag'] = class
-    end
-    do
-    ---@class test.DemoType2 
-     ---@field public x4 integer
-     ---@field public x1 boolean
-     ---@field public x2 integer
-     ---@field public x3 integer
-     ---@field public x5 integer
-     ---@field public x6 number
-     ---@field public x7 number
-     ---@field public x8_0 integer
-     ---@field public x8 integer
-     ---@field public x9 integer
-     ---@field public x10 string
-     ---@field public x12 test.DemoType1
-     ---@field public x13 integer
-     ---@field public x14 test.DemoDynamic
-     ---@field public s1 string
-     ---@field public t1 integer
-     ---@field public k1 integer[]
-     ---@field public k2 integer[]
-     ---@field public k5 integer[]
-     ---@field public k8 table<integer,integer>
-     ---@field public k9 test.DemoE2[]
-     ---@field public k15 test.DemoDynamic[]
-        local class = {
-            { name='x4', type='integer'},
-            { name='x1', type='boolean'},
-            { name='x2', type='integer'},
-            { name='x3', type='integer'},
-            { name='x5', type='integer'},
-            { name='x6', type='number'},
-            { name='x7', type='number'},
-            { name='x8_0', type='integer'},
-            { name='x8', type='integer'},
-            { name='x9', type='integer'},
-            { name='x10', type='string'},
-            { name='x12', type='test.DemoType1'},
-            { name='x13', type='integer'},
-            { name='x14', type='test.DemoDynamic'},
-            { name='s1', type='string'},
-            { name='t1', type='integer'},
-            { name='k1', type='integer[]'},
-            { name='k2', type='integer[]'},
-            { name='k5', type='integer[]'},
-            { name='k8', type='table<integer,integer>'},
-            { name='k9', type='test.DemoE2[]'},
-            { name='k15', type='test.DemoDynamic[]'},
-        }
-        beans['test.DemoType2'] = class
     end
     do
     ---@class test.DemoType1 
@@ -804,6 +854,76 @@ local beans = {}
         beans['test.DemoE2'] = class
     end
     do
+    ---@class test.DemoExplicitType 
+     ---@field public x1 integer
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x4 integer
+     ---@field public x5 number
+     ---@field public x6 number
+     ---@field public x7 integer
+        local class = {
+            { name='x1', type='integer'},
+            { name='x2', type='integer'},
+            { name='x3', type='integer'},
+            { name='x4', type='integer'},
+            { name='x5', type='number'},
+            { name='x6', type='number'},
+            { name='x7', type='integer'},
+        }
+        beans['test.DemoExplicitType'] = class
+    end
+    do
+    ---@class test.DemoType2 
+     ---@field public x4 integer
+     ---@field public x1 boolean
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x5 integer
+     ---@field public x6 number
+     ---@field public x7 number
+     ---@field public x8_0 integer
+     ---@field public x8 integer
+     ---@field public x9 integer
+     ---@field public x10 string
+     ---@field public x12 test.DemoType1
+     ---@field public x13 integer
+     ---@field public x14 test.DemoDynamic
+     ---@field public s1 string
+     ---@field public t1 integer
+     ---@field public k1 integer[]
+     ---@field public k2 integer[]
+     ---@field public k5 integer[]
+     ---@field public k8 table<integer,integer>
+     ---@field public k9 test.DemoE2[]
+     ---@field public k15 test.DemoDynamic[]
+        local class = {
+            { name='x4', type='integer'},
+            { name='x1', type='boolean'},
+            { name='x2', type='integer'},
+            { name='x3', type='integer'},
+            { name='x5', type='integer'},
+            { name='x6', type='number'},
+            { name='x7', type='number'},
+            { name='x8_0', type='integer'},
+            { name='x8', type='integer'},
+            { name='x9', type='integer'},
+            { name='x10', type='string'},
+            { name='x12', type='test.DemoType1'},
+            { name='x13', type='integer'},
+            { name='x14', type='test.DemoDynamic'},
+            { name='s1', type='string'},
+            { name='t1', type='integer'},
+            { name='k1', type='integer[]'},
+            { name='k2', type='integer[]'},
+            { name='k5', type='integer[]'},
+            { name='k8', type='table<integer,integer>'},
+            { name='k9', type='test.DemoE2[]'},
+            { name='k15', type='test.DemoDynamic[]'},
+        }
+        beans['test.DemoType2'] = class
+    end
+    do
     ---@class test.DemoSingletonType 
      ---@field public id integer
      ---@field public name string
@@ -858,30 +978,6 @@ local beans = {}
         beans['test.MultiIndexList'] = class
     end
     do
-    ---@class test.MultiRowRecord 
-     ---@field public id integer
-     ---@field public name string
-     ---@field public one_rows test.MultiRowType1[]
-     ---@field public multi_rows1 test.MultiRowType1[]
-     ---@field public multi_rows2 test.MultiRowType1[]
-     ---@field public multi_rows4 table<integer,test.MultiRowType2>
-     ---@field public multi_rows5 test.MultiRowType3[]
-     ---@field public multi_rows6 table<integer,test.MultiRowType2>
-     ---@field public multi_rows7 table<integer,integer>
-        local class = {
-            { name='id', type='integer'},
-            { name='name', type='string'},
-            { name='one_rows', type='test.MultiRowType1[]'},
-            { name='multi_rows1', type='test.MultiRowType1[]'},
-            { name='multi_rows2', type='test.MultiRowType1[]'},
-            { name='multi_rows4', type='table<integer,test.MultiRowType2>'},
-            { name='multi_rows5', type='test.MultiRowType3[]'},
-            { name='multi_rows6', type='table<integer,test.MultiRowType2>'},
-            { name='multi_rows7', type='table<integer,integer>'},
-        }
-        beans['test.MultiRowRecord'] = class
-    end
-    do
     ---@class test.MultiRowType1 
      ---@field public id integer
      ---@field public x integer
@@ -914,18 +1010,28 @@ local beans = {}
         beans['test.MultiRowType3'] = class
     end
     do
-    ---@class test.TestMultiColumn 
+    ---@class test.MultiRowRecord 
      ---@field public id integer
-     ---@field public a test.Foo
-     ---@field public b test.Foo
-     ---@field public c test.Foo
+     ---@field public name string
+     ---@field public one_rows test.MultiRowType1[]
+     ---@field public multi_rows1 test.MultiRowType1[]
+     ---@field public multi_rows2 test.MultiRowType1[]
+     ---@field public multi_rows4 table<integer,test.MultiRowType2>
+     ---@field public multi_rows5 test.MultiRowType3[]
+     ---@field public multi_rows6 table<integer,test.MultiRowType2>
+     ---@field public multi_rows7 table<integer,integer>
         local class = {
             { name='id', type='integer'},
-            { name='a', type='test.Foo'},
-            { name='b', type='test.Foo'},
-            { name='c', type='test.Foo'},
+            { name='name', type='string'},
+            { name='one_rows', type='test.MultiRowType1[]'},
+            { name='multi_rows1', type='test.MultiRowType1[]'},
+            { name='multi_rows2', type='test.MultiRowType1[]'},
+            { name='multi_rows4', type='table<integer,test.MultiRowType2>'},
+            { name='multi_rows5', type='test.MultiRowType3[]'},
+            { name='multi_rows6', type='table<integer,test.MultiRowType2>'},
+            { name='multi_rows7', type='table<integer,integer>'},
         }
-        beans['test.TestMultiColumn'] = class
+        beans['test.MultiRowRecord'] = class
     end
     do
     ---@class test.Foo 
@@ -940,24 +1046,54 @@ local beans = {}
         beans['test.Foo'] = class
     end
     do
-    ---@class test.MultiRowTitle 
+    ---@class test.TestMultiColumn 
      ---@field public id integer
-     ---@field public name string
-     ---@field public x1 test.H1
-     ---@field public x2_0 test.H2
-     ---@field public x2 test.H2[]
-     ---@field public x3 test.H2[]
-     ---@field public x4 test.H2[]
+     ---@field public a test.Foo
+     ---@field public b test.Foo
+     ---@field public c test.Foo
         local class = {
             { name='id', type='integer'},
-            { name='name', type='string'},
-            { name='x1', type='test.H1'},
-            { name='x2_0', type='test.H2'},
-            { name='x2', type='test.H2[]'},
-            { name='x3', type='test.H2[]'},
-            { name='x4', type='test.H2[]'},
+            { name='a', type='test.Foo'},
+            { name='b', type='test.Foo'},
+            { name='c', type='test.Foo'},
         }
-        beans['test.MultiRowTitle'] = class
+        beans['test.TestMultiColumn'] = class
+    end
+    do
+    ---@class test.TestUeType 
+     ---@field public x1 boolean
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x4 integer
+     ---@field public x5 integer
+     ---@field public x6 number
+     ---@field public x10 string
+     ---@field public x12 test.DemoType1
+     ---@field public x13 integer
+     ---@field public t1 integer
+     ---@field public k1 integer[]
+     ---@field public k2 integer[]
+     ---@field public k5 integer[]
+     ---@field public k8 table<integer,integer>
+     ---@field public k9 test.DemoE2[]
+        local class = {
+            { name='x1', type='boolean'},
+            { name='x2', type='integer'},
+            { name='x3', type='integer'},
+            { name='x4', type='integer'},
+            { name='x5', type='integer'},
+            { name='x6', type='number'},
+            { name='x10', type='string'},
+            { name='x12', type='test.DemoType1'},
+            { name='x13', type='integer'},
+            { name='t1', type='integer'},
+            { name='k1', type='integer[]'},
+            { name='k2', type='integer[]'},
+            { name='k5', type='integer[]'},
+            { name='k8', type='table<integer,integer>'},
+            { name='k9', type='test.DemoE2[]'},
+        }
+        beans['test.TestUeType'] = class
     end
     do
     ---@class test.H1 
@@ -978,6 +1114,26 @@ local beans = {}
             { name='z3', type='integer'},
         }
         beans['test.H2'] = class
+    end
+    do
+    ---@class test.MultiRowTitle 
+     ---@field public id integer
+     ---@field public name string
+     ---@field public x1 test.H1
+     ---@field public x2_0 test.H2
+     ---@field public x2 test.H2[]
+     ---@field public x3 test.H2[]
+     ---@field public x4 test.H2[]
+        local class = {
+            { name='id', type='integer'},
+            { name='name', type='string'},
+            { name='x1', type='test.H1'},
+            { name='x2_0', type='test.H2'},
+            { name='x2', type='test.H2[]'},
+            { name='x3', type='test.H2[]'},
+            { name='x4', type='test.H2[]'},
+        }
+        beans['test.MultiRowTitle'] = class
     end
     do
     ---@class test.TestNull 
@@ -1032,40 +1188,16 @@ local beans = {}
         beans['test.DemoPrimitiveTypesTable'] = class
     end
     do
-    ---@class vec2 
-     ---@field public x number
-     ---@field public y number
+    ---@class test.CompactString 
+     ---@field public id integer
+     ---@field public s2 string
+     ---@field public s3 string
         local class = {
-            { name='x', type='number'},
-            { name='y', type='number'},
+            { name='id', type='integer'},
+            { name='s2', type='string'},
+            { name='s3', type='string'},
         }
-        beans['vec2'] = class
-    end
-    do
-    ---@class vec3 
-     ---@field public x number
-     ---@field public y number
-     ---@field public z number
-        local class = {
-            { name='x', type='number'},
-            { name='y', type='number'},
-            { name='z', type='number'},
-        }
-        beans['vec3'] = class
-    end
-    do
-    ---@class vec4 
-     ---@field public x number
-     ---@field public y number
-     ---@field public z number
-     ---@field public w number
-        local class = {
-            { name='x', type='number'},
-            { name='y', type='number'},
-            { name='z', type='number'},
-            { name='w', type='number'},
-        }
-        beans['vec4'] = class
+        beans['test.CompactString'] = class
     end
     do
     ---@class test.TestString 
@@ -1084,34 +1216,36 @@ local beans = {}
         beans['test.TestString'] = class
     end
     do
-    ---@class test.CompactString 
-     ---@field public id integer
-     ---@field public s2 string
-     ---@field public s3 string
+    ---@class test.InnerGroup 
+     ---@field public y1 integer
+     ---@field public y2 integer
+     ---@field public y3 integer
+     ---@field public y4 integer
         local class = {
-            { name='id', type='integer'},
-            { name='s2', type='string'},
-            { name='s3', type='string'},
+            { name='y1', type='integer'},
+            { name='y2', type='integer'},
+            { name='y3', type='integer'},
+            { name='y4', type='integer'},
         }
-        beans['test.CompactString'] = class
+        beans['test.InnerGroup'] = class
     end
     do
     ---@class test.DemoGroup 
      ---@field public id integer
+     ---@field public x1 integer
+     ---@field public x2 integer
+     ---@field public x3 integer
+     ---@field public x4 integer
      ---@field public x5 test.InnerGroup
         local class = {
             { name='id', type='integer'},
+            { name='x1', type='integer'},
+            { name='x2', type='integer'},
+            { name='x3', type='integer'},
+            { name='x4', type='integer'},
             { name='x5', type='test.InnerGroup'},
         }
         beans['test.DemoGroup'] = class
-    end
-    do
-    ---@class test.InnerGroup 
-     ---@field public y1 integer
-        local class = {
-            { name='y1', type='integer'},
-        }
-        beans['test.InnerGroup'] = class
     end
     do
     ---@class test.TestGlobal 
@@ -1132,6 +1266,22 @@ local beans = {}
             { name='count', type='integer'},
         }
         beans['test.TestBeRef'] = class
+    end
+    do
+    ---@class test.RefDynamicBase 
+     ---@field public x integer
+        local class = {
+            { name='x', type='integer'},
+        }
+        beans['test.RefDynamicBase'] = class
+    end
+    do
+    ---@class test.RefBean :test.RefDynamicBase 
+     ---@field public arr integer[]
+        local class = {
+            { name='arr', type='integer[]'},
+        }
+        beans['test.RefBean'] = class
     end
     do
     ---@class test.TestRef 
@@ -1180,22 +1330,6 @@ local beans = {}
             { name='s1', type='test.RefDynamicBase'},
         }
         beans['test.TestRef'] = class
-    end
-    do
-    ---@class test.RefDynamicBase 
-     ---@field public x integer
-        local class = {
-            { name='x', type='integer'},
-        }
-        beans['test.RefDynamicBase'] = class
-    end
-    do
-    ---@class test.RefBean :test.RefDynamicBase 
-     ---@field public arr integer[]
-        local class = {
-            { name='arr', type='integer[]'},
-        }
-        beans['test.RefBean'] = class
     end
     do
     ---@class test.TestSize 
@@ -1372,16 +1506,14 @@ local beans = {}
         beans['test.CompositeJsonTable3'] = class
     end
     do
-    ---@class test.ExcelFromJsonMultiRow 
-     ---@field public id integer
+    ---@class test.Test3 
      ---@field public x integer
-     ---@field public items test.TestRow[]
+     ---@field public y integer
         local class = {
-            { name='id', type='integer'},
             { name='x', type='integer'},
-            { name='items', type='test.TestRow[]'},
+            { name='y', type='integer'},
         }
-        beans['test.ExcelFromJsonMultiRow'] = class
+        beans['test.Test3'] = class
     end
     do
     ---@class test.TestRow 
@@ -1400,14 +1532,40 @@ local beans = {}
         beans['test.TestRow'] = class
     end
     do
-    ---@class test.Test3 
+    ---@class test.ExcelFromJsonMultiRow 
+     ---@field public id integer
+     ---@field public x integer
+     ---@field public items test.TestRow[]
+        local class = {
+            { name='id', type='integer'},
+            { name='x', type='integer'},
+            { name='items', type='test.TestRow[]'},
+        }
+        beans['test.ExcelFromJsonMultiRow'] = class
+    end
+    do
+    ---@class test.SepVector 
      ---@field public x integer
      ---@field public y integer
+     ---@field public z integer
         local class = {
             { name='x', type='integer'},
             { name='y', type='integer'},
+            { name='z', type='integer'},
         }
-        beans['test.Test3'] = class
+        beans['test.SepVector'] = class
+    end
+    do
+    ---@class test.SepBean1 
+     ---@field public a integer
+     ---@field public b integer
+     ---@field public c string
+        local class = {
+            { name='a', type='integer'},
+            { name='b', type='integer'},
+            { name='c', type='string'},
+        }
+        beans['test.SepBean1'] = class
     end
     do
     ---@class test.TestScriptableObject 
@@ -1430,6 +1588,16 @@ local beans = {}
         beans['test.TestScriptableObject'] = class
     end
     do
+    ---@class test.Path 
+     ---@field public id integer
+     ---@field public res string
+        local class = {
+            { name='id', type='integer'},
+            { name='res', type='string'},
+        }
+        beans['test.Path'] = class
+    end
+    do
     ---@class test.TestMapper 
      ---@field public id integer
      ---@field public audio_type integer
@@ -1442,9 +1610,59 @@ local beans = {}
         beans['test.TestMapper'] = class
     end
     do
+    ---@class test.TestExcelBean1  @ÕâÊÇ¸ö²âÊÔexcel½á¹¹
+     ---@field public x1 integer @×î¸ßÆ·ÖÊ
+     ---@field public x2 string @ºÚÉ«µÄ
+     ---@field public x3 integer @À¶É«µÄ
+     ---@field public x4 number @×î²îÆ·ÖÊ
+        local class = {
+            { name='x1', type='integer'},
+            { name='x2', type='string'},
+            { name='x3', type='integer'},
+            { name='x4', type='number'},
+        }
+        beans['test.TestExcelBean1'] = class
+    end
+    do
+    ---@class test.TestExcelBean2  @ÕâÊÇ¸ö²âÊÔexcel½á¹¹
+     ---@field public y1 integer @×î¸ßÆ·ÖÊ
+     ---@field public y2 string @ºÚÉ«µÄ
+     ---@field public y3 number @À¶É«µÄ
+        local class = {
+            { name='y1', type='integer'},
+            { name='y2', type='string'},
+            { name='y3', type='number'},
+        }
+        beans['test.TestExcelBean2'] = class
+    end
+    do
+    ---@class test.Shape 
+        local class = {
+        }
+        beans['test.Shape'] = class
+    end
+    do
+    ---@class test.Circle :Shape  @Ô²
+     ---@field public radius number @°ë¾¶
+        local class = {
+            { name='radius', type='number'},
+        }
+        beans['test.Circle'] = class
+    end
+    do
+    ---@class test2.Rectangle :test.Shape  @¾ØĞÎ
+     ---@field public width number @¿í¶È
+     ---@field public height number @¸ß¶È
+        local class = {
+            { name='width', type='number'},
+            { name='height', type='number'},
+        }
+        beans['test2.Rectangle'] = class
+    end
+    do
     ---@class DefineFromExcel2 
-     ---@field public id integer @è¿™æ˜¯id
-     ---@field public x1 boolean @å­—æ®µx1
+     ---@field public id integer @ÕâÊÇid
+     ---@field public x1 boolean @×Ö¶Îx1
      ---@field public x5 integer
      ---@field public x6 number
      ---@field public x8 integer
@@ -1461,6 +1679,7 @@ local beans = {}
      ---@field public k9 test.DemoE2[]
      ---@field public k10 vec3[]
      ---@field public k11 vec4[]
+     ---@field public v11 vec3
         local class = {
             { name='id', type='integer'},
             { name='x1', type='boolean'},
@@ -1480,32 +1699,9 @@ local beans = {}
             { name='k9', type='test.DemoE2[]'},
             { name='k10', type='vec3[]'},
             { name='k11', type='vec4[]'},
+            { name='v11', type='vec3'},
         }
         beans['DefineFromExcel2'] = class
-    end
-    do
-    ---@class test.Shape 
-        local class = {
-        }
-        beans['test.Shape'] = class
-    end
-    do
-    ---@class test.Circle :Shape  @åœ†
-     ---@field public radius number @åŠå¾„
-        local class = {
-            { name='radius', type='number'},
-        }
-        beans['test.Circle'] = class
-    end
-    do
-    ---@class test2.Rectangle :test.Shape  @çŸ©å½¢
-     ---@field public width number @å®½åº¦
-     ---@field public height number @é«˜åº¦
-        local class = {
-            { name='width', type='number'},
-            { name='height', type='number'},
-        }
-        beans['test2.Rectangle'] = class
     end
 
 local tables =
@@ -1530,6 +1726,9 @@ local tables =
     { name='TbDemoPrimitive', file='test_tbdemoprimitive', mode='map', index='x4', value_type='test.DemoPrimitiveTypesTable' },
     { name='TbTestString', file='test_tbteststring', mode='map', index='id', value_type='test.TestString' },
     { name='TbDemoGroup', file='test_tbdemogroup', mode='map', index='id', value_type='test.DemoGroup' },
+    { name='TbDemoGroup_C', file='test_tbdemogroup_c', mode='map', index='id', value_type='test.DemoGroup' },
+    { name='TbDemoGroup_S', file='test_tbdemogroup_s', mode='map', index='id', value_type='test.DemoGroup' },
+    { name='TbDemoGroup_E', file='test_tbdemogroup_e', mode='map', index='id', value_type='test.DemoGroup' },
     { name='TbTestGlobal', file='test_tbtestglobal', mode='one', value_type='test.TestGlobal'},
     { name='TbTestBeRef', file='test_tbtestberef', mode='map', index='id', value_type='test.TestBeRef' },
     { name='TbTestBeRef2', file='test_tbtestberef2', mode='map', index='id', value_type='test.TestBeRef' },
@@ -1546,6 +1745,7 @@ local tables =
     { name='TbCompositeJsonTable3', file='test_tbcompositejsontable3', mode='one', value_type='test.CompositeJsonTable3'},
     { name='TbExcelFromJsonMultiRow', file='test_tbexcelfromjsonmultirow', mode='map', index='id', value_type='test.ExcelFromJsonMultiRow' },
     { name='TbTestScriptableObject', file='test_tbtestscriptableobject', mode='map', index='id', value_type='test.TestScriptableObject' },
+    { name='TbPath', file='test_tbpath', mode='map', index='id', value_type='test.Path' },
     { name='TbTestMapper', file='test_tbtestmapper', mode='map', index='id', value_type='test.TestMapper' },
     { name='TbDefineFromExcel2', file='test_tbdefinefromexcel2', mode='map', index='id', value_type='DefineFromExcel2' },
 }

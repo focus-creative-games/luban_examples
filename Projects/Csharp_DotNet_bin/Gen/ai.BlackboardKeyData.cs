@@ -32,7 +32,6 @@ public sealed partial class BlackboardKeyData : ai.KeyData
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
@@ -44,3 +43,4 @@ public sealed partial class BlackboardKeyData : ai.KeyData
 }
 
 }
+

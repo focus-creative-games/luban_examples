@@ -43,8 +43,6 @@ public sealed partial class MultiRowTitle : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
         X1?.ResolveRef(tables);
         X20?.ResolveRef(tables);
         foreach (var _e in X2) { _e?.ResolveRef(tables); }
@@ -67,3 +65,4 @@ public sealed partial class MultiRowTitle : Luban.BeanBase
 }
 
 }
+

@@ -85,11 +85,8 @@ public sealed partial class TestRef : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
         X1_Ref = tables.TbTestBeRef.GetOrDefault(X1);
         X12_Ref = tables.TbTestBeRef.GetOrDefault(X12);
-        
-        
         X4_Ref = tables.TbTestTag.GetOrDefault(X4);
         A1_Ref = new test.TestBeRef[A1.Length];
         for (int _i = 0; _i < A1.Length; _i++) { A1_Ref[_i] = tables.TbTestBeRef.GetOrDefault(A1[_i]); }
@@ -110,17 +107,11 @@ public sealed partial class TestRef : Luban.BeanBase
         foreach (var _v in C2) { C2_Ref.Add(tables.TbTestBeRef.GetOrDefault(_v)); }
 
         D1_Ref = new System.Collections.Generic.Dictionary<int, test.TestBeRef>();
-        foreach (var (_k,_v) in D1) { D1_Ref.Add(_k, tables.TbTestBeRef.GetOrDefault(_v)); }
+        foreach (var kvp in D1) { D1_Ref.Add(kvp.Key, tables.TbTestBeRef.GetOrDefault(kvp.Value)); }
 
         D2_Ref = new System.Collections.Generic.Dictionary<int, test.TestBeRef>();
-        foreach (var (_k,_v) in D2) { D2_Ref.Add(_k, tables.TbTestBeRef.GetOrDefault(_v)); }
+        foreach (var kvp in D2) { D2_Ref.Add(kvp.Key, tables.TbTestBeRef.GetOrDefault(kvp.Value)); }
 
-        
-        
-        
-        
-        
-        
         S1?.ResolveRef(tables);
     }
 
@@ -153,3 +144,4 @@ public sealed partial class TestRef : Luban.BeanBase
 }
 
 }
+

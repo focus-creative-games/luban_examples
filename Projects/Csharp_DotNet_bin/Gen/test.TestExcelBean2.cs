@@ -47,9 +47,6 @@ public sealed partial class TestExcelBean2 : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
     }
 
     public override string ToString()
@@ -63,3 +60,4 @@ public sealed partial class TestExcelBean2 : Luban.BeanBase
 }
 
 }
+

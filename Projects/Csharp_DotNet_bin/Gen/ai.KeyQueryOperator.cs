@@ -43,3 +43,4 @@ public abstract partial class KeyQueryOperator : Luban.BeanBase
 }
 
 }
+

@@ -22,7 +22,7 @@ public sealed partial class TestMapper : Luban.BeanBase
         JObject _obj = _buf as JObject;
         Id = (int)_obj.GetValue("id");
         AudioType = (AudioType)(int)_obj.GetValue("audio_type");
-        V2 = vec2.Deserializevec2(_obj.GetValue("v2"));
+        V2 = ExternalTypeUtil.NewVector2(vec2.Deserializevec2(_obj.GetValue("v2")));
     }
 
     public static TestMapper DeserializeTestMapper(JToken _buf)
@@ -32,7 +32,7 @@ public sealed partial class TestMapper : Luban.BeanBase
 
     public readonly int Id;
     public readonly AudioType AudioType;
-    public readonly vec2 V2;
+    public readonly System.Numerics.Vector2 V2;
 
 
     public const int __ID__ = 149110895;

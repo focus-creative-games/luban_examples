@@ -40,7 +40,6 @@ public abstract partial class Task : ai.FlowNode
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
@@ -56,3 +55,4 @@ public abstract partial class Task : ai.FlowNode
 }
 
 }
+

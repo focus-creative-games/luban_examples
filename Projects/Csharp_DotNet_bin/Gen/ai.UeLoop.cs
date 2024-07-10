@@ -36,9 +36,6 @@ public sealed partial class UeLoop : ai.Decorator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
-        
     }
 
     public override string ToString()
@@ -55,3 +52,4 @@ public sealed partial class UeLoop : ai.Decorator
 }
 
 }
+
