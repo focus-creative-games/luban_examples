@@ -34,7 +34,7 @@ func NewAiBlackboard(_buf *luban.ByteBuf) (_v *AiBlackboard, err error) {
     { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.ParentName, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
-    {_v.Keys = make([]*AiBlackboardKey, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *AiBlackboardKey; { if _e_, err = NewAiBlackboardKey(_buf); err != nil { err = errors.New("error"); return } }; _v.Keys = append(_v.Keys, _e_) } }
+    {_v.Keys = make([]*AiBlackboardKey, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *AiBlackboardKey; { if _e0_, err = NewAiBlackboardKey(_buf); err != nil { err = errors.New("error"); return } }; _v.Keys = append(_v.Keys, _e0_) } }
     return
 }
 

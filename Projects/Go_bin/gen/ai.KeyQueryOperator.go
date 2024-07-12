@@ -32,7 +32,7 @@ func NewAiKeyQueryOperator(_buf *luban.ByteBuf) (interface{}, error) {
         return nil, err
     }
     switch id {
-        case 1635350898: _v, err := NewAiIsSet(_buf); if err != nil { return nil, errors.New("ai.isset") } else { return _v, nil }
+        case -843729664: _v, err := NewAiIsSet2(_buf); if err != nil { return nil, errors.New("ai.isset2") } else { return _v, nil }
         case 790736255: _v, err := NewAiIsNotSet(_buf); if err != nil { return nil, errors.New("ai.isnotset") } else { return _v, nil }
         case -979891605: _v, err := NewAiBinaryOperator(_buf); if err != nil { return nil, errors.New("ai.binaryoperator") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")

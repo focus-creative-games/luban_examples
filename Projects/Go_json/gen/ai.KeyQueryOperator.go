@@ -28,7 +28,7 @@ func NewAiKeyQueryOperator(_buf map[string]interface{}) (interface{}, error) {
         return nil, errors.New("type id missing")
     }
     switch id {
-        case "IsSet": _v, err := NewAiIsSet(_buf); if err != nil { return nil, errors.New("aiisset") } else { return _v, nil }
+        case "IsSet2": _v, err := NewAiIsSet2(_buf); if err != nil { return nil, errors.New("aiisset2") } else { return _v, nil }
         case "IsNotSet": _v, err := NewAiIsNotSet(_buf); if err != nil { return nil, errors.New("aiisnotset") } else { return _v, nil }
         case "BinaryOperator": _v, err := NewAiBinaryOperator(_buf); if err != nil { return nil, errors.New("aibinaryoperator") } else { return _v, nil }
         default: return nil, errors.New("unknown type id")

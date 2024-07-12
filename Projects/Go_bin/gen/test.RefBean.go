@@ -30,7 +30,7 @@ func (*TestRefBean) GetTypeId() int32 {
 func NewTestRefBean(_buf *luban.ByteBuf) (_v *TestRefBean, err error) {
     _v = &TestRefBean{}
     { if _v.X, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    {_v.Arr = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.Arr = append(_v.Arr, _e_) } }
+    {_v.Arr = make([]int32, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ int32; { if _e0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.Arr = append(_v.Arr, _e0_) } }
     return
 }
 

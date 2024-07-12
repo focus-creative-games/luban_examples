@@ -38,9 +38,9 @@ func NewTestMultiRowTitle(_buf *luban.ByteBuf) (_v *TestMultiRowTitle, err error
     { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.X1, err = NewTestH1(_buf); err != nil { err = errors.New("error"); return } }
     { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ *TestH2;  { if __x__, err = NewTestH2(_buf); err != nil { err = errors.New("error"); return } }; _v.X20 = __x__ }}
-    {_v.X2 = make([]*TestH2, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestH2; { if _e_, err = NewTestH2(_buf); err != nil { err = errors.New("error"); return } }; _v.X2 = append(_v.X2, _e_) } }
-    {_v.X3 = make([]*TestH2, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestH2; { if _e_, err = NewTestH2(_buf); err != nil { err = errors.New("error"); return } }; _v.X3 = append(_v.X3, _e_) } }
-    {_v.X4 = make([]*TestH2, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestH2; { if _e_, err = NewTestH2(_buf); err != nil { err = errors.New("error"); return } }; _v.X4 = append(_v.X4, _e_) } }
+    {_v.X2 = make([]*TestH2, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *TestH2; { if _e0_, err = NewTestH2(_buf); err != nil { err = errors.New("error"); return } }; _v.X2 = append(_v.X2, _e0_) } }
+    {_v.X3 = make([]*TestH2, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *TestH2; { if _e0_, err = NewTestH2(_buf); err != nil { err = errors.New("error"); return } }; _v.X3 = append(_v.X3, _e0_) } }
+    {_v.X4 = make([]*TestH2, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *TestH2; { if _e0_, err = NewTestH2(_buf); err != nil { err = errors.New("error"); return } }; _v.X4 = append(_v.X4, _e0_) } }
     return
 }
 

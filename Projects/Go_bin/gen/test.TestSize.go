@@ -33,10 +33,10 @@ func (*TestTestSize) GetTypeId() int32 {
 func NewTestTestSize(_buf *luban.ByteBuf) (_v *TestTestSize, err error) {
     _v = &TestTestSize{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    {_v.X1 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X1 = append(_v.X1, _e_) } }
-    {_v.X2 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X2 = append(_v.X2, _e_) } }
-    {_v.X3 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X3 = append(_v.X3, _e_) } }
-    { _v.X4 = make(map[int32]int32); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _key_ int32; { if _key_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; var _value_ int32; { if _value_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X4[_key_] = _value_} }
+    {_v.X1 = make([]int32, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ int32; { if _e0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X1 = append(_v.X1, _e0_) } }
+    {_v.X2 = make([]int32, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ int32; { if _e0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X2 = append(_v.X2, _e0_) } }
+    {_v.X3 = make([]int32, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ int32; { if _e0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X3 = append(_v.X3, _e0_) } }
+    { _v.X4 = make(map[int32]int32); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _key0_ int32; { if _key0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; var _value0_ int32; { if _value0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X4[_key0_] = _value0_} }
     return
 }
 

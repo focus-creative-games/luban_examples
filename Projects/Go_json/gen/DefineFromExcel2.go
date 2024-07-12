@@ -31,6 +31,7 @@ type DefineFromExcel2 struct {
     K9 []*TestDemoE2
     K10 []*vec3
     K11 []*vec4
+    V11 *vec3
 }
 
 const TypeId_DefineFromExcel2 = 482045152
@@ -140,6 +141,7 @@ func NewDefineFromExcel2(_buf map[string]interface{}) (_v *DefineFromExcel2, err
                     }
                 }
 
+    { var _ok_ bool; var __json_v11__ interface{}; if __json_v11__, _ok_ = _buf["v11"]; !_ok_ || __json_v11__ == nil { _v.V11 = nil } else { var __x__ *vec3;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_v11__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = Newvec3(_x_); err != nil { return } }; _v.V11 = __x__ }}
     return
 }
 

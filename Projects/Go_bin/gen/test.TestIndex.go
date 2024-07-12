@@ -30,7 +30,7 @@ func (*TestTestIndex) GetTypeId() int32 {
 func NewTestTestIndex(_buf *luban.ByteBuf) (_v *TestTestIndex, err error) {
     _v = &TestTestIndex{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    {_v.Eles = make([]*TestDemoType1, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestDemoType1; { if _e_, err = NewTestDemoType1(_buf); err != nil { err = errors.New("error"); return } }; _v.Eles = append(_v.Eles, _e_) } }
+    {_v.Eles = make([]*TestDemoType1, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *TestDemoType1; { if _e0_, err = NewTestDemoType1(_buf); err != nil { err = errors.New("error"); return } }; _v.Eles = append(_v.Eles, _e0_) } }
     return
 }
 

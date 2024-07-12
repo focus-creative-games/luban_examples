@@ -27,5 +27,6 @@ const (
      * dd
      */
     TestDemoEnum_D = 5;
+    TestDemoEnum_Any = 6;
 )
 

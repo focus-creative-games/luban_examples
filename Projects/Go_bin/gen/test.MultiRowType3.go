@@ -30,7 +30,7 @@ func (*TestMultiRowType3) GetTypeId() int32 {
 func NewTestMultiRowType3(_buf *luban.ByteBuf) (_v *TestMultiRowType3, err error) {
     _v = &TestMultiRowType3{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    {_v.Items = make([]*TestMultiRowType1, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestMultiRowType1; { if _e_, err = NewTestMultiRowType1(_buf); err != nil { err = errors.New("error"); return } }; _v.Items = append(_v.Items, _e_) } }
+    {_v.Items = make([]*TestMultiRowType1, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *TestMultiRowType1; { if _e0_, err = NewTestMultiRowType1(_buf); err != nil { err = errors.New("error"); return } }; _v.Items = append(_v.Items, _e0_) } }
     return
 }
 

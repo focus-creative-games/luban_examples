@@ -9,20 +9,9 @@
 
 package cfg;
 
-
-
-
-type AiIsSet struct {
-}
-
-const TypeId_AiIsSet = 1635350898
-
-func (*AiIsSet) GetTypeId() int32 {
-    return 1635350898
-}
-
-func NewAiIsSet(_buf map[string]interface{}) (_v *AiIsSet, err error) {
-    _v = &AiIsSet{}
-    return
-}
+const (
+    TestAudioType2_UNKNOWN = 0;
+    TestAudioType2_ACC = 1;
+    TestAudioType2_AIFF = 2;
+)
 

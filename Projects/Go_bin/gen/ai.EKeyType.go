@@ -17,8 +17,8 @@ const (
     AiEKeyType_VECTOR = 5;
     AiEKeyType_ROTATOR = 6;
     AiEKeyType_NAME = 7;
-    AiEKeyType_CLASS = 8;
-    AiEKeyType_ENUM = 9;
+    AiEKeyType_CLASS1 = 8;
+    AiEKeyType_ENUM1 = 9;
     AiEKeyType_OBJECT = 10;
 )
 

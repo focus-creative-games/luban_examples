@@ -51,6 +51,7 @@ type Tables struct {
     TbCompositeJsonTable3 *TestTbCompositeJsonTable3
     TbExcelFromJsonMultiRow *TestTbExcelFromJsonMultiRow
     TbTestScriptableObject *TestTbTestScriptableObject
+    TbPath *TestTbPath
     TbTestMapper *TestTbTestMapper
     TbDefineFromExcel2 *TestTbDefineFromExcel2
 }
@@ -292,6 +293,12 @@ func NewTables(loader JsonLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbTestScriptableObject, err = NewTestTbTestScriptableObject(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbpath") ; err != nil {
+        return nil, err
+    }
+    if tables.TbPath, err = NewTestTbPath(buf) ; err != nil {
         return nil, err
     }
     if buf, err = loader("test_tbtestmapper") ; err != nil {

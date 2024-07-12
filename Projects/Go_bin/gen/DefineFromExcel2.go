@@ -35,6 +35,7 @@ type DefineFromExcel2 struct {
     K9 []*TestDemoE2
     K10 []*vec3
     K11 []*vec4
+    V11 *vec3
 }
 
 const TypeId_DefineFromExcel2 = 482045152
@@ -57,12 +58,13 @@ func NewDefineFromExcel2(_buf *luban.ByteBuf) (_v *DefineFromExcel2, err error) 
     { if _v.X15, err = NewTestShape(_buf); err != nil { err = errors.New("error"); return } }
     { if _v.V2, err = Newvec2(_buf); err != nil { err = errors.New("error"); return } }
     { if _v.T1, err = _buf.ReadLong(); err != nil { err = errors.New("error"); return } }
-    {_v.K1 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.K1 = append(_v.K1, _e_) } }
-    {_v.K2 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.K2 = append(_v.K2, _e_) } }
-    { _v.K8 = make(map[int32]int32); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _key_ int32; { if _key_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; var _value_ int32; { if _value_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.K8[_key_] = _value_} }
-    {_v.K9 = make([]*TestDemoE2, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestDemoE2; { if _e_, err = NewTestDemoE2(_buf); err != nil { err = errors.New("error"); return } }; _v.K9 = append(_v.K9, _e_) } }
-    {_v.K10 = make([]*vec3, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *vec3; { if _e_, err = Newvec3(_buf); err != nil { err = errors.New("error"); return } }; _v.K10 = append(_v.K10, _e_) } }
-    {_v.K11 = make([]*vec4, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *vec4; { if _e_, err = Newvec4(_buf); err != nil { err = errors.New("error"); return } }; _v.K11 = append(_v.K11, _e_) } }
+    {_v.K1 = make([]int32, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ int32; { if _e0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.K1 = append(_v.K1, _e0_) } }
+    {_v.K2 = make([]int32, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ int32; { if _e0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.K2 = append(_v.K2, _e0_) } }
+    { _v.K8 = make(map[int32]int32); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _key0_ int32; { if _key0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; var _value0_ int32; { if _value0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.K8[_key0_] = _value0_} }
+    {_v.K9 = make([]*TestDemoE2, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *TestDemoE2; { if _e0_, err = NewTestDemoE2(_buf); err != nil { err = errors.New("error"); return } }; _v.K9 = append(_v.K9, _e0_) } }
+    {_v.K10 = make([]*vec3, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *vec3; { if _e0_, err = Newvec3(_buf); err != nil { err = errors.New("error"); return } }; _v.K10 = append(_v.K10, _e0_) } }
+    {_v.K11 = make([]*vec4, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *vec4; { if _e0_, err = Newvec4(_buf); err != nil { err = errors.New("error"); return } }; _v.K11 = append(_v.K11, _e0_) } }
+    { var __exists__ bool; if __exists__, err = _buf.ReadBool(); err != nil { return }; if __exists__ { var __x__ *vec3;  { if __x__, err = Newvec3(_buf); err != nil { err = errors.New("error"); return } }; _v.V11 = __x__ }}
     return
 }
 

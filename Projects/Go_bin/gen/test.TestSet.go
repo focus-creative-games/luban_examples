@@ -35,10 +35,10 @@ func NewTestTestSet(_buf *luban.ByteBuf) (_v *TestTestSet, err error) {
     _v = &TestTestSet{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
     { if _v.X0, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
-    {_v.X1 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X1 = append(_v.X1, _e_) } }
-    {_v.X2 = make([]int64, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int64; { if _e_, err = _buf.ReadLong(); err != nil { err = errors.New("error"); return } }; _v.X2 = append(_v.X2, _e_) } }
-    {_v.X3 = make([]string, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ string; { if _e_, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }; _v.X3 = append(_v.X3, _e_) } }
-    {_v.X4 = make([]int32, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ int32; { if _e_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X4 = append(_v.X4, _e_) } }
+    {_v.X1 = make([]int32, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ int32; { if _e0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X1 = append(_v.X1, _e0_) } }
+    {_v.X2 = make([]int64, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ int64; { if _e0_, err = _buf.ReadLong(); err != nil { err = errors.New("error"); return } }; _v.X2 = append(_v.X2, _e0_) } }
+    {_v.X3 = make([]string, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ string; { if _e0_, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }; _v.X3 = append(_v.X3, _e0_) } }
+    {_v.X4 = make([]int32, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ int32; { if _e0_, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }; _v.X4 = append(_v.X4, _e0_) } }
     return
 }
 

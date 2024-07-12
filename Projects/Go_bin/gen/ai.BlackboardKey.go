@@ -20,7 +20,7 @@ type AiBlackboardKey struct {
     Name string
     Desc string
     IsStatic bool
-    Type int32
+    KeyType int32
     TypeClassName string
 }
 
@@ -35,7 +35,7 @@ func NewAiBlackboardKey(_buf *luban.ByteBuf) (_v *AiBlackboardKey, err error) {
     { if _v.Name, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.Desc, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     { if _v.IsStatic, err = _buf.ReadBool(); err != nil { err = errors.New("error"); err = errors.New("error"); return } }
-    { if _v.Type, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
+    { if _v.KeyType, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
     { if _v.TypeClassName, err = _buf.ReadString(); err != nil { err = errors.New("error"); return } }
     return
 }

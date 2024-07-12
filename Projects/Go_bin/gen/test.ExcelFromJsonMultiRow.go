@@ -32,7 +32,7 @@ func NewTestExcelFromJsonMultiRow(_buf *luban.ByteBuf) (_v *TestExcelFromJsonMul
     _v = &TestExcelFromJsonMultiRow{}
     { if _v.Id, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
     { if _v.X, err = _buf.ReadInt(); err != nil { err = errors.New("error"); return } }
-    {_v.Items = make([]*TestTestRow, 0); var _n_ int; if _n_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i := 0 ; i < _n_ ; i++ { var _e_ *TestTestRow; { if _e_, err = NewTestTestRow(_buf); err != nil { err = errors.New("error"); return } }; _v.Items = append(_v.Items, _e_) } }
+    {_v.Items = make([]*TestTestRow, 0); var _n0_ int; if _n0_, err = _buf.ReadSize(); err != nil { err = errors.New("error"); return}; for i0 := 0 ; i0 < _n0_ ; i0++ { var _e0_ *TestTestRow; { if _e0_, err = NewTestTestRow(_buf); err != nil { err = errors.New("error"); return } }; _v.Items = append(_v.Items, _e0_) } }
     return
 }
 
