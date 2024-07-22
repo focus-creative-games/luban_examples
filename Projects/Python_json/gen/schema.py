@@ -10,6 +10,11 @@
 
 from enum import Enum
 
+
+class ai_EExecutor(Enum):
+    CLIENT = 0
+    SERVER = 1
+
 class ai_EKeyType(Enum):
     BOOL = 1
     INT = 2
@@ -28,6 +33,10 @@ class ai_EFlowAbortMode(Enum):
     SELF = 2
     BOTH = 3
 
+class ai_EFinishMode(Enum):
+    IMMEDIATE = 0
+    DELAYED = 1
+
 class ai_ENotifyObserverMode(Enum):
     ON_VALUE_CHANGE = 0
     ON_RESULT_CHANGE = 1
@@ -42,9 +51,61 @@ class ai_EOperator(Enum):
     CONTAINS = 6
     NOT_CONTAINS = 7
 
-class ai_EFinishMode(Enum):
-    IMMEDIATE = 0
-    DELAYED = 1
+class AudioType(Enum):
+    UNKNOWN = 0
+    ACC = 1
+    AIFF = 2
+
+class common_EBoolOperator(Enum):
+    AND = 0
+    OR = 1
+
+'''
+道具品质
+'''
+class item_EItemQuality(Enum):
+    '''
+    白
+    '''
+    WHITE = 0
+    '''
+    绿
+    '''
+    GREEN = 1
+    '''
+    蓝
+    '''
+    BLUE = 2
+    '''
+    紫
+    '''
+    PURPLE = 3
+    '''
+    金
+    '''
+    GOLDEN = 4
+
+class item_ECurrencyType(Enum):
+    '''
+    钻石
+    '''
+    DIAMOND = 1
+    '''
+    金币
+    '''
+    GOLD = 2
+    '''
+    银币
+    '''
+    SILVER = 3
+    '''
+    经验
+    '''
+    EXP = 4
+    '''
+    能量点
+    '''
+    POWER_POINT = 5
 
 class item_EMajorType(Enum):
     '''
@@ -290,30 +351,143 @@ class item_EMinorType(Enum):
     '''
     DESIGN_DRAWING = 1102
 
-'''
-道具品质
-'''
-class item_EItemQuality(Enum):
+class item_EClothersStarQualityType(Enum):
     '''
-    白
+    一星
     '''
-    WHITE = 0
+    ONE = 1
     '''
-    绿
+    二星
     '''
-    GREEN = 1
+    TWO = 2
     '''
-    蓝
+    三星
     '''
-    BLUE = 2
+    THREE = 3
     '''
-    紫
+    四星
     '''
-    PURPLE = 3
+    FOUR = 4
     '''
-    金
+    五星
     '''
-    GOLDEN = 4
+    FIVE = 5
+    '''
+    六星
+    '''
+    SIX = 6
+    '''
+    七星
+    '''
+    SEVEN = 7
+    '''
+    八星
+    '''
+    EIGHT = 8
+    '''
+    九星
+    '''
+    NINE = 9
+    '''
+    十星
+    '''
+    TEN = 10
+
+class item_EClothersTag(Enum):
+    '''
+    防晒
+    '''
+    FANG_SHAI = 1
+    '''
+    舞者
+    '''
+    WU_ZHE = 2
+
+class item_EUseType(Enum):
+    '''
+    手动
+    '''
+    MANUAL = 0
+    '''
+    自动
+    '''
+    AUTO = 1
+
+class item_EClothesHidePartType(Enum):
+    '''
+    胸部
+    '''
+    CHEST = 0
+    '''
+    手
+    '''
+    HEAD = 1
+    '''
+    脊柱上
+    '''
+    SPINE_UPPER = 2
+    '''
+    脊柱下
+    '''
+    SPINE_LOWER = 3
+    '''
+    臀部
+    '''
+    HIP = 4
+    '''
+    腿上
+    '''
+    LEG_UPPER = 5
+    '''
+    腿中
+    '''
+    LEG_MIDDLE = 6
+    '''
+    腿下
+    '''
+    LEG_LOWER = 7
+
+class item_EClothesPropertyType(Enum):
+    '''
+    简约
+    '''
+    JIAN_YUE = 1
+    '''
+    华丽
+    '''
+    HUA_LI = 2
+    '''
+    可爱
+    '''
+    KE_AI = 3
+    '''
+    成熟
+    '''
+    CHENG_SHU = 4
+    '''
+    活泼
+    '''
+    HUO_PO = 5
+    '''
+    优雅
+    '''
+    YOU_YA = 6
+    '''
+    清纯
+    '''
+    QING_CHUN = 7
+    '''
+    性感
+    '''
+    XING_GAN = 8
+    '''
+    清凉
+    '''
+    QING_LIANG = 9
+    '''
+    保暖
+    '''
+    BAO_NUAN = 10
 
 class test_DemoEnum(Enum):
     NONE = 0
@@ -335,42 +509,65 @@ class test_DemoEnum(Enum):
     D = 5
     Any = 6
 
-class AudioType(Enum):
-    UNKNOWN = 0
-    ACC = 1
-    AIFF = 2
-
 class test_DemoFlag(Enum):
     A = 1
     B = 2
     C = 4
     D = 8
 
+class test_ETestUeType(Enum):
+    '''
+    白
+    '''
+    WHITE = 0
+    BLACK = 1
 
-class vec2 :
-    def __init__(self, _json_):
-        self.x = _json_['x']
-        self.y = _json_['y']
+class test_ETestEmptyEnum(Enum):
+    pass
 
-class vec3 :
-    def __init__(self, _json_):
-        self.x = _json_['x']
-        self.y = _json_['y']
-        self.z = _json_['z']
+class test_ETestEmptyEnum2(Enum):
+    SMALL_THAN_256 = 255
+    X_256 = 256
+    X_257 = 257
 
-class vec4 :
-    def __init__(self, _json_):
-        self.x = _json_['x']
-        self.y = _json_['y']
-        self.z = _json_['z']
-        self.w = _json_['w']
+class test_AudioType2(Enum):
+    UNKNOWN = 0
+    ACC = 1
+    AIFF = 2
 
-class test_TestExcelBean1 :
+class test_ETestQuality(Enum):
+    '''
+    最高品质
+    '''
+    A = 1
+    '''
+    黑色的
+    '''
+    B = 2
+    '''
+    蓝色的
+    '''
+    C = 3
+    '''
+    最差品质
+    '''
+    D = 4
+
+class test_AccessFlag(Enum):
+    WRITE = 1
+    READ = 2
+    TRUNCATE = 4
+    NEW = 8
+    READ_WRITE = WRITE|READ
+
+
+class ai_BlackboardKey :
     def __init__(self, _json_):
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
+        self.name = _json_['name']
+        self.desc = _json_['desc']
+        self.is_static = _json_['is_static']
+        self.key_type = _json_['key_type']
+        self.type_class_name = _json_['type_class_name']
 
 class ai_Blackboard :
     def __init__(self, _json_):
@@ -380,21 +577,86 @@ class ai_Blackboard :
         self.keys = []
         for _ele in _json_['keys']: _e = ai_BlackboardKey(_ele); self.keys.append(_e)
 
-class ai_BlackboardKey :
+class ai_KeyData :
+    _childrenTypes = None
+    @staticmethod
+    def fromJson(_json_):
+        childrenTypes = ai_KeyData._childrenTypes
+        if not childrenTypes:
+            childrenTypes = ai_KeyData._childrenTypes = {
+            'FloatKeyData': ai_KeyData,
+            'IntKeyData': ai_KeyData,
+            'StringKeyData': ai_KeyData,
+            'BlackboardKeyData': ai_KeyData,
+    }
+        type = _json_['$type']
+        child = ai_KeyData._childrenTypes.get(type)
+        if child != None:
+            return  child(_json_)
+        else:
+            raise Exception()
     def __init__(self, _json_):
-        self.name = _json_['name']
-        self.desc = _json_['desc']
-        self.is_static = _json_['is_static']
-        self.type = _json_['type']
-        self.type_class_name = _json_['type_class_name']
 
-class ai_BehaviorTree :
+        pass
+
+class ai_FloatKeyData (ai_KeyData):
     def __init__(self, _json_):
-        self.id = _json_['id']
-        self.name = _json_['name']
-        self.desc = _json_['desc']
-        self.blackboard_id = _json_['blackboard_id']
-        self.root = ai_ComposeNode.fromJson(_json_['root'])
+        ai_KeyData.__init__(self, _json_)
+        self.value = _json_['value']
+
+class ai_IntKeyData (ai_KeyData):
+    def __init__(self, _json_):
+        ai_KeyData.__init__(self, _json_)
+        self.value = _json_['value']
+
+class ai_StringKeyData (ai_KeyData):
+    def __init__(self, _json_):
+        ai_KeyData.__init__(self, _json_)
+        self.value = _json_['value']
+
+class ai_BlackboardKeyData (ai_KeyData):
+    def __init__(self, _json_):
+        ai_KeyData.__init__(self, _json_)
+        self.value = _json_['value']
+
+class ai_KeyQueryOperator :
+    _childrenTypes = None
+    @staticmethod
+    def fromJson(_json_):
+        childrenTypes = ai_KeyQueryOperator._childrenTypes
+        if not childrenTypes:
+            childrenTypes = ai_KeyQueryOperator._childrenTypes = {
+            'IsSet2': ai_KeyQueryOperator,
+            'IsNotSet': ai_KeyQueryOperator,
+            'BinaryOperator': ai_KeyQueryOperator,
+    }
+        type = _json_['$type']
+        child = ai_KeyQueryOperator._childrenTypes.get(type)
+        if child != None:
+            return  child(_json_)
+        else:
+            raise Exception()
+    def __init__(self, _json_):
+
+        pass
+
+class ai_IsSet2 (ai_KeyQueryOperator):
+    def __init__(self, _json_):
+        ai_KeyQueryOperator.__init__(self, _json_)
+
+        pass
+
+class ai_IsNotSet (ai_KeyQueryOperator):
+    def __init__(self, _json_):
+        ai_KeyQueryOperator.__init__(self, _json_)
+
+        pass
+
+class ai_BinaryOperator (ai_KeyQueryOperator):
+    def __init__(self, _json_):
+        ai_KeyQueryOperator.__init__(self, _json_)
+        self.oper = _json_['oper']
+        self.data = ai_KeyData.fromJson(_json_['data'])
 
 class ai_Node :
     _childrenTypes = None
@@ -549,87 +811,6 @@ class ai_UeBlackboard (ai_Decorator):
         self.notify_observer = _json_['notify_observer']
         self.blackboard_key = _json_['blackboard_key']
         self.key_query = ai_KeyQueryOperator.fromJson(_json_['key_query'])
-
-class ai_KeyQueryOperator :
-    _childrenTypes = None
-    @staticmethod
-    def fromJson(_json_):
-        childrenTypes = ai_KeyQueryOperator._childrenTypes
-        if not childrenTypes:
-            childrenTypes = ai_KeyQueryOperator._childrenTypes = {
-            'IsSet2': ai_KeyQueryOperator,
-            'IsNotSet': ai_KeyQueryOperator,
-            'BinaryOperator': ai_KeyQueryOperator,
-    }
-        type = _json_['$type']
-        child = ai_KeyQueryOperator._childrenTypes.get(type)
-        if child != None:
-            return  child(_json_)
-        else:
-            raise Exception()
-    def __init__(self, _json_):
-
-        pass
-
-class ai_IsSet2 (ai_KeyQueryOperator):
-    def __init__(self, _json_):
-        ai_KeyQueryOperator.__init__(self, _json_)
-
-        pass
-
-class ai_IsNotSet (ai_KeyQueryOperator):
-    def __init__(self, _json_):
-        ai_KeyQueryOperator.__init__(self, _json_)
-
-        pass
-
-class ai_BinaryOperator (ai_KeyQueryOperator):
-    def __init__(self, _json_):
-        ai_KeyQueryOperator.__init__(self, _json_)
-        self.oper = _json_['oper']
-        self.data = ai_KeyData.fromJson(_json_['data'])
-
-class ai_KeyData :
-    _childrenTypes = None
-    @staticmethod
-    def fromJson(_json_):
-        childrenTypes = ai_KeyData._childrenTypes
-        if not childrenTypes:
-            childrenTypes = ai_KeyData._childrenTypes = {
-            'FloatKeyData': ai_KeyData,
-            'IntKeyData': ai_KeyData,
-            'StringKeyData': ai_KeyData,
-            'BlackboardKeyData': ai_KeyData,
-    }
-        type = _json_['$type']
-        child = ai_KeyData._childrenTypes.get(type)
-        if child != None:
-            return  child(_json_)
-        else:
-            raise Exception()
-    def __init__(self, _json_):
-
-        pass
-
-class ai_FloatKeyData (ai_KeyData):
-    def __init__(self, _json_):
-        ai_KeyData.__init__(self, _json_)
-        self.value = _json_['value']
-
-class ai_IntKeyData (ai_KeyData):
-    def __init__(self, _json_):
-        ai_KeyData.__init__(self, _json_)
-        self.value = _json_['value']
-
-class ai_StringKeyData (ai_KeyData):
-    def __init__(self, _json_):
-        ai_KeyData.__init__(self, _json_)
-        self.value = _json_['value']
-
-class ai_BlackboardKeyData (ai_KeyData):
-    def __init__(self, _json_):
-        ai_KeyData.__init__(self, _json_)
-        self.value = _json_['value']
 
 class ai_UeForceSuccess (ai_Decorator):
     def __init__(self, _json_):
@@ -788,6 +969,58 @@ class ai_DebugPrint (ai_Task):
         ai_Task.__init__(self, _json_)
         self.text = _json_['text']
 
+class ai_BehaviorTree :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.desc = _json_['desc']
+        self.blackboard_id = _json_['blackboard_id']
+        self.root = ai_ComposeNode.fromJson(_json_['root'])
+
+class vec2 :
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+
+class vec3 :
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+        self.z = _json_['z']
+
+class vec4 :
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+        self.z = _json_['z']
+        self.w = _json_['w']
+
+class common_DateTimeRange :
+    def __init__(self, _json_):
+        if _json_.get('start_time') != None: self.start_time = _json_['start_time']
+        if _json_.get('end_time') != None: self.end_time = _json_['end_time']
+
+class common_TimeOfDay :
+    def __init__(self, _json_):
+        self.hour = _json_['hour']
+        self.minute = _json_['minute']
+        self.second = _json_['second']
+
+class common_OneDayTimeRange :
+    def __init__(self, _json_):
+        self.start_time = common_TimeOfDay(_json_['start_time'])
+        self.end_time = common_TimeOfDay(_json_['end_time'])
+
+class common_IntRange :
+    def __init__(self, _json_):
+        self.min = _json_['min']
+        self.max = _json_['max']
+
+class common_FloatRange :
+    def __init__(self, _json_):
+        self.min = _json_['min']
+        self.max = _json_['max']
+
 class common_GlobalConfig :
     def __init__(self, _json_):
         self.x1 = _json_['x1']
@@ -827,37 +1060,6 @@ class tag_TestTag :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.value = _json_['value']
-
-class test_DemoType2 :
-    def __init__(self, _json_):
-        self.x4 = _json_['x4']
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x5 = _json_['x5']
-        self.x6 = _json_['x6']
-        self.x7 = _json_['x7']
-        self.x8_0 = _json_['x8_0']
-        self.x8 = _json_['x8']
-        self.x9 = _json_['x9']
-        self.x10 = _json_['x10']
-        self.x12 = test_DemoType1(_json_['x12'])
-        self.x13 = _json_['x13']
-        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
-        self.s1 = _json_['s1']
-        self.t1 = _json_['t1']
-        self.k1 = []
-        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
-        self.k2 = []
-        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
-        self.k5 = []
-        for _ele in _json_['k5']: _e = _ele; self.k5.append(_e)
-        self.k8 = {}
-        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
-        self.k9 = []
-        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
-        self.k15 = []
-        for _ele in _json_['k15']: _e = test_DemoDynamic.fromJson(_ele); self.k15.append(_e)
 
 class test_DemoType1 :
     def __init__(self, _json_):
@@ -934,6 +1136,47 @@ class test_DemoE2 :
         if _json_.get('y1') != None: self.y1 = _json_['y1']
         self.y2 = _json_['y2']
 
+class test_DemoExplicitType :
+    def __init__(self, _json_):
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x7 = _json_['x7']
+
+class test_DemoType2 :
+    def __init__(self, _json_):
+        self.x4 = _json_['x4']
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x7 = _json_['x7']
+        self.x8_0 = _json_['x8_0']
+        self.x8 = _json_['x8']
+        self.x9 = _json_['x9']
+        self.x10 = _json_['x10']
+        self.x12 = test_DemoType1(_json_['x12'])
+        self.x13 = _json_['x13']
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.s1 = _json_['s1']
+        self.t1 = _json_['t1']
+        self.k1 = []
+        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
+        self.k2 = []
+        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
+        self.k5 = []
+        for _ele in _json_['k5']: _e = _ele; self.k5.append(_e)
+        self.k8 = {}
+        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
+        self.k9 = []
+        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
+        self.k15 = []
+        for _ele in _json_['k15']: _e = test_DemoDynamic.fromJson(_ele); self.k15.append(_e)
+
 class test_DemoSingletonType :
     def __init__(self, _json_):
         self.id = _json_['id']
@@ -961,6 +1204,23 @@ class test_MultiIndexList :
         self.num = _json_['num']
         self.desc = _json_['desc']
 
+class test_MultiRowType1 :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x = _json_['x']
+
+class test_MultiRowType2 :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x = _json_['x']
+        self.y = _json_['y']
+
+class test_MultiRowType3 :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.items = []
+        for _ele in _json_['items']: _e = test_MultiRowType1(_ele); self.items.append(_e)
+
 class test_MultiRowRecord :
     def __init__(self, _json_):
         self.id = _json_['id']
@@ -980,22 +1240,11 @@ class test_MultiRowRecord :
         self.multi_rows7 = {}
         for _ek, _ev in _json_['multi_rows7']: _k = _ek; _v = _ev; self.multi_rows7[_k] =_v
 
-class test_MultiRowType1 :
+class test_Foo :
     def __init__(self, _json_):
-        self.id = _json_['id']
-        self.x = _json_['x']
-
-class test_MultiRowType2 :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.x = _json_['x']
-        self.y = _json_['y']
-
-class test_MultiRowType3 :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.items = []
-        for _ele in _json_['items']: _e = test_MultiRowType1(_ele); self.items.append(_e)
+        self.y1 = _json_['y1']
+        self.y2 = _json_['y2']
+        self.y3 = _json_['y3']
 
 class test_TestMultiColumn :
     def __init__(self, _json_):
@@ -1004,11 +1253,38 @@ class test_TestMultiColumn :
         self.b = test_Foo(_json_['b'])
         self.c = test_Foo(_json_['c'])
 
-class test_Foo :
+class test_TestUeType :
     def __init__(self, _json_):
-        self.y1 = _json_['y1']
-        self.y2 = _json_['y2']
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x10 = _json_['x10']
+        self.x12 = test_DemoType1(_json_['x12'])
+        self.x13 = _json_['x13']
+        self.t1 = _json_['t1']
+        self.k1 = []
+        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
+        self.k2 = []
+        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
+        self.k5 = []
+        for _ele in _json_['k5']: _e = _ele; self.k5.append(_e)
+        self.k8 = {}
+        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
+        self.k9 = []
+        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
+
+class test_H1 :
+    def __init__(self, _json_):
+        self.y2 = test_H2(_json_['y2'])
         self.y3 = _json_['y3']
+
+class test_H2 :
+    def __init__(self, _json_):
+        self.z2 = _json_['z2']
+        self.z3 = _json_['z3']
 
 class test_MultiRowTitle :
     def __init__(self, _json_):
@@ -1022,16 +1298,6 @@ class test_MultiRowTitle :
         for _ele in _json_['x3']: _e = test_H2(_ele); self.x3.append(_e)
         self.x4 = []
         for _ele in _json_['x4']: _e = test_H2(_ele); self.x4.append(_e)
-
-class test_H1 :
-    def __init__(self, _json_):
-        self.y2 = test_H2(_json_['y2'])
-        self.y3 = _json_['y3']
-
-class test_H2 :
-    def __init__(self, _json_):
-        self.z2 = _json_['z2']
-        self.z3 = _json_['z3']
 
 class test_TestNull :
     def __init__(self, _json_):
@@ -1059,6 +1325,12 @@ class test_DemoPrimitiveTypesTable :
         self.v4 = vec4(_json_['v4'])
         self.t1 = _json_['t1']
 
+class test_CompactString :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.s2 = _json_['s2']
+        self.s3 = _json_['s3']
+
 class test_TestString :
     def __init__(self, _json_):
         self.id = _json_['id']
@@ -1067,11 +1339,12 @@ class test_TestString :
         self.cs1 = test_CompactString(_json_['cs1'])
         self.cs2 = test_CompactString(_json_['cs2'])
 
-class test_CompactString :
+class test_InnerGroup :
     def __init__(self, _json_):
-        self.id = _json_['id']
-        self.s2 = _json_['s2']
-        self.s3 = _json_['s3']
+        self.y1 = _json_['y1']
+        self.y2 = _json_['y2']
+        self.y3 = _json_['y3']
+        self.y4 = _json_['y4']
 
 class test_DemoGroup :
     def __init__(self, _json_):
@@ -1082,13 +1355,6 @@ class test_DemoGroup :
         self.x4 = _json_['x4']
         self.x5 = test_InnerGroup(_json_['x5'])
 
-class test_InnerGroup :
-    def __init__(self, _json_):
-        self.y1 = _json_['y1']
-        self.y2 = _json_['y2']
-        self.y3 = _json_['y3']
-        self.y4 = _json_['y4']
-
 class test_TestGlobal :
     def __init__(self, _json_):
         self.unlock_equip = _json_['unlock_equip']
@@ -1098,6 +1364,30 @@ class test_TestBeRef :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.count = _json_['count']
+
+class test_RefDynamicBase :
+    _childrenTypes = None
+    @staticmethod
+    def fromJson(_json_):
+        childrenTypes = test_RefDynamicBase._childrenTypes
+        if not childrenTypes:
+            childrenTypes = test_RefDynamicBase._childrenTypes = {
+            'RefBean': test_RefDynamicBase,
+    }
+        type = _json_['$type']
+        child = test_RefDynamicBase._childrenTypes.get(type)
+        if child != None:
+            return  child(_json_)
+        else:
+            raise Exception()
+    def __init__(self, _json_):
+        self.x = _json_['x']
+
+class test_RefBean (test_RefDynamicBase):
+    def __init__(self, _json_):
+        test_RefDynamicBase.__init__(self, _json_)
+        self.arr = []
+        for _ele in _json_['arr']: _e = _ele; self.arr.append(_e)
 
 class test_TestRef :
     def __init__(self, _json_):
@@ -1130,30 +1420,6 @@ class test_TestRef :
         self.f2 = _json_['f2']
         self.f3 = _json_['f3']
         self.s1 = test_RefDynamicBase.fromJson(_json_['s1'])
-
-class test_RefDynamicBase :
-    _childrenTypes = None
-    @staticmethod
-    def fromJson(_json_):
-        childrenTypes = test_RefDynamicBase._childrenTypes
-        if not childrenTypes:
-            childrenTypes = test_RefDynamicBase._childrenTypes = {
-            'RefBean': test_RefDynamicBase,
-    }
-        type = _json_['$type']
-        child = test_RefDynamicBase._childrenTypes.get(type)
-        if child != None:
-            return  child(_json_)
-        else:
-            raise Exception()
-    def __init__(self, _json_):
-        self.x = _json_['x']
-
-class test_RefBean (test_RefDynamicBase):
-    def __init__(self, _json_):
-        test_RefDynamicBase.__init__(self, _json_)
-        self.arr = []
-        for _ele in _json_['arr']: _e = _ele; self.arr.append(_e)
 
 class test_TestSize :
     def __init__(self, _json_):
@@ -1278,12 +1544,10 @@ class test_CompositeJsonTable3 :
         self.a = _json_['a']
         self.b = _json_['b']
 
-class test_ExcelFromJsonMultiRow :
+class test_Test3 :
     def __init__(self, _json_):
-        self.id = _json_['id']
         self.x = _json_['x']
-        self.items = []
-        for _ele in _json_['items']: _e = test_TestRow(_ele); self.items.append(_e)
+        self.y = _json_['y']
 
 class test_TestRow :
     def __init__(self, _json_):
@@ -1294,10 +1558,24 @@ class test_TestRow :
         self.b = []
         for _ele in _json_['b']: _e = _ele; self.b.append(_e)
 
-class test_Test3 :
+class test_ExcelFromJsonMultiRow :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x = _json_['x']
+        self.items = []
+        for _ele in _json_['items']: _e = test_TestRow(_ele); self.items.append(_e)
+
+class test_SepVector :
     def __init__(self, _json_):
         self.x = _json_['x']
         self.y = _json_['y']
+        self.z = _json_['z']
+
+class test_SepBean1 :
+    def __init__(self, _json_):
+        self.a = _json_['a']
+        self.b = _json_['b']
+        self.c = _json_['c']
 
 class test_TestScriptableObject :
     def __init__(self, _json_):
@@ -1320,32 +1598,18 @@ class test_TestMapper :
         self.audio_type = _json_['audio_type']
         self.v2 = vec2(_json_['v2'])
 
-class DefineFromExcel2 :
+class test_TestExcelBean1 :
     def __init__(self, _json_):
-        self.id = _json_['id']
         self.x1 = _json_['x1']
-        self.x5 = _json_['x5']
-        self.x6 = _json_['x6']
-        self.x8 = _json_['x8']
-        self.x10 = _json_['x10']
-        self.x13 = _json_['x13']
-        self.x13_2 = _json_['x13_2']
-        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
-        self.x15 = test_Shape.fromJson(_json_['x15'])
-        self.v2 = vec2(_json_['v2'])
-        self.t1 = _json_['t1']
-        self.k1 = []
-        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
-        self.k2 = []
-        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
-        self.k8 = {}
-        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
-        self.k9 = []
-        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
-        self.k10 = []
-        for _ele in _json_['k10']: _e = vec3(_ele); self.k10.append(_e)
-        self.k11 = []
-        for _ele in _json_['k11']: _e = vec4(_ele); self.k11.append(_e)
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+
+class test_TestExcelBean2 :
+    def __init__(self, _json_):
+        self.y1 = _json_['y1']
+        self.y2 = _json_['y2']
+        self.y3 = _json_['y3']
 
 class test_Shape :
     _childrenTypes = None
@@ -1377,6 +1641,34 @@ class test2_Rectangle (test_Shape):
         test_Shape.__init__(self, _json_)
         self.width = _json_['width']
         self.height = _json_['height']
+
+class DefineFromExcel2 :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = _json_['x1']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x8 = _json_['x8']
+        self.x10 = _json_['x10']
+        self.x13 = _json_['x13']
+        self.x13_2 = _json_['x13_2']
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.x15 = test_Shape.fromJson(_json_['x15'])
+        self.v2 = vec2(_json_['v2'])
+        self.t1 = _json_['t1']
+        self.k1 = []
+        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
+        self.k2 = []
+        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
+        self.k8 = {}
+        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
+        self.k9 = []
+        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
+        self.k10 = []
+        for _ele in _json_['k10']: _e = vec3(_ele); self.k10.append(_e)
+        self.k11 = []
+        for _ele in _json_['k11']: _e = vec4(_ele); self.k11.append(_e)
+        if _json_.get('v11') != None: self.v11 = vec3(_json_['v11'])
 
 
 class ai_TbBlackboard:
@@ -1526,7 +1818,6 @@ class test_TbNotIndexList:
 
     def __init__(self, _json_ ):
         self._dataList = []
-        
         for _json2_ in _json_:
             _v = test_NotIndexList(_json2_)
             self._dataList.append(_v)
@@ -1535,34 +1826,43 @@ class test_TbNotIndexList:
 
     def get(self, index) : return self._dataList[index]
 
-
 class test_TbMultiUnionIndexList:
-
+    
     def __init__(self, _json_ ):
+        self._dataMap = {}
         self._dataList = []
         
         for _json2_ in _json_:
             _v = test_MultiUnionIndexList(_json2_)
             self._dataList.append(_v)
+            self._dataMap[(_v.id1, _v.id2, _v.id3)] = _v
 
+    def getDataMap(self) : return self._dataMap
     def getDataList(self) : return self._dataList
 
-    def get(self, index) : return self._dataList[index]
+    def get(self, id1, id2, id3) : return self._dataMap.get((id1, id2, id3))
 
 
 class test_TbMultiIndexList:
 
     def __init__(self, _json_ ):
         self._dataList = []
-        
+        self._dataMap_id1 = {}
+        self._dataMap_id2 = {}
+        self._dataMap_id3 = {}
         for _json2_ in _json_:
             _v = test_MultiIndexList(_json2_)
             self._dataList.append(_v)
+            self._dataMap_id1[_v.id1] = _v
+            self._dataMap_id2[_v.id2] = _v
+            self._dataMap_id3[_v.id3] = _v
 
     def getDataList(self) : return self._dataList
 
     def get(self, index) : return self._dataList[index]
-
+    def get_by_id1(self, key): return self._dataMap_id1.get(key)
+    def get_by_id2(self, key): return self._dataMap_id2.get(key)
+    def get_by_id3(self, key): return self._dataMap_id3.get(key)
 
 class test_TbDataFromMisc:
 
