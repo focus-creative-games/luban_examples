@@ -16,18 +16,20 @@
 namespace cfg {
 
 namespace ai { 
-    enum class EKeyType
+    enum class EExecutor
     {
-        BOOL = 1,
-        INT = 2,
-        FLOAT = 3,
-        STRING = 4,
-        VECTOR = 5,
-        ROTATOR = 6,
-        NAME = 7,
-        CLASS1 = 8,
-        ENUM1 = 9,
-        OBJECT = 10,
+        CLIENT = 0,
+        SERVER = 1,
+    };
+
+} 
+
+
+namespace ai { 
+    enum class EFinishMode
+    {
+        IMMEDIATE = 0,
+        DELAYED = 1,
     };
 
 } 
@@ -40,6 +42,24 @@ namespace ai {
         LOWER_PRIORITY = 1,
         SELF = 2,
         BOTH = 3,
+    };
+
+} 
+
+
+namespace ai { 
+    enum class EKeyType
+    {
+        BOOL = 1,
+        INT = 2,
+        FLOAT = 3,
+        STRING = 4,
+        VECTOR = 5,
+        ROTATOR = 6,
+        NAME = 7,
+        CLASS1 = 8,
+        ENUM1 = 9,
+        OBJECT = 10,
     };
 
 } 
@@ -71,11 +91,233 @@ namespace ai {
 } 
 
 
-namespace ai { 
-    enum class EFinishMode
+ 
+    enum class AudioType
     {
-        IMMEDIATE = 0,
-        DELAYED = 1,
+        UNKNOWN = 0,
+        ACC = 1,
+        AIFF = 2,
+    };
+
+ 
+
+
+namespace common { 
+    enum class EBoolOperator
+    {
+        AND = 0,
+        OR = 1,
+    };
+
+} 
+
+
+namespace item { 
+    enum class EClothersStarQualityType
+    {
+        /// <summary>
+        /// 一星
+        /// </summary>
+        ONE = 1,
+        /// <summary>
+        /// 二星
+        /// </summary>
+        TWO = 2,
+        /// <summary>
+        /// 三星
+        /// </summary>
+        THREE = 3,
+        /// <summary>
+        /// 四星
+        /// </summary>
+        FOUR = 4,
+        /// <summary>
+        /// 五星
+        /// </summary>
+        FIVE = 5,
+        /// <summary>
+        /// 六星
+        /// </summary>
+        SIX = 6,
+        /// <summary>
+        /// 七星
+        /// </summary>
+        SEVEN = 7,
+        /// <summary>
+        /// 八星
+        /// </summary>
+        EIGHT = 8,
+        /// <summary>
+        /// 九星
+        /// </summary>
+        NINE = 9,
+        /// <summary>
+        /// 十星
+        /// </summary>
+        TEN = 10,
+    };
+
+} 
+
+
+namespace item { 
+    enum class EClothersTag
+    {
+        /// <summary>
+        /// 防晒
+        /// </summary>
+        FANG_SHAI = 1,
+        /// <summary>
+        /// 舞者
+        /// </summary>
+        WU_ZHE = 2,
+    };
+
+} 
+
+
+namespace item { 
+    enum class EClothesHidePartType
+    {
+        /// <summary>
+        /// 胸部
+        /// </summary>
+        CHEST = 0,
+        /// <summary>
+        /// 手
+        /// </summary>
+        HEAD = 1,
+        /// <summary>
+        /// 脊柱上
+        /// </summary>
+        SPINE_UPPER = 2,
+        /// <summary>
+        /// 脊柱下
+        /// </summary>
+        SPINE_LOWER = 3,
+        /// <summary>
+        /// 臀部
+        /// </summary>
+        HIP = 4,
+        /// <summary>
+        /// 腿上
+        /// </summary>
+        LEG_UPPER = 5,
+        /// <summary>
+        /// 腿中
+        /// </summary>
+        LEG_MIDDLE = 6,
+        /// <summary>
+        /// 腿下
+        /// </summary>
+        LEG_LOWER = 7,
+    };
+
+} 
+
+
+namespace item { 
+    enum class EClothesPropertyType
+    {
+        /// <summary>
+        /// 简约
+        /// </summary>
+        JIAN_YUE = 1,
+        /// <summary>
+        /// 华丽
+        /// </summary>
+        HUA_LI = 2,
+        /// <summary>
+        /// 可爱
+        /// </summary>
+        KE_AI = 3,
+        /// <summary>
+        /// 成熟
+        /// </summary>
+        CHENG_SHU = 4,
+        /// <summary>
+        /// 活泼
+        /// </summary>
+        HUO_PO = 5,
+        /// <summary>
+        /// 优雅
+        /// </summary>
+        YOU_YA = 6,
+        /// <summary>
+        /// 清纯
+        /// </summary>
+        QING_CHUN = 7,
+        /// <summary>
+        /// 性感
+        /// </summary>
+        XING_GAN = 8,
+        /// <summary>
+        /// 清凉
+        /// </summary>
+        QING_LIANG = 9,
+        /// <summary>
+        /// 保暖
+        /// </summary>
+        BAO_NUAN = 10,
+    };
+
+} 
+
+
+namespace item { 
+    enum class ECurrencyType
+    {
+        /// <summary>
+        /// 钻石
+        /// </summary>
+        DIAMOND = 1,
+        /// <summary>
+        /// 金币
+        /// </summary>
+        GOLD = 2,
+        /// <summary>
+        /// 银币
+        /// </summary>
+        SILVER = 3,
+        /// <summary>
+        /// 经验
+        /// </summary>
+        EXP = 4,
+        /// <summary>
+        /// 能量点
+        /// </summary>
+        POWER_POINT = 5,
+    };
+
+} 
+
+
+namespace item { 
+    /// <summary>
+    /// 道具品质
+    /// </summary>
+    enum class EItemQuality
+    {
+        /// <summary>
+        /// 白
+        /// </summary>
+        WHITE = 0,
+        /// <summary>
+        /// 绿
+        /// </summary>
+        GREEN = 1,
+        /// <summary>
+        /// 蓝
+        /// </summary>
+        BLUE = 2,
+        /// <summary>
+        /// 紫
+        /// </summary>
+        PURPLE = 3,
+        /// <summary>
+        /// 金
+        /// </summary>
+        GOLDEN = 4,
     };
 
 } 
@@ -338,31 +580,40 @@ namespace item {
 
 
 namespace item { 
-    /// <summary>
-    /// 道具品质
-    /// </summary>
-    enum class EItemQuality
+    enum class EUseType
     {
         /// <summary>
-        /// 白
+        /// 手动
         /// </summary>
-        WHITE = 0,
+        MANUAL = 0,
         /// <summary>
-        /// 绿
+        /// 自动
         /// </summary>
-        GREEN = 1,
-        /// <summary>
-        /// 蓝
-        /// </summary>
-        BLUE = 2,
-        /// <summary>
-        /// 紫
-        /// </summary>
-        PURPLE = 3,
-        /// <summary>
-        /// 金
-        /// </summary>
-        GOLDEN = 4,
+        AUTO = 1,
+    };
+
+} 
+
+
+namespace test { 
+    enum class AccessFlag
+    {
+        WRITE = 1,
+        READ = 2,
+        TRUNCATE = 4,
+        NEW = 8,
+        READ_WRITE = WRITE|READ,
+    };
+
+} 
+
+
+namespace test { 
+    enum class AudioType2
+    {
+        UNKNOWN = 0,
+        ACC = 1,
+        AIFF = 2,
     };
 
 } 
@@ -394,17 +645,6 @@ namespace test {
 } 
 
 
- 
-    enum class AudioType
-    {
-        UNKNOWN = 0,
-        ACC = 1,
-        AIFF = 2,
-    };
-
- 
-
-
 namespace test { 
     enum class DemoFlag
     {
@@ -417,208 +657,197 @@ namespace test {
 } 
 
 
- struct vec2; 
- struct vec3; 
- struct vec4; 
-namespace test { struct TestExcelBean1; }
+namespace test { 
+    enum class ETestEmptyEnum
+    {
+    };
+
+} 
+
+
+namespace test { 
+    enum class ETestEmptyEnum2
+    {
+        SMALL_THAN_256 = 255,
+        X_256 = 256,
+        X_257 = 257,
+    };
+
+} 
+
+
+namespace test { 
+    enum class ETestQuality
+    {
+        /// <summary>
+        /// 最高品质
+        /// </summary>
+        A = 1,
+        /// <summary>
+        /// 黑色的
+        /// </summary>
+        B = 2,
+        /// <summary>
+        /// 蓝色的
+        /// </summary>
+        C = 3,
+        /// <summary>
+        /// 最差品质
+        /// </summary>
+        D = 4,
+    };
+
+} 
+
+
+namespace test { 
+    enum class ETestUeType
+    {
+        /// <summary>
+        /// 白
+        /// </summary>
+        WHITE = 0,
+        BLACK = 1,
+    };
+
+} 
+
+
+namespace ai { struct BehaviorTree; }
 namespace ai { struct Blackboard; }
 namespace ai { struct BlackboardKey; }
-namespace ai { struct BehaviorTree; }
-namespace ai { struct Node; }
-namespace ai { struct Service; }
-namespace ai { struct UeSetDefaultFocus; }
-namespace ai { struct ExecuteTimeStatistic; }
-namespace ai { struct ChooseTarget; }
-namespace ai { struct KeepFaceTarget; }
-namespace ai { struct GetOwnerPlayer; }
-namespace ai { struct UpdateDailyBehaviorProps; }
-namespace ai { struct Decorator; }
-namespace ai { struct UeLoop; }
-namespace ai { struct UeCooldown; }
-namespace ai { struct UeTimeLimit; }
-namespace ai { struct UeBlackboard; }
-namespace ai { struct KeyQueryOperator; }
-namespace ai { struct IsSet2; }
-namespace ai { struct IsNotSet; }
-namespace ai { struct BinaryOperator; }
 namespace ai { struct KeyData; }
+namespace ai { struct BlackboardKeyData; }
 namespace ai { struct FloatKeyData; }
 namespace ai { struct IntKeyData; }
 namespace ai { struct StringKeyData; }
-namespace ai { struct BlackboardKeyData; }
-namespace ai { struct UeForceSuccess; }
-namespace ai { struct IsAtLocation; }
+namespace ai { struct KeyQueryOperator; }
+namespace ai { struct BinaryOperator; }
+namespace ai { struct IsNotSet; }
+namespace ai { struct IsSet2; }
+namespace ai { struct Node; }
+namespace ai { struct Decorator; }
 namespace ai { struct DistanceLessThan; }
+namespace ai { struct IsAtLocation; }
+namespace ai { struct UeBlackboard; }
+namespace ai { struct UeCooldown; }
+namespace ai { struct UeForceSuccess; }
+namespace ai { struct UeLoop; }
+namespace ai { struct UeTimeLimit; }
 namespace ai { struct FlowNode; }
 namespace ai { struct ComposeNode; }
-namespace ai { struct Sequence; }
 namespace ai { struct Selector; }
+namespace ai { struct Sequence; }
 namespace ai { struct SimpleParallel; }
 namespace ai { struct Task; }
+namespace ai { struct ChooseSkill; }
+namespace ai { struct DebugPrint; }
+namespace ai { struct MoveToLocation; }
+namespace ai { struct MoveToRandomLocation; }
+namespace ai { struct MoveToTarget; }
 namespace ai { struct UeWait; }
 namespace ai { struct UeWaitBlackboardTime; }
-namespace ai { struct MoveToTarget; }
-namespace ai { struct ChooseSkill; }
-namespace ai { struct MoveToRandomLocation; }
-namespace ai { struct MoveToLocation; }
-namespace ai { struct DebugPrint; }
+namespace ai { struct Service; }
+namespace ai { struct ChooseTarget; }
+namespace ai { struct ExecuteTimeStatistic; }
+namespace ai { struct GetOwnerPlayer; }
+namespace ai { struct KeepFaceTarget; }
+namespace ai { struct UeSetDefaultFocus; }
+namespace ai { struct UpdateDailyBehaviorProps; }
+namespace common { struct DateTimeRange; }
+namespace common { struct FloatRange; }
 namespace common { struct GlobalConfig; }
+namespace common { struct IntRange; }
+namespace common { struct OneDayTimeRange; }
+namespace common { struct TimeOfDay; }
+ struct DefineFromExcel2; 
 namespace item { struct Item; }
 namespace l10n { struct L10NDemo; }
 namespace l10n { struct PatchDemo; }
 namespace tag { struct TestTag; }
-namespace test { struct DemoType2; }
-namespace test { struct DemoType1; }
+namespace test { struct CompactString; }
+namespace test { struct CompositeJsonTable1; }
+namespace test { struct CompositeJsonTable2; }
+namespace test { struct CompositeJsonTable3; }
+namespace test { struct DateTimeRange; }
 namespace test { struct DemoDynamic; }
 namespace test { struct DemoD2; }
 namespace test { struct DemoD3; }
 namespace test { struct DemoE1; }
 namespace test {namespace login { struct RoleInfo; }}
 namespace test { struct DemoD5; }
-namespace test { struct DateTimeRange; }
 namespace test { struct DemoE2; }
+namespace test { struct DemoExplicitType; }
+namespace test { struct DemoGroup; }
+namespace test { struct DemoPrimitiveTypesTable; }
 namespace test { struct DemoSingletonType; }
-namespace test { struct NotIndexList; }
-namespace test { struct MultiUnionIndexList; }
+namespace test { struct DemoType1; }
+namespace test { struct DemoType2; }
+namespace test { struct DetectEncoding; }
+namespace test { struct ExcelFromJson; }
+namespace test { struct ExcelFromJsonMultiRow; }
+namespace test { struct Foo; }
+namespace test { struct H1; }
+namespace test { struct H2; }
+namespace test { struct InnerGroup; }
+namespace test { struct ItemBase; }
+namespace test { struct Decorator; }
+namespace test { struct Equipment; }
+namespace test { struct Item; }
 namespace test { struct MultiIndexList; }
 namespace test { struct MultiRowRecord; }
+namespace test { struct MultiRowTitle; }
 namespace test { struct MultiRowType1; }
 namespace test { struct MultiRowType2; }
 namespace test { struct MultiRowType3; }
-namespace test { struct TestMultiColumn; }
-namespace test { struct Foo; }
-namespace test { struct MultiRowTitle; }
-namespace test { struct H1; }
-namespace test { struct H2; }
-namespace test { struct TestNull; }
-namespace test { struct DemoPrimitiveTypesTable; }
-namespace test { struct TestString; }
-namespace test { struct CompactString; }
-namespace test { struct DemoGroup; }
-namespace test { struct InnerGroup; }
-namespace test { struct TestGlobal; }
-namespace test { struct TestBeRef; }
-namespace test { struct TestRef; }
+namespace test { struct MultiUnionIndexList; }
+namespace test { struct NotIndexList; }
+namespace test { struct Path; }
 namespace test { struct RefDynamicBase; }
 namespace test { struct RefBean; }
-namespace test { struct TestSize; }
-namespace test { struct TestSet; }
-namespace test { struct DetectEncoding; }
-namespace test { struct ItemBase; }
-namespace test { struct Item; }
-namespace test { struct Equipment; }
-namespace test { struct Decorator; }
-namespace test { struct TestIndex; }
-namespace test { struct TestMap; }
-namespace test { struct ExcelFromJson; }
-namespace test { struct CompositeJsonTable1; }
-namespace test { struct CompositeJsonTable2; }
-namespace test { struct CompositeJsonTable3; }
-namespace test { struct ExcelFromJsonMultiRow; }
-namespace test { struct TestRow; }
-namespace test { struct Test3; }
-namespace test { struct TestScriptableObject; }
-namespace test { struct Path; }
-namespace test { struct TestMapper; }
- struct DefineFromExcel2; 
+namespace test { struct SepBean1; }
+namespace test { struct SepVector; }
 namespace test { struct Shape; }
 namespace test { struct Circle; }
 namespace test2 { struct Rectangle; }
+namespace test { struct Test3; }
+namespace test { struct TestBeRef; }
+namespace test { struct TestExcelBean1; }
+namespace test { struct TestExcelBean2; }
+namespace test { struct TestGlobal; }
+namespace test { struct TestIndex; }
+namespace test { struct TestMap; }
+namespace test { struct TestMapper; }
+namespace test { struct TestMultiColumn; }
+namespace test { struct TestNull; }
+namespace test { struct TestRef; }
+namespace test { struct TestRow; }
+namespace test { struct TestScriptableObject; }
+namespace test { struct TestSet; }
+namespace test { struct TestSize; }
+namespace test { struct TestString; }
+namespace test { struct TestUeType; }
+ struct vec2; 
+ struct vec3; 
+ struct vec4; 
 
+namespace ai {
 
-
-struct vec2 : public luban::CfgBean 
+struct BehaviorTree : public luban::CfgBean 
 {
-    static bool deserializevec2(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec2>& _out);
+    static bool deserializeBehaviorTree(::luban::ByteBuf& _buf, ::luban::SharedPtr<BehaviorTree>& _out);
 
-    virtual ~vec2() {}
+    virtual ~BehaviorTree() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::float32 x;
-    ::luban::float32 y;
+    ::luban::int32 id;
+    ::luban::String name;
+    ::luban::String desc;
+    ::luban::String blackboardId;
+    ::luban::SharedPtr<ai::ComposeNode> root;
 
-    static constexpr int __ID__ = 3615518;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-
-
-
-
-struct vec3 : public luban::CfgBean 
-{
-    static bool deserializevec3(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec3>& _out);
-
-    virtual ~vec3() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::float32 x;
-    ::luban::float32 y;
-    ::luban::float32 z;
-
-    static constexpr int __ID__ = 3615519;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-
-
-
-
-struct vec4 : public luban::CfgBean 
-{
-    static bool deserializevec4(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec4>& _out);
-
-    virtual ~vec4() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::float32 x;
-    ::luban::float32 y;
-    ::luban::float32 z;
-    ::luban::float32 w;
-
-    static constexpr int __ID__ = 3615520;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-
-
-namespace test {
-
-/**
- * 这是个测试excel结构
- */
-struct TestExcelBean1 : public luban::CfgBean 
-{
-    static bool deserializeTestExcelBean1(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestExcelBean1>& _out);
-
-    virtual ~TestExcelBean1() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    /**
-     * 最高品质
-     */
-    ::luban::int32 x1;
-    /**
-     * 黑色的
-     */
-    ::luban::String x2;
-    /**
-     * 蓝色的
-     */
-    ::luban::int32 x3;
-    /**
-     * 最差品质
-     */
-    ::luban::float32 x4;
-
-    static constexpr int __ID__ = -1738345160;
+    static constexpr int __ID__ = 159552822;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -660,353 +889,10 @@ struct BlackboardKey : public luban::CfgBean
     ::luban::String name;
     ::luban::String desc;
     bool isStatic;
-    ai::EKeyType type;
+    ai::EKeyType keyType;
     ::luban::String typeClassName;
 
     static constexpr int __ID__ = -511559886;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct BehaviorTree : public luban::CfgBean 
-{
-    static bool deserializeBehaviorTree(::luban::ByteBuf& _buf, ::luban::SharedPtr<BehaviorTree>& _out);
-
-    virtual ~BehaviorTree() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String name;
-    ::luban::String desc;
-    ::luban::String blackboardId;
-    ::luban::SharedPtr<ai::ComposeNode> root;
-
-    static constexpr int __ID__ = 159552822;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct Node : public luban::CfgBean 
-{
-    static bool deserializeNode(::luban::ByteBuf& _buf, ::luban::SharedPtr<Node>& _out);
-
-    virtual ~Node() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String nodeName;
-
-};
-
-}
-
-namespace ai {
-
-struct Service : public ai::Node 
-{
-    static bool deserializeService(::luban::ByteBuf& _buf, ::luban::SharedPtr<Service>& _out);
-
-    virtual ~Service() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-
-};
-
-}
-
-namespace ai {
-
-struct UeSetDefaultFocus : public ai::Service 
-{
-    static bool deserializeUeSetDefaultFocus(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeSetDefaultFocus>& _out);
-
-    virtual ~UeSetDefaultFocus() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::String keyboardKey;
-
-    static constexpr int __ID__ = 1812449155;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct ExecuteTimeStatistic : public ai::Service 
-{
-    static bool deserializeExecuteTimeStatistic(::luban::ByteBuf& _buf, ::luban::SharedPtr<ExecuteTimeStatistic>& _out);
-
-    virtual ~ExecuteTimeStatistic() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-
-    static constexpr int __ID__ = 990693812;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct ChooseTarget : public ai::Service 
-{
-    static bool deserializeChooseTarget(::luban::ByteBuf& _buf, ::luban::SharedPtr<ChooseTarget>& _out);
-
-    virtual ~ChooseTarget() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::String resultTargetKey;
-
-    static constexpr int __ID__ = 1601247918;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct KeepFaceTarget : public ai::Service 
-{
-    static bool deserializeKeepFaceTarget(::luban::ByteBuf& _buf, ::luban::SharedPtr<KeepFaceTarget>& _out);
-
-    virtual ~KeepFaceTarget() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::String targetActorKey;
-
-    static constexpr int __ID__ = 1195270745;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct GetOwnerPlayer : public ai::Service 
-{
-    static bool deserializeGetOwnerPlayer(::luban::ByteBuf& _buf, ::luban::SharedPtr<GetOwnerPlayer>& _out);
-
-    virtual ~GetOwnerPlayer() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::String playerActorKey;
-
-    static constexpr int __ID__ = -999247644;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct UpdateDailyBehaviorProps : public ai::Service 
-{
-    static bool deserializeUpdateDailyBehaviorProps(::luban::ByteBuf& _buf, ::luban::SharedPtr<UpdateDailyBehaviorProps>& _out);
-
-    virtual ~UpdateDailyBehaviorProps() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::String satietyKey;
-    ::luban::String energyKey;
-    ::luban::String moodKey;
-    ::luban::String satietyLowerThresholdKey;
-    ::luban::String satietyUpperThresholdKey;
-    ::luban::String energyLowerThresholdKey;
-    ::luban::String energyUpperThresholdKey;
-    ::luban::String moodLowerThresholdKey;
-    ::luban::String moodUpperThresholdKey;
-
-    static constexpr int __ID__ = -61887372;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct Decorator : public ai::Node 
-{
-    static bool deserializeDecorator(::luban::ByteBuf& _buf, ::luban::SharedPtr<Decorator>& _out);
-
-    virtual ~Decorator() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ai::EFlowAbortMode flowAbortMode;
-
-};
-
-}
-
-namespace ai {
-
-struct UeLoop : public ai::Decorator 
-{
-    static bool deserializeUeLoop(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeLoop>& _out);
-
-    virtual ~UeLoop() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 numLoops;
-    bool infiniteLoop;
-    ::luban::float32 infiniteLoopTimeoutTime;
-
-    static constexpr int __ID__ = -513308166;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct UeCooldown : public ai::Decorator 
-{
-    static bool deserializeUeCooldown(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeCooldown>& _out);
-
-    virtual ~UeCooldown() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::float32 cooldownTime;
-
-    static constexpr int __ID__ = -951439423;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct UeTimeLimit : public ai::Decorator 
-{
-    static bool deserializeUeTimeLimit(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeTimeLimit>& _out);
-
-    virtual ~UeTimeLimit() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::float32 limitTime;
-
-    static constexpr int __ID__ = 338469720;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct UeBlackboard : public ai::Decorator 
-{
-    static bool deserializeUeBlackboard(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeBlackboard>& _out);
-
-    virtual ~UeBlackboard() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ai::ENotifyObserverMode notifyObserver;
-    ::luban::String blackboardKey;
-    ::luban::SharedPtr<ai::KeyQueryOperator> keyQuery;
-
-    static constexpr int __ID__ = -315297507;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct KeyQueryOperator : public luban::CfgBean 
-{
-    static bool deserializeKeyQueryOperator(::luban::ByteBuf& _buf, ::luban::SharedPtr<KeyQueryOperator>& _out);
-
-    virtual ~KeyQueryOperator() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-
-};
-
-}
-
-namespace ai {
-
-struct IsSet2 : public ai::KeyQueryOperator 
-{
-    static bool deserializeIsSet2(::luban::ByteBuf& _buf, ::luban::SharedPtr<IsSet2>& _out);
-
-    virtual ~IsSet2() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-
-    static constexpr int __ID__ = -843729664;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct IsNotSet : public ai::KeyQueryOperator 
-{
-    static bool deserializeIsNotSet(::luban::ByteBuf& _buf, ::luban::SharedPtr<IsNotSet>& _out);
-
-    virtual ~IsNotSet() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-
-    static constexpr int __ID__ = 790736255;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct BinaryOperator : public ai::KeyQueryOperator 
-{
-    static bool deserializeBinaryOperator(::luban::ByteBuf& _buf, ::luban::SharedPtr<BinaryOperator>& _out);
-
-    virtual ~BinaryOperator() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ai::EOperator oper;
-    ::luban::SharedPtr<ai::KeyData> data;
-
-    static constexpr int __ID__ = -979891605;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1024,6 +910,25 @@ struct KeyData : public luban::CfgBean
     bool deserialize(::luban::ByteBuf& _buf);
 
 
+};
+
+}
+
+namespace ai {
+
+struct BlackboardKeyData : public ai::KeyData 
+{
+    static bool deserializeBlackboardKeyData(::luban::ByteBuf& _buf, ::luban::SharedPtr<BlackboardKeyData>& _out);
+
+    virtual ~BlackboardKeyData() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::String value;
+
+    static constexpr int __ID__ = 1517269500;
+
+    int getTypeId() const override { return __ID__; }
 };
 
 }
@@ -1087,17 +992,33 @@ struct StringKeyData : public ai::KeyData
 
 namespace ai {
 
-struct BlackboardKeyData : public ai::KeyData 
+struct KeyQueryOperator : public luban::CfgBean 
 {
-    static bool deserializeBlackboardKeyData(::luban::ByteBuf& _buf, ::luban::SharedPtr<BlackboardKeyData>& _out);
+    static bool deserializeKeyQueryOperator(::luban::ByteBuf& _buf, ::luban::SharedPtr<KeyQueryOperator>& _out);
 
-    virtual ~BlackboardKeyData() {}
+    virtual ~KeyQueryOperator() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::String value;
 
-    static constexpr int __ID__ = 1517269500;
+};
+
+}
+
+namespace ai {
+
+struct BinaryOperator : public ai::KeyQueryOperator 
+{
+    static bool deserializeBinaryOperator(::luban::ByteBuf& _buf, ::luban::SharedPtr<BinaryOperator>& _out);
+
+    virtual ~BinaryOperator() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ai::EOperator oper;
+    ::luban::SharedPtr<ai::KeyData> data;
+
+    static constexpr int __ID__ = -979891605;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1106,16 +1027,89 @@ struct BlackboardKeyData : public ai::KeyData
 
 namespace ai {
 
-struct UeForceSuccess : public ai::Decorator 
+struct IsNotSet : public ai::KeyQueryOperator 
 {
-    static bool deserializeUeForceSuccess(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeForceSuccess>& _out);
+    static bool deserializeIsNotSet(::luban::ByteBuf& _buf, ::luban::SharedPtr<IsNotSet>& _out);
 
-    virtual ~UeForceSuccess() {}
+    virtual ~IsNotSet() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
 
-    static constexpr int __ID__ = 195054574;
+    static constexpr int __ID__ = 790736255;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct IsSet2 : public ai::KeyQueryOperator 
+{
+    static bool deserializeIsSet2(::luban::ByteBuf& _buf, ::luban::SharedPtr<IsSet2>& _out);
+
+    virtual ~IsSet2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+
+    static constexpr int __ID__ = -843729664;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct Node : public luban::CfgBean 
+{
+    static bool deserializeNode(::luban::ByteBuf& _buf, ::luban::SharedPtr<Node>& _out);
+
+    virtual ~Node() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String nodeName;
+
+};
+
+}
+
+namespace ai {
+
+struct Decorator : public ai::Node 
+{
+    static bool deserializeDecorator(::luban::ByteBuf& _buf, ::luban::SharedPtr<Decorator>& _out);
+
+    virtual ~Decorator() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ai::EFlowAbortMode flowAbortMode;
+
+};
+
+}
+
+namespace ai {
+
+struct DistanceLessThan : public ai::Decorator 
+{
+    static bool deserializeDistanceLessThan(::luban::ByteBuf& _buf, ::luban::SharedPtr<DistanceLessThan>& _out);
+
+    virtual ~DistanceLessThan() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::String actor1Key;
+    ::luban::String actor2Key;
+    ::luban::float32 distance;
+    bool reverseResult;
+
+    static constexpr int __ID__ = -1207170283;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1145,20 +1139,96 @@ struct IsAtLocation : public ai::Decorator
 
 namespace ai {
 
-struct DistanceLessThan : public ai::Decorator 
+struct UeBlackboard : public ai::Decorator 
 {
-    static bool deserializeDistanceLessThan(::luban::ByteBuf& _buf, ::luban::SharedPtr<DistanceLessThan>& _out);
+    static bool deserializeUeBlackboard(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeBlackboard>& _out);
 
-    virtual ~DistanceLessThan() {}
+    virtual ~UeBlackboard() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::String actor1Key;
-    ::luban::String actor2Key;
-    ::luban::float32 distance;
-    bool reverseResult;
+    ai::ENotifyObserverMode notifyObserver;
+    ::luban::String blackboardKey;
+    ::luban::SharedPtr<ai::KeyQueryOperator> keyQuery;
 
-    static constexpr int __ID__ = -1207170283;
+    static constexpr int __ID__ = -315297507;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct UeCooldown : public ai::Decorator 
+{
+    static bool deserializeUeCooldown(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeCooldown>& _out);
+
+    virtual ~UeCooldown() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 cooldownTime;
+
+    static constexpr int __ID__ = -951439423;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct UeForceSuccess : public ai::Decorator 
+{
+    static bool deserializeUeForceSuccess(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeForceSuccess>& _out);
+
+    virtual ~UeForceSuccess() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+
+    static constexpr int __ID__ = 195054574;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct UeLoop : public ai::Decorator 
+{
+    static bool deserializeUeLoop(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeLoop>& _out);
+
+    virtual ~UeLoop() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 numLoops;
+    bool infiniteLoop;
+    ::luban::float32 infiniteLoopTimeoutTime;
+
+    static constexpr int __ID__ = -513308166;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct UeTimeLimit : public ai::Decorator 
+{
+    static bool deserializeUeTimeLimit(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeTimeLimit>& _out);
+
+    virtual ~UeTimeLimit() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 limitTime;
+
+    static constexpr int __ID__ = 338469720;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1199,25 +1269,6 @@ struct ComposeNode : public ai::FlowNode
 
 namespace ai {
 
-struct Sequence : public ai::ComposeNode 
-{
-    static bool deserializeSequence(::luban::ByteBuf& _buf, ::luban::SharedPtr<Sequence>& _out);
-
-    virtual ~Sequence() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::Vector<::luban::SharedPtr<ai::FlowNode>> children;
-
-    static constexpr int __ID__ = -1789006105;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
 struct Selector : public ai::ComposeNode 
 {
     static bool deserializeSelector(::luban::ByteBuf& _buf, ::luban::SharedPtr<Selector>& _out);
@@ -1229,6 +1280,25 @@ struct Selector : public ai::ComposeNode
     ::luban::Vector<::luban::SharedPtr<ai::FlowNode>> children;
 
     static constexpr int __ID__ = -1946981627;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct Sequence : public ai::ComposeNode 
+{
+    static bool deserializeSequence(::luban::ByteBuf& _buf, ::luban::SharedPtr<Sequence>& _out);
+
+    virtual ~Sequence() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::Vector<::luban::SharedPtr<ai::FlowNode>> children;
+
+    static constexpr int __ID__ = -1789006105;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1274,6 +1344,104 @@ struct Task : public ai::FlowNode
 
 namespace ai {
 
+struct ChooseSkill : public ai::Task 
+{
+    static bool deserializeChooseSkill(::luban::ByteBuf& _buf, ::luban::SharedPtr<ChooseSkill>& _out);
+
+    virtual ~ChooseSkill() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::String targetActorKey;
+    ::luban::String resultSkillIdKey;
+
+    static constexpr int __ID__ = -918812268;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct DebugPrint : public ai::Task 
+{
+    static bool deserializeDebugPrint(::luban::ByteBuf& _buf, ::luban::SharedPtr<DebugPrint>& _out);
+
+    virtual ~DebugPrint() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::String text;
+
+    static constexpr int __ID__ = 1357409728;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct MoveToLocation : public ai::Task 
+{
+    static bool deserializeMoveToLocation(::luban::ByteBuf& _buf, ::luban::SharedPtr<MoveToLocation>& _out);
+
+    virtual ~MoveToLocation() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 acceptableRadius;
+
+    static constexpr int __ID__ = -969953113;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct MoveToRandomLocation : public ai::Task 
+{
+    static bool deserializeMoveToRandomLocation(::luban::ByteBuf& _buf, ::luban::SharedPtr<MoveToRandomLocation>& _out);
+
+    virtual ~MoveToRandomLocation() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::String originPositionKey;
+    ::luban::float32 radius;
+
+    static constexpr int __ID__ = -2140042998;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct MoveToTarget : public ai::Task 
+{
+    static bool deserializeMoveToTarget(::luban::ByteBuf& _buf, ::luban::SharedPtr<MoveToTarget>& _out);
+
+    virtual ~MoveToTarget() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::String targetActorKey;
+    ::luban::float32 acceptableRadius;
+
+    static constexpr int __ID__ = 514987779;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
 struct UeWait : public ai::Task 
 {
     static bool deserializeUeWait(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeWait>& _out);
@@ -1313,38 +1481,88 @@ struct UeWaitBlackboardTime : public ai::Task
 
 namespace ai {
 
-struct MoveToTarget : public ai::Task 
+struct Service : public ai::Node 
 {
-    static bool deserializeMoveToTarget(::luban::ByteBuf& _buf, ::luban::SharedPtr<MoveToTarget>& _out);
+    static bool deserializeService(::luban::ByteBuf& _buf, ::luban::SharedPtr<Service>& _out);
 
-    virtual ~MoveToTarget() {}
+    virtual ~Service() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+
+};
+
+}
+
+namespace ai {
+
+struct ChooseTarget : public ai::Service 
+{
+    static bool deserializeChooseTarget(::luban::ByteBuf& _buf, ::luban::SharedPtr<ChooseTarget>& _out);
+
+    virtual ~ChooseTarget() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::String resultTargetKey;
+
+    static constexpr int __ID__ = 1601247918;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct ExecuteTimeStatistic : public ai::Service 
+{
+    static bool deserializeExecuteTimeStatistic(::luban::ByteBuf& _buf, ::luban::SharedPtr<ExecuteTimeStatistic>& _out);
+
+    virtual ~ExecuteTimeStatistic() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+
+    static constexpr int __ID__ = 990693812;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct GetOwnerPlayer : public ai::Service 
+{
+    static bool deserializeGetOwnerPlayer(::luban::ByteBuf& _buf, ::luban::SharedPtr<GetOwnerPlayer>& _out);
+
+    virtual ~GetOwnerPlayer() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::String playerActorKey;
+
+    static constexpr int __ID__ = -999247644;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace ai {
+
+struct KeepFaceTarget : public ai::Service 
+{
+    static bool deserializeKeepFaceTarget(::luban::ByteBuf& _buf, ::luban::SharedPtr<KeepFaceTarget>& _out);
+
+    virtual ~KeepFaceTarget() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
     ::luban::String targetActorKey;
-    ::luban::float32 acceptableRadius;
 
-    static constexpr int __ID__ = 514987779;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace ai {
-
-struct ChooseSkill : public ai::Task 
-{
-    static bool deserializeChooseSkill(::luban::ByteBuf& _buf, ::luban::SharedPtr<ChooseSkill>& _out);
-
-    virtual ~ChooseSkill() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::String targetActorKey;
-    ::luban::String resultSkillIdKey;
-
-    static constexpr int __ID__ = -918812268;
+    static constexpr int __ID__ = 1195270745;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1353,18 +1571,17 @@ struct ChooseSkill : public ai::Task
 
 namespace ai {
 
-struct MoveToRandomLocation : public ai::Task 
+struct UeSetDefaultFocus : public ai::Service 
 {
-    static bool deserializeMoveToRandomLocation(::luban::ByteBuf& _buf, ::luban::SharedPtr<MoveToRandomLocation>& _out);
+    static bool deserializeUeSetDefaultFocus(::luban::ByteBuf& _buf, ::luban::SharedPtr<UeSetDefaultFocus>& _out);
 
-    virtual ~MoveToRandomLocation() {}
+    virtual ~UeSetDefaultFocus() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::String originPositionKey;
-    ::luban::float32 radius;
+    ::luban::String keyboardKey;
 
-    static constexpr int __ID__ = -2140042998;
+    static constexpr int __ID__ = 1812449155;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1373,36 +1590,65 @@ struct MoveToRandomLocation : public ai::Task
 
 namespace ai {
 
-struct MoveToLocation : public ai::Task 
+struct UpdateDailyBehaviorProps : public ai::Service 
 {
-    static bool deserializeMoveToLocation(::luban::ByteBuf& _buf, ::luban::SharedPtr<MoveToLocation>& _out);
+    static bool deserializeUpdateDailyBehaviorProps(::luban::ByteBuf& _buf, ::luban::SharedPtr<UpdateDailyBehaviorProps>& _out);
 
-    virtual ~MoveToLocation() {}
+    virtual ~UpdateDailyBehaviorProps() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::float32 acceptableRadius;
+    ::luban::String satietyKey;
+    ::luban::String energyKey;
+    ::luban::String moodKey;
+    ::luban::String satietyLowerThresholdKey;
+    ::luban::String satietyUpperThresholdKey;
+    ::luban::String energyLowerThresholdKey;
+    ::luban::String energyUpperThresholdKey;
+    ::luban::String moodLowerThresholdKey;
+    ::luban::String moodUpperThresholdKey;
 
-    static constexpr int __ID__ = -969953113;
+    static constexpr int __ID__ = -61887372;
 
     int getTypeId() const override { return __ID__; }
 };
 
 }
 
-namespace ai {
+namespace common {
 
-struct DebugPrint : public ai::Task 
+struct DateTimeRange : public luban::CfgBean 
 {
-    static bool deserializeDebugPrint(::luban::ByteBuf& _buf, ::luban::SharedPtr<DebugPrint>& _out);
+    static bool deserializeDateTimeRange(::luban::ByteBuf& _buf, ::luban::SharedPtr<DateTimeRange>& _out);
 
-    virtual ~DebugPrint() {}
+    virtual ~DateTimeRange() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::String text;
+    ::luban::SharedPtr<::luban::datetime> startTime;
+    ::luban::SharedPtr<::luban::datetime> endTime;
 
-    static constexpr int __ID__ = 1357409728;
+    static constexpr int __ID__ = 1642200959;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace common {
+
+struct FloatRange : public luban::CfgBean 
+{
+    static bool deserializeFloatRange(::luban::ByteBuf& _buf, ::luban::SharedPtr<FloatRange>& _out);
+
+    virtual ~FloatRange() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 min;
+    ::luban::float32 max;
+
+    static constexpr int __ID__ = 561922116;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1436,6 +1682,110 @@ struct GlobalConfig : public luban::CfgBean
 };
 
 }
+
+namespace common {
+
+struct IntRange : public luban::CfgBean 
+{
+    static bool deserializeIntRange(::luban::ByteBuf& _buf, ::luban::SharedPtr<IntRange>& _out);
+
+    virtual ~IntRange() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 min;
+    ::luban::int32 max;
+
+    static constexpr int __ID__ = -751013039;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace common {
+
+struct OneDayTimeRange : public luban::CfgBean 
+{
+    static bool deserializeOneDayTimeRange(::luban::ByteBuf& _buf, ::luban::SharedPtr<OneDayTimeRange>& _out);
+
+    virtual ~OneDayTimeRange() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::SharedPtr<common::TimeOfDay> startTime;
+    ::luban::SharedPtr<common::TimeOfDay> endTime;
+
+    static constexpr int __ID__ = 1628814743;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace common {
+
+struct TimeOfDay : public luban::CfgBean 
+{
+    static bool deserializeTimeOfDay(::luban::ByteBuf& _buf, ::luban::SharedPtr<TimeOfDay>& _out);
+
+    virtual ~TimeOfDay() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 hour;
+    ::luban::int32 minute;
+    ::luban::int32 second;
+
+    static constexpr int __ID__ = -1728347371;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+
+struct DefineFromExcel2 : public luban::CfgBean 
+{
+    static bool deserializeDefineFromExcel2(::luban::ByteBuf& _buf, ::luban::SharedPtr<DefineFromExcel2>& _out);
+
+    virtual ~DefineFromExcel2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    /**
+     * 这是id
+     */
+    ::luban::int32 id;
+    /**
+     * 字段x1
+     */
+    bool x1;
+    ::luban::int64 x5;
+    ::luban::float32 x6;
+    ::luban::int32 x8;
+    ::luban::String x10;
+    test::DemoEnum x13;
+    test::DemoFlag x132;
+    ::luban::SharedPtr<test::DemoDynamic> x14;
+    ::luban::SharedPtr<test::Shape> x15;
+    ::luban::SharedPtr<vec2> v2;
+    ::luban::datetime t1;
+    ::luban::Array<::luban::int32> k1;
+    ::luban::Array<::luban::int32> k2;
+    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
+    ::luban::Vector<::luban::SharedPtr<test::DemoE2>> k9;
+    ::luban::Vector<::luban::SharedPtr<vec3>> k10;
+    ::luban::Vector<::luban::SharedPtr<vec4>> k11;
+    ::luban::SharedPtr<vec3> v11;
+
+    static constexpr int __ID__ = 482045152;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+
 
 namespace item {
 
@@ -1534,38 +1884,19 @@ struct TestTag : public luban::CfgBean
 
 namespace test {
 
-struct DemoType2 : public luban::CfgBean 
+struct CompactString : public luban::CfgBean 
 {
-    static bool deserializeDemoType2(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoType2>& _out);
+    static bool deserializeCompactString(::luban::ByteBuf& _buf, ::luban::SharedPtr<CompactString>& _out);
 
-    virtual ~DemoType2() {}
+    virtual ~CompactString() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::int32 x4;
-    bool x1;
-    ::luban::byte x2;
-    ::luban::int16 x3;
-    ::luban::int64 x5;
-    ::luban::float32 x6;
-    ::luban::float64 x7;
-    ::luban::int16 x80;
-    ::luban::int32 x8;
-    ::luban::int64 x9;
-    ::luban::String x10;
-    ::luban::SharedPtr<test::DemoType1> x12;
-    test::DemoEnum x13;
-    ::luban::SharedPtr<test::DemoDynamic> x14;
-    ::luban::String s1;
-    ::luban::datetime t1;
-    ::luban::Array<::luban::int32> k1;
-    ::luban::Vector<::luban::int32> k2;
-    ::luban::HashSet<::luban::int32> k5;
-    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
-    ::luban::Vector<::luban::SharedPtr<test::DemoE2>> k9;
-    ::luban::Array<::luban::SharedPtr<test::DemoDynamic>> k15;
+    ::luban::int32 id;
+    ::luban::String s2;
+    ::luban::String s3;
 
-    static constexpr int __ID__ = -367048295;
+    static constexpr int __ID__ = 1968089240;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1574,17 +1905,78 @@ struct DemoType2 : public luban::CfgBean
 
 namespace test {
 
-struct DemoType1 : public luban::CfgBean 
+struct CompositeJsonTable1 : public luban::CfgBean 
 {
-    static bool deserializeDemoType1(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoType1>& _out);
+    static bool deserializeCompositeJsonTable1(::luban::ByteBuf& _buf, ::luban::SharedPtr<CompositeJsonTable1>& _out);
 
-    virtual ~DemoType1() {}
+    virtual ~CompositeJsonTable1() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::int32 x1;
+    ::luban::int32 id;
+    ::luban::String x;
 
-    static constexpr int __ID__ = -367048296;
+    static constexpr int __ID__ = 1566207894;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct CompositeJsonTable2 : public luban::CfgBean 
+{
+    static bool deserializeCompositeJsonTable2(::luban::ByteBuf& _buf, ::luban::SharedPtr<CompositeJsonTable2>& _out);
+
+    virtual ~CompositeJsonTable2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::int32 y;
+
+    static constexpr int __ID__ = 1566207895;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct CompositeJsonTable3 : public luban::CfgBean 
+{
+    static bool deserializeCompositeJsonTable3(::luban::ByteBuf& _buf, ::luban::SharedPtr<CompositeJsonTable3>& _out);
+
+    virtual ~CompositeJsonTable3() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 a;
+    ::luban::int32 b;
+
+    static constexpr int __ID__ = 1566207896;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct DateTimeRange : public luban::CfgBean 
+{
+    static bool deserializeDateTimeRange(::luban::ByteBuf& _buf, ::luban::SharedPtr<DateTimeRange>& _out);
+
+    virtual ~DateTimeRange() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::datetime startTime;
+    ::luban::datetime endTime;
+
+    static constexpr int __ID__ = 495315430;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1701,26 +2093,6 @@ struct DemoD5 : public test::DemoDynamic
 
 namespace test {
 
-struct DateTimeRange : public luban::CfgBean 
-{
-    static bool deserializeDateTimeRange(::luban::ByteBuf& _buf, ::luban::SharedPtr<DateTimeRange>& _out);
-
-    virtual ~DateTimeRange() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::datetime startTime;
-    ::luban::datetime endTime;
-
-    static constexpr int __ID__ = 495315430;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
 struct DemoE2 : public luban::CfgBean 
 {
     static bool deserializeDemoE2(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoE2>& _out);
@@ -1733,6 +2105,86 @@ struct DemoE2 : public luban::CfgBean
     bool y2;
 
     static constexpr int __ID__ = -2138341716;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct DemoExplicitType : public luban::CfgBean 
+{
+    static bool deserializeDemoExplicitType(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoExplicitType>& _out);
+
+    virtual ~DemoExplicitType() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::byte x1;
+    ::luban::int16 x2;
+    ::luban::int32 x3;
+    ::luban::int64 x4;
+    ::luban::float32 x5;
+    ::luban::float64 x6;
+    ::luban::int64 x7;
+
+    static constexpr int __ID__ = 370351885;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct DemoGroup : public luban::CfgBean 
+{
+    static bool deserializeDemoGroup(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoGroup>& _out);
+
+    virtual ~DemoGroup() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::int32 x1;
+    ::luban::int32 x2;
+    ::luban::int32 x3;
+    ::luban::int32 x4;
+    ::luban::SharedPtr<test::InnerGroup> x5;
+
+    static constexpr int __ID__ = -379263008;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct DemoPrimitiveTypesTable : public luban::CfgBean 
+{
+    static bool deserializeDemoPrimitiveTypesTable(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoPrimitiveTypesTable>& _out);
+
+    virtual ~DemoPrimitiveTypesTable() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    bool x1;
+    ::luban::byte x2;
+    ::luban::int16 x3;
+    ::luban::int32 x4;
+    ::luban::int64 x5;
+    ::luban::float32 x6;
+    ::luban::float64 x7;
+    ::luban::String s1;
+    ::luban::String s2;
+    ::luban::SharedPtr<vec2> v2;
+    ::luban::SharedPtr<vec3> v3;
+    ::luban::SharedPtr<vec4> v4;
+    ::luban::datetime t1;
+
+    static constexpr int __ID__ = -370934083;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1762,18 +2214,17 @@ struct DemoSingletonType : public luban::CfgBean
 
 namespace test {
 
-struct NotIndexList : public luban::CfgBean 
+struct DemoType1 : public luban::CfgBean 
 {
-    static bool deserializeNotIndexList(::luban::ByteBuf& _buf, ::luban::SharedPtr<NotIndexList>& _out);
+    static bool deserializeDemoType1(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoType1>& _out);
 
-    virtual ~NotIndexList() {}
+    virtual ~DemoType1() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::int32 x;
-    ::luban::int32 y;
+    ::luban::int32 x1;
 
-    static constexpr int __ID__ = -50446599;
+    static constexpr int __ID__ = -367048296;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1782,21 +2233,271 @@ struct NotIndexList : public luban::CfgBean
 
 namespace test {
 
-struct MultiUnionIndexList : public luban::CfgBean 
+struct DemoType2 : public luban::CfgBean 
 {
-    static bool deserializeMultiUnionIndexList(::luban::ByteBuf& _buf, ::luban::SharedPtr<MultiUnionIndexList>& _out);
+    static bool deserializeDemoType2(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoType2>& _out);
 
-    virtual ~MultiUnionIndexList() {}
+    virtual ~DemoType2() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
-    ::luban::int32 id1;
-    ::luban::int64 id2;
-    ::luban::String id3;
-    ::luban::int32 num;
+    ::luban::int32 x4;
+    bool x1;
+    ::luban::byte x2;
+    ::luban::int16 x3;
+    ::luban::int64 x5;
+    ::luban::float32 x6;
+    ::luban::float64 x7;
+    ::luban::int16 x80;
+    ::luban::int32 x8;
+    ::luban::int64 x9;
+    ::luban::String x10;
+    ::luban::SharedPtr<test::DemoType1> x12;
+    test::DemoEnum x13;
+    ::luban::SharedPtr<test::DemoDynamic> x14;
+    ::luban::String s1;
+    ::luban::datetime t1;
+    ::luban::Array<::luban::int32> k1;
+    ::luban::Vector<::luban::int32> k2;
+    ::luban::HashSet<::luban::int32> k5;
+    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
+    ::luban::Vector<::luban::SharedPtr<test::DemoE2>> k9;
+    ::luban::Array<::luban::SharedPtr<test::DemoDynamic>> k15;
+
+    static constexpr int __ID__ = -367048295;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct DetectEncoding : public luban::CfgBean 
+{
+    static bool deserializeDetectEncoding(::luban::ByteBuf& _buf, ::luban::SharedPtr<DetectEncoding>& _out);
+
+    virtual ~DetectEncoding() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String name;
+
+    static constexpr int __ID__ = -1154609646;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct ExcelFromJson : public luban::CfgBean 
+{
+    static bool deserializeExcelFromJson(::luban::ByteBuf& _buf, ::luban::SharedPtr<ExcelFromJson>& _out);
+
+    virtual ~ExcelFromJson() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 x4;
+    bool x1;
+    ::luban::int64 x5;
+    ::luban::float32 x6;
+    ::luban::String s1;
+    ::luban::String s2;
+    ::luban::datetime t1;
+    ::luban::SharedPtr<test::DemoType1> x12;
+    test::DemoEnum x13;
+    ::luban::SharedPtr<test::DemoDynamic> x14;
+    ::luban::Array<::luban::int32> k1;
+    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
+    ::luban::Vector<::luban::SharedPtr<test::DemoE2>> k9;
+    ::luban::Array<::luban::SharedPtr<test::DemoDynamic>> k15;
+
+    static constexpr int __ID__ = -1485706483;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct ExcelFromJsonMultiRow : public luban::CfgBean 
+{
+    static bool deserializeExcelFromJsonMultiRow(::luban::ByteBuf& _buf, ::luban::SharedPtr<ExcelFromJsonMultiRow>& _out);
+
+    virtual ~ExcelFromJsonMultiRow() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::int32 x;
+    ::luban::Vector<::luban::SharedPtr<test::TestRow>> items;
+
+    static constexpr int __ID__ = 715335694;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct Foo : public luban::CfgBean 
+{
+    static bool deserializeFoo(::luban::ByteBuf& _buf, ::luban::SharedPtr<Foo>& _out);
+
+    virtual ~Foo() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 y1;
+    ::luban::int32 y2;
+    ::luban::int32 y3;
+
+    static constexpr int __ID__ = -1147950774;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct H1 : public luban::CfgBean 
+{
+    static bool deserializeH1(::luban::ByteBuf& _buf, ::luban::SharedPtr<H1>& _out);
+
+    virtual ~H1() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::SharedPtr<test::H2> y2;
+    ::luban::int32 y3;
+
+    static constexpr int __ID__ = -1422503995;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct H2 : public luban::CfgBean 
+{
+    static bool deserializeH2(::luban::ByteBuf& _buf, ::luban::SharedPtr<H2>& _out);
+
+    virtual ~H2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 z2;
+    ::luban::int32 z3;
+
+    static constexpr int __ID__ = -1422503994;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct InnerGroup : public luban::CfgBean 
+{
+    static bool deserializeInnerGroup(::luban::ByteBuf& _buf, ::luban::SharedPtr<InnerGroup>& _out);
+
+    virtual ~InnerGroup() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 y1;
+    ::luban::int32 y2;
+    ::luban::int32 y3;
+    ::luban::int32 y4;
+
+    static constexpr int __ID__ = -587873083;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct ItemBase : public luban::CfgBean 
+{
+    static bool deserializeItemBase(::luban::ByteBuf& _buf, ::luban::SharedPtr<ItemBase>& _out);
+
+    virtual ~ItemBase() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String name;
     ::luban::String desc;
 
-    static constexpr int __ID__ = 1966847134;
+};
+
+}
+
+namespace test {
+
+struct Decorator : public test::ItemBase 
+{
+    static bool deserializeDecorator(::luban::ByteBuf& _buf, ::luban::SharedPtr<Decorator>& _out);
+
+    virtual ~Decorator() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 duration;
+
+    static constexpr int __ID__ = -625155649;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct Equipment : public test::ItemBase 
+{
+    static bool deserializeEquipment(::luban::ByteBuf& _buf, ::luban::SharedPtr<Equipment>& _out);
+
+    virtual ~Equipment() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    test::DemoEnum attr;
+    ::luban::int32 value;
+
+    static constexpr int __ID__ = -76837102;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct Item : public test::ItemBase 
+{
+    static bool deserializeItem(::luban::ByteBuf& _buf, ::luban::SharedPtr<Item>& _out);
+
+    virtual ~Item() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 num;
+    ::luban::int32 price;
+
+    static constexpr int __ID__ = -1226641649;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1847,6 +2548,31 @@ struct MultiRowRecord : public luban::CfgBean
     ::luban::HashMap<::luban::int32, ::luban::int32> multiRows7;
 
     static constexpr int __ID__ = -501249394;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct MultiRowTitle : public luban::CfgBean 
+{
+    static bool deserializeMultiRowTitle(::luban::ByteBuf& _buf, ::luban::SharedPtr<MultiRowTitle>& _out);
+
+    virtual ~MultiRowTitle() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String name;
+    ::luban::SharedPtr<test::H1> x1;
+    ::luban::SharedPtr<test::H2> x20;
+    ::luban::Vector<::luban::SharedPtr<test::H2>> x2;
+    ::luban::Array<::luban::SharedPtr<test::H2>> x3;
+    ::luban::Array<::luban::SharedPtr<test::H2>> x4;
+
+    static constexpr int __ID__ = 540002427;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -1916,331 +2642,61 @@ struct MultiRowType3 : public luban::CfgBean
 
 namespace test {
 
-struct TestMultiColumn : public luban::CfgBean 
+struct MultiUnionIndexList : public luban::CfgBean 
 {
-    static bool deserializeTestMultiColumn(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestMultiColumn>& _out);
+    static bool deserializeMultiUnionIndexList(::luban::ByteBuf& _buf, ::luban::SharedPtr<MultiUnionIndexList>& _out);
 
-    virtual ~TestMultiColumn() {}
+    virtual ~MultiUnionIndexList() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id1;
+    ::luban::int64 id2;
+    ::luban::String id3;
+    ::luban::int32 num;
+    ::luban::String desc;
+
+    static constexpr int __ID__ = 1966847134;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct NotIndexList : public luban::CfgBean 
+{
+    static bool deserializeNotIndexList(::luban::ByteBuf& _buf, ::luban::SharedPtr<NotIndexList>& _out);
+
+    virtual ~NotIndexList() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 x;
+    ::luban::int32 y;
+
+    static constexpr int __ID__ = -50446599;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct Path : public luban::CfgBean 
+{
+    static bool deserializePath(::luban::ByteBuf& _buf, ::luban::SharedPtr<Path>& _out);
+
+    virtual ~Path() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
     ::luban::int32 id;
-    ::luban::SharedPtr<test::Foo> a;
-    ::luban::SharedPtr<test::Foo> b;
-    ::luban::SharedPtr<test::Foo> c;
+    ::luban::String res;
 
-    static constexpr int __ID__ = -294473599;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct Foo : public luban::CfgBean 
-{
-    static bool deserializeFoo(::luban::ByteBuf& _buf, ::luban::SharedPtr<Foo>& _out);
-
-    virtual ~Foo() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 y1;
-    ::luban::int32 y2;
-    ::luban::int32 y3;
-
-    static constexpr int __ID__ = -1147950774;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct MultiRowTitle : public luban::CfgBean 
-{
-    static bool deserializeMultiRowTitle(::luban::ByteBuf& _buf, ::luban::SharedPtr<MultiRowTitle>& _out);
-
-    virtual ~MultiRowTitle() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String name;
-    ::luban::SharedPtr<test::H1> x1;
-    ::luban::SharedPtr<test::H2> x20;
-    ::luban::Vector<::luban::SharedPtr<test::H2>> x2;
-    ::luban::Array<::luban::SharedPtr<test::H2>> x3;
-    ::luban::Array<::luban::SharedPtr<test::H2>> x4;
-
-    static constexpr int __ID__ = 540002427;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct H1 : public luban::CfgBean 
-{
-    static bool deserializeH1(::luban::ByteBuf& _buf, ::luban::SharedPtr<H1>& _out);
-
-    virtual ~H1() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::SharedPtr<test::H2> y2;
-    ::luban::int32 y3;
-
-    static constexpr int __ID__ = -1422503995;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct H2 : public luban::CfgBean 
-{
-    static bool deserializeH2(::luban::ByteBuf& _buf, ::luban::SharedPtr<H2>& _out);
-
-    virtual ~H2() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 z2;
-    ::luban::int32 z3;
-
-    static constexpr int __ID__ = -1422503994;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestNull : public luban::CfgBean 
-{
-    static bool deserializeTestNull(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestNull>& _out);
-
-    virtual ~TestNull() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::SharedPtr<::luban::int32> x1;
-    ::luban::SharedPtr<test::DemoEnum> x2;
-    ::luban::SharedPtr<test::DemoType1> x3;
-    ::luban::SharedPtr<test::DemoDynamic> x4;
-    ::luban::SharedPtr<::luban::String> s1;
-    ::luban::SharedPtr<::luban::String> s2;
-
-    static constexpr int __ID__ = 339868469;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct DemoPrimitiveTypesTable : public luban::CfgBean 
-{
-    static bool deserializeDemoPrimitiveTypesTable(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoPrimitiveTypesTable>& _out);
-
-    virtual ~DemoPrimitiveTypesTable() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    bool x1;
-    ::luban::byte x2;
-    ::luban::int16 x3;
-    ::luban::int32 x4;
-    ::luban::int64 x5;
-    ::luban::float32 x6;
-    ::luban::float64 x7;
-    ::luban::String s1;
-    ::luban::String s2;
-    ::luban::SharedPtr<vec2> v2;
-    ::luban::SharedPtr<vec3> v3;
-    ::luban::SharedPtr<vec4> v4;
-    ::luban::datetime t1;
-
-    static constexpr int __ID__ = -370934083;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestString : public luban::CfgBean 
-{
-    static bool deserializeTestString(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestString>& _out);
-
-    virtual ~TestString() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::String id;
-    ::luban::String s1;
-    ::luban::String s2;
-    ::luban::SharedPtr<test::CompactString> cs1;
-    ::luban::SharedPtr<test::CompactString> cs2;
-
-    static constexpr int __ID__ = 338485823;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct CompactString : public luban::CfgBean 
-{
-    static bool deserializeCompactString(::luban::ByteBuf& _buf, ::luban::SharedPtr<CompactString>& _out);
-
-    virtual ~CompactString() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String s2;
-    ::luban::String s3;
-
-    static constexpr int __ID__ = 1968089240;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct DemoGroup : public luban::CfgBean 
-{
-    static bool deserializeDemoGroup(::luban::ByteBuf& _buf, ::luban::SharedPtr<DemoGroup>& _out);
-
-    virtual ~DemoGroup() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::int32 x1;
-    ::luban::int32 x2;
-    ::luban::int32 x3;
-    ::luban::int32 x4;
-    ::luban::SharedPtr<test::InnerGroup> x5;
-
-    static constexpr int __ID__ = -379263008;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct InnerGroup : public luban::CfgBean 
-{
-    static bool deserializeInnerGroup(::luban::ByteBuf& _buf, ::luban::SharedPtr<InnerGroup>& _out);
-
-    virtual ~InnerGroup() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 y1;
-    ::luban::int32 y2;
-    ::luban::int32 y3;
-    ::luban::int32 y4;
-
-    static constexpr int __ID__ = -587873083;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestGlobal : public luban::CfgBean 
-{
-    static bool deserializeTestGlobal(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestGlobal>& _out);
-
-    virtual ~TestGlobal() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 unlockEquip;
-    ::luban::int32 unlockHero;
-
-    static constexpr int __ID__ = -12548655;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestBeRef : public luban::CfgBean 
-{
-    static bool deserializeTestBeRef(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestBeRef>& _out);
-
-    virtual ~TestBeRef() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::int32 count;
-
-    static constexpr int __ID__ = 1934403938;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestRef : public luban::CfgBean 
-{
-    static bool deserializeTestRef(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestRef>& _out);
-
-    virtual ~TestRef() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::int32 x1;
-    ::luban::int32 x12;
-    ::luban::int32 x2;
-    ::luban::int32 x3;
-    ::luban::int32 x4;
-    ::luban::Array<::luban::int32> a1;
-    ::luban::Array<::luban::int32> a2;
-    ::luban::Vector<::luban::int32> b1;
-    ::luban::Vector<::luban::int32> b2;
-    ::luban::HashSet<::luban::int32> c1;
-    ::luban::HashSet<::luban::int32> c2;
-    ::luban::HashMap<::luban::int32, ::luban::int32> d1;
-    ::luban::HashMap<::luban::int32, ::luban::int32> d2;
-    ::luban::int32 e1;
-    ::luban::int64 e2;
-    ::luban::String e3;
-    ::luban::int32 f1;
-    ::luban::int64 f2;
-    ::luban::String f3;
-    ::luban::SharedPtr<test::RefDynamicBase> s1;
-
-    static constexpr int __ID__ = -543222491;
+    static constexpr int __ID__ = -1226450911;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -2284,298 +2740,19 @@ struct RefBean : public test::RefDynamicBase
 
 namespace test {
 
-struct TestSize : public luban::CfgBean 
+struct SepBean1 : public luban::CfgBean 
 {
-    static bool deserializeTestSize(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestSize>& _out);
+    static bool deserializeSepBean1(::luban::ByteBuf& _buf, ::luban::SharedPtr<SepBean1>& _out);
 
-    virtual ~TestSize() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::Array<::luban::int32> x1;
-    ::luban::Vector<::luban::int32> x2;
-    ::luban::HashSet<::luban::int32> x3;
-    ::luban::HashMap<::luban::int32, ::luban::int32> x4;
-
-    static constexpr int __ID__ = 340006319;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestSet : public luban::CfgBean 
-{
-    static bool deserializeTestSet(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestSet>& _out);
-
-    virtual ~TestSet() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String x0;
-    ::luban::Vector<::luban::int32> x1;
-    ::luban::Vector<::luban::int64> x2;
-    ::luban::Vector<::luban::String> x3;
-    ::luban::Vector<test::DemoEnum> x4;
-
-    static constexpr int __ID__ = -543221516;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct DetectEncoding : public luban::CfgBean 
-{
-    static bool deserializeDetectEncoding(::luban::ByteBuf& _buf, ::luban::SharedPtr<DetectEncoding>& _out);
-
-    virtual ~DetectEncoding() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String name;
-
-    static constexpr int __ID__ = -1154609646;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct ItemBase : public luban::CfgBean 
-{
-    static bool deserializeItemBase(::luban::ByteBuf& _buf, ::luban::SharedPtr<ItemBase>& _out);
-
-    virtual ~ItemBase() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String name;
-    ::luban::String desc;
-
-};
-
-}
-
-namespace test {
-
-struct Item : public test::ItemBase 
-{
-    static bool deserializeItem(::luban::ByteBuf& _buf, ::luban::SharedPtr<Item>& _out);
-
-    virtual ~Item() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 num;
-    ::luban::int32 price;
-
-    static constexpr int __ID__ = -1226641649;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct Equipment : public test::ItemBase 
-{
-    static bool deserializeEquipment(::luban::ByteBuf& _buf, ::luban::SharedPtr<Equipment>& _out);
-
-    virtual ~Equipment() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    test::DemoEnum attr;
-    ::luban::int32 value;
-
-    static constexpr int __ID__ = -76837102;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct Decorator : public test::ItemBase 
-{
-    static bool deserializeDecorator(::luban::ByteBuf& _buf, ::luban::SharedPtr<Decorator>& _out);
-
-    virtual ~Decorator() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 duration;
-
-    static constexpr int __ID__ = -625155649;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestIndex : public luban::CfgBean 
-{
-    static bool deserializeTestIndex(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestIndex>& _out);
-
-    virtual ~TestIndex() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::Vector<::luban::SharedPtr<test::DemoType1>> eles;
-
-    static constexpr int __ID__ = 1941154020;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestMap : public luban::CfgBean 
-{
-    static bool deserializeTestMap(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestMap>& _out);
-
-    virtual ~TestMap() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::HashMap<::luban::int32, ::luban::int32> x1;
-    ::luban::HashMap<::luban::int64, ::luban::int32> x2;
-    ::luban::HashMap<::luban::String, ::luban::int32> x3;
-    ::luban::HashMap<test::DemoEnum, ::luban::int32> x4;
-
-    static constexpr int __ID__ = -543227410;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct ExcelFromJson : public luban::CfgBean 
-{
-    static bool deserializeExcelFromJson(::luban::ByteBuf& _buf, ::luban::SharedPtr<ExcelFromJson>& _out);
-
-    virtual ~ExcelFromJson() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 x4;
-    bool x1;
-    ::luban::int64 x5;
-    ::luban::float32 x6;
-    ::luban::String s1;
-    ::luban::String s2;
-    ::luban::datetime t1;
-    ::luban::SharedPtr<test::DemoType1> x12;
-    test::DemoEnum x13;
-    ::luban::SharedPtr<test::DemoDynamic> x14;
-    ::luban::Array<::luban::int32> k1;
-    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
-    ::luban::Vector<::luban::SharedPtr<test::DemoE2>> k9;
-    ::luban::Array<::luban::SharedPtr<test::DemoDynamic>> k15;
-
-    static constexpr int __ID__ = -1485706483;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct CompositeJsonTable1 : public luban::CfgBean 
-{
-    static bool deserializeCompositeJsonTable1(::luban::ByteBuf& _buf, ::luban::SharedPtr<CompositeJsonTable1>& _out);
-
-    virtual ~CompositeJsonTable1() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String x;
-
-    static constexpr int __ID__ = 1566207894;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct CompositeJsonTable2 : public luban::CfgBean 
-{
-    static bool deserializeCompositeJsonTable2(::luban::ByteBuf& _buf, ::luban::SharedPtr<CompositeJsonTable2>& _out);
-
-    virtual ~CompositeJsonTable2() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::int32 y;
-
-    static constexpr int __ID__ = 1566207895;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct CompositeJsonTable3 : public luban::CfgBean 
-{
-    static bool deserializeCompositeJsonTable3(::luban::ByteBuf& _buf, ::luban::SharedPtr<CompositeJsonTable3>& _out);
-
-    virtual ~CompositeJsonTable3() {}
+    virtual ~SepBean1() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
     ::luban::int32 a;
     ::luban::int32 b;
+    ::luban::String c;
 
-    static constexpr int __ID__ = 1566207896;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct ExcelFromJsonMultiRow : public luban::CfgBean 
-{
-    static bool deserializeExcelFromJsonMultiRow(::luban::ByteBuf& _buf, ::luban::SharedPtr<ExcelFromJsonMultiRow>& _out);
-
-    virtual ~ExcelFromJsonMultiRow() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::int32 x;
-    ::luban::Vector<::luban::SharedPtr<test::TestRow>> items;
-
-    static constexpr int __ID__ = 715335694;
+    static constexpr int __ID__ = -1534339393;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -2584,160 +2761,24 @@ struct ExcelFromJsonMultiRow : public luban::CfgBean
 
 namespace test {
 
-struct TestRow : public luban::CfgBean 
+struct SepVector : public luban::CfgBean 
 {
-    static bool deserializeTestRow(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestRow>& _out);
+    static bool deserializeSepVector(::luban::ByteBuf& _buf, ::luban::SharedPtr<SepVector>& _out);
 
-    virtual ~TestRow() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 x;
-    bool y;
-    ::luban::String z;
-    ::luban::SharedPtr<test::Test3> a;
-    ::luban::Vector<::luban::int32> b;
-
-    static constexpr int __ID__ = -543222164;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct Test3 : public luban::CfgBean 
-{
-    static bool deserializeTest3(::luban::ByteBuf& _buf, ::luban::SharedPtr<Test3>& _out);
-
-    virtual ~Test3() {}
+    virtual ~SepVector() {}
 
     bool deserialize(::luban::ByteBuf& _buf);
 
     ::luban::int32 x;
     ::luban::int32 y;
+    ::luban::int32 z;
 
-    static constexpr int __ID__ = 638540133;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestScriptableObject : public luban::CfgBean 
-{
-    static bool deserializeTestScriptableObject(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestScriptableObject>& _out);
-
-    virtual ~TestScriptableObject() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String desc;
-    ::luban::float32 rate;
-    ::luban::int32 num;
-    ::luban::SharedPtr<vec2> v2;
-    ::luban::SharedPtr<vec3> v3;
-    ::luban::SharedPtr<vec4> v4;
-
-    static constexpr int __ID__ = -1896814350;
+    static constexpr int __ID__ = 252769477;
 
     int getTypeId() const override { return __ID__; }
 };
 
 }
-
-namespace test {
-
-struct Path : public luban::CfgBean 
-{
-    static bool deserializePath(::luban::ByteBuf& _buf, ::luban::SharedPtr<Path>& _out);
-
-    virtual ~Path() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    ::luban::String res;
-
-    static constexpr int __ID__ = -1226450911;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-namespace test {
-
-struct TestMapper : public luban::CfgBean 
-{
-    static bool deserializeTestMapper(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestMapper>& _out);
-
-    virtual ~TestMapper() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    ::luban::int32 id;
-    AudioType audioType;
-    ::luban::SharedPtr<vec2> v2;
-
-    static constexpr int __ID__ = 149110895;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-}
-
-
-
-struct DefineFromExcel2 : public luban::CfgBean 
-{
-    static bool deserializeDefineFromExcel2(::luban::ByteBuf& _buf, ::luban::SharedPtr<DefineFromExcel2>& _out);
-
-    virtual ~DefineFromExcel2() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    /**
-     * 这是id
-     */
-    ::luban::int32 id;
-    /**
-     * 字段x1
-     */
-    bool x1;
-    ::luban::int64 x5;
-    ::luban::float32 x6;
-    ::luban::int32 x8;
-    ::luban::String x10;
-    test::DemoEnum x13;
-    test::DemoFlag x132;
-    ::luban::SharedPtr<test::DemoDynamic> x14;
-    ::luban::SharedPtr<test::Shape> x15;
-    ::luban::SharedPtr<vec2> v2;
-    ::luban::datetime t1;
-    ::luban::Array<::luban::int32> k1;
-    ::luban::Array<::luban::int32> k2;
-    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
-    ::luban::Vector<::luban::SharedPtr<test::DemoE2>> k9;
-    ::luban::Vector<::luban::SharedPtr<vec3>> k10;
-    ::luban::Vector<::luban::SharedPtr<vec4>> k11;
-    ::luban::SharedPtr<vec3> v11;
-    ::luban::Array<::luban::Array<::luban::int32>> c1;
-    ::luban::Vector<::luban::Vector<::luban::int32>> c2;
-    ::luban::Vector<::luban::HashSet<::luban::int32>> c3;
-    ::luban::HashMap<::luban::int32, ::luban::Vector<::luban::int32>> c4;
-    ::luban::HashMap<::luban::int32, ::luban::HashMap<::luban::int32, ::luban::int32>> c5;
-
-    static constexpr int __ID__ = 482045152;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-
 
 namespace test {
 
@@ -2807,6 +2848,500 @@ struct Rectangle : public test::Shape
 };
 
 }
+
+namespace test {
+
+struct Test3 : public luban::CfgBean 
+{
+    static bool deserializeTest3(::luban::ByteBuf& _buf, ::luban::SharedPtr<Test3>& _out);
+
+    virtual ~Test3() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 x;
+    ::luban::int32 y;
+
+    static constexpr int __ID__ = 638540133;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestBeRef : public luban::CfgBean 
+{
+    static bool deserializeTestBeRef(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestBeRef>& _out);
+
+    virtual ~TestBeRef() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::int32 count;
+
+    static constexpr int __ID__ = 1934403938;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+/**
+ * 这是个测试excel结构
+ */
+struct TestExcelBean1 : public luban::CfgBean 
+{
+    static bool deserializeTestExcelBean1(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestExcelBean1>& _out);
+
+    virtual ~TestExcelBean1() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    /**
+     * 最高品质
+     */
+    ::luban::int32 x1;
+    /**
+     * 黑色的
+     */
+    ::luban::String x2;
+    /**
+     * 蓝色的
+     */
+    ::luban::int32 x3;
+    /**
+     * 最差品质
+     */
+    ::luban::float32 x4;
+
+    static constexpr int __ID__ = -1738345160;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+/**
+ * 这是个测试excel结构
+ */
+struct TestExcelBean2 : public luban::CfgBean 
+{
+    static bool deserializeTestExcelBean2(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestExcelBean2>& _out);
+
+    virtual ~TestExcelBean2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    /**
+     * 最高品质
+     */
+    ::luban::int32 y1;
+    /**
+     * 黑色的
+     */
+    ::luban::String y2;
+    /**
+     * 蓝色的
+     */
+    ::luban::float32 y3;
+
+    static constexpr int __ID__ = -1738345159;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestGlobal : public luban::CfgBean 
+{
+    static bool deserializeTestGlobal(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestGlobal>& _out);
+
+    virtual ~TestGlobal() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 unlockEquip;
+    ::luban::int32 unlockHero;
+
+    static constexpr int __ID__ = -12548655;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestIndex : public luban::CfgBean 
+{
+    static bool deserializeTestIndex(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestIndex>& _out);
+
+    virtual ~TestIndex() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::Vector<::luban::SharedPtr<test::DemoType1>> eles;
+
+    static constexpr int __ID__ = 1941154020;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestMap : public luban::CfgBean 
+{
+    static bool deserializeTestMap(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestMap>& _out);
+
+    virtual ~TestMap() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::HashMap<::luban::int32, ::luban::int32> x1;
+    ::luban::HashMap<::luban::int64, ::luban::int32> x2;
+    ::luban::HashMap<::luban::String, ::luban::int32> x3;
+    ::luban::HashMap<test::DemoEnum, ::luban::int32> x4;
+
+    static constexpr int __ID__ = -543227410;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestMapper : public luban::CfgBean 
+{
+    static bool deserializeTestMapper(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestMapper>& _out);
+
+    virtual ~TestMapper() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    AudioType audioType;
+    ::luban::SharedPtr<vec2> v2;
+
+    static constexpr int __ID__ = 149110895;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestMultiColumn : public luban::CfgBean 
+{
+    static bool deserializeTestMultiColumn(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestMultiColumn>& _out);
+
+    virtual ~TestMultiColumn() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::SharedPtr<test::Foo> a;
+    ::luban::SharedPtr<test::Foo> b;
+    ::luban::SharedPtr<test::Foo> c;
+
+    static constexpr int __ID__ = -294473599;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestNull : public luban::CfgBean 
+{
+    static bool deserializeTestNull(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestNull>& _out);
+
+    virtual ~TestNull() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::SharedPtr<::luban::int32> x1;
+    ::luban::SharedPtr<test::DemoEnum> x2;
+    ::luban::SharedPtr<test::DemoType1> x3;
+    ::luban::SharedPtr<test::DemoDynamic> x4;
+    ::luban::SharedPtr<::luban::String> s1;
+    ::luban::SharedPtr<::luban::String> s2;
+
+    static constexpr int __ID__ = 339868469;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestRef : public luban::CfgBean 
+{
+    static bool deserializeTestRef(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestRef>& _out);
+
+    virtual ~TestRef() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::int32 x1;
+    ::luban::int32 x12;
+    ::luban::int32 x2;
+    ::luban::int32 x3;
+    ::luban::int32 x4;
+    ::luban::Array<::luban::int32> a1;
+    ::luban::Array<::luban::int32> a2;
+    ::luban::Vector<::luban::int32> b1;
+    ::luban::Vector<::luban::int32> b2;
+    ::luban::HashSet<::luban::int32> c1;
+    ::luban::HashSet<::luban::int32> c2;
+    ::luban::HashMap<::luban::int32, ::luban::int32> d1;
+    ::luban::HashMap<::luban::int32, ::luban::int32> d2;
+    ::luban::int32 e1;
+    ::luban::int64 e2;
+    ::luban::String e3;
+    ::luban::int32 f1;
+    ::luban::int64 f2;
+    ::luban::String f3;
+    ::luban::SharedPtr<test::RefDynamicBase> s1;
+
+    static constexpr int __ID__ = -543222491;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestRow : public luban::CfgBean 
+{
+    static bool deserializeTestRow(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestRow>& _out);
+
+    virtual ~TestRow() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 x;
+    bool y;
+    ::luban::String z;
+    ::luban::SharedPtr<test::Test3> a;
+    ::luban::Vector<::luban::int32> b;
+
+    static constexpr int __ID__ = -543222164;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestScriptableObject : public luban::CfgBean 
+{
+    static bool deserializeTestScriptableObject(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestScriptableObject>& _out);
+
+    virtual ~TestScriptableObject() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String desc;
+    ::luban::float32 rate;
+    ::luban::int32 num;
+    ::luban::SharedPtr<vec2> v2;
+    ::luban::SharedPtr<vec3> v3;
+    ::luban::SharedPtr<vec4> v4;
+
+    static constexpr int __ID__ = -1896814350;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestSet : public luban::CfgBean 
+{
+    static bool deserializeTestSet(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestSet>& _out);
+
+    virtual ~TestSet() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String x0;
+    ::luban::Vector<::luban::int32> x1;
+    ::luban::Vector<::luban::int64> x2;
+    ::luban::Vector<::luban::String> x3;
+    ::luban::Vector<test::DemoEnum> x4;
+
+    static constexpr int __ID__ = -543221516;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestSize : public luban::CfgBean 
+{
+    static bool deserializeTestSize(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestSize>& _out);
+
+    virtual ~TestSize() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::Array<::luban::int32> x1;
+    ::luban::Vector<::luban::int32> x2;
+    ::luban::HashSet<::luban::int32> x3;
+    ::luban::HashMap<::luban::int32, ::luban::int32> x4;
+
+    static constexpr int __ID__ = 340006319;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestString : public luban::CfgBean 
+{
+    static bool deserializeTestString(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestString>& _out);
+
+    virtual ~TestString() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::String id;
+    ::luban::String s1;
+    ::luban::String s2;
+    ::luban::SharedPtr<test::CompactString> cs1;
+    ::luban::SharedPtr<test::CompactString> cs2;
+
+    static constexpr int __ID__ = 338485823;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+namespace test {
+
+struct TestUeType : public luban::CfgBean 
+{
+    static bool deserializeTestUeType(::luban::ByteBuf& _buf, ::luban::SharedPtr<TestUeType>& _out);
+
+    virtual ~TestUeType() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    bool x1;
+    ::luban::byte x2;
+    ::luban::int16 x3;
+    ::luban::int32 x4;
+    ::luban::int64 x5;
+    ::luban::float32 x6;
+    ::luban::String x10;
+    ::luban::SharedPtr<test::DemoType1> x12;
+    test::ETestUeType x13;
+    ::luban::datetime t1;
+    ::luban::Array<::luban::int32> k1;
+    ::luban::Vector<::luban::int32> k2;
+    ::luban::HashSet<::luban::int32> k5;
+    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
+    ::luban::Vector<::luban::SharedPtr<test::DemoE2>> k9;
+
+    static constexpr int __ID__ = 381013016;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+
+struct vec2 : public luban::CfgBean 
+{
+    static bool deserializevec2(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec2>& _out);
+
+    virtual ~vec2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 x;
+    ::luban::float32 y;
+
+    static constexpr int __ID__ = 3615518;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+
+
+
+
+struct vec3 : public luban::CfgBean 
+{
+    static bool deserializevec3(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec3>& _out);
+
+    virtual ~vec3() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 x;
+    ::luban::float32 y;
+    ::luban::float32 z;
+
+    static constexpr int __ID__ = 3615519;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+
+
+
+
+struct vec4 : public luban::CfgBean 
+{
+    static bool deserializevec4(::luban::ByteBuf& _buf, ::luban::SharedPtr<vec4>& _out);
+
+    virtual ~vec4() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::float32 x;
+    ::luban::float32 y;
+    ::luban::float32 z;
+    ::luban::float32 w;
+
+    static constexpr int __ID__ = 3615520;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+
 
 namespace ai {
 

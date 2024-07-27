@@ -12,71 +12,21 @@
 namespace cfg {
 
 
-bool vec2::deserialize(::luban::ByteBuf& _buf)
+bool ai::BehaviorTree::deserialize(::luban::ByteBuf& _buf)
 {
 
-    if(!_buf.readFloat(x)) return false;
-    if(!_buf.readFloat(y)) return false;
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(name)) return false;
+    if(!_buf.readString(desc)) return false;
+    if(!_buf.readString(blackboardId)) return false;
+    if(!ai::ComposeNode::deserializeComposeNode(_buf, root)) return false;
 
     return true;
 }
 
-bool vec2::deserializevec2(::luban::ByteBuf& _buf, vec2*& _out)
+bool ai::BehaviorTree::deserializeBehaviorTree(::luban::ByteBuf& _buf, ai::BehaviorTree*& _out)
 {
-    _out = LUBAN_NEW(vec2){};
-    return _out->deserialize(_buf);
-}
-
-
-bool vec3::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readFloat(x)) return false;
-    if(!_buf.readFloat(y)) return false;
-    if(!_buf.readFloat(z)) return false;
-
-    return true;
-}
-
-bool vec3::deserializevec3(::luban::ByteBuf& _buf, vec3*& _out)
-{
-    _out = LUBAN_NEW(vec3){};
-    return _out->deserialize(_buf);
-}
-
-
-bool vec4::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readFloat(x)) return false;
-    if(!_buf.readFloat(y)) return false;
-    if(!_buf.readFloat(z)) return false;
-    if(!_buf.readFloat(w)) return false;
-
-    return true;
-}
-
-bool vec4::deserializevec4(::luban::ByteBuf& _buf, vec4*& _out)
-{
-    _out = LUBAN_NEW(vec4){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestExcelBean1::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(x1)) return false;
-    if(!_buf.readString(x2)) return false;
-    if(!_buf.readInt(x3)) return false;
-    if(!_buf.readFloat(x4)) return false;
-
-    return true;
-}
-
-bool test::TestExcelBean1::deserializeTestExcelBean1(::luban::ByteBuf& _buf, test::TestExcelBean1*& _out)
-{
-    _out = LUBAN_NEW(test::TestExcelBean1){};
+    _out = LUBAN_NEW(ai::BehaviorTree);
     return _out->deserialize(_buf);
 }
 
@@ -94,7 +44,7 @@ bool ai::Blackboard::deserialize(::luban::ByteBuf& _buf)
 
 bool ai::Blackboard::deserializeBlackboard(::luban::ByteBuf& _buf, ai::Blackboard*& _out)
 {
-    _out = LUBAN_NEW(ai::Blackboard){};
+    _out = LUBAN_NEW(ai::Blackboard);
     return _out->deserialize(_buf);
 }
 
@@ -105,7 +55,7 @@ bool ai::BlackboardKey::deserialize(::luban::ByteBuf& _buf)
     if(!_buf.readString(name)) return false;
     if(!_buf.readString(desc)) return false;
     if (!_buf.readBool(isStatic)) return false;
-    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; type = ai::EKeyType(__enum_temp__); }
+    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; keyType = ai::EKeyType(__enum_temp__); }
     if(!_buf.readString(typeClassName)) return false;
 
     return true;
@@ -113,26 +63,182 @@ bool ai::BlackboardKey::deserialize(::luban::ByteBuf& _buf)
 
 bool ai::BlackboardKey::deserializeBlackboardKey(::luban::ByteBuf& _buf, ai::BlackboardKey*& _out)
 {
-    _out = LUBAN_NEW(ai::BlackboardKey){};
+    _out = LUBAN_NEW(ai::BlackboardKey);
     return _out->deserialize(_buf);
 }
 
 
-bool ai::BehaviorTree::deserialize(::luban::ByteBuf& _buf)
+bool ai::KeyData::deserialize(::luban::ByteBuf& _buf)
 {
 
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readString(name)) return false;
-    if(!_buf.readString(desc)) return false;
-    if(!_buf.readString(blackboardId)) return false;
-    if(!ai::ComposeNode::deserializeComposeNode(_buf, root)) return false;
 
     return true;
 }
 
-bool ai::BehaviorTree::deserializeBehaviorTree(::luban::ByteBuf& _buf, ai::BehaviorTree*& _out)
+bool ai::KeyData::deserializeKeyData(::luban::ByteBuf& _buf, ai::KeyData*& _out)
 {
-    _out = LUBAN_NEW(ai::BehaviorTree){};
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case ai::FloatKeyData::__ID__: { _out = LUBAN_NEW(ai::FloatKeyData); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::IntKeyData::__ID__: { _out = LUBAN_NEW(ai::IntKeyData); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::StringKeyData::__ID__: { _out = LUBAN_NEW(ai::StringKeyData); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::BlackboardKeyData::__ID__: { _out = LUBAN_NEW(ai::BlackboardKeyData); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool ai::BlackboardKeyData::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::KeyData::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(value)) return false;
+
+    return true;
+}
+
+bool ai::BlackboardKeyData::deserializeBlackboardKeyData(::luban::ByteBuf& _buf, ai::BlackboardKeyData*& _out)
+{
+    _out = LUBAN_NEW(ai::BlackboardKeyData);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::FloatKeyData::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::KeyData::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readFloat(value)) return false;
+
+    return true;
+}
+
+bool ai::FloatKeyData::deserializeFloatKeyData(::luban::ByteBuf& _buf, ai::FloatKeyData*& _out)
+{
+    _out = LUBAN_NEW(ai::FloatKeyData);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::IntKeyData::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::KeyData::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readInt(value)) return false;
+
+    return true;
+}
+
+bool ai::IntKeyData::deserializeIntKeyData(::luban::ByteBuf& _buf, ai::IntKeyData*& _out)
+{
+    _out = LUBAN_NEW(ai::IntKeyData);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::StringKeyData::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::KeyData::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(value)) return false;
+
+    return true;
+}
+
+bool ai::StringKeyData::deserializeStringKeyData(::luban::ByteBuf& _buf, ai::StringKeyData*& _out)
+{
+    _out = LUBAN_NEW(ai::StringKeyData);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::KeyQueryOperator::deserialize(::luban::ByteBuf& _buf)
+{
+
+
+    return true;
+}
+
+bool ai::KeyQueryOperator::deserializeKeyQueryOperator(::luban::ByteBuf& _buf, ai::KeyQueryOperator*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case ai::IsSet2::__ID__: { _out = LUBAN_NEW(ai::IsSet2); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::IsNotSet::__ID__: { _out = LUBAN_NEW(ai::IsNotSet); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::BinaryOperator::__ID__: { _out = LUBAN_NEW(ai::BinaryOperator); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool ai::BinaryOperator::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::KeyQueryOperator::deserialize(_buf))
+    {
+        return false;
+    }
+
+    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; oper = ai::EOperator(__enum_temp__); }
+    if(!ai::KeyData::deserializeKeyData(_buf, data)) return false;
+
+    return true;
+}
+
+bool ai::BinaryOperator::deserializeBinaryOperator(::luban::ByteBuf& _buf, ai::BinaryOperator*& _out)
+{
+    _out = LUBAN_NEW(ai::BinaryOperator);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::IsNotSet::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::KeyQueryOperator::deserialize(_buf))
+    {
+        return false;
+    }
+
+
+    return true;
+}
+
+bool ai::IsNotSet::deserializeIsNotSet(::luban::ByteBuf& _buf, ai::IsNotSet*& _out)
+{
+    _out = LUBAN_NEW(ai::IsNotSet);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::IsSet2::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::KeyQueryOperator::deserialize(_buf))
+    {
+        return false;
+    }
+
+
+    return true;
+}
+
+bool ai::IsSet2::deserializeIsSet2(::luban::ByteBuf& _buf, ai::IsSet2*& _out)
+{
+    _out = LUBAN_NEW(ai::IsSet2);
     return _out->deserialize(_buf);
 }
 
@@ -152,31 +258,487 @@ bool ai::Node::deserializeNode(::luban::ByteBuf& _buf, ai::Node*& _out)
     if (!_buf.readInt(id)) return false;
     switch (id)
     {
-        case ai::UeSetDefaultFocus::__ID__: { _out = LUBAN_NEW(ai::UeSetDefaultFocus){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::ExecuteTimeStatistic::__ID__: { _out = LUBAN_NEW(ai::ExecuteTimeStatistic){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::ChooseTarget::__ID__: { _out = LUBAN_NEW(ai::ChooseTarget){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::KeepFaceTarget::__ID__: { _out = LUBAN_NEW(ai::KeepFaceTarget){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::GetOwnerPlayer::__ID__: { _out = LUBAN_NEW(ai::GetOwnerPlayer){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UpdateDailyBehaviorProps::__ID__: { _out = LUBAN_NEW(ai::UpdateDailyBehaviorProps){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeLoop::__ID__: { _out = LUBAN_NEW(ai::UeLoop){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeCooldown::__ID__: { _out = LUBAN_NEW(ai::UeCooldown){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeTimeLimit::__ID__: { _out = LUBAN_NEW(ai::UeTimeLimit){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeBlackboard::__ID__: { _out = LUBAN_NEW(ai::UeBlackboard){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeForceSuccess::__ID__: { _out = LUBAN_NEW(ai::UeForceSuccess){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::IsAtLocation::__ID__: { _out = LUBAN_NEW(ai::IsAtLocation){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::DistanceLessThan::__ID__: { _out = LUBAN_NEW(ai::DistanceLessThan){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::Sequence::__ID__: { _out = LUBAN_NEW(ai::Sequence){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::Selector::__ID__: { _out = LUBAN_NEW(ai::Selector){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::SimpleParallel::__ID__: { _out = LUBAN_NEW(ai::SimpleParallel){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeWait::__ID__: { _out = LUBAN_NEW(ai::UeWait){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeWaitBlackboardTime::__ID__: { _out = LUBAN_NEW(ai::UeWaitBlackboardTime){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::MoveToTarget::__ID__: { _out = LUBAN_NEW(ai::MoveToTarget){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::ChooseSkill::__ID__: { _out = LUBAN_NEW(ai::ChooseSkill){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::MoveToRandomLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToRandomLocation){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::MoveToLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToLocation){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::DebugPrint::__ID__: { _out = LUBAN_NEW(ai::DebugPrint){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeSetDefaultFocus::__ID__: { _out = LUBAN_NEW(ai::UeSetDefaultFocus); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::ExecuteTimeStatistic::__ID__: { _out = LUBAN_NEW(ai::ExecuteTimeStatistic); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::ChooseTarget::__ID__: { _out = LUBAN_NEW(ai::ChooseTarget); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::KeepFaceTarget::__ID__: { _out = LUBAN_NEW(ai::KeepFaceTarget); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::GetOwnerPlayer::__ID__: { _out = LUBAN_NEW(ai::GetOwnerPlayer); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UpdateDailyBehaviorProps::__ID__: { _out = LUBAN_NEW(ai::UpdateDailyBehaviorProps); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeLoop::__ID__: { _out = LUBAN_NEW(ai::UeLoop); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeCooldown::__ID__: { _out = LUBAN_NEW(ai::UeCooldown); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeTimeLimit::__ID__: { _out = LUBAN_NEW(ai::UeTimeLimit); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeBlackboard::__ID__: { _out = LUBAN_NEW(ai::UeBlackboard); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeForceSuccess::__ID__: { _out = LUBAN_NEW(ai::UeForceSuccess); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::IsAtLocation::__ID__: { _out = LUBAN_NEW(ai::IsAtLocation); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::DistanceLessThan::__ID__: { _out = LUBAN_NEW(ai::DistanceLessThan); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::Sequence::__ID__: { _out = LUBAN_NEW(ai::Sequence); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::Selector::__ID__: { _out = LUBAN_NEW(ai::Selector); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::SimpleParallel::__ID__: { _out = LUBAN_NEW(ai::SimpleParallel); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeWait::__ID__: { _out = LUBAN_NEW(ai::UeWait); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeWaitBlackboardTime::__ID__: { _out = LUBAN_NEW(ai::UeWaitBlackboardTime); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::MoveToTarget::__ID__: { _out = LUBAN_NEW(ai::MoveToTarget); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::ChooseSkill::__ID__: { _out = LUBAN_NEW(ai::ChooseSkill); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::MoveToRandomLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToRandomLocation); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::MoveToLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToLocation); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::DebugPrint::__ID__: { _out = LUBAN_NEW(ai::DebugPrint); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
         default: { _out = nullptr; return false;}
     }
+}
+
+
+bool ai::Decorator::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Node::deserialize(_buf))
+    {
+        return false;
+    }
+
+    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; flowAbortMode = ai::EFlowAbortMode(__enum_temp__); }
+
+    return true;
+}
+
+bool ai::Decorator::deserializeDecorator(::luban::ByteBuf& _buf, ai::Decorator*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case ai::UeLoop::__ID__: { _out = LUBAN_NEW(ai::UeLoop); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeCooldown::__ID__: { _out = LUBAN_NEW(ai::UeCooldown); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeTimeLimit::__ID__: { _out = LUBAN_NEW(ai::UeTimeLimit); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeBlackboard::__ID__: { _out = LUBAN_NEW(ai::UeBlackboard); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeForceSuccess::__ID__: { _out = LUBAN_NEW(ai::UeForceSuccess); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::IsAtLocation::__ID__: { _out = LUBAN_NEW(ai::IsAtLocation); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::DistanceLessThan::__ID__: { _out = LUBAN_NEW(ai::DistanceLessThan); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool ai::DistanceLessThan::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Decorator::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(actor1Key)) return false;
+    if(!_buf.readString(actor2Key)) return false;
+    if(!_buf.readFloat(distance)) return false;
+    if (!_buf.readBool(reverseResult)) return false;
+
+    return true;
+}
+
+bool ai::DistanceLessThan::deserializeDistanceLessThan(::luban::ByteBuf& _buf, ai::DistanceLessThan*& _out)
+{
+    _out = LUBAN_NEW(ai::DistanceLessThan);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::IsAtLocation::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Decorator::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readFloat(acceptableRadius)) return false;
+    if(!_buf.readString(keyboardKey)) return false;
+    if (!_buf.readBool(inverseCondition)) return false;
+
+    return true;
+}
+
+bool ai::IsAtLocation::deserializeIsAtLocation(::luban::ByteBuf& _buf, ai::IsAtLocation*& _out)
+{
+    _out = LUBAN_NEW(ai::IsAtLocation);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::UeBlackboard::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Decorator::deserialize(_buf))
+    {
+        return false;
+    }
+
+    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; notifyObserver = ai::ENotifyObserverMode(__enum_temp__); }
+    if(!_buf.readString(blackboardKey)) return false;
+    if(!ai::KeyQueryOperator::deserializeKeyQueryOperator(_buf, keyQuery)) return false;
+
+    return true;
+}
+
+bool ai::UeBlackboard::deserializeUeBlackboard(::luban::ByteBuf& _buf, ai::UeBlackboard*& _out)
+{
+    _out = LUBAN_NEW(ai::UeBlackboard);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::UeCooldown::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Decorator::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readFloat(cooldownTime)) return false;
+
+    return true;
+}
+
+bool ai::UeCooldown::deserializeUeCooldown(::luban::ByteBuf& _buf, ai::UeCooldown*& _out)
+{
+    _out = LUBAN_NEW(ai::UeCooldown);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::UeForceSuccess::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Decorator::deserialize(_buf))
+    {
+        return false;
+    }
+
+
+    return true;
+}
+
+bool ai::UeForceSuccess::deserializeUeForceSuccess(::luban::ByteBuf& _buf, ai::UeForceSuccess*& _out)
+{
+    _out = LUBAN_NEW(ai::UeForceSuccess);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::UeLoop::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Decorator::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readInt(numLoops)) return false;
+    if (!_buf.readBool(infiniteLoop)) return false;
+    if(!_buf.readFloat(infiniteLoopTimeoutTime)) return false;
+
+    return true;
+}
+
+bool ai::UeLoop::deserializeUeLoop(::luban::ByteBuf& _buf, ai::UeLoop*& _out)
+{
+    _out = LUBAN_NEW(ai::UeLoop);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::UeTimeLimit::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Decorator::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readFloat(limitTime)) return false;
+
+    return true;
+}
+
+bool ai::UeTimeLimit::deserializeUeTimeLimit(::luban::ByteBuf& _buf, ai::UeTimeLimit*& _out)
+{
+    _out = LUBAN_NEW(ai::UeTimeLimit);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::FlowNode::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Node::deserialize(_buf))
+    {
+        return false;
+    }
+
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); decorators.reserve(n);for(int i = 0 ; i < n ; i++) { ai::Decorator* _e; if(!ai::Decorator::deserializeDecorator(_buf, _e)) return false; decorators.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); services.reserve(n);for(int i = 0 ; i < n ; i++) { ai::Service* _e; if(!ai::Service::deserializeService(_buf, _e)) return false; services.push_back(_e);}}
+
+    return true;
+}
+
+bool ai::FlowNode::deserializeFlowNode(::luban::ByteBuf& _buf, ai::FlowNode*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case ai::Sequence::__ID__: { _out = LUBAN_NEW(ai::Sequence); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::Selector::__ID__: { _out = LUBAN_NEW(ai::Selector); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::SimpleParallel::__ID__: { _out = LUBAN_NEW(ai::SimpleParallel); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeWait::__ID__: { _out = LUBAN_NEW(ai::UeWait); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeWaitBlackboardTime::__ID__: { _out = LUBAN_NEW(ai::UeWaitBlackboardTime); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::MoveToTarget::__ID__: { _out = LUBAN_NEW(ai::MoveToTarget); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::ChooseSkill::__ID__: { _out = LUBAN_NEW(ai::ChooseSkill); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::MoveToRandomLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToRandomLocation); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::MoveToLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToLocation); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::DebugPrint::__ID__: { _out = LUBAN_NEW(ai::DebugPrint); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool ai::ComposeNode::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::FlowNode::deserialize(_buf))
+    {
+        return false;
+    }
+
+
+    return true;
+}
+
+bool ai::ComposeNode::deserializeComposeNode(::luban::ByteBuf& _buf, ai::ComposeNode*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case ai::Sequence::__ID__: { _out = LUBAN_NEW(ai::Sequence); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::Selector::__ID__: { _out = LUBAN_NEW(ai::Selector); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::SimpleParallel::__ID__: { _out = LUBAN_NEW(ai::SimpleParallel); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool ai::Selector::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::ComposeNode::deserialize(_buf))
+    {
+        return false;
+    }
+
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); children.reserve(n);for(int i = 0 ; i < n ; i++) { ai::FlowNode* _e; if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
+
+    return true;
+}
+
+bool ai::Selector::deserializeSelector(::luban::ByteBuf& _buf, ai::Selector*& _out)
+{
+    _out = LUBAN_NEW(ai::Selector);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::Sequence::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::ComposeNode::deserialize(_buf))
+    {
+        return false;
+    }
+
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); children.reserve(n);for(int i = 0 ; i < n ; i++) { ai::FlowNode* _e; if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
+
+    return true;
+}
+
+bool ai::Sequence::deserializeSequence(::luban::ByteBuf& _buf, ai::Sequence*& _out)
+{
+    _out = LUBAN_NEW(ai::Sequence);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::SimpleParallel::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::ComposeNode::deserialize(_buf))
+    {
+        return false;
+    }
+
+    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; finishMode = ai::EFinishMode(__enum_temp__); }
+    if(!ai::Task::deserializeTask(_buf, mainTask)) return false;
+    if(!ai::FlowNode::deserializeFlowNode(_buf, backgroundNode)) return false;
+
+    return true;
+}
+
+bool ai::SimpleParallel::deserializeSimpleParallel(::luban::ByteBuf& _buf, ai::SimpleParallel*& _out)
+{
+    _out = LUBAN_NEW(ai::SimpleParallel);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::Task::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::FlowNode::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if (!_buf.readBool(ignoreRestartSelf)) return false;
+
+    return true;
+}
+
+bool ai::Task::deserializeTask(::luban::ByteBuf& _buf, ai::Task*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case ai::UeWait::__ID__: { _out = LUBAN_NEW(ai::UeWait); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeWaitBlackboardTime::__ID__: { _out = LUBAN_NEW(ai::UeWaitBlackboardTime); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::MoveToTarget::__ID__: { _out = LUBAN_NEW(ai::MoveToTarget); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::ChooseSkill::__ID__: { _out = LUBAN_NEW(ai::ChooseSkill); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::MoveToRandomLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToRandomLocation); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::MoveToLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToLocation); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::DebugPrint::__ID__: { _out = LUBAN_NEW(ai::DebugPrint); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool ai::ChooseSkill::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Task::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(targetActorKey)) return false;
+    if(!_buf.readString(resultSkillIdKey)) return false;
+
+    return true;
+}
+
+bool ai::ChooseSkill::deserializeChooseSkill(::luban::ByteBuf& _buf, ai::ChooseSkill*& _out)
+{
+    _out = LUBAN_NEW(ai::ChooseSkill);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::DebugPrint::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Task::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(text)) return false;
+
+    return true;
+}
+
+bool ai::DebugPrint::deserializeDebugPrint(::luban::ByteBuf& _buf, ai::DebugPrint*& _out)
+{
+    _out = LUBAN_NEW(ai::DebugPrint);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::MoveToLocation::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Task::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readFloat(acceptableRadius)) return false;
+
+    return true;
+}
+
+bool ai::MoveToLocation::deserializeMoveToLocation(::luban::ByteBuf& _buf, ai::MoveToLocation*& _out)
+{
+    _out = LUBAN_NEW(ai::MoveToLocation);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::MoveToRandomLocation::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Task::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(originPositionKey)) return false;
+    if(!_buf.readFloat(radius)) return false;
+
+    return true;
+}
+
+bool ai::MoveToRandomLocation::deserializeMoveToRandomLocation(::luban::ByteBuf& _buf, ai::MoveToRandomLocation*& _out)
+{
+    _out = LUBAN_NEW(ai::MoveToRandomLocation);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::MoveToTarget::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Task::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(targetActorKey)) return false;
+    if(!_buf.readFloat(acceptableRadius)) return false;
+
+    return true;
+}
+
+bool ai::MoveToTarget::deserializeMoveToTarget(::luban::ByteBuf& _buf, ai::MoveToTarget*& _out)
+{
+    _out = LUBAN_NEW(ai::MoveToTarget);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::UeWait::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Task::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readFloat(waitTime)) return false;
+    if(!_buf.readFloat(randomDeviation)) return false;
+
+    return true;
+}
+
+bool ai::UeWait::deserializeUeWait(::luban::ByteBuf& _buf, ai::UeWait*& _out)
+{
+    _out = LUBAN_NEW(ai::UeWait);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::UeWaitBlackboardTime::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Task::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(blackboardKey)) return false;
+
+    return true;
+}
+
+bool ai::UeWaitBlackboardTime::deserializeUeWaitBlackboardTime(::luban::ByteBuf& _buf, ai::UeWaitBlackboardTime*& _out)
+{
+    _out = LUBAN_NEW(ai::UeWaitBlackboardTime);
+    return _out->deserialize(_buf);
 }
 
 
@@ -197,51 +759,14 @@ bool ai::Service::deserializeService(::luban::ByteBuf& _buf, ai::Service*& _out)
     if (!_buf.readInt(id)) return false;
     switch (id)
     {
-        case ai::UeSetDefaultFocus::__ID__: { _out = LUBAN_NEW(ai::UeSetDefaultFocus){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::ExecuteTimeStatistic::__ID__: { _out = LUBAN_NEW(ai::ExecuteTimeStatistic){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::ChooseTarget::__ID__: { _out = LUBAN_NEW(ai::ChooseTarget){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::KeepFaceTarget::__ID__: { _out = LUBAN_NEW(ai::KeepFaceTarget){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::GetOwnerPlayer::__ID__: { _out = LUBAN_NEW(ai::GetOwnerPlayer){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UpdateDailyBehaviorProps::__ID__: { _out = LUBAN_NEW(ai::UpdateDailyBehaviorProps){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UeSetDefaultFocus::__ID__: { _out = LUBAN_NEW(ai::UeSetDefaultFocus); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::ExecuteTimeStatistic::__ID__: { _out = LUBAN_NEW(ai::ExecuteTimeStatistic); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::ChooseTarget::__ID__: { _out = LUBAN_NEW(ai::ChooseTarget); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::KeepFaceTarget::__ID__: { _out = LUBAN_NEW(ai::KeepFaceTarget); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::GetOwnerPlayer::__ID__: { _out = LUBAN_NEW(ai::GetOwnerPlayer); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case ai::UpdateDailyBehaviorProps::__ID__: { _out = LUBAN_NEW(ai::UpdateDailyBehaviorProps); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
         default: { _out = nullptr; return false;}
     }
-}
-
-
-bool ai::UeSetDefaultFocus::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Service::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readString(keyboardKey)) return false;
-
-    return true;
-}
-
-bool ai::UeSetDefaultFocus::deserializeUeSetDefaultFocus(::luban::ByteBuf& _buf, ai::UeSetDefaultFocus*& _out)
-{
-    _out = LUBAN_NEW(ai::UeSetDefaultFocus){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::ExecuteTimeStatistic::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Service::deserialize(_buf))
-    {
-        return false;
-    }
-
-
-    return true;
-}
-
-bool ai::ExecuteTimeStatistic::deserializeExecuteTimeStatistic(::luban::ByteBuf& _buf, ai::ExecuteTimeStatistic*& _out)
-{
-    _out = LUBAN_NEW(ai::ExecuteTimeStatistic){};
-    return _out->deserialize(_buf);
 }
 
 
@@ -259,26 +784,25 @@ bool ai::ChooseTarget::deserialize(::luban::ByteBuf& _buf)
 
 bool ai::ChooseTarget::deserializeChooseTarget(::luban::ByteBuf& _buf, ai::ChooseTarget*& _out)
 {
-    _out = LUBAN_NEW(ai::ChooseTarget){};
+    _out = LUBAN_NEW(ai::ChooseTarget);
     return _out->deserialize(_buf);
 }
 
 
-bool ai::KeepFaceTarget::deserialize(::luban::ByteBuf& _buf)
+bool ai::ExecuteTimeStatistic::deserialize(::luban::ByteBuf& _buf)
 {
     if (!ai::Service::deserialize(_buf))
     {
         return false;
     }
 
-    if(!_buf.readString(targetActorKey)) return false;
 
     return true;
 }
 
-bool ai::KeepFaceTarget::deserializeKeepFaceTarget(::luban::ByteBuf& _buf, ai::KeepFaceTarget*& _out)
+bool ai::ExecuteTimeStatistic::deserializeExecuteTimeStatistic(::luban::ByteBuf& _buf, ai::ExecuteTimeStatistic*& _out)
 {
-    _out = LUBAN_NEW(ai::KeepFaceTarget){};
+    _out = LUBAN_NEW(ai::ExecuteTimeStatistic);
     return _out->deserialize(_buf);
 }
 
@@ -297,7 +821,45 @@ bool ai::GetOwnerPlayer::deserialize(::luban::ByteBuf& _buf)
 
 bool ai::GetOwnerPlayer::deserializeGetOwnerPlayer(::luban::ByteBuf& _buf, ai::GetOwnerPlayer*& _out)
 {
-    _out = LUBAN_NEW(ai::GetOwnerPlayer){};
+    _out = LUBAN_NEW(ai::GetOwnerPlayer);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::KeepFaceTarget::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Service::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(targetActorKey)) return false;
+
+    return true;
+}
+
+bool ai::KeepFaceTarget::deserializeKeepFaceTarget(::luban::ByteBuf& _buf, ai::KeepFaceTarget*& _out)
+{
+    _out = LUBAN_NEW(ai::KeepFaceTarget);
+    return _out->deserialize(_buf);
+}
+
+
+bool ai::UeSetDefaultFocus::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!ai::Service::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readString(keyboardKey)) return false;
+
+    return true;
+}
+
+bool ai::UeSetDefaultFocus::deserializeUeSetDefaultFocus(::luban::ByteBuf& _buf, ai::UeSetDefaultFocus*& _out)
+{
+    _out = LUBAN_NEW(ai::UeSetDefaultFocus);
     return _out->deserialize(_buf);
 }
 
@@ -324,638 +886,39 @@ bool ai::UpdateDailyBehaviorProps::deserialize(::luban::ByteBuf& _buf)
 
 bool ai::UpdateDailyBehaviorProps::deserializeUpdateDailyBehaviorProps(::luban::ByteBuf& _buf, ai::UpdateDailyBehaviorProps*& _out)
 {
-    _out = LUBAN_NEW(ai::UpdateDailyBehaviorProps){};
+    _out = LUBAN_NEW(ai::UpdateDailyBehaviorProps);
     return _out->deserialize(_buf);
 }
 
 
-bool ai::Decorator::deserialize(::luban::ByteBuf& _buf)
+bool common::DateTimeRange::deserialize(::luban::ByteBuf& _buf)
 {
-    if (!ai::Node::deserialize(_buf))
-    {
-        return false;
-    }
 
-    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; flowAbortMode = ai::EFlowAbortMode(__enum_temp__); }
+    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { startTime = new ::luban::datetime{}; if(!_buf.readLong(*startTime)) return false; } else { startTime = nullptr; } }
+    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { endTime = new ::luban::datetime{}; if(!_buf.readLong(*endTime)) return false; } else { endTime = nullptr; } }
 
     return true;
 }
 
-bool ai::Decorator::deserializeDecorator(::luban::ByteBuf& _buf, ai::Decorator*& _out)
+bool common::DateTimeRange::deserializeDateTimeRange(::luban::ByteBuf& _buf, common::DateTimeRange*& _out)
 {
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case ai::UeLoop::__ID__: { _out = LUBAN_NEW(ai::UeLoop){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeCooldown::__ID__: { _out = LUBAN_NEW(ai::UeCooldown){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeTimeLimit::__ID__: { _out = LUBAN_NEW(ai::UeTimeLimit){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeBlackboard::__ID__: { _out = LUBAN_NEW(ai::UeBlackboard){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeForceSuccess::__ID__: { _out = LUBAN_NEW(ai::UeForceSuccess){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::IsAtLocation::__ID__: { _out = LUBAN_NEW(ai::IsAtLocation){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::DistanceLessThan::__ID__: { _out = LUBAN_NEW(ai::DistanceLessThan){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool ai::UeLoop::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Decorator::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readInt(numLoops)) return false;
-    if (!_buf.readBool(infiniteLoop)) return false;
-    if(!_buf.readFloat(infiniteLoopTimeoutTime)) return false;
-
-    return true;
-}
-
-bool ai::UeLoop::deserializeUeLoop(::luban::ByteBuf& _buf, ai::UeLoop*& _out)
-{
-    _out = LUBAN_NEW(ai::UeLoop){};
+    _out = LUBAN_NEW(common::DateTimeRange);
     return _out->deserialize(_buf);
 }
 
 
-bool ai::UeCooldown::deserialize(::luban::ByteBuf& _buf)
+bool common::FloatRange::deserialize(::luban::ByteBuf& _buf)
 {
-    if (!ai::Decorator::deserialize(_buf))
-    {
-        return false;
-    }
 
-    if(!_buf.readFloat(cooldownTime)) return false;
+    if(!_buf.readFloat(min)) return false;
+    if(!_buf.readFloat(max)) return false;
 
     return true;
 }
 
-bool ai::UeCooldown::deserializeUeCooldown(::luban::ByteBuf& _buf, ai::UeCooldown*& _out)
+bool common::FloatRange::deserializeFloatRange(::luban::ByteBuf& _buf, common::FloatRange*& _out)
 {
-    _out = LUBAN_NEW(ai::UeCooldown){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::UeTimeLimit::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Decorator::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readFloat(limitTime)) return false;
-
-    return true;
-}
-
-bool ai::UeTimeLimit::deserializeUeTimeLimit(::luban::ByteBuf& _buf, ai::UeTimeLimit*& _out)
-{
-    _out = LUBAN_NEW(ai::UeTimeLimit){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::UeBlackboard::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Decorator::deserialize(_buf))
-    {
-        return false;
-    }
-
-    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; notifyObserver = ai::ENotifyObserverMode(__enum_temp__); }
-    if(!_buf.readString(blackboardKey)) return false;
-    if(!ai::KeyQueryOperator::deserializeKeyQueryOperator(_buf, keyQuery)) return false;
-
-    return true;
-}
-
-bool ai::UeBlackboard::deserializeUeBlackboard(::luban::ByteBuf& _buf, ai::UeBlackboard*& _out)
-{
-    _out = LUBAN_NEW(ai::UeBlackboard){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::KeyQueryOperator::deserialize(::luban::ByteBuf& _buf)
-{
-
-
-    return true;
-}
-
-bool ai::KeyQueryOperator::deserializeKeyQueryOperator(::luban::ByteBuf& _buf, ai::KeyQueryOperator*& _out)
-{
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case ai::IsSet2::__ID__: { _out = LUBAN_NEW(ai::IsSet2){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::IsNotSet::__ID__: { _out = LUBAN_NEW(ai::IsNotSet){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::BinaryOperator::__ID__: { _out = LUBAN_NEW(ai::BinaryOperator){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool ai::IsSet2::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::KeyQueryOperator::deserialize(_buf))
-    {
-        return false;
-    }
-
-
-    return true;
-}
-
-bool ai::IsSet2::deserializeIsSet2(::luban::ByteBuf& _buf, ai::IsSet2*& _out)
-{
-    _out = LUBAN_NEW(ai::IsSet2){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::IsNotSet::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::KeyQueryOperator::deserialize(_buf))
-    {
-        return false;
-    }
-
-
-    return true;
-}
-
-bool ai::IsNotSet::deserializeIsNotSet(::luban::ByteBuf& _buf, ai::IsNotSet*& _out)
-{
-    _out = LUBAN_NEW(ai::IsNotSet){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::BinaryOperator::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::KeyQueryOperator::deserialize(_buf))
-    {
-        return false;
-    }
-
-    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; oper = ai::EOperator(__enum_temp__); }
-    if(!ai::KeyData::deserializeKeyData(_buf, data)) return false;
-
-    return true;
-}
-
-bool ai::BinaryOperator::deserializeBinaryOperator(::luban::ByteBuf& _buf, ai::BinaryOperator*& _out)
-{
-    _out = LUBAN_NEW(ai::BinaryOperator){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::KeyData::deserialize(::luban::ByteBuf& _buf)
-{
-
-
-    return true;
-}
-
-bool ai::KeyData::deserializeKeyData(::luban::ByteBuf& _buf, ai::KeyData*& _out)
-{
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case ai::FloatKeyData::__ID__: { _out = LUBAN_NEW(ai::FloatKeyData){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::IntKeyData::__ID__: { _out = LUBAN_NEW(ai::IntKeyData){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::StringKeyData::__ID__: { _out = LUBAN_NEW(ai::StringKeyData){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::BlackboardKeyData::__ID__: { _out = LUBAN_NEW(ai::BlackboardKeyData){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool ai::FloatKeyData::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::KeyData::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readFloat(value)) return false;
-
-    return true;
-}
-
-bool ai::FloatKeyData::deserializeFloatKeyData(::luban::ByteBuf& _buf, ai::FloatKeyData*& _out)
-{
-    _out = LUBAN_NEW(ai::FloatKeyData){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::IntKeyData::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::KeyData::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readInt(value)) return false;
-
-    return true;
-}
-
-bool ai::IntKeyData::deserializeIntKeyData(::luban::ByteBuf& _buf, ai::IntKeyData*& _out)
-{
-    _out = LUBAN_NEW(ai::IntKeyData){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::StringKeyData::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::KeyData::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readString(value)) return false;
-
-    return true;
-}
-
-bool ai::StringKeyData::deserializeStringKeyData(::luban::ByteBuf& _buf, ai::StringKeyData*& _out)
-{
-    _out = LUBAN_NEW(ai::StringKeyData){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::BlackboardKeyData::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::KeyData::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readString(value)) return false;
-
-    return true;
-}
-
-bool ai::BlackboardKeyData::deserializeBlackboardKeyData(::luban::ByteBuf& _buf, ai::BlackboardKeyData*& _out)
-{
-    _out = LUBAN_NEW(ai::BlackboardKeyData){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::UeForceSuccess::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Decorator::deserialize(_buf))
-    {
-        return false;
-    }
-
-
-    return true;
-}
-
-bool ai::UeForceSuccess::deserializeUeForceSuccess(::luban::ByteBuf& _buf, ai::UeForceSuccess*& _out)
-{
-    _out = LUBAN_NEW(ai::UeForceSuccess){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::IsAtLocation::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Decorator::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readFloat(acceptableRadius)) return false;
-    if(!_buf.readString(keyboardKey)) return false;
-    if (!_buf.readBool(inverseCondition)) return false;
-
-    return true;
-}
-
-bool ai::IsAtLocation::deserializeIsAtLocation(::luban::ByteBuf& _buf, ai::IsAtLocation*& _out)
-{
-    _out = LUBAN_NEW(ai::IsAtLocation){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::DistanceLessThan::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Decorator::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readString(actor1Key)) return false;
-    if(!_buf.readString(actor2Key)) return false;
-    if(!_buf.readFloat(distance)) return false;
-    if (!_buf.readBool(reverseResult)) return false;
-
-    return true;
-}
-
-bool ai::DistanceLessThan::deserializeDistanceLessThan(::luban::ByteBuf& _buf, ai::DistanceLessThan*& _out)
-{
-    _out = LUBAN_NEW(ai::DistanceLessThan){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::FlowNode::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Node::deserialize(_buf))
-    {
-        return false;
-    }
-
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); decorators.reserve(n);for(int i = 0 ; i < n ; i++) { ai::Decorator* _e; if(!ai::Decorator::deserializeDecorator(_buf, _e)) return false; decorators.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); services.reserve(n);for(int i = 0 ; i < n ; i++) { ai::Service* _e; if(!ai::Service::deserializeService(_buf, _e)) return false; services.push_back(_e);}}
-
-    return true;
-}
-
-bool ai::FlowNode::deserializeFlowNode(::luban::ByteBuf& _buf, ai::FlowNode*& _out)
-{
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case ai::Sequence::__ID__: { _out = LUBAN_NEW(ai::Sequence){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::Selector::__ID__: { _out = LUBAN_NEW(ai::Selector){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::SimpleParallel::__ID__: { _out = LUBAN_NEW(ai::SimpleParallel){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeWait::__ID__: { _out = LUBAN_NEW(ai::UeWait){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeWaitBlackboardTime::__ID__: { _out = LUBAN_NEW(ai::UeWaitBlackboardTime){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::MoveToTarget::__ID__: { _out = LUBAN_NEW(ai::MoveToTarget){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::ChooseSkill::__ID__: { _out = LUBAN_NEW(ai::ChooseSkill){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::MoveToRandomLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToRandomLocation){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::MoveToLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToLocation){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::DebugPrint::__ID__: { _out = LUBAN_NEW(ai::DebugPrint){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool ai::ComposeNode::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::FlowNode::deserialize(_buf))
-    {
-        return false;
-    }
-
-
-    return true;
-}
-
-bool ai::ComposeNode::deserializeComposeNode(::luban::ByteBuf& _buf, ai::ComposeNode*& _out)
-{
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case ai::Sequence::__ID__: { _out = LUBAN_NEW(ai::Sequence){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::Selector::__ID__: { _out = LUBAN_NEW(ai::Selector){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::SimpleParallel::__ID__: { _out = LUBAN_NEW(ai::SimpleParallel){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool ai::Sequence::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::ComposeNode::deserialize(_buf))
-    {
-        return false;
-    }
-
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); children.reserve(n);for(int i = 0 ; i < n ; i++) { ai::FlowNode* _e; if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
-
-    return true;
-}
-
-bool ai::Sequence::deserializeSequence(::luban::ByteBuf& _buf, ai::Sequence*& _out)
-{
-    _out = LUBAN_NEW(ai::Sequence){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::Selector::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::ComposeNode::deserialize(_buf))
-    {
-        return false;
-    }
-
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); children.reserve(n);for(int i = 0 ; i < n ; i++) { ai::FlowNode* _e; if(!ai::FlowNode::deserializeFlowNode(_buf, _e)) return false; children.push_back(_e);}}
-
-    return true;
-}
-
-bool ai::Selector::deserializeSelector(::luban::ByteBuf& _buf, ai::Selector*& _out)
-{
-    _out = LUBAN_NEW(ai::Selector){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::SimpleParallel::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::ComposeNode::deserialize(_buf))
-    {
-        return false;
-    }
-
-    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; finishMode = ai::EFinishMode(__enum_temp__); }
-    if(!ai::Task::deserializeTask(_buf, mainTask)) return false;
-    if(!ai::FlowNode::deserializeFlowNode(_buf, backgroundNode)) return false;
-
-    return true;
-}
-
-bool ai::SimpleParallel::deserializeSimpleParallel(::luban::ByteBuf& _buf, ai::SimpleParallel*& _out)
-{
-    _out = LUBAN_NEW(ai::SimpleParallel){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::Task::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::FlowNode::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if (!_buf.readBool(ignoreRestartSelf)) return false;
-
-    return true;
-}
-
-bool ai::Task::deserializeTask(::luban::ByteBuf& _buf, ai::Task*& _out)
-{
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case ai::UeWait::__ID__: { _out = LUBAN_NEW(ai::UeWait){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::UeWaitBlackboardTime::__ID__: { _out = LUBAN_NEW(ai::UeWaitBlackboardTime){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::MoveToTarget::__ID__: { _out = LUBAN_NEW(ai::MoveToTarget){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::ChooseSkill::__ID__: { _out = LUBAN_NEW(ai::ChooseSkill){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::MoveToRandomLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToRandomLocation){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::MoveToLocation::__ID__: { _out = LUBAN_NEW(ai::MoveToLocation){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case ai::DebugPrint::__ID__: { _out = LUBAN_NEW(ai::DebugPrint){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool ai::UeWait::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Task::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readFloat(waitTime)) return false;
-    if(!_buf.readFloat(randomDeviation)) return false;
-
-    return true;
-}
-
-bool ai::UeWait::deserializeUeWait(::luban::ByteBuf& _buf, ai::UeWait*& _out)
-{
-    _out = LUBAN_NEW(ai::UeWait){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::UeWaitBlackboardTime::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Task::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readString(blackboardKey)) return false;
-
-    return true;
-}
-
-bool ai::UeWaitBlackboardTime::deserializeUeWaitBlackboardTime(::luban::ByteBuf& _buf, ai::UeWaitBlackboardTime*& _out)
-{
-    _out = LUBAN_NEW(ai::UeWaitBlackboardTime){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::MoveToTarget::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Task::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readString(targetActorKey)) return false;
-    if(!_buf.readFloat(acceptableRadius)) return false;
-
-    return true;
-}
-
-bool ai::MoveToTarget::deserializeMoveToTarget(::luban::ByteBuf& _buf, ai::MoveToTarget*& _out)
-{
-    _out = LUBAN_NEW(ai::MoveToTarget){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::ChooseSkill::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Task::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readString(targetActorKey)) return false;
-    if(!_buf.readString(resultSkillIdKey)) return false;
-
-    return true;
-}
-
-bool ai::ChooseSkill::deserializeChooseSkill(::luban::ByteBuf& _buf, ai::ChooseSkill*& _out)
-{
-    _out = LUBAN_NEW(ai::ChooseSkill){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::MoveToRandomLocation::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Task::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readString(originPositionKey)) return false;
-    if(!_buf.readFloat(radius)) return false;
-
-    return true;
-}
-
-bool ai::MoveToRandomLocation::deserializeMoveToRandomLocation(::luban::ByteBuf& _buf, ai::MoveToRandomLocation*& _out)
-{
-    _out = LUBAN_NEW(ai::MoveToRandomLocation){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::MoveToLocation::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Task::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readFloat(acceptableRadius)) return false;
-
-    return true;
-}
-
-bool ai::MoveToLocation::deserializeMoveToLocation(::luban::ByteBuf& _buf, ai::MoveToLocation*& _out)
-{
-    _out = LUBAN_NEW(ai::MoveToLocation){};
-    return _out->deserialize(_buf);
-}
-
-
-bool ai::DebugPrint::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!ai::Task::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readString(text)) return false;
-
-    return true;
-}
-
-bool ai::DebugPrint::deserializeDebugPrint(::luban::ByteBuf& _buf, ai::DebugPrint*& _out)
-{
-    _out = LUBAN_NEW(ai::DebugPrint){};
+    _out = LUBAN_NEW(common::FloatRange);
     return _out->deserialize(_buf);
 }
 
@@ -976,7 +939,89 @@ bool common::GlobalConfig::deserialize(::luban::ByteBuf& _buf)
 
 bool common::GlobalConfig::deserializeGlobalConfig(::luban::ByteBuf& _buf, common::GlobalConfig*& _out)
 {
-    _out = LUBAN_NEW(common::GlobalConfig){};
+    _out = LUBAN_NEW(common::GlobalConfig);
+    return _out->deserialize(_buf);
+}
+
+
+bool common::IntRange::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(min)) return false;
+    if(!_buf.readInt(max)) return false;
+
+    return true;
+}
+
+bool common::IntRange::deserializeIntRange(::luban::ByteBuf& _buf, common::IntRange*& _out)
+{
+    _out = LUBAN_NEW(common::IntRange);
+    return _out->deserialize(_buf);
+}
+
+
+bool common::OneDayTimeRange::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!common::TimeOfDay::deserializeTimeOfDay(_buf, startTime)) return false;
+    if(!common::TimeOfDay::deserializeTimeOfDay(_buf, endTime)) return false;
+
+    return true;
+}
+
+bool common::OneDayTimeRange::deserializeOneDayTimeRange(::luban::ByteBuf& _buf, common::OneDayTimeRange*& _out)
+{
+    _out = LUBAN_NEW(common::OneDayTimeRange);
+    return _out->deserialize(_buf);
+}
+
+
+bool common::TimeOfDay::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(hour)) return false;
+    if(!_buf.readInt(minute)) return false;
+    if(!_buf.readInt(second)) return false;
+
+    return true;
+}
+
+bool common::TimeOfDay::deserializeTimeOfDay(::luban::ByteBuf& _buf, common::TimeOfDay*& _out)
+{
+    _out = LUBAN_NEW(common::TimeOfDay);
+    return _out->deserialize(_buf);
+}
+
+
+bool DefineFromExcel2::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if (!_buf.readBool(x1)) return false;
+    if(!_buf.readLong(x5)) return false;
+    if(!_buf.readFloat(x6)) return false;
+    if(!_buf.readInt(x8)) return false;
+    if(!_buf.readString(x10)) return false;
+    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; x13 = test::DemoEnum(__enum_temp__); }
+    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; x132 = test::DemoFlag(__enum_temp__); }
+    if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x14)) return false;
+    if(!test::Shape::deserializeShape(_buf, x15)) return false;
+    if(!vec2::deserializevec2(_buf, v2)) return false;
+    if(!_buf.readLong(t1)) return false;
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k1.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; k1.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; k2.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); k8.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; k8[_k] = _v;}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k9.reserve(n);for(int i = 0 ; i < n ; i++) { test::DemoE2* _e; if(!test::DemoE2::deserializeDemoE2(_buf, _e)) return false; k9.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k10.reserve(n);for(int i = 0 ; i < n ; i++) { vec3* _e; if(!vec3::deserializevec3(_buf, _e)) return false; k10.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); k11.reserve(n);for(int i = 0 ; i < n ; i++) { vec4* _e; if(!vec4::deserializevec4(_buf, _e)) return false; k11.push_back(_e);}}
+    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { v11 = nullptr; if(!vec3::deserializevec3(_buf, v11)) return false; } else { v11 = nullptr; } }
+
+    return true;
+}
+
+bool DefineFromExcel2::deserializeDefineFromExcel2(::luban::ByteBuf& _buf, DefineFromExcel2*& _out)
+{
+    _out = LUBAN_NEW(DefineFromExcel2);
     return _out->deserialize(_buf);
 }
 
@@ -1001,7 +1046,7 @@ bool item::Item::deserialize(::luban::ByteBuf& _buf)
 
 bool item::Item::deserializeItem(::luban::ByteBuf& _buf, item::Item*& _out)
 {
-    _out = LUBAN_NEW(item::Item){};
+    _out = LUBAN_NEW(item::Item);
     return _out->deserialize(_buf);
 }
 
@@ -1017,7 +1062,7 @@ bool l10n::L10NDemo::deserialize(::luban::ByteBuf& _buf)
 
 bool l10n::L10NDemo::deserializeL10NDemo(::luban::ByteBuf& _buf, l10n::L10NDemo*& _out)
 {
-    _out = LUBAN_NEW(l10n::L10NDemo){};
+    _out = LUBAN_NEW(l10n::L10NDemo);
     return _out->deserialize(_buf);
 }
 
@@ -1033,7 +1078,7 @@ bool l10n::PatchDemo::deserialize(::luban::ByteBuf& _buf)
 
 bool l10n::PatchDemo::deserializePatchDemo(::luban::ByteBuf& _buf, l10n::PatchDemo*& _out)
 {
-    _out = LUBAN_NEW(l10n::PatchDemo){};
+    _out = LUBAN_NEW(l10n::PatchDemo);
     return _out->deserialize(_buf);
 }
 
@@ -1049,7 +1094,328 @@ bool tag::TestTag::deserialize(::luban::ByteBuf& _buf)
 
 bool tag::TestTag::deserializeTestTag(::luban::ByteBuf& _buf, tag::TestTag*& _out)
 {
-    _out = LUBAN_NEW(tag::TestTag){};
+    _out = LUBAN_NEW(tag::TestTag);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::CompactString::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(s2)) return false;
+    if(!_buf.readString(s3)) return false;
+
+    return true;
+}
+
+bool test::CompactString::deserializeCompactString(::luban::ByteBuf& _buf, test::CompactString*& _out)
+{
+    _out = LUBAN_NEW(test::CompactString);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::CompositeJsonTable1::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(x)) return false;
+
+    return true;
+}
+
+bool test::CompositeJsonTable1::deserializeCompositeJsonTable1(::luban::ByteBuf& _buf, test::CompositeJsonTable1*& _out)
+{
+    _out = LUBAN_NEW(test::CompositeJsonTable1);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::CompositeJsonTable2::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readInt(y)) return false;
+
+    return true;
+}
+
+bool test::CompositeJsonTable2::deserializeCompositeJsonTable2(::luban::ByteBuf& _buf, test::CompositeJsonTable2*& _out)
+{
+    _out = LUBAN_NEW(test::CompositeJsonTable2);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::CompositeJsonTable3::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(a)) return false;
+    if(!_buf.readInt(b)) return false;
+
+    return true;
+}
+
+bool test::CompositeJsonTable3::deserializeCompositeJsonTable3(::luban::ByteBuf& _buf, test::CompositeJsonTable3*& _out)
+{
+    _out = LUBAN_NEW(test::CompositeJsonTable3);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DateTimeRange::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readLong(startTime)) return false;
+    if(!_buf.readLong(endTime)) return false;
+
+    return true;
+}
+
+bool test::DateTimeRange::deserializeDateTimeRange(::luban::ByteBuf& _buf, test::DateTimeRange*& _out)
+{
+    _out = LUBAN_NEW(test::DateTimeRange);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DemoDynamic::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(x1)) return false;
+
+    return true;
+}
+
+bool test::DemoDynamic::deserializeDemoDynamic(::luban::ByteBuf& _buf, test::DemoDynamic*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case test::DemoD2::__ID__: { _out = LUBAN_NEW(test::DemoD2); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case test::DemoE1::__ID__: { _out = LUBAN_NEW(test::DemoE1); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case test::login::RoleInfo::__ID__: { _out = LUBAN_NEW(test::login::RoleInfo); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case test::DemoD5::__ID__: { _out = LUBAN_NEW(test::DemoD5); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool test::DemoD2::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::DemoDynamic::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readInt(x2)) return false;
+
+    return true;
+}
+
+bool test::DemoD2::deserializeDemoD2(::luban::ByteBuf& _buf, test::DemoD2*& _out)
+{
+    _out = LUBAN_NEW(test::DemoD2);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DemoD3::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::DemoDynamic::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readInt(x3)) return false;
+
+    return true;
+}
+
+bool test::DemoD3::deserializeDemoD3(::luban::ByteBuf& _buf, test::DemoD3*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case test::DemoE1::__ID__: { _out = LUBAN_NEW(test::DemoE1); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case test::login::RoleInfo::__ID__: { _out = LUBAN_NEW(test::login::RoleInfo); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool test::DemoE1::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::DemoD3::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readInt(x4)) return false;
+
+    return true;
+}
+
+bool test::DemoE1::deserializeDemoE1(::luban::ByteBuf& _buf, test::DemoE1*& _out)
+{
+    _out = LUBAN_NEW(test::DemoE1);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::login::RoleInfo::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::DemoD3::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readLong(roleId)) return false;
+
+    return true;
+}
+
+bool test::login::RoleInfo::deserializeRoleInfo(::luban::ByteBuf& _buf, test::login::RoleInfo*& _out)
+{
+    _out = LUBAN_NEW(test::login::RoleInfo);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DemoD5::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::DemoDynamic::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!test::DateTimeRange::deserializeDateTimeRange(_buf, time)) return false;
+
+    return true;
+}
+
+bool test::DemoD5::deserializeDemoD5(::luban::ByteBuf& _buf, test::DemoD5*& _out)
+{
+    _out = LUBAN_NEW(test::DemoD5);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DemoE2::deserialize(::luban::ByteBuf& _buf)
+{
+
+    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { y1 = new ::luban::int32{}; if(!_buf.readInt(*y1)) return false; } else { y1 = nullptr; } }
+    if (!_buf.readBool(y2)) return false;
+
+    return true;
+}
+
+bool test::DemoE2::deserializeDemoE2(::luban::ByteBuf& _buf, test::DemoE2*& _out)
+{
+    _out = LUBAN_NEW(test::DemoE2);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DemoExplicitType::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readByte(x1)) return false;
+    if(!_buf.readShort(x2)) return false;
+    if(!_buf.readInt(x3)) return false;
+    if(!_buf.readLong(x4)) return false;
+    if(!_buf.readFloat(x5)) return false;
+    if(!_buf.readDouble(x6)) return false;
+    if(!_buf.readLong(x7)) return false;
+
+    return true;
+}
+
+bool test::DemoExplicitType::deserializeDemoExplicitType(::luban::ByteBuf& _buf, test::DemoExplicitType*& _out)
+{
+    _out = LUBAN_NEW(test::DemoExplicitType);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DemoGroup::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readInt(x1)) return false;
+    if(!_buf.readInt(x2)) return false;
+    if(!_buf.readInt(x3)) return false;
+    if(!_buf.readInt(x4)) return false;
+    if(!test::InnerGroup::deserializeInnerGroup(_buf, x5)) return false;
+
+    return true;
+}
+
+bool test::DemoGroup::deserializeDemoGroup(::luban::ByteBuf& _buf, test::DemoGroup*& _out)
+{
+    _out = LUBAN_NEW(test::DemoGroup);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DemoPrimitiveTypesTable::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if (!_buf.readBool(x1)) return false;
+    if(!_buf.readByte(x2)) return false;
+    if(!_buf.readShort(x3)) return false;
+    if(!_buf.readInt(x4)) return false;
+    if(!_buf.readLong(x5)) return false;
+    if(!_buf.readFloat(x6)) return false;
+    if(!_buf.readDouble(x7)) return false;
+    if(!_buf.readString(s1)) return false;
+    if(!_buf.readString(s2)) return false;
+    if(!vec2::deserializevec2(_buf, v2)) return false;
+    if(!vec3::deserializevec3(_buf, v3)) return false;
+    if(!vec4::deserializevec4(_buf, v4)) return false;
+    if(!_buf.readLong(t1)) return false;
+
+    return true;
+}
+
+bool test::DemoPrimitiveTypesTable::deserializeDemoPrimitiveTypesTable(::luban::ByteBuf& _buf, test::DemoPrimitiveTypesTable*& _out)
+{
+    _out = LUBAN_NEW(test::DemoPrimitiveTypesTable);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DemoSingletonType::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(name)) return false;
+    if(!test::DemoDynamic::deserializeDemoDynamic(_buf, date)) return false;
+
+    return true;
+}
+
+bool test::DemoSingletonType::deserializeDemoSingletonType(::luban::ByteBuf& _buf, test::DemoSingletonType*& _out)
+{
+    _out = LUBAN_NEW(test::DemoSingletonType);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::DemoType1::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(x1)) return false;
+
+    return true;
+}
+
+bool test::DemoType1::deserializeDemoType1(::luban::ByteBuf& _buf, test::DemoType1*& _out)
+{
+    _out = LUBAN_NEW(test::DemoType1);
     return _out->deserialize(_buf);
 }
 
@@ -1085,676 +1451,7 @@ bool test::DemoType2::deserialize(::luban::ByteBuf& _buf)
 
 bool test::DemoType2::deserializeDemoType2(::luban::ByteBuf& _buf, test::DemoType2*& _out)
 {
-    _out = LUBAN_NEW(test::DemoType2){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::DemoType1::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(x1)) return false;
-
-    return true;
-}
-
-bool test::DemoType1::deserializeDemoType1(::luban::ByteBuf& _buf, test::DemoType1*& _out)
-{
-    _out = LUBAN_NEW(test::DemoType1){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::DemoDynamic::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(x1)) return false;
-
-    return true;
-}
-
-bool test::DemoDynamic::deserializeDemoDynamic(::luban::ByteBuf& _buf, test::DemoDynamic*& _out)
-{
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case test::DemoD2::__ID__: { _out = LUBAN_NEW(test::DemoD2){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case test::DemoE1::__ID__: { _out = LUBAN_NEW(test::DemoE1){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case test::login::RoleInfo::__ID__: { _out = LUBAN_NEW(test::login::RoleInfo){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case test::DemoD5::__ID__: { _out = LUBAN_NEW(test::DemoD5){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool test::DemoD2::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!test::DemoDynamic::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readInt(x2)) return false;
-
-    return true;
-}
-
-bool test::DemoD2::deserializeDemoD2(::luban::ByteBuf& _buf, test::DemoD2*& _out)
-{
-    _out = LUBAN_NEW(test::DemoD2){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::DemoD3::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!test::DemoDynamic::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readInt(x3)) return false;
-
-    return true;
-}
-
-bool test::DemoD3::deserializeDemoD3(::luban::ByteBuf& _buf, test::DemoD3*& _out)
-{
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case test::DemoE1::__ID__: { _out = LUBAN_NEW(test::DemoE1){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case test::login::RoleInfo::__ID__: { _out = LUBAN_NEW(test::login::RoleInfo){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool test::DemoE1::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!test::DemoD3::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readInt(x4)) return false;
-
-    return true;
-}
-
-bool test::DemoE1::deserializeDemoE1(::luban::ByteBuf& _buf, test::DemoE1*& _out)
-{
-    _out = LUBAN_NEW(test::DemoE1){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::login::RoleInfo::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!test::DemoD3::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readLong(roleId)) return false;
-
-    return true;
-}
-
-bool test::login::RoleInfo::deserializeRoleInfo(::luban::ByteBuf& _buf, test::login::RoleInfo*& _out)
-{
-    _out = LUBAN_NEW(test::login::RoleInfo){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::DemoD5::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!test::DemoDynamic::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!test::DateTimeRange::deserializeDateTimeRange(_buf, time)) return false;
-
-    return true;
-}
-
-bool test::DemoD5::deserializeDemoD5(::luban::ByteBuf& _buf, test::DemoD5*& _out)
-{
-    _out = LUBAN_NEW(test::DemoD5){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::DateTimeRange::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readLong(startTime)) return false;
-    if(!_buf.readLong(endTime)) return false;
-
-    return true;
-}
-
-bool test::DateTimeRange::deserializeDateTimeRange(::luban::ByteBuf& _buf, test::DateTimeRange*& _out)
-{
-    _out = LUBAN_NEW(test::DateTimeRange){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::DemoE2::deserialize(::luban::ByteBuf& _buf)
-{
-
-    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { y1 = new ::luban::int32{}; if(!_buf.readInt(*y1)) return false; } else { y1 = nullptr; } }
-    if (!_buf.readBool(y2)) return false;
-
-    return true;
-}
-
-bool test::DemoE2::deserializeDemoE2(::luban::ByteBuf& _buf, test::DemoE2*& _out)
-{
-    _out = LUBAN_NEW(test::DemoE2){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::DemoSingletonType::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readString(name)) return false;
-    if(!test::DemoDynamic::deserializeDemoDynamic(_buf, date)) return false;
-
-    return true;
-}
-
-bool test::DemoSingletonType::deserializeDemoSingletonType(::luban::ByteBuf& _buf, test::DemoSingletonType*& _out)
-{
-    _out = LUBAN_NEW(test::DemoSingletonType){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::NotIndexList::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(x)) return false;
-    if(!_buf.readInt(y)) return false;
-
-    return true;
-}
-
-bool test::NotIndexList::deserializeNotIndexList(::luban::ByteBuf& _buf, test::NotIndexList*& _out)
-{
-    _out = LUBAN_NEW(test::NotIndexList){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::MultiUnionIndexList::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id1)) return false;
-    if(!_buf.readLong(id2)) return false;
-    if(!_buf.readString(id3)) return false;
-    if(!_buf.readInt(num)) return false;
-    if(!_buf.readString(desc)) return false;
-
-    return true;
-}
-
-bool test::MultiUnionIndexList::deserializeMultiUnionIndexList(::luban::ByteBuf& _buf, test::MultiUnionIndexList*& _out)
-{
-    _out = LUBAN_NEW(test::MultiUnionIndexList){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::MultiIndexList::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id1)) return false;
-    if(!_buf.readLong(id2)) return false;
-    if(!_buf.readString(id3)) return false;
-    if(!_buf.readInt(num)) return false;
-    if(!_buf.readString(desc)) return false;
-
-    return true;
-}
-
-bool test::MultiIndexList::deserializeMultiIndexList(::luban::ByteBuf& _buf, test::MultiIndexList*& _out)
-{
-    _out = LUBAN_NEW(test::MultiIndexList){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::MultiRowRecord::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readString(name)) return false;
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); oneRows.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e; if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; oneRows.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); multiRows1.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e; if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows1.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); multiRows2.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e; if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows2.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); multiRows4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; test::MultiRowType2* _v; if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _v)) return false; multiRows4[_k] = _v;}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); multiRows5.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType3* _e; if(!test::MultiRowType3::deserializeMultiRowType3(_buf, _e)) return false; multiRows5.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); multiRows6.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; test::MultiRowType2* _v; if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _v)) return false; multiRows6[_k] = _v;}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); multiRows7.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; multiRows7[_k] = _v;}}
-
-    return true;
-}
-
-bool test::MultiRowRecord::deserializeMultiRowRecord(::luban::ByteBuf& _buf, test::MultiRowRecord*& _out)
-{
-    _out = LUBAN_NEW(test::MultiRowRecord){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::MultiRowType1::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readInt(x)) return false;
-
-    return true;
-}
-
-bool test::MultiRowType1::deserializeMultiRowType1(::luban::ByteBuf& _buf, test::MultiRowType1*& _out)
-{
-    _out = LUBAN_NEW(test::MultiRowType1){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::MultiRowType2::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readInt(x)) return false;
-    if(!_buf.readFloat(y)) return false;
-
-    return true;
-}
-
-bool test::MultiRowType2::deserializeMultiRowType2(::luban::ByteBuf& _buf, test::MultiRowType2*& _out)
-{
-    _out = LUBAN_NEW(test::MultiRowType2){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::MultiRowType3::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); items.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e; if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; items.push_back(_e);}}
-
-    return true;
-}
-
-bool test::MultiRowType3::deserializeMultiRowType3(::luban::ByteBuf& _buf, test::MultiRowType3*& _out)
-{
-    _out = LUBAN_NEW(test::MultiRowType3){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestMultiColumn::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!test::Foo::deserializeFoo(_buf, a)) return false;
-    if(!test::Foo::deserializeFoo(_buf, b)) return false;
-    if(!test::Foo::deserializeFoo(_buf, c)) return false;
-
-    return true;
-}
-
-bool test::TestMultiColumn::deserializeTestMultiColumn(::luban::ByteBuf& _buf, test::TestMultiColumn*& _out)
-{
-    _out = LUBAN_NEW(test::TestMultiColumn){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::Foo::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(y1)) return false;
-    if(!_buf.readInt(y2)) return false;
-    if(!_buf.readInt(y3)) return false;
-
-    return true;
-}
-
-bool test::Foo::deserializeFoo(::luban::ByteBuf& _buf, test::Foo*& _out)
-{
-    _out = LUBAN_NEW(test::Foo){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::MultiRowTitle::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readString(name)) return false;
-    if(!test::H1::deserializeH1(_buf, x1)) return false;
-    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x20 = nullptr; if(!test::H2::deserializeH2(_buf, x20)) return false; } else { x20 = nullptr; } }
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x2.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e; if(!test::H2::deserializeH2(_buf, _e)) return false; x2.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x3.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e; if(!test::H2::deserializeH2(_buf, _e)) return false; x3.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x4.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e; if(!test::H2::deserializeH2(_buf, _e)) return false; x4.push_back(_e);}}
-
-    return true;
-}
-
-bool test::MultiRowTitle::deserializeMultiRowTitle(::luban::ByteBuf& _buf, test::MultiRowTitle*& _out)
-{
-    _out = LUBAN_NEW(test::MultiRowTitle){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::H1::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!test::H2::deserializeH2(_buf, y2)) return false;
-    if(!_buf.readInt(y3)) return false;
-
-    return true;
-}
-
-bool test::H1::deserializeH1(::luban::ByteBuf& _buf, test::H1*& _out)
-{
-    _out = LUBAN_NEW(test::H1){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::H2::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(z2)) return false;
-    if(!_buf.readInt(z3)) return false;
-
-    return true;
-}
-
-bool test::H2::deserializeH2(::luban::ByteBuf& _buf, test::H2*& _out)
-{
-    _out = LUBAN_NEW(test::H2){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestNull::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x1 = new ::luban::int32{}; if(!_buf.readInt(*x1)) return false; } else { x1 = nullptr; } }
-    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x2 = new test::DemoEnum{}; {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; *x2 = test::DemoEnum(__enum_temp__); } } else { x2 = nullptr; } }
-    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x3 = nullptr; if(!test::DemoType1::deserializeDemoType1(_buf, x3)) return false; } else { x3 = nullptr; } }
-    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x4 = nullptr; if(!test::DemoDynamic::deserializeDemoDynamic(_buf, x4)) return false; } else { x4 = nullptr; } }
-    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s1 = new ::luban::String{}; if(!_buf.readString(*s1)) return false; } else { s1 = nullptr; } }
-    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { s2 = new ::luban::String{}; if(!_buf.readString(*s2)) return false; } else { s2 = nullptr; } }
-
-    return true;
-}
-
-bool test::TestNull::deserializeTestNull(::luban::ByteBuf& _buf, test::TestNull*& _out)
-{
-    _out = LUBAN_NEW(test::TestNull){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::DemoPrimitiveTypesTable::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if (!_buf.readBool(x1)) return false;
-    if(!_buf.readByte(x2)) return false;
-    if(!_buf.readShort(x3)) return false;
-    if(!_buf.readInt(x4)) return false;
-    if(!_buf.readLong(x5)) return false;
-    if(!_buf.readFloat(x6)) return false;
-    if(!_buf.readDouble(x7)) return false;
-    if(!_buf.readString(s1)) return false;
-    if(!_buf.readString(s2)) return false;
-    if(!vec2::deserializevec2(_buf, v2)) return false;
-    if(!vec3::deserializevec3(_buf, v3)) return false;
-    if(!vec4::deserializevec4(_buf, v4)) return false;
-    if(!_buf.readLong(t1)) return false;
-
-    return true;
-}
-
-bool test::DemoPrimitiveTypesTable::deserializeDemoPrimitiveTypesTable(::luban::ByteBuf& _buf, test::DemoPrimitiveTypesTable*& _out)
-{
-    _out = LUBAN_NEW(test::DemoPrimitiveTypesTable){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestString::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readString(id)) return false;
-    if(!_buf.readString(s1)) return false;
-    if(!_buf.readString(s2)) return false;
-    if(!test::CompactString::deserializeCompactString(_buf, cs1)) return false;
-    if(!test::CompactString::deserializeCompactString(_buf, cs2)) return false;
-
-    return true;
-}
-
-bool test::TestString::deserializeTestString(::luban::ByteBuf& _buf, test::TestString*& _out)
-{
-    _out = LUBAN_NEW(test::TestString){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::CompactString::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readString(s2)) return false;
-    if(!_buf.readString(s3)) return false;
-
-    return true;
-}
-
-bool test::CompactString::deserializeCompactString(::luban::ByteBuf& _buf, test::CompactString*& _out)
-{
-    _out = LUBAN_NEW(test::CompactString){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::DemoGroup::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readInt(x1)) return false;
-    if(!_buf.readInt(x2)) return false;
-    if(!_buf.readInt(x3)) return false;
-    if(!_buf.readInt(x4)) return false;
-    if(!test::InnerGroup::deserializeInnerGroup(_buf, x5)) return false;
-
-    return true;
-}
-
-bool test::DemoGroup::deserializeDemoGroup(::luban::ByteBuf& _buf, test::DemoGroup*& _out)
-{
-    _out = LUBAN_NEW(test::DemoGroup){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::InnerGroup::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(y1)) return false;
-    if(!_buf.readInt(y2)) return false;
-    if(!_buf.readInt(y3)) return false;
-    if(!_buf.readInt(y4)) return false;
-
-    return true;
-}
-
-bool test::InnerGroup::deserializeInnerGroup(::luban::ByteBuf& _buf, test::InnerGroup*& _out)
-{
-    _out = LUBAN_NEW(test::InnerGroup){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestGlobal::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(unlockEquip)) return false;
-    if(!_buf.readInt(unlockHero)) return false;
-
-    return true;
-}
-
-bool test::TestGlobal::deserializeTestGlobal(::luban::ByteBuf& _buf, test::TestGlobal*& _out)
-{
-    _out = LUBAN_NEW(test::TestGlobal){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestBeRef::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readInt(count)) return false;
-
-    return true;
-}
-
-bool test::TestBeRef::deserializeTestBeRef(::luban::ByteBuf& _buf, test::TestBeRef*& _out)
-{
-    _out = LUBAN_NEW(test::TestBeRef){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestRef::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readInt(x1)) return false;
-    if(!_buf.readInt(x12)) return false;
-    if(!_buf.readInt(x2)) return false;
-    if(!_buf.readInt(x3)) return false;
-    if(!_buf.readInt(x4)) return false;
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); a1.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; a1.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); a2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; a2.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); b1.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; b1.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); b2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; b2.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); c1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; c1.insert(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); c2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; c2.insert(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); d1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; d1[_k] = _v;}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); d2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; d2[_k] = _v;}}
-    if(!_buf.readInt(e1)) return false;
-    if(!_buf.readLong(e2)) return false;
-    if(!_buf.readString(e3)) return false;
-    if(!_buf.readInt(f1)) return false;
-    if(!_buf.readLong(f2)) return false;
-    if(!_buf.readString(f3)) return false;
-    if(!test::RefDynamicBase::deserializeRefDynamicBase(_buf, s1)) return false;
-
-    return true;
-}
-
-bool test::TestRef::deserializeTestRef(::luban::ByteBuf& _buf, test::TestRef*& _out)
-{
-    _out = LUBAN_NEW(test::TestRef){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::RefDynamicBase::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(x)) return false;
-
-    return true;
-}
-
-bool test::RefDynamicBase::deserializeRefDynamicBase(::luban::ByteBuf& _buf, test::RefDynamicBase*& _out)
-{
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case test::RefBean::__ID__: { _out = LUBAN_NEW(test::RefBean){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool test::RefBean::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!test::RefDynamicBase::deserialize(_buf))
-    {
-        return false;
-    }
-
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); arr.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; arr.push_back(_e);}}
-
-    return true;
-}
-
-bool test::RefBean::deserializeRefBean(::luban::ByteBuf& _buf, test::RefBean*& _out)
-{
-    _out = LUBAN_NEW(test::RefBean){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestSize::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x1.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; x1.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; x2.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; x3.insert(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); x4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; x4[_k] = _v;}}
-
-    return true;
-}
-
-bool test::TestSize::deserializeTestSize(::luban::ByteBuf& _buf, test::TestSize*& _out)
-{
-    _out = LUBAN_NEW(test::TestSize){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestSet::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readString(x0)) return false;
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x1.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; x1.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int64 _e; if(!_buf.readLong(_e)) return false; x2.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x3.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::String _e; if(!_buf.readString(_e)) return false; x3.push_back(_e);}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x4.reserve(n);for(int i = 0 ; i < n ; i++) { test::DemoEnum _e; {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; _e = test::DemoEnum(__enum_temp__); } x4.push_back(_e);}}
-
-    return true;
-}
-
-bool test::TestSet::deserializeTestSet(::luban::ByteBuf& _buf, test::TestSet*& _out)
-{
-    _out = LUBAN_NEW(test::TestSet){};
+    _out = LUBAN_NEW(test::DemoType2);
     return _out->deserialize(_buf);
 }
 
@@ -1770,125 +1467,7 @@ bool test::DetectEncoding::deserialize(::luban::ByteBuf& _buf)
 
 bool test::DetectEncoding::deserializeDetectEncoding(::luban::ByteBuf& _buf, test::DetectEncoding*& _out)
 {
-    _out = LUBAN_NEW(test::DetectEncoding){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::ItemBase::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readString(name)) return false;
-    if(!_buf.readString(desc)) return false;
-
-    return true;
-}
-
-bool test::ItemBase::deserializeItemBase(::luban::ByteBuf& _buf, test::ItemBase*& _out)
-{
-    int32_t id;
-    if (!_buf.readInt(id)) return false;
-    switch (id)
-    {
-        case test::Item::__ID__: { _out = LUBAN_NEW(test::Item){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case test::Equipment::__ID__: { _out = LUBAN_NEW(test::Equipment){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        case test::Decorator::__ID__: { _out = LUBAN_NEW(test::Decorator){}; if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
-        default: { _out = nullptr; return false;}
-    }
-}
-
-
-bool test::Item::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!test::ItemBase::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readInt(num)) return false;
-    if(!_buf.readInt(price)) return false;
-
-    return true;
-}
-
-bool test::Item::deserializeItem(::luban::ByteBuf& _buf, test::Item*& _out)
-{
-    _out = LUBAN_NEW(test::Item){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::Equipment::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!test::ItemBase::deserialize(_buf))
-    {
-        return false;
-    }
-
-    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; attr = test::DemoEnum(__enum_temp__); }
-    if(!_buf.readInt(value)) return false;
-
-    return true;
-}
-
-bool test::Equipment::deserializeEquipment(::luban::ByteBuf& _buf, test::Equipment*& _out)
-{
-    _out = LUBAN_NEW(test::Equipment){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::Decorator::deserialize(::luban::ByteBuf& _buf)
-{
-    if (!test::ItemBase::deserialize(_buf))
-    {
-        return false;
-    }
-
-    if(!_buf.readInt(duration)) return false;
-
-    return true;
-}
-
-bool test::Decorator::deserializeDecorator(::luban::ByteBuf& _buf, test::Decorator*& _out)
-{
-    _out = LUBAN_NEW(test::Decorator){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestIndex::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); eles.reserve(n);for(int i = 0 ; i < n ; i++) { test::DemoType1* _e; if(!test::DemoType1::deserializeDemoType1(_buf, _e)) return false; eles.push_back(_e);}}
-
-    return true;
-}
-
-bool test::TestIndex::deserializeTestIndex(::luban::ByteBuf& _buf, test::TestIndex*& _out)
-{
-    _out = LUBAN_NEW(test::TestIndex){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::TestMap::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); x1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; x1[_k] = _v;}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); x2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int64 _k; if(!_buf.readLong(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; x2[_k] = _v;}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); x3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::String _k; if(!_buf.readString(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; x3[_k] = _v;}}
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); x4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { test::DemoEnum _k; {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; _k = test::DemoEnum(__enum_temp__); } ::luban::int32 _v; if(!_buf.readInt(_v)) return false; x4[_k] = _v;}}
-
-    return true;
-}
-
-bool test::TestMap::deserializeTestMap(::luban::ByteBuf& _buf, test::TestMap*& _out)
-{
-    _out = LUBAN_NEW(test::TestMap){};
+    _out = LUBAN_NEW(test::DetectEncoding);
     return _out->deserialize(_buf);
 }
 
@@ -1916,55 +1495,7 @@ bool test::ExcelFromJson::deserialize(::luban::ByteBuf& _buf)
 
 bool test::ExcelFromJson::deserializeExcelFromJson(::luban::ByteBuf& _buf, test::ExcelFromJson*& _out)
 {
-    _out = LUBAN_NEW(test::ExcelFromJson){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::CompositeJsonTable1::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readString(x)) return false;
-
-    return true;
-}
-
-bool test::CompositeJsonTable1::deserializeCompositeJsonTable1(::luban::ByteBuf& _buf, test::CompositeJsonTable1*& _out)
-{
-    _out = LUBAN_NEW(test::CompositeJsonTable1){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::CompositeJsonTable2::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(id)) return false;
-    if(!_buf.readInt(y)) return false;
-
-    return true;
-}
-
-bool test::CompositeJsonTable2::deserializeCompositeJsonTable2(::luban::ByteBuf& _buf, test::CompositeJsonTable2*& _out)
-{
-    _out = LUBAN_NEW(test::CompositeJsonTable2){};
-    return _out->deserialize(_buf);
-}
-
-
-bool test::CompositeJsonTable3::deserialize(::luban::ByteBuf& _buf)
-{
-
-    if(!_buf.readInt(a)) return false;
-    if(!_buf.readInt(b)) return false;
-
-    return true;
-}
-
-bool test::CompositeJsonTable3::deserializeCompositeJsonTable3(::luban::ByteBuf& _buf, test::CompositeJsonTable3*& _out)
-{
-    _out = LUBAN_NEW(test::CompositeJsonTable3){};
+    _out = LUBAN_NEW(test::ExcelFromJson);
     return _out->deserialize(_buf);
 }
 
@@ -1981,26 +1512,452 @@ bool test::ExcelFromJsonMultiRow::deserialize(::luban::ByteBuf& _buf)
 
 bool test::ExcelFromJsonMultiRow::deserializeExcelFromJsonMultiRow(::luban::ByteBuf& _buf, test::ExcelFromJsonMultiRow*& _out)
 {
-    _out = LUBAN_NEW(test::ExcelFromJsonMultiRow){};
+    _out = LUBAN_NEW(test::ExcelFromJsonMultiRow);
     return _out->deserialize(_buf);
 }
 
 
-bool test::TestRow::deserialize(::luban::ByteBuf& _buf)
+bool test::Foo::deserialize(::luban::ByteBuf& _buf)
 {
 
-    if(!_buf.readInt(x)) return false;
-    if (!_buf.readBool(y)) return false;
-    if(!_buf.readString(z)) return false;
-    if(!test::Test3::deserializeTest3(_buf, a)) return false;
-    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); b.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; b.push_back(_e);}}
+    if(!_buf.readInt(y1)) return false;
+    if(!_buf.readInt(y2)) return false;
+    if(!_buf.readInt(y3)) return false;
 
     return true;
 }
 
-bool test::TestRow::deserializeTestRow(::luban::ByteBuf& _buf, test::TestRow*& _out)
+bool test::Foo::deserializeFoo(::luban::ByteBuf& _buf, test::Foo*& _out)
 {
-    _out = LUBAN_NEW(test::TestRow){};
+    _out = LUBAN_NEW(test::Foo);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::H1::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!test::H2::deserializeH2(_buf, y2)) return false;
+    if(!_buf.readInt(y3)) return false;
+
+    return true;
+}
+
+bool test::H1::deserializeH1(::luban::ByteBuf& _buf, test::H1*& _out)
+{
+    _out = LUBAN_NEW(test::H1);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::H2::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(z2)) return false;
+    if(!_buf.readInt(z3)) return false;
+
+    return true;
+}
+
+bool test::H2::deserializeH2(::luban::ByteBuf& _buf, test::H2*& _out)
+{
+    _out = LUBAN_NEW(test::H2);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::InnerGroup::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(y1)) return false;
+    if(!_buf.readInt(y2)) return false;
+    if(!_buf.readInt(y3)) return false;
+    if(!_buf.readInt(y4)) return false;
+
+    return true;
+}
+
+bool test::InnerGroup::deserializeInnerGroup(::luban::ByteBuf& _buf, test::InnerGroup*& _out)
+{
+    _out = LUBAN_NEW(test::InnerGroup);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::ItemBase::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(name)) return false;
+    if(!_buf.readString(desc)) return false;
+
+    return true;
+}
+
+bool test::ItemBase::deserializeItemBase(::luban::ByteBuf& _buf, test::ItemBase*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case test::Item::__ID__: { _out = LUBAN_NEW(test::Item); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case test::Equipment::__ID__: { _out = LUBAN_NEW(test::Equipment); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case test::Decorator::__ID__: { _out = LUBAN_NEW(test::Decorator); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool test::Decorator::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::ItemBase::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readInt(duration)) return false;
+
+    return true;
+}
+
+bool test::Decorator::deserializeDecorator(::luban::ByteBuf& _buf, test::Decorator*& _out)
+{
+    _out = LUBAN_NEW(test::Decorator);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::Equipment::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::ItemBase::deserialize(_buf))
+    {
+        return false;
+    }
+
+    {int __enum_temp__; if(!_buf.readInt(__enum_temp__)) return false; attr = test::DemoEnum(__enum_temp__); }
+    if(!_buf.readInt(value)) return false;
+
+    return true;
+}
+
+bool test::Equipment::deserializeEquipment(::luban::ByteBuf& _buf, test::Equipment*& _out)
+{
+    _out = LUBAN_NEW(test::Equipment);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::Item::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::ItemBase::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readInt(num)) return false;
+    if(!_buf.readInt(price)) return false;
+
+    return true;
+}
+
+bool test::Item::deserializeItem(::luban::ByteBuf& _buf, test::Item*& _out)
+{
+    _out = LUBAN_NEW(test::Item);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::MultiIndexList::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id1)) return false;
+    if(!_buf.readLong(id2)) return false;
+    if(!_buf.readString(id3)) return false;
+    if(!_buf.readInt(num)) return false;
+    if(!_buf.readString(desc)) return false;
+
+    return true;
+}
+
+bool test::MultiIndexList::deserializeMultiIndexList(::luban::ByteBuf& _buf, test::MultiIndexList*& _out)
+{
+    _out = LUBAN_NEW(test::MultiIndexList);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::MultiRowRecord::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(name)) return false;
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); oneRows.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e; if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; oneRows.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); multiRows1.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e; if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows1.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); multiRows2.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e; if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; multiRows2.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); multiRows4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; test::MultiRowType2* _v; if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _v)) return false; multiRows4[_k] = _v;}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); multiRows5.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType3* _e; if(!test::MultiRowType3::deserializeMultiRowType3(_buf, _e)) return false; multiRows5.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); multiRows6.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; test::MultiRowType2* _v; if(!test::MultiRowType2::deserializeMultiRowType2(_buf, _v)) return false; multiRows6[_k] = _v;}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); multiRows7.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; multiRows7[_k] = _v;}}
+
+    return true;
+}
+
+bool test::MultiRowRecord::deserializeMultiRowRecord(::luban::ByteBuf& _buf, test::MultiRowRecord*& _out)
+{
+    _out = LUBAN_NEW(test::MultiRowRecord);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::MultiRowTitle::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(name)) return false;
+    if(!test::H1::deserializeH1(_buf, x1)) return false;
+    { bool _has_value_; if(!_buf.readBool(_has_value_)){return false;}  if(_has_value_) { x20 = nullptr; if(!test::H2::deserializeH2(_buf, x20)) return false; } else { x20 = nullptr; } }
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x2.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e; if(!test::H2::deserializeH2(_buf, _e)) return false; x2.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x3.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e; if(!test::H2::deserializeH2(_buf, _e)) return false; x3.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x4.reserve(n);for(int i = 0 ; i < n ; i++) { test::H2* _e; if(!test::H2::deserializeH2(_buf, _e)) return false; x4.push_back(_e);}}
+
+    return true;
+}
+
+bool test::MultiRowTitle::deserializeMultiRowTitle(::luban::ByteBuf& _buf, test::MultiRowTitle*& _out)
+{
+    _out = LUBAN_NEW(test::MultiRowTitle);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::MultiRowType1::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readInt(x)) return false;
+
+    return true;
+}
+
+bool test::MultiRowType1::deserializeMultiRowType1(::luban::ByteBuf& _buf, test::MultiRowType1*& _out)
+{
+    _out = LUBAN_NEW(test::MultiRowType1);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::MultiRowType2::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readInt(x)) return false;
+    if(!_buf.readFloat(y)) return false;
+
+    return true;
+}
+
+bool test::MultiRowType2::deserializeMultiRowType2(::luban::ByteBuf& _buf, test::MultiRowType2*& _out)
+{
+    _out = LUBAN_NEW(test::MultiRowType2);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::MultiRowType3::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); items.reserve(n);for(int i = 0 ; i < n ; i++) { test::MultiRowType1* _e; if(!test::MultiRowType1::deserializeMultiRowType1(_buf, _e)) return false; items.push_back(_e);}}
+
+    return true;
+}
+
+bool test::MultiRowType3::deserializeMultiRowType3(::luban::ByteBuf& _buf, test::MultiRowType3*& _out)
+{
+    _out = LUBAN_NEW(test::MultiRowType3);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::MultiUnionIndexList::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id1)) return false;
+    if(!_buf.readLong(id2)) return false;
+    if(!_buf.readString(id3)) return false;
+    if(!_buf.readInt(num)) return false;
+    if(!_buf.readString(desc)) return false;
+
+    return true;
+}
+
+bool test::MultiUnionIndexList::deserializeMultiUnionIndexList(::luban::ByteBuf& _buf, test::MultiUnionIndexList*& _out)
+{
+    _out = LUBAN_NEW(test::MultiUnionIndexList);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::NotIndexList::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(x)) return false;
+    if(!_buf.readInt(y)) return false;
+
+    return true;
+}
+
+bool test::NotIndexList::deserializeNotIndexList(::luban::ByteBuf& _buf, test::NotIndexList*& _out)
+{
+    _out = LUBAN_NEW(test::NotIndexList);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::Path::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(res)) return false;
+
+    return true;
+}
+
+bool test::Path::deserializePath(::luban::ByteBuf& _buf, test::Path*& _out)
+{
+    _out = LUBAN_NEW(test::Path);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::RefDynamicBase::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(x)) return false;
+
+    return true;
+}
+
+bool test::RefDynamicBase::deserializeRefDynamicBase(::luban::ByteBuf& _buf, test::RefDynamicBase*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case test::RefBean::__ID__: { _out = LUBAN_NEW(test::RefBean); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool test::RefBean::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::RefDynamicBase::deserialize(_buf))
+    {
+        return false;
+    }
+
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); arr.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; arr.push_back(_e);}}
+
+    return true;
+}
+
+bool test::RefBean::deserializeRefBean(::luban::ByteBuf& _buf, test::RefBean*& _out)
+{
+    _out = LUBAN_NEW(test::RefBean);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::SepBean1::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(a)) return false;
+    if(!_buf.readInt(b)) return false;
+    if(!_buf.readString(c)) return false;
+
+    return true;
+}
+
+bool test::SepBean1::deserializeSepBean1(::luban::ByteBuf& _buf, test::SepBean1*& _out)
+{
+    _out = LUBAN_NEW(test::SepBean1);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::SepVector::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(x)) return false;
+    if(!_buf.readInt(y)) return false;
+    if(!_buf.readInt(z)) return false;
+
+    return true;
+}
+
+bool test::SepVector::deserializeSepVector(::luban::ByteBuf& _buf, test::SepVector*& _out)
+{
+    _out = LUBAN_NEW(test::SepVector);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::Shape::deserialize(::luban::ByteBuf& _buf)
+{
+
+
+    return true;
+}
+
+bool test::Shape::deserializeShape(::luban::ByteBuf& _buf, test::Shape*& _out)
+{
+    int32_t id;
+    if (!_buf.readInt(id)) return false;
+    switch (id)
+    {
+        case test::Circle::__ID__: { _out = LUBAN_NEW(test::Circle); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        case test2::Rectangle::__ID__: { _out = LUBAN_NEW(test2::Rectangle); if (_out->deserialize(_buf)) { return true; } else { _out = nullptr; return false;} }
+        default: { _out = nullptr; return false;}
+    }
+}
+
+
+bool test::Circle::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::Shape::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readFloat(radius)) return false;
+
+    return true;
+}
+
+bool test::Circle::deserializeCircle(::luban::ByteBuf& _buf, test::Circle*& _out)
+{
+    _out = LUBAN_NEW(test::Circle);
+    return _out->deserialize(_buf);
+}
+
+
+bool test2::Rectangle::deserialize(::luban::ByteBuf& _buf)
+{
+    if (!test::Shape::deserialize(_buf))
+    {
+        return false;
+    }
+
+    if(!_buf.readFloat(width)) return false;
+    if(!_buf.readFloat(height)) return false;
+
+    return true;
+}
+
+bool test2::Rectangle::deserializeRectangle(::luban::ByteBuf& _buf, test2::Rectangle*& _out)
+{
+    _out = LUBAN_NEW(test2::Rectangle);
     return _out->deserialize(_buf);
 }
 
@@ -2016,7 +1973,41 @@ bool test::Test3::deserialize(::luban::ByteBuf& _buf)
 
 bool test::Test3::deserializeTest3(::luban::ByteBuf& _buf, test::Test3*& _out)
 {
-    _out = LUBAN_NEW(test::Test3){};
+    _out = LUBAN_NEW(test::Test3);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::TestBeRef::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readInt(count)) return false;
+
+    return true;
+}
+
+bool test::TestBeRef::deserializeTestBeRef(::luban::ByteBuf& _buf, test::TestBeRef*& _out)
+{
+    _out = LUBAN_NEW(test::TestBeRef);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::TestExcelBean1::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(x1)) return false;
+    if(!_buf.readString(x2)) return false;
+    if(!_buf.readInt(x3)) return false;
+    if(!_buf.readFloat(x4)) return false;
+
+    return true;
+}
+
+bool test::TestExcelBean1::deserializeTestExcelBean1(::luban::ByteBuf& _buf, test::TestExcelBean1*& _out)
+{
+    _out = LUBAN_NEW(test::TestExcelBean1);
     return _out->deserialize(_buf);
 }
 
