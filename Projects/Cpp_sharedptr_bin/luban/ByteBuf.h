@@ -18,13 +18,13 @@ namespace luban
 		static const int INIT_CAPACITY; // 默认空间
 		static const byte EMPTY_BYTES[1];
 
-		byte* data_;
-		int beginPos_;
-		int endPos_;
-		int capacity_;
+		byte* _data;
+		int _beginPos;
+		int _endPos;
+		int _capacity;
 
 	public:
-		ByteBuf() : data_((byte*)(EMPTY_BYTES)), beginPos_(0), endPos_(0), capacity_(0)
+		ByteBuf() : _data((byte*)(EMPTY_BYTES)), _beginPos(0), _endPos(0), _capacity(0)
 		{
 
 		}
@@ -41,73 +41,73 @@ namespace luban
 			init(new byte[capacity], capacity, 0, 0);
 		}
 
-		ByteBuf(byte* bytes, int capacity, int beginPos_, int endPos_)
+		ByteBuf(byte* bytes, int capacity, int _beginPos, int _endPos)
 		{
-			this->capacity_ = capacity;
-			this->data_ = bytes;
-			this->beginPos_ = beginPos_;
-			this->endPos_ = endPos_;
+			this->_capacity = capacity;
+			this->_data = bytes;
+			this->_beginPos = _beginPos;
+			this->_endPos = _endPos;
 		}
 
 
 
 		int getCapacity() const
 		{
-			return capacity_;
+			return _capacity;
 		}
 
 		int size() const
 		{
-			return endPos_ - beginPos_;
+			return _endPos - _beginPos;
 		}
 
 		int getReadIndex() const
 		{
-			return beginPos_;
+			return _beginPos;
 		}
 
 		int getWriteIndex() const
 		{
-			return endPos_;
+			return _endPos;
 		}
 
 		byte* getDataUnsafe() const
 		{
-			return data_;
+			return _data;
 		}
 
 
 		void replace(byte* bytes, int size)
 		{
 			deleteOldData();
-			this->capacity_ = size;
-			this->data_ = bytes;
-			this->beginPos_ = 0;
-			this->endPos_ = size;
+			this->_capacity = size;
+			this->_data = bytes;
+			this->_beginPos = 0;
+			this->_endPos = size;
 		}
 
 
 		bool skipBytes()
 		{
-			int oldReadIndex = beginPos_;
+			int oldReadIndex = _beginPos;
 			int n;
 			if (!readSize(n) || !ensureRead(n))
 			{
-				beginPos_ = oldReadIndex;
+				_beginPos = oldReadIndex;
 				return false;
 			}
-			beginPos_ += n;
+			_beginPos += n;
 			return true;
 		}
 
 		void addWriteIndexUnsafe(int add)
 		{
-			endPos_ += add;
+			_endPos += add;
 		}
 
 		void addReadIndexUnsafe(int add)
 		{
-			beginPos_ += add;
+			_beginPos += add;
 		}
 
 
@@ -118,7 +118,7 @@ namespace luban
 			if (n > 0)
 			{
 				byte* arr = new byte[n];
-				std::memcpy(arr, this->data_ + beginPos_, n);
+				std::memcpy(arr, this->_data + _beginPos, n);
 				return arr;
 			}
 			else
@@ -129,13 +129,13 @@ namespace luban
 
 		void clear()
 		{
-			beginPos_ = endPos_ = 0;
+			_beginPos = _endPos = 0;
 		}
 
 		void append(byte x)
 		{
 			reserveWrite(1);
-			data_[endPos_++] = x;
+			_data[_endPos++] = x;
 		}
 
 
@@ -146,26 +146,26 @@ namespace luban
 		void writeBool(bool b)
 		{
 			reserveWrite(1);
-			data_[endPos_++] = b;
+			_data[_endPos++] = b;
 		}
 
 		bool readBool(bool& out)
 		{
 			if (!ensureRead(1)) return false;;
-			out = bool(data_[beginPos_++]);
+			out = bool(_data[_beginPos++]);
 			return true;
 		}
 
 		void writeByte(byte x)
 		{
 			reserveWrite(1);
-			data_[endPos_++] = x;
+			_data[_endPos++] = x;
 		}
 
 		bool readByte(byte& out)
 		{
 			if (!ensureRead(1)) return false;
-			out = data_[beginPos_++];
+			out = _data[_beginPos++];
 			return true;
 		}
 
@@ -177,46 +177,46 @@ namespace luban
 				if (x < 0x80)
 				{
 					reserveWrite(1);
-					data_[endPos_++] = (byte)x;
+					_data[_endPos++] = (byte)x;
 					return;
 				}
 				else if (x < 0x4000)
 				{
 					reserveWrite(2);
-					data_[endPos_ + 1] = (byte)x;
-					data_[endPos_] = (byte)((x >> 8) | 0x80);
-					endPos_ += 2;
+					_data[_endPos + 1] = (byte)x;
+					_data[_endPos] = (byte)((x >> 8) | 0x80);
+					_endPos += 2;
 					return;
 				}
 			}
 			reserveWrite(3);
-			data_[endPos_] = byte{ 0xff };
-			data_[endPos_ + 2] = (byte)x;
-			data_[endPos_ + 1] = (byte)(x >> 8);
-			endPos_ += 3;
+			_data[_endPos] = byte{ 0xff };
+			_data[_endPos + 2] = (byte)x;
+			_data[_endPos + 1] = (byte)(x >> 8);
+			_endPos += 3;
 		}
 
 		bool readShort(int16_t& out)
 		{
 			if (!ensureRead(1)) return false;
-			int32_t h = (data_[beginPos_] & 0xff);
+			int32_t h = (_data[_beginPos] & 0xff);
 			if (h < 0x80)
 			{
-				beginPos_++;
+				_beginPos++;
 				out = (int16_t)h;
 			}
 			else if (h < 0xc0)
 			{
 				if (!ensureRead(2)) return false;
-				int32_t x = ((h & 0x3f) << 8) | (data_[beginPos_ + 1] & 0xff);
-				beginPos_ += 2;
+				int32_t x = ((h & 0x3f) << 8) | (_data[_beginPos + 1] & 0xff);
+				_beginPos += 2;
 				out = (int16_t)x;
 			}
 			else if (h == 0xff)
 			{
 				if (!ensureRead(3)) return false;
-				int32_t x = ((data_[beginPos_ + 1] & 0xff) << 8) | (data_[beginPos_ + 2] & 0xff);
-				beginPos_ += 3;
+				int32_t x = ((_data[_beginPos + 1] & 0xff) << 8) | (_data[_beginPos + 2] & 0xff);
+				_beginPos += 3;
 				out = (int16_t)x;
 			}
 			else
@@ -231,14 +231,14 @@ namespace luban
 		{
 			reserveWrite(2);
 			copy2(getWriteData(), (byte*)&x);
-			endPos_ += 2;
+			_endPos += 2;
 		}
 
 		bool readFshort(int16_t& out)
 		{
 			if (!ensureRead(2)) return false;
 			copy2((byte*)&out, getReadData());
-			beginPos_ += 2;
+			_beginPos += 2;
 			return true;
 		}
 
@@ -256,14 +256,14 @@ namespace luban
 		{
 			reserveWrite(4);
 			copy4(getWriteData(), (byte*)&x);
-			endPos_ += 4;
+			_endPos += 4;
 		}
 
 		bool readFint(int32_t& out)
 		{
 			if (!ensureRead(4)) return false;
 			copy4((byte*)&out, getReadData());
-			beginPos_ += 4;
+			_beginPos += 4;
 			return true;
 		}
 
@@ -297,81 +297,81 @@ namespace luban
 			if (x < 0x80)
 			{
 				reserveWrite(1);
-				data_[endPos_++] = (byte)x;
+				_data[_endPos++] = (byte)x;
 			}
 			else if (x < 0x4000) // 10 11 1111, -
 			{
 				reserveWrite(2);
-				data_[endPos_ + 1] = (byte)x;
-				data_[endPos_] = (byte)((x >> 8) | 0x80);
-				endPos_ += 2;
+				_data[_endPos + 1] = (byte)x;
+				_data[_endPos] = (byte)((x >> 8) | 0x80);
+				_endPos += 2;
 			}
 			else if (x < 0x200000) // 110 1 1111, -,-
 			{
 				reserveWrite(3);
-				data_[endPos_ + 2] = (byte)x;
-				data_[endPos_ + 1] = (byte)(x >> 8);
-				data_[endPos_] = (byte)((x >> 16) | 0xc0);
-				endPos_ += 3;
+				_data[_endPos + 2] = (byte)x;
+				_data[_endPos + 1] = (byte)(x >> 8);
+				_data[_endPos] = (byte)((x >> 16) | 0xc0);
+				_endPos += 3;
 			}
 			else if (x < 0x10000000) // 1110 1111,-,-,-
 			{
 				reserveWrite(4);
-				data_[endPos_ + 3] = (byte)x;
-				data_[endPos_ + 2] = (byte)(x >> 8);
-				data_[endPos_ + 1] = (byte)(x >> 16);
-				data_[endPos_] = (byte)((x >> 24) | 0xe0);
-				endPos_ += 4;
+				_data[_endPos + 3] = (byte)x;
+				_data[_endPos + 2] = (byte)(x >> 8);
+				_data[_endPos + 1] = (byte)(x >> 16);
+				_data[_endPos] = (byte)((x >> 24) | 0xe0);
+				_endPos += 4;
 			}
 			else
 			{
 				reserveWrite(5);
-				data_[endPos_] = 0xf0;
-				data_[endPos_ + 4] = (byte)x;
-				data_[endPos_ + 3] = (byte)(x >> 8);
-				data_[endPos_ + 2] = (byte)(x >> 16);
-				data_[endPos_ + 1] = (byte)(x >> 24);
-				endPos_ += 5;
+				_data[_endPos] = 0xf0;
+				_data[_endPos + 4] = (byte)x;
+				_data[_endPos + 3] = (byte)(x >> 8);
+				_data[_endPos + 2] = (byte)(x >> 16);
+				_data[_endPos + 1] = (byte)(x >> 24);
+				_endPos += 5;
 			}
 		}
 
 		bool readUint(uint32_t& out)
 		{
 			if (!ensureRead(1)) return false;
-			uint32_t h = data_[beginPos_];
+			uint32_t h = _data[_beginPos];
 			if (h < 0x80)
 			{
-				beginPos_++;
+				_beginPos++;
 				out = h;
 			}
 			else if (h < 0xc0)
 			{
 				if (!ensureRead(2)) return false;
-				uint32_t x = ((h & 0x3f) << 8) | data_[beginPos_ + 1];
-				beginPos_ += 2;
+				uint32_t x = ((h & 0x3f) << 8) | _data[_beginPos + 1];
+				_beginPos += 2;
 				out = x;
 			}
 			else if (h < 0xe0)
 			{
 				if (!ensureRead(3)) return false;
-				uint32_t x = ((h & 0x1f) << 16) | ((uint32_t)data_[beginPos_ + 1] << 8) | data_[beginPos_ + 2];
-				beginPos_ += 3;
+				uint32_t x = ((h & 0x1f) << 16) | ((uint32_t)_data[_beginPos + 1] << 8) | _data[_beginPos + 2];
+				_beginPos += 3;
 				out = x;
 			}
 			else if (h < 0xf0)
 			{
 
 				if (!ensureRead(4)) return false;
-				uint32_t x = ((h & 0x0f) << 24) | ((uint32_t)data_[beginPos_ + 1] << 16) | ((uint32_t)data_[beginPos_ + 2] << 8) | data_[beginPos_ + 3];
-				beginPos_ += 4;
+				uint32_t x = ((h & 0x0f) << 24) | ((uint32_t)_data[_beginPos + 1] << 16) | ((uint32_t)_data[_beginPos + 2] << 8) | _data[_beginPos + 3];
+				_beginPos += 4;
 				out = x;
 			}
 			else
 			{
 				if (!ensureRead(5)) return false;
-				uint32_t x = ((uint32_t)data_[beginPos_ + 1] << 24) | ((uint32_t)(data_[beginPos_ + 2] << 16))
-					| ((uint32_t)data_[beginPos_ + 3] << 8) | ((uint32_t)data_[beginPos_ + 4]);
-				beginPos_ += 5;
+				uint32_t x = ((uint32_t)_data[_beginPos + 1] << 24) | ((uint32_t)(_data[_beginPos + 2] << 16))
+					| ((uint32_t)_data[_beginPos + 3] << 8) | ((uint32_t)_data[_beginPos + 4]);
+				_beginPos += 5;
 				out = x;
 			}
 			return true;
@@ -417,14 +417,14 @@ namespace luban
 		{
 			reserveWrite(8);
 			copy8(getWriteData(), (byte*)&x);
-			endPos_ += 8;
+			_endPos += 8;
 		}
 
 		bool readFlong(int64_t& out)
 		{
 			if (!ensureRead(8)) return false;
 			copy8((byte*)&out, getReadData());
-			beginPos_ += 8;
+			_beginPos += 8;
 			return true;
 		}
 
@@ -434,162 +434,162 @@ namespace luban
 			if (x < 0x80)
 			{
 				reserveWrite(1);
-				data_[endPos_++] = (byte)x;
+				_data[_endPos++] = (byte)x;
 			}
 			else if (x < 0x4000) // 10 11 1111, -
 			{
 				reserveWrite(2);
-				data_[endPos_ + 1] = (byte)x;
-				data_[endPos_] = (byte)((x >> 8) | 0x80);
-				endPos_ += 2;
+				_data[_endPos + 1] = (byte)x;
+				_data[_endPos] = (byte)((x >> 8) | 0x80);
+				_endPos += 2;
 			}
 			else if (x < 0x200000) // 110 1 1111, -,-
 			{
 				reserveWrite(3);
-				data_[endPos_ + 2] = (byte)x;
-				data_[endPos_ + 1] = (byte)(x >> 8);
-				data_[endPos_] = (byte)((x >> 16) | 0xc0);
-				endPos_ += 3;
+				_data[_endPos + 2] = (byte)x;
+				_data[_endPos + 1] = (byte)(x >> 8);
+				_data[_endPos] = (byte)((x >> 16) | 0xc0);
+				_endPos += 3;
 			}
 			else if (x < 0x10000000) // 1110 1111,-,-,-
 			{
 				reserveWrite(4);
-				data_[endPos_ + 3] = (byte)x;
-				data_[endPos_ + 2] = (byte)(x >> 8);
-				data_[endPos_ + 1] = (byte)(x >> 16);
-				data_[endPos_] = (byte)((x >> 24) | 0xe0);
-				endPos_ += 4;
+				_data[_endPos + 3] = (byte)x;
+				_data[_endPos + 2] = (byte)(x >> 8);
+				_data[_endPos + 1] = (byte)(x >> 16);
+				_data[_endPos] = (byte)((x >> 24) | 0xe0);
+				_endPos += 4;
 			}
 			else if (x < 0x800000000L) // 1111 0xxx,-,-,-,-
 			{
 				reserveWrite(5);
-				data_[endPos_ + 4] = (byte)x;
-				data_[endPos_ + 3] = (byte)(x >> 8);
-				data_[endPos_ + 2] = (byte)(x >> 16);
-				data_[endPos_ + 1] = (byte)(x >> 24);
-				data_[endPos_] = (byte)((x >> 32) | 0xf0);
-				endPos_ += 5;
+				_data[_endPos + 4] = (byte)x;
+				_data[_endPos + 3] = (byte)(x >> 8);
+				_data[_endPos + 2] = (byte)(x >> 16);
+				_data[_endPos + 1] = (byte)(x >> 24);
+				_data[_endPos] = (byte)((x >> 32) | 0xf0);
+				_endPos += 5;
 			}
 			else if (x < 0x40000000000L) // 1111 10xx, 
 			{
 				reserveWrite(6);
-				data_[endPos_ + 5] = (byte)x;
-				data_[endPos_ + 4] = (byte)(x >> 8);
-				data_[endPos_ + 3] = (byte)(x >> 16);
-				data_[endPos_ + 2] = (byte)(x >> 24);
-				data_[endPos_ + 1] = (byte)(x >> 32);
-				data_[endPos_] = (byte)((x >> 40) | 0xf8);
-				endPos_ += 6;
+				_data[_endPos + 5] = (byte)x;
+				_data[_endPos + 4] = (byte)(x >> 8);
+				_data[_endPos + 3] = (byte)(x >> 16);
+				_data[_endPos + 2] = (byte)(x >> 24);
+				_data[_endPos + 1] = (byte)(x >> 32);
+				_data[_endPos] = (byte)((x >> 40) | 0xf8);
+				_endPos += 6;
 			}
 			else if (x < 0x200000000000L) // 1111 110x,
 			{
 				reserveWrite(7);
-				data_[endPos_ + 6] = (byte)x;
-				data_[endPos_ + 5] = (byte)(x >> 8);
-				data_[endPos_ + 4] = (byte)(x >> 16);
-				data_[endPos_ + 3] = (byte)(x >> 24);
-				data_[endPos_ + 2] = (byte)(x >> 32);
-				data_[endPos_ + 1] = (byte)(x >> 40);
-				data_[endPos_] = (byte)((x >> 48) | 0xfc);
-				endPos_ += 7;
+				_data[_endPos + 6] = (byte)x;
+				_data[_endPos + 5] = (byte)(x >> 8);
+				_data[_endPos + 4] = (byte)(x >> 16);
+				_data[_endPos + 3] = (byte)(x >> 24);
+				_data[_endPos + 2] = (byte)(x >> 32);
+				_data[_endPos + 1] = (byte)(x >> 40);
+				_data[_endPos] = (byte)((x >> 48) | 0xfc);
+				_endPos += 7;
 			}
 			else if (x < 0x100000000000000L) // 1111 1110
 			{
 				reserveWrite(8);
-				data_[endPos_ + 7] = (byte)x;
-				data_[endPos_ + 6] = (byte)(x >> 8);
-				data_[endPos_ + 5] = (byte)(x >> 16);
-				data_[endPos_ + 4] = (byte)(x >> 24);
-				data_[endPos_ + 3] = (byte)(x >> 32);
-				data_[endPos_ + 2] = (byte)(x >> 40);
-				data_[endPos_ + 1] = (byte)(x >> 48);
-				data_[endPos_] = 0xfe;
-				endPos_ += 8;
+				_data[_endPos + 7] = (byte)x;
+				_data[_endPos + 6] = (byte)(x >> 8);
+				_data[_endPos + 5] = (byte)(x >> 16);
+				_data[_endPos + 4] = (byte)(x >> 24);
+				_data[_endPos + 3] = (byte)(x >> 32);
+				_data[_endPos + 2] = (byte)(x >> 40);
+				_data[_endPos + 1] = (byte)(x >> 48);
+				_data[_endPos] = 0xfe;
+				_endPos += 8;
 			}
 			else // 1111 1111
 			{
 				reserveWrite(9);
-				data_[endPos_] = 0xff;
-				data_[endPos_ + 8] = (byte)x;
-				data_[endPos_ + 7] = (byte)(x >> 8);
-				data_[endPos_ + 6] = (byte)(x >> 16);
-				data_[endPos_ + 5] = (byte)(x >> 24);
-				data_[endPos_ + 4] = (byte)(x >> 32);
-				data_[endPos_ + 3] = (byte)(x >> 40);
-				data_[endPos_ + 2] = (byte)(x >> 48);
-				data_[endPos_ + 1] = (byte)(x >> 56);
-				endPos_ += 9;
+				_data[_endPos] = 0xff;
+				_data[_endPos + 8] = (byte)x;
+				_data[_endPos + 7] = (byte)(x >> 8);
+				_data[_endPos + 6] = (byte)(x >> 16);
+				_data[_endPos + 5] = (byte)(x >> 24);
+				_data[_endPos + 4] = (byte)(x >> 32);
+				_data[_endPos + 3] = (byte)(x >> 40);
+				_data[_endPos + 2] = (byte)(x >> 48);
+				_data[_endPos + 1] = (byte)(x >> 56);
+				_endPos += 9;
 			}
 		}
 
 		bool readUlong(uint64_t& out)
 		{
 			if (!ensureRead(1)) return false;
-			uint32_t h = data_[beginPos_];
+			uint32_t h = _data[_beginPos];
 			if (h < 0x80)
 			{
-				beginPos_++;
+				_beginPos++;
 				out = h;
 			}
 			else if (h < 0xc0)
 			{
 				if (!ensureRead(2)) return false;
-				uint32_t x = ((h & 0x3f) << 8) | data_[beginPos_ + 1];
-				beginPos_ += 2;
+				uint32_t x = ((h & 0x3f) << 8) | _data[_beginPos + 1];
+				_beginPos += 2;
 				out = x;
 			}
 			else if (h < 0xe0)
 			{
 				if (!ensureRead(3)) return false;
-				uint32_t x = ((h & 0x1f) << 16) | ((uint32_t)data_[beginPos_ + 1] << 8) | data_[beginPos_ + 2];
-				beginPos_ += 3;
+				uint32_t x = ((h & 0x1f) << 16) | ((uint32_t)_data[_beginPos + 1] << 8) | _data[_beginPos + 2];
+				_beginPos += 3;
 				out = x;
 			}
 			else if (h < 0xf0)
 			{
 				if (!ensureRead(4)) return false;
-				uint32_t x = ((h & 0x0f) << 24) | ((uint32_t)data_[beginPos_ + 1] << 16) | ((uint32_t)data_[beginPos_ + 2] << 8) | data_[beginPos_ + 3];
-				beginPos_ += 4;
+				uint32_t x = ((h & 0x0f) << 24) | ((uint32_t)_data[_beginPos + 1] << 16) | ((uint32_t)_data[_beginPos + 2] << 8) | _data[_beginPos + 3];
+				_beginPos += 4;
 				out = x;
 			}
 			else if (h < 0xf8)
 			{
 				if (!ensureRead(5)) return false;
-				uint32_t xl = ((uint32_t)data_[beginPos_ + 1] << 24) | ((uint32_t)(data_[beginPos_ + 2] << 16)) | ((uint32_t)data_[beginPos_ + 3] << 8) | (data_[beginPos_ + 4]);
+				uint32_t xl = ((uint32_t)_data[_beginPos + 1] << 24) | ((uint32_t)(_data[_beginPos + 2] << 16)) | ((uint32_t)_data[_beginPos + 3] << 8) | (_data[_beginPos + 4]);
 				uint32_t xh = h & 0x07;
-				beginPos_ += 5;
+				_beginPos += 5;
 				out = ((uint64_t)xh << 32) | xl;
 			}
 			else if (h < 0xfc)
 			{
 				if (!ensureRead(6)) return false;
-				uint32_t xl = ((uint32_t)data_[beginPos_ + 2] << 24) | ((uint32_t)(data_[beginPos_ + 3] << 16)) | ((uint32_t)data_[beginPos_ + 4] << 8) | (data_[beginPos_ + 5]);
-				uint32_t xh = ((h & 0x03) << 8) | data_[beginPos_ + 1];
-				beginPos_ += 6;
+				uint32_t xl = ((uint32_t)_data[_beginPos + 2] << 24) | ((uint32_t)(_data[_beginPos + 3] << 16)) | ((uint32_t)_data[_beginPos + 4] << 8) | (_data[_beginPos + 5]);
+				uint32_t xh = ((h & 0x03) << 8) | _data[_beginPos + 1];
+				_beginPos += 6;
 				out = ((uint64_t)xh << 32) | xl;
 			}
 			else if (h < 0xfe)
 			{
 				if (!ensureRead(7)) return false;
-				uint32_t xl = ((uint32_t)data_[beginPos_ + 3] << 24) | ((uint32_t)(data_[beginPos_ + 4] << 16)) | ((uint32_t)data_[beginPos_ + 5] << 8) | (data_[beginPos_ + 6]);
-				uint32_t xh = ((h & 0x01) << 16) | ((uint32_t)data_[beginPos_ + 1] << 8) | data_[beginPos_ + 2];
-				beginPos_ += 7;
+				uint32_t xl = ((uint32_t)_data[_beginPos + 3] << 24) | ((uint32_t)(_data[_beginPos + 4] << 16)) | ((uint32_t)_data[_beginPos + 5] << 8) | (_data[_beginPos + 6]);
+				uint32_t xh = ((h & 0x01) << 16) | ((uint32_t)_data[_beginPos + 1] << 8) | _data[_beginPos + 2];
+				_beginPos += 7;
 				out = ((uint64_t)xh << 32) | xl;
 			}
 			else if (h < 0xff)
 			{
 				if (!ensureRead(8)) return false;
-				uint32_t xl = ((uint32_t)data_[beginPos_ + 4] << 24) | ((uint32_t)(data_[beginPos_ + 5] << 16)) | ((uint32_t)data_[beginPos_ + 6] << 8) | (data_[beginPos_ + 7]);
-				uint32_t xh = /*((h & 0x01) << 24) |*/ ((uint32_t)data_[beginPos_ + 1] << 16) | ((uint32_t)data_[beginPos_ + 2] << 8) | data_[beginPos_ + 3];
-				beginPos_ += 8;
+				uint32_t xl = ((uint32_t)_data[_beginPos + 4] << 24) | ((uint32_t)(_data[_beginPos + 5] << 16)) | ((uint32_t)_data[_beginPos + 6] << 8) | (_data[_beginPos + 7]);
+				uint32_t xh = /*((h & 0x01) << 24) |*/ ((uint32_t)_data[_beginPos + 1] << 16) | ((uint32_t)_data[_beginPos + 2] << 8) | _data[_beginPos + 3];
+				_beginPos += 8;
 				out = ((uint64_t)xh << 32) | xl;
 			}
 			else
 			{
 				if (!ensureRead(9)) return false;
-				uint32_t xl = ((uint32_t)data_[beginPos_ + 5] << 24) | ((uint32_t)(data_[beginPos_ + 6] << 16)) | ((uint32_t)data_[beginPos_ + 7] << 8) | (data_[beginPos_ + 8]);
-				uint32_t xh = ((uint32_t)data_[beginPos_ + 1] << 24) | ((uint32_t)data_[beginPos_ + 2] << 16) | ((uint32_t)data_[beginPos_ + 3] << 8) | data_[beginPos_ + 4];
-				beginPos_ += 9;
+				uint32_t xl = ((uint32_t)_data[_beginPos + 5] << 24) | ((uint32_t)(_data[_beginPos + 6] << 16)) | ((uint32_t)_data[_beginPos + 7] << 8) | (_data[_beginPos + 8]);
+				uint32_t xh = ((uint32_t)_data[_beginPos + 1] << 24) | ((uint32_t)_data[_beginPos + 2] << 16) | ((uint32_t)_data[_beginPos + 3] << 8) | _data[_beginPos + 4];
+				_beginPos += 9;
 				out = ((uint64_t)xh << 32) | xl;
 			}
 			return true;
@@ -600,7 +600,7 @@ namespace luban
 		{
 			reserveWrite(4);
 
-			byte* b = &data_[endPos_];
+			byte* b = &_data[_endPos];
 
 			if ((int64_t)b % 4 == 0)
 			{
@@ -612,7 +612,7 @@ namespace luban
 				copy4(b, (byte*)&x);
 			}
 
-			endPos_ += 4;
+			_endPos += 4;
 		}
 
 		bool readFloat(float& out)
@@ -620,7 +620,7 @@ namespace luban
 			if (!ensureRead(4)) return false;
 
 			float x;
-			byte* b = &data_[beginPos_];
+			byte* b = &_data[_beginPos];
 
 			if ((int64_t)b % 4 == 0)
 			{
@@ -631,7 +631,7 @@ namespace luban
 				// TODO x是对齐的, 可以优化
 				copy4((byte*)&x, b);
 			}
-			beginPos_ += 4;
+			_beginPos += 4;
 			out = x;
 			return true;
 		}
@@ -639,7 +639,7 @@ namespace luban
 		void writeDouble(double x)
 		{
 			reserveWrite(8);
-			byte* b = &data_[endPos_];
+			byte* b = &_data[_endPos];
 
 			if ((int64_t)b % 8 == 0)
 			{
@@ -650,7 +650,7 @@ namespace luban
 				copy8(b, (byte*)&x);
 			}
 
-			endPos_ += 8;
+			_endPos += 8;
 		}
 
 		bool readDouble(double& out)
@@ -658,7 +658,7 @@ namespace luban
 			if (!ensureRead(8)) return false;
 
 			double x;
-			byte* b = &data_[beginPos_];
+			byte* b = &_data[_beginPos];
 
 			if ((int64_t)b % 8 == 0)
 			{
@@ -670,7 +670,7 @@ namespace luban
 				copy8((byte*)&x, b);
 			}
 
-			beginPos_ += 8;
+			_beginPos += 8;
 			out = x;
 			return true;
 		}
@@ -682,8 +682,8 @@ namespace luban
 			if (n > 0)
 			{
 				reserveWrite(n);
-				std::memcpy(data_ + endPos_, x.data(), n);
-				endPos_ += n;
+				std::memcpy(_data + _endPos, x.data(), n);
+				_endPos += n;
 			}
 		}
 
@@ -695,8 +695,8 @@ namespace luban
 			x.resize(n);
 			if (n > 0)
 			{
-				std::memcpy((void*)x.data(), data_ + beginPos_, n);
-				beginPos_ += n;
+				std::memcpy((void*)x.data(), _data + _beginPos, n);
+				_beginPos += n;
 			}
 			return true;
 		}
@@ -706,8 +706,8 @@ namespace luban
 			int n = len;
 			writeSize(n);
 			reserveWrite(n);
-			std::memcpy(data_ + endPos_, buff, n);
-			endPos_ += n;
+			std::memcpy(_data + _endPos, buff, n);
+			_endPos += n;
 		}
 
 		bool readBytesNotCopy(char*& buffer, int& len)
@@ -716,7 +716,7 @@ namespace luban
 			if (!readSize(n) || !ensureRead(n)) return false;
 			len = n;
 			buffer = (char*)this->getReadData();
-			beginPos_ += n;
+			_beginPos += n;
 			return true;
 		}
 
@@ -744,22 +744,22 @@ namespace luban
 		{
 			int n = len;
 			reserveWrite(n);
-			std::memcpy(data_ + endPos_, buf, n);
-			endPos_ += n;
+			std::memcpy(_data + _endPos, buf, n);
+			_endPos += n;
 		}
 
 		std::string toString()
 		{
 			std::string re;
 			char hex[2];
-			for (int i = beginPos_; i < endPos_; i++)
+			for (int i = _beginPos; i < _endPos; i++)
 			{
-				if (i != beginPos_)
+				if (i != _beginPos)
 				{
 					re.append(".");
 				}
-				hex[0] = toHex(data_[i] >> 4);
-				hex[1] = toHex(data_[i] & 0xf);
+				hex[0] = toHex(_data[i] >> 4);
+				hex[1] = toHex(_data[i] & 0xf);
 				re.append(hex, 2);
 			}
 			return re;//std::move(re);
@@ -791,28 +791,28 @@ namespace luban
 
 		UnmarshalError TryInplaceUnmarshalBuf(int maxSize, ByteBuf& body)
 		{
-			int oldReadIndex = beginPos_;
+			int oldReadIndex = _beginPos;
 
 			int n;
 			if (!readSize(n))
 			{
-				this->beginPos_ = oldReadIndex;
+				this->_beginPos = oldReadIndex;
 				return UnmarshalError::NOT_ENOUGH;
 			}
 			if (n > maxSize)
 			{
-				this->beginPos_ = oldReadIndex;
+				this->_beginPos = oldReadIndex;
 				return UnmarshalError::EXCEED_SIZE;
 			}
 			if (size() < n)
 			{
-				this->beginPos_ = oldReadIndex;
+				this->_beginPos = oldReadIndex;
 				return UnmarshalError::NOT_ENOUGH;
 			}
-			body.data_ = data_;
-			body.beginPos_ = beginPos_;
-			beginPos_ += n;
-			body.endPos_ = beginPos_;
+			body._data = _data;
+			body._beginPos = _beginPos;
+			_beginPos += n;
+			body._endPos = _beginPos;
 			return UnmarshalError::OK;
 		}
 
@@ -827,10 +827,10 @@ namespace luban
 
 		void compactBuffer()
 		{
-			int remainSize = (endPos_ -= beginPos_);
+			int remainSize = (_endPos -= _beginPos);
 
-			std::memmove(data_, data_ + beginPos_, remainSize);
-			beginPos_ = 0;
+			std::memmove(_data, _data + _beginPos, remainSize);
+			_beginPos = 0;
 		}
 
 		bool loadFromFile(const std::string& file)
@@ -846,10 +846,10 @@ namespace luban
 	private:
 		void init(byte* data, int capacity, int beginPos, int endPos)
 		{
-			this->data_ = data;
-			this->capacity_ = capacity;
-			this->beginPos_ = beginPos;
-			this->endPos_ = endPos;
+			this->_data = data;
+			this->_capacity = capacity;
+			this->_beginPos = beginPos;
+			this->_endPos = endPos;
 		}
 
 		ByteBuf(const ByteBuf& o) = delete;
@@ -858,11 +858,11 @@ namespace luban
 
 		void deleteOldData()
 		{
-			if (data_ != EMPTY_BYTES)
+			if (_data != EMPTY_BYTES)
 			{
 
-				delete[] data_;
-				data_ = nullptr;
+				delete[] _data;
+				_data = nullptr;
 
 			}
 		}
@@ -870,43 +870,46 @@ namespace luban
 
 		byte* getReadData() const
 		{
-			return data_ + beginPos_;
+			return _data + _beginPos;
 		}
 
 		byte* getWriteData() const
 		{
-			return data_ + endPos_;
+			return _data + _endPos;
 		}
 
 
 		int notCompactWritable()
 		{
-			return capacity_ - endPos_;
+			return _capacity - _endPos;
 		}
 
 		void compactOrResize(int size)
 		{
-			int remainSize = (endPos_ -= beginPos_);
+			int remainSize = _endPos - _beginPos;
 			int needCapacity = remainSize + size;
 
-			if (needCapacity <= (int)capacity_)
+			if (needCapacity <= (int)_capacity)
 			{
-				std::memmove(data_, data_ + beginPos_, remainSize);
-				beginPos_ = 0;
+				std::memmove(_data, _data + _beginPos, remainSize);
+				_beginPos = 0;
 			}
 			else
 			{
-				capacity_ = calcNewCapacity(capacity_, needCapacity);
-				byte* newBytes = new byte[capacity_];
-				std::memmove(newBytes, data_ + beginPos_, remainSize);
-				beginPos_ = 0;
-				data_ = newBytes;
+				_capacity = calcNewCapacity(_capacity, needCapacity);
+				byte* newBytes = new byte[_capacity];
+				std::memcpy(newBytes, _data + _beginPos, remainSize);
+				deleteOldData();
+				_beginPos = 0;
+				_data = newBytes;
 			}
+			_beginPos = 0;
+			_endPos = remainSize;
 		}
 
 		inline void reserveWrite(int size)
 		{
-			if (endPos_ + size > (int)capacity_)
+			if (_endPos + size > (int)_capacity)
 			{
 				compactOrResize(size);
 			}
@@ -914,7 +917,7 @@ namespace luban
 
 		inline bool ensureRead(int size)
 		{
-			return (beginPos_ + size <= endPos_);
+			return (_beginPos + size <= _endPos);
 		}
 
 
