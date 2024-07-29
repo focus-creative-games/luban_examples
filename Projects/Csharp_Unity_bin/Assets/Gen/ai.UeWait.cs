@@ -16,8 +16,8 @@ public sealed partial class UeWait : ai.Task
 {
     public UeWait(ByteBuf _buf)  : base(_buf) 
     {
-        WaitTime = _buf.ReadFloat();
-        RandomDeviation = _buf.ReadFloat();
+        WAIT_TIME = _buf.ReadFloat();
+        RANDOM_DEVIATION = _buf.ReadFloat();
     }
 
     public static UeWait DeserializeUeWait(ByteBuf _buf)
@@ -25,8 +25,8 @@ public sealed partial class UeWait : ai.Task
         return new ai.UeWait(_buf);
     }
 
-    public readonly float WaitTime;
-    public readonly float RandomDeviation;
+    public readonly float WAIT_TIME;
+    public readonly float RANDOM_DEVIATION;
    
     public const int __ID__ = -512994101;
     public override int GetTypeId() => __ID__;
@@ -34,22 +34,21 @@ public sealed partial class UeWait : ai.Task
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "ignoreRestartSelf:" + IgnoreRestartSelf + ","
-        + "waitTime:" + WaitTime + ","
-        + "randomDeviation:" + RandomDeviation + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "ignore_restart_self:" + IGNORE_RESTART_SELF + ","
+        + "wait_time:" + WAIT_TIME + ","
+        + "random_deviation:" + RANDOM_DEVIATION + ","
         + "}";
     }
 }
 
 }
+

@@ -16,7 +16,7 @@ public sealed partial class Decorator : test.ItemBase
 {
     public Decorator(ByteBuf _buf)  : base(_buf) 
     {
-        Duration = _buf.ReadInt();
+        DURATION = _buf.ReadInt();
     }
 
     public static Decorator DeserializeDecorator(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class Decorator : test.ItemBase
         return new test.Decorator(_buf);
     }
 
-    public readonly int Duration;
+    public readonly int DURATION;
    
     public const int __ID__ = -625155649;
     public override int GetTypeId() => __ID__;
@@ -32,18 +32,18 @@ public sealed partial class Decorator : test.ItemBase
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "name:" + Name + ","
-        + "desc:" + Desc + ","
-        + "duration:" + Duration + ","
+        + "id:" + ID + ","
+        + "name:" + NAME + ","
+        + "desc:" + DESC + ","
+        + "duration:" + DURATION + ","
         + "}";
     }
 }
 
 }
+

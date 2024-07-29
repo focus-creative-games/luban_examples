@@ -16,8 +16,8 @@ public abstract partial class Node : Luban.BeanBase
 {
     public Node(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        NodeName = _buf.ReadString();
+        ID = _buf.ReadInt();
+        NODE_NAME = _buf.ReadString();
     }
 
     public static Node DeserializeNode(ByteBuf _buf)
@@ -51,23 +51,22 @@ public abstract partial class Node : Luban.BeanBase
         }
     }
 
-    public readonly int Id;
-    public readonly string NodeName;
+    public readonly int ID;
+    public readonly string NODE_NAME;
    
 
     public virtual void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
         + "}";
     }
 }
 
 }
+

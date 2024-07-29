@@ -16,8 +16,8 @@ public sealed partial class PatchDemo : Luban.BeanBase
 {
     public PatchDemo(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Value = _buf.ReadInt();
+        ID = _buf.ReadInt();
+        VALUE = _buf.ReadInt();
     }
 
     public static PatchDemo DeserializePatchDemo(ByteBuf _buf)
@@ -25,25 +25,24 @@ public sealed partial class PatchDemo : Luban.BeanBase
         return new l10n.PatchDemo(_buf);
     }
 
-    public readonly int Id;
-    public readonly int Value;
+    public readonly int ID;
+    public readonly int VALUE;
    
     public const int __ID__ = -1707294656;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "value:" + Value + ","
+        + "id:" + ID + ","
+        + "value:" + VALUE + ","
         + "}";
     }
 }
 
 }
+

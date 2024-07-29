@@ -16,8 +16,8 @@ public sealed partial class BinaryOperator : ai.KeyQueryOperator
 {
     public BinaryOperator(ByteBuf _buf)  : base(_buf) 
     {
-        Oper = (ai.EOperator)_buf.ReadInt();
-        Data = ai.KeyData.DeserializeKeyData(_buf);
+        OPER = (ai.EOperator)_buf.ReadInt();
+        DATA = ai.KeyData.DeserializeKeyData(_buf);
     }
 
     public static BinaryOperator DeserializeBinaryOperator(ByteBuf _buf)
@@ -25,8 +25,8 @@ public sealed partial class BinaryOperator : ai.KeyQueryOperator
         return new ai.BinaryOperator(_buf);
     }
 
-    public readonly ai.EOperator Oper;
-    public readonly ai.KeyData Data;
+    public readonly ai.EOperator OPER;
+    public readonly ai.KeyData DATA;
    
     public const int __ID__ = -979891605;
     public override int GetTypeId() => __ID__;
@@ -34,17 +34,17 @@ public sealed partial class BinaryOperator : ai.KeyQueryOperator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        Data?.ResolveRef(tables);
+        DATA?.ResolveRef(tables);
     }
 
     public override string ToString()
     {
         return "{ "
-        + "oper:" + Oper + ","
-        + "data:" + Data + ","
+        + "oper:" + OPER + ","
+        + "data:" + DATA + ","
         + "}";
     }
 }
 
 }
+

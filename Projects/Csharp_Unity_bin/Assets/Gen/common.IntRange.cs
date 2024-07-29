@@ -16,8 +16,8 @@ public sealed partial class IntRange : Luban.BeanBase
 {
     public IntRange(ByteBuf _buf) 
     {
-        Min = _buf.ReadInt();
-        Max = _buf.ReadInt();
+        MIN = _buf.ReadInt();
+        MAX = _buf.ReadInt();
     }
 
     public static IntRange DeserializeIntRange(ByteBuf _buf)
@@ -25,25 +25,24 @@ public sealed partial class IntRange : Luban.BeanBase
         return new common.IntRange(_buf);
     }
 
-    public readonly int Min;
-    public readonly int Max;
+    public readonly int MIN;
+    public readonly int MAX;
    
     public const int __ID__ = -751013039;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "min:" + Min + ","
-        + "max:" + Max + ","
+        + "min:" + MIN + ","
+        + "max:" + MAX + ","
         + "}";
     }
 }
 
 }
+

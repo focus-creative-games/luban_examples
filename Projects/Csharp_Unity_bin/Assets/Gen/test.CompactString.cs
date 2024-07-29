@@ -16,7 +16,7 @@ public sealed partial class CompactString : Luban.BeanBase
 {
     public CompactString(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
+        ID = _buf.ReadInt();
         S2 = _buf.ReadString();
         S3 = _buf.ReadString();
     }
@@ -26,7 +26,7 @@ public sealed partial class CompactString : Luban.BeanBase
         return new test.CompactString(_buf);
     }
 
-    public readonly int Id;
+    public readonly int ID;
     public readonly string S2;
     public readonly string S3;
    
@@ -35,15 +35,12 @@ public sealed partial class CompactString : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
+        + "id:" + ID + ","
         + "s2:" + S2 + ","
         + "s3:" + S3 + ","
         + "}";
@@ -51,3 +48,4 @@ public sealed partial class CompactString : Luban.BeanBase
 }
 
 }
+

@@ -16,15 +16,15 @@ public sealed partial class UpdateDailyBehaviorProps : ai.Service
 {
     public UpdateDailyBehaviorProps(ByteBuf _buf)  : base(_buf) 
     {
-        SatietyKey = _buf.ReadString();
-        EnergyKey = _buf.ReadString();
-        MoodKey = _buf.ReadString();
-        SatietyLowerThresholdKey = _buf.ReadString();
-        SatietyUpperThresholdKey = _buf.ReadString();
-        EnergyLowerThresholdKey = _buf.ReadString();
-        EnergyUpperThresholdKey = _buf.ReadString();
-        MoodLowerThresholdKey = _buf.ReadString();
-        MoodUpperThresholdKey = _buf.ReadString();
+        SATIETY_KEY = _buf.ReadString();
+        ENERGY_KEY = _buf.ReadString();
+        MOOD_KEY = _buf.ReadString();
+        SATIETY_LOWER_THRESHOLD_KEY = _buf.ReadString();
+        SATIETY_UPPER_THRESHOLD_KEY = _buf.ReadString();
+        ENERGY_LOWER_THRESHOLD_KEY = _buf.ReadString();
+        ENERGY_UPPER_THRESHOLD_KEY = _buf.ReadString();
+        MOOD_LOWER_THRESHOLD_KEY = _buf.ReadString();
+        MOOD_UPPER_THRESHOLD_KEY = _buf.ReadString();
     }
 
     public static UpdateDailyBehaviorProps DeserializeUpdateDailyBehaviorProps(ByteBuf _buf)
@@ -32,15 +32,15 @@ public sealed partial class UpdateDailyBehaviorProps : ai.Service
         return new ai.UpdateDailyBehaviorProps(_buf);
     }
 
-    public readonly string SatietyKey;
-    public readonly string EnergyKey;
-    public readonly string MoodKey;
-    public readonly string SatietyLowerThresholdKey;
-    public readonly string SatietyUpperThresholdKey;
-    public readonly string EnergyLowerThresholdKey;
-    public readonly string EnergyUpperThresholdKey;
-    public readonly string MoodLowerThresholdKey;
-    public readonly string MoodUpperThresholdKey;
+    public readonly string SATIETY_KEY;
+    public readonly string ENERGY_KEY;
+    public readonly string MOOD_KEY;
+    public readonly string SATIETY_LOWER_THRESHOLD_KEY;
+    public readonly string SATIETY_UPPER_THRESHOLD_KEY;
+    public readonly string ENERGY_LOWER_THRESHOLD_KEY;
+    public readonly string ENERGY_UPPER_THRESHOLD_KEY;
+    public readonly string MOOD_LOWER_THRESHOLD_KEY;
+    public readonly string MOOD_UPPER_THRESHOLD_KEY;
    
     public const int __ID__ = -61887372;
     public override int GetTypeId() => __ID__;
@@ -48,33 +48,25 @@ public sealed partial class UpdateDailyBehaviorProps : ai.Service
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "satietyKey:" + SatietyKey + ","
-        + "energyKey:" + EnergyKey + ","
-        + "moodKey:" + MoodKey + ","
-        + "satietyLowerThresholdKey:" + SatietyLowerThresholdKey + ","
-        + "satietyUpperThresholdKey:" + SatietyUpperThresholdKey + ","
-        + "energyLowerThresholdKey:" + EnergyLowerThresholdKey + ","
-        + "energyUpperThresholdKey:" + EnergyUpperThresholdKey + ","
-        + "moodLowerThresholdKey:" + MoodLowerThresholdKey + ","
-        + "moodUpperThresholdKey:" + MoodUpperThresholdKey + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "satiety_key:" + SATIETY_KEY + ","
+        + "energy_key:" + ENERGY_KEY + ","
+        + "mood_key:" + MOOD_KEY + ","
+        + "satiety_lower_threshold_key:" + SATIETY_LOWER_THRESHOLD_KEY + ","
+        + "satiety_upper_threshold_key:" + SATIETY_UPPER_THRESHOLD_KEY + ","
+        + "energy_lower_threshold_key:" + ENERGY_LOWER_THRESHOLD_KEY + ","
+        + "energy_upper_threshold_key:" + ENERGY_UPPER_THRESHOLD_KEY + ","
+        + "mood_lower_threshold_key:" + MOOD_LOWER_THRESHOLD_KEY + ","
+        + "mood_upper_threshold_key:" + MOOD_UPPER_THRESHOLD_KEY + ","
         + "}";
     }
 }
 
 }
+

@@ -16,7 +16,7 @@ public sealed partial class StringKeyData : ai.KeyData
 {
     public StringKeyData(ByteBuf _buf)  : base(_buf) 
     {
-        Value = _buf.ReadString();
+        VALUE = _buf.ReadString();
     }
 
     public static StringKeyData DeserializeStringKeyData(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class StringKeyData : ai.KeyData
         return new ai.StringKeyData(_buf);
     }
 
-    public readonly string Value;
+    public readonly string VALUE;
    
     public const int __ID__ = -307888654;
     public override int GetTypeId() => __ID__;
@@ -32,15 +32,15 @@ public sealed partial class StringKeyData : ai.KeyData
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "value:" + Value + ","
+        + "value:" + VALUE + ","
         + "}";
     }
 }
 
 }
+

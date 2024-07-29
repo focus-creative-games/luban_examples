@@ -30,7 +30,7 @@ public partial class TbItem
             item.Item _v;
             _v = item.Item.DeserializeItem(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

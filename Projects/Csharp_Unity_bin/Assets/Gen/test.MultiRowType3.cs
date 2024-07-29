@@ -16,8 +16,8 @@ public sealed partial class MultiRowType3 : Luban.BeanBase
 {
     public MultiRowType3(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Items = new System.Collections.Generic.List<test.MultiRowType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType1 _e0;  _e0 = test.MultiRowType1.DeserializeMultiRowType1(_buf); Items.Add(_e0);}}
+        ID = _buf.ReadInt();
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);ITEMS = new System.Collections.Generic.List<test.MultiRowType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType1 _e0;  _e0 = test.MultiRowType1.DeserializeMultiRowType1(_buf); ITEMS.Add(_e0);}}
     }
 
     public static MultiRowType3 DeserializeMultiRowType3(ByteBuf _buf)
@@ -25,25 +25,25 @@ public sealed partial class MultiRowType3 : Luban.BeanBase
         return new test.MultiRowType3(_buf);
     }
 
-    public readonly int Id;
-    public readonly System.Collections.Generic.List<test.MultiRowType1> Items;
+    public readonly int ID;
+    public readonly System.Collections.Generic.List<test.MultiRowType1> ITEMS;
    
     public const int __ID__ = 540474972;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        foreach (var _e in Items) { _e?.ResolveRef(tables); }
+        foreach (var _e in ITEMS) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "items:" + Luban.StringUtil.CollectionToString(Items) + ","
+        + "id:" + ID + ","
+        + "items:" + Luban.StringUtil.CollectionToString(ITEMS) + ","
         + "}";
     }
 }
 
 }
+

@@ -16,9 +16,9 @@ public sealed partial class TimeOfDay : Luban.BeanBase
 {
     public TimeOfDay(ByteBuf _buf) 
     {
-        Hour = _buf.ReadInt();
-        Minute = _buf.ReadInt();
-        Second = _buf.ReadInt();
+        HOUR = _buf.ReadInt();
+        MINUTE = _buf.ReadInt();
+        SECOND = _buf.ReadInt();
     }
 
     public static TimeOfDay DeserializeTimeOfDay(ByteBuf _buf)
@@ -26,28 +26,26 @@ public sealed partial class TimeOfDay : Luban.BeanBase
         return new common.TimeOfDay(_buf);
     }
 
-    public readonly int Hour;
-    public readonly int Minute;
-    public readonly int Second;
+    public readonly int HOUR;
+    public readonly int MINUTE;
+    public readonly int SECOND;
    
     public const int __ID__ = -1728347371;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "hour:" + Hour + ","
-        + "minute:" + Minute + ","
-        + "second:" + Second + ","
+        + "hour:" + HOUR + ","
+        + "minute:" + MINUTE + ","
+        + "second:" + SECOND + ","
         + "}";
     }
 }
 
 }
+

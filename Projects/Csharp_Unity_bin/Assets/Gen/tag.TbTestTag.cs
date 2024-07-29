@@ -27,7 +27,7 @@ public partial class TbTestTag
             tag.TestTag _v;
             _v = tag.TestTag.DeserializeTestTag(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

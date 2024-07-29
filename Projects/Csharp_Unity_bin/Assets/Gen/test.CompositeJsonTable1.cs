@@ -16,7 +16,7 @@ public sealed partial class CompositeJsonTable1 : Luban.BeanBase
 {
     public CompositeJsonTable1(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
+        ID = _buf.ReadInt();
         X = _buf.ReadString();
     }
 
@@ -25,7 +25,7 @@ public sealed partial class CompositeJsonTable1 : Luban.BeanBase
         return new test.CompositeJsonTable1(_buf);
     }
 
-    public readonly int Id;
+    public readonly int ID;
     public readonly string X;
    
     public const int __ID__ = 1566207894;
@@ -33,17 +33,16 @@ public sealed partial class CompositeJsonTable1 : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
+        + "id:" + ID + ","
         + "x:" + X + ","
         + "}";
     }
 }
 
 }
+

@@ -16,11 +16,11 @@ public sealed partial class TestIndex : Luban.BeanBase
 {
     public TestIndex(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Eles = new System.Collections.Generic.List<test.DemoType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoType1 _e0;  _e0 = test.DemoType1.DeserializeDemoType1(_buf); Eles.Add(_e0);}}
-        foreach(var _v in Eles)
+        ID = _buf.ReadInt();
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);ELES = new System.Collections.Generic.List<test.DemoType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoType1 _e0;  _e0 = test.DemoType1.DeserializeDemoType1(_buf); ELES.Add(_e0);}}
+        foreach(var _v in ELES)
         { 
-            Eles_Index.Add(_v.X1, _v);
+            ELES_Index.Add(_v.X1, _v);
         }
     }
 
@@ -29,26 +29,26 @@ public sealed partial class TestIndex : Luban.BeanBase
         return new test.TestIndex(_buf);
     }
 
-    public readonly int Id;
-    public readonly System.Collections.Generic.List<test.DemoType1> Eles;
-    public readonly System.Collections.Generic.Dictionary<int, test.DemoType1> Eles_Index = new System.Collections.Generic.Dictionary<int, test.DemoType1>();
+    public readonly int ID;
+    public readonly System.Collections.Generic.List<test.DemoType1> ELES;
+    public readonly System.Collections.Generic.Dictionary<int, test.DemoType1> ELES_Index = new System.Collections.Generic.Dictionary<int, test.DemoType1>();
    
     public const int __ID__ = 1941154020;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        foreach (var _e in Eles) { _e?.ResolveRef(tables); }
+        foreach (var _e in ELES) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "eles:" + Luban.StringUtil.CollectionToString(Eles) + ","
+        + "id:" + ID + ","
+        + "eles:" + Luban.StringUtil.CollectionToString(ELES) + ","
         + "}";
     }
 }
 
 }
+

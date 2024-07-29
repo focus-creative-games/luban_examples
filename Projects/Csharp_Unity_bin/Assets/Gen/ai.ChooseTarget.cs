@@ -16,7 +16,7 @@ public sealed partial class ChooseTarget : ai.Service
 {
     public ChooseTarget(ByteBuf _buf)  : base(_buf) 
     {
-        ResultTargetKey = _buf.ReadString();
+        RESULT_TARGET_KEY = _buf.ReadString();
     }
 
     public static ChooseTarget DeserializeChooseTarget(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class ChooseTarget : ai.Service
         return new ai.ChooseTarget(_buf);
     }
 
-    public readonly string ResultTargetKey;
+    public readonly string RESULT_TARGET_KEY;
    
     public const int __ID__ = 1601247918;
     public override int GetTypeId() => __ID__;
@@ -32,17 +32,17 @@ public sealed partial class ChooseTarget : ai.Service
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "resultTargetKey:" + ResultTargetKey + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "result_target_key:" + RESULT_TARGET_KEY + ","
         + "}";
     }
 }
 
 }
+

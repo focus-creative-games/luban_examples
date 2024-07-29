@@ -16,8 +16,8 @@ public sealed partial class TestMapper : Luban.BeanBase
 {
     public TestMapper(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        AudioType = (AudioType)_buf.ReadInt();
+        ID = _buf.ReadInt();
+        AUDIO_TYPE = (AudioType)_buf.ReadInt();
         V2 = vec2.Deserializevec2(_buf);
     }
 
@@ -26,8 +26,8 @@ public sealed partial class TestMapper : Luban.BeanBase
         return new test.TestMapper(_buf);
     }
 
-    public readonly int Id;
-    public readonly AudioType AudioType;
+    public readonly int ID;
+    public readonly AudioType AUDIO_TYPE;
     public readonly vec2 V2;
    
     public const int __ID__ = 149110895;
@@ -35,19 +35,17 @@ public sealed partial class TestMapper : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "audioType:" + AudioType + ","
+        + "id:" + ID + ","
+        + "audio_type:" + AUDIO_TYPE + ","
         + "v2:" + V2 + ","
         + "}";
     }
 }
 
 }
+

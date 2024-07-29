@@ -16,7 +16,7 @@ public sealed partial class TestNull : Luban.BeanBase
 {
     public TestNull(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
+        ID = _buf.ReadInt();
         if(_buf.ReadBool()){ X1 = _buf.ReadInt(); } else { X1 = null; }
         if(_buf.ReadBool()){ X2 = (test.DemoEnum)_buf.ReadInt(); } else { X2 = null; }
         if(_buf.ReadBool()){ X3 = test.DemoType1.DeserializeDemoType1(_buf); } else { X3 = null; }
@@ -30,7 +30,7 @@ public sealed partial class TestNull : Luban.BeanBase
         return new test.TestNull(_buf);
     }
 
-    public readonly int Id;
+    public readonly int ID;
     public readonly int? X1;
     public readonly test.DemoEnum? X2;
     public readonly test.DemoType1 X3;
@@ -43,19 +43,14 @@ public sealed partial class TestNull : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
         X3?.ResolveRef(tables);
         X4?.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
+        + "id:" + ID + ","
         + "x1:" + X1 + ","
         + "x2:" + X2 + ","
         + "x3:" + X3 + ","
@@ -67,3 +62,4 @@ public sealed partial class TestNull : Luban.BeanBase
 }
 
 }
+

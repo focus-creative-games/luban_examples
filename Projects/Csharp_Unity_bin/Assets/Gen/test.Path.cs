@@ -16,8 +16,8 @@ public sealed partial class Path : Luban.BeanBase
 {
     public Path(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Res = _buf.ReadString();
+        ID = _buf.ReadInt();
+        RES = _buf.ReadString();
     }
 
     public static Path DeserializePath(ByteBuf _buf)
@@ -25,25 +25,24 @@ public sealed partial class Path : Luban.BeanBase
         return new test.Path(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Res;
+    public readonly int ID;
+    public readonly string RES;
    
     public const int __ID__ = -1226450911;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "res:" + Res + ","
+        + "id:" + ID + ","
+        + "res:" + RES + ","
         + "}";
     }
 }
 
 }
+

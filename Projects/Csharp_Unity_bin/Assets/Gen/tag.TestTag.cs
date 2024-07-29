@@ -16,8 +16,8 @@ public sealed partial class TestTag : Luban.BeanBase
 {
     public TestTag(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Value = _buf.ReadString();
+        ID = _buf.ReadInt();
+        VALUE = _buf.ReadString();
     }
 
     public static TestTag DeserializeTestTag(ByteBuf _buf)
@@ -25,25 +25,24 @@ public sealed partial class TestTag : Luban.BeanBase
         return new tag.TestTag(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Value;
+    public readonly int ID;
+    public readonly string VALUE;
    
     public const int __ID__ = 1742933812;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "value:" + Value + ","
+        + "id:" + ID + ","
+        + "value:" + VALUE + ","
         + "}";
     }
 }
 
 }
+

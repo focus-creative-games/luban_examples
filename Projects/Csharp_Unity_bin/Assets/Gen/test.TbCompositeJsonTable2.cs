@@ -27,7 +27,7 @@ public partial class TbCompositeJsonTable2
             test.CompositeJsonTable2 _v;
             _v = test.CompositeJsonTable2.DeserializeCompositeJsonTable2(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

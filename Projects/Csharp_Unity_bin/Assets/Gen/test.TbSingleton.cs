@@ -27,9 +27,9 @@ public partial class TbSingleton
     }
 
 
-     public int Id => _data.Id;
-     public string Name => _data.Name;
-     public test.DemoDynamic Date => _data.Date;
+     public int ID => _data.ID;
+     public string NAME => _data.NAME;
+     public test.DemoDynamic DATE => _data.DATE;
     
     public void ResolveRef(Tables tables)
     {

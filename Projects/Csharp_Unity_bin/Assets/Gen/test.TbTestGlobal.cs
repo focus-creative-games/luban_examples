@@ -27,8 +27,8 @@ public partial class TbTestGlobal
     }
 
 
-     public int UnlockEquip => _data.UnlockEquip;
-     public int UnlockHero => _data.UnlockHero;
+     public int UNLOCK_EQUIP => _data.UNLOCK_EQUIP;
+     public int UNLOCK_HERO => _data.UNLOCK_HERO;
     
     public void ResolveRef(Tables tables)
     {

@@ -16,7 +16,7 @@ public sealed partial class Selector : ai.ComposeNode
 {
     public Selector(ByteBuf _buf)  : base(_buf) 
     {
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Children = new System.Collections.Generic.List<ai.FlowNode>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.FlowNode _e0;  _e0 = ai.FlowNode.DeserializeFlowNode(_buf); Children.Add(_e0);}}
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);CHILDREN = new System.Collections.Generic.List<ai.FlowNode>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.FlowNode _e0;  _e0 = ai.FlowNode.DeserializeFlowNode(_buf); CHILDREN.Add(_e0);}}
     }
 
     public static Selector DeserializeSelector(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class Selector : ai.ComposeNode
         return new ai.Selector(_buf);
     }
 
-    public readonly System.Collections.Generic.List<ai.FlowNode> Children;
+    public readonly System.Collections.Generic.List<ai.FlowNode> CHILDREN;
    
     public const int __ID__ = -1946981627;
     public override int GetTypeId() => __ID__;
@@ -32,19 +32,20 @@ public sealed partial class Selector : ai.ComposeNode
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        foreach (var _e in Children) { _e?.ResolveRef(tables); }
+        foreach (var _e in CHILDREN) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "children:" + Luban.StringUtil.CollectionToString(Children) + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "children:" + Luban.StringUtil.CollectionToString(CHILDREN) + ","
         + "}";
     }
 }
 
 }
+

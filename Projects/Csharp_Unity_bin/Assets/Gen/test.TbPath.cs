@@ -27,7 +27,7 @@ public partial class TbPath
             test.Path _v;
             _v = test.Path.DeserializePath(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

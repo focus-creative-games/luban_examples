@@ -35,7 +35,7 @@ public abstract partial class RefDynamicBase : Luban.BeanBase
 
     public virtual void ResolveRef(Tables tables)
     {
-        X_Ref = tables.TbTestBeRef.GetOrDefault(X);
+        X_Ref = tables.TBTESTBEREF.GetOrDefault(X);
     }
 
     public override string ToString()
@@ -47,3 +47,4 @@ public abstract partial class RefDynamicBase : Luban.BeanBase
 }
 
 }
+

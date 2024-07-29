@@ -39,11 +39,7 @@ public sealed partial class TestRow : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
         A?.ResolveRef(tables);
-        
     }
 
     public override string ToString()
@@ -59,3 +55,4 @@ public sealed partial class TestRow : Luban.BeanBase
 }
 
 }
+

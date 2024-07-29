@@ -16,7 +16,7 @@ public sealed partial class RoleInfo : test.DemoD3
 {
     public RoleInfo(ByteBuf _buf)  : base(_buf) 
     {
-        RoleId = _buf.ReadLong();
+        ROLE_ID = _buf.ReadLong();
     }
 
     public static RoleInfo DeserializeRoleInfo(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class RoleInfo : test.DemoD3
         return new test.login.RoleInfo(_buf);
     }
 
-    public readonly long RoleId;
+    public readonly long ROLE_ID;
    
     public const int __ID__ = -989153243;
     public override int GetTypeId() => __ID__;
@@ -32,7 +32,6 @@ public sealed partial class RoleInfo : test.DemoD3
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
@@ -40,9 +39,10 @@ public sealed partial class RoleInfo : test.DemoD3
         return "{ "
         + "x1:" + X1 + ","
         + "x3:" + X3 + ","
-        + "roleId:" + RoleId + ","
+        + "role_id:" + ROLE_ID + ","
         + "}";
     }
 }
 
 }
+

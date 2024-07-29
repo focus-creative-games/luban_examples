@@ -16,7 +16,7 @@ public sealed partial class UeSetDefaultFocus : ai.Service
 {
     public UeSetDefaultFocus(ByteBuf _buf)  : base(_buf) 
     {
-        KeyboardKey = _buf.ReadString();
+        KEYBOARD_KEY = _buf.ReadString();
     }
 
     public static UeSetDefaultFocus DeserializeUeSetDefaultFocus(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class UeSetDefaultFocus : ai.Service
         return new ai.UeSetDefaultFocus(_buf);
     }
 
-    public readonly string KeyboardKey;
+    public readonly string KEYBOARD_KEY;
    
     public const int __ID__ = 1812449155;
     public override int GetTypeId() => __ID__;
@@ -32,17 +32,17 @@ public sealed partial class UeSetDefaultFocus : ai.Service
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "keyboardKey:" + KeyboardKey + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "keyboard_key:" + KEYBOARD_KEY + ","
         + "}";
     }
 }
 
 }
+

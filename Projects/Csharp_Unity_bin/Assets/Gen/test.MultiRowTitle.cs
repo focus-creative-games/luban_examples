@@ -16,10 +16,10 @@ public sealed partial class MultiRowTitle : Luban.BeanBase
 {
     public MultiRowTitle(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Name = _buf.ReadString();
+        ID = _buf.ReadInt();
+        NAME = _buf.ReadString();
         X1 = test.H1.DeserializeH1(_buf);
-        if(_buf.ReadBool()){ X20 = test.H2.DeserializeH2(_buf); } else { X20 = null; }
+        if(_buf.ReadBool()){ X2_0 = test.H2.DeserializeH2(_buf); } else { X2_0 = null; }
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X2 = new System.Collections.Generic.List<test.H2>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.H2 _e0;  _e0 = test.H2.DeserializeH2(_buf); X2.Add(_e0);}}
         {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new test.H2[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { test.H2 __e0;__e0 = test.H2.DeserializeH2(_buf); X3[__index0] = __e0;}}
         {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X4 = new test.H2[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { test.H2 __e0;__e0 = test.H2.DeserializeH2(_buf); X4[__index0] = __e0;}}
@@ -30,10 +30,10 @@ public sealed partial class MultiRowTitle : Luban.BeanBase
         return new test.MultiRowTitle(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Name;
+    public readonly int ID;
+    public readonly string NAME;
     public readonly test.H1 X1;
-    public readonly test.H2 X20;
+    public readonly test.H2 X2_0;
     public readonly System.Collections.Generic.List<test.H2> X2;
     public readonly test.H2[] X3;
     public readonly test.H2[] X4;
@@ -43,10 +43,8 @@ public sealed partial class MultiRowTitle : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
         X1?.ResolveRef(tables);
-        X20?.ResolveRef(tables);
+        X2_0?.ResolveRef(tables);
         foreach (var _e in X2) { _e?.ResolveRef(tables); }
         foreach (var _e in X3) { _e?.ResolveRef(tables); }
         foreach (var _e in X4) { _e?.ResolveRef(tables); }
@@ -55,10 +53,10 @@ public sealed partial class MultiRowTitle : Luban.BeanBase
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "name:" + Name + ","
+        + "id:" + ID + ","
+        + "name:" + NAME + ","
         + "x1:" + X1 + ","
-        + "x20:" + X20 + ","
+        + "x2_0:" + X2_0 + ","
         + "x2:" + Luban.StringUtil.CollectionToString(X2) + ","
         + "x3:" + Luban.StringUtil.CollectionToString(X3) + ","
         + "x4:" + Luban.StringUtil.CollectionToString(X4) + ","
@@ -67,3 +65,4 @@ public sealed partial class MultiRowTitle : Luban.BeanBase
 }
 
 }
+

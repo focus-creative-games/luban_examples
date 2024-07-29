@@ -16,8 +16,8 @@ public sealed partial class TestBeRef : Luban.BeanBase
 {
     public TestBeRef(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Count = _buf.ReadInt();
+        ID = _buf.ReadInt();
+        COUNT = _buf.ReadInt();
     }
 
     public static TestBeRef DeserializeTestBeRef(ByteBuf _buf)
@@ -25,25 +25,24 @@ public sealed partial class TestBeRef : Luban.BeanBase
         return new test.TestBeRef(_buf);
     }
 
-    public readonly int Id;
-    public readonly int Count;
+    public readonly int ID;
+    public readonly int COUNT;
    
     public const int __ID__ = 1934403938;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "count:" + Count + ","
+        + "id:" + ID + ","
+        + "count:" + COUNT + ","
         + "}";
     }
 }
 
 }
+

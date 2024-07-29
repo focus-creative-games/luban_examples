@@ -27,7 +27,7 @@ public partial class TbBehaviorTree
             ai.BehaviorTree _v;
             _v = ai.BehaviorTree.DeserializeBehaviorTree(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

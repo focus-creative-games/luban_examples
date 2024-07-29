@@ -16,7 +16,7 @@ public sealed partial class DemoD5 : test.DemoDynamic
 {
     public DemoD5(ByteBuf _buf)  : base(_buf) 
     {
-        Time = test.DateTimeRange.DeserializeDateTimeRange(_buf);
+        TIME = test.DateTimeRange.DeserializeDateTimeRange(_buf);
     }
 
     public static DemoD5 DeserializeDemoD5(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class DemoD5 : test.DemoDynamic
         return new test.DemoD5(_buf);
     }
 
-    public readonly test.DateTimeRange Time;
+    public readonly test.DateTimeRange TIME;
    
     public const int __ID__ = -2138341744;
     public override int GetTypeId() => __ID__;
@@ -32,16 +32,17 @@ public sealed partial class DemoD5 : test.DemoDynamic
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        Time?.ResolveRef(tables);
+        TIME?.ResolveRef(tables);
     }
 
     public override string ToString()
     {
         return "{ "
         + "x1:" + X1 + ","
-        + "time:" + Time + ","
+        + "time:" + TIME + ","
         + "}";
     }
 }
 
 }
+

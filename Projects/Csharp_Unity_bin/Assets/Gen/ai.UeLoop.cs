@@ -16,9 +16,9 @@ public sealed partial class UeLoop : ai.Decorator
 {
     public UeLoop(ByteBuf _buf)  : base(_buf) 
     {
-        NumLoops = _buf.ReadInt();
-        InfiniteLoop = _buf.ReadBool();
-        InfiniteLoopTimeoutTime = _buf.ReadFloat();
+        NUM_LOOPS = _buf.ReadInt();
+        INFINITE_LOOP = _buf.ReadBool();
+        INFINITE_LOOP_TIMEOUT_TIME = _buf.ReadFloat();
     }
 
     public static UeLoop DeserializeUeLoop(ByteBuf _buf)
@@ -26,9 +26,9 @@ public sealed partial class UeLoop : ai.Decorator
         return new ai.UeLoop(_buf);
     }
 
-    public readonly int NumLoops;
-    public readonly bool InfiniteLoop;
-    public readonly float InfiniteLoopTimeoutTime;
+    public readonly int NUM_LOOPS;
+    public readonly bool INFINITE_LOOP;
+    public readonly float INFINITE_LOOP_TIMEOUT_TIME;
    
     public const int __ID__ = -513308166;
     public override int GetTypeId() => __ID__;
@@ -36,22 +36,20 @@ public sealed partial class UeLoop : ai.Decorator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "flowAbortMode:" + FlowAbortMode + ","
-        + "numLoops:" + NumLoops + ","
-        + "infiniteLoop:" + InfiniteLoop + ","
-        + "infiniteLoopTimeoutTime:" + InfiniteLoopTimeoutTime + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "flow_abort_mode:" + FLOW_ABORT_MODE + ","
+        + "num_loops:" + NUM_LOOPS + ","
+        + "infinite_loop:" + INFINITE_LOOP + ","
+        + "infinite_loop_timeout_time:" + INFINITE_LOOP_TIMEOUT_TIME + ","
         + "}";
     }
 }
 
 }
+

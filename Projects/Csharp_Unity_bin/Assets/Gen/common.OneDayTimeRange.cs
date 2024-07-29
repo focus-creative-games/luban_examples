@@ -16,8 +16,8 @@ public sealed partial class OneDayTimeRange : Luban.BeanBase
 {
     public OneDayTimeRange(ByteBuf _buf) 
     {
-        StartTime = common.TimeOfDay.DeserializeTimeOfDay(_buf);
-        EndTime = common.TimeOfDay.DeserializeTimeOfDay(_buf);
+        START_TIME = common.TimeOfDay.DeserializeTimeOfDay(_buf);
+        END_TIME = common.TimeOfDay.DeserializeTimeOfDay(_buf);
     }
 
     public static OneDayTimeRange DeserializeOneDayTimeRange(ByteBuf _buf)
@@ -25,25 +25,26 @@ public sealed partial class OneDayTimeRange : Luban.BeanBase
         return new common.OneDayTimeRange(_buf);
     }
 
-    public readonly common.TimeOfDay StartTime;
-    public readonly common.TimeOfDay EndTime;
+    public readonly common.TimeOfDay START_TIME;
+    public readonly common.TimeOfDay END_TIME;
    
     public const int __ID__ = 1628814743;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        StartTime?.ResolveRef(tables);
-        EndTime?.ResolveRef(tables);
+        START_TIME?.ResolveRef(tables);
+        END_TIME?.ResolveRef(tables);
     }
 
     public override string ToString()
     {
         return "{ "
-        + "startTime:" + StartTime + ","
-        + "endTime:" + EndTime + ","
+        + "start_time:" + START_TIME + ","
+        + "end_time:" + END_TIME + ","
         + "}";
     }
 }
 
 }
+

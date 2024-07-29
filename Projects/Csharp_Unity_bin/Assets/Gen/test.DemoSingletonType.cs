@@ -16,9 +16,9 @@ public sealed partial class DemoSingletonType : Luban.BeanBase
 {
     public DemoSingletonType(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Name = _buf.ReadString();
-        Date = test.DemoDynamic.DeserializeDemoDynamic(_buf);
+        ID = _buf.ReadInt();
+        NAME = _buf.ReadString();
+        DATE = test.DemoDynamic.DeserializeDemoDynamic(_buf);
     }
 
     public static DemoSingletonType DeserializeDemoSingletonType(ByteBuf _buf)
@@ -26,28 +26,27 @@ public sealed partial class DemoSingletonType : Luban.BeanBase
         return new test.DemoSingletonType(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Name;
-    public readonly test.DemoDynamic Date;
+    public readonly int ID;
+    public readonly string NAME;
+    public readonly test.DemoDynamic DATE;
    
     public const int __ID__ = 539196998;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        Date?.ResolveRef(tables);
+        DATE?.ResolveRef(tables);
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "name:" + Name + ","
-        + "date:" + Date + ","
+        + "id:" + ID + ","
+        + "name:" + NAME + ","
+        + "date:" + DATE + ","
         + "}";
     }
 }
 
 }
+

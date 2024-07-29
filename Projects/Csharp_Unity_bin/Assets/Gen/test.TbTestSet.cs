@@ -27,7 +27,7 @@ public partial class TbTestSet
             test.TestSet _v;
             _v = test.TestSet.DeserializeTestSet(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

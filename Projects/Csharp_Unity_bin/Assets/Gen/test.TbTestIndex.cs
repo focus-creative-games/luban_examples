@@ -27,7 +27,7 @@ public partial class TbTestIndex
             test.TestIndex _v;
             _v = test.TestIndex.DeserializeTestIndex(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

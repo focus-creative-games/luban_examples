@@ -16,7 +16,7 @@ public sealed partial class DebugPrint : ai.Task
 {
     public DebugPrint(ByteBuf _buf)  : base(_buf) 
     {
-        Text = _buf.ReadString();
+        TEXT = _buf.ReadString();
     }
 
     public static DebugPrint DeserializeDebugPrint(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class DebugPrint : ai.Task
         return new ai.DebugPrint(_buf);
     }
 
-    public readonly string Text;
+    public readonly string TEXT;
    
     public const int __ID__ = 1357409728;
     public override int GetTypeId() => __ID__;
@@ -32,20 +32,20 @@ public sealed partial class DebugPrint : ai.Task
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "ignoreRestartSelf:" + IgnoreRestartSelf + ","
-        + "text:" + Text + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "ignore_restart_self:" + IGNORE_RESTART_SELF + ","
+        + "text:" + TEXT + ","
         + "}";
     }
 }
 
 }
+

@@ -16,9 +16,9 @@ public sealed partial class SimpleParallel : ai.ComposeNode
 {
     public SimpleParallel(ByteBuf _buf)  : base(_buf) 
     {
-        FinishMode = (ai.EFinishMode)_buf.ReadInt();
-        MainTask = ai.Task.DeserializeTask(_buf);
-        BackgroundNode = ai.FlowNode.DeserializeFlowNode(_buf);
+        FINISH_MODE = (ai.EFinishMode)_buf.ReadInt();
+        MAIN_TASK = ai.Task.DeserializeTask(_buf);
+        BACKGROUND_NODE = ai.FlowNode.DeserializeFlowNode(_buf);
     }
 
     public static SimpleParallel DeserializeSimpleParallel(ByteBuf _buf)
@@ -26,9 +26,9 @@ public sealed partial class SimpleParallel : ai.ComposeNode
         return new ai.SimpleParallel(_buf);
     }
 
-    public readonly ai.EFinishMode FinishMode;
-    public readonly ai.Task MainTask;
-    public readonly ai.FlowNode BackgroundNode;
+    public readonly ai.EFinishMode FINISH_MODE;
+    public readonly ai.Task MAIN_TASK;
+    public readonly ai.FlowNode BACKGROUND_NODE;
    
     public const int __ID__ = -1952582529;
     public override int GetTypeId() => __ID__;
@@ -36,23 +36,23 @@ public sealed partial class SimpleParallel : ai.ComposeNode
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        MainTask?.ResolveRef(tables);
-        BackgroundNode?.ResolveRef(tables);
+        MAIN_TASK?.ResolveRef(tables);
+        BACKGROUND_NODE?.ResolveRef(tables);
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "finishMode:" + FinishMode + ","
-        + "mainTask:" + MainTask + ","
-        + "backgroundNode:" + BackgroundNode + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "finish_mode:" + FINISH_MODE + ","
+        + "main_task:" + MAIN_TASK + ","
+        + "background_node:" + BACKGROUND_NODE + ","
         + "}";
     }
 }
 
 }
+

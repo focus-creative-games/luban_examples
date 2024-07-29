@@ -27,7 +27,7 @@ public partial class TbPatchDemo
             l10n.PatchDemo _v;
             _v = l10n.PatchDemo.DeserializePatchDemo(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

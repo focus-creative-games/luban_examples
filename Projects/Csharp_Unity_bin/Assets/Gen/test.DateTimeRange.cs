@@ -16,8 +16,8 @@ public sealed partial class DateTimeRange : Luban.BeanBase
 {
     public DateTimeRange(ByteBuf _buf) 
     {
-        StartTime = _buf.ReadLong();
-        EndTime = _buf.ReadLong();
+        START_TIME = _buf.ReadLong();
+        END_TIME = _buf.ReadLong();
     }
 
     public static DateTimeRange DeserializeDateTimeRange(ByteBuf _buf)
@@ -25,25 +25,24 @@ public sealed partial class DateTimeRange : Luban.BeanBase
         return new test.DateTimeRange(_buf);
     }
 
-    public readonly long StartTime;
-    public readonly long EndTime;
+    public readonly long START_TIME;
+    public readonly long END_TIME;
    
     public const int __ID__ = 495315430;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "startTime:" + StartTime + ","
-        + "endTime:" + EndTime + ","
+        + "start_time:" + START_TIME + ","
+        + "end_time:" + END_TIME + ","
         + "}";
     }
 }
 
 }
+

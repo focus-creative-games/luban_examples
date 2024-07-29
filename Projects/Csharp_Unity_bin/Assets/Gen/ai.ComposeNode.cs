@@ -39,12 +39,13 @@ public abstract partial class ComposeNode : ai.FlowNode
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
         + "}";
     }
 }
 
 }
+

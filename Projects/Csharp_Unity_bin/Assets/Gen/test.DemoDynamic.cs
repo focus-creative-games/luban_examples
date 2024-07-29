@@ -36,7 +36,6 @@ public abstract partial class DemoDynamic : Luban.BeanBase
 
     public virtual void ResolveRef(Tables tables)
     {
-        
     }
 
     public override string ToString()
@@ -48,3 +47,4 @@ public abstract partial class DemoDynamic : Luban.BeanBase
 }
 
 }
+

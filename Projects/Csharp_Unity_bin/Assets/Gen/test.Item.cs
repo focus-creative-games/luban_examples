@@ -16,8 +16,8 @@ public sealed partial class Item : test.ItemBase
 {
     public Item(ByteBuf _buf)  : base(_buf) 
     {
-        Num = _buf.ReadInt();
-        Price = _buf.ReadInt();
+        NUM = _buf.ReadInt();
+        PRICE = _buf.ReadInt();
     }
 
     public static Item DeserializeItem(ByteBuf _buf)
@@ -25,8 +25,8 @@ public sealed partial class Item : test.ItemBase
         return new test.Item(_buf);
     }
 
-    public readonly int Num;
-    public readonly int Price;
+    public readonly int NUM;
+    public readonly int PRICE;
    
     public const int __ID__ = -1226641649;
     public override int GetTypeId() => __ID__;
@@ -34,20 +34,19 @@ public sealed partial class Item : test.ItemBase
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "name:" + Name + ","
-        + "desc:" + Desc + ","
-        + "num:" + Num + ","
-        + "price:" + Price + ","
+        + "id:" + ID + ","
+        + "name:" + NAME + ","
+        + "desc:" + DESC + ","
+        + "num:" + NUM + ","
+        + "price:" + PRICE + ","
         + "}";
     }
 }
 
 }
+

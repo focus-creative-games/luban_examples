@@ -16,7 +16,7 @@ public sealed partial class MultiRowType2 : Luban.BeanBase
 {
     public MultiRowType2(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
+        ID = _buf.ReadInt();
         X = _buf.ReadInt();
         Y = _buf.ReadFloat();
     }
@@ -26,7 +26,7 @@ public sealed partial class MultiRowType2 : Luban.BeanBase
         return new test.MultiRowType2(_buf);
     }
 
-    public readonly int Id;
+    public readonly int ID;
     public readonly int X;
     public readonly float Y;
    
@@ -35,15 +35,12 @@ public sealed partial class MultiRowType2 : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
+        + "id:" + ID + ","
         + "x:" + X + ","
         + "y:" + Y + ","
         + "}";
@@ -51,3 +48,4 @@ public sealed partial class MultiRowType2 : Luban.BeanBase
 }
 
 }
+

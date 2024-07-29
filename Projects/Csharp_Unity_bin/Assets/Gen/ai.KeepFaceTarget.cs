@@ -16,7 +16,7 @@ public sealed partial class KeepFaceTarget : ai.Service
 {
     public KeepFaceTarget(ByteBuf _buf)  : base(_buf) 
     {
-        TargetActorKey = _buf.ReadString();
+        TARGET_ACTOR_KEY = _buf.ReadString();
     }
 
     public static KeepFaceTarget DeserializeKeepFaceTarget(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class KeepFaceTarget : ai.Service
         return new ai.KeepFaceTarget(_buf);
     }
 
-    public readonly string TargetActorKey;
+    public readonly string TARGET_ACTOR_KEY;
    
     public const int __ID__ = 1195270745;
     public override int GetTypeId() => __ID__;
@@ -32,17 +32,17 @@ public sealed partial class KeepFaceTarget : ai.Service
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "targetActorKey:" + TargetActorKey + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "target_actor_key:" + TARGET_ACTOR_KEY + ","
         + "}";
     }
 }
 
 }
+

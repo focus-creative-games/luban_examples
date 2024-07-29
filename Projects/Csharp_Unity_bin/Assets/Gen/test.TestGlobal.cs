@@ -16,8 +16,8 @@ public sealed partial class TestGlobal : Luban.BeanBase
 {
     public TestGlobal(ByteBuf _buf) 
     {
-        UnlockEquip = _buf.ReadInt();
-        UnlockHero = _buf.ReadInt();
+        UNLOCK_EQUIP = _buf.ReadInt();
+        UNLOCK_HERO = _buf.ReadInt();
     }
 
     public static TestGlobal DeserializeTestGlobal(ByteBuf _buf)
@@ -25,25 +25,24 @@ public sealed partial class TestGlobal : Luban.BeanBase
         return new test.TestGlobal(_buf);
     }
 
-    public readonly int UnlockEquip;
-    public readonly int UnlockHero;
+    public readonly int UNLOCK_EQUIP;
+    public readonly int UNLOCK_HERO;
    
     public const int __ID__ = -12548655;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "unlockEquip:" + UnlockEquip + ","
-        + "unlockHero:" + UnlockHero + ","
+        + "unlock_equip:" + UNLOCK_EQUIP + ","
+        + "unlock_hero:" + UNLOCK_HERO + ","
         + "}";
     }
 }
 
 }
+

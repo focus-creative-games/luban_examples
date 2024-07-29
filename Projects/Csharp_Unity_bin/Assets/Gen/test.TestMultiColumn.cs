@@ -16,7 +16,7 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
 {
     public TestMultiColumn(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
+        ID = _buf.ReadInt();
         A = test.Foo.DeserializeFoo(_buf);
         B = test.Foo.DeserializeFoo(_buf);
         C = test.Foo.DeserializeFoo(_buf);
@@ -27,7 +27,7 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
         return new test.TestMultiColumn(_buf);
     }
 
-    public readonly int Id;
+    public readonly int ID;
     public readonly test.Foo A;
     public readonly test.Foo B;
     public readonly test.Foo C;
@@ -37,7 +37,6 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
         A?.ResolveRef(tables);
         B?.ResolveRef(tables);
         C?.ResolveRef(tables);
@@ -46,7 +45,7 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
+        + "id:" + ID + ","
         + "a:" + A + ","
         + "b:" + B + ","
         + "c:" + C + ","
@@ -55,3 +54,4 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
 }
 
 }
+

@@ -26,7 +26,7 @@ public sealed partial class DemoPrimitiveTypesTable : Luban.BeanBase
         S1 = _buf.ReadString();
         S2 = _buf.ReadString();
         V2 = vec2.Deserializevec2(_buf);
-        V3 = vec3.Deserializevec3(_buf);
+        V3 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf));
         V4 = vec4.Deserializevec4(_buf);
         T1 = _buf.ReadLong();
     }
@@ -46,7 +46,7 @@ public sealed partial class DemoPrimitiveTypesTable : Luban.BeanBase
     public readonly string S1;
     public readonly string S2;
     public readonly vec2 V2;
-    public readonly vec3 V3;
+    public readonly System.Numerics.Vector3 V3;
     public readonly vec4 V4;
     public readonly long T1;
    
@@ -55,19 +55,6 @@ public sealed partial class DemoPrimitiveTypesTable : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
@@ -91,3 +78,4 @@ public sealed partial class DemoPrimitiveTypesTable : Luban.BeanBase
 }
 
 }
+

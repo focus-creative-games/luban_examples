@@ -27,7 +27,7 @@ public partial class TbL10NDemo
             l10n.L10NDemo _v;
             _v = l10n.L10NDemo.DeserializeL10NDemo(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

@@ -27,7 +27,7 @@ public partial class TbTestBeRef
             test.TestBeRef _v;
             _v = test.TestBeRef.DeserializeTestBeRef(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

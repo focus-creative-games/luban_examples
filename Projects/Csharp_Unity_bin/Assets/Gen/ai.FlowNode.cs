@@ -16,8 +16,8 @@ public abstract partial class FlowNode : ai.Node
 {
     public FlowNode(ByteBuf _buf)  : base(_buf) 
     {
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Decorators = new System.Collections.Generic.List<ai.Decorator>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.Decorator _e0;  _e0 = ai.Decorator.DeserializeDecorator(_buf); Decorators.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Services = new System.Collections.Generic.List<ai.Service>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.Service _e0;  _e0 = ai.Service.DeserializeService(_buf); Services.Add(_e0);}}
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);DECORATORS = new System.Collections.Generic.List<ai.Decorator>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.Decorator _e0;  _e0 = ai.Decorator.DeserializeDecorator(_buf); DECORATORS.Add(_e0);}}
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);SERVICES = new System.Collections.Generic.List<ai.Service>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.Service _e0;  _e0 = ai.Service.DeserializeService(_buf); SERVICES.Add(_e0);}}
     }
 
     public static FlowNode DeserializeFlowNode(ByteBuf _buf)
@@ -38,26 +38,27 @@ public abstract partial class FlowNode : ai.Node
         }
     }
 
-    public readonly System.Collections.Generic.List<ai.Decorator> Decorators;
-    public readonly System.Collections.Generic.List<ai.Service> Services;
+    public readonly System.Collections.Generic.List<ai.Decorator> DECORATORS;
+    public readonly System.Collections.Generic.List<ai.Service> SERVICES;
    
 
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        foreach (var _e in Decorators) { _e?.ResolveRef(tables); }
-        foreach (var _e in Services) { _e?.ResolveRef(tables); }
+        foreach (var _e in DECORATORS) { _e?.ResolveRef(tables); }
+        foreach (var _e in SERVICES) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
         + "}";
     }
 }
 
 }
+

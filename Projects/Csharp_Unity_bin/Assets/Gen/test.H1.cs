@@ -34,7 +34,6 @@ public sealed partial class H1 : Luban.BeanBase
     public  void ResolveRef(Tables tables)
     {
         Y2?.ResolveRef(tables);
-        
     }
 
     public override string ToString()
@@ -47,3 +46,4 @@ public sealed partial class H1 : Luban.BeanBase
 }
 
 }
+

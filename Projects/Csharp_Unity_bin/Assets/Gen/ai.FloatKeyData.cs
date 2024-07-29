@@ -16,7 +16,7 @@ public sealed partial class FloatKeyData : ai.KeyData
 {
     public FloatKeyData(ByteBuf _buf)  : base(_buf) 
     {
-        Value = _buf.ReadFloat();
+        VALUE = _buf.ReadFloat();
     }
 
     public static FloatKeyData DeserializeFloatKeyData(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class FloatKeyData : ai.KeyData
         return new ai.FloatKeyData(_buf);
     }
 
-    public readonly float Value;
+    public readonly float VALUE;
    
     public const int __ID__ = -719747885;
     public override int GetTypeId() => __ID__;
@@ -32,15 +32,15 @@ public sealed partial class FloatKeyData : ai.KeyData
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "value:" + Value + ","
+        + "value:" + VALUE + ","
         + "}";
     }
 }
 
 }
+

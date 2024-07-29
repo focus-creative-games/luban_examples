@@ -16,7 +16,7 @@ public sealed partial class DemoGroup : Luban.BeanBase
 {
     public DemoGroup(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
+        ID = _buf.ReadInt();
         X1 = _buf.ReadInt();
         X1_Ref = null;
         X2 = _buf.ReadInt();
@@ -32,7 +32,7 @@ public sealed partial class DemoGroup : Luban.BeanBase
         return new test.DemoGroup(_buf);
     }
 
-    public readonly int Id;
+    public readonly int ID;
     public readonly int X1;
     public test.DemoGroup X1_Ref;
     public readonly int X2;
@@ -47,18 +47,16 @@ public sealed partial class DemoGroup : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        X1_Ref = tables.TbDemoGroupC.GetOrDefault(X1);
-        X2_Ref = tables.TbDemoGroupS.GetOrDefault(X2);
-        X3_Ref = tables.TbDemoGroupE.GetOrDefault(X3);
-        
+        X1_Ref = tables.TBDEMOGROUP_C.GetOrDefault(X1);
+        X2_Ref = tables.TBDEMOGROUP_S.GetOrDefault(X2);
+        X3_Ref = tables.TBDEMOGROUP_E.GetOrDefault(X3);
         X5?.ResolveRef(tables);
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
+        + "id:" + ID + ","
         + "x1:" + X1 + ","
         + "x2:" + X2 + ","
         + "x3:" + X3 + ","
@@ -69,3 +67,4 @@ public sealed partial class DemoGroup : Luban.BeanBase
 }
 
 }
+

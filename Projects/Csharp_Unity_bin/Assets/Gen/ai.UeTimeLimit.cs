@@ -16,7 +16,7 @@ public sealed partial class UeTimeLimit : ai.Decorator
 {
     public UeTimeLimit(ByteBuf _buf)  : base(_buf) 
     {
-        LimitTime = _buf.ReadFloat();
+        LIMIT_TIME = _buf.ReadFloat();
     }
 
     public static UeTimeLimit DeserializeUeTimeLimit(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class UeTimeLimit : ai.Decorator
         return new ai.UeTimeLimit(_buf);
     }
 
-    public readonly float LimitTime;
+    public readonly float LIMIT_TIME;
    
     public const int __ID__ = 338469720;
     public override int GetTypeId() => __ID__;
@@ -32,18 +32,18 @@ public sealed partial class UeTimeLimit : ai.Decorator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "flowAbortMode:" + FlowAbortMode + ","
-        + "limitTime:" + LimitTime + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "flow_abort_mode:" + FLOW_ABORT_MODE + ","
+        + "limit_time:" + LIMIT_TIME + ","
         + "}";
     }
 }
 
 }
+

@@ -16,9 +16,9 @@ public sealed partial class UeBlackboard : ai.Decorator
 {
     public UeBlackboard(ByteBuf _buf)  : base(_buf) 
     {
-        NotifyObserver = (ai.ENotifyObserverMode)_buf.ReadInt();
-        BlackboardKey = _buf.ReadString();
-        KeyQuery = ai.KeyQueryOperator.DeserializeKeyQueryOperator(_buf);
+        NOTIFY_OBSERVER = (ai.ENotifyObserverMode)_buf.ReadInt();
+        BLACKBOARD_KEY = _buf.ReadString();
+        KEY_QUERY = ai.KeyQueryOperator.DeserializeKeyQueryOperator(_buf);
     }
 
     public static UeBlackboard DeserializeUeBlackboard(ByteBuf _buf)
@@ -26,9 +26,9 @@ public sealed partial class UeBlackboard : ai.Decorator
         return new ai.UeBlackboard(_buf);
     }
 
-    public readonly ai.ENotifyObserverMode NotifyObserver;
-    public readonly string BlackboardKey;
-    public readonly ai.KeyQueryOperator KeyQuery;
+    public readonly ai.ENotifyObserverMode NOTIFY_OBSERVER;
+    public readonly string BLACKBOARD_KEY;
+    public readonly ai.KeyQueryOperator KEY_QUERY;
    
     public const int __ID__ = -315297507;
     public override int GetTypeId() => __ID__;
@@ -36,22 +36,21 @@ public sealed partial class UeBlackboard : ai.Decorator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
-        KeyQuery?.ResolveRef(tables);
+        KEY_QUERY?.ResolveRef(tables);
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "flowAbortMode:" + FlowAbortMode + ","
-        + "notifyObserver:" + NotifyObserver + ","
-        + "blackboardKey:" + BlackboardKey + ","
-        + "keyQuery:" + KeyQuery + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "flow_abort_mode:" + FLOW_ABORT_MODE + ","
+        + "notify_observer:" + NOTIFY_OBSERVER + ","
+        + "blackboard_key:" + BLACKBOARD_KEY + ","
+        + "key_query:" + KEY_QUERY + ","
         + "}";
     }
 }
 
 }
+

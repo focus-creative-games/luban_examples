@@ -23,7 +23,7 @@ public sealed partial class DemoType2 : Luban.BeanBase
         X5 = _buf.ReadLong();
         X6 = _buf.ReadFloat();
         X7 = _buf.ReadDouble();
-        X80 = _buf.ReadShort();
+        X8_0 = _buf.ReadShort();
         X8 = _buf.ReadInt();
         X9 = _buf.ReadLong();
         X10 = _buf.ReadString();
@@ -52,7 +52,7 @@ public sealed partial class DemoType2 : Luban.BeanBase
     public readonly long X5;
     public readonly float X6;
     public readonly double X7;
-    public readonly short X80;
+    public readonly short X8_0;
     public readonly int X8;
     public readonly long X9;
     public readonly string X10;
@@ -74,29 +74,11 @@ public sealed partial class DemoType2 : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         X12?.ResolveRef(tables);
-        
         X14?.ResolveRef(tables);
-        
-        
-        
-        
-        
         K8_Ref = new System.Collections.Generic.Dictionary<int, test.DemoType2>();
-        foreach (var (_k,_v) in K8) { K8_Ref.Add(_k, tables.TbFullTypes.GetOrDefault(_v)); }
+        foreach (var kvp in K8) { K8_Ref.Add(kvp.Key, tables.TBFULLTYPES.GetOrDefault(kvp.Value)); }
 
-        
         foreach (var _e in K15) { _e?.ResolveRef(tables); }
     }
 
@@ -110,7 +92,7 @@ public sealed partial class DemoType2 : Luban.BeanBase
         + "x5:" + X5 + ","
         + "x6:" + X6 + ","
         + "x7:" + X7 + ","
-        + "x80:" + X80 + ","
+        + "x8_0:" + X8_0 + ","
         + "x8:" + X8 + ","
         + "x9:" + X9 + ","
         + "x10:" + X10 + ","
@@ -130,3 +112,4 @@ public sealed partial class DemoType2 : Luban.BeanBase
 }
 
 }
+

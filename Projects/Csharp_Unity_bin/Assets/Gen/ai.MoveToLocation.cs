@@ -16,7 +16,7 @@ public sealed partial class MoveToLocation : ai.Task
 {
     public MoveToLocation(ByteBuf _buf)  : base(_buf) 
     {
-        AcceptableRadius = _buf.ReadFloat();
+        ACCEPTABLE_RADIUS = _buf.ReadFloat();
     }
 
     public static MoveToLocation DeserializeMoveToLocation(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class MoveToLocation : ai.Task
         return new ai.MoveToLocation(_buf);
     }
 
-    public readonly float AcceptableRadius;
+    public readonly float ACCEPTABLE_RADIUS;
    
     public const int __ID__ = -969953113;
     public override int GetTypeId() => __ID__;
@@ -32,20 +32,20 @@ public sealed partial class MoveToLocation : ai.Task
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "ignoreRestartSelf:" + IgnoreRestartSelf + ","
-        + "acceptableRadius:" + AcceptableRadius + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "ignore_restart_self:" + IGNORE_RESTART_SELF + ","
+        + "acceptable_radius:" + ACCEPTABLE_RADIUS + ","
         + "}";
     }
 }
 
 }
+

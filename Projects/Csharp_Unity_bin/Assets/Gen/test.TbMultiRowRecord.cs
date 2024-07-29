@@ -27,7 +27,7 @@ public partial class TbMultiRowRecord
             test.MultiRowRecord _v;
             _v = test.MultiRowRecord.DeserializeMultiRowRecord(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

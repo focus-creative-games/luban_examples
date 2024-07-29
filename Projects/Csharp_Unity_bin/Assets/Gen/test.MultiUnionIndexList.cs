@@ -16,11 +16,11 @@ public sealed partial class MultiUnionIndexList : Luban.BeanBase
 {
     public MultiUnionIndexList(ByteBuf _buf) 
     {
-        Id1 = _buf.ReadInt();
-        Id2 = _buf.ReadLong();
-        Id3 = _buf.ReadString();
-        Num = _buf.ReadInt();
-        Desc = _buf.ReadString();
+        ID1 = _buf.ReadInt();
+        ID2 = _buf.ReadLong();
+        ID3 = _buf.ReadString();
+        NUM = _buf.ReadInt();
+        DESC = _buf.ReadString();
     }
 
     public static MultiUnionIndexList DeserializeMultiUnionIndexList(ByteBuf _buf)
@@ -28,34 +28,30 @@ public sealed partial class MultiUnionIndexList : Luban.BeanBase
         return new test.MultiUnionIndexList(_buf);
     }
 
-    public readonly int Id1;
-    public readonly long Id2;
-    public readonly string Id3;
-    public readonly int Num;
-    public readonly string Desc;
+    public readonly int ID1;
+    public readonly long ID2;
+    public readonly string ID3;
+    public readonly int NUM;
+    public readonly string DESC;
    
     public const int __ID__ = 1966847134;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id1:" + Id1 + ","
-        + "id2:" + Id2 + ","
-        + "id3:" + Id3 + ","
-        + "num:" + Num + ","
-        + "desc:" + Desc + ","
+        + "id1:" + ID1 + ","
+        + "id2:" + ID2 + ","
+        + "id3:" + ID3 + ","
+        + "num:" + NUM + ","
+        + "desc:" + DESC + ","
         + "}";
     }
 }
 
 }
+

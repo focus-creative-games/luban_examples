@@ -27,7 +27,7 @@ public partial class TbTestScriptableObject
             test.TestScriptableObject _v;
             _v = test.TestScriptableObject.DeserializeTestScriptableObject(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

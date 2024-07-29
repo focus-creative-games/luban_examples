@@ -27,7 +27,7 @@ public partial class TbTestNull
             test.TestNull _v;
             _v = test.TestNull.DeserializeTestNull(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

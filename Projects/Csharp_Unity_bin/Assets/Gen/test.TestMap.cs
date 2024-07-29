@@ -16,8 +16,8 @@ public sealed partial class TestMap : Luban.BeanBase
 {
     public TestMap(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Id_Ref = null;
+        ID = _buf.ReadInt();
+        ID_Ref = null;
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X1 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     X1.Add(_k0, _v0);}}
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X2 = new System.Collections.Generic.Dictionary<long, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { long _k0;  _k0 = _buf.ReadLong(); int _v0;  _v0 = _buf.ReadInt();     X2.Add(_k0, _v0);}}
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new System.Collections.Generic.Dictionary<string, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { string _k0;  _k0 = _buf.ReadString(); int _v0;  _v0 = _buf.ReadInt();     X3.Add(_k0, _v0);}}
@@ -29,8 +29,8 @@ public sealed partial class TestMap : Luban.BeanBase
         return new test.TestMap(_buf);
     }
 
-    public readonly int Id;
-    public test.TestIndex Id_Ref;
+    public readonly int ID;
+    public test.TestIndex ID_Ref;
     public readonly System.Collections.Generic.Dictionary<int, int> X1;
     public readonly System.Collections.Generic.Dictionary<long, int> X2;
     public readonly System.Collections.Generic.Dictionary<string, int> X3;
@@ -41,17 +41,13 @@ public sealed partial class TestMap : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        Id_Ref = tables.TbTestIndex.GetOrDefault(Id);
-        
-        
-        
-        
+        ID_Ref = tables.TBTESTINDEX.GetOrDefault(ID);
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
+        + "id:" + ID + ","
         + "x1:" + Luban.StringUtil.CollectionToString(X1) + ","
         + "x2:" + Luban.StringUtil.CollectionToString(X2) + ","
         + "x3:" + Luban.StringUtil.CollectionToString(X3) + ","
@@ -61,3 +57,4 @@ public sealed partial class TestMap : Luban.BeanBase
 }
 
 }
+

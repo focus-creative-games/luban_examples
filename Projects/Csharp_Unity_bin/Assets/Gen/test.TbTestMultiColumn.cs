@@ -27,7 +27,7 @@ public partial class TbTestMultiColumn
             test.TestMultiColumn _v;
             _v = test.TestMultiColumn.DeserializeTestMultiColumn(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

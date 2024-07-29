@@ -42,10 +42,11 @@ public abstract partial class Service : ai.Node
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
         + "}";
     }
 }
 
 }
+

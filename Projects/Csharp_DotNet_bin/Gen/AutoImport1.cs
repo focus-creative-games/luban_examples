@@ -12,9 +12,9 @@ using Luban;
 
 namespace cfg
 {
-public sealed partial class DefineFromExcel2 : Luban.BeanBase
+public sealed partial class AutoImport1 : Luban.BeanBase
 {
-    public DefineFromExcel2(ByteBuf _buf) 
+    public AutoImport1(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
         X1 = _buf.ReadBool();
@@ -37,9 +37,9 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
         if(_buf.ReadBool()){ V11 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf)); } else { V11 = null; }
     }
 
-    public static DefineFromExcel2 DeserializeDefineFromExcel2(ByteBuf _buf)
+    public static AutoImport1 DeserializeAutoImport1(ByteBuf _buf)
     {
-        return new DefineFromExcel2(_buf);
+        return new AutoImport1(_buf);
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ public sealed partial class DefineFromExcel2 : Luban.BeanBase
     public readonly System.Collections.Generic.List<System.Numerics.Vector4> K11;
     public readonly System.Numerics.Vector3? V11;
    
-    public const int __ID__ = 482045152;
+    public const int __ID__ = -2092142499;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)

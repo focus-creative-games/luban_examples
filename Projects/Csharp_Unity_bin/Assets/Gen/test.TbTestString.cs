@@ -27,7 +27,7 @@ public partial class TbTestString
             test.TestString _v;
             _v = test.TestString.DeserializeTestString(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

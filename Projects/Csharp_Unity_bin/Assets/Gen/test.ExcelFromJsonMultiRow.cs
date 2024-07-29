@@ -16,9 +16,9 @@ public sealed partial class ExcelFromJsonMultiRow : Luban.BeanBase
 {
     public ExcelFromJsonMultiRow(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
+        ID = _buf.ReadInt();
         X = _buf.ReadInt();
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Items = new System.Collections.Generic.List<test.TestRow>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.TestRow _e0;  _e0 = test.TestRow.DeserializeTestRow(_buf); Items.Add(_e0);}}
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);ITEMS = new System.Collections.Generic.List<test.TestRow>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.TestRow _e0;  _e0 = test.TestRow.DeserializeTestRow(_buf); ITEMS.Add(_e0);}}
     }
 
     public static ExcelFromJsonMultiRow DeserializeExcelFromJsonMultiRow(ByteBuf _buf)
@@ -26,28 +26,27 @@ public sealed partial class ExcelFromJsonMultiRow : Luban.BeanBase
         return new test.ExcelFromJsonMultiRow(_buf);
     }
 
-    public readonly int Id;
+    public readonly int ID;
     public readonly int X;
-    public readonly System.Collections.Generic.List<test.TestRow> Items;
+    public readonly System.Collections.Generic.List<test.TestRow> ITEMS;
    
     public const int __ID__ = 715335694;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        foreach (var _e in Items) { _e?.ResolveRef(tables); }
+        foreach (var _e in ITEMS) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
+        + "id:" + ID + ","
         + "x:" + X + ","
-        + "items:" + Luban.StringUtil.CollectionToString(Items) + ","
+        + "items:" + Luban.StringUtil.CollectionToString(ITEMS) + ","
         + "}";
     }
 }
 
 }
+

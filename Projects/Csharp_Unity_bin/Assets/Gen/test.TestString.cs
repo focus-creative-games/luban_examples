@@ -16,11 +16,11 @@ public sealed partial class TestString : Luban.BeanBase
 {
     public TestString(ByteBuf _buf) 
     {
-        Id = _buf.ReadString();
+        ID = _buf.ReadString();
         S1 = _buf.ReadString();
         S2 = _buf.ReadString();
-        Cs1 = test.CompactString.DeserializeCompactString(_buf);
-        Cs2 = test.CompactString.DeserializeCompactString(_buf);
+        CS1 = test.CompactString.DeserializeCompactString(_buf);
+        CS2 = test.CompactString.DeserializeCompactString(_buf);
     }
 
     public static TestString DeserializeTestString(ByteBuf _buf)
@@ -28,34 +28,32 @@ public sealed partial class TestString : Luban.BeanBase
         return new test.TestString(_buf);
     }
 
-    public readonly string Id;
+    public readonly string ID;
     public readonly string S1;
     public readonly string S2;
-    public readonly test.CompactString Cs1;
-    public readonly test.CompactString Cs2;
+    public readonly test.CompactString CS1;
+    public readonly test.CompactString CS2;
    
     public const int __ID__ = 338485823;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        Cs1?.ResolveRef(tables);
-        Cs2?.ResolveRef(tables);
+        CS1?.ResolveRef(tables);
+        CS2?.ResolveRef(tables);
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
+        + "id:" + ID + ","
         + "s1:" + S1 + ","
         + "s2:" + S2 + ","
-        + "cs1:" + Cs1 + ","
-        + "cs2:" + Cs2 + ","
+        + "cs1:" + CS1 + ","
+        + "cs2:" + CS2 + ","
         + "}";
     }
 }
 
 }
+

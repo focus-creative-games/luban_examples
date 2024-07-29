@@ -16,8 +16,8 @@ public sealed partial class MoveToTarget : ai.Task
 {
     public MoveToTarget(ByteBuf _buf)  : base(_buf) 
     {
-        TargetActorKey = _buf.ReadString();
-        AcceptableRadius = _buf.ReadFloat();
+        TARGET_ACTOR_KEY = _buf.ReadString();
+        ACCEPTABLE_RADIUS = _buf.ReadFloat();
     }
 
     public static MoveToTarget DeserializeMoveToTarget(ByteBuf _buf)
@@ -25,8 +25,8 @@ public sealed partial class MoveToTarget : ai.Task
         return new ai.MoveToTarget(_buf);
     }
 
-    public readonly string TargetActorKey;
-    public readonly float AcceptableRadius;
+    public readonly string TARGET_ACTOR_KEY;
+    public readonly float ACCEPTABLE_RADIUS;
    
     public const int __ID__ = 514987779;
     public override int GetTypeId() => __ID__;
@@ -34,22 +34,21 @@ public sealed partial class MoveToTarget : ai.Task
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "ignoreRestartSelf:" + IgnoreRestartSelf + ","
-        + "targetActorKey:" + TargetActorKey + ","
-        + "acceptableRadius:" + AcceptableRadius + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "ignore_restart_self:" + IGNORE_RESTART_SELF + ","
+        + "target_actor_key:" + TARGET_ACTOR_KEY + ","
+        + "acceptable_radius:" + ACCEPTABLE_RADIUS + ","
         + "}";
     }
 }
 
 }
+

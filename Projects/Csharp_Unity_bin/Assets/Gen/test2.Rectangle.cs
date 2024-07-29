@@ -19,8 +19,8 @@ public sealed partial class Rectangle : test.Shape
 {
     public Rectangle(ByteBuf _buf)  : base(_buf) 
     {
-        Width = _buf.ReadFloat();
-        Height = _buf.ReadFloat();
+        WIDTH = _buf.ReadFloat();
+        HEIGHT = _buf.ReadFloat();
     }
 
     public static Rectangle DeserializeRectangle(ByteBuf _buf)
@@ -31,11 +31,11 @@ public sealed partial class Rectangle : test.Shape
     /// <summary>
     /// 宽度
     /// </summary>
-    public readonly float Width;
+    public readonly float WIDTH;
     /// <summary>
     /// 高度
     /// </summary>
-    public readonly float Height;
+    public readonly float HEIGHT;
    
     public const int __ID__ = 694982337;
     public override int GetTypeId() => __ID__;
@@ -43,17 +43,16 @@ public sealed partial class Rectangle : test.Shape
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "width:" + Width + ","
-        + "height:" + Height + ","
+        + "width:" + WIDTH + ","
+        + "height:" + HEIGHT + ","
         + "}";
     }
 }
 
 }
+

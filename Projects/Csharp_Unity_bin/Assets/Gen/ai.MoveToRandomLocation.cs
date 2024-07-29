@@ -16,8 +16,8 @@ public sealed partial class MoveToRandomLocation : ai.Task
 {
     public MoveToRandomLocation(ByteBuf _buf)  : base(_buf) 
     {
-        OriginPositionKey = _buf.ReadString();
-        Radius = _buf.ReadFloat();
+        ORIGIN_POSITION_KEY = _buf.ReadString();
+        RADIUS = _buf.ReadFloat();
     }
 
     public static MoveToRandomLocation DeserializeMoveToRandomLocation(ByteBuf _buf)
@@ -25,8 +25,8 @@ public sealed partial class MoveToRandomLocation : ai.Task
         return new ai.MoveToRandomLocation(_buf);
     }
 
-    public readonly string OriginPositionKey;
-    public readonly float Radius;
+    public readonly string ORIGIN_POSITION_KEY;
+    public readonly float RADIUS;
    
     public const int __ID__ = -2140042998;
     public override int GetTypeId() => __ID__;
@@ -34,22 +34,21 @@ public sealed partial class MoveToRandomLocation : ai.Task
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "ignoreRestartSelf:" + IgnoreRestartSelf + ","
-        + "originPositionKey:" + OriginPositionKey + ","
-        + "radius:" + Radius + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "ignore_restart_self:" + IGNORE_RESTART_SELF + ","
+        + "origin_position_key:" + ORIGIN_POSITION_KEY + ","
+        + "radius:" + RADIUS + ","
         + "}";
     }
 }
 
 }
+

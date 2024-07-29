@@ -27,7 +27,7 @@ public partial class TbItem2
             test.ItemBase _v;
             _v = test.ItemBase.DeserializeItemBase(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

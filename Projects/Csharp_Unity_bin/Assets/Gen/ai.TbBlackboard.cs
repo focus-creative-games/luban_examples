@@ -27,7 +27,7 @@ public partial class TbBlackboard
             ai.Blackboard _v;
             _v = ai.Blackboard.DeserializeBlackboard(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Name, _v);
+            _dataMap.Add(_v.NAME, _v);
         }
     }
 

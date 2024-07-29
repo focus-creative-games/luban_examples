@@ -16,9 +16,9 @@ public sealed partial class IsAtLocation : ai.Decorator
 {
     public IsAtLocation(ByteBuf _buf)  : base(_buf) 
     {
-        AcceptableRadius = _buf.ReadFloat();
-        KeyboardKey = _buf.ReadString();
-        InverseCondition = _buf.ReadBool();
+        ACCEPTABLE_RADIUS = _buf.ReadFloat();
+        KEYBOARD_KEY = _buf.ReadString();
+        INVERSE_CONDITION = _buf.ReadBool();
     }
 
     public static IsAtLocation DeserializeIsAtLocation(ByteBuf _buf)
@@ -26,9 +26,9 @@ public sealed partial class IsAtLocation : ai.Decorator
         return new ai.IsAtLocation(_buf);
     }
 
-    public readonly float AcceptableRadius;
-    public readonly string KeyboardKey;
-    public readonly bool InverseCondition;
+    public readonly float ACCEPTABLE_RADIUS;
+    public readonly string KEYBOARD_KEY;
+    public readonly bool INVERSE_CONDITION;
    
     public const int __ID__ = 1255972344;
     public override int GetTypeId() => __ID__;
@@ -36,22 +36,20 @@ public sealed partial class IsAtLocation : ai.Decorator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "flowAbortMode:" + FlowAbortMode + ","
-        + "acceptableRadius:" + AcceptableRadius + ","
-        + "keyboardKey:" + KeyboardKey + ","
-        + "inverseCondition:" + InverseCondition + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "flow_abort_mode:" + FLOW_ABORT_MODE + ","
+        + "acceptable_radius:" + ACCEPTABLE_RADIUS + ","
+        + "keyboard_key:" + KEYBOARD_KEY + ","
+        + "inverse_condition:" + INVERSE_CONDITION + ","
         + "}";
     }
 }
 
 }
+

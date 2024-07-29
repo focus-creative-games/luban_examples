@@ -16,7 +16,7 @@ public sealed partial class GetOwnerPlayer : ai.Service
 {
     public GetOwnerPlayer(ByteBuf _buf)  : base(_buf) 
     {
-        PlayerActorKey = _buf.ReadString();
+        PLAYER_ACTOR_KEY = _buf.ReadString();
     }
 
     public static GetOwnerPlayer DeserializeGetOwnerPlayer(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class GetOwnerPlayer : ai.Service
         return new ai.GetOwnerPlayer(_buf);
     }
 
-    public readonly string PlayerActorKey;
+    public readonly string PLAYER_ACTOR_KEY;
    
     public const int __ID__ = -999247644;
     public override int GetTypeId() => __ID__;
@@ -32,17 +32,17 @@ public sealed partial class GetOwnerPlayer : ai.Service
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "playerActorKey:" + PlayerActorKey + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "player_actor_key:" + PLAYER_ACTOR_KEY + ","
         + "}";
     }
 }
 
 }
+

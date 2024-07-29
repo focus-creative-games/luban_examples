@@ -16,7 +16,7 @@ public sealed partial class UeCooldown : ai.Decorator
 {
     public UeCooldown(ByteBuf _buf)  : base(_buf) 
     {
-        CooldownTime = _buf.ReadFloat();
+        COOLDOWN_TIME = _buf.ReadFloat();
     }
 
     public static UeCooldown DeserializeUeCooldown(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class UeCooldown : ai.Decorator
         return new ai.UeCooldown(_buf);
     }
 
-    public readonly float CooldownTime;
+    public readonly float COOLDOWN_TIME;
    
     public const int __ID__ = -951439423;
     public override int GetTypeId() => __ID__;
@@ -32,18 +32,18 @@ public sealed partial class UeCooldown : ai.Decorator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "flowAbortMode:" + FlowAbortMode + ","
-        + "cooldownTime:" + CooldownTime + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "flow_abort_mode:" + FLOW_ABORT_MODE + ","
+        + "cooldown_time:" + COOLDOWN_TIME + ","
         + "}";
     }
 }
 
 }
+

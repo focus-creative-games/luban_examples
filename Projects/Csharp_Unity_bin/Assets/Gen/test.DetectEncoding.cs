@@ -16,8 +16,8 @@ public sealed partial class DetectEncoding : Luban.BeanBase
 {
     public DetectEncoding(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Name = _buf.ReadString();
+        ID = _buf.ReadInt();
+        NAME = _buf.ReadString();
     }
 
     public static DetectEncoding DeserializeDetectEncoding(ByteBuf _buf)
@@ -25,25 +25,24 @@ public sealed partial class DetectEncoding : Luban.BeanBase
         return new test.DetectEncoding(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Name;
+    public readonly int ID;
+    public readonly string NAME;
    
     public const int __ID__ = -1154609646;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "name:" + Name + ","
+        + "id:" + ID + ","
+        + "name:" + NAME + ","
         + "}";
     }
 }
 
 }
+

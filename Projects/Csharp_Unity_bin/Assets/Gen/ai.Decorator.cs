@@ -16,7 +16,7 @@ public abstract partial class Decorator : ai.Node
 {
     public Decorator(ByteBuf _buf)  : base(_buf) 
     {
-        FlowAbortMode = (ai.EFlowAbortMode)_buf.ReadInt();
+        FLOW_ABORT_MODE = (ai.EFlowAbortMode)_buf.ReadInt();
     }
 
     public static Decorator DeserializeDecorator(ByteBuf _buf)
@@ -34,23 +34,23 @@ public abstract partial class Decorator : ai.Node
         }
     }
 
-    public readonly ai.EFlowAbortMode FlowAbortMode;
+    public readonly ai.EFlowAbortMode FLOW_ABORT_MODE;
    
 
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "flowAbortMode:" + FlowAbortMode + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "flow_abort_mode:" + FLOW_ABORT_MODE + ","
         + "}";
     }
 }
 
 }
+

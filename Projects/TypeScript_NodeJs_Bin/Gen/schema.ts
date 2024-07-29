@@ -18,17 +18,9 @@ export enum EExecutor {
 
 } 
 export namespace ai { 
-export enum EKeyType {
-    BOOL = 1,
-    INT = 2,
-    FLOAT = 3,
-    STRING = 4,
-    VECTOR = 5,
-    ROTATOR = 6,
-    NAME = 7,
-    CLASS1 = 8,
-    ENUM1 = 9,
-    OBJECT = 10,
+export enum EFinishMode {
+    IMMEDIATE = 0,
+    DELAYED = 1,
 }
 
 } 
@@ -42,9 +34,17 @@ export enum EFlowAbortMode {
 
 } 
 export namespace ai { 
-export enum EFinishMode {
-    IMMEDIATE = 0,
-    DELAYED = 1,
+export enum EKeyType {
+    BOOL = 1,
+    INT = 2,
+    FLOAT = 3,
+    STRING = 4,
+    VECTOR = 5,
+    ROTATOR = 6,
+    NAME = 7,
+    CLASS1 = 8,
+    ENUM1 = 9,
+    OBJECT = 10,
 }
 
 } 
@@ -84,30 +84,142 @@ export enum EBoolOperator {
 
 } 
 export namespace item { 
-/**
- * 道具品质
- */
-export enum EItemQuality {
+export enum EClothersStarQualityType {
     /**
-     * 白
+     * 一星
      */
-    WHITE = 0,
+    ONE = 1,
     /**
-     * 绿
+     * 二星
      */
-    GREEN = 1,
+    TWO = 2,
     /**
-     * 蓝
+     * 三星
      */
-    BLUE = 2,
+    THREE = 3,
     /**
-     * 紫
+     * 四星
      */
-    PURPLE = 3,
+    FOUR = 4,
     /**
-     * 金
+     * 五星
      */
-    GOLDEN = 4,
+    FIVE = 5,
+    /**
+     * 六星
+     */
+    SIX = 6,
+    /**
+     * 七星
+     */
+    SEVEN = 7,
+    /**
+     * 八星
+     */
+    EIGHT = 8,
+    /**
+     * 九星
+     */
+    NINE = 9,
+    /**
+     * 十星
+     */
+    TEN = 10,
+}
+
+} 
+export namespace item { 
+export enum EClothersTag {
+    /**
+     * 防晒
+     */
+    FANG_SHAI = 1,
+    /**
+     * 舞者
+     */
+    WU_ZHE = 2,
+}
+
+} 
+export namespace item { 
+export enum EClothesHidePartType {
+    /**
+     * 胸部
+     */
+    CHEST = 0,
+    /**
+     * 手
+     */
+    HEAD = 1,
+    /**
+     * 脊柱上
+     */
+    SPINE_UPPER = 2,
+    /**
+     * 脊柱下
+     */
+    SPINE_LOWER = 3,
+    /**
+     * 臀部
+     */
+    HIP = 4,
+    /**
+     * 腿上
+     */
+    LEG_UPPER = 5,
+    /**
+     * 腿中
+     */
+    LEG_MIDDLE = 6,
+    /**
+     * 腿下
+     */
+    LEG_LOWER = 7,
+}
+
+} 
+export namespace item { 
+export enum EClothesPropertyType {
+    /**
+     * 简约
+     */
+    JIAN_YUE = 1,
+    /**
+     * 华丽
+     */
+    HUA_LI = 2,
+    /**
+     * 可爱
+     */
+    KE_AI = 3,
+    /**
+     * 成熟
+     */
+    CHENG_SHU = 4,
+    /**
+     * 活泼
+     */
+    HUO_PO = 5,
+    /**
+     * 优雅
+     */
+    YOU_YA = 6,
+    /**
+     * 清纯
+     */
+    QING_CHUN = 7,
+    /**
+     * 性感
+     */
+    XING_GAN = 8,
+    /**
+     * 清凉
+     */
+    QING_LIANG = 9,
+    /**
+     * 保暖
+     */
+    BAO_NUAN = 10,
 }
 
 } 
@@ -133,6 +245,34 @@ export enum ECurrencyType {
      * 能量点
      */
     POWER_POINT = 5,
+}
+
+} 
+export namespace item { 
+/**
+ * 道具品质
+ */
+export enum EItemQuality {
+    /**
+     * 白
+     */
+    WHITE = 0,
+    /**
+     * 绿
+     */
+    GREEN = 1,
+    /**
+     * 蓝
+     */
+    BLUE = 2,
+    /**
+     * 紫
+     */
+    PURPLE = 3,
+    /**
+     * 金
+     */
+    GOLDEN = 4,
 }
 
 } 
@@ -387,64 +527,6 @@ export enum EMinorType {
 
 } 
 export namespace item { 
-export enum EClothersStarQualityType {
-    /**
-     * 一星
-     */
-    ONE = 1,
-    /**
-     * 二星
-     */
-    TWO = 2,
-    /**
-     * 三星
-     */
-    THREE = 3,
-    /**
-     * 四星
-     */
-    FOUR = 4,
-    /**
-     * 五星
-     */
-    FIVE = 5,
-    /**
-     * 六星
-     */
-    SIX = 6,
-    /**
-     * 七星
-     */
-    SEVEN = 7,
-    /**
-     * 八星
-     */
-    EIGHT = 8,
-    /**
-     * 九星
-     */
-    NINE = 9,
-    /**
-     * 十星
-     */
-    TEN = 10,
-}
-
-} 
-export namespace item { 
-export enum EClothersTag {
-    /**
-     * 防晒
-     */
-    FANG_SHAI = 1,
-    /**
-     * 舞者
-     */
-    WU_ZHE = 2,
-}
-
-} 
-export namespace item { 
 export enum EUseType {
     /**
      * 手动
@@ -457,85 +539,21 @@ export enum EUseType {
 }
 
 } 
-export namespace item { 
-export enum EClothesHidePartType {
-    /**
-     * 胸部
-     */
-    CHEST = 0,
-    /**
-     * 手
-     */
-    HEAD = 1,
-    /**
-     * 脊柱上
-     */
-    SPINE_UPPER = 2,
-    /**
-     * 脊柱下
-     */
-    SPINE_LOWER = 3,
-    /**
-     * 臀部
-     */
-    HIP = 4,
-    /**
-     * 腿上
-     */
-    LEG_UPPER = 5,
-    /**
-     * 腿中
-     */
-    LEG_MIDDLE = 6,
-    /**
-     * 腿下
-     */
-    LEG_LOWER = 7,
+export namespace test { 
+export enum AccessFlag {
+    WRITE = 1,
+    READ = 2,
+    TRUNCATE = 4,
+    NEW = 8,
+    READ_WRITE = WRITE|READ,
 }
 
 } 
-export namespace item { 
-export enum EClothesPropertyType {
-    /**
-     * 简约
-     */
-    JIAN_YUE = 1,
-    /**
-     * 华丽
-     */
-    HUA_LI = 2,
-    /**
-     * 可爱
-     */
-    KE_AI = 3,
-    /**
-     * 成熟
-     */
-    CHENG_SHU = 4,
-    /**
-     * 活泼
-     */
-    HUO_PO = 5,
-    /**
-     * 优雅
-     */
-    YOU_YA = 6,
-    /**
-     * 清纯
-     */
-    QING_CHUN = 7,
-    /**
-     * 性感
-     */
-    XING_GAN = 8,
-    /**
-     * 清凉
-     */
-    QING_LIANG = 9,
-    /**
-     * 保暖
-     */
-    BAO_NUAN = 10,
+export namespace test { 
+export enum AudioType2 {
+    UNKNOWN = 0,
+    ACC = 1,
+    AIFF = 2,
 }
 
 } 
@@ -572,16 +590,6 @@ export enum DemoFlag {
 
 } 
 export namespace test { 
-export enum ETestUeType {
-    /**
-     * 白
-     */
-    WHITE = 0,
-    BLACK = 1,
-}
-
-} 
-export namespace test { 
 export enum ETestEmptyEnum {
 }
 
@@ -591,14 +599,6 @@ export enum ETestEmptyEnum2 {
     SMALL_THAN_256 = 255,
     X_256 = 256,
     X_257 = 257,
-}
-
-} 
-export namespace test { 
-export enum AudioType2 {
-    UNKNOWN = 0,
-    ACC = 1,
-    AIFF = 2,
 }
 
 } 
@@ -624,17 +624,74 @@ export enum ETestQuality {
 
 } 
 export namespace test { 
-export enum AccessFlag {
-    WRITE = 1,
-    READ = 2,
-    TRUNCATE = 4,
-    NEW = 8,
-    READ_WRITE = WRITE|READ,
+export enum ETestUeType {
+    /**
+     * 白
+     */
+    WHITE = 0,
+    BLACK = 1,
 }
 
 } 
 
 
+
+
+export namespace ai {
+export class BehaviorTree {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
+        this.blackboardId = _buf_.ReadString()
+        this.root = ai.ComposeNode.constructorFrom(_buf_)
+    }
+
+    readonly id: number
+    readonly name: string
+    readonly desc: string
+    readonly blackboardId: string
+    blackboardId_ref: ai.Blackboard | undefined
+    readonly root: ai.ComposeNode
+
+    resolve(tables:Tables) {
+        
+        
+        
+        this.blackboardId_ref = tables.TbBlackboard.get(this.blackboardId)
+        this.root?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace ai {
+export class Blackboard {
+
+    constructor(_buf_: ByteBuf) {
+        this.name = _buf_.ReadString()
+        this.desc = _buf_.ReadString()
+        this.parentName = _buf_.ReadString()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.keys = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new ai.BlackboardKey(_buf_); this.keys.push(_e0);}}
+    }
+
+    readonly name: string
+    readonly desc: string
+    readonly parentName: string
+    parentName_ref: ai.Blackboard | undefined
+    readonly keys: ai.BlackboardKey[]
+
+    resolve(tables:Tables) {
+        
+        
+        this.parentName_ref = tables.TbBlackboard.get(this.parentName)
+        for (let _e of this.keys) { _e?.resolve(tables); }
+    }
+}
+
+}
 
 
 export namespace ai {
@@ -667,33 +724,6 @@ export class BlackboardKey {
 
 
 export namespace ai {
-export class Blackboard {
-
-    constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString()
-        this.desc = _buf_.ReadString()
-        this.parentName = _buf_.ReadString()
-        { this.keys = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.BlackboardKey; _e = new ai.BlackboardKey(_buf_); this.keys.push(_e) } }
-    }
-
-    readonly name: string
-    readonly desc: string
-    readonly parentName: string
-    parentName_ref: ai.Blackboard | undefined
-    readonly keys: ai.BlackboardKey[]
-
-    resolve(tables:Tables) {
-        
-        
-        this.parentName_ref = tables.TbBlackboard.get(this.parentName)
-        for (let _e of this.keys) { _e?.resolve(tables); }
-    }
-}
-
-}
-
-
-export namespace ai {
 export abstract class KeyData {
     static constructorFrom(_buf_: ByteBuf): KeyData{
         switch (_buf_.ReadInt()) {
@@ -710,6 +740,25 @@ export abstract class KeyData {
 
 
     resolve(tables:Tables) {
+    }
+}
+
+}
+
+
+export namespace ai {
+export class BlackboardKeyData extends ai.KeyData {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.value = _buf_.ReadString()
+    }
+
+    readonly value: string
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
     }
 }
 
@@ -774,25 +823,6 @@ export class StringKeyData extends ai.KeyData {
 
 
 export namespace ai {
-export class BlackboardKeyData extends ai.KeyData {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.value = _buf_.ReadString()
-    }
-
-    readonly value: string
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
 export abstract class KeyQueryOperator {
     static constructorFrom(_buf_: ByteBuf): KeyQueryOperator{
         switch (_buf_.ReadInt()) {
@@ -815,15 +845,21 @@ export abstract class KeyQueryOperator {
 
 
 export namespace ai {
-export class IsSet2 extends ai.KeyQueryOperator {
+export class BinaryOperator extends ai.KeyQueryOperator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
+        this.oper = _buf_.ReadInt()
+        this.data = ai.KeyData.constructorFrom(_buf_)
     }
 
+    readonly oper: ai.EOperator
+    readonly data: ai.KeyData
 
     resolve(tables:Tables) {
         super.resolve(tables)
+        
+        this.data?.resolve(tables);
     }
 }
 
@@ -847,21 +883,15 @@ export class IsNotSet extends ai.KeyQueryOperator {
 
 
 export namespace ai {
-export class BinaryOperator extends ai.KeyQueryOperator {
+export class IsSet2 extends ai.KeyQueryOperator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.oper = _buf_.ReadInt()
-        this.data = ai.KeyData.constructorFrom(_buf_)
     }
 
-    readonly oper: ai.EOperator
-    readonly data: ai.KeyData
 
     resolve(tables:Tables) {
         super.resolve(tables)
-        
-        this.data?.resolve(tables);
     }
 }
 
@@ -917,168 +947,6 @@ export abstract class Node {
 
 
 export namespace ai {
-export abstract class Service extends ai.Node {
-    static constructorFrom(_buf_: ByteBuf): Service{
-        switch (_buf_.ReadInt()) {
-            case 1812449155: return new ai.UeSetDefaultFocus(_buf_)
-            case 990693812: return new ai.ExecuteTimeStatistic(_buf_)
-            case 1601247918: return new ai.ChooseTarget(_buf_)
-            case 1195270745: return new ai.KeepFaceTarget(_buf_)
-            case -999247644: return new ai.GetOwnerPlayer(_buf_)
-            case -61887372: return new ai.UpdateDailyBehaviorProps(_buf_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-    }
-
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-    }
-}
-
-}
-
-
-export namespace ai {
-export class UeSetDefaultFocus extends ai.Service {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.keyboardKey = _buf_.ReadString()
-    }
-
-    readonly keyboardKey: string
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class ExecuteTimeStatistic extends ai.Service {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-    }
-
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-    }
-}
-
-}
-
-
-export namespace ai {
-export class ChooseTarget extends ai.Service {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.resultTargetKey = _buf_.ReadString()
-    }
-
-    readonly resultTargetKey: string
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class KeepFaceTarget extends ai.Service {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.targetActorKey = _buf_.ReadString()
-    }
-
-    readonly targetActorKey: string
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class GetOwnerPlayer extends ai.Service {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.playerActorKey = _buf_.ReadString()
-    }
-
-    readonly playerActorKey: string
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class UpdateDailyBehaviorProps extends ai.Service {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.satietyKey = _buf_.ReadString()
-        this.energyKey = _buf_.ReadString()
-        this.moodKey = _buf_.ReadString()
-        this.satietyLowerThresholdKey = _buf_.ReadString()
-        this.satietyUpperThresholdKey = _buf_.ReadString()
-        this.energyLowerThresholdKey = _buf_.ReadString()
-        this.energyUpperThresholdKey = _buf_.ReadString()
-        this.moodLowerThresholdKey = _buf_.ReadString()
-        this.moodUpperThresholdKey = _buf_.ReadString()
-    }
-
-    readonly satietyKey: string
-    readonly energyKey: string
-    readonly moodKey: string
-    readonly satietyLowerThresholdKey: string
-    readonly satietyUpperThresholdKey: string
-    readonly energyLowerThresholdKey: string
-    readonly energyUpperThresholdKey: string
-    readonly moodLowerThresholdKey: string
-    readonly moodUpperThresholdKey: string
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace ai {
 export abstract class Decorator extends ai.Node {
     static constructorFrom(_buf_: ByteBuf): Decorator{
         switch (_buf_.ReadInt()) {
@@ -1102,135 +970,6 @@ export abstract class Decorator extends ai.Node {
 
     resolve(tables:Tables) {
         super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class UeLoop extends ai.Decorator {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.numLoops = _buf_.ReadInt()
-        this.infiniteLoop = _buf_.ReadBool()
-        this.infiniteLoopTimeoutTime = _buf_.ReadFloat()
-    }
-
-    readonly numLoops: number
-    readonly infiniteLoop: boolean
-    readonly infiniteLoopTimeoutTime: number
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class UeCooldown extends ai.Decorator {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.cooldownTime = _buf_.ReadFloat()
-    }
-
-    readonly cooldownTime: number
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class UeTimeLimit extends ai.Decorator {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.limitTime = _buf_.ReadFloat()
-    }
-
-    readonly limitTime: number
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class UeBlackboard extends ai.Decorator {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.notifyObserver = _buf_.ReadInt()
-        this.blackboardKey = _buf_.ReadString()
-        this.keyQuery = ai.KeyQueryOperator.constructorFrom(_buf_)
-    }
-
-    readonly notifyObserver: ai.ENotifyObserverMode
-    readonly blackboardKey: string
-    readonly keyQuery: ai.KeyQueryOperator
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-        
-        this.keyQuery?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace ai {
-export class UeForceSuccess extends ai.Decorator {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-    }
-
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-    }
-}
-
-}
-
-
-export namespace ai {
-export class IsAtLocation extends ai.Decorator {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.acceptableRadius = _buf_.ReadFloat()
-        this.keyboardKey = _buf_.ReadString()
-        this.inverseCondition = _buf_.ReadBool()
-    }
-
-    readonly acceptableRadius: number
-    readonly keyboardKey: string
-    readonly inverseCondition: boolean
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-        
         
     }
 }
@@ -1267,6 +1006,135 @@ export class DistanceLessThan extends ai.Decorator {
 
 
 export namespace ai {
+export class IsAtLocation extends ai.Decorator {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.acceptableRadius = _buf_.ReadFloat()
+        this.keyboardKey = _buf_.ReadString()
+        this.inverseCondition = _buf_.ReadBool()
+    }
+
+    readonly acceptableRadius: number
+    readonly keyboardKey: string
+    readonly inverseCondition: boolean
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class UeBlackboard extends ai.Decorator {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.notifyObserver = _buf_.ReadInt()
+        this.blackboardKey = _buf_.ReadString()
+        this.keyQuery = ai.KeyQueryOperator.constructorFrom(_buf_)
+    }
+
+    readonly notifyObserver: ai.ENotifyObserverMode
+    readonly blackboardKey: string
+    readonly keyQuery: ai.KeyQueryOperator
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+        
+        this.keyQuery?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace ai {
+export class UeCooldown extends ai.Decorator {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.cooldownTime = _buf_.ReadFloat()
+    }
+
+    readonly cooldownTime: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class UeForceSuccess extends ai.Decorator {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+    }
+
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+    }
+}
+
+}
+
+
+export namespace ai {
+export class UeLoop extends ai.Decorator {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.numLoops = _buf_.ReadInt()
+        this.infiniteLoop = _buf_.ReadBool()
+        this.infiniteLoopTimeoutTime = _buf_.ReadFloat()
+    }
+
+    readonly numLoops: number
+    readonly infiniteLoop: boolean
+    readonly infiniteLoopTimeoutTime: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class UeTimeLimit extends ai.Decorator {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.limitTime = _buf_.ReadFloat()
+    }
+
+    readonly limitTime: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace ai {
 export abstract class FlowNode extends ai.Node {
     static constructorFrom(_buf_: ByteBuf): FlowNode{
         switch (_buf_.ReadInt()) {
@@ -1286,8 +1154,8 @@ export abstract class FlowNode extends ai.Node {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { this.decorators = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.Decorator; _e = ai.Decorator.constructorFrom(_buf_); this.decorators.push(_e) } }
-        { this.services = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.Service; _e = ai.Service.constructorFrom(_buf_); this.services.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.decorators = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.Decorator.constructorFrom(_buf_); this.decorators.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.services = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.Service.constructorFrom(_buf_); this.services.push(_e0);}}
     }
 
     readonly decorators: ai.Decorator[]
@@ -1328,11 +1196,11 @@ export abstract class ComposeNode extends ai.FlowNode {
 
 
 export namespace ai {
-export class Sequence extends ai.ComposeNode {
+export class Selector extends ai.ComposeNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode; _e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.children = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e0);}}
     }
 
     readonly children: ai.FlowNode[]
@@ -1347,11 +1215,11 @@ export class Sequence extends ai.ComposeNode {
 
 
 export namespace ai {
-export class Selector extends ai.ComposeNode {
+export class Sequence extends ai.ComposeNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { this.children = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :ai.FlowNode; _e = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.children = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e0);}}
     }
 
     readonly children: ai.FlowNode[]
@@ -1422,6 +1290,110 @@ export abstract class Task extends ai.FlowNode {
 
 
 export namespace ai {
+export class ChooseSkill extends ai.Task {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.targetActorKey = _buf_.ReadString()
+        this.resultSkillIdKey = _buf_.ReadString()
+    }
+
+    readonly targetActorKey: string
+    readonly resultSkillIdKey: string
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class DebugPrint extends ai.Task {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.text = _buf_.ReadString()
+    }
+
+    readonly text: string
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class MoveToLocation extends ai.Task {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.acceptableRadius = _buf_.ReadFloat()
+    }
+
+    readonly acceptableRadius: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class MoveToRandomLocation extends ai.Task {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.originPositionKey = _buf_.ReadString()
+        this.radius = _buf_.ReadFloat()
+    }
+
+    readonly originPositionKey: string
+    readonly radius: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class MoveToTarget extends ai.Task {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.targetActorKey = _buf_.ReadString()
+        this.acceptableRadius = _buf_.ReadFloat()
+    }
+
+    readonly targetActorKey: string
+    readonly acceptableRadius: number
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+        
+    }
+}
+
+}
+
+
+export namespace ai {
 export class UeWait extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
@@ -1463,20 +1435,98 @@ export class UeWaitBlackboardTime extends ai.Task {
 
 
 export namespace ai {
-export class MoveToTarget extends ai.Task {
+export abstract class Service extends ai.Node {
+    static constructorFrom(_buf_: ByteBuf): Service{
+        switch (_buf_.ReadInt()) {
+            case 1812449155: return new ai.UeSetDefaultFocus(_buf_)
+            case 990693812: return new ai.ExecuteTimeStatistic(_buf_)
+            case 1601247918: return new ai.ChooseTarget(_buf_)
+            case 1195270745: return new ai.KeepFaceTarget(_buf_)
+            case -999247644: return new ai.GetOwnerPlayer(_buf_)
+            case -61887372: return new ai.UpdateDailyBehaviorProps(_buf_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+    }
+
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+    }
+}
+
+}
+
+
+export namespace ai {
+export class ChooseTarget extends ai.Service {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.resultTargetKey = _buf_.ReadString()
+    }
+
+    readonly resultTargetKey: string
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class ExecuteTimeStatistic extends ai.Service {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+    }
+
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+    }
+}
+
+}
+
+
+export namespace ai {
+export class GetOwnerPlayer extends ai.Service {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        this.playerActorKey = _buf_.ReadString()
+    }
+
+    readonly playerActorKey: string
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
+        
+    }
+}
+
+}
+
+
+export namespace ai {
+export class KeepFaceTarget extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
         this.targetActorKey = _buf_.ReadString()
-        this.acceptableRadius = _buf_.ReadFloat()
     }
 
     readonly targetActorKey: string
-    readonly acceptableRadius: number
 
     resolve(tables:Tables) {
         super.resolve(tables)
-        
         
     }
 }
@@ -1485,20 +1535,17 @@ export class MoveToTarget extends ai.Task {
 
 
 export namespace ai {
-export class ChooseSkill extends ai.Task {
+export class UeSetDefaultFocus extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.targetActorKey = _buf_.ReadString()
-        this.resultSkillIdKey = _buf_.ReadString()
+        this.keyboardKey = _buf_.ReadString()
     }
 
-    readonly targetActorKey: string
-    readonly resultSkillIdKey: string
+    readonly keyboardKey: string
 
     resolve(tables:Tables) {
         super.resolve(tables)
-        
         
     }
 }
@@ -1507,154 +1554,38 @@ export class ChooseSkill extends ai.Task {
 
 
 export namespace ai {
-export class MoveToRandomLocation extends ai.Task {
+export class UpdateDailyBehaviorProps extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.originPositionKey = _buf_.ReadString()
-        this.radius = _buf_.ReadFloat()
+        this.satietyKey = _buf_.ReadString()
+        this.energyKey = _buf_.ReadString()
+        this.moodKey = _buf_.ReadString()
+        this.satietyLowerThresholdKey = _buf_.ReadString()
+        this.satietyUpperThresholdKey = _buf_.ReadString()
+        this.energyLowerThresholdKey = _buf_.ReadString()
+        this.energyUpperThresholdKey = _buf_.ReadString()
+        this.moodLowerThresholdKey = _buf_.ReadString()
+        this.moodUpperThresholdKey = _buf_.ReadString()
     }
 
-    readonly originPositionKey: string
-    readonly radius: number
+    readonly satietyKey: string
+    readonly energyKey: string
+    readonly moodKey: string
+    readonly satietyLowerThresholdKey: string
+    readonly satietyUpperThresholdKey: string
+    readonly energyLowerThresholdKey: string
+    readonly energyUpperThresholdKey: string
+    readonly moodLowerThresholdKey: string
+    readonly moodUpperThresholdKey: string
 
     resolve(tables:Tables) {
         super.resolve(tables)
         
         
-    }
-}
-
-}
-
-
-export namespace ai {
-export class MoveToLocation extends ai.Task {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.acceptableRadius = _buf_.ReadFloat()
-    }
-
-    readonly acceptableRadius: number
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class DebugPrint extends ai.Task {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        this.text = _buf_.ReadString()
-    }
-
-    readonly text: string
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace ai {
-export class BehaviorTree {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
-        this.desc = _buf_.ReadString()
-        this.blackboardId = _buf_.ReadString()
-        this.root = ai.ComposeNode.constructorFrom(_buf_)
-    }
-
-    readonly id: number
-    readonly name: string
-    readonly desc: string
-    readonly blackboardId: string
-    blackboardId_ref: ai.Blackboard | undefined
-    readonly root: ai.ComposeNode
-
-    resolve(tables:Tables) {
         
         
         
-        this.blackboardId_ref = tables.TbBlackboard.get(this.blackboardId)
-        this.root?.resolve(tables);
-    }
-}
-
-}
-
-
-
-export class vec2 {
-
-    constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadFloat()
-        this.y = _buf_.ReadFloat()
-    }
-
-    readonly x: number
-    readonly y: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-
-
-
-
-export class vec3 {
-
-    constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadFloat()
-        this.y = _buf_.ReadFloat()
-        this.z = _buf_.ReadFloat()
-    }
-
-    readonly x: number
-    readonly y: number
-    readonly z: number
-
-    resolve(tables:Tables) {
-        
-        
-        
-    }
-}
-
-
-
-
-
-export class vec4 {
-
-    constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadFloat()
-        this.y = _buf_.ReadFloat()
-        this.z = _buf_.ReadFloat()
-        this.w = _buf_.ReadFloat()
-    }
-
-    readonly x: number
-    readonly y: number
-    readonly z: number
-    readonly w: number
-
-    resolve(tables:Tables) {
         
         
         
@@ -1662,7 +1593,7 @@ export class vec4 {
     }
 }
 
-
+}
 
 
 export namespace common {
@@ -1675,69 +1606,6 @@ export class DateTimeRange {
 
     readonly startTime: number|undefined
     readonly endTime: number|undefined
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace common {
-export class TimeOfDay {
-
-    constructor(_buf_: ByteBuf) {
-        this.hour = _buf_.ReadInt()
-        this.minute = _buf_.ReadInt()
-        this.second = _buf_.ReadInt()
-    }
-
-    readonly hour: number
-    readonly minute: number
-    readonly second: number
-
-    resolve(tables:Tables) {
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace common {
-export class OneDayTimeRange {
-
-    constructor(_buf_: ByteBuf) {
-        this.startTime = new common.TimeOfDay(_buf_)
-        this.endTime = new common.TimeOfDay(_buf_)
-    }
-
-    readonly startTime: common.TimeOfDay
-    readonly endTime: common.TimeOfDay
-
-    resolve(tables:Tables) {
-        this.startTime?.resolve(tables);
-        this.endTime?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace common {
-export class IntRange {
-
-    constructor(_buf_: ByteBuf) {
-        this.min = _buf_.ReadInt()
-        this.max = _buf_.ReadInt()
-    }
-
-    readonly min: number
-    readonly max: number
 
     resolve(tables:Tables) {
         
@@ -1778,7 +1646,7 @@ export class GlobalConfig {
         this.x4 = _buf_.ReadInt()
         this.x5 = _buf_.ReadInt()
         this.x6 = _buf_.ReadInt()
-        { this.x7 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.x7.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x7 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x7.push(_e0);}}
     }
 
     /**
@@ -1797,6 +1665,69 @@ export class GlobalConfig {
         
         
         
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace common {
+export class IntRange {
+
+    constructor(_buf_: ByteBuf) {
+        this.min = _buf_.ReadInt()
+        this.max = _buf_.ReadInt()
+    }
+
+    readonly min: number
+    readonly max: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace common {
+export class OneDayTimeRange {
+
+    constructor(_buf_: ByteBuf) {
+        this.startTime = new common.TimeOfDay(_buf_)
+        this.endTime = new common.TimeOfDay(_buf_)
+    }
+
+    readonly startTime: common.TimeOfDay
+    readonly endTime: common.TimeOfDay
+
+    resolve(tables:Tables) {
+        this.startTime?.resolve(tables);
+        this.endTime?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace common {
+export class TimeOfDay {
+
+    constructor(_buf_: ByteBuf) {
+        this.hour = _buf_.ReadInt()
+        this.minute = _buf_.ReadInt()
+        this.second = _buf_.ReadInt()
+    }
+
+    readonly hour: number
+    readonly minute: number
+    readonly second: number
+
+    resolve(tables:Tables) {
         
         
         
@@ -1920,15 +1851,178 @@ export class TestTag {
 
 
 export namespace test {
-export class DemoType1 {
+export class CompactString {
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadInt()
+        this.id = _buf_.ReadInt()
+        this.s2 = _buf_.ReadString()
+        this.s3 = _buf_.ReadString()
     }
 
-    readonly x1: number
+    readonly id: number
+    readonly s2: string
+    readonly s3: string
 
     resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class CompositeJsonTable1 {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x = _buf_.ReadString()
+    }
+
+    readonly id: number
+    readonly x: string
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class CompositeJsonTable2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.y = _buf_.ReadInt()
+    }
+
+    readonly id: number
+    readonly y: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class CompositeJsonTable3 {
+
+    constructor(_buf_: ByteBuf) {
+        this.a = _buf_.ReadInt()
+        this.b = _buf_.ReadInt()
+    }
+
+    readonly a: number
+    readonly b: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DateTimeRange {
+
+    constructor(_buf_: ByteBuf) {
+        this.startTime = _buf_.ReadLongAsNumber()
+        this.endTime = _buf_.ReadLongAsNumber()
+    }
+
+    readonly startTime: number
+    readonly endTime: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DefineFromExcel2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x1 = _buf_.ReadBool()
+        this.x5 = _buf_.ReadLongAsNumber()
+        this.x6 = _buf_.ReadFloat()
+        this.x8 = _buf_.ReadInt()
+        this.x10 = _buf_.ReadString()
+        this.x13 = _buf_.ReadInt()
+        this.x132 = _buf_.ReadInt()
+        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
+        this.x15 = test.Shape.constructorFrom(_buf_)
+        this.v2 = new vec2(_buf_)
+        this.t1 = _buf_.ReadLongAsNumber()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k2.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k10 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec3(_buf_); this.k10.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k11 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec4(_buf_); this.k11.push(_e0);}}
+        if(_buf_.ReadBool()) { this.v11 = new vec3(_buf_) } else { this.v11 = null; }
+    }
+
+    /**
+     * 这是id
+     */
+    readonly id: number
+    /**
+     * 字段x1
+     */
+    readonly x1: boolean
+    readonly x5: number
+    readonly x6: number
+    readonly x8: number
+    readonly x10: string
+    readonly x13: test.DemoEnum
+    readonly x132: test.DemoFlag
+    readonly x14: test.DemoDynamic
+    readonly x15: test.Shape
+    readonly v2: vec2
+    readonly t1: number
+    readonly k1: number[]
+    readonly k2: number[]
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+    readonly k10: vec3[]
+    readonly k11: vec4[]
+    readonly v11: vec3|undefined
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        this.x14?.resolve(tables);
+        this.x15?.resolve(tables);
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
 }
@@ -2065,26 +2159,6 @@ export class DemoD5 extends test.DemoDynamic {
 
 
 export namespace test {
-export class DateTimeRange {
-
-    constructor(_buf_: ByteBuf) {
-        this.startTime = _buf_.ReadLongAsNumber()
-        this.endTime = _buf_.ReadLongAsNumber()
-    }
-
-    readonly startTime: number
-    readonly endTime: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
 export class DemoE2 {
 
     constructor(_buf_: ByteBuf) {
@@ -2140,502 +2214,34 @@ export class DemoExplicitType {
 
 
 export namespace test {
-export class DemoType2 {
+export class DemoGroup {
 
     constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x1 = _buf_.ReadInt()
+        this.x2 = _buf_.ReadInt()
+        this.x3 = _buf_.ReadInt()
         this.x4 = _buf_.ReadInt()
-        this.x1 = _buf_.ReadBool()
-        this.x2 = _buf_.ReadByte()
-        this.x3 = _buf_.ReadShort()
-        this.x5 = _buf_.ReadLongAsNumber()
-        this.x6 = _buf_.ReadFloat()
-        this.x7 = _buf_.ReadDouble()
-        this.x80 = _buf_.ReadShort()
-        this.x8 = _buf_.ReadInt()
-        this.x9 = _buf_.ReadLongAsNumber()
-        this.x10 = _buf_.ReadString()
-        this.x12 = new test.DemoType1(_buf_)
-        this.x13 = _buf_.ReadInt()
-        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
-        this.s1 = _buf_.ReadString()
-        this.t1 = _buf_.ReadLongAsNumber()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.k1[i] = _e } }
-        { this.k2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.k2.push(_e) } }
-        { this.k5 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.k5.add(_e);}}
-        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.k8.set(_k, _v);  } }
-        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2; _e = new test.DemoE2(_buf_); this.k9.push(_e) } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :test.DemoDynamic;_e = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e) } }
+        this.x5 = new test.InnerGroup(_buf_)
     }
 
-    readonly x4: number
-    readonly x1: boolean
+    readonly id: number
+    readonly x1: number
+    x1_ref: test.DemoGroup | undefined
     readonly x2: number
+    x2_ref: test.DemoGroup | undefined
     readonly x3: number
-    readonly x5: number
-    readonly x6: number
-    readonly x7: number
-    readonly x80: number
-    readonly x8: number
-    readonly x9: number
-    readonly x10: string
-    readonly x12: test.DemoType1
-    readonly x13: test.DemoEnum
-    readonly x14: test.DemoDynamic
-    readonly s1: string
-    readonly t1: number
-    readonly k1: number[]
-    readonly k2: number[]
-    readonly k5: Set<number>
-    readonly k8: Map<number, number>
-    readonly k9: test.DemoE2[]
-    readonly k15: test.DemoDynamic[]
-
-    resolve(tables:Tables) {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        this.x12?.resolve(tables);
-        
-        this.x14?.resolve(tables);
-        
-        
-        
-        
-        
-        
-        
-        for (let _e of this.k15) { _e?.resolve(tables); }
-    }
-}
-
-}
-
-
-export namespace test {
-export class DemoSingletonType {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
-        this.date = test.DemoDynamic.constructorFrom(_buf_)
-    }
-
-    readonly id: number
-    readonly name: string
-    readonly date: test.DemoDynamic
-
-    resolve(tables:Tables) {
-        
-        
-        this.date?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace test {
-export class NotIndexList {
-
-    constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadInt()
-    }
-
-    readonly x: number
-    readonly y: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class MultiUnionIndexList {
-
-    constructor(_buf_: ByteBuf) {
-        this.id1 = _buf_.ReadInt()
-        this.id2 = _buf_.ReadLongAsNumber()
-        this.id3 = _buf_.ReadString()
-        this.num = _buf_.ReadInt()
-        this.desc = _buf_.ReadString()
-    }
-
-    readonly id1: number
-    readonly id2: number
-    readonly id3: string
-    readonly num: number
-    readonly desc: string
-
-    resolve(tables:Tables) {
-        
-        
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class MultiIndexList {
-
-    constructor(_buf_: ByteBuf) {
-        this.id1 = _buf_.ReadInt()
-        this.id2 = _buf_.ReadLongAsNumber()
-        this.id3 = _buf_.ReadString()
-        this.num = _buf_.ReadInt()
-        this.desc = _buf_.ReadString()
-    }
-
-    readonly id1: number
-    readonly id2: number
-    readonly id3: string
-    readonly num: number
-    readonly desc: string
-
-    resolve(tables:Tables) {
-        
-        
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class MultiRowType1 {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x = _buf_.ReadInt()
-    }
-
-    readonly id: number
-    readonly x: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class MultiRowType2 {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadFloat()
-    }
-
-    readonly id: number
-    readonly x: number
-    readonly y: number
-
-    resolve(tables:Tables) {
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class MultiRowType3 {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        { this.items = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_buf_); this.items.push(_e) } }
-    }
-
-    readonly id: number
-    readonly items: test.MultiRowType1[]
-
-    resolve(tables:Tables) {
-        
-        for (let _e of this.items) { _e?.resolve(tables); }
-    }
-}
-
-}
-
-
-export namespace test {
-export class MultiRowRecord {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
-        { this.oneRows = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_buf_); this.oneRows.push(_e) } }
-        { this.multiRows1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType1; _e = new test.MultiRowType1(_buf_); this.multiRows1.push(_e) } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows2 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :test.MultiRowType1;_e = new test.MultiRowType1(_buf_); this.multiRows2.push(_e) } }
-        { this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:test.MultiRowType2; _v = new test.MultiRowType2(_buf_); this.multiRows4.set(_k, _v);  } }
-        { this.multiRows5 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.MultiRowType3; _e = new test.MultiRowType3(_buf_); this.multiRows5.push(_e) } }
-        { this.multiRows6 = new Map<number, test.MultiRowType2>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:test.MultiRowType2; _v = new test.MultiRowType2(_buf_); this.multiRows6.set(_k, _v);  } }
-        { this.multiRows7 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.multiRows7.set(_k, _v);  } }
-    }
-
-    readonly id: number
-    readonly name: string
-    readonly oneRows: test.MultiRowType1[]
-    readonly multiRows1: test.MultiRowType1[]
-    readonly multiRows2: test.MultiRowType1[]
-    readonly multiRows4: Map<number, test.MultiRowType2>
-    readonly multiRows5: test.MultiRowType3[]
-    readonly multiRows6: Map<number, test.MultiRowType2>
-    readonly multiRows7: Map<number, number>
-
-    resolve(tables:Tables) {
-        
-        
-        for (let _e of this.oneRows) { _e?.resolve(tables); }
-        for (let _e of this.multiRows1) { _e?.resolve(tables); }
-        for (let _e of this.multiRows2) { _e?.resolve(tables); }
-        for (let [_, _e] of this.multiRows4) { _e?.resolve(tables); }
-        for (let _e of this.multiRows5) { _e?.resolve(tables); }
-        for (let [_, _e] of this.multiRows6) { _e?.resolve(tables); }
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class Foo {
-
-    constructor(_buf_: ByteBuf) {
-        this.y1 = _buf_.ReadInt()
-        this.y2 = _buf_.ReadInt()
-        this.y3 = _buf_.ReadInt()
-    }
-
-    readonly y1: number
-    readonly y2: number
-    readonly y3: number
-
-    resolve(tables:Tables) {
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestMultiColumn {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.a = new test.Foo(_buf_)
-        this.b = new test.Foo(_buf_)
-        this.c = new test.Foo(_buf_)
-    }
-
-    readonly id: number
-    readonly a: test.Foo
-    readonly b: test.Foo
-    readonly c: test.Foo
-
-    resolve(tables:Tables) {
-        
-        this.a?.resolve(tables);
-        this.b?.resolve(tables);
-        this.c?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestUeType {
-
-    constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadBool()
-        this.x2 = _buf_.ReadByte()
-        this.x3 = _buf_.ReadShort()
-        this.x4 = _buf_.ReadInt()
-        this.x5 = _buf_.ReadLongAsNumber()
-        this.x6 = _buf_.ReadFloat()
-        this.x10 = _buf_.ReadString()
-        this.x12 = new test.DemoType1(_buf_)
-        this.x13 = _buf_.ReadInt()
-        this.t1 = _buf_.ReadLongAsNumber()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.k1[i] = _e } }
-        { this.k2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.k2.push(_e) } }
-        { this.k5 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.k5.add(_e);}}
-        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.k8.set(_k, _v);  } }
-        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2; _e = new test.DemoE2(_buf_); this.k9.push(_e) } }
-    }
-
-    readonly x1: boolean
-    readonly x2: number
-    readonly x3: number
+    x3_ref: test.DemoGroup | undefined
     readonly x4: number
-    readonly x5: number
-    readonly x6: number
-    readonly x10: string
-    readonly x12: test.DemoType1
-    readonly x13: test.ETestUeType
-    readonly t1: number
-    readonly k1: number[]
-    readonly k2: number[]
-    readonly k5: Set<number>
-    readonly k8: Map<number, number>
-    readonly k9: test.DemoE2[]
+    readonly x5: test.InnerGroup
 
     resolve(tables:Tables) {
         
+        this.x1_ref = tables.TbDemoGroup_C.get(this.x1)
+        this.x2_ref = tables.TbDemoGroup_S.get(this.x2)
+        this.x3_ref = tables.TbDemoGroup_E.get(this.x3)
         
-        
-        
-        
-        
-        
-        this.x12?.resolve(tables);
-        
-        
-        
-        
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class H1 {
-
-    constructor(_buf_: ByteBuf) {
-        this.y2 = new test.H2(_buf_)
-        this.y3 = _buf_.ReadInt()
-    }
-
-    readonly y2: test.H2
-    readonly y3: number
-
-    resolve(tables:Tables) {
-        this.y2?.resolve(tables);
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class H2 {
-
-    constructor(_buf_: ByteBuf) {
-        this.z2 = _buf_.ReadInt()
-        this.z3 = _buf_.ReadInt()
-    }
-
-    readonly z2: number
-    readonly z3: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class MultiRowTitle {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
-        this.x1 = new test.H1(_buf_)
-        if(_buf_.ReadBool()) { this.x20 = new test.H2(_buf_) } else { this.x20 = null; }
-        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.H2; _e = new test.H2(_buf_); this.x2.push(_e) } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x3.push(_e) } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :test.H2;_e = new test.H2(_buf_); this.x4.push(_e) } }
-    }
-
-    readonly id: number
-    readonly name: string
-    readonly x1: test.H1
-    readonly x20: test.H2|undefined
-    readonly x2: test.H2[]
-    readonly x3: test.H2[]
-    readonly x4: test.H2[]
-
-    resolve(tables:Tables) {
-        
-        
-        this.x1?.resolve(tables);
-        this.x20?.resolve(tables);
-        for (let _e of this.x2) { _e?.resolve(tables); }
-        for (let _e of this.x3) { _e?.resolve(tables); }
-        for (let _e of this.x4) { _e?.resolve(tables); }
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestNull {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        if(_buf_.ReadBool()) { this.x1 = _buf_.ReadInt() } else { this.x1 = null; }
-        if(_buf_.ReadBool()) { this.x2 = _buf_.ReadInt() } else { this.x2 = null; }
-        if(_buf_.ReadBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = null; }
-        if(_buf_.ReadBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = null; }
-        if(_buf_.ReadBool()) { this.s1 = _buf_.ReadString() } else { this.s1 = null; }
-        if(_buf_.ReadBool()) { this.s2 = _buf_.ReadString() } else { this.s2 = null; }
-    }
-
-    readonly id: number
-    readonly x1: number|undefined
-    readonly x2: test.DemoEnum|undefined
-    readonly x3: test.DemoType1|undefined
-    readonly x4: test.DemoDynamic|undefined
-    readonly s1: string|undefined
-    readonly s2: string|undefined
-
-    resolve(tables:Tables) {
-        
-        
-        
-        this.x3?.resolve(tables);
-        this.x4?.resolve(tables);
-        
-        
+        this.x5?.resolve(tables);
     }
 }
 
@@ -2696,17 +2302,236 @@ export class DemoPrimitiveTypesTable {
 
 
 export namespace test {
-export class CompactString {
+export class DemoSingletonType {
 
     constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt()
-        this.s2 = _buf_.ReadString()
-        this.s3 = _buf_.ReadString()
+        this.name = _buf_.ReadString()
+        this.date = test.DemoDynamic.constructorFrom(_buf_)
     }
 
     readonly id: number
+    readonly name: string
+    readonly date: test.DemoDynamic
+
+    resolve(tables:Tables) {
+        
+        
+        this.date?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace test {
+export class DemoType1 {
+
+    constructor(_buf_: ByteBuf) {
+        this.x1 = _buf_.ReadInt()
+    }
+
+    readonly x1: number
+
+    resolve(tables:Tables) {
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DemoType2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.x4 = _buf_.ReadInt()
+        this.x1 = _buf_.ReadBool()
+        this.x2 = _buf_.ReadByte()
+        this.x3 = _buf_.ReadShort()
+        this.x5 = _buf_.ReadLongAsNumber()
+        this.x6 = _buf_.ReadFloat()
+        this.x7 = _buf_.ReadDouble()
+        this.x80 = _buf_.ReadShort()
+        this.x8 = _buf_.ReadInt()
+        this.x9 = _buf_.ReadLongAsNumber()
+        this.x10 = _buf_.ReadString()
+        this.x12 = new test.DemoType1(_buf_)
+        this.x13 = _buf_.ReadInt()
+        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
+        this.s1 = _buf_.ReadString()
+        this.t1 = _buf_.ReadLongAsNumber()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.k2.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k5 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.k5.add(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e0);}}
+    }
+
+    readonly x4: number
+    readonly x1: boolean
+    readonly x2: number
+    readonly x3: number
+    readonly x5: number
+    readonly x6: number
+    readonly x7: number
+    readonly x80: number
+    readonly x8: number
+    readonly x9: number
+    readonly x10: string
+    readonly x12: test.DemoType1
+    readonly x13: test.DemoEnum
+    readonly x14: test.DemoDynamic
+    readonly s1: string
+    readonly t1: number
+    readonly k1: number[]
+    readonly k2: number[]
+    readonly k5: Set<number>
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+    readonly k15: test.DemoDynamic[]
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        this.x12?.resolve(tables);
+        
+        this.x14?.resolve(tables);
+        
+        
+        
+        
+        
+        
+        
+        for (let _e of this.k15) { _e?.resolve(tables); }
+    }
+}
+
+}
+
+
+export namespace test {
+export class DetectEncoding {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.name = _buf_.ReadString()
+    }
+
+    readonly id: number
+    readonly name: string
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class ExcelFromJson {
+
+    constructor(_buf_: ByteBuf) {
+        this.x4 = _buf_.ReadInt()
+        this.x1 = _buf_.ReadBool()
+        this.x5 = _buf_.ReadLongAsNumber()
+        this.x6 = _buf_.ReadFloat()
+        this.s1 = _buf_.ReadString()
+        this.s2 = _buf_.ReadString()
+        this.t1 = _buf_.ReadLongAsNumber()
+        this.x12 = new test.DemoType1(_buf_)
+        this.x13 = _buf_.ReadInt()
+        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e0);}}
+    }
+
+    readonly x4: number
+    readonly x1: boolean
+    readonly x5: number
+    readonly x6: number
+    readonly s1: string
     readonly s2: string
-    readonly s3: string
+    readonly t1: number
+    readonly x12: test.DemoType1
+    readonly x13: test.DemoEnum
+    readonly x14: test.DemoDynamic
+    readonly k1: number[]
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+    readonly k15: test.DemoDynamic[]
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        this.x12?.resolve(tables);
+        
+        this.x14?.resolve(tables);
+        
+        
+        
+        for (let _e of this.k15) { _e?.resolve(tables); }
+    }
+}
+
+}
+
+
+export namespace test {
+export class ExcelFromJsonMultiRow {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.items = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.TestRow(_buf_); this.items.push(_e0);}}
+    }
+
+    readonly id: number
+    readonly x: number
+    readonly items: test.TestRow[]
+
+    resolve(tables:Tables) {
+        
+        
+        for (let _e of this.items) { _e?.resolve(tables); }
+    }
+}
+
+}
+
+
+export namespace test {
+export class Foo {
+
+    constructor(_buf_: ByteBuf) {
+        this.y1 = _buf_.ReadInt()
+        this.y2 = _buf_.ReadInt()
+        this.y3 = _buf_.ReadInt()
+    }
+
+    readonly y1: number
+    readonly y2: number
+    readonly y3: number
 
     resolve(tables:Tables) {
         
@@ -2719,28 +2544,39 @@ export class CompactString {
 
 
 export namespace test {
-export class TestString {
+export class H1 {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadString()
-        this.s1 = _buf_.ReadString()
-        this.s2 = _buf_.ReadString()
-        this.cs1 = new test.CompactString(_buf_)
-        this.cs2 = new test.CompactString(_buf_)
+        this.y2 = new test.H2(_buf_)
+        this.y3 = _buf_.ReadInt()
     }
 
-    readonly id: string
-    readonly s1: string
-    readonly s2: string
-    readonly cs1: test.CompactString
-    readonly cs2: test.CompactString
+    readonly y2: test.H2
+    readonly y3: number
+
+    resolve(tables:Tables) {
+        this.y2?.resolve(tables);
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class H2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.z2 = _buf_.ReadInt()
+        this.z3 = _buf_.ReadInt()
+    }
+
+    readonly z2: number
+    readonly z3: number
 
     resolve(tables:Tables) {
         
         
-        
-        this.cs1?.resolve(tables);
-        this.cs2?.resolve(tables);
     }
 }
 
@@ -2765,285 +2601,6 @@ export class InnerGroup {
     resolve(tables:Tables) {
         
         
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class DemoGroup {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x1 = _buf_.ReadInt()
-        this.x2 = _buf_.ReadInt()
-        this.x3 = _buf_.ReadInt()
-        this.x4 = _buf_.ReadInt()
-        this.x5 = new test.InnerGroup(_buf_)
-    }
-
-    readonly id: number
-    readonly x1: number
-    x1_ref: test.DemoGroup | undefined
-    readonly x2: number
-    x2_ref: test.DemoGroup | undefined
-    readonly x3: number
-    x3_ref: test.DemoGroup | undefined
-    readonly x4: number
-    readonly x5: test.InnerGroup
-
-    resolve(tables:Tables) {
-        
-        this.x1_ref = tables.TbDemoGroup_C.get(this.x1)
-        this.x2_ref = tables.TbDemoGroup_S.get(this.x2)
-        this.x3_ref = tables.TbDemoGroup_E.get(this.x3)
-        
-        this.x5?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestGlobal {
-
-    constructor(_buf_: ByteBuf) {
-        this.unlockEquip = _buf_.ReadInt()
-        this.unlockHero = _buf_.ReadInt()
-    }
-
-    readonly unlockEquip: number
-    readonly unlockHero: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestBeRef {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.count = _buf_.ReadInt()
-    }
-
-    readonly id: number
-    readonly count: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export abstract class RefDynamicBase {
-    static constructorFrom(_buf_: ByteBuf): RefDynamicBase{
-        switch (_buf_.ReadInt()) {
-            case 1963260263: return new test.RefBean(_buf_)
-            default: throw new Error()
-        }
-    }
-
-    constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadInt()
-    }
-
-    readonly x: number
-    x_ref: test.TestBeRef | undefined
-
-    resolve(tables:Tables) {
-        this.x_ref = tables.TbTestBeRef.get(this.x)
-    }
-}
-
-}
-
-
-export namespace test {
-export class RefBean extends test.RefDynamicBase {
-
-    constructor(_buf_: ByteBuf) {
-        super(_buf_)
-        { this.arr = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.arr.push(_e) } }
-    }
-
-    readonly arr: number[]
-
-    resolve(tables:Tables) {
-        super.resolve(tables)
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestRef {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x1 = _buf_.ReadInt()
-        this.x12 = _buf_.ReadInt()
-        this.x2 = _buf_.ReadInt()
-        this.x3 = _buf_.ReadInt()
-        this.x4 = _buf_.ReadInt()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a1 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.a1[i] = _e } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a2 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.a2[i] = _e } }
-        { this.b1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.b1.push(_e) } }
-        { this.b2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.b2.push(_e) } }
-        { this.c1 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.c1.add(_e);}}
-        { this.c2 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.c2.add(_e);}}
-        { this.d1 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.d1.set(_k, _v);  } }
-        { this.d2 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.d2.set(_k, _v);  } }
-        this.e1 = _buf_.ReadInt()
-        this.e2 = _buf_.ReadLongAsNumber()
-        this.e3 = _buf_.ReadString()
-        this.f1 = _buf_.ReadInt()
-        this.f2 = _buf_.ReadLongAsNumber()
-        this.f3 = _buf_.ReadString()
-        this.s1 = test.RefDynamicBase.constructorFrom(_buf_)
-    }
-
-    readonly id: number
-    readonly x1: number
-    x1_ref: test.TestBeRef | undefined
-    readonly x12: number
-    x12_ref: test.TestBeRef | undefined
-    readonly x2: number
-    readonly x3: number
-    readonly x4: number
-    x4_ref: tag.TestTag | undefined
-    readonly a1: number[]
-    readonly a2: number[]
-    readonly b1: number[]
-    readonly b2: number[]
-    readonly c1: Set<number>
-    readonly c2: Set<number>
-    readonly d1: Map<number, number>
-    readonly d2: Map<number, number>
-    readonly e1: number
-    readonly e2: number
-    readonly e3: string
-    readonly f1: number
-    readonly f2: number
-    readonly f3: string
-    readonly s1: test.RefDynamicBase
-
-    resolve(tables:Tables) {
-        
-        this.x1_ref = tables.TbTestBeRef.get(this.x1)
-        this.x12_ref = tables.TbTestBeRef.get(this.x12)
-        
-        
-        this.x4_ref = tables.TbTestTag.get(this.x4)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        this.s1?.resolve(tables);
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestSize {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x1 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.x1[i] = _e } }
-        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.x2.push(_e) } }
-        { this.x3 = new Set<number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e:number;_e = _buf_.ReadInt(); this.x3.add(_e);}}
-        { this.x4 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.x4.set(_k, _v);  } }
-    }
-
-    readonly id: number
-    readonly x1: number[]
-    readonly x2: number[]
-    readonly x3: Set<number>
-    readonly x4: Map<number, number>
-
-    resolve(tables:Tables) {
-        
-        
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestSet {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x0 = _buf_.ReadString()
-        { this.x1 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.x1.push(_e) } }
-        { this.x2 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadLongAsNumber(); this.x2.push(_e) } }
-        { this.x3 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :string; _e = _buf_.ReadString(); this.x3.push(_e) } }
-        { this.x4 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoEnum; _e = _buf_.ReadInt(); this.x4.push(_e) } }
-    }
-
-    readonly id: number
-    readonly x0: string
-    readonly x1: number[]
-    readonly x2: number[]
-    readonly x3: string[]
-    readonly x4: test.DemoEnum[]
-
-    resolve(tables:Tables) {
-        
-        
-        
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class DetectEncoding {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
-    }
-
-    readonly id: number
-    readonly name: string
-
-    resolve(tables:Tables) {
         
         
     }
@@ -3084,20 +2641,17 @@ export abstract class ItemBase {
 
 
 export namespace test {
-export class Item extends test.ItemBase {
+export class Decorator extends test.ItemBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.num = _buf_.ReadInt()
-        this.price = _buf_.ReadInt()
+        this.duration = _buf_.ReadInt()
     }
 
-    readonly num: number
-    readonly price: number
+    readonly duration: number
 
     resolve(tables:Tables) {
         super.resolve(tables)
-        
         
     }
 }
@@ -3128,18 +2682,21 @@ export class Equipment extends test.ItemBase {
 
 
 export namespace test {
-export class Decorator extends test.ItemBase {
+export class Item extends test.ItemBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.duration = _buf_.ReadInt()
+        this.num = _buf_.ReadInt()
+        this.price = _buf_.ReadInt()
     }
 
-    readonly duration: number
+    readonly num: number
+    readonly price: number
 
     resolve(tables:Tables) {
         super.resolve(tables)
         
+        
     }
 }
 
@@ -3147,19 +2704,69 @@ export class Decorator extends test.ItemBase {
 
 
 export namespace test {
-export class TestIndex {
+export class MultiIndexList {
+
+    constructor(_buf_: ByteBuf) {
+        this.id1 = _buf_.ReadInt()
+        this.id2 = _buf_.ReadLongAsNumber()
+        this.id3 = _buf_.ReadString()
+        this.num = _buf_.ReadInt()
+        this.desc = _buf_.ReadString()
+    }
+
+    readonly id1: number
+    readonly id2: number
+    readonly id3: string
+    readonly num: number
+    readonly desc: string
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class MultiRowRecord {
 
     constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt()
-        { this.eles = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoType1; _e = new test.DemoType1(_buf_); this.eles.push(_e) } }
+        this.name = _buf_.ReadString()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.oneRows = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType1(_buf_); this.oneRows.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType1(_buf_); this.multiRows1.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = new test.MultiRowType1(_buf_); this.multiRows2.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = new test.MultiRowType2(_buf_); this.multiRows4.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows5 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType3(_buf_); this.multiRows5.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows6 = new Map<number, test.MultiRowType2>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = new test.MultiRowType2(_buf_); this.multiRows6.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows7 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.multiRows7.set(_k0, _v0);  } }
     }
 
     readonly id: number
-    readonly eles: test.DemoType1[]
+    readonly name: string
+    readonly oneRows: test.MultiRowType1[]
+    readonly multiRows1: test.MultiRowType1[]
+    readonly multiRows2: test.MultiRowType1[]
+    readonly multiRows4: Map<number, test.MultiRowType2>
+    readonly multiRows5: test.MultiRowType3[]
+    readonly multiRows6: Map<number, test.MultiRowType2>
+    readonly multiRows7: Map<number, number>
 
     resolve(tables:Tables) {
         
-        for (let _e of this.eles) { _e?.resolve(tables); }
+        
+        for (let _e of this.oneRows) { _e?.resolve(tables); }
+        for (let _e of this.multiRows1) { _e?.resolve(tables); }
+        for (let _e of this.multiRows2) { _e?.resolve(tables); }
+        for (let [_, _e] of this.multiRows4) { _e?.resolve(tables); }
+        for (let _e of this.multiRows5) { _e?.resolve(tables); }
+        for (let [_, _e] of this.multiRows6) { _e?.resolve(tables); }
+        
     }
 }
 
@@ -3167,29 +2774,34 @@ export class TestIndex {
 
 
 export namespace test {
-export class TestMap {
+export class MultiRowTitle {
 
     constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt()
-        { this.x1 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.x1.set(_k, _v);  } }
-        { this.x2 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadLongAsNumber(); let _v:number; _v = _buf_.ReadInt(); this.x2.set(_k, _v);  } }
-        { this.x3 = new Map<string, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:string; _k = _buf_.ReadString(); let _v:number; _v = _buf_.ReadInt(); this.x3.set(_k, _v);  } }
-        { this.x4 = new Map<test.DemoEnum, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:test.DemoEnum; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.x4.set(_k, _v);  } }
+        this.name = _buf_.ReadString()
+        this.x1 = new test.H1(_buf_)
+        if(_buf_.ReadBool()) { this.x20 = new test.H2(_buf_) } else { this.x20 = null; }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.H2(_buf_); this.x2.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = new test.H2(_buf_); this.x3.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = new test.H2(_buf_); this.x4.push(_e0);}}
     }
 
     readonly id: number
-    id_ref: test.TestIndex | undefined
-    readonly x1: Map<number, number>
-    readonly x2: Map<number, number>
-    readonly x3: Map<string, number>
-    readonly x4: Map<test.DemoEnum, number>
+    readonly name: string
+    readonly x1: test.H1
+    readonly x20: test.H2|undefined
+    readonly x2: test.H2[]
+    readonly x3: test.H2[]
+    readonly x4: test.H2[]
 
     resolve(tables:Tables) {
-        this.id_ref = tables.TbTestIndex.get(this.id)
         
         
-        
-        
+        this.x1?.resolve(tables);
+        this.x20?.resolve(tables);
+        for (let _e of this.x2) { _e?.resolve(tables); }
+        for (let _e of this.x3) { _e?.resolve(tables); }
+        for (let _e of this.x4) { _e?.resolve(tables); }
     }
 }
 
@@ -3197,163 +2809,41 @@ export class TestMap {
 
 
 export namespace test {
-export class ExcelFromJson {
-
-    constructor(_buf_: ByteBuf) {
-        this.x4 = _buf_.ReadInt()
-        this.x1 = _buf_.ReadBool()
-        this.x5 = _buf_.ReadLongAsNumber()
-        this.x6 = _buf_.ReadFloat()
-        this.s1 = _buf_.ReadString()
-        this.s2 = _buf_.ReadString()
-        this.t1 = _buf_.ReadLongAsNumber()
-        this.x12 = new test.DemoType1(_buf_)
-        this.x13 = _buf_.ReadInt()
-        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.k1[i] = _e } }
-        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.k8.set(_k, _v);  } }
-        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2; _e = new test.DemoE2(_buf_); this.k9.push(_e) } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :test.DemoDynamic;_e = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e) } }
-    }
-
-    readonly x4: number
-    readonly x1: boolean
-    readonly x5: number
-    readonly x6: number
-    readonly s1: string
-    readonly s2: string
-    readonly t1: number
-    readonly x12: test.DemoType1
-    readonly x13: test.DemoEnum
-    readonly x14: test.DemoDynamic
-    readonly k1: number[]
-    readonly k8: Map<number, number>
-    readonly k9: test.DemoE2[]
-    readonly k15: test.DemoDynamic[]
-
-    resolve(tables:Tables) {
-        
-        
-        
-        
-        
-        
-        
-        this.x12?.resolve(tables);
-        
-        this.x14?.resolve(tables);
-        
-        
-        
-        for (let _e of this.k15) { _e?.resolve(tables); }
-    }
-}
-
-}
-
-
-export namespace test {
-export class CompositeJsonTable1 {
+export class MultiRowType1 {
 
     constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt()
-        this.x = _buf_.ReadString()
-    }
-
-    readonly id: number
-    readonly x: string
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class CompositeJsonTable2 {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.y = _buf_.ReadInt()
-    }
-
-    readonly id: number
-    readonly y: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class CompositeJsonTable3 {
-
-    constructor(_buf_: ByteBuf) {
-        this.a = _buf_.ReadInt()
-        this.b = _buf_.ReadInt()
-    }
-
-    readonly a: number
-    readonly b: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class Test3 {
-
-    constructor(_buf_: ByteBuf) {
         this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadInt()
     }
 
+    readonly id: number
+    readonly x: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class MultiRowType2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x = _buf_.ReadInt()
+        this.y = _buf_.ReadFloat()
+    }
+
+    readonly id: number
     readonly x: number
     readonly y: number
 
     resolve(tables:Tables) {
         
         
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestRow {
-
-    constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadBool()
-        this.z = _buf_.ReadString()
-        this.a = new test.Test3(_buf_)
-        { this.b = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :number; _e = _buf_.ReadInt(); this.b.push(_e) } }
-    }
-
-    readonly x: number
-    readonly y: boolean
-    readonly z: string
-    readonly a: test.Test3
-    readonly b: number[]
-
-    resolve(tables:Tables) {
-        
-        
-        
-        this.a?.resolve(tables);
         
     }
 }
@@ -3362,20 +2852,17 @@ export class TestRow {
 
 
 export namespace test {
-export class ExcelFromJsonMultiRow {
+export class MultiRowType3 {
 
     constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt()
-        this.x = _buf_.ReadInt()
-        { this.items = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.TestRow; _e = new test.TestRow(_buf_); this.items.push(_e) } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.items = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType1(_buf_); this.items.push(_e0);}}
     }
 
     readonly id: number
-    readonly x: number
-    readonly items: test.TestRow[]
+    readonly items: test.MultiRowType1[]
 
     resolve(tables:Tables) {
-        
         
         for (let _e of this.items) { _e?.resolve(tables); }
     }
@@ -3385,21 +2872,110 @@ export class ExcelFromJsonMultiRow {
 
 
 export namespace test {
-export class SepVector {
+export class MultiUnionIndexList {
 
     constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadInt()
-        this.z = _buf_.ReadInt()
+        this.id1 = _buf_.ReadInt()
+        this.id2 = _buf_.ReadLongAsNumber()
+        this.id3 = _buf_.ReadString()
+        this.num = _buf_.ReadInt()
+        this.desc = _buf_.ReadString()
     }
 
-    readonly x: number
-    readonly y: number
-    readonly z: number
+    readonly id1: number
+    readonly id2: number
+    readonly id3: string
+    readonly num: number
+    readonly desc: string
 
     resolve(tables:Tables) {
         
         
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class NotIndexList {
+
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadInt()
+        this.y = _buf_.ReadInt()
+    }
+
+    readonly x: number
+    readonly y: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class Path {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.res = _buf_.ReadString()
+    }
+
+    readonly id: number
+    readonly res: string
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export abstract class RefDynamicBase {
+    static constructorFrom(_buf_: ByteBuf): RefDynamicBase{
+        switch (_buf_.ReadInt()) {
+            case 1963260263: return new test.RefBean(_buf_)
+            default: throw new Error()
+        }
+    }
+
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadInt()
+    }
+
+    readonly x: number
+    x_ref: test.TestBeRef | undefined
+
+    resolve(tables:Tables) {
+        this.x_ref = tables.TbTestBeRef.get(this.x)
+    }
+}
+
+}
+
+
+export namespace test {
+export class RefBean extends test.RefDynamicBase {
+
+    constructor(_buf_: ByteBuf) {
+        super(_buf_)
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.arr = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.arr.push(_e0);}}
+    }
+
+    readonly arr: number[]
+
+    resolve(tables:Tables) {
+        super.resolve(tables)
         
     }
 }
@@ -3431,148 +3007,17 @@ export class SepBean1 {
 
 
 export namespace test {
-export class TestScriptableObject {
+export class SepVector {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.desc = _buf_.ReadString()
-        this.rate = _buf_.ReadFloat()
-        this.num = _buf_.ReadInt()
-        this.v2 = new vec2(_buf_)
-        this.v3 = new vec3(_buf_)
-        this.v4 = new vec4(_buf_)
+        this.x = _buf_.ReadInt()
+        this.y = _buf_.ReadInt()
+        this.z = _buf_.ReadInt()
     }
 
-    readonly id: number
-    readonly desc: string
-    readonly rate: number
-    readonly num: number
-    readonly v2: vec2
-    readonly v3: vec3
-    readonly v4: vec4
-
-    resolve(tables:Tables) {
-        
-        
-        
-        
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class Path {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.res = _buf_.ReadString()
-    }
-
-    readonly id: number
-    readonly res: string
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class TestMapper {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.audioType = _buf_.ReadInt()
-        this.v2 = new vec2(_buf_)
-    }
-
-    readonly id: number
-    readonly audioType: AudioType
-    readonly v2: vec2
-
-    resolve(tables:Tables) {
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-/**
- * 这是个测试excel结构
- */
-export class TestExcelBean1 {
-
-    constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadInt()
-        this.x2 = _buf_.ReadString()
-        this.x3 = _buf_.ReadInt()
-        this.x4 = _buf_.ReadFloat()
-    }
-
-    /**
-     * 最高品质
-     */
-    readonly x1: number
-    /**
-     * 黑色的
-     */
-    readonly x2: string
-    /**
-     * 蓝色的
-     */
-    readonly x3: number
-    /**
-     * 最差品质
-     */
-    readonly x4: number
-
-    resolve(tables:Tables) {
-        
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-/**
- * 这是个测试excel结构
- */
-export class TestExcelBean2 {
-
-    constructor(_buf_: ByteBuf) {
-        this.y1 = _buf_.ReadInt()
-        this.y2 = _buf_.ReadString()
-        this.y3 = _buf_.ReadFloat()
-    }
-
-    /**
-     * 最高品质
-     */
-    readonly y1: number
-    /**
-     * 黑色的
-     */
-    readonly y2: string
-    /**
-     * 蓝色的
-     */
-    readonly y3: number
+    readonly x: number
+    readonly y: number
+    readonly z: number
 
     resolve(tables:Tables) {
         
@@ -3661,56 +3106,405 @@ export class Rectangle extends test.Shape {
 }
 
 
+export namespace test {
+export class Test3 {
 
-export class DefineFromExcel2 {
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadInt()
+        this.y = _buf_.ReadInt()
+    }
+
+    readonly x: number
+    readonly y: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestBeRef {
 
     constructor(_buf_: ByteBuf) {
         this.id = _buf_.ReadInt()
-        this.x1 = _buf_.ReadBool()
-        this.x5 = _buf_.ReadLongAsNumber()
-        this.x6 = _buf_.ReadFloat()
-        this.x8 = _buf_.ReadInt()
-        this.x10 = _buf_.ReadString()
-        this.x13 = _buf_.ReadInt()
-        this.x132 = _buf_.ReadInt()
-        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
-        this.x15 = test.Shape.constructorFrom(_buf_)
-        this.v2 = new vec2(_buf_)
-        this.t1 = _buf_.ReadLongAsNumber()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.k1[i] = _e } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k2 = new Array(n); for(let i = 0 ; i < n ; i++) { let _e :number;_e = _buf_.ReadInt(); this.k2[i] = _e } }
-        { this.k8 = new Map<number, number>(); for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _k:number; _k = _buf_.ReadInt(); let _v:number; _v = _buf_.ReadInt(); this.k8.set(_k, _v);  } }
-        { this.k9 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :test.DemoE2; _e = new test.DemoE2(_buf_); this.k9.push(_e) } }
-        { this.k10 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :vec3; _e = new vec3(_buf_); this.k10.push(_e) } }
-        { this.k11 = []; for(let i = 0, n = _buf_.ReadSize() ; i < n ; i++) { let _e :vec4; _e = new vec4(_buf_); this.k11.push(_e) } }
-        if(_buf_.ReadBool()) { this.v11 = new vec3(_buf_) } else { this.v11 = null; }
+        this.count = _buf_.ReadInt()
+    }
+
+    readonly id: number
+    readonly count: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+/**
+ * 这是个测试excel结构
+ */
+export class TestExcelBean1 {
+
+    constructor(_buf_: ByteBuf) {
+        this.x1 = _buf_.ReadInt()
+        this.x2 = _buf_.ReadString()
+        this.x3 = _buf_.ReadInt()
+        this.x4 = _buf_.ReadFloat()
     }
 
     /**
-     * 这是id
+     * 最高品质
      */
-    readonly id: number
+    readonly x1: number
     /**
-     * 字段x1
+     * 黑色的
      */
-    readonly x1: boolean
-    readonly x5: number
-    readonly x6: number
-    readonly x8: number
-    readonly x10: string
-    readonly x13: test.DemoEnum
-    readonly x132: test.DemoFlag
-    readonly x14: test.DemoDynamic
-    readonly x15: test.Shape
+    readonly x2: string
+    /**
+     * 蓝色的
+     */
+    readonly x3: number
+    /**
+     * 最差品质
+     */
+    readonly x4: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+/**
+ * 这是个测试excel结构
+ */
+export class TestExcelBean2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.y1 = _buf_.ReadInt()
+        this.y2 = _buf_.ReadString()
+        this.y3 = _buf_.ReadFloat()
+    }
+
+    /**
+     * 最高品质
+     */
+    readonly y1: number
+    /**
+     * 黑色的
+     */
+    readonly y2: string
+    /**
+     * 蓝色的
+     */
+    readonly y3: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestGlobal {
+
+    constructor(_buf_: ByteBuf) {
+        this.unlockEquip = _buf_.ReadInt()
+        this.unlockHero = _buf_.ReadInt()
+    }
+
+    readonly unlockEquip: number
+    readonly unlockHero: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestIndex {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.eles = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoType1(_buf_); this.eles.push(_e0);}}
+    }
+
+    readonly id: number
+    readonly eles: test.DemoType1[]
+
+    resolve(tables:Tables) {
+        
+        for (let _e of this.eles) { _e?.resolve(tables); }
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestMap {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x1 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.x1.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x2 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadLongAsNumber();  let _v0;  _v0 = _buf_.ReadInt(); this.x2.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = new Map<string, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadString();  let _v0;  _v0 = _buf_.ReadInt(); this.x3.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = new Map<test.DemoEnum, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.x4.set(_k0, _v0);  } }
+    }
+
+    readonly id: number
+    id_ref: test.TestIndex | undefined
+    readonly x1: Map<number, number>
+    readonly x2: Map<number, number>
+    readonly x3: Map<string, number>
+    readonly x4: Map<test.DemoEnum, number>
+
+    resolve(tables:Tables) {
+        this.id_ref = tables.TbTestIndex.get(this.id)
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestMapper {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.audioType = _buf_.ReadInt()
+        this.v2 = new vec2(_buf_)
+    }
+
+    readonly id: number
+    readonly audioType: AudioType
     readonly v2: vec2
-    readonly t1: number
-    readonly k1: number[]
-    readonly k2: number[]
-    readonly k8: Map<number, number>
-    readonly k9: test.DemoE2[]
-    readonly k10: vec3[]
-    readonly k11: vec4[]
-    readonly v11: vec3|undefined
+
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestMultiColumn {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.a = new test.Foo(_buf_)
+        this.b = new test.Foo(_buf_)
+        this.c = new test.Foo(_buf_)
+    }
+
+    readonly id: number
+    readonly a: test.Foo
+    readonly b: test.Foo
+    readonly c: test.Foo
+
+    resolve(tables:Tables) {
+        
+        this.a?.resolve(tables);
+        this.b?.resolve(tables);
+        this.c?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestNull {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        if(_buf_.ReadBool()) { this.x1 = _buf_.ReadInt() } else { this.x1 = null; }
+        if(_buf_.ReadBool()) { this.x2 = _buf_.ReadInt() } else { this.x2 = null; }
+        if(_buf_.ReadBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = null; }
+        if(_buf_.ReadBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = null; }
+        if(_buf_.ReadBool()) { this.s1 = _buf_.ReadString() } else { this.s1 = null; }
+        if(_buf_.ReadBool()) { this.s2 = _buf_.ReadString() } else { this.s2 = null; }
+    }
+
+    readonly id: number
+    readonly x1: number|undefined
+    readonly x2: test.DemoEnum|undefined
+    readonly x3: test.DemoType1|undefined
+    readonly x4: test.DemoDynamic|undefined
+    readonly s1: string|undefined
+    readonly s2: string|undefined
+
+    resolve(tables:Tables) {
+        
+        
+        
+        this.x3?.resolve(tables);
+        this.x4?.resolve(tables);
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestRef {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x1 = _buf_.ReadInt()
+        this.x12 = _buf_.ReadInt()
+        this.x2 = _buf_.ReadInt()
+        this.x3 = _buf_.ReadInt()
+        this.x4 = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.a1.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.a2.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.b1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.b1.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.b2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.b2.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.c1 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.c1.add(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.c2 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.c2.add(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.d1 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.d1.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.d2 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.d2.set(_k0, _v0);  } }
+        this.e1 = _buf_.ReadInt()
+        this.e2 = _buf_.ReadLongAsNumber()
+        this.e3 = _buf_.ReadString()
+        this.f1 = _buf_.ReadInt()
+        this.f2 = _buf_.ReadLongAsNumber()
+        this.f3 = _buf_.ReadString()
+        this.s1 = test.RefDynamicBase.constructorFrom(_buf_)
+    }
+
+    readonly id: number
+    readonly x1: number
+    x1_ref: test.TestBeRef | undefined
+    readonly x12: number
+    x12_ref: test.TestBeRef | undefined
+    readonly x2: number
+    readonly x3: number
+    readonly x4: number
+    x4_ref: tag.TestTag | undefined
+    readonly a1: number[]
+    readonly a2: number[]
+    readonly b1: number[]
+    readonly b2: number[]
+    readonly c1: Set<number>
+    readonly c2: Set<number>
+    readonly d1: Map<number, number>
+    readonly d2: Map<number, number>
+    readonly e1: number
+    readonly e2: number
+    readonly e3: string
+    readonly f1: number
+    readonly f2: number
+    readonly f3: string
+    readonly s1: test.RefDynamicBase
+
+    resolve(tables:Tables) {
+        
+        this.x1_ref = tables.TbTestBeRef.get(this.x1)
+        this.x12_ref = tables.TbTestBeRef.get(this.x12)
+        
+        
+        this.x4_ref = tables.TbTestTag.get(this.x4)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        this.s1?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestRow {
+
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadInt()
+        this.y = _buf_.ReadBool()
+        this.z = _buf_.ReadString()
+        this.a = new test.Test3(_buf_)
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.b = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.b.push(_e0);}}
+    }
+
+    readonly x: number
+    readonly y: boolean
+    readonly z: string
+    readonly a: test.Test3
+    readonly b: number[]
+
+    resolve(tables:Tables) {
+        
+        
+        
+        this.a?.resolve(tables);
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestScriptableObject {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.desc = _buf_.ReadString()
+        this.rate = _buf_.ReadFloat()
+        this.num = _buf_.ReadInt()
+        this.v2 = new vec2(_buf_)
+        this.v3 = new vec3(_buf_)
+        this.v4 = new vec4(_buf_)
+    }
+
+    readonly id: number
+    readonly desc: string
+    readonly rate: number
+    readonly num: number
+    readonly v2: vec2
+    readonly v3: vec3
+    readonly v4: vec4
 
     resolve(tables:Tables) {
         
@@ -3720,14 +3514,220 @@ export class DefineFromExcel2 {
         
         
         
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestSet {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        this.x0 = _buf_.ReadString()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x1.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadLongAsNumber(); this.x2.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadString(); this.x3.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x4.push(_e0);}}
+    }
+
+    readonly id: number
+    readonly x0: string
+    readonly x1: number[]
+    readonly x2: number[]
+    readonly x3: string[]
+    readonly x4: test.DemoEnum[]
+
+    resolve(tables:Tables) {
         
-        this.x14?.resolve(tables);
-        this.x15?.resolve(tables);
         
         
         
         
         
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestSize {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadInt()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.x1.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x2.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x3.add(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.x4.set(_k0, _v0);  } }
+    }
+
+    readonly id: number
+    readonly x1: number[]
+    readonly x2: number[]
+    readonly x3: Set<number>
+    readonly x4: Map<number, number>
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestString {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.ReadString()
+        this.s1 = _buf_.ReadString()
+        this.s2 = _buf_.ReadString()
+        this.cs1 = new test.CompactString(_buf_)
+        this.cs2 = new test.CompactString(_buf_)
+    }
+
+    readonly id: string
+    readonly s1: string
+    readonly s2: string
+    readonly cs1: test.CompactString
+    readonly cs2: test.CompactString
+
+    resolve(tables:Tables) {
+        
+        
+        
+        this.cs1?.resolve(tables);
+        this.cs2?.resolve(tables);
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestUeType {
+
+    constructor(_buf_: ByteBuf) {
+        this.x1 = _buf_.ReadBool()
+        this.x2 = _buf_.ReadByte()
+        this.x3 = _buf_.ReadShort()
+        this.x4 = _buf_.ReadInt()
+        this.x5 = _buf_.ReadLongAsNumber()
+        this.x6 = _buf_.ReadFloat()
+        this.x10 = _buf_.ReadString()
+        this.x12 = new test.DemoType1(_buf_)
+        this.x13 = _buf_.ReadInt()
+        this.t1 = _buf_.ReadLongAsNumber()
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.k2.push(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k5 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.k5.add(_e0);}}
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+    }
+
+    readonly x1: boolean
+    readonly x2: number
+    readonly x3: number
+    readonly x4: number
+    readonly x5: number
+    readonly x6: number
+    readonly x10: string
+    readonly x12: test.DemoType1
+    readonly x13: test.ETestUeType
+    readonly t1: number
+    readonly k1: number[]
+    readonly k2: number[]
+    readonly k5: Set<number>
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        this.x12?.resolve(tables);
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+
+export class vec2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadFloat()
+        this.y = _buf_.ReadFloat()
+    }
+
+    readonly x: number
+    readonly y: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+
+
+
+
+export class vec3 {
+
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadFloat()
+        this.y = _buf_.ReadFloat()
+        this.z = _buf_.ReadFloat()
+    }
+
+    readonly x: number
+    readonly y: number
+    readonly z: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+
+
+
+
+export class vec4 {
+
+    constructor(_buf_: ByteBuf) {
+        this.x = _buf_.ReadFloat()
+        this.y = _buf_.ReadFloat()
+        this.z = _buf_.ReadFloat()
+        this.w = _buf_.ReadFloat()
+    }
+
+    readonly x: number
+    readonly y: number
+    readonly z: number
+    readonly w: number
+
+    resolve(tables:Tables) {
         
         
         
@@ -5047,23 +5047,23 @@ export class TbTestMapper {
 
 export namespace test {
 export class TbDefineFromExcel2 {
-    private _dataMap: Map<number, DefineFromExcel2>
-    private _dataList: DefineFromExcel2[]
+    private _dataMap: Map<number, test.DefineFromExcel2>
+    private _dataList: test.DefineFromExcel2[]
     constructor(_buf_: ByteBuf) {
-        this._dataMap = new Map<number, DefineFromExcel2>()
+        this._dataMap = new Map<number, test.DefineFromExcel2>()
         this._dataList = []
         for(let n = _buf_.ReadInt(); n > 0; n--) {
-            let _v: DefineFromExcel2
-            _v = new DefineFromExcel2(_buf_)
+            let _v: test.DefineFromExcel2
+            _v = new test.DefineFromExcel2(_buf_)
             this._dataList.push(_v)
             this._dataMap.set(_v.id, _v)
         }
     }
 
-    getDataMap(): Map<number, DefineFromExcel2> { return this._dataMap; }
-    getDataList(): DefineFromExcel2[] { return this._dataList; }
+    getDataMap(): Map<number, test.DefineFromExcel2> { return this._dataMap; }
+    getDataList(): test.DefineFromExcel2[] { return this._dataList; }
 
-    get(key: number): DefineFromExcel2 | undefined {
+    get(key: number): test.DefineFromExcel2 | undefined {
         return this._dataMap.get(key); 
     }
 

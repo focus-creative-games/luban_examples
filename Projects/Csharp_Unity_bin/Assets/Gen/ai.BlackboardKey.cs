@@ -16,11 +16,11 @@ public sealed partial class BlackboardKey : Luban.BeanBase
 {
     public BlackboardKey(ByteBuf _buf) 
     {
-        Name = _buf.ReadString();
-        Desc = _buf.ReadString();
-        IsStatic = _buf.ReadBool();
-        KeyType = (ai.EKeyType)_buf.ReadInt();
-        TypeClassName = _buf.ReadString();
+        NAME = _buf.ReadString();
+        DESC = _buf.ReadString();
+        IS_STATIC = _buf.ReadBool();
+        KEY_TYPE = (ai.EKeyType)_buf.ReadInt();
+        TYPE_CLASS_NAME = _buf.ReadString();
     }
 
     public static BlackboardKey DeserializeBlackboardKey(ByteBuf _buf)
@@ -28,34 +28,30 @@ public sealed partial class BlackboardKey : Luban.BeanBase
         return new ai.BlackboardKey(_buf);
     }
 
-    public readonly string Name;
-    public readonly string Desc;
-    public readonly bool IsStatic;
-    public readonly ai.EKeyType KeyType;
-    public readonly string TypeClassName;
+    public readonly string NAME;
+    public readonly string DESC;
+    public readonly bool IS_STATIC;
+    public readonly ai.EKeyType KEY_TYPE;
+    public readonly string TYPE_CLASS_NAME;
    
     public const int __ID__ = -511559886;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "name:" + Name + ","
-        + "desc:" + Desc + ","
-        + "isStatic:" + IsStatic + ","
-        + "keyType:" + KeyType + ","
-        + "typeClassName:" + TypeClassName + ","
+        + "name:" + NAME + ","
+        + "desc:" + DESC + ","
+        + "is_static:" + IS_STATIC + ","
+        + "key_type:" + KEY_TYPE + ","
+        + "type_class_name:" + TYPE_CLASS_NAME + ","
         + "}";
     }
 }
 
 }
+

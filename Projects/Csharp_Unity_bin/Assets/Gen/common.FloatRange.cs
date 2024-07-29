@@ -16,8 +16,8 @@ public sealed partial class FloatRange : Luban.BeanBase
 {
     public FloatRange(ByteBuf _buf) 
     {
-        Min = _buf.ReadFloat();
-        Max = _buf.ReadFloat();
+        MIN = _buf.ReadFloat();
+        MAX = _buf.ReadFloat();
     }
 
     public static FloatRange DeserializeFloatRange(ByteBuf _buf)
@@ -25,25 +25,24 @@ public sealed partial class FloatRange : Luban.BeanBase
         return new common.FloatRange(_buf);
     }
 
-    public readonly float Min;
-    public readonly float Max;
+    public readonly float MIN;
+    public readonly float MAX;
    
     public const int __ID__ = 561922116;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "min:" + Min + ","
-        + "max:" + Max + ","
+        + "min:" + MIN + ","
+        + "max:" + MAX + ","
         + "}";
     }
 }
 
 }
+

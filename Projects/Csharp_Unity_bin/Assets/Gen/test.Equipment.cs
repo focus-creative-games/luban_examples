@@ -16,8 +16,8 @@ public sealed partial class Equipment : test.ItemBase
 {
     public Equipment(ByteBuf _buf)  : base(_buf) 
     {
-        Attr = (test.DemoEnum)_buf.ReadInt();
-        Value = _buf.ReadInt();
+        ATTR = (test.DemoEnum)_buf.ReadInt();
+        VALUE = _buf.ReadInt();
     }
 
     public static Equipment DeserializeEquipment(ByteBuf _buf)
@@ -25,8 +25,8 @@ public sealed partial class Equipment : test.ItemBase
         return new test.Equipment(_buf);
     }
 
-    public readonly test.DemoEnum Attr;
-    public readonly int Value;
+    public readonly test.DemoEnum ATTR;
+    public readonly int VALUE;
    
     public const int __ID__ = -76837102;
     public override int GetTypeId() => __ID__;
@@ -34,20 +34,19 @@ public sealed partial class Equipment : test.ItemBase
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "name:" + Name + ","
-        + "desc:" + Desc + ","
-        + "attr:" + Attr + ","
-        + "value:" + Value + ","
+        + "id:" + ID + ","
+        + "name:" + NAME + ","
+        + "desc:" + DESC + ","
+        + "attr:" + ATTR + ","
+        + "value:" + VALUE + ","
         + "}";
     }
 }
 
 }
+

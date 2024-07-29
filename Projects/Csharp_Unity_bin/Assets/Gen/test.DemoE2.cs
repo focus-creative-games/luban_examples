@@ -31,8 +31,6 @@ public partial struct DemoE2
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
@@ -45,3 +43,4 @@ public partial struct DemoE2
 }
 
 }
+

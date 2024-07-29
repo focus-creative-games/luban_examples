@@ -16,7 +16,7 @@ public sealed partial class UeWaitBlackboardTime : ai.Task
 {
     public UeWaitBlackboardTime(ByteBuf _buf)  : base(_buf) 
     {
-        BlackboardKey = _buf.ReadString();
+        BLACKBOARD_KEY = _buf.ReadString();
     }
 
     public static UeWaitBlackboardTime DeserializeUeWaitBlackboardTime(ByteBuf _buf)
@@ -24,7 +24,7 @@ public sealed partial class UeWaitBlackboardTime : ai.Task
         return new ai.UeWaitBlackboardTime(_buf);
     }
 
-    public readonly string BlackboardKey;
+    public readonly string BLACKBOARD_KEY;
    
     public const int __ID__ = 1215378271;
     public override int GetTypeId() => __ID__;
@@ -32,20 +32,20 @@ public sealed partial class UeWaitBlackboardTime : ai.Task
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "ignoreRestartSelf:" + IgnoreRestartSelf + ","
-        + "blackboardKey:" + BlackboardKey + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "ignore_restart_self:" + IGNORE_RESTART_SELF + ","
+        + "blackboard_key:" + BLACKBOARD_KEY + ","
         + "}";
     }
 }
 
 }
+

@@ -31,7 +31,7 @@ public partial class TbMultiUnionIndexList
         _dataMapUnion = new System.Collections.Generic.Dictionary<(int, long, string), test.MultiUnionIndexList>();
         foreach(var _v in _dataList)
         {
-            _dataMapUnion.Add((_v.Id1, _v.Id2, _v.Id3), _v);
+            _dataMapUnion.Add((_v.ID1, _v.ID2, _v.ID3), _v);
         }
     }
 

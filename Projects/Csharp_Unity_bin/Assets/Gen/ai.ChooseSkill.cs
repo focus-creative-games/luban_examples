@@ -16,8 +16,8 @@ public sealed partial class ChooseSkill : ai.Task
 {
     public ChooseSkill(ByteBuf _buf)  : base(_buf) 
     {
-        TargetActorKey = _buf.ReadString();
-        ResultSkillIdKey = _buf.ReadString();
+        TARGET_ACTOR_KEY = _buf.ReadString();
+        RESULT_SKILL_ID_KEY = _buf.ReadString();
     }
 
     public static ChooseSkill DeserializeChooseSkill(ByteBuf _buf)
@@ -25,8 +25,8 @@ public sealed partial class ChooseSkill : ai.Task
         return new ai.ChooseSkill(_buf);
     }
 
-    public readonly string TargetActorKey;
-    public readonly string ResultSkillIdKey;
+    public readonly string TARGET_ACTOR_KEY;
+    public readonly string RESULT_SKILL_ID_KEY;
    
     public const int __ID__ = -918812268;
     public override int GetTypeId() => __ID__;
@@ -34,22 +34,21 @@ public sealed partial class ChooseSkill : ai.Task
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "ignoreRestartSelf:" + IgnoreRestartSelf + ","
-        + "targetActorKey:" + TargetActorKey + ","
-        + "resultSkillIdKey:" + ResultSkillIdKey + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "ignore_restart_self:" + IGNORE_RESTART_SELF + ","
+        + "target_actor_key:" + TARGET_ACTOR_KEY + ","
+        + "result_skill_id_key:" + RESULT_SKILL_ID_KEY + ","
         + "}";
     }
 }
 
 }
+

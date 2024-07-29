@@ -27,7 +27,7 @@ public partial class TbDemoGroup_E
             test.DemoGroup _v;
             _v = test.DemoGroup.DeserializeDemoGroup(_buf);
             _dataList.Add(_v);
-            _dataMap.Add(_v.Id, _v);
+            _dataMap.Add(_v.ID, _v);
         }
     }
 

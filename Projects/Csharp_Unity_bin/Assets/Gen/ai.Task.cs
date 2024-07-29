@@ -16,7 +16,7 @@ public abstract partial class Task : ai.FlowNode
 {
     public Task(ByteBuf _buf)  : base(_buf) 
     {
-        IgnoreRestartSelf = _buf.ReadBool();
+        IGNORE_RESTART_SELF = _buf.ReadBool();
     }
 
     public static Task DeserializeTask(ByteBuf _buf)
@@ -34,25 +34,25 @@ public abstract partial class Task : ai.FlowNode
         }
     }
 
-    public readonly bool IgnoreRestartSelf;
+    public readonly bool IGNORE_RESTART_SELF;
    
 
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "decorators:" + Luban.StringUtil.CollectionToString(Decorators) + ","
-        + "services:" + Luban.StringUtil.CollectionToString(Services) + ","
-        + "ignoreRestartSelf:" + IgnoreRestartSelf + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "decorators:" + Luban.StringUtil.CollectionToString(DECORATORS) + ","
+        + "services:" + Luban.StringUtil.CollectionToString(SERVICES) + ","
+        + "ignore_restart_self:" + IGNORE_RESTART_SELF + ","
         + "}";
     }
 }
 
 }
+

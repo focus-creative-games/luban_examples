@@ -16,12 +16,12 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
 {
     public TestScriptableObject(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Desc = _buf.ReadString();
-        Rate = _buf.ReadFloat();
-        Num = _buf.ReadInt();
+        ID = _buf.ReadInt();
+        DESC = _buf.ReadString();
+        RATE = _buf.ReadFloat();
+        NUM = _buf.ReadInt();
         V2 = vec2.Deserializevec2(_buf);
-        V3 = vec3.Deserializevec3(_buf);
+        V3 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf));
         V4 = vec4.Deserializevec4(_buf);
     }
 
@@ -30,12 +30,12 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
         return new test.TestScriptableObject(_buf);
     }
 
-    public readonly int Id;
-    public readonly string Desc;
-    public readonly float Rate;
-    public readonly int Num;
+    public readonly int ID;
+    public readonly string DESC;
+    public readonly float RATE;
+    public readonly int NUM;
     public readonly vec2 V2;
-    public readonly vec3 V3;
+    public readonly System.Numerics.Vector3 V3;
     public readonly vec4 V4;
    
     public const int __ID__ = -1896814350;
@@ -43,22 +43,15 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
-        
-        
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "desc:" + Desc + ","
-        + "rate:" + Rate + ","
-        + "num:" + Num + ","
+        + "id:" + ID + ","
+        + "desc:" + DESC + ","
+        + "rate:" + RATE + ","
+        + "num:" + NUM + ","
         + "v2:" + V2 + ","
         + "v3:" + V3 + ","
         + "v4:" + V4 + ","
@@ -67,3 +60,4 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
 }
 
 }
+

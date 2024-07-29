@@ -19,7 +19,7 @@ public sealed partial class Circle : Shape
 {
     public Circle(ByteBuf _buf)  : base(_buf) 
     {
-        Radius = _buf.ReadFloat();
+        RADIUS = _buf.ReadFloat();
     }
 
     public static Circle DeserializeCircle(ByteBuf _buf)
@@ -30,7 +30,7 @@ public sealed partial class Circle : Shape
     /// <summary>
     /// 半径
     /// </summary>
-    public readonly float Radius;
+    public readonly float RADIUS;
    
     public const int __ID__ = 2131829196;
     public override int GetTypeId() => __ID__;
@@ -38,15 +38,15 @@ public sealed partial class Circle : Shape
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "radius:" + Radius + ","
+        + "radius:" + RADIUS + ","
         + "}";
     }
 }
 
 }
+

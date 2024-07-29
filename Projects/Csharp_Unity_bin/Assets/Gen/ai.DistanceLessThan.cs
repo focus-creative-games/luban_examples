@@ -16,10 +16,10 @@ public sealed partial class DistanceLessThan : ai.Decorator
 {
     public DistanceLessThan(ByteBuf _buf)  : base(_buf) 
     {
-        Actor1Key = _buf.ReadString();
-        Actor2Key = _buf.ReadString();
-        Distance = _buf.ReadFloat();
-        ReverseResult = _buf.ReadBool();
+        ACTOR1_KEY = _buf.ReadString();
+        ACTOR2_KEY = _buf.ReadString();
+        DISTANCE = _buf.ReadFloat();
+        REVERSE_RESULT = _buf.ReadBool();
     }
 
     public static DistanceLessThan DeserializeDistanceLessThan(ByteBuf _buf)
@@ -27,10 +27,10 @@ public sealed partial class DistanceLessThan : ai.Decorator
         return new ai.DistanceLessThan(_buf);
     }
 
-    public readonly string Actor1Key;
-    public readonly string Actor2Key;
-    public readonly float Distance;
-    public readonly bool ReverseResult;
+    public readonly string ACTOR1_KEY;
+    public readonly string ACTOR2_KEY;
+    public readonly float DISTANCE;
+    public readonly bool REVERSE_RESULT;
    
     public const int __ID__ = -1207170283;
     public override int GetTypeId() => __ID__;
@@ -38,24 +38,21 @@ public sealed partial class DistanceLessThan : ai.Decorator
     public override void ResolveRef(Tables tables)
     {
         base.ResolveRef(tables);
-        
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "nodeName:" + NodeName + ","
-        + "flowAbortMode:" + FlowAbortMode + ","
-        + "actor1Key:" + Actor1Key + ","
-        + "actor2Key:" + Actor2Key + ","
-        + "distance:" + Distance + ","
-        + "reverseResult:" + ReverseResult + ","
+        + "id:" + ID + ","
+        + "node_name:" + NODE_NAME + ","
+        + "flow_abort_mode:" + FLOW_ABORT_MODE + ","
+        + "actor1_key:" + ACTOR1_KEY + ","
+        + "actor2_key:" + ACTOR2_KEY + ","
+        + "distance:" + DISTANCE + ","
+        + "reverse_result:" + REVERSE_RESULT + ","
         + "}";
     }
 }
 
 }
+

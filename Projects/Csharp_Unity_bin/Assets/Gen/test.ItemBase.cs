@@ -16,9 +16,9 @@ public abstract partial class ItemBase : Luban.BeanBase
 {
     public ItemBase(ByteBuf _buf) 
     {
-        Id = _buf.ReadInt();
-        Name = _buf.ReadString();
-        Desc = _buf.ReadString();
+        ID = _buf.ReadInt();
+        NAME = _buf.ReadString();
+        DESC = _buf.ReadString();
     }
 
     public static ItemBase DeserializeItemBase(ByteBuf _buf)
@@ -32,26 +32,24 @@ public abstract partial class ItemBase : Luban.BeanBase
         }
     }
 
-    public readonly int Id;
-    public readonly string Name;
-    public readonly string Desc;
+    public readonly int ID;
+    public readonly string NAME;
+    public readonly string DESC;
    
 
     public virtual void ResolveRef(Tables tables)
     {
-        
-        
-        
     }
 
     public override string ToString()
     {
         return "{ "
-        + "id:" + Id + ","
-        + "name:" + Name + ","
-        + "desc:" + Desc + ","
+        + "id:" + ID + ","
+        + "name:" + NAME + ","
+        + "desc:" + DESC + ","
         + "}";
     }
 }
 
 }
+
