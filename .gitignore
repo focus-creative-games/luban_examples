@@ -340,3 +340,5 @@ out/
 /Projects/GenerateDatas/xml
 /Projects/GenerateDatas/yaml
 /Tools/*.7z
+/Projects/Csharp_DotNet_json/Gen
+/Projects/Csharp_NewtonSoft_json/Gen
