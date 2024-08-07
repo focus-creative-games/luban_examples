@@ -12,54 +12,47 @@ package cfg;
 
 import "errors"
 
-type TestDemoType2 struct {
-    X4 int32
+type TestDefineFromExcel2 struct {
+    Id int32
     X1 bool
-    X2 byte
-    X3 int16
     X5 int64
     X6 float32
-    X7 float64
-    X80 int16
     X8 int32
-    X9 int64
     X10 string
-    X12 *TestDemoType1
     X13 int32
+    X132 int32
     X14 interface{}
-    S1 string
+    X15 interface{}
+    V2 *vec2
     T1 int64
     K1 []int32
     K2 []int32
-    K5 []int32
     K8 map[int32]int32
     K9 []*TestDemoE2
-    K15 []interface{}
+    K10 []*vec3
+    K11 []*vec4
+    V11 *vec3
 }
 
-const TypeId_TestDemoType2 = -367048295
+const TypeId_TestDefineFromExcel2 = 688816828
 
-func (*TestDemoType2) GetTypeId() int32 {
-    return -367048295
+func (*TestDefineFromExcel2) GetTypeId() int32 {
+    return 688816828
 }
 
-func NewTestDemoType2(_buf map[string]interface{}) (_v *TestDemoType2, err error) {
-    _v = &TestDemoType2{}
-    { var _ok_ bool; var __json_x4__ interface{}; if __json_x4__, _ok_ = _buf["x4"]; !_ok_ || __json_x4__ == nil { err = errors.New("x4 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x4__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X4 = __x__ }}
+func NewTestDefineFromExcel2(_buf map[string]interface{}) (_v *TestDefineFromExcel2, err error) {
+    _v = &TestDefineFromExcel2{}
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
     { var _ok_ bool; var __json_x1__ interface{}; if __json_x1__, _ok_ = _buf["x1"]; !_ok_ || __json_x1__ == nil { err = errors.New("x1 error"); return } else { var __x__ bool;  { var _ok_ bool; if __x__, _ok_ = __json_x1__.(bool); !_ok_ { err = errors.New("__x__ error"); return } }; _v.X1 = __x__ }}
-    { var _ok_ bool; var __json_x2__ interface{}; if __json_x2__, _ok_ = _buf["x2"]; !_ok_ || __json_x2__ == nil { err = errors.New("x2 error"); return } else { var __x__ byte;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x2__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = byte(_x_) }; _v.X2 = __x__ }}
-    { var _ok_ bool; var __json_x3__ interface{}; if __json_x3__, _ok_ = _buf["x3"]; !_ok_ || __json_x3__ == nil { err = errors.New("x3 error"); return } else { var __x__ int16;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x3__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int16(_x_) }; _v.X3 = __x__ }}
     { var _ok_ bool; var __json_x5__ interface{}; if __json_x5__, _ok_ = _buf["x5"]; !_ok_ || __json_x5__ == nil { err = errors.New("x5 error"); return } else { var __x__ int64;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x5__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int64(_x_) }; _v.X5 = __x__ }}
     { var _ok_ bool; var __json_x6__ interface{}; if __json_x6__, _ok_ = _buf["x6"]; !_ok_ || __json_x6__ == nil { err = errors.New("x6 error"); return } else { var __x__ float32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x6__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = float32(_x_) }; _v.X6 = __x__ }}
-    { var _ok_ bool; var __json_x7__ interface{}; if __json_x7__, _ok_ = _buf["x7"]; !_ok_ || __json_x7__ == nil { err = errors.New("x7 error"); return } else { var __x__ float64;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x7__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = float64(_x_) }; _v.X7 = __x__ }}
-    { var _ok_ bool; var __json_x8_0__ interface{}; if __json_x8_0__, _ok_ = _buf["x8_0"]; !_ok_ || __json_x8_0__ == nil { err = errors.New("x8_0 error"); return } else { var __x__ int16;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x8_0__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int16(_x_) }; _v.X80 = __x__ }}
     { var _ok_ bool; var __json_x8__ interface{}; if __json_x8__, _ok_ = _buf["x8"]; !_ok_ || __json_x8__ == nil { err = errors.New("x8 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x8__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X8 = __x__ }}
-    { var _ok_ bool; var __json_x9__ interface{}; if __json_x9__, _ok_ = _buf["x9"]; !_ok_ || __json_x9__ == nil { err = errors.New("x9 error"); return } else { var __x__ int64;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x9__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int64(_x_) }; _v.X9 = __x__ }}
     { var _ok_ bool; var __json_x10__ interface{}; if __json_x10__, _ok_ = _buf["x10"]; !_ok_ || __json_x10__ == nil { err = errors.New("x10 error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_x10__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.X10 = __x__ }}
-    { var _ok_ bool; var __json_x12__ interface{}; if __json_x12__, _ok_ = _buf["x12"]; !_ok_ || __json_x12__ == nil { err = errors.New("x12 error"); return } else { var __x__ *TestDemoType1;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_x12__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewTestDemoType1(_x_); err != nil { return } }; _v.X12 = __x__ }}
     { var _ok_ bool; var __json_x13__ interface{}; if __json_x13__, _ok_ = _buf["x13"]; !_ok_ || __json_x13__ == nil { err = errors.New("x13 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x13__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X13 = __x__ }}
+    { var _ok_ bool; var __json_x13_2__ interface{}; if __json_x13_2__, _ok_ = _buf["x13_2"]; !_ok_ || __json_x13_2__ == nil { err = errors.New("x13_2 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x13_2__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X132 = __x__ }}
     { var _ok_ bool; var __json_x14__ interface{}; if __json_x14__, _ok_ = _buf["x14"]; !_ok_ || __json_x14__ == nil { err = errors.New("x14 error"); return } else { var __x__ interface{};  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_x14__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewTestDemoDynamic(_x_); err != nil { return } }; _v.X14 = __x__ }}
-    { var _ok_ bool; var __json_s1__ interface{}; if __json_s1__, _ok_ = _buf["s1"]; !_ok_ || __json_s1__ == nil { err = errors.New("s1 error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_s1__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.S1 = __x__ }}
+    { var _ok_ bool; var __json_x15__ interface{}; if __json_x15__, _ok_ = _buf["x15"]; !_ok_ || __json_x15__ == nil { err = errors.New("x15 error"); return } else { var __x__ interface{};  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_x15__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewTestShape(_x_); err != nil { return } }; _v.X15 = __x__ }}
+    { var _ok_ bool; var __json_v2__ interface{}; if __json_v2__, _ok_ = _buf["v2"]; !_ok_ || __json_v2__ == nil { err = errors.New("v2 error"); return } else { var __x__ *vec2;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_v2__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = Newvec2(_x_); err != nil { return } }; _v.V2 = __x__ }}
     { var _ok_ bool; var __json_t1__ interface{}; if __json_t1__, _ok_ = _buf["t1"]; !_ok_ || __json_t1__ == nil { err = errors.New("t1 error"); return } else { var __x__ int64;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_t1__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int64(_x_) }; _v.T1 = __x__ }}
     { var _ok_ bool; var __json_k1__ interface{}; if __json_k1__, _ok_ = _buf["k1"]; !_ok_ || __json_k1__ == nil { err = errors.New("k1 error"); return } else { var __x__ []int32;  {
                     var _arr0_ []interface{}
@@ -89,20 +82,6 @@ func NewTestDemoType2(_buf map[string]interface{}) (_v *TestDemoType2, err error
                     }
                 }
     ; _v.K2 = __x__ }}
-    { var _ok_ bool; var __json_k5__ interface{}; if __json_k5__, _ok_ = _buf["k5"]; !_ok_ || __json_k5__ == nil { err = errors.New("k5 error"); return } else { var __x__ []int32;  {
-                    var _arr0_ []interface{}
-                    var _ok0_ bool
-                    if _arr0_, _ok0_ = (__json_k5__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
-    
-                    __x__ = make([]int32, 0, len(_arr0_))
-                    
-                    for _, _e0_ := range _arr0_ {
-                        var _list_v0_ int32
-                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _e0_.(float64); !_ok_ { err = errors.New("_list_v0_ error"); return }; _list_v0_ = int32(_x_) }
-                        __x__ = append(__x__, _list_v0_)
-                    }
-                }
-    ; _v.K5 = __x__ }}
     { var _ok_ bool; var __json_k8__ interface{}; if __json_k8__, _ok_ = _buf["k8"]; !_ok_ || __json_k8__ == nil { err = errors.New("k8 error"); return } else { var __x__ map[int32]int32;  {
                     var _arr0_ []interface{}
                     var _ok0_ bool
@@ -134,20 +113,35 @@ func NewTestDemoType2(_buf map[string]interface{}) (_v *TestDemoType2, err error
                     }
                 }
     ; _v.K9 = __x__ }}
-    { var _ok_ bool; var __json_k15__ interface{}; if __json_k15__, _ok_ = _buf["k15"]; !_ok_ || __json_k15__ == nil { err = errors.New("k15 error"); return } else { var __x__ []interface{};  {
+    { var _ok_ bool; var __json_k10__ interface{}; if __json_k10__, _ok_ = _buf["k10"]; !_ok_ || __json_k10__ == nil { err = errors.New("k10 error"); return } else { var __x__ []*vec3;  {
                     var _arr0_ []interface{}
                     var _ok0_ bool
-                    if _arr0_, _ok0_ = (__json_k15__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
+                    if _arr0_, _ok0_ = (__json_k10__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
     
-                    __x__ = make([]interface{}, 0, len(_arr0_))
+                    __x__ = make([]*vec3, 0, len(_arr0_))
                     
                     for _, _e0_ := range _arr0_ {
-                        var _list_v0_ interface{}
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = NewTestDemoDynamic(_x_); err != nil { return } }
+                        var _list_v0_ *vec3
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = Newvec3(_x_); err != nil { return } }
                         __x__ = append(__x__, _list_v0_)
                     }
                 }
-    ; _v.K15 = __x__ }}
+    ; _v.K10 = __x__ }}
+    { var _ok_ bool; var __json_k11__ interface{}; if __json_k11__, _ok_ = _buf["k11"]; !_ok_ || __json_k11__ == nil { err = errors.New("k11 error"); return } else { var __x__ []*vec4;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok0_ = (__json_k11__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
+    
+                    __x__ = make([]*vec4, 0, len(_arr0_))
+                    
+                    for _, _e0_ := range _arr0_ {
+                        var _list_v0_ *vec4
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = Newvec4(_x_); err != nil { return } }
+                        __x__ = append(__x__, _list_v0_)
+                    }
+                }
+    ; _v.K11 = __x__ }}
+    { var _ok_ bool; var __json_v11__ interface{}; if __json_v11__, _ok_ = _buf["v11"]; !_ok_ || __json_v11__ == nil { _v.V11 = nil } else { var __x__ *vec3;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_v11__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = Newvec3(_x_); err != nil { return } }; _v.V11 = __x__ }}
     return
 }
 

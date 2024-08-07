@@ -30,26 +30,26 @@ func (*CommonGlobalConfig) GetTypeId() int32 {
 
 func NewCommonGlobalConfig(_buf map[string]interface{}) (_v *CommonGlobalConfig, err error) {
     _v = &CommonGlobalConfig{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x1"].(float64); !_ok_ { err = errors.New("x1 error"); return }; _v.X1 = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x2"].(float64); !_ok_ { err = errors.New("x2 error"); return }; _v.X2 = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x4"].(float64); !_ok_ { err = errors.New("x4 error"); return }; _v.X4 = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x5"].(float64); !_ok_ { err = errors.New("x5 error"); return }; _v.X5 = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x6"].(float64); !_ok_ { err = errors.New("x6 error"); return }; _v.X6 = int32(_tempNum_) }
-     {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["x7"].([]interface{}); !_ok_ { err = errors.New("x7 error"); return }
+    { var _ok_ bool; var __json_x1__ interface{}; if __json_x1__, _ok_ = _buf["x1"]; !_ok_ || __json_x1__ == nil { err = errors.New("x1 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x1__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X1 = __x__ }}
+    { var _ok_ bool; var __json_x2__ interface{}; if __json_x2__, _ok_ = _buf["x2"]; !_ok_ || __json_x2__ == nil { err = errors.New("x2 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x2__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X2 = __x__ }}
+    { var _ok_ bool; var __json_x3__ interface{}; if __json_x3__, _ok_ = _buf["x3"]; !_ok_ || __json_x3__ == nil { err = errors.New("x3 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x3__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X3 = __x__ }}
+    { var _ok_ bool; var __json_x4__ interface{}; if __json_x4__, _ok_ = _buf["x4"]; !_ok_ || __json_x4__ == nil { err = errors.New("x4 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x4__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X4 = __x__ }}
+    { var _ok_ bool; var __json_x5__ interface{}; if __json_x5__, _ok_ = _buf["x5"]; !_ok_ || __json_x5__ == nil { err = errors.New("x5 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x5__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X5 = __x__ }}
+    { var _ok_ bool; var __json_x6__ interface{}; if __json_x6__, _ok_ = _buf["x6"]; !_ok_ || __json_x6__ == nil { err = errors.New("x6 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x6__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X6 = __x__ }}
+    { var _ok_ bool; var __json_x7__ interface{}; if __json_x7__, _ok_ = _buf["x7"]; !_ok_ || __json_x7__ == nil { err = errors.New("x7 error"); return } else { var __x__ []int32;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok0_ = (__json_x7__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
     
-                    _v.X7 = make([]int32, 0, len(_arr_))
+                    __x__ = make([]int32, 0, len(_arr0_))
                     
-                    for _, _e_ := range _arr_ {
-                        var _list_v_ int32
-                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _e_.(float64); !_ok_ { err = errors.New("_list_v_ error"); return }; _list_v_ = int32(_x_) }
-                        _v.X7 = append(_v.X7, _list_v_)
+                    for _, _e0_ := range _arr0_ {
+                        var _list_v0_ int32
+                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _e0_.(float64); !_ok_ { err = errors.New("_list_v0_ error"); return }; _list_v0_ = int32(_x_) }
+                        __x__ = append(__x__, _list_v0_)
                     }
                 }
-
+    ; _v.X7 = __x__ }}
     return
 }
 

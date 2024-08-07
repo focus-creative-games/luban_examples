@@ -26,9 +26,9 @@ func (*TestSepBean1) GetTypeId() int32 {
 
 func NewTestSepBean1(_buf map[string]interface{}) (_v *TestSepBean1, err error) {
     _v = &TestSepBean1{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["a"].(float64); !_ok_ { err = errors.New("a error"); return }; _v.A = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["b"].(float64); !_ok_ { err = errors.New("b error"); return }; _v.B = int32(_tempNum_) }
-    { var _ok_ bool; if _v.C, _ok_ = _buf["c"].(string); !_ok_ { err = errors.New("c error"); return } }
+    { var _ok_ bool; var __json_a__ interface{}; if __json_a__, _ok_ = _buf["a"]; !_ok_ || __json_a__ == nil { err = errors.New("a error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_a__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.A = __x__ }}
+    { var _ok_ bool; var __json_b__ interface{}; if __json_b__, _ok_ = _buf["b"]; !_ok_ || __json_b__ == nil { err = errors.New("b error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_b__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.B = __x__ }}
+    { var _ok_ bool; var __json_c__ interface{}; if __json_c__, _ok_ = _buf["c"]; !_ok_ || __json_c__ == nil { err = errors.New("c error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_c__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.C = __x__ }}
     return
 }
 

@@ -27,10 +27,10 @@ func (*AiUeCooldown) GetTypeId() int32 {
 
 func NewAiUeCooldown(_buf map[string]interface{}) (_v *AiUeCooldown, err error) {
     _v = &AiUeCooldown{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["flow_abort_mode"].(float64); !_ok_ { err = errors.New("flow_abort_mode error"); return }; _v.FlowAbortMode = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["cooldown_time"].(float64); !_ok_ { err = errors.New("cooldown_time error"); return }; _v.CooldownTime = float32(_tempNum_) }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_node_name__ interface{}; if __json_node_name__, _ok_ = _buf["node_name"]; !_ok_ || __json_node_name__ == nil { err = errors.New("node_name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_node_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.NodeName = __x__ }}
+    { var _ok_ bool; var __json_flow_abort_mode__ interface{}; if __json_flow_abort_mode__, _ok_ = _buf["flow_abort_mode"]; !_ok_ || __json_flow_abort_mode__ == nil { err = errors.New("flow_abort_mode error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_flow_abort_mode__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.FlowAbortMode = __x__ }}
+    { var _ok_ bool; var __json_cooldown_time__ interface{}; if __json_cooldown_time__, _ok_ = _buf["cooldown_time"]; !_ok_ || __json_cooldown_time__ == nil { err = errors.New("cooldown_time error"); return } else { var __x__ float32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_cooldown_time__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = float32(_x_) }; _v.CooldownTime = __x__ }}
     return
 }
 

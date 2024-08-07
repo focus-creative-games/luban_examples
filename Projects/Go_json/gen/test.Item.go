@@ -28,11 +28,11 @@ func (*TestItem) GetTypeId() int32 {
 
 func NewTestItem(_buf map[string]interface{}) (_v *TestItem, err error) {
     _v = &TestItem{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
-    { var _ok_ bool; if _v.Desc, _ok_ = _buf["desc"].(string); !_ok_ { err = errors.New("desc error"); return } }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["num"].(float64); !_ok_ { err = errors.New("num error"); return }; _v.Num = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["price"].(float64); !_ok_ { err = errors.New("price error"); return }; _v.Price = int32(_tempNum_) }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_name__ interface{}; if __json_name__, _ok_ = _buf["name"]; !_ok_ || __json_name__ == nil { err = errors.New("name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.Name = __x__ }}
+    { var _ok_ bool; var __json_desc__ interface{}; if __json_desc__, _ok_ = _buf["desc"]; !_ok_ || __json_desc__ == nil { err = errors.New("desc error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_desc__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.Desc = __x__ }}
+    { var _ok_ bool; var __json_num__ interface{}; if __json_num__, _ok_ = _buf["num"]; !_ok_ || __json_num__ == nil { err = errors.New("num error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_num__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Num = __x__ }}
+    { var _ok_ bool; var __json_price__ interface{}; if __json_price__, _ok_ = _buf["price"]; !_ok_ || __json_price__ == nil { err = errors.New("price error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_price__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Price = __x__ }}
     return
 }
 

@@ -28,11 +28,11 @@ func (*AiBehaviorTree) GetTypeId() int32 {
 
 func NewAiBehaviorTree(_buf map[string]interface{}) (_v *AiBehaviorTree, err error) {
     _v = &AiBehaviorTree{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
-    { var _ok_ bool; if _v.Desc, _ok_ = _buf["desc"].(string); !_ok_ { err = errors.New("desc error"); return } }
-    { var _ok_ bool; if _v.BlackboardId, _ok_ = _buf["blackboard_id"].(string); !_ok_ { err = errors.New("blackboard_id error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["root"].(map[string]interface{}); !_ok_ { err = errors.New("root error"); return }; if _v.Root, err = NewAiComposeNode(_x_); err != nil { return } }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_name__ interface{}; if __json_name__, _ok_ = _buf["name"]; !_ok_ || __json_name__ == nil { err = errors.New("name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.Name = __x__ }}
+    { var _ok_ bool; var __json_desc__ interface{}; if __json_desc__, _ok_ = _buf["desc"]; !_ok_ || __json_desc__ == nil { err = errors.New("desc error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_desc__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.Desc = __x__ }}
+    { var _ok_ bool; var __json_blackboard_id__ interface{}; if __json_blackboard_id__, _ok_ = _buf["blackboard_id"]; !_ok_ || __json_blackboard_id__ == nil { err = errors.New("blackboard_id error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_blackboard_id__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.BlackboardId = __x__ }}
+    { var _ok_ bool; var __json_root__ interface{}; if __json_root__, _ok_ = _buf["root"]; !_ok_ || __json_root__ == nil { err = errors.New("root error"); return } else { var __x__ interface{};  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_root__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewAiComposeNode(_x_); err != nil { return } }; _v.Root = __x__ }}
     return
 }
 

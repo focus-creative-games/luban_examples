@@ -26,9 +26,9 @@ func (*TestCompactString) GetTypeId() int32 {
 
 func NewTestCompactString(_buf map[string]interface{}) (_v *TestCompactString, err error) {
     _v = &TestCompactString{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.S2, _ok_ = _buf["s2"].(string); !_ok_ { err = errors.New("s2 error"); return } }
-    { var _ok_ bool; if _v.S3, _ok_ = _buf["s3"].(string); !_ok_ { err = errors.New("s3 error"); return } }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_s2__ interface{}; if __json_s2__, _ok_ = _buf["s2"]; !_ok_ || __json_s2__ == nil { err = errors.New("s2 error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_s2__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.S2 = __x__ }}
+    { var _ok_ bool; var __json_s3__ interface{}; if __json_s3__, _ok_ = _buf["s3"]; !_ok_ || __json_s3__ == nil { err = errors.New("s3 error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_s3__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.S3 = __x__ }}
     return
 }
 

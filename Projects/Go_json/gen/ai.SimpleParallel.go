@@ -30,39 +30,39 @@ func (*AiSimpleParallel) GetTypeId() int32 {
 
 func NewAiSimpleParallel(_buf map[string]interface{}) (_v *AiSimpleParallel, err error) {
     _v = &AiSimpleParallel{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
-     {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["decorators"].([]interface{}); !_ok_ { err = errors.New("decorators error"); return }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_node_name__ interface{}; if __json_node_name__, _ok_ = _buf["node_name"]; !_ok_ || __json_node_name__ == nil { err = errors.New("node_name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_node_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.NodeName = __x__ }}
+    { var _ok_ bool; var __json_decorators__ interface{}; if __json_decorators__, _ok_ = _buf["decorators"]; !_ok_ || __json_decorators__ == nil { err = errors.New("decorators error"); return } else { var __x__ []interface{};  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok0_ = (__json_decorators__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
     
-                    _v.Decorators = make([]interface{}, 0, len(_arr_))
+                    __x__ = make([]interface{}, 0, len(_arr0_))
                     
-                    for _, _e_ := range _arr_ {
-                        var _list_v_ interface{}
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAiDecorator(_x_); err != nil { return } }
-                        _v.Decorators = append(_v.Decorators, _list_v_)
+                    for _, _e0_ := range _arr0_ {
+                        var _list_v0_ interface{}
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = NewAiDecorator(_x_); err != nil { return } }
+                        __x__ = append(__x__, _list_v0_)
                     }
                 }
-
-     {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["services"].([]interface{}); !_ok_ { err = errors.New("services error"); return }
+    ; _v.Decorators = __x__ }}
+    { var _ok_ bool; var __json_services__ interface{}; if __json_services__, _ok_ = _buf["services"]; !_ok_ || __json_services__ == nil { err = errors.New("services error"); return } else { var __x__ []interface{};  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok0_ = (__json_services__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
     
-                    _v.Services = make([]interface{}, 0, len(_arr_))
+                    __x__ = make([]interface{}, 0, len(_arr0_))
                     
-                    for _, _e_ := range _arr_ {
-                        var _list_v_ interface{}
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAiService(_x_); err != nil { return } }
-                        _v.Services = append(_v.Services, _list_v_)
+                    for _, _e0_ := range _arr0_ {
+                        var _list_v0_ interface{}
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = NewAiService(_x_); err != nil { return } }
+                        __x__ = append(__x__, _list_v0_)
                     }
                 }
-
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["finish_mode"].(float64); !_ok_ { err = errors.New("finish_mode error"); return }; _v.FinishMode = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["main_task"].(map[string]interface{}); !_ok_ { err = errors.New("main_task error"); return }; if _v.MainTask, err = NewAiTask(_x_); err != nil { return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["background_node"].(map[string]interface{}); !_ok_ { err = errors.New("background_node error"); return }; if _v.BackgroundNode, err = NewAiFlowNode(_x_); err != nil { return } }
+    ; _v.Services = __x__ }}
+    { var _ok_ bool; var __json_finish_mode__ interface{}; if __json_finish_mode__, _ok_ = _buf["finish_mode"]; !_ok_ || __json_finish_mode__ == nil { err = errors.New("finish_mode error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_finish_mode__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.FinishMode = __x__ }}
+    { var _ok_ bool; var __json_main_task__ interface{}; if __json_main_task__, _ok_ = _buf["main_task"]; !_ok_ || __json_main_task__ == nil { err = errors.New("main_task error"); return } else { var __x__ interface{};  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_main_task__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewAiTask(_x_); err != nil { return } }; _v.MainTask = __x__ }}
+    { var _ok_ bool; var __json_background_node__ interface{}; if __json_background_node__, _ok_ = _buf["background_node"]; !_ok_ || __json_background_node__ == nil { err = errors.New("background_node error"); return } else { var __x__ interface{};  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_background_node__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewAiFlowNode(_x_); err != nil { return } }; _v.BackgroundNode = __x__ }}
     return
 }
 

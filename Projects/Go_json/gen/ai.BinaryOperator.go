@@ -25,8 +25,8 @@ func (*AiBinaryOperator) GetTypeId() int32 {
 
 func NewAiBinaryOperator(_buf map[string]interface{}) (_v *AiBinaryOperator, err error) {
     _v = &AiBinaryOperator{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["oper"].(float64); !_ok_ { err = errors.New("oper error"); return }; _v.Oper = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["data"].(map[string]interface{}); !_ok_ { err = errors.New("data error"); return }; if _v.Data, err = NewAiKeyData(_x_); err != nil { return } }
+    { var _ok_ bool; var __json_oper__ interface{}; if __json_oper__, _ok_ = _buf["oper"]; !_ok_ || __json_oper__ == nil { err = errors.New("oper error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_oper__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Oper = __x__ }}
+    { var _ok_ bool; var __json_data__ interface{}; if __json_data__, _ok_ = _buf["data"]; !_ok_ || __json_data__ == nil { err = errors.New("data error"); return } else { var __x__ interface{};  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_data__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewAiKeyData(_x_); err != nil { return } }; _v.Data = __x__ }}
     return
 }
 

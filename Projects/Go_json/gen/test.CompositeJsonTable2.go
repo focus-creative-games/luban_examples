@@ -25,8 +25,8 @@ func (*TestCompositeJsonTable2) GetTypeId() int32 {
 
 func NewTestCompositeJsonTable2(_buf map[string]interface{}) (_v *TestCompositeJsonTable2, err error) {
     _v = &TestCompositeJsonTable2{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y"].(float64); !_ok_ { err = errors.New("y error"); return }; _v.Y = int32(_tempNum_) }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_y__ interface{}; if __json_y__, _ok_ = _buf["y"]; !_ok_ || __json_y__ == nil { err = errors.New("y error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_y__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Y = __x__ }}
     return
 }
 

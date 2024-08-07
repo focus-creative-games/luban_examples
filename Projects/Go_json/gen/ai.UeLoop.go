@@ -29,12 +29,12 @@ func (*AiUeLoop) GetTypeId() int32 {
 
 func NewAiUeLoop(_buf map[string]interface{}) (_v *AiUeLoop, err error) {
     _v = &AiUeLoop{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["flow_abort_mode"].(float64); !_ok_ { err = errors.New("flow_abort_mode error"); return }; _v.FlowAbortMode = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["num_loops"].(float64); !_ok_ { err = errors.New("num_loops error"); return }; _v.NumLoops = int32(_tempNum_) }
-    { var _ok_ bool; if _v.InfiniteLoop, _ok_ = _buf["infinite_loop"].(bool); !_ok_ { err = errors.New("infinite_loop error"); return } }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["infinite_loop_timeout_time"].(float64); !_ok_ { err = errors.New("infinite_loop_timeout_time error"); return }; _v.InfiniteLoopTimeoutTime = float32(_tempNum_) }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_node_name__ interface{}; if __json_node_name__, _ok_ = _buf["node_name"]; !_ok_ || __json_node_name__ == nil { err = errors.New("node_name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_node_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.NodeName = __x__ }}
+    { var _ok_ bool; var __json_flow_abort_mode__ interface{}; if __json_flow_abort_mode__, _ok_ = _buf["flow_abort_mode"]; !_ok_ || __json_flow_abort_mode__ == nil { err = errors.New("flow_abort_mode error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_flow_abort_mode__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.FlowAbortMode = __x__ }}
+    { var _ok_ bool; var __json_num_loops__ interface{}; if __json_num_loops__, _ok_ = _buf["num_loops"]; !_ok_ || __json_num_loops__ == nil { err = errors.New("num_loops error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_num_loops__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.NumLoops = __x__ }}
+    { var _ok_ bool; var __json_infinite_loop__ interface{}; if __json_infinite_loop__, _ok_ = _buf["infinite_loop"]; !_ok_ || __json_infinite_loop__ == nil { err = errors.New("infinite_loop error"); return } else { var __x__ bool;  { var _ok_ bool; if __x__, _ok_ = __json_infinite_loop__.(bool); !_ok_ { err = errors.New("__x__ error"); return } }; _v.InfiniteLoop = __x__ }}
+    { var _ok_ bool; var __json_infinite_loop_timeout_time__ interface{}; if __json_infinite_loop_timeout_time__, _ok_ = _buf["infinite_loop_timeout_time"]; !_ok_ || __json_infinite_loop_timeout_time__ == nil { err = errors.New("infinite_loop_timeout_time error"); return } else { var __x__ float32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_infinite_loop_timeout_time__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = float32(_x_) }; _v.InfiniteLoopTimeoutTime = __x__ }}
     return
 }
 

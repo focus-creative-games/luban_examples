@@ -11,16 +11,16 @@ package cfg;
 
 
 type TestTbDefineFromExcel2 struct {
-    _dataMap map[int32]*DefineFromExcel2
-    _dataList []*DefineFromExcel2
+    _dataMap map[int32]*TestDefineFromExcel2
+    _dataList []*TestDefineFromExcel2
 }
 
 func NewTestTbDefineFromExcel2(_buf []map[string]interface{}) (*TestTbDefineFromExcel2, error) {
-    _dataList := make([]*DefineFromExcel2, 0, len(_buf))
-    dataMap := make(map[int32]*DefineFromExcel2)
+    _dataList := make([]*TestDefineFromExcel2, 0, len(_buf))
+    dataMap := make(map[int32]*TestDefineFromExcel2)
 
     for _, _ele_ := range _buf {
-        if _v, err2 := NewDefineFromExcel2(_ele_); err2 != nil {
+        if _v, err2 := NewTestDefineFromExcel2(_ele_); err2 != nil {
             return nil, err2
         } else {
             _dataList = append(_dataList, _v)
@@ -30,15 +30,15 @@ func NewTestTbDefineFromExcel2(_buf []map[string]interface{}) (*TestTbDefineFrom
     return &TestTbDefineFromExcel2{_dataList:_dataList, _dataMap:dataMap}, nil
 }
 
-func (table *TestTbDefineFromExcel2) GetDataMap() map[int32]*DefineFromExcel2 {
+func (table *TestTbDefineFromExcel2) GetDataMap() map[int32]*TestDefineFromExcel2 {
     return table._dataMap
 }
 
-func (table *TestTbDefineFromExcel2) GetDataList() []*DefineFromExcel2 {
+func (table *TestTbDefineFromExcel2) GetDataList() []*TestDefineFromExcel2 {
     return table._dataList
 }
 
-func (table *TestTbDefineFromExcel2) Get(key int32) *DefineFromExcel2 {
+func (table *TestTbDefineFromExcel2) Get(key int32) *TestDefineFromExcel2 {
     return table._dataMap[key]
 }
 

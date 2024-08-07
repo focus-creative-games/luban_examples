@@ -30,13 +30,13 @@ func (*TestDemoExplicitType) GetTypeId() int32 {
 
 func NewTestDemoExplicitType(_buf map[string]interface{}) (_v *TestDemoExplicitType, err error) {
     _v = &TestDemoExplicitType{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x1"].(float64); !_ok_ { err = errors.New("x1 error"); return }; _v.X1 = byte(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x2"].(float64); !_ok_ { err = errors.New("x2 error"); return }; _v.X2 = int16(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x3"].(float64); !_ok_ { err = errors.New("x3 error"); return }; _v.X3 = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x4"].(float64); !_ok_ { err = errors.New("x4 error"); return }; _v.X4 = int64(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x5"].(float64); !_ok_ { err = errors.New("x5 error"); return }; _v.X5 = float32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x6"].(float64); !_ok_ { err = errors.New("x6 error"); return }; _v.X6 = float64(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x7"].(float64); !_ok_ { err = errors.New("x7 error"); return }; _v.X7 = int64(_tempNum_) }
+    { var _ok_ bool; var __json_x1__ interface{}; if __json_x1__, _ok_ = _buf["x1"]; !_ok_ || __json_x1__ == nil { err = errors.New("x1 error"); return } else { var __x__ byte;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x1__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = byte(_x_) }; _v.X1 = __x__ }}
+    { var _ok_ bool; var __json_x2__ interface{}; if __json_x2__, _ok_ = _buf["x2"]; !_ok_ || __json_x2__ == nil { err = errors.New("x2 error"); return } else { var __x__ int16;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x2__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int16(_x_) }; _v.X2 = __x__ }}
+    { var _ok_ bool; var __json_x3__ interface{}; if __json_x3__, _ok_ = _buf["x3"]; !_ok_ || __json_x3__ == nil { err = errors.New("x3 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x3__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X3 = __x__ }}
+    { var _ok_ bool; var __json_x4__ interface{}; if __json_x4__, _ok_ = _buf["x4"]; !_ok_ || __json_x4__ == nil { err = errors.New("x4 error"); return } else { var __x__ int64;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x4__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int64(_x_) }; _v.X4 = __x__ }}
+    { var _ok_ bool; var __json_x5__ interface{}; if __json_x5__, _ok_ = _buf["x5"]; !_ok_ || __json_x5__ == nil { err = errors.New("x5 error"); return } else { var __x__ float32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x5__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = float32(_x_) }; _v.X5 = __x__ }}
+    { var _ok_ bool; var __json_x6__ interface{}; if __json_x6__, _ok_ = _buf["x6"]; !_ok_ || __json_x6__ == nil { err = errors.New("x6 error"); return } else { var __x__ float64;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x6__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = float64(_x_) }; _v.X6 = __x__ }}
+    { var _ok_ bool; var __json_x7__ interface{}; if __json_x7__, _ok_ = _buf["x7"]; !_ok_ || __json_x7__ == nil { err = errors.New("x7 error"); return } else { var __x__ int64;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x7__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int64(_x_) }; _v.X7 = __x__ }}
     return
 }
 

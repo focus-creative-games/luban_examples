@@ -29,12 +29,12 @@ func (*AiUeBlackboard) GetTypeId() int32 {
 
 func NewAiUeBlackboard(_buf map[string]interface{}) (_v *AiUeBlackboard, err error) {
     _v = &AiUeBlackboard{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["flow_abort_mode"].(float64); !_ok_ { err = errors.New("flow_abort_mode error"); return }; _v.FlowAbortMode = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["notify_observer"].(float64); !_ok_ { err = errors.New("notify_observer error"); return }; _v.NotifyObserver = int32(_tempNum_) }
-    { var _ok_ bool; if _v.BlackboardKey, _ok_ = _buf["blackboard_key"].(string); !_ok_ { err = errors.New("blackboard_key error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["key_query"].(map[string]interface{}); !_ok_ { err = errors.New("key_query error"); return }; if _v.KeyQuery, err = NewAiKeyQueryOperator(_x_); err != nil { return } }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_node_name__ interface{}; if __json_node_name__, _ok_ = _buf["node_name"]; !_ok_ || __json_node_name__ == nil { err = errors.New("node_name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_node_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.NodeName = __x__ }}
+    { var _ok_ bool; var __json_flow_abort_mode__ interface{}; if __json_flow_abort_mode__, _ok_ = _buf["flow_abort_mode"]; !_ok_ || __json_flow_abort_mode__ == nil { err = errors.New("flow_abort_mode error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_flow_abort_mode__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.FlowAbortMode = __x__ }}
+    { var _ok_ bool; var __json_notify_observer__ interface{}; if __json_notify_observer__, _ok_ = _buf["notify_observer"]; !_ok_ || __json_notify_observer__ == nil { err = errors.New("notify_observer error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_notify_observer__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.NotifyObserver = __x__ }}
+    { var _ok_ bool; var __json_blackboard_key__ interface{}; if __json_blackboard_key__, _ok_ = _buf["blackboard_key"]; !_ok_ || __json_blackboard_key__ == nil { err = errors.New("blackboard_key error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_blackboard_key__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.BlackboardKey = __x__ }}
+    { var _ok_ bool; var __json_key_query__ interface{}; if __json_key_query__, _ok_ = _buf["key_query"]; !_ok_ || __json_key_query__ == nil { err = errors.New("key_query error"); return } else { var __x__ interface{};  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_key_query__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewAiKeyQueryOperator(_x_); err != nil { return } }; _v.KeyQuery = __x__ }}
     return
 }
 

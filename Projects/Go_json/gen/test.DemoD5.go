@@ -25,8 +25,8 @@ func (*TestDemoD5) GetTypeId() int32 {
 
 func NewTestDemoD5(_buf map[string]interface{}) (_v *TestDemoD5, err error) {
     _v = &TestDemoD5{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["x1"].(float64); !_ok_ { err = errors.New("x1 error"); return }; _v.X1 = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["time"].(map[string]interface{}); !_ok_ { err = errors.New("time error"); return }; if _v.Time, err = NewTestDateTimeRange(_x_); err != nil { return } }
+    { var _ok_ bool; var __json_x1__ interface{}; if __json_x1__, _ok_ = _buf["x1"]; !_ok_ || __json_x1__ == nil { err = errors.New("x1 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_x1__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.X1 = __x__ }}
+    { var _ok_ bool; var __json_time__ interface{}; if __json_time__, _ok_ = _buf["time"]; !_ok_ || __json_time__ == nil { err = errors.New("time error"); return } else { var __x__ *TestDateTimeRange;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_time__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewTestDateTimeRange(_x_); err != nil { return } }; _v.Time = __x__ }}
     return
 }
 

@@ -26,9 +26,9 @@ func (*CommonTimeOfDay) GetTypeId() int32 {
 
 func NewCommonTimeOfDay(_buf map[string]interface{}) (_v *CommonTimeOfDay, err error) {
     _v = &CommonTimeOfDay{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["hour"].(float64); !_ok_ { err = errors.New("hour error"); return }; _v.Hour = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["minute"].(float64); !_ok_ { err = errors.New("minute error"); return }; _v.Minute = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["second"].(float64); !_ok_ { err = errors.New("second error"); return }; _v.Second = int32(_tempNum_) }
+    { var _ok_ bool; var __json_hour__ interface{}; if __json_hour__, _ok_ = _buf["hour"]; !_ok_ || __json_hour__ == nil { err = errors.New("hour error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_hour__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Hour = __x__ }}
+    { var _ok_ bool; var __json_minute__ interface{}; if __json_minute__, _ok_ = _buf["minute"]; !_ok_ || __json_minute__ == nil { err = errors.New("minute error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_minute__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Minute = __x__ }}
+    { var _ok_ bool; var __json_second__ interface{}; if __json_second__, _ok_ = _buf["second"]; !_ok_ || __json_second__ == nil { err = errors.New("second error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_second__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Second = __x__ }}
     return
 }
 

@@ -25,8 +25,8 @@ func (*TestDateTimeRange) GetTypeId() int32 {
 
 func NewTestDateTimeRange(_buf map[string]interface{}) (_v *TestDateTimeRange, err error) {
     _v = &TestDateTimeRange{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["start_time"].(float64); !_ok_ { err = errors.New("start_time error"); return }; _v.StartTime = int64(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["end_time"].(float64); !_ok_ { err = errors.New("end_time error"); return }; _v.EndTime = int64(_tempNum_) }
+    { var _ok_ bool; var __json_start_time__ interface{}; if __json_start_time__, _ok_ = _buf["start_time"]; !_ok_ || __json_start_time__ == nil { err = errors.New("start_time error"); return } else { var __x__ int64;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_start_time__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int64(_x_) }; _v.StartTime = __x__ }}
+    { var _ok_ bool; var __json_end_time__ interface{}; if __json_end_time__, _ok_ = _buf["end_time"]; !_ok_ || __json_end_time__ == nil { err = errors.New("end_time error"); return } else { var __x__ int64;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_end_time__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int64(_x_) }; _v.EndTime = __x__ }}
     return
 }
 

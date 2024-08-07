@@ -25,21 +25,21 @@ func (*TestTestIndex) GetTypeId() int32 {
 
 func NewTestTestIndex(_buf map[string]interface{}) (_v *TestTestIndex, err error) {
     _v = &TestTestIndex{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-     {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["eles"].([]interface{}); !_ok_ { err = errors.New("eles error"); return }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_eles__ interface{}; if __json_eles__, _ok_ = _buf["eles"]; !_ok_ || __json_eles__ == nil { err = errors.New("eles error"); return } else { var __x__ []*TestDemoType1;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok0_ = (__json_eles__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
     
-                    _v.Eles = make([]*TestDemoType1, 0, len(_arr_))
+                    __x__ = make([]*TestDemoType1, 0, len(_arr0_))
                     
-                    for _, _e_ := range _arr_ {
-                        var _list_v_ *TestDemoType1
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTestDemoType1(_x_); err != nil { return } }
-                        _v.Eles = append(_v.Eles, _list_v_)
+                    for _, _e0_ := range _arr0_ {
+                        var _list_v0_ *TestDemoType1
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = NewTestDemoType1(_x_); err != nil { return } }
+                        __x__ = append(__x__, _list_v0_)
                     }
                 }
-
+    ; _v.Eles = __x__ }}
     return
 }
 

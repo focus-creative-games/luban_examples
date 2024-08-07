@@ -26,9 +26,9 @@ func (*AiChooseTarget) GetTypeId() int32 {
 
 func NewAiChooseTarget(_buf map[string]interface{}) (_v *AiChooseTarget, err error) {
     _v = &AiChooseTarget{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
-    { var _ok_ bool; if _v.ResultTargetKey, _ok_ = _buf["result_target_key"].(string); !_ok_ { err = errors.New("result_target_key error"); return } }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_node_name__ interface{}; if __json_node_name__, _ok_ = _buf["node_name"]; !_ok_ || __json_node_name__ == nil { err = errors.New("node_name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_node_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.NodeName = __x__ }}
+    { var _ok_ bool; var __json_result_target_key__ interface{}; if __json_result_target_key__, _ok_ = _buf["result_target_key"]; !_ok_ || __json_result_target_key__ == nil { err = errors.New("result_target_key error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_result_target_key__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.ResultTargetKey = __x__ }}
     return
 }
 

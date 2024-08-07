@@ -30,52 +30,52 @@ func (*TestMultiRowTitle) GetTypeId() int32 {
 
 func NewTestMultiRowTitle(_buf map[string]interface{}) (_v *TestMultiRowTitle, err error) {
     _v = &TestMultiRowTitle{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["x1"].(map[string]interface{}); !_ok_ { err = errors.New("x1 error"); return }; if _v.X1, err = NewTestH1(_x_); err != nil { return } }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_name__ interface{}; if __json_name__, _ok_ = _buf["name"]; !_ok_ || __json_name__ == nil { err = errors.New("name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.Name = __x__ }}
+    { var _ok_ bool; var __json_x1__ interface{}; if __json_x1__, _ok_ = _buf["x1"]; !_ok_ || __json_x1__ == nil { err = errors.New("x1 error"); return } else { var __x__ *TestH1;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_x1__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewTestH1(_x_); err != nil { return } }; _v.X1 = __x__ }}
     { var _ok_ bool; var __json_x2_0__ interface{}; if __json_x2_0__, _ok_ = _buf["x2_0"]; !_ok_ || __json_x2_0__ == nil { _v.X20 = nil } else { var __x__ *TestH2;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_x2_0__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewTestH2(_x_); err != nil { return } }; _v.X20 = __x__ }}
-     {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["x2"].([]interface{}); !_ok_ { err = errors.New("x2 error"); return }
+    { var _ok_ bool; var __json_x2__ interface{}; if __json_x2__, _ok_ = _buf["x2"]; !_ok_ || __json_x2__ == nil { err = errors.New("x2 error"); return } else { var __x__ []*TestH2;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok0_ = (__json_x2__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
     
-                    _v.X2 = make([]*TestH2, 0, len(_arr_))
+                    __x__ = make([]*TestH2, 0, len(_arr0_))
                     
-                    for _, _e_ := range _arr_ {
-                        var _list_v_ *TestH2
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTestH2(_x_); err != nil { return } }
-                        _v.X2 = append(_v.X2, _list_v_)
+                    for _, _e0_ := range _arr0_ {
+                        var _list_v0_ *TestH2
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = NewTestH2(_x_); err != nil { return } }
+                        __x__ = append(__x__, _list_v0_)
                     }
                 }
-
-     {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["x3"].([]interface{}); !_ok_ { err = errors.New("x3 error"); return }
+    ; _v.X2 = __x__ }}
+    { var _ok_ bool; var __json_x3__ interface{}; if __json_x3__, _ok_ = _buf["x3"]; !_ok_ || __json_x3__ == nil { err = errors.New("x3 error"); return } else { var __x__ []*TestH2;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok0_ = (__json_x3__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
     
-                    _v.X3 = make([]*TestH2, 0, len(_arr_))
+                    __x__ = make([]*TestH2, 0, len(_arr0_))
                     
-                    for _, _e_ := range _arr_ {
-                        var _list_v_ *TestH2
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTestH2(_x_); err != nil { return } }
-                        _v.X3 = append(_v.X3, _list_v_)
+                    for _, _e0_ := range _arr0_ {
+                        var _list_v0_ *TestH2
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = NewTestH2(_x_); err != nil { return } }
+                        __x__ = append(__x__, _list_v0_)
                     }
                 }
-
-     {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["x4"].([]interface{}); !_ok_ { err = errors.New("x4 error"); return }
+    ; _v.X3 = __x__ }}
+    { var _ok_ bool; var __json_x4__ interface{}; if __json_x4__, _ok_ = _buf["x4"]; !_ok_ || __json_x4__ == nil { err = errors.New("x4 error"); return } else { var __x__ []*TestH2;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok0_ = (__json_x4__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
     
-                    _v.X4 = make([]*TestH2, 0, len(_arr_))
+                    __x__ = make([]*TestH2, 0, len(_arr0_))
                     
-                    for _, _e_ := range _arr_ {
-                        var _list_v_ *TestH2
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewTestH2(_x_); err != nil { return } }
-                        _v.X4 = append(_v.X4, _list_v_)
+                    for _, _e0_ := range _arr0_ {
+                        var _list_v0_ *TestH2
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = NewTestH2(_x_); err != nil { return } }
+                        __x__ = append(__x__, _list_v0_)
                     }
                 }
-
+    ; _v.X4 = __x__ }}
     return
 }
 

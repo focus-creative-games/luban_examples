@@ -25,8 +25,8 @@ func (*TestH1) GetTypeId() int32 {
 
 func NewTestH1(_buf map[string]interface{}) (_v *TestH1, err error) {
     _v = &TestH1{}
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["y2"].(map[string]interface{}); !_ok_ { err = errors.New("y2 error"); return }; if _v.Y2, err = NewTestH2(_x_); err != nil { return } }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["y3"].(float64); !_ok_ { err = errors.New("y3 error"); return }; _v.Y3 = int32(_tempNum_) }
+    { var _ok_ bool; var __json_y2__ interface{}; if __json_y2__, _ok_ = _buf["y2"]; !_ok_ || __json_y2__ == nil { err = errors.New("y2 error"); return } else { var __x__ *TestH2;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_y2__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = NewTestH2(_x_); err != nil { return } }; _v.Y2 = __x__ }}
+    { var _ok_ bool; var __json_y3__ interface{}; if __json_y3__, _ok_ = _buf["y3"]; !_ok_ || __json_y3__ == nil { err = errors.New("y3 error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_y3__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Y3 = __x__ }}
     return
 }
 

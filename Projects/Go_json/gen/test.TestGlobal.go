@@ -25,8 +25,8 @@ func (*TestTestGlobal) GetTypeId() int32 {
 
 func NewTestTestGlobal(_buf map[string]interface{}) (_v *TestTestGlobal, err error) {
     _v = &TestTestGlobal{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["unlock_equip"].(float64); !_ok_ { err = errors.New("unlock_equip error"); return }; _v.UnlockEquip = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["unlock_hero"].(float64); !_ok_ { err = errors.New("unlock_hero error"); return }; _v.UnlockHero = int32(_tempNum_) }
+    { var _ok_ bool; var __json_unlock_equip__ interface{}; if __json_unlock_equip__, _ok_ = _buf["unlock_equip"]; !_ok_ || __json_unlock_equip__ == nil { err = errors.New("unlock_equip error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_unlock_equip__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.UnlockEquip = __x__ }}
+    { var _ok_ bool; var __json_unlock_hero__ interface{}; if __json_unlock_hero__, _ok_ = _buf["unlock_hero"]; !_ok_ || __json_unlock_hero__ == nil { err = errors.New("unlock_hero error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_unlock_hero__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.UnlockHero = __x__ }}
     return
 }
 

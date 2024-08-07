@@ -25,8 +25,8 @@ func (*TestCompositeJsonTable1) GetTypeId() int32 {
 
 func NewTestCompositeJsonTable1(_buf map[string]interface{}) (_v *TestCompositeJsonTable1, err error) {
     _v = &TestCompositeJsonTable1{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.X, _ok_ = _buf["x"].(string); !_ok_ { err = errors.New("x error"); return } }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_x__ interface{}; if __json_x__, _ok_ = _buf["x"]; !_ok_ || __json_x__ == nil { err = errors.New("x error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_x__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.X = __x__ }}
     return
 }
 

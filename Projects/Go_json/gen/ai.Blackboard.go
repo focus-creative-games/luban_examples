@@ -27,23 +27,23 @@ func (*AiBlackboard) GetTypeId() int32 {
 
 func NewAiBlackboard(_buf map[string]interface{}) (_v *AiBlackboard, err error) {
     _v = &AiBlackboard{}
-    { var _ok_ bool; if _v.Name, _ok_ = _buf["name"].(string); !_ok_ { err = errors.New("name error"); return } }
-    { var _ok_ bool; if _v.Desc, _ok_ = _buf["desc"].(string); !_ok_ { err = errors.New("desc error"); return } }
-    { var _ok_ bool; if _v.ParentName, _ok_ = _buf["parent_name"].(string); !_ok_ { err = errors.New("parent_name error"); return } }
-     {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["keys"].([]interface{}); !_ok_ { err = errors.New("keys error"); return }
+    { var _ok_ bool; var __json_name__ interface{}; if __json_name__, _ok_ = _buf["name"]; !_ok_ || __json_name__ == nil { err = errors.New("name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.Name = __x__ }}
+    { var _ok_ bool; var __json_desc__ interface{}; if __json_desc__, _ok_ = _buf["desc"]; !_ok_ || __json_desc__ == nil { err = errors.New("desc error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_desc__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.Desc = __x__ }}
+    { var _ok_ bool; var __json_parent_name__ interface{}; if __json_parent_name__, _ok_ = _buf["parent_name"]; !_ok_ || __json_parent_name__ == nil { err = errors.New("parent_name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_parent_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.ParentName = __x__ }}
+    { var _ok_ bool; var __json_keys__ interface{}; if __json_keys__, _ok_ = _buf["keys"]; !_ok_ || __json_keys__ == nil { err = errors.New("keys error"); return } else { var __x__ []*AiBlackboardKey;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok0_ = (__json_keys__).([]interface{}); !_ok0_ { err = errors.New("__x__ error"); return }
     
-                    _v.Keys = make([]*AiBlackboardKey, 0, len(_arr_))
+                    __x__ = make([]*AiBlackboardKey, 0, len(_arr0_))
                     
-                    for _, _e_ := range _arr_ {
-                        var _list_v_ *AiBlackboardKey
-                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v_ error"); return }; if _list_v_, err = NewAiBlackboardKey(_x_); err != nil { return } }
-                        _v.Keys = append(_v.Keys, _list_v_)
+                    for _, _e0_ := range _arr0_ {
+                        var _list_v0_ *AiBlackboardKey
+                        { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _e0_.(map[string]interface{}); !_ok_ { err = errors.New("_list_v0_ error"); return }; if _list_v0_, err = NewAiBlackboardKey(_x_); err != nil { return } }
+                        __x__ = append(__x__, _list_v0_)
                     }
                 }
-
+    ; _v.Keys = __x__ }}
     return
 }
 

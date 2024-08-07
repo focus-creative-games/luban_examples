@@ -29,12 +29,12 @@ func (*AiIsAtLocation) GetTypeId() int32 {
 
 func NewAiIsAtLocation(_buf map[string]interface{}) (_v *AiIsAtLocation, err error) {
     _v = &AiIsAtLocation{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.NodeName, _ok_ = _buf["node_name"].(string); !_ok_ { err = errors.New("node_name error"); return } }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["flow_abort_mode"].(float64); !_ok_ { err = errors.New("flow_abort_mode error"); return }; _v.FlowAbortMode = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["acceptable_radius"].(float64); !_ok_ { err = errors.New("acceptable_radius error"); return }; _v.AcceptableRadius = float32(_tempNum_) }
-    { var _ok_ bool; if _v.KeyboardKey, _ok_ = _buf["keyboard_key"].(string); !_ok_ { err = errors.New("keyboard_key error"); return } }
-    { var _ok_ bool; if _v.InverseCondition, _ok_ = _buf["inverse_condition"].(bool); !_ok_ { err = errors.New("inverse_condition error"); return } }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_node_name__ interface{}; if __json_node_name__, _ok_ = _buf["node_name"]; !_ok_ || __json_node_name__ == nil { err = errors.New("node_name error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_node_name__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.NodeName = __x__ }}
+    { var _ok_ bool; var __json_flow_abort_mode__ interface{}; if __json_flow_abort_mode__, _ok_ = _buf["flow_abort_mode"]; !_ok_ || __json_flow_abort_mode__ == nil { err = errors.New("flow_abort_mode error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_flow_abort_mode__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.FlowAbortMode = __x__ }}
+    { var _ok_ bool; var __json_acceptable_radius__ interface{}; if __json_acceptable_radius__, _ok_ = _buf["acceptable_radius"]; !_ok_ || __json_acceptable_radius__ == nil { err = errors.New("acceptable_radius error"); return } else { var __x__ float32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_acceptable_radius__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = float32(_x_) }; _v.AcceptableRadius = __x__ }}
+    { var _ok_ bool; var __json_keyboard_key__ interface{}; if __json_keyboard_key__, _ok_ = _buf["keyboard_key"]; !_ok_ || __json_keyboard_key__ == nil { err = errors.New("keyboard_key error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_keyboard_key__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.KeyboardKey = __x__ }}
+    { var _ok_ bool; var __json_inverse_condition__ interface{}; if __json_inverse_condition__, _ok_ = _buf["inverse_condition"]; !_ok_ || __json_inverse_condition__ == nil { err = errors.New("inverse_condition error"); return } else { var __x__ bool;  { var _ok_ bool; if __x__, _ok_ = __json_inverse_condition__.(bool); !_ok_ { err = errors.New("__x__ error"); return } }; _v.InverseCondition = __x__ }}
     return
 }
 

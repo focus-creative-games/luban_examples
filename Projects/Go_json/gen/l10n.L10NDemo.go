@@ -25,8 +25,8 @@ func (*L10nL10NDemo) GetTypeId() int32 {
 
 func NewL10nL10NDemo(_buf map[string]interface{}) (_v *L10nL10NDemo, err error) {
     _v = &L10nL10NDemo{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; if _v.Text, _ok_ = _buf["text"].(string); !_ok_ { err = errors.New("text error"); return } }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_text__ interface{}; if __json_text__, _ok_ = _buf["text"]; !_ok_ || __json_text__ == nil { err = errors.New("text error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_text__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.Text = __x__ }}
     return
 }
 

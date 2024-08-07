@@ -26,9 +26,9 @@ func (*TestTestMapper) GetTypeId() int32 {
 
 func NewTestTestMapper(_buf map[string]interface{}) (_v *TestTestMapper, err error) {
     _v = &TestTestMapper{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["audio_type"].(float64); !_ok_ { err = errors.New("audio_type error"); return }; _v.AudioType = int32(_tempNum_) }
-    { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = _buf["v2"].(map[string]interface{}); !_ok_ { err = errors.New("v2 error"); return }; if _v.V2, err = Newvec2(_x_); err != nil { return } }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_audio_type__ interface{}; if __json_audio_type__, _ok_ = _buf["audio_type"]; !_ok_ || __json_audio_type__ == nil { err = errors.New("audio_type error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_audio_type__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.AudioType = __x__ }}
+    { var _ok_ bool; var __json_v2__ interface{}; if __json_v2__, _ok_ = _buf["v2"]; !_ok_ || __json_v2__ == nil { err = errors.New("v2 error"); return } else { var __x__ *vec2;  { var _ok_ bool; var _x_ map[string]interface{}; if _x_, _ok_ = __json_v2__.(map[string]interface{}); !_ok_ { err = errors.New("__x__ error"); return }; if __x__, err = Newvec2(_x_); err != nil { return } }; _v.V2 = __x__ }}
     return
 }
 

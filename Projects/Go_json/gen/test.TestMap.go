@@ -28,75 +28,75 @@ func (*TestTestMap) GetTypeId() int32 {
 
 func NewTestTestMap(_buf map[string]interface{}) (_v *TestTestMap, err error) {
     _v = &TestTestMap{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["x1"].([]interface{}); !_ok_ { err = errors.New("x1 error"); return }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_x1__ interface{}; if __json_x1__, _ok_ = _buf["x1"]; !_ok_ || __json_x1__ == nil { err = errors.New("x1 error"); return } else { var __x__ map[int32]int32;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok_ = (__json_x1__).([]interface{}); !_ok_ { err = errors.New("__x__ error"); return }
     
-                    _v.X1 = make(map[int32]int32)
+                    __x__ = make(map[int32]int32)
                     
-                    for _, _e_ := range _arr_ {
-                        var _kv_ []interface{}
-                        if _kv_, _ok_ = _e_.([]interface{}); !_ok_ || len(_kv_) != 2 { err = errors.New("x1 error"); return }
-                        var _key_ int32
-                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[0].(float64); !_ok_ { err = errors.New("_key_ error"); return }; _key_ = int32(_x_) }
-                        var _value_ int32
-                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[1].(float64); !_ok_ { err = errors.New("_value_ error"); return }; _value_ = int32(_x_) }
-                        _v.X1[_key_] = _value_
+                    for _, _e0_ := range _arr0_ {
+                        var _kv0_ []interface{}
+                        if _kv0_, _ok0_ = _e0_.([]interface{}); !_ok0_ || len(_kv0_) != 2 { err = errors.New("__x__ error"); return }
+                        var _key0_ int32
+                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv0_[0].(float64); !_ok_ { err = errors.New("_key0_ error"); return }; _key0_ = int32(_x_) }
+                        var _value0_ int32
+                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv0_[1].(float64); !_ok_ { err = errors.New("_value0_ error"); return }; _value0_ = int32(_x_) }
+                        __x__[_key0_] = _value0_
                     }
-                    }
-    {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["x2"].([]interface{}); !_ok_ { err = errors.New("x2 error"); return }
+                    }; _v.X1 = __x__ }}
+    { var _ok_ bool; var __json_x2__ interface{}; if __json_x2__, _ok_ = _buf["x2"]; !_ok_ || __json_x2__ == nil { err = errors.New("x2 error"); return } else { var __x__ map[int64]int32;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok_ = (__json_x2__).([]interface{}); !_ok_ { err = errors.New("__x__ error"); return }
     
-                    _v.X2 = make(map[int64]int32)
+                    __x__ = make(map[int64]int32)
                     
-                    for _, _e_ := range _arr_ {
-                        var _kv_ []interface{}
-                        if _kv_, _ok_ = _e_.([]interface{}); !_ok_ || len(_kv_) != 2 { err = errors.New("x2 error"); return }
-                        var _key_ int64
-                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[0].(float64); !_ok_ { err = errors.New("_key_ error"); return }; _key_ = int64(_x_) }
-                        var _value_ int32
-                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[1].(float64); !_ok_ { err = errors.New("_value_ error"); return }; _value_ = int32(_x_) }
-                        _v.X2[_key_] = _value_
+                    for _, _e0_ := range _arr0_ {
+                        var _kv0_ []interface{}
+                        if _kv0_, _ok0_ = _e0_.([]interface{}); !_ok0_ || len(_kv0_) != 2 { err = errors.New("__x__ error"); return }
+                        var _key0_ int64
+                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv0_[0].(float64); !_ok_ { err = errors.New("_key0_ error"); return }; _key0_ = int64(_x_) }
+                        var _value0_ int32
+                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv0_[1].(float64); !_ok_ { err = errors.New("_value0_ error"); return }; _value0_ = int32(_x_) }
+                        __x__[_key0_] = _value0_
                     }
-                    }
-    {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["x3"].([]interface{}); !_ok_ { err = errors.New("x3 error"); return }
+                    }; _v.X2 = __x__ }}
+    { var _ok_ bool; var __json_x3__ interface{}; if __json_x3__, _ok_ = _buf["x3"]; !_ok_ || __json_x3__ == nil { err = errors.New("x3 error"); return } else { var __x__ map[string]int32;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok_ = (__json_x3__).([]interface{}); !_ok_ { err = errors.New("__x__ error"); return }
     
-                    _v.X3 = make(map[string]int32)
+                    __x__ = make(map[string]int32)
                     
-                    for _, _e_ := range _arr_ {
-                        var _kv_ []interface{}
-                        if _kv_, _ok_ = _e_.([]interface{}); !_ok_ || len(_kv_) != 2 { err = errors.New("x3 error"); return }
-                        var _key_ string
-                        {  if _key_, _ok_ = _kv_[0].(string); !_ok_ { err = errors.New("_key_ error"); return } }
-                        var _value_ int32
-                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[1].(float64); !_ok_ { err = errors.New("_value_ error"); return }; _value_ = int32(_x_) }
-                        _v.X3[_key_] = _value_
+                    for _, _e0_ := range _arr0_ {
+                        var _kv0_ []interface{}
+                        if _kv0_, _ok0_ = _e0_.([]interface{}); !_ok0_ || len(_kv0_) != 2 { err = errors.New("__x__ error"); return }
+                        var _key0_ string
+                        {  if _key0_, _ok_ = _kv0_[0].(string); !_ok_ { err = errors.New("_key0_ error"); return } }
+                        var _value0_ int32
+                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv0_[1].(float64); !_ok_ { err = errors.New("_value0_ error"); return }; _value0_ = int32(_x_) }
+                        __x__[_key0_] = _value0_
                     }
-                    }
-    {
-                    var _arr_ []interface{}
-                    var _ok_ bool
-                    if _arr_, _ok_ = _buf["x4"].([]interface{}); !_ok_ { err = errors.New("x4 error"); return }
+                    }; _v.X3 = __x__ }}
+    { var _ok_ bool; var __json_x4__ interface{}; if __json_x4__, _ok_ = _buf["x4"]; !_ok_ || __json_x4__ == nil { err = errors.New("x4 error"); return } else { var __x__ map[int32]int32;  {
+                    var _arr0_ []interface{}
+                    var _ok0_ bool
+                    if _arr0_, _ok_ = (__json_x4__).([]interface{}); !_ok_ { err = errors.New("__x__ error"); return }
     
-                    _v.X4 = make(map[int32]int32)
+                    __x__ = make(map[int32]int32)
                     
-                    for _, _e_ := range _arr_ {
-                        var _kv_ []interface{}
-                        if _kv_, _ok_ = _e_.([]interface{}); !_ok_ || len(_kv_) != 2 { err = errors.New("x4 error"); return }
-                        var _key_ int32
-                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[0].(float64); !_ok_ { err = errors.New("_key_ error"); return }; _key_ = int32(_x_) }
-                        var _value_ int32
-                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv_[1].(float64); !_ok_ { err = errors.New("_value_ error"); return }; _value_ = int32(_x_) }
-                        _v.X4[_key_] = _value_
+                    for _, _e0_ := range _arr0_ {
+                        var _kv0_ []interface{}
+                        if _kv0_, _ok0_ = _e0_.([]interface{}); !_ok0_ || len(_kv0_) != 2 { err = errors.New("__x__ error"); return }
+                        var _key0_ int32
+                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv0_[0].(float64); !_ok_ { err = errors.New("_key0_ error"); return }; _key0_ = int32(_x_) }
+                        var _value0_ int32
+                        { var _ok_ bool; var _x_ float64; if _x_, _ok_ = _kv0_[1].(float64); !_ok_ { err = errors.New("_value0_ error"); return }; _value0_ = int32(_x_) }
+                        __x__[_key0_] = _value0_
                     }
-                    }
+                    }; _v.X4 = __x__ }}
     return
 }
 

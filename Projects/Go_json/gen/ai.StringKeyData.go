@@ -24,7 +24,7 @@ func (*AiStringKeyData) GetTypeId() int32 {
 
 func NewAiStringKeyData(_buf map[string]interface{}) (_v *AiStringKeyData, err error) {
     _v = &AiStringKeyData{}
-    { var _ok_ bool; if _v.Value, _ok_ = _buf["value"].(string); !_ok_ { err = errors.New("value error"); return } }
+    { var _ok_ bool; var __json_value__ interface{}; if __json_value__, _ok_ = _buf["value"]; !_ok_ || __json_value__ == nil { err = errors.New("value error"); return } else { var __x__ string;  {  if __x__, _ok_ = __json_value__.(string); !_ok_ { err = errors.New("__x__ error"); return } }; _v.Value = __x__ }}
     return
 }
 

@@ -25,8 +25,8 @@ func (*TestTestBeRef) GetTypeId() int32 {
 
 func NewTestTestBeRef(_buf map[string]interface{}) (_v *TestTestBeRef, err error) {
     _v = &TestTestBeRef{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["id"].(float64); !_ok_ { err = errors.New("id error"); return }; _v.Id = int32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["count"].(float64); !_ok_ { err = errors.New("count error"); return }; _v.Count = int32(_tempNum_) }
+    { var _ok_ bool; var __json_id__ interface{}; if __json_id__, _ok_ = _buf["id"]; !_ok_ || __json_id__ == nil { err = errors.New("id error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_id__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Id = __x__ }}
+    { var _ok_ bool; var __json_count__ interface{}; if __json_count__, _ok_ = _buf["count"]; !_ok_ || __json_count__ == nil { err = errors.New("count error"); return } else { var __x__ int32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_count__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = int32(_x_) }; _v.Count = __x__ }}
     return
 }
 

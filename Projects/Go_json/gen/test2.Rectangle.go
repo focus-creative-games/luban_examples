@@ -25,8 +25,8 @@ func (*Test2Rectangle) GetTypeId() int32 {
 
 func NewTest2Rectangle(_buf map[string]interface{}) (_v *Test2Rectangle, err error) {
     _v = &Test2Rectangle{}
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["width"].(float64); !_ok_ { err = errors.New("width error"); return }; _v.Width = float32(_tempNum_) }
-    { var _ok_ bool; var _tempNum_ float64; if _tempNum_, _ok_ = _buf["height"].(float64); !_ok_ { err = errors.New("height error"); return }; _v.Height = float32(_tempNum_) }
+    { var _ok_ bool; var __json_width__ interface{}; if __json_width__, _ok_ = _buf["width"]; !_ok_ || __json_width__ == nil { err = errors.New("width error"); return } else { var __x__ float32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_width__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = float32(_x_) }; _v.Width = __x__ }}
+    { var _ok_ bool; var __json_height__ interface{}; if __json_height__, _ok_ = _buf["height"]; !_ok_ || __json_height__ == nil { err = errors.New("height error"); return } else { var __x__ float32;  { var _ok_ bool; var _x_ float64; if _x_, _ok_ = __json_height__.(float64); !_ok_ { err = errors.New("__x__ error"); return }; __x__ = float32(_x_) }; _v.Height = __x__ }}
     return
 }
 
