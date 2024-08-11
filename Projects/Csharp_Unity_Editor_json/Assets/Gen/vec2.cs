@@ -10,6 +10,8 @@
 using System.Collections.Generic;
 using SimpleJSON;
 using Luban;
+using UnityEngine;
+using System.Linq;
 
 namespace editor.cfg
 {
@@ -50,6 +52,21 @@ public sealed class vec2 :  Luban.EditorBeanBase
         }
     }
 
+
+    public override void Render()
+    {
+        UnityEditor.EditorGUILayout.BeginVertical();
+        UnityEditor.EditorGUILayout.BeginHorizontal();
+        UnityEditor.EditorGUILayout.LabelField("x", GUILayout.Width(100));
+        x = UnityEditor.EditorGUILayout.FloatField(x, GUILayout.Width(150));
+        UnityEditor.EditorGUILayout.EndHorizontal();
+        UnityEditor.EditorGUILayout.BeginHorizontal();
+        UnityEditor.EditorGUILayout.LabelField("y", GUILayout.Width(100));
+        y = UnityEditor.EditorGUILayout.FloatField(y, GUILayout.Width(150));
+        UnityEditor.EditorGUILayout.EndHorizontal();
+        UnityEditor.EditorGUILayout.EndVertical();
+    }
+
     public static vec2 LoadJsonvec2(SimpleJSON.JSONNode _json)
     {
         vec2 obj = new vec2();
@@ -63,9 +80,18 @@ public sealed class vec2 :  Luban.EditorBeanBase
     }
 
     public float x;
-
+    public UnityEngine.Object x_UnityObject;
     public float y;
+    public UnityEngine.Object y_UnityObject;
 
+    public override string ToString()
+    {
+        return "{ "
+        + "x:" + x + ","
+        + "y:" + y + ","
+        + "}";
+    }
 }
 
 }
+

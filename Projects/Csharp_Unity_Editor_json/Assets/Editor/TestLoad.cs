@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
 public class TestLoad : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -28,8 +27,8 @@ public class TestLoad : MonoBehaviour
             t1 = "2000-01-01 10:10:10",
             k1 = new int[] { 1, 2, 3 },
             k2 = new List<int> { 2, 3, 4 },
-            k5 = new HashSet<int> { 1, 2 },
-            k8 = new Dictionary<int, int> { { 1, 10 }, { 2, 20 } },
+            k5 = new List<int> { 1, 2 },
+            k8 = new List<object[]> { new object[] { 1, 10 }, new object[] { 2, 20 } },
             k9 = new List<DemoE2> { new DemoE2 { y1 = 1, y2 = false }, new DemoE2 { y1 = 2, y2 = true } },
             k15 = new DemoDynamic[] { new DemoD2 { x1 = 11, x2 = 22 }, new DemoE1 { x1 = 12, x3 = 32, x4 = 5 } },
         };
@@ -56,6 +55,6 @@ public class TestLoad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

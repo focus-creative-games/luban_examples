@@ -10,6 +10,8 @@
 using System.Collections.Generic;
 using SimpleJSON;
 using Luban;
+using UnityEngine;
+using System.Linq;
 
 namespace editor.cfg
 {
@@ -61,6 +63,25 @@ public sealed class vec3 :  Luban.EditorBeanBase
         }
     }
 
+
+    public override void Render()
+    {
+        UnityEditor.EditorGUILayout.BeginVertical();
+        UnityEditor.EditorGUILayout.BeginHorizontal();
+        UnityEditor.EditorGUILayout.LabelField("x", GUILayout.Width(100));
+        x = UnityEditor.EditorGUILayout.FloatField(x, GUILayout.Width(150));
+        UnityEditor.EditorGUILayout.EndHorizontal();
+        UnityEditor.EditorGUILayout.BeginHorizontal();
+        UnityEditor.EditorGUILayout.LabelField("y", GUILayout.Width(100));
+        y = UnityEditor.EditorGUILayout.FloatField(y, GUILayout.Width(150));
+        UnityEditor.EditorGUILayout.EndHorizontal();
+        UnityEditor.EditorGUILayout.BeginHorizontal();
+        UnityEditor.EditorGUILayout.LabelField("z", GUILayout.Width(100));
+        z = UnityEditor.EditorGUILayout.FloatField(z, GUILayout.Width(150));
+        UnityEditor.EditorGUILayout.EndHorizontal();
+        UnityEditor.EditorGUILayout.EndVertical();
+    }
+
     public static vec3 LoadJsonvec3(SimpleJSON.JSONNode _json)
     {
         vec3 obj = new vec3();
@@ -74,11 +95,21 @@ public sealed class vec3 :  Luban.EditorBeanBase
     }
 
     public float x;
-
+    public UnityEngine.Object x_UnityObject;
     public float y;
-
+    public UnityEngine.Object y_UnityObject;
     public float z;
+    public UnityEngine.Object z_UnityObject;
 
+    public override string ToString()
+    {
+        return "{ "
+        + "x:" + x + ","
+        + "y:" + y + ","
+        + "z:" + z + ","
+        + "}";
+    }
 }
 
 }
+
