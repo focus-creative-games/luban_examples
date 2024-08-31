@@ -14,24 +14,24 @@ import com.google.gson.JsonElement;
 
 
 public final class TbDefineFromExcel2 {
-    private final java.util.HashMap<Integer, cfg.DefineFromExcel2> _dataMap;
-    private final java.util.ArrayList<cfg.DefineFromExcel2> _dataList;
+    private final java.util.HashMap<Integer, cfg.test.DefineFromExcel2> _dataMap;
+    private final java.util.ArrayList<cfg.test.DefineFromExcel2> _dataList;
     
     public TbDefineFromExcel2(JsonElement _buf) {
-        _dataMap = new java.util.HashMap<Integer, cfg.DefineFromExcel2>();
-        _dataList = new java.util.ArrayList<cfg.DefineFromExcel2>();
+        _dataMap = new java.util.HashMap<Integer, cfg.test.DefineFromExcel2>();
+        _dataList = new java.util.ArrayList<cfg.test.DefineFromExcel2>();
         
         for (com.google.gson.JsonElement _e_ : _buf.getAsJsonArray()) {
-            cfg.DefineFromExcel2 _v;
-            _v = cfg.DefineFromExcel2.deserialize(_e_.getAsJsonObject());
+            cfg.test.DefineFromExcel2 _v;
+            _v = cfg.test.DefineFromExcel2.deserialize(_e_.getAsJsonObject());
             _dataList.add(_v);
             _dataMap.put(_v.id, _v);
         }
     }
 
-    public java.util.HashMap<Integer, cfg.DefineFromExcel2> getDataMap() { return _dataMap; }
-    public java.util.ArrayList<cfg.DefineFromExcel2> getDataList() { return _dataList; }
+    public java.util.HashMap<Integer, cfg.test.DefineFromExcel2> getDataMap() { return _dataMap; }
+    public java.util.ArrayList<cfg.test.DefineFromExcel2> getDataList() { return _dataList; }
 
-    public cfg.DefineFromExcel2 get(int key) { return _dataMap.get(key); }
+    public cfg.test.DefineFromExcel2 get(int key) { return _dataMap.get(key); }
 
 }

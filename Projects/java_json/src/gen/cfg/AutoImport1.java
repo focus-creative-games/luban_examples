@@ -14,8 +14,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 
-public final class DefineFromExcel2 extends AbstractBean {
-    public DefineFromExcel2(JsonObject _buf) { 
+public final class AutoImport1 extends AbstractBean {
+    public AutoImport1(JsonObject _buf) { 
         id = _buf.get("id").getAsInt();
         x1 = _buf.get("x1").getAsBoolean();
         x5 = _buf.get("x5").getAsLong();
@@ -34,10 +34,11 @@ public final class DefineFromExcel2 extends AbstractBean {
         { com.google.gson.JsonArray _json0_ = _buf.get("k9").getAsJsonArray(); k9 = new java.util.ArrayList<cfg.test.DemoE2>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.test.DemoE2 _v0;  _v0 = cfg.test.DemoE2.deserialize(_e0.getAsJsonObject());  k9.add(_v0); }   }
         { com.google.gson.JsonArray _json0_ = _buf.get("k10").getAsJsonArray(); k10 = new java.util.ArrayList<cfg.vec3>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.vec3 _v0;  _v0 = cfg.vec3.deserialize(_e0.getAsJsonObject());  k10.add(_v0); }   }
         { com.google.gson.JsonArray _json0_ = _buf.get("k11").getAsJsonArray(); k11 = new java.util.ArrayList<cfg.vec4>(_json0_.size()); for(JsonElement _e0 : _json0_) { cfg.vec4 _v0;  _v0 = cfg.vec4.deserialize(_e0.getAsJsonObject());  k11.add(_v0); }   }
+        { if (_buf.has("v11") && !_buf.get("v11").isJsonNull()) { v11 = cfg.vec3.deserialize(_buf.get("v11").getAsJsonObject()); } else { v11 = null; } }
     }
 
-    public static DefineFromExcel2 deserialize(JsonObject _buf) {
-            return new cfg.DefineFromExcel2(_buf);
+    public static AutoImport1 deserialize(JsonObject _buf) {
+            return new cfg.AutoImport1(_buf);
     }
 
     /**
@@ -64,8 +65,9 @@ public final class DefineFromExcel2 extends AbstractBean {
     public final java.util.ArrayList<cfg.test.DemoE2> k9;
     public final java.util.ArrayList<cfg.vec3> k10;
     public final java.util.ArrayList<cfg.vec4> k11;
+    public final cfg.vec3 v11;
 
-    public static final int __ID__ = 482045152;
+    public static final int __ID__ = -2092142499;
     
     @Override
     public int getTypeId() { return __ID__; }
@@ -73,24 +75,25 @@ public final class DefineFromExcel2 extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x5 + ","
-        + "(format_field_name __code_style field.name):" + x6 + ","
-        + "(format_field_name __code_style field.name):" + x8 + ","
-        + "(format_field_name __code_style field.name):" + x10 + ","
-        + "(format_field_name __code_style field.name):" + x13 + ","
-        + "(format_field_name __code_style field.name):" + x132 + ","
-        + "(format_field_name __code_style field.name):" + x14 + ","
-        + "(format_field_name __code_style field.name):" + x15 + ","
-        + "(format_field_name __code_style field.name):" + v2 + ","
-        + "(format_field_name __code_style field.name):" + t1 + ","
-        + "(format_field_name __code_style field.name):" + k1 + ","
-        + "(format_field_name __code_style field.name):" + k2 + ","
-        + "(format_field_name __code_style field.name):" + k8 + ","
-        + "(format_field_name __code_style field.name):" + k9 + ","
-        + "(format_field_name __code_style field.name):" + k10 + ","
-        + "(format_field_name __code_style field.name):" + k11 + ","
+        + "id:" + id + ","
+        + "x1:" + x1 + ","
+        + "x5:" + x5 + ","
+        + "x6:" + x6 + ","
+        + "x8:" + x8 + ","
+        + "x10:" + x10 + ","
+        + "x13:" + x13 + ","
+        + "x132:" + x132 + ","
+        + "x14:" + x14 + ","
+        + "x15:" + x15 + ","
+        + "v2:" + v2 + ","
+        + "t1:" + t1 + ","
+        + "k1:" + k1 + ","
+        + "k2:" + k2 + ","
+        + "k8:" + k8 + ","
+        + "k9:" + k9 + ","
+        + "k10:" + k10 + ","
+        + "k11:" + k11 + ","
+        + "v11:" + v11 + ","
         + "}";
     }
 }

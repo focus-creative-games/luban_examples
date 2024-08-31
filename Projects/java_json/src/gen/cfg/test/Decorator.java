@@ -34,10 +34,10 @@ public final class Decorator extends cfg.test.ItemBase {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + name + ","
-        + "(format_field_name __code_style field.name):" + desc + ","
-        + "(format_field_name __code_style field.name):" + duration + ","
+        + "id:" + id + ","
+        + "name:" + name + ","
+        + "desc:" + desc + ","
+        + "duration:" + duration + ","
         + "}";
     }
 }

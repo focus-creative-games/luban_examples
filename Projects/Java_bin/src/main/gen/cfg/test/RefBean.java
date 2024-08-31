@@ -15,7 +15,7 @@ import luban.*;
 public final class RefBean extends cfg.test.RefDynamicBase {
     public RefBean(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());arr = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); arr.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());arr = new java.util.ArrayList<Integer>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); arr.add(__e0);}}
     }
 
     public static RefBean deserialize(ByteBuf _buf) {
@@ -32,8 +32,8 @@ public final class RefBean extends cfg.test.RefDynamicBase {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x + ","
-        + "(format_field_name __code_style field.name):" + arr + ","
+        + "x:" + x + ","
+        + "arr:" + arr + ","
         + "}";
     }
 }

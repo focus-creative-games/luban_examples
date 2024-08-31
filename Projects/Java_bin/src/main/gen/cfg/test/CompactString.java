@@ -35,9 +35,9 @@ public final class CompactString extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + s2 + ","
-        + "(format_field_name __code_style field.name):" + s3 + ","
+        + "id:" + id + ","
+        + "s2:" + s2 + ","
+        + "s3:" + s3 + ","
         + "}";
     }
 }

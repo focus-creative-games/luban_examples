@@ -19,7 +19,7 @@ public final class BlackboardKey extends AbstractBean {
         name = _buf.get("name").getAsString();
         desc = _buf.get("desc").getAsString();
         isStatic = _buf.get("is_static").getAsBoolean();
-        type = _buf.get("type").getAsInt();
+        keyType = _buf.get("key_type").getAsInt();
         typeClassName = _buf.get("type_class_name").getAsString();
     }
 
@@ -30,7 +30,7 @@ public final class BlackboardKey extends AbstractBean {
     public final String name;
     public final String desc;
     public final boolean isStatic;
-    public final int type;
+    public final int keyType;
     public final String typeClassName;
 
     public static final int __ID__ = -511559886;
@@ -41,11 +41,11 @@ public final class BlackboardKey extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + name + ","
-        + "(format_field_name __code_style field.name):" + desc + ","
-        + "(format_field_name __code_style field.name):" + isStatic + ","
-        + "(format_field_name __code_style field.name):" + type + ","
-        + "(format_field_name __code_style field.name):" + typeClassName + ","
+        + "name:" + name + ","
+        + "desc:" + desc + ","
+        + "isStatic:" + isStatic + ","
+        + "keyType:" + keyType + ","
+        + "typeClassName:" + typeClassName + ","
         + "}";
     }
 }

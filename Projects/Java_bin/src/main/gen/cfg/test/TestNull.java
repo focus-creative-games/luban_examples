@@ -43,13 +43,13 @@ public final class TestNull extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x2 + ","
-        + "(format_field_name __code_style field.name):" + x3 + ","
-        + "(format_field_name __code_style field.name):" + x4 + ","
-        + "(format_field_name __code_style field.name):" + s1 + ","
-        + "(format_field_name __code_style field.name):" + s2 + ","
+        + "id:" + id + ","
+        + "x1:" + x1 + ","
+        + "x2:" + x2 + ","
+        + "x3:" + x3 + ","
+        + "x4:" + x4 + ","
+        + "s1:" + s1 + ","
+        + "s2:" + s2 + ","
         + "}";
     }
 }

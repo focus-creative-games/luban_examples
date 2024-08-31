@@ -34,8 +34,8 @@ public final class RefBean extends cfg.test.RefDynamicBase {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x + ","
-        + "(format_field_name __code_style field.name):" + arr + ","
+        + "x:" + x + ","
+        + "arr:" + arr + ","
         + "}";
     }
 }

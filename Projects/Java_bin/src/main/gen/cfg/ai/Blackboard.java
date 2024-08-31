@@ -17,7 +17,7 @@ public final class Blackboard extends AbstractBean {
         name = _buf.readString();
         desc = _buf.readString();
         parentName = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());keys = new java.util.ArrayList<cfg.ai.BlackboardKey>(n);for(int i = 0 ; i < n ; i++) { cfg.ai.BlackboardKey _e;  _e = cfg.ai.BlackboardKey.deserialize(_buf); keys.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());keys = new java.util.ArrayList<cfg.ai.BlackboardKey>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.ai.BlackboardKey __e0;  __e0 = cfg.ai.BlackboardKey.deserialize(_buf); keys.add(__e0);}}
     }
 
     public static Blackboard deserialize(ByteBuf _buf) {
@@ -37,10 +37,10 @@ public final class Blackboard extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + name + ","
-        + "(format_field_name __code_style field.name):" + desc + ","
-        + "(format_field_name __code_style field.name):" + parentName + ","
-        + "(format_field_name __code_style field.name):" + keys + ","
+        + "name:" + name + ","
+        + "desc:" + desc + ","
+        + "parentName:" + parentName + ","
+        + "keys:" + keys + ","
         + "}";
     }
 }

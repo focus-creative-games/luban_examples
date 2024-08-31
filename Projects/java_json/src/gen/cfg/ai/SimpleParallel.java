@@ -38,13 +38,13 @@ public final class SimpleParallel extends cfg.ai.ComposeNode {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + decorators + ","
-        + "(format_field_name __code_style field.name):" + services + ","
-        + "(format_field_name __code_style field.name):" + finishMode + ","
-        + "(format_field_name __code_style field.name):" + mainTask + ","
-        + "(format_field_name __code_style field.name):" + backgroundNode + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "decorators:" + decorators + ","
+        + "services:" + services + ","
+        + "finishMode:" + finishMode + ","
+        + "mainTask:" + mainTask + ","
+        + "backgroundNode:" + backgroundNode + ","
         + "}";
     }
 }

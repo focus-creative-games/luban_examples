@@ -33,8 +33,8 @@ public final class CompositeJsonTable1 extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + x + ","
+        + "id:" + id + ","
+        + "x:" + x + ","
         + "}";
     }
 }

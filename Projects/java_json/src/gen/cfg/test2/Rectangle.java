@@ -45,8 +45,8 @@ public final class Rectangle extends cfg.test.Shape {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + width + ","
-        + "(format_field_name __code_style field.name):" + height + ","
+        + "width:" + width + ","
+        + "height:" + height + ","
         + "}";
     }
 }

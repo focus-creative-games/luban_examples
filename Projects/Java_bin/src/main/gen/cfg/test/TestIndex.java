@@ -15,7 +15,7 @@ import luban.*;
 public final class TestIndex extends AbstractBean {
     public TestIndex(ByteBuf _buf) { 
         id = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());eles = new java.util.ArrayList<cfg.test.DemoType1>(n);for(int i = 0 ; i < n ; i++) { cfg.test.DemoType1 _e;  _e = cfg.test.DemoType1.deserialize(_buf); eles.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());eles = new java.util.ArrayList<cfg.test.DemoType1>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.test.DemoType1 __e0;  __e0 = cfg.test.DemoType1.deserialize(_buf); eles.add(__e0);}}
     }
 
     public static TestIndex deserialize(ByteBuf _buf) {
@@ -33,8 +33,8 @@ public final class TestIndex extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + eles + ","
+        + "id:" + id + ","
+        + "eles:" + eles + ","
         + "}";
     }
 }

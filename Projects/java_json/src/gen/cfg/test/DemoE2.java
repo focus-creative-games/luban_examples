@@ -35,8 +35,8 @@ public final class DemoE2 extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + y1 + ","
-        + "(format_field_name __code_style field.name):" + y2 + ","
+        + "y1:" + y1 + ","
+        + "y2:" + y2 + ","
         + "}";
     }
 }

@@ -15,10 +15,10 @@ import luban.*;
 public final class TestMap extends AbstractBean {
     public TestMap(ByteBuf _buf) { 
         id = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());x1 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     x1.put(_k, _v);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.HashMap<Long, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Long _k;  _k = _buf.readLong(); Integer _v;  _v = _buf.readInt();     x2.put(_k, _v);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x3 = new java.util.HashMap<String, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { String _k;  _k = _buf.readString(); Integer _v;  _v = _buf.readInt();     x3.put(_k, _v);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x4 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     x4.put(_k, _v);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x1 = new java.util.HashMap<Integer, Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __k0;  __k0 = _buf.readInt(); Integer __v0;  __v0 = _buf.readInt();     x1.put(__k0, __v0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.HashMap<Long, Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Long __k0;  __k0 = _buf.readLong(); Integer __v0;  __v0 = _buf.readInt();     x2.put(__k0, __v0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x3 = new java.util.HashMap<String, Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { String __k0;  __k0 = _buf.readString(); Integer __v0;  __v0 = _buf.readInt();     x3.put(__k0, __v0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x4 = new java.util.HashMap<Integer, Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __k0;  __k0 = _buf.readInt(); Integer __v0;  __v0 = _buf.readInt();     x4.put(__k0, __v0);}}
     }
 
     public static TestMap deserialize(ByteBuf _buf) {
@@ -39,11 +39,11 @@ public final class TestMap extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x2 + ","
-        + "(format_field_name __code_style field.name):" + x3 + ","
-        + "(format_field_name __code_style field.name):" + x4 + ","
+        + "id:" + id + ","
+        + "x1:" + x1 + ","
+        + "x2:" + x2 + ","
+        + "x3:" + x3 + ","
+        + "x4:" + x4 + ","
         + "}";
     }
 }

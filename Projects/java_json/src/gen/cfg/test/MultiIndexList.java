@@ -41,11 +41,11 @@ public final class MultiIndexList extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id1 + ","
-        + "(format_field_name __code_style field.name):" + id2 + ","
-        + "(format_field_name __code_style field.name):" + id3 + ","
-        + "(format_field_name __code_style field.name):" + num + ","
-        + "(format_field_name __code_style field.name):" + desc + ","
+        + "id1:" + id1 + ","
+        + "id2:" + id2 + ","
+        + "id3:" + id3 + ","
+        + "num:" + num + ","
+        + "desc:" + desc + ","
         + "}";
     }
 }

@@ -19,8 +19,11 @@ public final class Item extends AbstractBean {
     public Item(ByteBuf _buf) { 
         id = _buf.readInt();
         name = _buf.readString();
+        majorType = _buf.readInt();
         minorType = _buf.readInt();
+        maxPileNum = _buf.readInt();
         quality = _buf.readInt();
+        icon = _buf.readString();
         iconBackgroud = _buf.readString();
         iconMask = _buf.readString();
         desc = _buf.readString();
@@ -36,8 +39,11 @@ public final class Item extends AbstractBean {
      */
     public final int id;
     public final String name;
+    public final int majorType;
     public final int minorType;
+    public final int maxPileNum;
     public final int quality;
+    public final String icon;
     public final String iconBackgroud;
     public final String iconMask;
     public final String desc;
@@ -51,14 +57,17 @@ public final class Item extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + name + ","
-        + "(format_field_name __code_style field.name):" + minorType + ","
-        + "(format_field_name __code_style field.name):" + quality + ","
-        + "(format_field_name __code_style field.name):" + iconBackgroud + ","
-        + "(format_field_name __code_style field.name):" + iconMask + ","
-        + "(format_field_name __code_style field.name):" + desc + ","
-        + "(format_field_name __code_style field.name):" + showOrder + ","
+        + "id:" + id + ","
+        + "name:" + name + ","
+        + "majorType:" + majorType + ","
+        + "minorType:" + minorType + ","
+        + "maxPileNum:" + maxPileNum + ","
+        + "quality:" + quality + ","
+        + "icon:" + icon + ","
+        + "iconBackgroud:" + iconBackgroud + ","
+        + "iconMask:" + iconMask + ","
+        + "desc:" + desc + ","
+        + "showOrder:" + showOrder + ","
         + "}";
     }
 }

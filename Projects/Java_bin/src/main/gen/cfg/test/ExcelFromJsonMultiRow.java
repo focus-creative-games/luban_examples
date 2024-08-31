@@ -16,7 +16,7 @@ public final class ExcelFromJsonMultiRow extends AbstractBean {
     public ExcelFromJsonMultiRow(ByteBuf _buf) { 
         id = _buf.readInt();
         x = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.TestRow>(n);for(int i = 0 ; i < n ; i++) { cfg.test.TestRow _e;  _e = cfg.test.TestRow.deserialize(_buf); items.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.TestRow>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.test.TestRow __e0;  __e0 = cfg.test.TestRow.deserialize(_buf); items.add(__e0);}}
     }
 
     public static ExcelFromJsonMultiRow deserialize(ByteBuf _buf) {
@@ -35,9 +35,9 @@ public final class ExcelFromJsonMultiRow extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + x + ","
-        + "(format_field_name __code_style field.name):" + items + ","
+        + "id:" + id + ","
+        + "x:" + x + ","
+        + "items:" + items + ","
         + "}";
     }
 }

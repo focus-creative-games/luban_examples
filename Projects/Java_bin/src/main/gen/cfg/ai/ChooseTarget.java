@@ -32,9 +32,9 @@ public final class ChooseTarget extends cfg.ai.Service {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + resultTargetKey + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "resultTargetKey:" + resultTargetKey + ","
         + "}";
     }
 }

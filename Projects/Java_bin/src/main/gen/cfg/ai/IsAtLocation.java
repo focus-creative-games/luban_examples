@@ -36,12 +36,12 @@ public final class IsAtLocation extends cfg.ai.Decorator {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + flowAbortMode + ","
-        + "(format_field_name __code_style field.name):" + acceptableRadius + ","
-        + "(format_field_name __code_style field.name):" + keyboardKey + ","
-        + "(format_field_name __code_style field.name):" + inverseCondition + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "flowAbortMode:" + flowAbortMode + ","
+        + "acceptableRadius:" + acceptableRadius + ","
+        + "keyboardKey:" + keyboardKey + ","
+        + "inverseCondition:" + inverseCondition + ","
         + "}";
     }
 }

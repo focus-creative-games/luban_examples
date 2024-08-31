@@ -39,10 +39,10 @@ public final class InnerGroup extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + y1 + ","
-        + "(format_field_name __code_style field.name):" + y2 + ","
-        + "(format_field_name __code_style field.name):" + y3 + ","
-        + "(format_field_name __code_style field.name):" + y4 + ","
+        + "y1:" + y1 + ","
+        + "y2:" + y2 + ","
+        + "y3:" + y3 + ","
+        + "y4:" + y4 + ","
         + "}";
     }
 }

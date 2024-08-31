@@ -15,7 +15,7 @@ import luban.*;
 public final class MultiRowType3 extends AbstractBean {
     public MultiRowType3(ByteBuf _buf) { 
         id = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.MultiRowType1>(n);for(int i = 0 ; i < n ; i++) { cfg.test.MultiRowType1 _e;  _e = cfg.test.MultiRowType1.deserialize(_buf); items.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());items = new java.util.ArrayList<cfg.test.MultiRowType1>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.test.MultiRowType1 __e0;  __e0 = cfg.test.MultiRowType1.deserialize(_buf); items.add(__e0);}}
     }
 
     public static MultiRowType3 deserialize(ByteBuf _buf) {
@@ -33,8 +33,8 @@ public final class MultiRowType3 extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + items + ","
+        + "id:" + id + ","
+        + "items:" + items + ","
         + "}";
     }
 }

@@ -34,10 +34,10 @@ public final class UeCooldown extends cfg.ai.Decorator {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + flowAbortMode + ","
-        + "(format_field_name __code_style field.name):" + cooldownTime + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "flowAbortMode:" + flowAbortMode + ","
+        + "cooldownTime:" + cooldownTime + ","
         + "}";
     }
 }

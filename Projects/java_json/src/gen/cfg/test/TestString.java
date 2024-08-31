@@ -41,11 +41,11 @@ public final class TestString extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + s1 + ","
-        + "(format_field_name __code_style field.name):" + s2 + ","
-        + "(format_field_name __code_style field.name):" + cs1 + ","
-        + "(format_field_name __code_style field.name):" + cs2 + ","
+        + "id:" + id + ","
+        + "s1:" + s1 + ","
+        + "s2:" + s2 + ","
+        + "cs1:" + cs1 + ","
+        + "cs2:" + cs2 + ","
         + "}";
     }
 }

@@ -39,11 +39,11 @@ public final class BehaviorTree extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + name + ","
-        + "(format_field_name __code_style field.name):" + desc + ","
-        + "(format_field_name __code_style field.name):" + blackboardId + ","
-        + "(format_field_name __code_style field.name):" + root + ","
+        + "id:" + id + ","
+        + "name:" + name + ","
+        + "desc:" + desc + ","
+        + "blackboardId:" + blackboardId + ","
+        + "root:" + root + ","
         + "}";
     }
 }

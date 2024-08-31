@@ -30,12 +30,12 @@ public final class DemoType2 extends AbstractBean {
         x14 = cfg.test.DemoDynamic.deserialize(_buf);
         s1 = _buf.readString();
         t1 = _buf.readLong();
-        {int n = Math.min(_buf.readSize(), _buf.size());k1 = new int[n];for(int i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); k1[i] = _e;}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k2 = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k2.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k5 = new java.util.HashSet<Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); k5.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k8 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     k8.put(_k, _v);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k9 = new java.util.ArrayList<cfg.test.DemoE2>(n);for(int i = 0 ; i < n ; i++) { cfg.test.DemoE2 _e;  _e = cfg.test.DemoE2.deserialize(_buf); k9.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());k15 = new cfg.test.DemoDynamic[n];for(int i = 0 ; i < n ; i++) { cfg.test.DemoDynamic _e;_e = cfg.test.DemoDynamic.deserialize(_buf); k15[i] = _e;}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());k1 = new int[__n0];for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { int __e0;__e0 = _buf.readInt(); k1[__i0] = __e0;}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());k2 = new java.util.ArrayList<Integer>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); k2.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());k5 = new java.util.HashSet<Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); k5.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());k8 = new java.util.HashMap<Integer, Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __k0;  __k0 = _buf.readInt(); Integer __v0;  __v0 = _buf.readInt();     k8.put(__k0, __v0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());k9 = new java.util.ArrayList<cfg.test.DemoE2>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.test.DemoE2 __e0;  __e0 = cfg.test.DemoE2.deserialize(_buf); k9.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());k15 = new cfg.test.DemoDynamic[__n0];for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.test.DemoDynamic __e0;__e0 = cfg.test.DemoDynamic.deserialize(_buf); k15[__i0] = __e0;}}
     }
 
     public static DemoType2 deserialize(ByteBuf _buf) {
@@ -73,28 +73,28 @@ public final class DemoType2 extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x4 + ","
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x2 + ","
-        + "(format_field_name __code_style field.name):" + x3 + ","
-        + "(format_field_name __code_style field.name):" + x5 + ","
-        + "(format_field_name __code_style field.name):" + x6 + ","
-        + "(format_field_name __code_style field.name):" + x7 + ","
-        + "(format_field_name __code_style field.name):" + x80 + ","
-        + "(format_field_name __code_style field.name):" + x8 + ","
-        + "(format_field_name __code_style field.name):" + x9 + ","
-        + "(format_field_name __code_style field.name):" + x10 + ","
-        + "(format_field_name __code_style field.name):" + x12 + ","
-        + "(format_field_name __code_style field.name):" + x13 + ","
-        + "(format_field_name __code_style field.name):" + x14 + ","
-        + "(format_field_name __code_style field.name):" + s1 + ","
-        + "(format_field_name __code_style field.name):" + t1 + ","
-        + "(format_field_name __code_style field.name):" + k1 + ","
-        + "(format_field_name __code_style field.name):" + k2 + ","
-        + "(format_field_name __code_style field.name):" + k5 + ","
-        + "(format_field_name __code_style field.name):" + k8 + ","
-        + "(format_field_name __code_style field.name):" + k9 + ","
-        + "(format_field_name __code_style field.name):" + k15 + ","
+        + "x4:" + x4 + ","
+        + "x1:" + x1 + ","
+        + "x2:" + x2 + ","
+        + "x3:" + x3 + ","
+        + "x5:" + x5 + ","
+        + "x6:" + x6 + ","
+        + "x7:" + x7 + ","
+        + "x80:" + x80 + ","
+        + "x8:" + x8 + ","
+        + "x9:" + x9 + ","
+        + "x10:" + x10 + ","
+        + "x12:" + x12 + ","
+        + "x13:" + x13 + ","
+        + "x14:" + x14 + ","
+        + "s1:" + s1 + ","
+        + "t1:" + t1 + ","
+        + "k1:" + k1 + ","
+        + "k2:" + k2 + ","
+        + "k5:" + k5 + ","
+        + "k8:" + k8 + ","
+        + "k9:" + k9 + ","
+        + "k15:" + k15 + ","
         + "}";
     }
 }

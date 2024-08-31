@@ -38,12 +38,12 @@ public final class UeLoop extends cfg.ai.Decorator {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + flowAbortMode + ","
-        + "(format_field_name __code_style field.name):" + numLoops + ","
-        + "(format_field_name __code_style field.name):" + infiniteLoop + ","
-        + "(format_field_name __code_style field.name):" + infiniteLoopTimeoutTime + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "flowAbortMode:" + flowAbortMode + ","
+        + "numLoops:" + numLoops + ","
+        + "infiniteLoop:" + infiniteLoop + ","
+        + "infiniteLoopTimeoutTime:" + infiniteLoopTimeoutTime + ","
         + "}";
     }
 }

@@ -43,13 +43,13 @@ public final class TestScriptableObject extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + desc + ","
-        + "(format_field_name __code_style field.name):" + rate + ","
-        + "(format_field_name __code_style field.name):" + num + ","
-        + "(format_field_name __code_style field.name):" + v2 + ","
-        + "(format_field_name __code_style field.name):" + v3 + ","
-        + "(format_field_name __code_style field.name):" + v4 + ","
+        + "id:" + id + ","
+        + "desc:" + desc + ","
+        + "rate:" + rate + ","
+        + "num:" + num + ","
+        + "v2:" + v2 + ","
+        + "v3:" + v3 + ","
+        + "v4:" + v4 + ","
         + "}";
     }
 }

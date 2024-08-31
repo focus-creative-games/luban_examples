@@ -60,6 +60,12 @@ public final class Tables
     public cfg.test.TbTestString getTbTestString() { return _tbteststring; }
     private final cfg.test.TbDemoGroup _tbdemogroup;
     public cfg.test.TbDemoGroup getTbDemoGroup() { return _tbdemogroup; }
+    private final cfg.test.TbDemoGroup_C _tbdemogroup_c;
+    public cfg.test.TbDemoGroup_C getTbDemoGroup_C() { return _tbdemogroup_c; }
+    private final cfg.test.TbDemoGroup_S _tbdemogroup_s;
+    public cfg.test.TbDemoGroup_S getTbDemoGroup_S() { return _tbdemogroup_s; }
+    private final cfg.test.TbDemoGroup_E _tbdemogroup_e;
+    public cfg.test.TbDemoGroup_E getTbDemoGroup_E() { return _tbdemogroup_e; }
     private final cfg.test.TbTestGlobal _tbtestglobal;
     public cfg.test.TbTestGlobal getTbTestGlobal() { return _tbtestglobal; }
     private final cfg.test.TbTestBeRef _tbtestberef;
@@ -92,10 +98,16 @@ public final class Tables
     public cfg.test.TbExcelFromJsonMultiRow getTbExcelFromJsonMultiRow() { return _tbexcelfromjsonmultirow; }
     private final cfg.test.TbTestScriptableObject _tbtestscriptableobject;
     public cfg.test.TbTestScriptableObject getTbTestScriptableObject() { return _tbtestscriptableobject; }
+    private final cfg.test.TbPath _tbpath;
+    public cfg.test.TbPath getTbPath() { return _tbpath; }
     private final cfg.test.TbTestMapper _tbtestmapper;
     public cfg.test.TbTestMapper getTbTestMapper() { return _tbtestmapper; }
     private final cfg.test.TbDefineFromExcel2 _tbdefinefromexcel2;
     public cfg.test.TbDefineFromExcel2 getTbDefineFromExcel2() { return _tbdefinefromexcel2; }
+    private final cfg.TbAutoImport1 _tbautoimport1;
+    public cfg.TbAutoImport1 getTbAutoImport1() { return _tbautoimport1; }
+    private final cfg.test.TbAutoImport2 _tbautoimport2;
+    public cfg.test.TbAutoImport2 getTbAutoImport2() { return _tbautoimport2; }
 
     public Tables(IByteBufLoader loader) throws java.io.IOException {
         _tbblackboard = new cfg.ai.TbBlackboard(loader.load("ai_tbblackboard")); 
@@ -118,6 +130,9 @@ public final class Tables
         _tbdemoprimitive = new cfg.test.TbDemoPrimitive(loader.load("test_tbdemoprimitive")); 
         _tbteststring = new cfg.test.TbTestString(loader.load("test_tbteststring")); 
         _tbdemogroup = new cfg.test.TbDemoGroup(loader.load("test_tbdemogroup")); 
+        _tbdemogroup_c = new cfg.test.TbDemoGroup_C(loader.load("test_tbdemogroup_c")); 
+        _tbdemogroup_s = new cfg.test.TbDemoGroup_S(loader.load("test_tbdemogroup_s")); 
+        _tbdemogroup_e = new cfg.test.TbDemoGroup_E(loader.load("test_tbdemogroup_e")); 
         _tbtestglobal = new cfg.test.TbTestGlobal(loader.load("test_tbtestglobal")); 
         _tbtestberef = new cfg.test.TbTestBeRef(loader.load("test_tbtestberef")); 
         _tbtestberef2 = new cfg.test.TbTestBeRef2(loader.load("test_tbtestberef2")); 
@@ -134,8 +149,11 @@ public final class Tables
         _tbcompositejsontable3 = new cfg.test.TbCompositeJsonTable3(loader.load("test_tbcompositejsontable3")); 
         _tbexcelfromjsonmultirow = new cfg.test.TbExcelFromJsonMultiRow(loader.load("test_tbexcelfromjsonmultirow")); 
         _tbtestscriptableobject = new cfg.test.TbTestScriptableObject(loader.load("test_tbtestscriptableobject")); 
+        _tbpath = new cfg.test.TbPath(loader.load("test_tbpath")); 
         _tbtestmapper = new cfg.test.TbTestMapper(loader.load("test_tbtestmapper")); 
         _tbdefinefromexcel2 = new cfg.test.TbDefineFromExcel2(loader.load("test_tbdefinefromexcel2")); 
+        _tbautoimport1 = new cfg.TbAutoImport1(loader.load("tbautoimport1")); 
+        _tbautoimport2 = new cfg.test.TbAutoImport2(loader.load("test_tbautoimport2")); 
     }
 }
 

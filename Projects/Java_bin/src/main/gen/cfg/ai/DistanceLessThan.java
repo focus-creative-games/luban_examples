@@ -38,13 +38,13 @@ public final class DistanceLessThan extends cfg.ai.Decorator {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + flowAbortMode + ","
-        + "(format_field_name __code_style field.name):" + actor1Key + ","
-        + "(format_field_name __code_style field.name):" + actor2Key + ","
-        + "(format_field_name __code_style field.name):" + distance + ","
-        + "(format_field_name __code_style field.name):" + reverseResult + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "flowAbortMode:" + flowAbortMode + ","
+        + "actor1Key:" + actor1Key + ","
+        + "actor2Key:" + actor2Key + ","
+        + "distance:" + distance + ","
+        + "reverseResult:" + reverseResult + ","
         + "}";
     }
 }

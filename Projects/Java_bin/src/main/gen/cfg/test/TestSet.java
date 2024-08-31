@@ -16,10 +16,10 @@ public final class TestSet extends AbstractBean {
     public TestSet(ByteBuf _buf) { 
         id = _buf.readInt();
         x0 = _buf.readString();
-        {int n = Math.min(_buf.readSize(), _buf.size());x1 = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); x1.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.ArrayList<Long>(n);for(int i = 0 ; i < n ; i++) { Long _e;  _e = _buf.readLong(); x2.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x3 = new java.util.ArrayList<String>(n);for(int i = 0 ; i < n ; i++) { String _e;  _e = _buf.readString(); x3.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x4 = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); x4.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x1 = new java.util.ArrayList<Integer>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); x1.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.ArrayList<Long>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Long __e0;  __e0 = _buf.readLong(); x2.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x3 = new java.util.ArrayList<String>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { String __e0;  __e0 = _buf.readString(); x3.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x4 = new java.util.ArrayList<Integer>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); x4.add(__e0);}}
     }
 
     public static TestSet deserialize(ByteBuf _buf) {
@@ -41,12 +41,12 @@ public final class TestSet extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + x0 + ","
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x2 + ","
-        + "(format_field_name __code_style field.name):" + x3 + ","
-        + "(format_field_name __code_style field.name):" + x4 + ","
+        + "id:" + id + ","
+        + "x0:" + x0 + ","
+        + "x1:" + x1 + ","
+        + "x2:" + x2 + ","
+        + "x3:" + x3 + ","
+        + "x4:" + x4 + ","
         + "}";
     }
 }

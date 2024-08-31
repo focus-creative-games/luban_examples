@@ -27,5 +27,6 @@ public final class DemoEnum {
      * dd
      */
     public static final int D = 5;
+    public static final int Any = 6;
 }
 

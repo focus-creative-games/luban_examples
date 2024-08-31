@@ -32,7 +32,7 @@ public abstract class RefDynamicBase extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x + ","
+        + "x:" + x + ","
         + "}";
     }
 }

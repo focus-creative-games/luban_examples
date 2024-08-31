@@ -36,8 +36,8 @@ public final class BinaryOperator extends cfg.ai.KeyQueryOperator {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + oper + ","
-        + "(format_field_name __code_style field.name):" + data + ","
+        + "oper:" + oper + ","
+        + "data:" + data + ","
         + "}";
     }
 }

@@ -35,8 +35,8 @@ public final class DateTimeRange extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + startTime + ","
-        + "(format_field_name __code_style field.name):" + endTime + ","
+        + "startTime:" + startTime + ","
+        + "endTime:" + endTime + ","
         + "}";
     }
 }

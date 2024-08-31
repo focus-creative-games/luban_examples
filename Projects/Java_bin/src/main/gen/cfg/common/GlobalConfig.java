@@ -20,7 +20,7 @@ public final class GlobalConfig extends AbstractBean {
         x4 = _buf.readInt();
         x5 = _buf.readInt();
         x6 = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());x7 = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); x7.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x7 = new java.util.ArrayList<Integer>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); x7.add(__e0);}}
     }
 
     public static GlobalConfig deserialize(ByteBuf _buf) {
@@ -46,13 +46,13 @@ public final class GlobalConfig extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x2 + ","
-        + "(format_field_name __code_style field.name):" + x3 + ","
-        + "(format_field_name __code_style field.name):" + x4 + ","
-        + "(format_field_name __code_style field.name):" + x5 + ","
-        + "(format_field_name __code_style field.name):" + x6 + ","
-        + "(format_field_name __code_style field.name):" + x7 + ","
+        + "x1:" + x1 + ","
+        + "x2:" + x2 + ","
+        + "x3:" + x3 + ","
+        + "x4:" + x4 + ","
+        + "x5:" + x5 + ","
+        + "x6:" + x6 + ","
+        + "x7:" + x7 + ","
         + "}";
     }
 }

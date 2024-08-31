@@ -35,7 +35,7 @@ public abstract class DemoDynamic extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x1 + ","
+        + "x1:" + x1 + ","
         + "}";
     }
 }

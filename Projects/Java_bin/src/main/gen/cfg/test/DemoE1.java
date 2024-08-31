@@ -32,9 +32,9 @@ public final class DemoE1 extends cfg.test.DemoD3 {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x3 + ","
-        + "(format_field_name __code_style field.name):" + x4 + ","
+        + "x1:" + x1 + ","
+        + "x3:" + x3 + ","
+        + "x4:" + x4 + ","
         + "}";
     }
 }

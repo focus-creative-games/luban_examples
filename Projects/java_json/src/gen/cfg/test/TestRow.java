@@ -41,11 +41,11 @@ public final class TestRow extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x + ","
-        + "(format_field_name __code_style field.name):" + y + ","
-        + "(format_field_name __code_style field.name):" + z + ","
-        + "(format_field_name __code_style field.name):" + a + ","
-        + "(format_field_name __code_style field.name):" + b + ","
+        + "x:" + x + ","
+        + "y:" + y + ","
+        + "z:" + z + ","
+        + "a:" + a + ","
+        + "b:" + b + ","
         + "}";
     }
 }

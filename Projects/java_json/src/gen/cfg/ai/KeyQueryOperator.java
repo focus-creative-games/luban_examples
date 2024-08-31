@@ -20,7 +20,7 @@ public abstract class KeyQueryOperator extends AbstractBean {
 
     public static KeyQueryOperator deserialize(JsonObject _buf) {
         switch (_buf.get("$type").getAsString()) {
-            case "IsSet": return new cfg.ai.IsSet(_buf);
+            case "IsSet2": return new cfg.ai.IsSet2(_buf);
             case "IsNotSet": return new cfg.ai.IsNotSet(_buf);
             case "BinaryOperator": return new cfg.ai.BinaryOperator(_buf);
             default: throw new SerializationException();

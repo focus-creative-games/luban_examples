@@ -18,7 +18,7 @@ public abstract class KeyQueryOperator extends AbstractBean {
 
     public static KeyQueryOperator deserialize(ByteBuf _buf) {
         switch (_buf.readInt()) {
-            case cfg.ai.IsSet.__ID__: return new cfg.ai.IsSet(_buf);
+            case cfg.ai.IsSet2.__ID__: return new cfg.ai.IsSet2(_buf);
             case cfg.ai.IsNotSet.__ID__: return new cfg.ai.IsNotSet(_buf);
             case cfg.ai.BinaryOperator.__ID__: return new cfg.ai.BinaryOperator(_buf);
             default: throw new SerializationException();

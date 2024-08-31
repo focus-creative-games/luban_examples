@@ -35,8 +35,8 @@ public final class MultiRowType3 extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + items + ","
+        + "id:" + id + ","
+        + "items:" + items + ","
         + "}";
     }
 }

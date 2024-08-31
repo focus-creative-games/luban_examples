@@ -37,10 +37,10 @@ public final class TestMultiColumn extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + a + ","
-        + "(format_field_name __code_style field.name):" + b + ","
-        + "(format_field_name __code_style field.name):" + c + ","
+        + "id:" + id + ","
+        + "a:" + a + ","
+        + "b:" + b + ","
+        + "c:" + c + ","
         + "}";
     }
 }

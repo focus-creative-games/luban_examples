@@ -59,17 +59,17 @@ public final class Item extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + name + ","
-        + "(format_field_name __code_style field.name):" + majorType + ","
-        + "(format_field_name __code_style field.name):" + minorType + ","
-        + "(format_field_name __code_style field.name):" + maxPileNum + ","
-        + "(format_field_name __code_style field.name):" + quality + ","
-        + "(format_field_name __code_style field.name):" + icon + ","
-        + "(format_field_name __code_style field.name):" + iconBackgroud + ","
-        + "(format_field_name __code_style field.name):" + iconMask + ","
-        + "(format_field_name __code_style field.name):" + desc + ","
-        + "(format_field_name __code_style field.name):" + showOrder + ","
+        + "id:" + id + ","
+        + "name:" + name + ","
+        + "majorType:" + majorType + ","
+        + "minorType:" + minorType + ","
+        + "maxPileNum:" + maxPileNum + ","
+        + "quality:" + quality + ","
+        + "icon:" + icon + ","
+        + "iconBackgroud:" + iconBackgroud + ","
+        + "iconMask:" + iconMask + ","
+        + "desc:" + desc + ","
+        + "showOrder:" + showOrder + ","
         + "}";
     }
 }

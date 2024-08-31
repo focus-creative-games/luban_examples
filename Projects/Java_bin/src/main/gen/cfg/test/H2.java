@@ -33,8 +33,8 @@ public final class H2 extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + z2 + ","
-        + "(format_field_name __code_style field.name):" + z3 + ","
+        + "z2:" + z2 + ","
+        + "z3:" + z3 + ","
         + "}";
     }
 }

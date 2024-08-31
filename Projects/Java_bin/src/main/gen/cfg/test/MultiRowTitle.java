@@ -18,9 +18,9 @@ public final class MultiRowTitle extends AbstractBean {
         name = _buf.readString();
         x1 = cfg.test.H1.deserialize(_buf);
         if(_buf.readBool()){ x20 = cfg.test.H2.deserialize(_buf); } else { x20 = null; }
-        {int n = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.ArrayList<cfg.test.H2>(n);for(int i = 0 ; i < n ; i++) { cfg.test.H2 _e;  _e = cfg.test.H2.deserialize(_buf); x2.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x3 = new cfg.test.H2[n];for(int i = 0 ; i < n ; i++) { cfg.test.H2 _e;_e = cfg.test.H2.deserialize(_buf); x3[i] = _e;}}
-        {int n = Math.min(_buf.readSize(), _buf.size());x4 = new cfg.test.H2[n];for(int i = 0 ; i < n ; i++) { cfg.test.H2 _e;_e = cfg.test.H2.deserialize(_buf); x4[i] = _e;}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x2 = new java.util.ArrayList<cfg.test.H2>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.test.H2 __e0;  __e0 = cfg.test.H2.deserialize(_buf); x2.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x3 = new cfg.test.H2[__n0];for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.test.H2 __e0;__e0 = cfg.test.H2.deserialize(_buf); x3[__i0] = __e0;}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());x4 = new cfg.test.H2[__n0];for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.test.H2 __e0;__e0 = cfg.test.H2.deserialize(_buf); x4[__i0] = __e0;}}
     }
 
     public static MultiRowTitle deserialize(ByteBuf _buf) {
@@ -43,13 +43,13 @@ public final class MultiRowTitle extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + name + ","
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x20 + ","
-        + "(format_field_name __code_style field.name):" + x2 + ","
-        + "(format_field_name __code_style field.name):" + x3 + ","
-        + "(format_field_name __code_style field.name):" + x4 + ","
+        + "id:" + id + ","
+        + "name:" + name + ","
+        + "x1:" + x1 + ","
+        + "x20:" + x20 + ","
+        + "x2:" + x2 + ","
+        + "x3:" + x3 + ","
+        + "x4:" + x4 + ","
         + "}";
     }
 }

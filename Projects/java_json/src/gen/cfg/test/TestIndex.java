@@ -35,8 +35,8 @@ public final class TestIndex extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + eles + ","
+        + "id:" + id + ","
+        + "eles:" + eles + ","
         + "}";
     }
 }

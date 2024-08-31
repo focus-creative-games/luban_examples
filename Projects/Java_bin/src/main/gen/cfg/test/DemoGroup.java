@@ -15,6 +15,10 @@ import luban.*;
 public final class DemoGroup extends AbstractBean {
     public DemoGroup(ByteBuf _buf) { 
         id = _buf.readInt();
+        x1 = _buf.readInt();
+        x2 = _buf.readInt();
+        x3 = _buf.readInt();
+        x4 = _buf.readInt();
         x5 = cfg.test.InnerGroup.deserialize(_buf);
     }
 
@@ -23,6 +27,10 @@ public final class DemoGroup extends AbstractBean {
     }
 
     public final int id;
+    public final int x1;
+    public final int x2;
+    public final int x3;
+    public final int x4;
     public final cfg.test.InnerGroup x5;
 
     public static final int __ID__ = -379263008;
@@ -33,8 +41,12 @@ public final class DemoGroup extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + x5 + ","
+        + "id:" + id + ","
+        + "x1:" + x1 + ","
+        + "x2:" + x2 + ","
+        + "x3:" + x3 + ","
+        + "x4:" + x4 + ","
+        + "x5:" + x5 + ","
         + "}";
     }
 }

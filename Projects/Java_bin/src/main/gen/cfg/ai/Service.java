@@ -34,8 +34,8 @@ public abstract class Service extends cfg.ai.Node {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
         + "}";
     }
 }

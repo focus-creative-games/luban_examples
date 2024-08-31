@@ -34,12 +34,12 @@ public final class DebugPrint extends cfg.ai.Task {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + decorators + ","
-        + "(format_field_name __code_style field.name):" + services + ","
-        + "(format_field_name __code_style field.name):" + ignoreRestartSelf + ","
-        + "(format_field_name __code_style field.name):" + text + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "decorators:" + decorators + ","
+        + "services:" + services + ","
+        + "ignoreRestartSelf:" + ignoreRestartSelf + ","
+        + "text:" + text + ","
         + "}";
     }
 }

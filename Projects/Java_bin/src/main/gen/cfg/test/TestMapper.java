@@ -35,9 +35,9 @@ public final class TestMapper extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + audioType + ","
-        + "(format_field_name __code_style field.name):" + v2 + ","
+        + "id:" + id + ","
+        + "audioType:" + audioType + ","
+        + "v2:" + v2 + ","
         + "}";
     }
 }

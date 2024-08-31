@@ -7,22 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-package cfg.ai;
+package cfg.test;
 
 import luban.*;
 
 
-public final class IsSet extends cfg.ai.KeyQueryOperator {
-    public IsSet(ByteBuf _buf) { 
-        super(_buf);
+public final class SepVector extends AbstractBean {
+    public SepVector(ByteBuf _buf) { 
+        x = _buf.readInt();
+        y = _buf.readInt();
+        z = _buf.readInt();
     }
 
-    public static IsSet deserialize(ByteBuf _buf) {
-            return new cfg.ai.IsSet(_buf);
+    public static SepVector deserialize(ByteBuf _buf) {
+            return new cfg.test.SepVector(_buf);
     }
 
+    public final int x;
+    public final int y;
+    public final int z;
 
-    public static final int __ID__ = 1635350898;
+    public static final int __ID__ = 252769477;
     
     @Override
     public int getTypeId() { return __ID__; }
@@ -30,6 +35,9 @@ public final class IsSet extends cfg.ai.KeyQueryOperator {
     @Override
     public String toString() {
         return "{ "
+        + "x:" + x + ","
+        + "y:" + y + ","
+        + "z:" + z + ","
         + "}";
     }
 }

@@ -18,7 +18,7 @@ public final class TestRow extends AbstractBean {
         y = _buf.readBool();
         z = _buf.readString();
         a = cfg.test.Test3.deserialize(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());b = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); b.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());b = new java.util.ArrayList<Integer>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); b.add(__e0);}}
     }
 
     public static TestRow deserialize(ByteBuf _buf) {
@@ -39,11 +39,11 @@ public final class TestRow extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x + ","
-        + "(format_field_name __code_style field.name):" + y + ","
-        + "(format_field_name __code_style field.name):" + z + ","
-        + "(format_field_name __code_style field.name):" + a + ","
-        + "(format_field_name __code_style field.name):" + b + ","
+        + "x:" + x + ","
+        + "y:" + y + ","
+        + "z:" + z + ","
+        + "a:" + a + ","
+        + "b:" + b + ","
         + "}";
     }
 }

@@ -34,8 +34,8 @@ public final class DemoD2 extends cfg.test.DemoDynamic {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x2 + ","
+        + "x1:" + x1 + ","
+        + "x2:" + x2 + ","
         + "}";
     }
 }

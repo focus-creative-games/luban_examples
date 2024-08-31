@@ -31,10 +31,10 @@ public abstract class ComposeNode extends cfg.ai.FlowNode {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + decorators + ","
-        + "(format_field_name __code_style field.name):" + services + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "decorators:" + decorators + ","
+        + "services:" + services + ","
         + "}";
     }
 }

@@ -15,7 +15,7 @@ import luban.*;
 public final class Sequence extends cfg.ai.ComposeNode {
     public Sequence(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());children = new java.util.ArrayList<cfg.ai.FlowNode>(n);for(int i = 0 ; i < n ; i++) { cfg.ai.FlowNode _e;  _e = cfg.ai.FlowNode.deserialize(_buf); children.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());children = new java.util.ArrayList<cfg.ai.FlowNode>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.ai.FlowNode __e0;  __e0 = cfg.ai.FlowNode.deserialize(_buf); children.add(__e0);}}
     }
 
     public static Sequence deserialize(ByteBuf _buf) {
@@ -32,11 +32,11 @@ public final class Sequence extends cfg.ai.ComposeNode {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + decorators + ","
-        + "(format_field_name __code_style field.name):" + services + ","
-        + "(format_field_name __code_style field.name):" + children + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "decorators:" + decorators + ","
+        + "services:" + services + ","
+        + "children:" + children + ","
         + "}";
     }
 }

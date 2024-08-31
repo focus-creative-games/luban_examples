@@ -39,10 +39,10 @@ public final class Blackboard extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + name + ","
-        + "(format_field_name __code_style field.name):" + desc + ","
-        + "(format_field_name __code_style field.name):" + parentName + ","
-        + "(format_field_name __code_style field.name):" + keys + ","
+        + "name:" + name + ","
+        + "desc:" + desc + ","
+        + "parentName:" + parentName + ","
+        + "keys:" + keys + ","
         + "}";
     }
 }

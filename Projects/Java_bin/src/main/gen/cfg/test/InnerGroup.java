@@ -15,6 +15,9 @@ import luban.*;
 public final class InnerGroup extends AbstractBean {
     public InnerGroup(ByteBuf _buf) { 
         y1 = _buf.readInt();
+        y2 = _buf.readInt();
+        y3 = _buf.readInt();
+        y4 = _buf.readInt();
     }
 
     public static InnerGroup deserialize(ByteBuf _buf) {
@@ -22,6 +25,9 @@ public final class InnerGroup extends AbstractBean {
     }
 
     public final int y1;
+    public final int y2;
+    public final int y3;
+    public final int y4;
 
     public static final int __ID__ = -587873083;
     
@@ -31,7 +37,10 @@ public final class InnerGroup extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + y1 + ","
+        + "y1:" + y1 + ","
+        + "y2:" + y2 + ","
+        + "y3:" + y3 + ","
+        + "y4:" + y4 + ","
         + "}";
     }
 }

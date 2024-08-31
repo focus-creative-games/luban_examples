@@ -36,12 +36,12 @@ public final class UeBlackboard extends cfg.ai.Decorator {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + flowAbortMode + ","
-        + "(format_field_name __code_style field.name):" + notifyObserver + ","
-        + "(format_field_name __code_style field.name):" + blackboardKey + ","
-        + "(format_field_name __code_style field.name):" + keyQuery + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "flowAbortMode:" + flowAbortMode + ","
+        + "notifyObserver:" + notifyObserver + ","
+        + "blackboardKey:" + blackboardKey + ","
+        + "keyQuery:" + keyQuery + ","
         + "}";
     }
 }

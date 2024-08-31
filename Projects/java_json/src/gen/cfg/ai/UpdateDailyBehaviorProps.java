@@ -50,17 +50,17 @@ public final class UpdateDailyBehaviorProps extends cfg.ai.Service {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + satietyKey + ","
-        + "(format_field_name __code_style field.name):" + energyKey + ","
-        + "(format_field_name __code_style field.name):" + moodKey + ","
-        + "(format_field_name __code_style field.name):" + satietyLowerThresholdKey + ","
-        + "(format_field_name __code_style field.name):" + satietyUpperThresholdKey + ","
-        + "(format_field_name __code_style field.name):" + energyLowerThresholdKey + ","
-        + "(format_field_name __code_style field.name):" + energyUpperThresholdKey + ","
-        + "(format_field_name __code_style field.name):" + moodLowerThresholdKey + ","
-        + "(format_field_name __code_style field.name):" + moodUpperThresholdKey + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "satietyKey:" + satietyKey + ","
+        + "energyKey:" + energyKey + ","
+        + "moodKey:" + moodKey + ","
+        + "satietyLowerThresholdKey:" + satietyLowerThresholdKey + ","
+        + "satietyUpperThresholdKey:" + satietyUpperThresholdKey + ","
+        + "energyLowerThresholdKey:" + energyLowerThresholdKey + ","
+        + "energyUpperThresholdKey:" + energyUpperThresholdKey + ","
+        + "moodLowerThresholdKey:" + moodLowerThresholdKey + ","
+        + "moodUpperThresholdKey:" + moodUpperThresholdKey + ","
         + "}";
     }
 }

@@ -20,14 +20,14 @@ public final class TestRef extends AbstractBean {
         x2 = _buf.readInt();
         x3 = _buf.readInt();
         x4 = _buf.readInt();
-        {int n = Math.min(_buf.readSize(), _buf.size());a1 = new int[n];for(int i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); a1[i] = _e;}}
-        {int n = Math.min(_buf.readSize(), _buf.size());a2 = new int[n];for(int i = 0 ; i < n ; i++) { int _e;_e = _buf.readInt(); a2[i] = _e;}}
-        {int n = Math.min(_buf.readSize(), _buf.size());b1 = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); b1.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());b2 = new java.util.ArrayList<Integer>(n);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); b2.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());c1 = new java.util.HashSet<Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); c1.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());c2 = new java.util.HashSet<Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _e;  _e = _buf.readInt(); c2.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());d1 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     d1.put(_k, _v);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());d2 = new java.util.HashMap<Integer, Integer>(n * 3 / 2);for(int i = 0 ; i < n ; i++) { Integer _k;  _k = _buf.readInt(); Integer _v;  _v = _buf.readInt();     d2.put(_k, _v);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());a1 = new int[__n0];for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { int __e0;__e0 = _buf.readInt(); a1[__i0] = __e0;}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());a2 = new int[__n0];for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { int __e0;__e0 = _buf.readInt(); a2[__i0] = __e0;}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());b1 = new java.util.ArrayList<Integer>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); b1.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());b2 = new java.util.ArrayList<Integer>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); b2.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());c1 = new java.util.HashSet<Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); c1.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());c2 = new java.util.HashSet<Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __e0;  __e0 = _buf.readInt(); c2.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());d1 = new java.util.HashMap<Integer, Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __k0;  __k0 = _buf.readInt(); Integer __v0;  __v0 = _buf.readInt();     d1.put(__k0, __v0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());d2 = new java.util.HashMap<Integer, Integer>(__n0 * 3 / 2);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { Integer __k0;  __k0 = _buf.readInt(); Integer __v0;  __v0 = _buf.readInt();     d2.put(__k0, __v0);}}
         e1 = _buf.readInt();
         e2 = _buf.readLong();
         e3 = _buf.readString();
@@ -71,27 +71,27 @@ public final class TestRef extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + x1 + ","
-        + "(format_field_name __code_style field.name):" + x12 + ","
-        + "(format_field_name __code_style field.name):" + x2 + ","
-        + "(format_field_name __code_style field.name):" + x3 + ","
-        + "(format_field_name __code_style field.name):" + x4 + ","
-        + "(format_field_name __code_style field.name):" + a1 + ","
-        + "(format_field_name __code_style field.name):" + a2 + ","
-        + "(format_field_name __code_style field.name):" + b1 + ","
-        + "(format_field_name __code_style field.name):" + b2 + ","
-        + "(format_field_name __code_style field.name):" + c1 + ","
-        + "(format_field_name __code_style field.name):" + c2 + ","
-        + "(format_field_name __code_style field.name):" + d1 + ","
-        + "(format_field_name __code_style field.name):" + d2 + ","
-        + "(format_field_name __code_style field.name):" + e1 + ","
-        + "(format_field_name __code_style field.name):" + e2 + ","
-        + "(format_field_name __code_style field.name):" + e3 + ","
-        + "(format_field_name __code_style field.name):" + f1 + ","
-        + "(format_field_name __code_style field.name):" + f2 + ","
-        + "(format_field_name __code_style field.name):" + f3 + ","
-        + "(format_field_name __code_style field.name):" + s1 + ","
+        + "id:" + id + ","
+        + "x1:" + x1 + ","
+        + "x12:" + x12 + ","
+        + "x2:" + x2 + ","
+        + "x3:" + x3 + ","
+        + "x4:" + x4 + ","
+        + "a1:" + a1 + ","
+        + "a2:" + a2 + ","
+        + "b1:" + b1 + ","
+        + "b2:" + b2 + ","
+        + "c1:" + c1 + ","
+        + "c2:" + c2 + ","
+        + "d1:" + d1 + ","
+        + "d2:" + d2 + ","
+        + "e1:" + e1 + ","
+        + "e2:" + e2 + ","
+        + "e3:" + e3 + ","
+        + "f1:" + f1 + ","
+        + "f2:" + f2 + ","
+        + "f3:" + f3 + ","
+        + "s1:" + s1 + ","
         + "}";
     }
 }

@@ -49,15 +49,15 @@ public final class MultiRowRecord extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + name + ","
-        + "(format_field_name __code_style field.name):" + oneRows + ","
-        + "(format_field_name __code_style field.name):" + multiRows1 + ","
-        + "(format_field_name __code_style field.name):" + multiRows2 + ","
-        + "(format_field_name __code_style field.name):" + multiRows4 + ","
-        + "(format_field_name __code_style field.name):" + multiRows5 + ","
-        + "(format_field_name __code_style field.name):" + multiRows6 + ","
-        + "(format_field_name __code_style field.name):" + multiRows7 + ","
+        + "id:" + id + ","
+        + "name:" + name + ","
+        + "oneRows:" + oneRows + ","
+        + "multiRows1:" + multiRows1 + ","
+        + "multiRows2:" + multiRows2 + ","
+        + "multiRows4:" + multiRows4 + ","
+        + "multiRows5:" + multiRows5 + ","
+        + "multiRows6:" + multiRows6 + ","
+        + "multiRows7:" + multiRows7 + ","
         + "}";
     }
 }

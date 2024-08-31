@@ -15,8 +15,8 @@ import luban.*;
 public abstract class FlowNode extends cfg.ai.Node {
     public FlowNode(ByteBuf _buf) { 
         super(_buf);
-        {int n = Math.min(_buf.readSize(), _buf.size());decorators = new java.util.ArrayList<cfg.ai.Decorator>(n);for(int i = 0 ; i < n ; i++) { cfg.ai.Decorator _e;  _e = cfg.ai.Decorator.deserialize(_buf); decorators.add(_e);}}
-        {int n = Math.min(_buf.readSize(), _buf.size());services = new java.util.ArrayList<cfg.ai.Service>(n);for(int i = 0 ; i < n ; i++) { cfg.ai.Service _e;  _e = cfg.ai.Service.deserialize(_buf); services.add(_e);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());decorators = new java.util.ArrayList<cfg.ai.Decorator>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.ai.Decorator __e0;  __e0 = cfg.ai.Decorator.deserialize(_buf); decorators.add(__e0);}}
+        {int __n0 = Math.min(_buf.readSize(), _buf.size());services = new java.util.ArrayList<cfg.ai.Service>(__n0);for(int __i0 = 0 ; __i0 < __n0 ; __i0++) { cfg.ai.Service __e0;  __e0 = cfg.ai.Service.deserialize(_buf); services.add(__e0);}}
     }
 
     public static FlowNode deserialize(ByteBuf _buf) {
@@ -42,10 +42,10 @@ public abstract class FlowNode extends cfg.ai.Node {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + decorators + ","
-        + "(format_field_name __code_style field.name):" + services + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "decorators:" + decorators + ","
+        + "services:" + services + ","
         + "}";
     }
 }

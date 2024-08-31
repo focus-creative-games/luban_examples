@@ -7,24 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-package cfg.ai;
+package cfg.common;
 
 import luban.*;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 
-public final class IsSet extends cfg.ai.KeyQueryOperator {
-    public IsSet(JsonObject _buf) { 
-        super(_buf);
+public final class FloatRange extends AbstractBean {
+    public FloatRange(ByteBuf _buf) { 
+        min = _buf.readFloat();
+        max = _buf.readFloat();
     }
 
-    public static IsSet deserialize(JsonObject _buf) {
-            return new cfg.ai.IsSet(_buf);
+    public static FloatRange deserialize(ByteBuf _buf) {
+            return new cfg.common.FloatRange(_buf);
     }
 
+    public final float min;
+    public final float max;
 
-    public static final int __ID__ = 1635350898;
+    public static final int __ID__ = 561922116;
     
     @Override
     public int getTypeId() { return __ID__; }
@@ -32,6 +33,8 @@ public final class IsSet extends cfg.ai.KeyQueryOperator {
     @Override
     public String toString() {
         return "{ "
+        + "min:" + min + ","
+        + "max:" + max + ","
         + "}";
     }
 }

@@ -34,11 +34,11 @@ public final class Sequence extends cfg.ai.ComposeNode {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + nodeName + ","
-        + "(format_field_name __code_style field.name):" + decorators + ","
-        + "(format_field_name __code_style field.name):" + services + ","
-        + "(format_field_name __code_style field.name):" + children + ","
+        + "id:" + id + ","
+        + "nodeName:" + nodeName + ","
+        + "decorators:" + decorators + ","
+        + "services:" + services + ","
+        + "children:" + children + ","
         + "}";
     }
 }

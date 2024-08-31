@@ -35,8 +35,8 @@ public final class TestBeRef extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + id + ","
-        + "(format_field_name __code_style field.name):" + count + ","
+        + "id:" + id + ","
+        + "count:" + count + ","
         + "}";
     }
 }

@@ -35,8 +35,8 @@ public final class TestGlobal extends AbstractBean {
     @Override
     public String toString() {
         return "{ "
-        + "(format_field_name __code_style field.name):" + unlockEquip + ","
-        + "(format_field_name __code_style field.name):" + unlockHero + ","
+        + "unlockEquip:" + unlockEquip + ","
+        + "unlockHero:" + unlockHero + ","
         + "}";
     }
 }

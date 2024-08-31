@@ -17,8 +17,8 @@ public final class EKeyType {
     public static final int VECTOR = 5;
     public static final int ROTATOR = 6;
     public static final int NAME = 7;
-    public static final int CLASS = 8;
-    public static final int ENUM = 9;
+    public static final int CLASS1 = 8;
+    public static final int ENUM1 = 9;
     public static final int OBJECT = 10;
 }
 
