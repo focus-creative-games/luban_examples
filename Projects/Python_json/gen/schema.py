@@ -15,6 +15,16 @@ class ai_EExecutor(Enum):
     CLIENT = 0
     SERVER = 1
 
+class ai_EFinishMode(Enum):
+    IMMEDIATE = 0
+    DELAYED = 1
+
+class ai_EFlowAbortMode(Enum):
+    NONE = 0
+    LOWER_PRIORITY = 1
+    SELF = 2
+    BOTH = 3
+
 class ai_EKeyType(Enum):
     BOOL = 1
     INT = 2
@@ -26,16 +36,6 @@ class ai_EKeyType(Enum):
     CLASS1 = 8
     ENUM1 = 9
     OBJECT = 10
-
-class ai_EFlowAbortMode(Enum):
-    NONE = 0
-    LOWER_PRIORITY = 1
-    SELF = 2
-    BOTH = 3
-
-class ai_EFinishMode(Enum):
-    IMMEDIATE = 0
-    DELAYED = 1
 
 class ai_ENotifyObserverMode(Enum):
     ON_VALUE_CHANGE = 0
@@ -59,6 +59,156 @@ class AudioType(Enum):
 class common_EBoolOperator(Enum):
     AND = 0
     OR = 1
+
+class item_EClothersStarQualityType(Enum):
+    '''
+    一星
+    '''
+    ONE = 1
+    '''
+    二星
+    '''
+    TWO = 2
+    '''
+    三星
+    '''
+    THREE = 3
+    '''
+    四星
+    '''
+    FOUR = 4
+    '''
+    五星
+    '''
+    FIVE = 5
+    '''
+    六星
+    '''
+    SIX = 6
+    '''
+    七星
+    '''
+    SEVEN = 7
+    '''
+    八星
+    '''
+    EIGHT = 8
+    '''
+    九星
+    '''
+    NINE = 9
+    '''
+    十星
+    '''
+    TEN = 10
+
+class item_EClothersTag(Enum):
+    '''
+    防晒
+    '''
+    FANG_SHAI = 1
+    '''
+    舞者
+    '''
+    WU_ZHE = 2
+
+class item_EClothesHidePartType(Enum):
+    '''
+    胸部
+    '''
+    CHEST = 0
+    '''
+    手
+    '''
+    HEAD = 1
+    '''
+    脊柱上
+    '''
+    SPINE_UPPER = 2
+    '''
+    脊柱下
+    '''
+    SPINE_LOWER = 3
+    '''
+    臀部
+    '''
+    HIP = 4
+    '''
+    腿上
+    '''
+    LEG_UPPER = 5
+    '''
+    腿中
+    '''
+    LEG_MIDDLE = 6
+    '''
+    腿下
+    '''
+    LEG_LOWER = 7
+
+class item_EClothesPropertyType(Enum):
+    '''
+    简约
+    '''
+    JIAN_YUE = 1
+    '''
+    华丽
+    '''
+    HUA_LI = 2
+    '''
+    可爱
+    '''
+    KE_AI = 3
+    '''
+    成熟
+    '''
+    CHENG_SHU = 4
+    '''
+    活泼
+    '''
+    HUO_PO = 5
+    '''
+    优雅
+    '''
+    YOU_YA = 6
+    '''
+    清纯
+    '''
+    QING_CHUN = 7
+    '''
+    性感
+    '''
+    XING_GAN = 8
+    '''
+    清凉
+    '''
+    QING_LIANG = 9
+    '''
+    保暖
+    '''
+    BAO_NUAN = 10
+
+class item_ECurrencyType(Enum):
+    '''
+    钻石
+    '''
+    DIAMOND = 1
+    '''
+    金币
+    '''
+    GOLD = 2
+    '''
+    银币
+    '''
+    SILVER = 3
+    '''
+    经验
+    '''
+    EXP = 4
+    '''
+    能量点
+    '''
+    POWER_POINT = 5
 
 '''
 道具品质
@@ -84,28 +234,6 @@ class item_EItemQuality(Enum):
     金
     '''
     GOLDEN = 4
-
-class item_ECurrencyType(Enum):
-    '''
-    钻石
-    '''
-    DIAMOND = 1
-    '''
-    金币
-    '''
-    GOLD = 2
-    '''
-    银币
-    '''
-    SILVER = 3
-    '''
-    经验
-    '''
-    EXP = 4
-    '''
-    能量点
-    '''
-    POWER_POINT = 5
 
 class item_EMajorType(Enum):
     '''
@@ -351,58 +479,6 @@ class item_EMinorType(Enum):
     '''
     DESIGN_DRAWING = 1102
 
-class item_EClothersStarQualityType(Enum):
-    '''
-    一星
-    '''
-    ONE = 1
-    '''
-    二星
-    '''
-    TWO = 2
-    '''
-    三星
-    '''
-    THREE = 3
-    '''
-    四星
-    '''
-    FOUR = 4
-    '''
-    五星
-    '''
-    FIVE = 5
-    '''
-    六星
-    '''
-    SIX = 6
-    '''
-    七星
-    '''
-    SEVEN = 7
-    '''
-    八星
-    '''
-    EIGHT = 8
-    '''
-    九星
-    '''
-    NINE = 9
-    '''
-    十星
-    '''
-    TEN = 10
-
-class item_EClothersTag(Enum):
-    '''
-    防晒
-    '''
-    FANG_SHAI = 1
-    '''
-    舞者
-    '''
-    WU_ZHE = 2
-
 class item_EUseType(Enum):
     '''
     手动
@@ -413,81 +489,17 @@ class item_EUseType(Enum):
     '''
     AUTO = 1
 
-class item_EClothesHidePartType(Enum):
-    '''
-    胸部
-    '''
-    CHEST = 0
-    '''
-    手
-    '''
-    HEAD = 1
-    '''
-    脊柱上
-    '''
-    SPINE_UPPER = 2
-    '''
-    脊柱下
-    '''
-    SPINE_LOWER = 3
-    '''
-    臀部
-    '''
-    HIP = 4
-    '''
-    腿上
-    '''
-    LEG_UPPER = 5
-    '''
-    腿中
-    '''
-    LEG_MIDDLE = 6
-    '''
-    腿下
-    '''
-    LEG_LOWER = 7
+class test_AccessFlag(Enum):
+    WRITE = 1
+    READ = 2
+    TRUNCATE = 4
+    NEW = 8
+    READ_WRITE = WRITE|READ
 
-class item_EClothesPropertyType(Enum):
-    '''
-    简约
-    '''
-    JIAN_YUE = 1
-    '''
-    华丽
-    '''
-    HUA_LI = 2
-    '''
-    可爱
-    '''
-    KE_AI = 3
-    '''
-    成熟
-    '''
-    CHENG_SHU = 4
-    '''
-    活泼
-    '''
-    HUO_PO = 5
-    '''
-    优雅
-    '''
-    YOU_YA = 6
-    '''
-    清纯
-    '''
-    QING_CHUN = 7
-    '''
-    性感
-    '''
-    XING_GAN = 8
-    '''
-    清凉
-    '''
-    QING_LIANG = 9
-    '''
-    保暖
-    '''
-    BAO_NUAN = 10
+class test_AudioType2(Enum):
+    UNKNOWN = 0
+    ACC = 1
+    AIFF = 2
 
 class test_DemoEnum(Enum):
     NONE = 0
@@ -515,13 +527,6 @@ class test_DemoFlag(Enum):
     C = 4
     D = 8
 
-class test_ETestUeType(Enum):
-    '''
-    白
-    '''
-    WHITE = 0
-    BLACK = 1
-
 class test_ETestEmptyEnum(Enum):
     pass
 
@@ -529,11 +534,6 @@ class test_ETestEmptyEnum2(Enum):
     SMALL_THAN_256 = 255
     X_256 = 256
     X_257 = 257
-
-class test_AudioType2(Enum):
-    UNKNOWN = 0
-    ACC = 1
-    AIFF = 2
 
 class test_ETestQuality(Enum):
     '''
@@ -553,13 +553,31 @@ class test_ETestQuality(Enum):
     '''
     D = 4
 
-class test_AccessFlag(Enum):
-    WRITE = 1
-    READ = 2
-    TRUNCATE = 4
-    NEW = 8
-    READ_WRITE = WRITE|READ
+class test_ETestUeType(Enum):
+    '''
+    白
+    '''
+    WHITE = 0
+    BLACK = 1
 
+
+class ai_BehaviorTree :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.desc = _json_['desc']
+        self.blackboard_id = _json_['blackboard_id']
+        self.root = ai_ComposeNode.fromJson(_json_['root'])
+
+class ai_Blackboard :
+    def __init__(self, _json_):
+        self.name = _json_['name']
+        self.desc = _json_['desc']
+        self.parent_name = _json_['parent_name']
+        self.keys = []
+        for _ele0_ in _json_['keys']:
+            _e0_ = ai_BlackboardKey(_ele0_)
+            self.keys.append(_e0_)
 
 class ai_BlackboardKey :
     def __init__(self, _json_):
@@ -569,14 +587,6 @@ class ai_BlackboardKey :
         self.key_type = _json_['key_type']
         self.type_class_name = _json_['type_class_name']
 
-class ai_Blackboard :
-    def __init__(self, _json_):
-        self.name = _json_['name']
-        self.desc = _json_['desc']
-        self.parent_name = _json_['parent_name']
-        self.keys = []
-        for _ele in _json_['keys']: _e = ai_BlackboardKey(_ele); self.keys.append(_e)
-
 class ai_KeyData :
     _childrenTypes = None
     @staticmethod
@@ -584,11 +594,11 @@ class ai_KeyData :
         childrenTypes = ai_KeyData._childrenTypes
         if not childrenTypes:
             childrenTypes = ai_KeyData._childrenTypes = {
-            'FloatKeyData': ai_KeyData,
-            'IntKeyData': ai_KeyData,
-            'StringKeyData': ai_KeyData,
-            'BlackboardKeyData': ai_KeyData,
-    }
+                'FloatKeyData': ai_KeyData,
+                'IntKeyData': ai_KeyData,
+                'StringKeyData': ai_KeyData,
+                'BlackboardKeyData': ai_KeyData,
+            }
         type = _json_['$type']
         child = ai_KeyData._childrenTypes.get(type)
         if child != None:
@@ -598,6 +608,11 @@ class ai_KeyData :
     def __init__(self, _json_):
 
         pass
+
+class ai_BlackboardKeyData (ai_KeyData):
+    def __init__(self, _json_):
+        ai_KeyData.__init__(self, _json_)
+        self.value = _json_['value']
 
 class ai_FloatKeyData (ai_KeyData):
     def __init__(self, _json_):
@@ -614,11 +629,6 @@ class ai_StringKeyData (ai_KeyData):
         ai_KeyData.__init__(self, _json_)
         self.value = _json_['value']
 
-class ai_BlackboardKeyData (ai_KeyData):
-    def __init__(self, _json_):
-        ai_KeyData.__init__(self, _json_)
-        self.value = _json_['value']
-
 class ai_KeyQueryOperator :
     _childrenTypes = None
     @staticmethod
@@ -626,10 +636,10 @@ class ai_KeyQueryOperator :
         childrenTypes = ai_KeyQueryOperator._childrenTypes
         if not childrenTypes:
             childrenTypes = ai_KeyQueryOperator._childrenTypes = {
-            'IsSet2': ai_KeyQueryOperator,
-            'IsNotSet': ai_KeyQueryOperator,
-            'BinaryOperator': ai_KeyQueryOperator,
-    }
+                'IsSet2': ai_KeyQueryOperator,
+                'IsNotSet': ai_KeyQueryOperator,
+                'BinaryOperator': ai_KeyQueryOperator,
+            }
         type = _json_['$type']
         child = ai_KeyQueryOperator._childrenTypes.get(type)
         if child != None:
@@ -640,11 +650,11 @@ class ai_KeyQueryOperator :
 
         pass
 
-class ai_IsSet2 (ai_KeyQueryOperator):
+class ai_BinaryOperator (ai_KeyQueryOperator):
     def __init__(self, _json_):
         ai_KeyQueryOperator.__init__(self, _json_)
-
-        pass
+        self.oper = _json_['oper']
+        self.data = ai_KeyData.fromJson(_json_['data'])
 
 class ai_IsNotSet (ai_KeyQueryOperator):
     def __init__(self, _json_):
@@ -652,11 +662,11 @@ class ai_IsNotSet (ai_KeyQueryOperator):
 
         pass
 
-class ai_BinaryOperator (ai_KeyQueryOperator):
+class ai_IsSet2 (ai_KeyQueryOperator):
     def __init__(self, _json_):
         ai_KeyQueryOperator.__init__(self, _json_)
-        self.oper = _json_['oper']
-        self.data = ai_KeyData.fromJson(_json_['data'])
+
+        pass
 
 class ai_Node :
     _childrenTypes = None
@@ -665,30 +675,30 @@ class ai_Node :
         childrenTypes = ai_Node._childrenTypes
         if not childrenTypes:
             childrenTypes = ai_Node._childrenTypes = {
-            'UeSetDefaultFocus': ai_Node,
-            'ExecuteTimeStatistic': ai_Node,
-            'ChooseTarget': ai_Node,
-            'KeepFaceTarget': ai_Node,
-            'GetOwnerPlayer': ai_Node,
-            'UpdateDailyBehaviorProps': ai_Node,
-            'UeLoop': ai_Node,
-            'UeCooldown': ai_Node,
-            'UeTimeLimit': ai_Node,
-            'UeBlackboard': ai_Node,
-            'UeForceSuccess': ai_Node,
-            'IsAtLocation': ai_Node,
-            'DistanceLessThan': ai_Node,
-            'Sequence': ai_Node,
-            'Selector': ai_Node,
-            'SimpleParallel': ai_Node,
-            'UeWait': ai_Node,
-            'UeWaitBlackboardTime': ai_Node,
-            'MoveToTarget': ai_Node,
-            'ChooseSkill': ai_Node,
-            'MoveToRandomLocation': ai_Node,
-            'MoveToLocation': ai_Node,
-            'DebugPrint': ai_Node,
-    }
+                'UeSetDefaultFocus': ai_Node,
+                'ExecuteTimeStatistic': ai_Node,
+                'ChooseTarget': ai_Node,
+                'KeepFaceTarget': ai_Node,
+                'GetOwnerPlayer': ai_Node,
+                'UpdateDailyBehaviorProps': ai_Node,
+                'UeLoop': ai_Node,
+                'UeCooldown': ai_Node,
+                'UeTimeLimit': ai_Node,
+                'UeBlackboard': ai_Node,
+                'UeForceSuccess': ai_Node,
+                'IsAtLocation': ai_Node,
+                'DistanceLessThan': ai_Node,
+                'Sequence': ai_Node,
+                'Selector': ai_Node,
+                'SimpleParallel': ai_Node,
+                'UeWait': ai_Node,
+                'UeWaitBlackboardTime': ai_Node,
+                'MoveToTarget': ai_Node,
+                'ChooseSkill': ai_Node,
+                'MoveToRandomLocation': ai_Node,
+                'MoveToLocation': ai_Node,
+                'DebugPrint': ai_Node,
+            }
         type = _json_['$type']
         child = ai_Node._childrenTypes.get(type)
         if child != None:
@@ -699,70 +709,6 @@ class ai_Node :
         self.id = _json_['id']
         self.node_name = _json_['node_name']
 
-class ai_Service (ai_Node):
-    _childrenTypes = None
-    @staticmethod
-    def fromJson(_json_):
-        childrenTypes = ai_Service._childrenTypes
-        if not childrenTypes:
-            childrenTypes = ai_Service._childrenTypes = {
-            'UeSetDefaultFocus': ai_Service,
-            'ExecuteTimeStatistic': ai_Service,
-            'ChooseTarget': ai_Service,
-            'KeepFaceTarget': ai_Service,
-            'GetOwnerPlayer': ai_Service,
-            'UpdateDailyBehaviorProps': ai_Service,
-    }
-        type = _json_['$type']
-        child = ai_Service._childrenTypes.get(type)
-        if child != None:
-            return  child(_json_)
-        else:
-            raise Exception()
-    def __init__(self, _json_):
-        ai_Node.__init__(self, _json_)
-
-        pass
-
-class ai_UeSetDefaultFocus (ai_Service):
-    def __init__(self, _json_):
-        ai_Service.__init__(self, _json_)
-        self.keyboard_key = _json_['keyboard_key']
-
-class ai_ExecuteTimeStatistic (ai_Service):
-    def __init__(self, _json_):
-        ai_Service.__init__(self, _json_)
-
-        pass
-
-class ai_ChooseTarget (ai_Service):
-    def __init__(self, _json_):
-        ai_Service.__init__(self, _json_)
-        self.result_target_key = _json_['result_target_key']
-
-class ai_KeepFaceTarget (ai_Service):
-    def __init__(self, _json_):
-        ai_Service.__init__(self, _json_)
-        self.target_actor_key = _json_['target_actor_key']
-
-class ai_GetOwnerPlayer (ai_Service):
-    def __init__(self, _json_):
-        ai_Service.__init__(self, _json_)
-        self.player_actor_key = _json_['player_actor_key']
-
-class ai_UpdateDailyBehaviorProps (ai_Service):
-    def __init__(self, _json_):
-        ai_Service.__init__(self, _json_)
-        self.satiety_key = _json_['satiety_key']
-        self.energy_key = _json_['energy_key']
-        self.mood_key = _json_['mood_key']
-        self.satiety_lower_threshold_key = _json_['satiety_lower_threshold_key']
-        self.satiety_upper_threshold_key = _json_['satiety_upper_threshold_key']
-        self.energy_lower_threshold_key = _json_['energy_lower_threshold_key']
-        self.energy_upper_threshold_key = _json_['energy_upper_threshold_key']
-        self.mood_lower_threshold_key = _json_['mood_lower_threshold_key']
-        self.mood_upper_threshold_key = _json_['mood_upper_threshold_key']
-
 class ai_Decorator (ai_Node):
     _childrenTypes = None
     @staticmethod
@@ -770,14 +716,14 @@ class ai_Decorator (ai_Node):
         childrenTypes = ai_Decorator._childrenTypes
         if not childrenTypes:
             childrenTypes = ai_Decorator._childrenTypes = {
-            'UeLoop': ai_Decorator,
-            'UeCooldown': ai_Decorator,
-            'UeTimeLimit': ai_Decorator,
-            'UeBlackboard': ai_Decorator,
-            'UeForceSuccess': ai_Decorator,
-            'IsAtLocation': ai_Decorator,
-            'DistanceLessThan': ai_Decorator,
-    }
+                'UeLoop': ai_Decorator,
+                'UeCooldown': ai_Decorator,
+                'UeTimeLimit': ai_Decorator,
+                'UeBlackboard': ai_Decorator,
+                'UeForceSuccess': ai_Decorator,
+                'IsAtLocation': ai_Decorator,
+                'DistanceLessThan': ai_Decorator,
+            }
         type = _json_['$type']
         child = ai_Decorator._childrenTypes.get(type)
         if child != None:
@@ -788,43 +734,6 @@ class ai_Decorator (ai_Node):
         ai_Node.__init__(self, _json_)
         self.flow_abort_mode = _json_['flow_abort_mode']
 
-class ai_UeLoop (ai_Decorator):
-    def __init__(self, _json_):
-        ai_Decorator.__init__(self, _json_)
-        self.num_loops = _json_['num_loops']
-        self.infinite_loop = _json_['infinite_loop']
-        self.infinite_loop_timeout_time = _json_['infinite_loop_timeout_time']
-
-class ai_UeCooldown (ai_Decorator):
-    def __init__(self, _json_):
-        ai_Decorator.__init__(self, _json_)
-        self.cooldown_time = _json_['cooldown_time']
-
-class ai_UeTimeLimit (ai_Decorator):
-    def __init__(self, _json_):
-        ai_Decorator.__init__(self, _json_)
-        self.limit_time = _json_['limit_time']
-
-class ai_UeBlackboard (ai_Decorator):
-    def __init__(self, _json_):
-        ai_Decorator.__init__(self, _json_)
-        self.notify_observer = _json_['notify_observer']
-        self.blackboard_key = _json_['blackboard_key']
-        self.key_query = ai_KeyQueryOperator.fromJson(_json_['key_query'])
-
-class ai_UeForceSuccess (ai_Decorator):
-    def __init__(self, _json_):
-        ai_Decorator.__init__(self, _json_)
-
-        pass
-
-class ai_IsAtLocation (ai_Decorator):
-    def __init__(self, _json_):
-        ai_Decorator.__init__(self, _json_)
-        self.acceptable_radius = _json_['acceptable_radius']
-        self.keyboard_key = _json_['keyboard_key']
-        self.inverse_condition = _json_['inverse_condition']
-
 class ai_DistanceLessThan (ai_Decorator):
     def __init__(self, _json_):
         ai_Decorator.__init__(self, _json_)
@@ -833,6 +742,43 @@ class ai_DistanceLessThan (ai_Decorator):
         self.distance = _json_['distance']
         self.reverse_result = _json_['reverse_result']
 
+class ai_IsAtLocation (ai_Decorator):
+    def __init__(self, _json_):
+        ai_Decorator.__init__(self, _json_)
+        self.acceptable_radius = _json_['acceptable_radius']
+        self.keyboard_key = _json_['keyboard_key']
+        self.inverse_condition = _json_['inverse_condition']
+
+class ai_UeBlackboard (ai_Decorator):
+    def __init__(self, _json_):
+        ai_Decorator.__init__(self, _json_)
+        self.notify_observer = _json_['notify_observer']
+        self.blackboard_key = _json_['blackboard_key']
+        self.key_query = ai_KeyQueryOperator.fromJson(_json_['key_query'])
+
+class ai_UeCooldown (ai_Decorator):
+    def __init__(self, _json_):
+        ai_Decorator.__init__(self, _json_)
+        self.cooldown_time = _json_['cooldown_time']
+
+class ai_UeForceSuccess (ai_Decorator):
+    def __init__(self, _json_):
+        ai_Decorator.__init__(self, _json_)
+
+        pass
+
+class ai_UeLoop (ai_Decorator):
+    def __init__(self, _json_):
+        ai_Decorator.__init__(self, _json_)
+        self.num_loops = _json_['num_loops']
+        self.infinite_loop = _json_['infinite_loop']
+        self.infinite_loop_timeout_time = _json_['infinite_loop_timeout_time']
+
+class ai_UeTimeLimit (ai_Decorator):
+    def __init__(self, _json_):
+        ai_Decorator.__init__(self, _json_)
+        self.limit_time = _json_['limit_time']
+
 class ai_FlowNode (ai_Node):
     _childrenTypes = None
     @staticmethod
@@ -840,17 +786,17 @@ class ai_FlowNode (ai_Node):
         childrenTypes = ai_FlowNode._childrenTypes
         if not childrenTypes:
             childrenTypes = ai_FlowNode._childrenTypes = {
-            'Sequence': ai_FlowNode,
-            'Selector': ai_FlowNode,
-            'SimpleParallel': ai_FlowNode,
-            'UeWait': ai_FlowNode,
-            'UeWaitBlackboardTime': ai_FlowNode,
-            'MoveToTarget': ai_FlowNode,
-            'ChooseSkill': ai_FlowNode,
-            'MoveToRandomLocation': ai_FlowNode,
-            'MoveToLocation': ai_FlowNode,
-            'DebugPrint': ai_FlowNode,
-    }
+                'Sequence': ai_FlowNode,
+                'Selector': ai_FlowNode,
+                'SimpleParallel': ai_FlowNode,
+                'UeWait': ai_FlowNode,
+                'UeWaitBlackboardTime': ai_FlowNode,
+                'MoveToTarget': ai_FlowNode,
+                'ChooseSkill': ai_FlowNode,
+                'MoveToRandomLocation': ai_FlowNode,
+                'MoveToLocation': ai_FlowNode,
+                'DebugPrint': ai_FlowNode,
+            }
         type = _json_['$type']
         child = ai_FlowNode._childrenTypes.get(type)
         if child != None:
@@ -860,9 +806,13 @@ class ai_FlowNode (ai_Node):
     def __init__(self, _json_):
         ai_Node.__init__(self, _json_)
         self.decorators = []
-        for _ele in _json_['decorators']: _e = ai_Decorator.fromJson(_ele); self.decorators.append(_e)
+        for _ele0_ in _json_['decorators']:
+            _e0_ = ai_Decorator.fromJson(_ele0_)
+            self.decorators.append(_e0_)
         self.services = []
-        for _ele in _json_['services']: _e = ai_Service.fromJson(_ele); self.services.append(_e)
+        for _ele0_ in _json_['services']:
+            _e0_ = ai_Service.fromJson(_ele0_)
+            self.services.append(_e0_)
 
 class ai_ComposeNode (ai_FlowNode):
     _childrenTypes = None
@@ -871,10 +821,10 @@ class ai_ComposeNode (ai_FlowNode):
         childrenTypes = ai_ComposeNode._childrenTypes
         if not childrenTypes:
             childrenTypes = ai_ComposeNode._childrenTypes = {
-            'Sequence': ai_ComposeNode,
-            'Selector': ai_ComposeNode,
-            'SimpleParallel': ai_ComposeNode,
-    }
+                'Sequence': ai_ComposeNode,
+                'Selector': ai_ComposeNode,
+                'SimpleParallel': ai_ComposeNode,
+            }
         type = _json_['$type']
         child = ai_ComposeNode._childrenTypes.get(type)
         if child != None:
@@ -886,17 +836,21 @@ class ai_ComposeNode (ai_FlowNode):
 
         pass
 
-class ai_Sequence (ai_ComposeNode):
-    def __init__(self, _json_):
-        ai_ComposeNode.__init__(self, _json_)
-        self.children = []
-        for _ele in _json_['children']: _e = ai_FlowNode.fromJson(_ele); self.children.append(_e)
-
 class ai_Selector (ai_ComposeNode):
     def __init__(self, _json_):
         ai_ComposeNode.__init__(self, _json_)
         self.children = []
-        for _ele in _json_['children']: _e = ai_FlowNode.fromJson(_ele); self.children.append(_e)
+        for _ele0_ in _json_['children']:
+            _e0_ = ai_FlowNode.fromJson(_ele0_)
+            self.children.append(_e0_)
+
+class ai_Sequence (ai_ComposeNode):
+    def __init__(self, _json_):
+        ai_ComposeNode.__init__(self, _json_)
+        self.children = []
+        for _ele0_ in _json_['children']:
+            _e0_ = ai_FlowNode.fromJson(_ele0_)
+            self.children.append(_e0_)
 
 class ai_SimpleParallel (ai_ComposeNode):
     def __init__(self, _json_):
@@ -912,14 +866,14 @@ class ai_Task (ai_FlowNode):
         childrenTypes = ai_Task._childrenTypes
         if not childrenTypes:
             childrenTypes = ai_Task._childrenTypes = {
-            'UeWait': ai_Task,
-            'UeWaitBlackboardTime': ai_Task,
-            'MoveToTarget': ai_Task,
-            'ChooseSkill': ai_Task,
-            'MoveToRandomLocation': ai_Task,
-            'MoveToLocation': ai_Task,
-            'DebugPrint': ai_Task,
-    }
+                'UeWait': ai_Task,
+                'UeWaitBlackboardTime': ai_Task,
+                'MoveToTarget': ai_Task,
+                'ChooseSkill': ai_Task,
+                'MoveToRandomLocation': ai_Task,
+                'MoveToLocation': ai_Task,
+                'DebugPrint': ai_Task,
+            }
         type = _json_['$type']
         child = ai_Task._childrenTypes.get(type)
         if child != None:
@@ -929,6 +883,34 @@ class ai_Task (ai_FlowNode):
     def __init__(self, _json_):
         ai_FlowNode.__init__(self, _json_)
         self.ignore_restart_self = _json_['ignore_restart_self']
+
+class ai_ChooseSkill (ai_Task):
+    def __init__(self, _json_):
+        ai_Task.__init__(self, _json_)
+        self.target_actor_key = _json_['target_actor_key']
+        self.result_skill_id_key = _json_['result_skill_id_key']
+
+class ai_DebugPrint (ai_Task):
+    def __init__(self, _json_):
+        ai_Task.__init__(self, _json_)
+        self.text = _json_['text']
+
+class ai_MoveToLocation (ai_Task):
+    def __init__(self, _json_):
+        ai_Task.__init__(self, _json_)
+        self.acceptable_radius = _json_['acceptable_radius']
+
+class ai_MoveToRandomLocation (ai_Task):
+    def __init__(self, _json_):
+        ai_Task.__init__(self, _json_)
+        self.origin_position_key = _json_['origin_position_key']
+        self.radius = _json_['radius']
+
+class ai_MoveToTarget (ai_Task):
+    def __init__(self, _json_):
+        ai_Task.__init__(self, _json_)
+        self.target_actor_key = _json_['target_actor_key']
+        self.acceptable_radius = _json_['acceptable_radius']
 
 class ai_UeWait (ai_Task):
     def __init__(self, _json_):
@@ -941,80 +923,115 @@ class ai_UeWaitBlackboardTime (ai_Task):
         ai_Task.__init__(self, _json_)
         self.blackboard_key = _json_['blackboard_key']
 
-class ai_MoveToTarget (ai_Task):
+class ai_Service (ai_Node):
+    _childrenTypes = None
+    @staticmethod
+    def fromJson(_json_):
+        childrenTypes = ai_Service._childrenTypes
+        if not childrenTypes:
+            childrenTypes = ai_Service._childrenTypes = {
+                'UeSetDefaultFocus': ai_Service,
+                'ExecuteTimeStatistic': ai_Service,
+                'ChooseTarget': ai_Service,
+                'KeepFaceTarget': ai_Service,
+                'GetOwnerPlayer': ai_Service,
+                'UpdateDailyBehaviorProps': ai_Service,
+            }
+        type = _json_['$type']
+        child = ai_Service._childrenTypes.get(type)
+        if child != None:
+            return  child(_json_)
+        else:
+            raise Exception()
     def __init__(self, _json_):
-        ai_Task.__init__(self, _json_)
+        ai_Node.__init__(self, _json_)
+
+        pass
+
+class ai_ChooseTarget (ai_Service):
+    def __init__(self, _json_):
+        ai_Service.__init__(self, _json_)
+        self.result_target_key = _json_['result_target_key']
+
+class ai_ExecuteTimeStatistic (ai_Service):
+    def __init__(self, _json_):
+        ai_Service.__init__(self, _json_)
+
+        pass
+
+class ai_GetOwnerPlayer (ai_Service):
+    def __init__(self, _json_):
+        ai_Service.__init__(self, _json_)
+        self.player_actor_key = _json_['player_actor_key']
+
+class ai_KeepFaceTarget (ai_Service):
+    def __init__(self, _json_):
+        ai_Service.__init__(self, _json_)
         self.target_actor_key = _json_['target_actor_key']
-        self.acceptable_radius = _json_['acceptable_radius']
 
-class ai_ChooseSkill (ai_Task):
+class ai_UeSetDefaultFocus (ai_Service):
     def __init__(self, _json_):
-        ai_Task.__init__(self, _json_)
-        self.target_actor_key = _json_['target_actor_key']
-        self.result_skill_id_key = _json_['result_skill_id_key']
+        ai_Service.__init__(self, _json_)
+        self.keyboard_key = _json_['keyboard_key']
 
-class ai_MoveToRandomLocation (ai_Task):
+class ai_UpdateDailyBehaviorProps (ai_Service):
     def __init__(self, _json_):
-        ai_Task.__init__(self, _json_)
-        self.origin_position_key = _json_['origin_position_key']
-        self.radius = _json_['radius']
+        ai_Service.__init__(self, _json_)
+        self.satiety_key = _json_['satiety_key']
+        self.energy_key = _json_['energy_key']
+        self.mood_key = _json_['mood_key']
+        self.satiety_lower_threshold_key = _json_['satiety_lower_threshold_key']
+        self.satiety_upper_threshold_key = _json_['satiety_upper_threshold_key']
+        self.energy_lower_threshold_key = _json_['energy_lower_threshold_key']
+        self.energy_upper_threshold_key = _json_['energy_upper_threshold_key']
+        self.mood_lower_threshold_key = _json_['mood_lower_threshold_key']
+        self.mood_upper_threshold_key = _json_['mood_upper_threshold_key']
 
-class ai_MoveToLocation (ai_Task):
-    def __init__(self, _json_):
-        ai_Task.__init__(self, _json_)
-        self.acceptable_radius = _json_['acceptable_radius']
-
-class ai_DebugPrint (ai_Task):
-    def __init__(self, _json_):
-        ai_Task.__init__(self, _json_)
-        self.text = _json_['text']
-
-class ai_BehaviorTree :
+class AutoImport1 :
     def __init__(self, _json_):
         self.id = _json_['id']
-        self.name = _json_['name']
-        self.desc = _json_['desc']
-        self.blackboard_id = _json_['blackboard_id']
-        self.root = ai_ComposeNode.fromJson(_json_['root'])
-
-class vec2 :
-    def __init__(self, _json_):
-        self.x = _json_['x']
-        self.y = _json_['y']
-
-class vec3 :
-    def __init__(self, _json_):
-        self.x = _json_['x']
-        self.y = _json_['y']
-        self.z = _json_['z']
-
-class vec4 :
-    def __init__(self, _json_):
-        self.x = _json_['x']
-        self.y = _json_['y']
-        self.z = _json_['z']
-        self.w = _json_['w']
+        self.x1 = _json_['x1']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x8 = _json_['x8']
+        self.x10 = _json_['x10']
+        self.x13 = _json_['x13']
+        self.x13_2 = _json_['x13_2']
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.x15 = test_Shape.fromJson(_json_['x15'])
+        self.v2 = vec2(_json_['v2'])
+        self.t1 = _json_['t1']
+        self.k1 = []
+        for _ele0_ in _json_['k1']:
+            _e0_ = _ele0_
+            self.k1.append(_e0_)
+        self.k2 = []
+        for _ele0_ in _json_['k2']:
+            _e0_ = _ele0_
+            self.k2.append(_e0_)
+        self.k8 = {};
+        for _elek0_, _elev0_ in _json_['k8']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.k8[_k0_] = _v0_
+        self.k9 = []
+        for _ele0_ in _json_['k9']:
+            _e0_ = test_DemoE2(_ele0_)
+            self.k9.append(_e0_)
+        self.k10 = []
+        for _ele0_ in _json_['k10']:
+            _e0_ = vec3(_ele0_)
+            self.k10.append(_e0_)
+        self.k11 = []
+        for _ele0_ in _json_['k11']:
+            _e0_ = vec4(_ele0_)
+            self.k11.append(_e0_)
+        if _json_.get('v11') != None: self.v11 = vec3(_json_['v11'])
 
 class common_DateTimeRange :
     def __init__(self, _json_):
         if _json_.get('start_time') != None: self.start_time = _json_['start_time']
         if _json_.get('end_time') != None: self.end_time = _json_['end_time']
-
-class common_TimeOfDay :
-    def __init__(self, _json_):
-        self.hour = _json_['hour']
-        self.minute = _json_['minute']
-        self.second = _json_['second']
-
-class common_OneDayTimeRange :
-    def __init__(self, _json_):
-        self.start_time = common_TimeOfDay(_json_['start_time'])
-        self.end_time = common_TimeOfDay(_json_['end_time'])
-
-class common_IntRange :
-    def __init__(self, _json_):
-        self.min = _json_['min']
-        self.max = _json_['max']
 
 class common_FloatRange :
     def __init__(self, _json_):
@@ -1030,7 +1047,25 @@ class common_GlobalConfig :
         self.x5 = _json_['x5']
         self.x6 = _json_['x6']
         self.x7 = []
-        for _ele in _json_['x7']: _e = _ele; self.x7.append(_e)
+        for _ele0_ in _json_['x7']:
+            _e0_ = _ele0_
+            self.x7.append(_e0_)
+
+class common_IntRange :
+    def __init__(self, _json_):
+        self.min = _json_['min']
+        self.max = _json_['max']
+
+class common_OneDayTimeRange :
+    def __init__(self, _json_):
+        self.start_time = common_TimeOfDay(_json_['start_time'])
+        self.end_time = common_TimeOfDay(_json_['end_time'])
+
+class common_TimeOfDay :
+    def __init__(self, _json_):
+        self.hour = _json_['hour']
+        self.minute = _json_['minute']
+        self.second = _json_['second']
 
 class item_Item :
     def __init__(self, _json_):
@@ -1061,9 +1096,113 @@ class tag_TestTag :
         self.id = _json_['id']
         self.value = _json_['value']
 
-class test_DemoType1 :
+class test_AutoImport2 :
     def __init__(self, _json_):
+        self.id = _json_['id']
         self.x1 = _json_['x1']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x8 = _json_['x8']
+        self.x10 = _json_['x10']
+        self.x13 = _json_['x13']
+        self.x13_2 = _json_['x13_2']
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.x15 = test_Shape.fromJson(_json_['x15'])
+        self.v2 = vec2(_json_['v2'])
+        self.t1 = _json_['t1']
+        self.k1 = []
+        for _ele0_ in _json_['k1']:
+            _e0_ = _ele0_
+            self.k1.append(_e0_)
+        self.k2 = []
+        for _ele0_ in _json_['k2']:
+            _e0_ = _ele0_
+            self.k2.append(_e0_)
+        self.k8 = {};
+        for _elek0_, _elev0_ in _json_['k8']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.k8[_k0_] = _v0_
+        self.k9 = []
+        for _ele0_ in _json_['k9']:
+            _e0_ = test_DemoE2(_ele0_)
+            self.k9.append(_e0_)
+        self.k10 = []
+        for _ele0_ in _json_['k10']:
+            _e0_ = vec3(_ele0_)
+            self.k10.append(_e0_)
+        self.k11 = []
+        for _ele0_ in _json_['k11']:
+            _e0_ = vec4(_ele0_)
+            self.k11.append(_e0_)
+        if _json_.get('v11') != None: self.v11 = vec3(_json_['v11'])
+
+class test_CompactString :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.s2 = _json_['s2']
+        self.s3 = _json_['s3']
+
+class test_CompositeJsonTable1 :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x = _json_['x']
+
+class test_CompositeJsonTable2 :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.y = _json_['y']
+
+class test_CompositeJsonTable3 :
+    def __init__(self, _json_):
+        self.a = _json_['a']
+        self.b = _json_['b']
+
+class test_DateTimeRange :
+    def __init__(self, _json_):
+        self.start_time = _json_['start_time']
+        self.end_time = _json_['end_time']
+
+class test_DefineFromExcel2 :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = _json_['x1']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x8 = _json_['x8']
+        self.x10 = _json_['x10']
+        self.x13 = _json_['x13']
+        self.x13_2 = _json_['x13_2']
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.x15 = test_Shape.fromJson(_json_['x15'])
+        self.v2 = vec2(_json_['v2'])
+        self.t1 = _json_['t1']
+        self.k1 = []
+        for _ele0_ in _json_['k1']:
+            _e0_ = _ele0_
+            self.k1.append(_e0_)
+        self.k2 = []
+        for _ele0_ in _json_['k2']:
+            _e0_ = _ele0_
+            self.k2.append(_e0_)
+        self.k8 = {};
+        for _elek0_, _elev0_ in _json_['k8']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.k8[_k0_] = _v0_
+        self.k9 = []
+        for _ele0_ in _json_['k9']:
+            _e0_ = test_DemoE2(_ele0_)
+            self.k9.append(_e0_)
+        self.k10 = []
+        for _ele0_ in _json_['k10']:
+            _e0_ = vec3(_ele0_)
+            self.k10.append(_e0_)
+        self.k11 = []
+        for _ele0_ in _json_['k11']:
+            _e0_ = vec4(_ele0_)
+            self.k11.append(_e0_)
+        if _json_.get('v11') != None: self.v11 = vec3(_json_['v11'])
 
 class test_DemoDynamic :
     _childrenTypes = None
@@ -1072,11 +1211,11 @@ class test_DemoDynamic :
         childrenTypes = test_DemoDynamic._childrenTypes
         if not childrenTypes:
             childrenTypes = test_DemoDynamic._childrenTypes = {
-            'DemoD2': test_DemoDynamic,
-            'DemoE1': test_DemoDynamic,
-            'test.login.RoleInfo': test_DemoDynamic,
-            'DemoD5': test_DemoDynamic,
-    }
+                'DemoD2': test_DemoDynamic,
+                'DemoE1': test_DemoDynamic,
+                'test.login.RoleInfo': test_DemoDynamic,
+                'DemoD5': test_DemoDynamic,
+            }
         type = _json_['$type']
         child = test_DemoDynamic._childrenTypes.get(type)
         if child != None:
@@ -1098,9 +1237,9 @@ class test_DemoD3 (test_DemoDynamic):
         childrenTypes = test_DemoD3._childrenTypes
         if not childrenTypes:
             childrenTypes = test_DemoD3._childrenTypes = {
-            'DemoE1': test_DemoD3,
-            'test.login.RoleInfo': test_DemoD3,
-    }
+                'DemoE1': test_DemoD3,
+                'test.login.RoleInfo': test_DemoD3,
+            }
         type = _json_['$type']
         child = test_DemoD3._childrenTypes.get(type)
         if child != None:
@@ -1126,11 +1265,6 @@ class test_DemoD5 (test_DemoDynamic):
         test_DemoDynamic.__init__(self, _json_)
         self.time = test_DateTimeRange(_json_['time'])
 
-class test_DateTimeRange :
-    def __init__(self, _json_):
-        self.start_time = _json_['start_time']
-        self.end_time = _json_['end_time']
-
 class test_DemoE2 :
     def __init__(self, _json_):
         if _json_.get('y1') != None: self.y1 = _json_['y1']
@@ -1145,6 +1279,41 @@ class test_DemoExplicitType :
         self.x5 = _json_['x5']
         self.x6 = _json_['x6']
         self.x7 = _json_['x7']
+
+class test_DemoGroup :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+        self.x5 = test_InnerGroup(_json_['x5'])
+
+class test_DemoPrimitiveTypesTable :
+    def __init__(self, _json_):
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.x7 = _json_['x7']
+        self.s1 = _json_['s1']
+        self.s2 = _json_['s2']
+        self.v2 = vec2(_json_['v2'])
+        self.v3 = vec3(_json_['v3'])
+        self.v4 = vec4(_json_['v4'])
+        self.t1 = _json_['t1']
+
+class test_DemoSingletonType :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.date = test_DemoDynamic.fromJson(_json_['date'])
+
+class test_DemoType1 :
+    def __init__(self, _json_):
+        self.x1 = _json_['x1']
 
 class test_DemoType2 :
     def __init__(self, _json_):
@@ -1165,36 +1334,136 @@ class test_DemoType2 :
         self.s1 = _json_['s1']
         self.t1 = _json_['t1']
         self.k1 = []
-        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
+        for _ele0_ in _json_['k1']:
+            _e0_ = _ele0_
+            self.k1.append(_e0_)
         self.k2 = []
-        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
+        for _ele0_ in _json_['k2']:
+            _e0_ = _ele0_
+            self.k2.append(_e0_)
         self.k5 = []
-        for _ele in _json_['k5']: _e = _ele; self.k5.append(_e)
-        self.k8 = {}
-        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
+        for _ele0_ in _json_['k5']:
+            _e0_ = _ele0_
+            self.k5.append(_e0_)
+        self.k8 = {};
+        for _elek0_, _elev0_ in _json_['k8']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.k8[_k0_] = _v0_
         self.k9 = []
-        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
+        for _ele0_ in _json_['k9']:
+            _e0_ = test_DemoE2(_ele0_)
+            self.k9.append(_e0_)
         self.k15 = []
-        for _ele in _json_['k15']: _e = test_DemoDynamic.fromJson(_ele); self.k15.append(_e)
+        for _ele0_ in _json_['k15']:
+            _e0_ = test_DemoDynamic.fromJson(_ele0_)
+            self.k15.append(_e0_)
 
-class test_DemoSingletonType :
+class test_DetectEncoding :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.name = _json_['name']
-        self.date = test_DemoDynamic.fromJson(_json_['date'])
 
-class test_NotIndexList :
+class test_ExcelFromJson :
     def __init__(self, _json_):
+        self.x4 = _json_['x4']
+        self.x1 = _json_['x1']
+        self.x5 = _json_['x5']
+        self.x6 = _json_['x6']
+        self.s1 = _json_['s1']
+        self.s2 = _json_['s2']
+        self.t1 = _json_['t1']
+        self.x12 = test_DemoType1(_json_['x12'])
+        self.x13 = _json_['x13']
+        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
+        self.k1 = []
+        for _ele0_ in _json_['k1']:
+            _e0_ = _ele0_
+            self.k1.append(_e0_)
+        self.k8 = {};
+        for _elek0_, _elev0_ in _json_['k8']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.k8[_k0_] = _v0_
+        self.k9 = []
+        for _ele0_ in _json_['k9']:
+            _e0_ = test_DemoE2(_ele0_)
+            self.k9.append(_e0_)
+        self.k15 = []
+        for _ele0_ in _json_['k15']:
+            _e0_ = test_DemoDynamic.fromJson(_ele0_)
+            self.k15.append(_e0_)
+
+class test_ExcelFromJsonMultiRow :
+    def __init__(self, _json_):
+        self.id = _json_['id']
         self.x = _json_['x']
-        self.y = _json_['y']
+        self.items = []
+        for _ele0_ in _json_['items']:
+            _e0_ = test_TestRow(_ele0_)
+            self.items.append(_e0_)
 
-class test_MultiUnionIndexList :
+class test_Foo :
     def __init__(self, _json_):
-        self.id1 = _json_['id1']
-        self.id2 = _json_['id2']
-        self.id3 = _json_['id3']
-        self.num = _json_['num']
+        self.y1 = _json_['y1']
+        self.y2 = _json_['y2']
+        self.y3 = _json_['y3']
+
+class test_H1 :
+    def __init__(self, _json_):
+        self.y2 = test_H2(_json_['y2'])
+        self.y3 = _json_['y3']
+
+class test_H2 :
+    def __init__(self, _json_):
+        self.z2 = _json_['z2']
+        self.z3 = _json_['z3']
+
+class test_InnerGroup :
+    def __init__(self, _json_):
+        self.y1 = _json_['y1']
+        self.y2 = _json_['y2']
+        self.y3 = _json_['y3']
+        self.y4 = _json_['y4']
+
+class test_ItemBase :
+    _childrenTypes = None
+    @staticmethod
+    def fromJson(_json_):
+        childrenTypes = test_ItemBase._childrenTypes
+        if not childrenTypes:
+            childrenTypes = test_ItemBase._childrenTypes = {
+                'Item': test_ItemBase,
+                'Equipment': test_ItemBase,
+                'Decorator': test_ItemBase,
+            }
+        type = _json_['$type']
+        child = test_ItemBase._childrenTypes.get(type)
+        if child != None:
+            return  child(_json_)
+        else:
+            raise Exception()
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
         self.desc = _json_['desc']
+
+class test_Decorator (test_ItemBase):
+    def __init__(self, _json_):
+        test_ItemBase.__init__(self, _json_)
+        self.duration = _json_['duration']
+
+class test_Equipment (test_ItemBase):
+    def __init__(self, _json_):
+        test_ItemBase.__init__(self, _json_)
+        self.attr = _json_['attr']
+        self.value = _json_['value']
+
+class test_Item (test_ItemBase):
+    def __init__(self, _json_):
+        test_ItemBase.__init__(self, _json_)
+        self.num = _json_['num']
+        self.price = _json_['price']
 
 class test_MultiIndexList :
     def __init__(self, _json_):
@@ -1203,6 +1472,61 @@ class test_MultiIndexList :
         self.id3 = _json_['id3']
         self.num = _json_['num']
         self.desc = _json_['desc']
+
+class test_MultiRowRecord :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.one_rows = []
+        for _ele0_ in _json_['one_rows']:
+            _e0_ = test_MultiRowType1(_ele0_)
+            self.one_rows.append(_e0_)
+        self.multi_rows1 = []
+        for _ele0_ in _json_['multi_rows1']:
+            _e0_ = test_MultiRowType1(_ele0_)
+            self.multi_rows1.append(_e0_)
+        self.multi_rows2 = []
+        for _ele0_ in _json_['multi_rows2']:
+            _e0_ = test_MultiRowType1(_ele0_)
+            self.multi_rows2.append(_e0_)
+        self.multi_rows4 = {};
+        for _elek0_, _elev0_ in _json_['multi_rows4']:
+            _k0_ = _elek0_
+            _v0_ = test_MultiRowType2(_elev0_)
+            self.multi_rows4[_k0_] = _v0_
+        self.multi_rows5 = []
+        for _ele0_ in _json_['multi_rows5']:
+            _e0_ = test_MultiRowType3(_ele0_)
+            self.multi_rows5.append(_e0_)
+        self.multi_rows6 = {};
+        for _elek0_, _elev0_ in _json_['multi_rows6']:
+            _k0_ = _elek0_
+            _v0_ = test_MultiRowType2(_elev0_)
+            self.multi_rows6[_k0_] = _v0_
+        self.multi_rows7 = {};
+        for _elek0_, _elev0_ in _json_['multi_rows7']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.multi_rows7[_k0_] = _v0_
+
+class test_MultiRowTitle :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.name = _json_['name']
+        self.x1 = test_H1(_json_['x1'])
+        if _json_.get('x2_0') != None: self.x2_0 = test_H2(_json_['x2_0'])
+        self.x2 = []
+        for _ele0_ in _json_['x2']:
+            _e0_ = test_H2(_ele0_)
+            self.x2.append(_e0_)
+        self.x3 = []
+        for _ele0_ in _json_['x3']:
+            _e0_ = test_H2(_ele0_)
+            self.x3.append(_e0_)
+        self.x4 = []
+        for _ele0_ in _json_['x4']:
+            _e0_ = test_H2(_ele0_)
+            self.x4.append(_e0_)
 
 class test_MultiRowType1 :
     def __init__(self, _json_):
@@ -1219,151 +1543,27 @@ class test_MultiRowType3 :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.items = []
-        for _ele in _json_['items']: _e = test_MultiRowType1(_ele); self.items.append(_e)
+        for _ele0_ in _json_['items']:
+            _e0_ = test_MultiRowType1(_ele0_)
+            self.items.append(_e0_)
 
-class test_MultiRowRecord :
+class test_MultiUnionIndexList :
+    def __init__(self, _json_):
+        self.id1 = _json_['id1']
+        self.id2 = _json_['id2']
+        self.id3 = _json_['id3']
+        self.num = _json_['num']
+        self.desc = _json_['desc']
+
+class test_NotIndexList :
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+
+class test_Path :
     def __init__(self, _json_):
         self.id = _json_['id']
-        self.name = _json_['name']
-        self.one_rows = []
-        for _ele in _json_['one_rows']: _e = test_MultiRowType1(_ele); self.one_rows.append(_e)
-        self.multi_rows1 = []
-        for _ele in _json_['multi_rows1']: _e = test_MultiRowType1(_ele); self.multi_rows1.append(_e)
-        self.multi_rows2 = []
-        for _ele in _json_['multi_rows2']: _e = test_MultiRowType1(_ele); self.multi_rows2.append(_e)
-        self.multi_rows4 = {}
-        for _ek, _ev in _json_['multi_rows4']: _k = _ek; _v = test_MultiRowType2(_ev); self.multi_rows4[_k] =_v
-        self.multi_rows5 = []
-        for _ele in _json_['multi_rows5']: _e = test_MultiRowType3(_ele); self.multi_rows5.append(_e)
-        self.multi_rows6 = {}
-        for _ek, _ev in _json_['multi_rows6']: _k = _ek; _v = test_MultiRowType2(_ev); self.multi_rows6[_k] =_v
-        self.multi_rows7 = {}
-        for _ek, _ev in _json_['multi_rows7']: _k = _ek; _v = _ev; self.multi_rows7[_k] =_v
-
-class test_Foo :
-    def __init__(self, _json_):
-        self.y1 = _json_['y1']
-        self.y2 = _json_['y2']
-        self.y3 = _json_['y3']
-
-class test_TestMultiColumn :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.a = test_Foo(_json_['a'])
-        self.b = test_Foo(_json_['b'])
-        self.c = test_Foo(_json_['c'])
-
-class test_TestUeType :
-    def __init__(self, _json_):
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
-        self.x5 = _json_['x5']
-        self.x6 = _json_['x6']
-        self.x10 = _json_['x10']
-        self.x12 = test_DemoType1(_json_['x12'])
-        self.x13 = _json_['x13']
-        self.t1 = _json_['t1']
-        self.k1 = []
-        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
-        self.k2 = []
-        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
-        self.k5 = []
-        for _ele in _json_['k5']: _e = _ele; self.k5.append(_e)
-        self.k8 = {}
-        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
-        self.k9 = []
-        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
-
-class test_H1 :
-    def __init__(self, _json_):
-        self.y2 = test_H2(_json_['y2'])
-        self.y3 = _json_['y3']
-
-class test_H2 :
-    def __init__(self, _json_):
-        self.z2 = _json_['z2']
-        self.z3 = _json_['z3']
-
-class test_MultiRowTitle :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.name = _json_['name']
-        self.x1 = test_H1(_json_['x1'])
-        if _json_.get('x2_0') != None: self.x2_0 = test_H2(_json_['x2_0'])
-        self.x2 = []
-        for _ele in _json_['x2']: _e = test_H2(_ele); self.x2.append(_e)
-        self.x3 = []
-        for _ele in _json_['x3']: _e = test_H2(_ele); self.x3.append(_e)
-        self.x4 = []
-        for _ele in _json_['x4']: _e = test_H2(_ele); self.x4.append(_e)
-
-class test_TestNull :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        if _json_.get('x1') != None: self.x1 = _json_['x1']
-        if _json_.get('x2') != None: self.x2 = _json_['x2']
-        if _json_.get('x3') != None: self.x3 = test_DemoType1(_json_['x3'])
-        if _json_.get('x4') != None: self.x4 = test_DemoDynamic.fromJson(_json_['x4'])
-        if _json_.get('s1') != None: self.s1 = _json_['s1']
-        if _json_.get('s2') != None: self.s2 = _json_['s2']
-
-class test_DemoPrimitiveTypesTable :
-    def __init__(self, _json_):
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
-        self.x5 = _json_['x5']
-        self.x6 = _json_['x6']
-        self.x7 = _json_['x7']
-        self.s1 = _json_['s1']
-        self.s2 = _json_['s2']
-        self.v2 = vec2(_json_['v2'])
-        self.v3 = vec3(_json_['v3'])
-        self.v4 = vec4(_json_['v4'])
-        self.t1 = _json_['t1']
-
-class test_CompactString :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.s2 = _json_['s2']
-        self.s3 = _json_['s3']
-
-class test_TestString :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.s1 = _json_['s1']
-        self.s2 = _json_['s2']
-        self.cs1 = test_CompactString(_json_['cs1'])
-        self.cs2 = test_CompactString(_json_['cs2'])
-
-class test_InnerGroup :
-    def __init__(self, _json_):
-        self.y1 = _json_['y1']
-        self.y2 = _json_['y2']
-        self.y3 = _json_['y3']
-        self.y4 = _json_['y4']
-
-class test_DemoGroup :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
-        self.x5 = test_InnerGroup(_json_['x5'])
-
-class test_TestGlobal :
-    def __init__(self, _json_):
-        self.unlock_equip = _json_['unlock_equip']
-        self.unlock_hero = _json_['unlock_hero']
-
-class test_TestBeRef :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.count = _json_['count']
+        self.res = _json_['res']
 
 class test_RefDynamicBase :
     _childrenTypes = None
@@ -1372,8 +1572,8 @@ class test_RefDynamicBase :
         childrenTypes = test_RefDynamicBase._childrenTypes
         if not childrenTypes:
             childrenTypes = test_RefDynamicBase._childrenTypes = {
-            'RefBean': test_RefDynamicBase,
-    }
+                'RefBean': test_RefDynamicBase,
+            }
         type = _json_['$type']
         child = test_RefDynamicBase._childrenTypes.get(type)
         if child != None:
@@ -1387,189 +1587,9 @@ class test_RefBean (test_RefDynamicBase):
     def __init__(self, _json_):
         test_RefDynamicBase.__init__(self, _json_)
         self.arr = []
-        for _ele in _json_['arr']: _e = _ele; self.arr.append(_e)
-
-class test_TestRef :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.x1 = _json_['x1']
-        self.x1_2 = _json_['x1_2']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
-        self.a1 = []
-        for _ele in _json_['a1']: _e = _ele; self.a1.append(_e)
-        self.a2 = []
-        for _ele in _json_['a2']: _e = _ele; self.a2.append(_e)
-        self.b1 = []
-        for _ele in _json_['b1']: _e = _ele; self.b1.append(_e)
-        self.b2 = []
-        for _ele in _json_['b2']: _e = _ele; self.b2.append(_e)
-        self.c1 = []
-        for _ele in _json_['c1']: _e = _ele; self.c1.append(_e)
-        self.c2 = []
-        for _ele in _json_['c2']: _e = _ele; self.c2.append(_e)
-        self.d1 = {}
-        for _ek, _ev in _json_['d1']: _k = _ek; _v = _ev; self.d1[_k] =_v
-        self.d2 = {}
-        for _ek, _ev in _json_['d2']: _k = _ek; _v = _ev; self.d2[_k] =_v
-        self.e1 = _json_['e1']
-        self.e2 = _json_['e2']
-        self.e3 = _json_['e3']
-        self.f1 = _json_['f1']
-        self.f2 = _json_['f2']
-        self.f3 = _json_['f3']
-        self.s1 = test_RefDynamicBase.fromJson(_json_['s1'])
-
-class test_TestSize :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.x1 = []
-        for _ele in _json_['x1']: _e = _ele; self.x1.append(_e)
-        self.x2 = []
-        for _ele in _json_['x2']: _e = _ele; self.x2.append(_e)
-        self.x3 = []
-        for _ele in _json_['x3']: _e = _ele; self.x3.append(_e)
-        self.x4 = {}
-        for _ek, _ev in _json_['x4']: _k = _ek; _v = _ev; self.x4[_k] =_v
-
-class test_TestSet :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.x0 = _json_['x0']
-        self.x1 = []
-        for _ele in _json_['x1']: _e = _ele; self.x1.append(_e)
-        self.x2 = []
-        for _ele in _json_['x2']: _e = _ele; self.x2.append(_e)
-        self.x3 = []
-        for _ele in _json_['x3']: _e = _ele; self.x3.append(_e)
-        self.x4 = []
-        for _ele in _json_['x4']: _e = _ele; self.x4.append(_e)
-
-class test_DetectEncoding :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.name = _json_['name']
-
-class test_ItemBase :
-    _childrenTypes = None
-    @staticmethod
-    def fromJson(_json_):
-        childrenTypes = test_ItemBase._childrenTypes
-        if not childrenTypes:
-            childrenTypes = test_ItemBase._childrenTypes = {
-            'Item': test_ItemBase,
-            'Equipment': test_ItemBase,
-            'Decorator': test_ItemBase,
-    }
-        type = _json_['$type']
-        child = test_ItemBase._childrenTypes.get(type)
-        if child != None:
-            return  child(_json_)
-        else:
-            raise Exception()
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.name = _json_['name']
-        self.desc = _json_['desc']
-
-class test_Item (test_ItemBase):
-    def __init__(self, _json_):
-        test_ItemBase.__init__(self, _json_)
-        self.num = _json_['num']
-        self.price = _json_['price']
-
-class test_Equipment (test_ItemBase):
-    def __init__(self, _json_):
-        test_ItemBase.__init__(self, _json_)
-        self.attr = _json_['attr']
-        self.value = _json_['value']
-
-class test_Decorator (test_ItemBase):
-    def __init__(self, _json_):
-        test_ItemBase.__init__(self, _json_)
-        self.duration = _json_['duration']
-
-class test_TestIndex :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.eles = []
-        for _ele in _json_['eles']: _e = test_DemoType1(_ele); self.eles.append(_e)
-
-class test_TestMap :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.x1 = {}
-        for _ek, _ev in _json_['x1']: _k = _ek; _v = _ev; self.x1[_k] =_v
-        self.x2 = {}
-        for _ek, _ev in _json_['x2']: _k = _ek; _v = _ev; self.x2[_k] =_v
-        self.x3 = {}
-        for _ek, _ev in _json_['x3']: _k = _ek; _v = _ev; self.x3[_k] =_v
-        self.x4 = {}
-        for _ek, _ev in _json_['x4']: _k = _ek; _v = _ev; self.x4[_k] =_v
-
-class test_ExcelFromJson :
-    def __init__(self, _json_):
-        self.x4 = _json_['x4']
-        self.x1 = _json_['x1']
-        self.x5 = _json_['x5']
-        self.x6 = _json_['x6']
-        self.s1 = _json_['s1']
-        self.s2 = _json_['s2']
-        self.t1 = _json_['t1']
-        self.x12 = test_DemoType1(_json_['x12'])
-        self.x13 = _json_['x13']
-        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
-        self.k1 = []
-        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
-        self.k8 = {}
-        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
-        self.k9 = []
-        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
-        self.k15 = []
-        for _ele in _json_['k15']: _e = test_DemoDynamic.fromJson(_ele); self.k15.append(_e)
-
-class test_CompositeJsonTable1 :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.x = _json_['x']
-
-class test_CompositeJsonTable2 :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.y = _json_['y']
-
-class test_CompositeJsonTable3 :
-    def __init__(self, _json_):
-        self.a = _json_['a']
-        self.b = _json_['b']
-
-class test_Test3 :
-    def __init__(self, _json_):
-        self.x = _json_['x']
-        self.y = _json_['y']
-
-class test_TestRow :
-    def __init__(self, _json_):
-        self.x = _json_['x']
-        self.y = _json_['y']
-        self.z = _json_['z']
-        self.a = test_Test3(_json_['a'])
-        self.b = []
-        for _ele in _json_['b']: _e = _ele; self.b.append(_e)
-
-class test_ExcelFromJsonMultiRow :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.x = _json_['x']
-        self.items = []
-        for _ele in _json_['items']: _e = test_TestRow(_ele); self.items.append(_e)
-
-class test_SepVector :
-    def __init__(self, _json_):
-        self.x = _json_['x']
-        self.y = _json_['y']
-        self.z = _json_['z']
+        for _ele0_ in _json_['arr']:
+            _e0_ = _ele0_
+            self.arr.append(_e0_)
 
 class test_SepBean1 :
     def __init__(self, _json_):
@@ -1577,39 +1597,11 @@ class test_SepBean1 :
         self.b = _json_['b']
         self.c = _json_['c']
 
-class test_TestScriptableObject :
+class test_SepVector :
     def __init__(self, _json_):
-        self.id = _json_['id']
-        self.desc = _json_['desc']
-        self.rate = _json_['rate']
-        self.num = _json_['num']
-        self.v2 = vec2(_json_['v2'])
-        self.v3 = vec3(_json_['v3'])
-        self.v4 = vec4(_json_['v4'])
-
-class test_Path :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.res = _json_['res']
-
-class test_TestMapper :
-    def __init__(self, _json_):
-        self.id = _json_['id']
-        self.audio_type = _json_['audio_type']
-        self.v2 = vec2(_json_['v2'])
-
-class test_TestExcelBean1 :
-    def __init__(self, _json_):
-        self.x1 = _json_['x1']
-        self.x2 = _json_['x2']
-        self.x3 = _json_['x3']
-        self.x4 = _json_['x4']
-
-class test_TestExcelBean2 :
-    def __init__(self, _json_):
-        self.y1 = _json_['y1']
-        self.y2 = _json_['y2']
-        self.y3 = _json_['y3']
+        self.x = _json_['x']
+        self.y = _json_['y']
+        self.z = _json_['z']
 
 class test_Shape :
     _childrenTypes = None
@@ -1618,9 +1610,9 @@ class test_Shape :
         childrenTypes = test_Shape._childrenTypes
         if not childrenTypes:
             childrenTypes = test_Shape._childrenTypes = {
-            'Circle': test_Shape,
-            'test2.Rectangle': test_Shape,
-    }
+                'Circle': test_Shape,
+                'test2.Rectangle': test_Shape,
+            }
         type = _json_['$type']
         child = test_Shape._childrenTypes.get(type)
         if child != None:
@@ -1642,33 +1634,261 @@ class test2_Rectangle (test_Shape):
         self.width = _json_['width']
         self.height = _json_['height']
 
-class DefineFromExcel2 :
+class test_Test3 :
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+
+class test_TestBeRef :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.count = _json_['count']
+
+class test_TestExcelBean1 :
+    def __init__(self, _json_):
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+
+class test_TestExcelBean2 :
+    def __init__(self, _json_):
+        self.y1 = _json_['y1']
+        self.y2 = _json_['y2']
+        self.y3 = _json_['y3']
+
+class test_TestGlobal :
+    def __init__(self, _json_):
+        self.unlock_equip = _json_['unlock_equip']
+        self.unlock_hero = _json_['unlock_hero']
+
+class test_TestIndex :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.eles = []
+        for _ele0_ in _json_['eles']:
+            _e0_ = test_DemoType1(_ele0_)
+            self.eles.append(_e0_)
+
+class test_TestMap :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = {};
+        for _elek0_, _elev0_ in _json_['x1']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.x1[_k0_] = _v0_
+        self.x2 = {};
+        for _elek0_, _elev0_ in _json_['x2']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.x2[_k0_] = _v0_
+        self.x3 = {};
+        for _elek0_, _elev0_ in _json_['x3']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.x3[_k0_] = _v0_
+        self.x4 = {};
+        for _elek0_, _elev0_ in _json_['x4']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.x4[_k0_] = _v0_
+
+class test_TestMapper :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.audio_type = _json_['audio_type']
+        self.v2 = vec2(_json_['v2'])
+
+class test_TestMultiColumn :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.a = test_Foo(_json_['a'])
+        self.b = test_Foo(_json_['b'])
+        self.c = test_Foo(_json_['c'])
+
+class test_TestNull :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        if _json_.get('x1') != None: self.x1 = _json_['x1']
+        if _json_.get('x2') != None: self.x2 = _json_['x2']
+        if _json_.get('x3') != None: self.x3 = test_DemoType1(_json_['x3'])
+        if _json_.get('x4') != None: self.x4 = test_DemoDynamic.fromJson(_json_['x4'])
+        if _json_.get('s1') != None: self.s1 = _json_['s1']
+        if _json_.get('s2') != None: self.s2 = _json_['s2']
+
+class test_TestRef :
     def __init__(self, _json_):
         self.id = _json_['id']
         self.x1 = _json_['x1']
+        self.x1_2 = _json_['x1_2']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
+        self.a1 = []
+        for _ele0_ in _json_['a1']:
+            _e0_ = _ele0_
+            self.a1.append(_e0_)
+        self.a2 = []
+        for _ele0_ in _json_['a2']:
+            _e0_ = _ele0_
+            self.a2.append(_e0_)
+        self.b1 = []
+        for _ele0_ in _json_['b1']:
+            _e0_ = _ele0_
+            self.b1.append(_e0_)
+        self.b2 = []
+        for _ele0_ in _json_['b2']:
+            _e0_ = _ele0_
+            self.b2.append(_e0_)
+        self.c1 = []
+        for _ele0_ in _json_['c1']:
+            _e0_ = _ele0_
+            self.c1.append(_e0_)
+        self.c2 = []
+        for _ele0_ in _json_['c2']:
+            _e0_ = _ele0_
+            self.c2.append(_e0_)
+        self.d1 = {};
+        for _elek0_, _elev0_ in _json_['d1']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.d1[_k0_] = _v0_
+        self.d2 = {};
+        for _elek0_, _elev0_ in _json_['d2']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.d2[_k0_] = _v0_
+        self.e1 = _json_['e1']
+        self.e2 = _json_['e2']
+        self.e3 = _json_['e3']
+        self.f1 = _json_['f1']
+        self.f2 = _json_['f2']
+        self.f3 = _json_['f3']
+        self.s1 = test_RefDynamicBase.fromJson(_json_['s1'])
+
+class test_TestRow :
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+        self.z = _json_['z']
+        self.a = test_Test3(_json_['a'])
+        self.b = []
+        for _ele0_ in _json_['b']:
+            _e0_ = _ele0_
+            self.b.append(_e0_)
+
+class test_TestScriptableObject :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.desc = _json_['desc']
+        self.rate = _json_['rate']
+        self.num = _json_['num']
+        self.v2 = vec2(_json_['v2'])
+        self.v3 = vec3(_json_['v3'])
+        self.v4 = vec4(_json_['v4'])
+
+class test_TestSet :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x0 = _json_['x0']
+        self.x1 = []
+        for _ele0_ in _json_['x1']:
+            _e0_ = _ele0_
+            self.x1.append(_e0_)
+        self.x2 = []
+        for _ele0_ in _json_['x2']:
+            _e0_ = _ele0_
+            self.x2.append(_e0_)
+        self.x3 = []
+        for _ele0_ in _json_['x3']:
+            _e0_ = _ele0_
+            self.x3.append(_e0_)
+        self.x4 = []
+        for _ele0_ in _json_['x4']:
+            _e0_ = _ele0_
+            self.x4.append(_e0_)
+
+class test_TestSize :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.x1 = []
+        for _ele0_ in _json_['x1']:
+            _e0_ = _ele0_
+            self.x1.append(_e0_)
+        self.x2 = []
+        for _ele0_ in _json_['x2']:
+            _e0_ = _ele0_
+            self.x2.append(_e0_)
+        self.x3 = []
+        for _ele0_ in _json_['x3']:
+            _e0_ = _ele0_
+            self.x3.append(_e0_)
+        self.x4 = {};
+        for _elek0_, _elev0_ in _json_['x4']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.x4[_k0_] = _v0_
+
+class test_TestString :
+    def __init__(self, _json_):
+        self.id = _json_['id']
+        self.s1 = _json_['s1']
+        self.s2 = _json_['s2']
+        self.cs1 = test_CompactString(_json_['cs1'])
+        self.cs2 = test_CompactString(_json_['cs2'])
+
+class test_TestUeType :
+    def __init__(self, _json_):
+        self.x1 = _json_['x1']
+        self.x2 = _json_['x2']
+        self.x3 = _json_['x3']
+        self.x4 = _json_['x4']
         self.x5 = _json_['x5']
         self.x6 = _json_['x6']
-        self.x8 = _json_['x8']
         self.x10 = _json_['x10']
+        self.x12 = test_DemoType1(_json_['x12'])
         self.x13 = _json_['x13']
-        self.x13_2 = _json_['x13_2']
-        self.x14 = test_DemoDynamic.fromJson(_json_['x14'])
-        self.x15 = test_Shape.fromJson(_json_['x15'])
-        self.v2 = vec2(_json_['v2'])
         self.t1 = _json_['t1']
         self.k1 = []
-        for _ele in _json_['k1']: _e = _ele; self.k1.append(_e)
+        for _ele0_ in _json_['k1']:
+            _e0_ = _ele0_
+            self.k1.append(_e0_)
         self.k2 = []
-        for _ele in _json_['k2']: _e = _ele; self.k2.append(_e)
-        self.k8 = {}
-        for _ek, _ev in _json_['k8']: _k = _ek; _v = _ev; self.k8[_k] =_v
+        for _ele0_ in _json_['k2']:
+            _e0_ = _ele0_
+            self.k2.append(_e0_)
+        self.k5 = []
+        for _ele0_ in _json_['k5']:
+            _e0_ = _ele0_
+            self.k5.append(_e0_)
+        self.k8 = {};
+        for _elek0_, _elev0_ in _json_['k8']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.k8[_k0_] = _v0_
         self.k9 = []
-        for _ele in _json_['k9']: _e = test_DemoE2(_ele); self.k9.append(_e)
-        self.k10 = []
-        for _ele in _json_['k10']: _e = vec3(_ele); self.k10.append(_e)
-        self.k11 = []
-        for _ele in _json_['k11']: _e = vec4(_ele); self.k11.append(_e)
-        if _json_.get('v11') != None: self.v11 = vec3(_json_['v11'])
+        for _ele0_ in _json_['k9']:
+            _e0_ = test_DemoE2(_ele0_)
+            self.k9.append(_e0_)
+
+class vec2 :
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+
+class vec3 :
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+        self.z = _json_['z']
+
+class vec4 :
+    def __init__(self, _json_):
+        self.x = _json_['x']
+        self.y = _json_['y']
+        self.z = _json_['z']
+        self.w = _json_['w']
 
 
 class ai_TbBlackboard:
@@ -2325,7 +2545,39 @@ class test_TbDefineFromExcel2:
         self._dataList = []
         
         for _json2_ in _json_:
-            _v = DefineFromExcel2(_json2_)
+            _v = test_DefineFromExcel2(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+class TbAutoImport1:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = AutoImport1(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+class test_TbAutoImport2:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = test_AutoImport2(_json2_)
             self._dataList.append(_v)
             self._dataMap[_v.id] = _v
 
@@ -2380,4 +2632,6 @@ class cfg_Tables:
         self.TbPath = test_TbPath(loader('test_tbpath')); 
         self.TbTestMapper = test_TbTestMapper(loader('test_tbtestmapper')); 
         self.TbDefineFromExcel2 = test_TbDefineFromExcel2(loader('test_tbdefinefromexcel2')); 
+        self.TbAutoImport1 = TbAutoImport1(loader('tbautoimport1')); 
+        self.TbAutoImport2 = test_TbAutoImport2(loader('test_tbautoimport2')); 
 
