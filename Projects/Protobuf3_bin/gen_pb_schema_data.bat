@@ -6,7 +6,7 @@ set CONF_ROOT=%WORKSPACE%\DataTables
 dotnet %LUBAN_DLL% ^
     -t all ^
     -c protobuf3 ^
-    -d protobuf-bin  ^
+    -d protobuf3-bin  ^
     --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=pb_schemas ^
     -x outputDataDir=pb_datas ^

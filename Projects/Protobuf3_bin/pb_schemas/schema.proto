@@ -2,6 +2,20 @@ syntax = "proto3";
 
 package cfg;
 
+enum AiEExecutor {
+    AiEExecutor_CLIENT = 0;
+    AiEExecutor_SERVER = 1;
+}
+enum AiEFinishMode {
+    AiEFinishMode_IMMEDIATE = 0;
+    AiEFinishMode_DELAYED = 1;
+}
+enum AiEFlowAbortMode {
+    AiEFlowAbortMode_NONE = 0;
+    AiEFlowAbortMode_LOWER_PRIORITY = 1;
+    AiEFlowAbortMode_SELF = 2;
+    AiEFlowAbortMode_BOTH = 3;
+}
 enum AiEKeyType {
     AiEKeyType_EMPTY_PLACEHOLDER = 0;
     AiEKeyType_BOOL = 1;
@@ -14,12 +28,6 @@ enum AiEKeyType {
     AiEKeyType_CLASS1 = 8;
     AiEKeyType_ENUM1 = 9;
     AiEKeyType_OBJECT = 10;
-}
-enum AiEFlowAbortMode {
-    AiEFlowAbortMode_NONE = 0;
-    AiEFlowAbortMode_LOWER_PRIORITY = 1;
-    AiEFlowAbortMode_SELF = 2;
-    AiEFlowAbortMode_BOTH = 3;
 }
 enum AiENotifyObserverMode {
     AiENotifyObserverMode_ON_VALUE_CHANGE = 0;
@@ -35,9 +43,70 @@ enum AiEOperator {
     AiEOperator_CONTAINS = 6;
     AiEOperator_NOT_CONTAINS = 7;
 }
-enum AiEFinishMode {
-    AiEFinishMode_IMMEDIATE = 0;
-    AiEFinishMode_DELAYED = 1;
+enum AudioType {
+    AudioType_UNKNOWN = 0;
+    AudioType_ACC = 1;
+    AudioType_AIFF = 2;
+}
+enum CommonEBoolOperator {
+    CommonEBoolOperator_AND = 0;
+    CommonEBoolOperator_OR = 1;
+}
+enum ItemEClothersStarQualityType {
+    ItemEClothersStarQualityType_EMPTY_PLACEHOLDER = 0;
+    ItemEClothersStarQualityType_ONE = 1;
+    ItemEClothersStarQualityType_TWO = 2;
+    ItemEClothersStarQualityType_THREE = 3;
+    ItemEClothersStarQualityType_FOUR = 4;
+    ItemEClothersStarQualityType_FIVE = 5;
+    ItemEClothersStarQualityType_SIX = 6;
+    ItemEClothersStarQualityType_SEVEN = 7;
+    ItemEClothersStarQualityType_EIGHT = 8;
+    ItemEClothersStarQualityType_NINE = 9;
+    ItemEClothersStarQualityType_TEN = 10;
+}
+enum ItemEClothersTag {
+    ItemEClothersTag_EMPTY_PLACEHOLDER = 0;
+    ItemEClothersTag_FANG_SHAI = 1;
+    ItemEClothersTag_WU_ZHE = 2;
+}
+enum ItemEClothesHidePartType {
+    ItemEClothesHidePartType_CHEST = 0;
+    ItemEClothesHidePartType_HEAD = 1;
+    ItemEClothesHidePartType_SPINE_UPPER = 2;
+    ItemEClothesHidePartType_SPINE_LOWER = 3;
+    ItemEClothesHidePartType_HIP = 4;
+    ItemEClothesHidePartType_LEG_UPPER = 5;
+    ItemEClothesHidePartType_LEG_MIDDLE = 6;
+    ItemEClothesHidePartType_LEG_LOWER = 7;
+}
+enum ItemEClothesPropertyType {
+    ItemEClothesPropertyType_EMPTY_PLACEHOLDER = 0;
+    ItemEClothesPropertyType_JIAN_YUE = 1;
+    ItemEClothesPropertyType_HUA_LI = 2;
+    ItemEClothesPropertyType_KE_AI = 3;
+    ItemEClothesPropertyType_CHENG_SHU = 4;
+    ItemEClothesPropertyType_HUO_PO = 5;
+    ItemEClothesPropertyType_YOU_YA = 6;
+    ItemEClothesPropertyType_QING_CHUN = 7;
+    ItemEClothesPropertyType_XING_GAN = 8;
+    ItemEClothesPropertyType_QING_LIANG = 9;
+    ItemEClothesPropertyType_BAO_NUAN = 10;
+}
+enum ItemECurrencyType {
+    ItemECurrencyType_EMPTY_PLACEHOLDER = 0;
+    ItemECurrencyType_DIAMOND = 1;
+    ItemECurrencyType_GOLD = 2;
+    ItemECurrencyType_SILVER = 3;
+    ItemECurrencyType_EXP = 4;
+    ItemECurrencyType_POWER_POINT = 5;
+}
+enum ItemEItemQuality {
+    ItemEItemQuality_WHITE = 0;
+    ItemEItemQuality_GREEN = 1;
+    ItemEItemQuality_BLUE = 2;
+    ItemEItemQuality_PURPLE = 3;
+    ItemEItemQuality_GOLDEN = 4;
 }
 enum ItemEMajorType {
     ItemEMajorType_EMPTY_PLACEHOLDER = 0;
@@ -105,12 +174,22 @@ enum ItemEMinorType {
     ItemEMinorType_CONSTRUCTION_MATERIAL = 1101;
     ItemEMinorType_DESIGN_DRAWING = 1102;
 }
-enum ItemEItemQuality {
-    ItemEItemQuality_WHITE = 0;
-    ItemEItemQuality_GREEN = 1;
-    ItemEItemQuality_BLUE = 2;
-    ItemEItemQuality_PURPLE = 3;
-    ItemEItemQuality_GOLDEN = 4;
+enum ItemEUseType {
+    ItemEUseType_MANUAL = 0;
+    ItemEUseType_AUTO = 1;
+}
+enum TestAccessFlag {
+    TestAccessFlag_EMPTY_PLACEHOLDER = 0;
+    TestAccessFlag_WRITE = 1;
+    TestAccessFlag_READ = 2;
+    TestAccessFlag_TRUNCATE = 4;
+    TestAccessFlag_NEW = 8;
+    TestAccessFlag_READ_WRITE = 3;
+}
+enum TestAudioType2 {
+    TestAudioType2_UNKNOWN = 0;
+    TestAudioType2_ACC = 1;
+    TestAudioType2_AIFF = 2;
 }
 enum TestDemoEnum {
     TestDemoEnum_NONE = 0;
@@ -120,11 +199,6 @@ enum TestDemoEnum {
     TestDemoEnum_D = 5;
     TestDemoEnum_Any = 6;
 }
-enum AudioType {
-    AudioType_UNKNOWN = 0;
-    AudioType_ACC = 1;
-    AudioType_AIFF = 2;
-}
 enum TestDemoFlag {
     TestDemoFlag_EMPTY_PLACEHOLDER = 0;
     TestDemoFlag_A = 1;
@@ -132,27 +206,33 @@ enum TestDemoFlag {
     TestDemoFlag_C = 4;
     TestDemoFlag_D = 8;
 }
+enum TestETestEmptyEnum {
+    TestETestEmptyEnum_EMPTY_PLACEHOLDER = 0;
+}
+enum TestETestEmptyEnum2 {
+    TestETestEmptyEnum2_EMPTY_PLACEHOLDER = 0;
+    TestETestEmptyEnum2_SMALL_THAN_256 = 255;
+    TestETestEmptyEnum2_X_256 = 256;
+    TestETestEmptyEnum2_X_257 = 257;
+}
+enum TestETestQuality {
+    TestETestQuality_EMPTY_PLACEHOLDER = 0;
+    TestETestQuality_A = 1;
+    TestETestQuality_B = 2;
+    TestETestQuality_C = 3;
+    TestETestQuality_D = 4;
+}
+enum TestETestUeType {
+    TestETestUeType_WHITE = 0;
+    TestETestUeType_BLACK = 1;
+}
 
-message vec2 {
-     float x = 1 ;
-     float y = 2 ;
-}
-message vec3 {
-     float x = 1 ;
-     float y = 2 ;
-     float z = 3 ;
-}
-message vec4 {
-     float x = 1 ;
-     float y = 2 ;
-     float z = 3 ;
-     float w = 4 ;
-}
-message TestTestExcelBean1 {
-     int32 x1 = 1 ;
-     string x2 = 2 ;
-     int32 x3 = 3 ;
-     float x4 = 4 ;
+message AiBehaviorTree {
+     int32 id = 1 ;
+     string name = 2 ;
+     string desc = 3 ;
+     string blackboard_id = 4 ;
+     AiComposeNode root = 5 ;
 }
 message AiBlackboard {
      string name = 1 ;
@@ -164,15 +244,43 @@ message AiBlackboardKey {
      string name = 1 ;
      string desc = 2 ;
      bool is_static = 3 ;
-     AiEKeyType type = 4 ;
+     AiEKeyType key_type = 4 ;
      string type_class_name = 5 ;
 }
-message AiBehaviorTree {
-     int32 id = 1 ;
-     string name = 2 ;
-     string desc = 3 ;
-     string blackboard_id = 4 ;
-     AiComposeNode root = 5 ;
+message AiKeyData {
+    oneof value {
+        AiFloatKeyData FloatKeyData = 1;
+        AiIntKeyData IntKeyData = 2;
+        AiStringKeyData StringKeyData = 3;
+        AiBlackboardKeyData BlackboardKeyData = 4;
+    }
+}
+message AiBlackboardKeyData {
+     string value = 1 ;
+}
+message AiFloatKeyData {
+     float value = 1 ;
+}
+message AiIntKeyData {
+     int32 value = 1 ;
+}
+message AiStringKeyData {
+     string value = 1 ;
+}
+message AiKeyQueryOperator {
+    oneof value {
+        AiIsSet2 IsSet2 = 1;
+        AiIsNotSet IsNotSet = 2;
+        AiBinaryOperator BinaryOperator = 3;
+    }
+}
+message AiBinaryOperator {
+     AiEOperator oper = 1 ;
+     AiKeyData data = 2 ;
+}
+message AiIsNotSet {
+}
+message AiIsSet2 {
 }
 message AiNode {
     oneof value {
@@ -201,53 +309,6 @@ message AiNode {
         AiDebugPrint DebugPrint = 23;
     }
 }
-message AiService {
-    oneof value {
-        AiUeSetDefaultFocus UeSetDefaultFocus = 1;
-        AiExecuteTimeStatistic ExecuteTimeStatistic = 2;
-        AiChooseTarget ChooseTarget = 3;
-        AiKeepFaceTarget KeepFaceTarget = 4;
-        AiGetOwnerPlayer GetOwnerPlayer = 5;
-        AiUpdateDailyBehaviorProps UpdateDailyBehaviorProps = 6;
-    }
-}
-message AiUeSetDefaultFocus {
-     int32 id = 1 ;
-     string node_name = 2 ;
-     string keyboard_key = 3 ;
-}
-message AiExecuteTimeStatistic {
-     int32 id = 1 ;
-     string node_name = 2 ;
-}
-message AiChooseTarget {
-     int32 id = 1 ;
-     string node_name = 2 ;
-     string result_target_key = 3 ;
-}
-message AiKeepFaceTarget {
-     int32 id = 1 ;
-     string node_name = 2 ;
-     string target_actor_key = 3 ;
-}
-message AiGetOwnerPlayer {
-     int32 id = 1 ;
-     string node_name = 2 ;
-     string player_actor_key = 3 ;
-}
-message AiUpdateDailyBehaviorProps {
-     int32 id = 1 ;
-     string node_name = 2 ;
-     string satiety_key = 3 ;
-     string energy_key = 4 ;
-     string mood_key = 5 ;
-     string satiety_lower_threshold_key = 6 ;
-     string satiety_upper_threshold_key = 7 ;
-     string energy_lower_threshold_key = 8 ;
-     string energy_upper_threshold_key = 9 ;
-     string mood_lower_threshold_key = 10 ;
-     string mood_upper_threshold_key = 11 ;
-}
 message AiDecorator {
     oneof value {
         AiUeLoop UeLoop = 7;
@@ -259,73 +320,14 @@ message AiDecorator {
         AiDistanceLessThan DistanceLessThan = 13;
     }
 }
-message AiUeLoop {
+message AiDistanceLessThan {
      int32 id = 1 ;
      string node_name = 2 ;
      AiEFlowAbortMode flow_abort_mode = 3 ;
-     int32 num_loops = 4 ;
-     bool infinite_loop = 5 ;
-     float infinite_loop_timeout_time = 6 ;
-}
-message AiUeCooldown {
-     int32 id = 1 ;
-     string node_name = 2 ;
-     AiEFlowAbortMode flow_abort_mode = 3 ;
-     float cooldown_time = 4 ;
-}
-message AiUeTimeLimit {
-     int32 id = 1 ;
-     string node_name = 2 ;
-     AiEFlowAbortMode flow_abort_mode = 3 ;
-     float limit_time = 4 ;
-}
-message AiUeBlackboard {
-     int32 id = 1 ;
-     string node_name = 2 ;
-     AiEFlowAbortMode flow_abort_mode = 3 ;
-     AiENotifyObserverMode notify_observer = 4 ;
-     string blackboard_key = 5 ;
-     AiKeyQueryOperator key_query = 6 ;
-}
-message AiKeyQueryOperator {
-    oneof value {
-        AiIsSet2 IsSet2 = 1;
-        AiIsNotSet IsNotSet = 2;
-        AiBinaryOperator BinaryOperator = 3;
-    }
-}
-message AiIsSet2 {
-}
-message AiIsNotSet {
-}
-message AiBinaryOperator {
-     AiEOperator oper = 1 ;
-     AiKeyData data = 2 ;
-}
-message AiKeyData {
-    oneof value {
-        AiFloatKeyData FloatKeyData = 1;
-        AiIntKeyData IntKeyData = 2;
-        AiStringKeyData StringKeyData = 3;
-        AiBlackboardKeyData BlackboardKeyData = 4;
-    }
-}
-message AiFloatKeyData {
-     float value = 1 ;
-}
-message AiIntKeyData {
-     int32 value = 1 ;
-}
-message AiStringKeyData {
-     string value = 1 ;
-}
-message AiBlackboardKeyData {
-     string value = 1 ;
-}
-message AiUeForceSuccess {
-     int32 id = 1 ;
-     string node_name = 2 ;
-     AiEFlowAbortMode flow_abort_mode = 3 ;
+     string actor1_key = 4 ;
+     string actor2_key = 5 ;
+     float distance = 6 ;
+     bool reverse_result = 7 ;
 }
 message AiIsAtLocation {
      int32 id = 1 ;
@@ -335,14 +337,38 @@ message AiIsAtLocation {
      string keyboard_key = 5 ;
      bool inverse_condition = 6 ;
 }
-message AiDistanceLessThan {
+message AiUeBlackboard {
      int32 id = 1 ;
      string node_name = 2 ;
      AiEFlowAbortMode flow_abort_mode = 3 ;
-     string actor1_key = 4 ;
-     string actor2_key = 5 ;
-     float distance = 6 ;
-     bool reverse_result = 7 ;
+     AiENotifyObserverMode notify_observer = 4 ;
+     string blackboard_key = 5 ;
+     AiKeyQueryOperator key_query = 6 ;
+}
+message AiUeCooldown {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+     float cooldown_time = 4 ;
+}
+message AiUeForceSuccess {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+}
+message AiUeLoop {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+     int32 num_loops = 4 ;
+     bool infinite_loop = 5 ;
+     float infinite_loop_timeout_time = 6 ;
+}
+message AiUeTimeLimit {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     AiEFlowAbortMode flow_abort_mode = 3 ;
+     float limit_time = 4 ;
 }
 message AiFlowNode {
     oneof value {
@@ -365,14 +391,14 @@ message AiComposeNode {
         AiSimpleParallel SimpleParallel = 16;
     }
 }
-message AiSequence {
+message AiSelector {
      int32 id = 1 ;
      string node_name = 2 ;
     repeated AiDecorator decorators = 3 [packed = false];
     repeated AiService services = 4 [packed = false];
     repeated AiFlowNode children = 5 [packed = false];
 }
-message AiSelector {
+message AiSequence {
      int32 id = 1 ;
      string node_name = 2 ;
     repeated AiDecorator decorators = 3 [packed = false];
@@ -399,6 +425,49 @@ message AiTask {
         AiDebugPrint DebugPrint = 23;
     }
 }
+message AiChooseSkill {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     string target_actor_key = 6 ;
+     string result_skill_id_key = 7 ;
+}
+message AiDebugPrint {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     string text = 6 ;
+}
+message AiMoveToLocation {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     float acceptable_radius = 6 ;
+}
+message AiMoveToRandomLocation {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     string origin_position_key = 6 ;
+     float radius = 7 ;
+}
+message AiMoveToTarget {
+     int32 id = 1 ;
+     string node_name = 2 ;
+    repeated AiDecorator decorators = 3 [packed = false];
+    repeated AiService services = 4 [packed = false];
+     bool ignore_restart_self = 5 ;
+     string target_actor_key = 6 ;
+     float acceptable_radius = 7 ;
+}
 message AiUeWait {
      int32 id = 1 ;
      string node_name = 2 ;
@@ -416,48 +485,81 @@ message AiUeWaitBlackboardTime {
      bool ignore_restart_self = 5 ;
      string blackboard_key = 6 ;
 }
-message AiMoveToTarget {
-     int32 id = 1 ;
-     string node_name = 2 ;
-    repeated AiDecorator decorators = 3 [packed = false];
-    repeated AiService services = 4 [packed = false];
-     bool ignore_restart_self = 5 ;
-     string target_actor_key = 6 ;
-     float acceptable_radius = 7 ;
+message AiService {
+    oneof value {
+        AiUeSetDefaultFocus UeSetDefaultFocus = 1;
+        AiExecuteTimeStatistic ExecuteTimeStatistic = 2;
+        AiChooseTarget ChooseTarget = 3;
+        AiKeepFaceTarget KeepFaceTarget = 4;
+        AiGetOwnerPlayer GetOwnerPlayer = 5;
+        AiUpdateDailyBehaviorProps UpdateDailyBehaviorProps = 6;
+    }
 }
-message AiChooseSkill {
+message AiChooseTarget {
      int32 id = 1 ;
      string node_name = 2 ;
-    repeated AiDecorator decorators = 3 [packed = false];
-    repeated AiService services = 4 [packed = false];
-     bool ignore_restart_self = 5 ;
-     string target_actor_key = 6 ;
-     string result_skill_id_key = 7 ;
+     string result_target_key = 3 ;
 }
-message AiMoveToRandomLocation {
+message AiExecuteTimeStatistic {
      int32 id = 1 ;
      string node_name = 2 ;
-    repeated AiDecorator decorators = 3 [packed = false];
-    repeated AiService services = 4 [packed = false];
-     bool ignore_restart_self = 5 ;
-     string origin_position_key = 6 ;
-     float radius = 7 ;
 }
-message AiMoveToLocation {
+message AiGetOwnerPlayer {
      int32 id = 1 ;
      string node_name = 2 ;
-    repeated AiDecorator decorators = 3 [packed = false];
-    repeated AiService services = 4 [packed = false];
-     bool ignore_restart_self = 5 ;
-     float acceptable_radius = 6 ;
+     string player_actor_key = 3 ;
 }
-message AiDebugPrint {
+message AiKeepFaceTarget {
      int32 id = 1 ;
      string node_name = 2 ;
-    repeated AiDecorator decorators = 3 [packed = false];
-    repeated AiService services = 4 [packed = false];
-     bool ignore_restart_self = 5 ;
-     string text = 6 ;
+     string target_actor_key = 3 ;
+}
+message AiUeSetDefaultFocus {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     string keyboard_key = 3 ;
+}
+message AiUpdateDailyBehaviorProps {
+     int32 id = 1 ;
+     string node_name = 2 ;
+     string satiety_key = 3 ;
+     string energy_key = 4 ;
+     string mood_key = 5 ;
+     string satiety_lower_threshold_key = 6 ;
+     string satiety_upper_threshold_key = 7 ;
+     string energy_lower_threshold_key = 8 ;
+     string energy_upper_threshold_key = 9 ;
+     string mood_lower_threshold_key = 10 ;
+     string mood_upper_threshold_key = 11 ;
+}
+message AutoImport1 {
+     int32 id = 1 ;
+     bool x1 = 2 ;
+     int64 x5 = 3 ;
+     float x6 = 4 ;
+     int32 x8 = 5 ;
+     string x10 = 6 ;
+     TestDemoEnum x13 = 7 ;
+     TestDemoFlag x13_2 = 8 ;
+     TestDemoDynamic x14 = 9 ;
+     TestShape x15 = 10 ;
+     vec2 v2 = 11 ;
+     int64 t1 = 12 ;
+    repeated int32 k1 = 13 [packed = true];
+    repeated int32 k2 = 14 [packed = true];
+     map<int32, int32> k8 = 15 ;
+    repeated TestDemoE2 k9 = 16 [packed = false];
+    repeated vec3 k10 = 17 [packed = false];
+    repeated vec4 k11 = 18 [packed = false];
+    optional vec3 v11 = 19 ;
+}
+message CommonDateTimeRange {
+    optional int64 start_time = 1 ;
+    optional int64 end_time = 2 ;
+}
+message CommonFloatRange {
+     float min = 1 ;
+     float max = 2 ;
 }
 message CommonGlobalConfig {
      int32 x1 = 1 ;
@@ -467,6 +569,19 @@ message CommonGlobalConfig {
      int32 x5 = 5 ;
      int32 x6 = 6 ;
     repeated int32 x7 = 7 [packed = true];
+}
+message CommonIntRange {
+     int32 min = 1 ;
+     int32 max = 2 ;
+}
+message CommonOneDayTimeRange {
+     CommonTimeOfDay start_time = 1 ;
+     CommonTimeOfDay end_time = 2 ;
+}
+message CommonTimeOfDay {
+     int32 hour = 1 ;
+     int32 minute = 2 ;
+     int32 second = 3 ;
 }
 message ItemItem {
      int32 id = 1 ;
@@ -493,32 +608,68 @@ message TagTestTag {
      int32 id = 1 ;
      string value = 2 ;
 }
-message TestDemoType2 {
-     int32 x4 = 1 ;
+message TestAutoImport2 {
+     int32 id = 1 ;
      bool x1 = 2 ;
-     int32 x2 = 3 ;
-     int32 x3 = 4 ;
-     int64 x5 = 5 ;
-     float x6 = 6 ;
-     double x7 = 7 ;
-     int32 x8_0 = 8 ;
-     int32 x8 = 9 ;
-     int64 x9 = 10 ;
-     string x10 = 11 ;
-     TestDemoType1 x12 = 12 ;
-     TestDemoEnum x13 = 13 ;
-     TestDemoDynamic x14 = 14 ;
-     string s1 = 15 ;
-     int64 t1 = 16 ;
-    repeated int32 k1 = 17 [packed = true];
-    repeated int32 k2 = 18 [packed = true];
-    repeated int32 k5 = 19 [packed = true];
-     map<int32, int32> k8 = 20 ;
-    repeated TestDemoE2 k9 = 21 [packed = false];
-    repeated TestDemoDynamic k15 = 22 [packed = false];
+     int64 x5 = 3 ;
+     float x6 = 4 ;
+     int32 x8 = 5 ;
+     string x10 = 6 ;
+     TestDemoEnum x13 = 7 ;
+     TestDemoFlag x13_2 = 8 ;
+     TestDemoDynamic x14 = 9 ;
+     TestShape x15 = 10 ;
+     vec2 v2 = 11 ;
+     int64 t1 = 12 ;
+    repeated int32 k1 = 13 [packed = true];
+    repeated int32 k2 = 14 [packed = true];
+     map<int32, int32> k8 = 15 ;
+    repeated TestDemoE2 k9 = 16 [packed = false];
+    repeated vec3 k10 = 17 [packed = false];
+    repeated vec4 k11 = 18 [packed = false];
+    optional vec3 v11 = 19 ;
 }
-message TestDemoType1 {
-     int32 x1 = 1 ;
+message TestCompactString {
+     int32 id = 1 ;
+     string s2 = 2 ;
+     string s3 = 3 ;
+}
+message TestCompositeJsonTable1 {
+     int32 id = 1 ;
+     string x = 2 ;
+}
+message TestCompositeJsonTable2 {
+     int32 id = 1 ;
+     int32 y = 2 ;
+}
+message TestCompositeJsonTable3 {
+     int32 a = 1 ;
+     int32 b = 2 ;
+}
+message TestDateTimeRange {
+     int64 start_time = 1 ;
+     int64 end_time = 2 ;
+}
+message TestDefineFromExcel2 {
+     int32 id = 1 ;
+     bool x1 = 2 ;
+     int64 x5 = 3 ;
+     float x6 = 4 ;
+     int32 x8 = 5 ;
+     string x10 = 6 ;
+     TestDemoEnum x13 = 7 ;
+     TestDemoFlag x13_2 = 8 ;
+     TestDemoDynamic x14 = 9 ;
+     TestShape x15 = 10 ;
+     vec2 v2 = 11 ;
+     int64 t1 = 12 ;
+    repeated int32 k1 = 13 [packed = true];
+    repeated int32 k2 = 14 [packed = true];
+     map<int32, int32> k8 = 15 ;
+    repeated TestDemoE2 k9 = 16 [packed = false];
+    repeated vec3 k10 = 17 [packed = false];
+    repeated vec4 k11 = 18 [packed = false];
+    optional vec3 v11 = 19 ;
 }
 message TestDemoDynamic {
     oneof value {
@@ -552,29 +703,144 @@ message TestDemoD5 {
      int32 x1 = 1 ;
      TestDateTimeRange time = 2 ;
 }
-message TestDateTimeRange {
-     int64 start_time = 1 ;
-     int64 end_time = 2 ;
-}
 message TestDemoE2 {
     optional int32 y1 = 1 ;
      bool y2 = 2 ;
+}
+message TestDemoExplicitType {
+     int32 x1 = 1 ;
+     int32 x2 = 2 ;
+     int32 x3 = 3 ;
+     int64 x4 = 4 ;
+     float x5 = 5 ;
+     double x6 = 6 ;
+     int64 x7 = 7 ;
+}
+message TestDemoGroup {
+     int32 id = 1 ;
+     int32 x1 = 2 ;
+     int32 x2 = 3 ;
+     int32 x3 = 4 ;
+     int32 x4 = 5 ;
+     TestInnerGroup x5 = 6 ;
+}
+message TestDemoPrimitiveTypesTable {
+     bool x1 = 1 ;
+     int32 x2 = 2 ;
+     int32 x3 = 3 ;
+     int32 x4 = 4 ;
+     int64 x5 = 5 ;
+     float x6 = 6 ;
+     double x7 = 7 ;
+     string s1 = 8 ;
+     string s2 = 9 ;
+     vec2 v2 = 10 ;
+     vec3 v3 = 11 ;
+     vec4 v4 = 12 ;
+     int64 t1 = 13 ;
 }
 message TestDemoSingletonType {
      int32 id = 1 ;
      string name = 2 ;
      TestDemoDynamic date = 3 ;
 }
-message TestNotIndexList {
-     int32 x = 1 ;
-     int32 y = 2 ;
+message TestDemoType1 {
+     int32 x1 = 1 ;
 }
-message TestMultiUnionIndexList {
-     int32 id1 = 1 ;
-     int64 id2 = 2 ;
-     string id3 = 3 ;
+message TestDemoType2 {
+     int32 x4 = 1 ;
+     bool x1 = 2 ;
+     int32 x2 = 3 ;
+     int32 x3 = 4 ;
+     int64 x5 = 5 ;
+     float x6 = 6 ;
+     double x7 = 7 ;
+     int32 x8_0 = 8 ;
+     int32 x8 = 9 ;
+     int64 x9 = 10 ;
+     string x10 = 11 ;
+     TestDemoType1 x12 = 12 ;
+     TestDemoEnum x13 = 13 ;
+     TestDemoDynamic x14 = 14 ;
+     string s1 = 15 ;
+     int64 t1 = 16 ;
+    repeated int32 k1 = 17 [packed = true];
+    repeated int32 k2 = 18 [packed = true];
+    repeated int32 k5 = 19 [packed = true];
+     map<int32, int32> k8 = 20 ;
+    repeated TestDemoE2 k9 = 21 [packed = false];
+    repeated TestDemoDynamic k15 = 22 [packed = false];
+}
+message TestDetectEncoding {
+     int32 id = 1 ;
+     string name = 2 ;
+}
+message TestExcelFromJson {
+     int32 x4 = 1 ;
+     bool x1 = 2 ;
+     int64 x5 = 3 ;
+     float x6 = 4 ;
+     string s1 = 5 ;
+     string s2 = 6 ;
+     int64 t1 = 7 ;
+     TestDemoType1 x12 = 8 ;
+     TestDemoEnum x13 = 9 ;
+     TestDemoDynamic x14 = 10 ;
+    repeated int32 k1 = 11 [packed = true];
+     map<int32, int32> k8 = 12 ;
+    repeated TestDemoE2 k9 = 13 [packed = false];
+    repeated TestDemoDynamic k15 = 14 [packed = false];
+}
+message TestExcelFromJsonMultiRow {
+     int32 id = 1 ;
+     int32 x = 2 ;
+    repeated TestTestRow items = 3 [packed = false];
+}
+message TestFoo {
+     int32 y1 = 1 ;
+     int32 y2 = 2 ;
+     int32 y3 = 3 ;
+}
+message TestH1 {
+     TestH2 y2 = 1 ;
+     int32 y3 = 2 ;
+}
+message TestH2 {
+     int32 z2 = 1 ;
+     int32 z3 = 2 ;
+}
+message TestInnerGroup {
+     int32 y1 = 1 ;
+     int32 y2 = 2 ;
+     int32 y3 = 3 ;
+     int32 y4 = 4 ;
+}
+message TestItemBase {
+    oneof value {
+        TestItem Item = 1;
+        TestEquipment Equipment = 2;
+        TestDecorator Decorator = 3;
+    }
+}
+message TestDecorator {
+     int32 id = 1 ;
+     string name = 2 ;
+     string desc = 3 ;
+     int32 duration = 4 ;
+}
+message TestEquipment {
+     int32 id = 1 ;
+     string name = 2 ;
+     string desc = 3 ;
+     TestDemoEnum attr = 4 ;
+     int32 value = 5 ;
+}
+message TestItem {
+     int32 id = 1 ;
+     string name = 2 ;
+     string desc = 3 ;
      int32 num = 4 ;
-     string desc = 5 ;
+     int32 price = 5 ;
 }
 message TestMultiIndexList {
      int32 id1 = 1 ;
@@ -594,6 +860,15 @@ message TestMultiRowRecord {
      map<int32, TestMultiRowType2> multi_rows6 = 8 ;
      map<int32, int32> multi_rows7 = 9 ;
 }
+message TestMultiRowTitle {
+     int32 id = 1 ;
+     string name = 2 ;
+     TestH1 x1 = 3 ;
+    optional TestH2 x2_0 = 4 ;
+    repeated TestH2 x2 = 5 [packed = false];
+    repeated TestH2 x3 = 6 [packed = false];
+    repeated TestH2 x4 = 7 [packed = false];
+}
 message TestMultiRowType1 {
      int32 id = 1 ;
      int32 x = 2 ;
@@ -607,33 +882,97 @@ message TestMultiRowType3 {
      int32 id = 1 ;
     repeated TestMultiRowType1 items = 2 [packed = false];
 }
+message TestMultiUnionIndexList {
+     int32 id1 = 1 ;
+     int64 id2 = 2 ;
+     string id3 = 3 ;
+     int32 num = 4 ;
+     string desc = 5 ;
+}
+message TestNotIndexList {
+     int32 x = 1 ;
+     int32 y = 2 ;
+}
+message TestPath {
+     int32 id = 1 ;
+     string res = 2 ;
+}
+message TestRefDynamicBase {
+    oneof value {
+        TestRefBean RefBean = 1;
+    }
+}
+message TestRefBean {
+     int32 x = 1 ;
+    repeated int32 arr = 2 [packed = true];
+}
+message TestSepBean1 {
+     int32 a = 1 ;
+     int32 b = 2 ;
+     string c = 3 ;
+}
+message TestSepVector {
+     int32 x = 1 ;
+     int32 y = 2 ;
+     int32 z = 3 ;
+}
+message TestShape {
+    oneof value {
+        TestCircle Circle = 1;
+        Test2Rectangle Rectangle = 2;
+    }
+}
+message TestCircle {
+     float radius = 1 ;
+}
+message Test2Rectangle {
+     float width = 1 ;
+     float height = 2 ;
+}
+message TestTest3 {
+     int32 x = 1 ;
+     int32 y = 2 ;
+}
+message TestTestBeRef {
+     int32 id = 1 ;
+     int32 count = 2 ;
+}
+message TestTestExcelBean1 {
+     int32 x1 = 1 ;
+     string x2 = 2 ;
+     int32 x3 = 3 ;
+     float x4 = 4 ;
+}
+message TestTestExcelBean2 {
+     int32 y1 = 1 ;
+     string y2 = 2 ;
+     float y3 = 3 ;
+}
+message TestTestGlobal {
+     int32 unlock_equip = 1 ;
+     int32 unlock_hero = 2 ;
+}
+message TestTestIndex {
+     int32 id = 1 ;
+    repeated TestDemoType1 eles = 2 [packed = false];
+}
+message TestTestMap {
+     int32 id = 1 ;
+     map<int32, int32> x1 = 2 ;
+     map<int64, int32> x2 = 3 ;
+     map<string, int32> x3 = 4 ;
+     map<int32, int32> x4 = 5 ;
+}
+message TestTestMapper {
+     int32 id = 1 ;
+     AudioType audio_type = 2 ;
+     vec2 v2 = 3 ;
+}
 message TestTestMultiColumn {
      int32 id = 1 ;
      TestFoo a = 2 ;
      TestFoo b = 3 ;
      TestFoo c = 4 ;
-}
-message TestFoo {
-     int32 y1 = 1 ;
-     int32 y2 = 2 ;
-     int32 y3 = 3 ;
-}
-message TestMultiRowTitle {
-     int32 id = 1 ;
-     string name = 2 ;
-     TestH1 x1 = 3 ;
-    optional TestH2 x2_0 = 4 ;
-    repeated TestH2 x2 = 5 [packed = false];
-    repeated TestH2 x3 = 6 [packed = false];
-    repeated TestH2 x4 = 7 [packed = false];
-}
-message TestH1 {
-     TestH2 y2 = 1 ;
-     int32 y3 = 2 ;
-}
-message TestH2 {
-     int32 z2 = 1 ;
-     int32 z3 = 2 ;
 }
 message TestTestNull {
      int32 id = 1 ;
@@ -643,55 +982,6 @@ message TestTestNull {
     optional TestDemoDynamic x4 = 5 ;
     optional string s1 = 6 ;
     optional string s2 = 7 ;
-}
-message TestDemoPrimitiveTypesTable {
-     bool x1 = 1 ;
-     int32 x2 = 2 ;
-     int32 x3 = 3 ;
-     int32 x4 = 4 ;
-     int64 x5 = 5 ;
-     float x6 = 6 ;
-     double x7 = 7 ;
-     string s1 = 8 ;
-     string s2 = 9 ;
-     vec2 v2 = 10 ;
-     vec3 v3 = 11 ;
-     vec4 v4 = 12 ;
-     int64 t1 = 13 ;
-}
-message TestTestString {
-     string id = 1 ;
-     string s1 = 2 ;
-     string s2 = 3 ;
-     TestCompactString cs1 = 4 ;
-     TestCompactString cs2 = 5 ;
-}
-message TestCompactString {
-     int32 id = 1 ;
-     string s2 = 2 ;
-     string s3 = 3 ;
-}
-message TestDemoGroup {
-     int32 id = 1 ;
-     int32 x1 = 2 ;
-     int32 x2 = 3 ;
-     int32 x3 = 4 ;
-     int32 x4 = 5 ;
-     TestInnerGroup x5 = 6 ;
-}
-message TestInnerGroup {
-     int32 y1 = 1 ;
-     int32 y2 = 2 ;
-     int32 y3 = 3 ;
-     int32 y4 = 4 ;
-}
-message TestTestGlobal {
-     int32 unlock_equip = 1 ;
-     int32 unlock_hero = 2 ;
-}
-message TestTestBeRef {
-     int32 id = 1 ;
-     int32 count = 2 ;
 }
 message TestTestRef {
      int32 id = 1 ;
@@ -716,115 +1006,12 @@ message TestTestRef {
      string f3 = 20 ;
      TestRefDynamicBase s1 = 21 ;
 }
-message TestRefDynamicBase {
-    oneof value {
-        TestRefBean RefBean = 1;
-    }
-}
-message TestRefBean {
-     int32 x = 1 ;
-    repeated int32 arr = 2 [packed = true];
-}
-message TestTestSize {
-     int32 id = 1 ;
-    repeated int32 x1 = 2 [packed = true];
-    repeated int32 x2 = 3 [packed = true];
-    repeated int32 x3 = 4 [packed = true];
-     map<int32, int32> x4 = 5 ;
-}
-message TestTestSet {
-     int32 id = 1 ;
-     string x0 = 2 ;
-    repeated int32 x1 = 3 [packed = true];
-    repeated int64 x2 = 4 [packed = true];
-    repeated string x3 = 5 [packed = false];
-    repeated TestDemoEnum x4 = 6 [packed = false];
-}
-message TestDetectEncoding {
-     int32 id = 1 ;
-     string name = 2 ;
-}
-message TestItemBase {
-    oneof value {
-        TestItem Item = 1;
-        TestEquipment Equipment = 2;
-        TestDecorator Decorator = 3;
-    }
-}
-message TestItem {
-     int32 id = 1 ;
-     string name = 2 ;
-     string desc = 3 ;
-     int32 num = 4 ;
-     int32 price = 5 ;
-}
-message TestEquipment {
-     int32 id = 1 ;
-     string name = 2 ;
-     string desc = 3 ;
-     TestDemoEnum attr = 4 ;
-     int32 value = 5 ;
-}
-message TestDecorator {
-     int32 id = 1 ;
-     string name = 2 ;
-     string desc = 3 ;
-     int32 duration = 4 ;
-}
-message TestTestIndex {
-     int32 id = 1 ;
-    repeated TestDemoType1 eles = 2 [packed = false];
-}
-message TestTestMap {
-     int32 id = 1 ;
-     map<int32, int32> x1 = 2 ;
-     map<int64, int32> x2 = 3 ;
-     map<string, int32> x3 = 4 ;
-     map<int32, int32> x4 = 5 ;
-}
-message TestExcelFromJson {
-     int32 x4 = 1 ;
-     bool x1 = 2 ;
-     int64 x5 = 3 ;
-     float x6 = 4 ;
-     string s1 = 5 ;
-     string s2 = 6 ;
-     int64 t1 = 7 ;
-     TestDemoType1 x12 = 8 ;
-     TestDemoEnum x13 = 9 ;
-     TestDemoDynamic x14 = 10 ;
-    repeated int32 k1 = 11 [packed = true];
-     map<int32, int32> k8 = 12 ;
-    repeated TestDemoE2 k9 = 13 [packed = false];
-    repeated TestDemoDynamic k15 = 14 [packed = false];
-}
-message TestCompositeJsonTable1 {
-     int32 id = 1 ;
-     string x = 2 ;
-}
-message TestCompositeJsonTable2 {
-     int32 id = 1 ;
-     int32 y = 2 ;
-}
-message TestCompositeJsonTable3 {
-     int32 a = 1 ;
-     int32 b = 2 ;
-}
-message TestExcelFromJsonMultiRow {
-     int32 id = 1 ;
-     int32 x = 2 ;
-    repeated TestTestRow items = 3 [packed = false];
-}
 message TestTestRow {
      int32 x = 1 ;
      bool y = 2 ;
      string z = 3 ;
      TestTest3 a = 4 ;
     repeated int32 b = 5 [packed = true];
-}
-message TestTest3 {
-     int32 x = 1 ;
-     int32 y = 2 ;
 }
 message TestTestScriptableObject {
      int32 id = 1 ;
@@ -835,48 +1022,59 @@ message TestTestScriptableObject {
      vec3 v3 = 6 ;
      vec4 v4 = 7 ;
 }
-message TestPath {
+message TestTestSet {
      int32 id = 1 ;
-     string res = 2 ;
+     string x0 = 2 ;
+    repeated int32 x1 = 3 [packed = true];
+    repeated int64 x2 = 4 [packed = true];
+    repeated string x3 = 5 [packed = false];
+    repeated TestDemoEnum x4 = 6 [packed = false];
 }
-message TestTestMapper {
+message TestTestSize {
      int32 id = 1 ;
-     AudioType audio_type = 2 ;
-     vec2 v2 = 3 ;
+    repeated int32 x1 = 2 [packed = true];
+    repeated int32 x2 = 3 [packed = true];
+    repeated int32 x3 = 4 [packed = true];
+     map<int32, int32> x4 = 5 ;
 }
-message DefineFromExcel2 {
-     int32 id = 1 ;
-     bool x1 = 2 ;
-     int64 x5 = 3 ;
-     float x6 = 4 ;
-     int32 x8 = 5 ;
-     string x10 = 6 ;
-     TestDemoEnum x13 = 7 ;
-     TestDemoFlag x13_2 = 8 ;
-     TestDemoDynamic x14 = 9 ;
-     TestShape x15 = 10 ;
-     vec2 v2 = 11 ;
-     int64 t1 = 12 ;
-    repeated int32 k1 = 13 [packed = true];
-    repeated int32 k2 = 14 [packed = true];
-     map<int32, int32> k8 = 15 ;
-    repeated TestDemoE2 k9 = 16 [packed = false];
-    repeated vec3 k10 = 17 [packed = false];
-    repeated vec4 k11 = 18 [packed = false];
-    optional vec3 v11 = 19 ;
+message TestTestString {
+     string id = 1 ;
+     string s1 = 2 ;
+     string s2 = 3 ;
+     TestCompactString cs1 = 4 ;
+     TestCompactString cs2 = 5 ;
 }
-message TestShape {
-    oneof value {
-        TestCircle Circle = 1;
-        Test2Rectangle Rectangle = 2;
-    }
+message TestTestUeType {
+     bool x1 = 1 ;
+     int32 x2 = 2 ;
+     int32 x3 = 3 ;
+     int32 x4 = 4 ;
+     int64 x5 = 5 ;
+     float x6 = 6 ;
+     string x10 = 7 ;
+     TestDemoType1 x12 = 8 ;
+     TestETestUeType x13 = 9 ;
+     int64 t1 = 10 ;
+    repeated int32 k1 = 11 [packed = true];
+    repeated int32 k2 = 12 [packed = true];
+    repeated int32 k5 = 13 [packed = true];
+     map<int32, int32> k8 = 14 ;
+    repeated TestDemoE2 k9 = 15 [packed = false];
 }
-message TestCircle {
-     float radius = 1 ;
+message vec2 {
+     float x = 1 ;
+     float y = 2 ;
 }
-message Test2Rectangle {
-     float width = 1 ;
-     float height = 2 ;
+message vec3 {
+     float x = 1 ;
+     float y = 2 ;
+     float z = 3 ;
+}
+message vec4 {
+     float x = 1 ;
+     float y = 2 ;
+     float z = 3 ;
+     float w = 4 ;
 }
 
 message AiTbBlackboard {
@@ -1003,7 +1201,13 @@ message TestTbTestMapper {
     repeated TestTestMapper data_list = 1 [packed = false];
 }
 message TestTbDefineFromExcel2 {
-    repeated DefineFromExcel2 data_list = 1 [packed = false];
+    repeated TestDefineFromExcel2 data_list = 1 [packed = false];
+}
+message TbAutoImport1 {
+    repeated AutoImport1 data_list = 1 [packed = false];
+}
+message TestTbAutoImport2 {
+    repeated TestAutoImport2 data_list = 1 [packed = false];
 }
 
 
