@@ -509,6 +509,19 @@
     </bean>
     <table name="TbPath" value="Path" input="test/path.xlsx"/>
 
+    <bean name="TestFieldAlias">
+        <var name="id" type="int"/>
+        <var name="name" type="string" alias="name2"/>
+    </bean>
+    <table name="TbTestFieldAlias" value="TestFieldAlias" input="test/field_alias"/>
+
+    <bean name="TestFieldVariant">
+        <var name="id" type="int"/>
+        <var name="name" type="string" variants="zh,en"/>
+    </bean>
+    <table name="TbTestFieldVariant" value="TestFieldVariant" input="test/field_variant"/>
+    <table name="TbTestFieldVariant2" value="TestFieldVariant2" readSchemaFromFile="1" input="test/field_variant2.xlsx"/>
+
     <!--table name="TbMultiDimensionCollection" value="MultiDimensitionCollection" readSchemaFromFile="1" input="test/multi_dimension.xlsx"/-->
  
     <!--table name="TbTestExternalType" value="TestExternalType" define_from_file="1" input="test/external_type.xlsx"/-->
