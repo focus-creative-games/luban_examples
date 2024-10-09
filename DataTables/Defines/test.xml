@@ -367,6 +367,23 @@
         <var name="x4" type="list,DemoEnum#set=A,B"/>
     </bean>
     <table name="TbTestSet" value="TestSet" input="test/test_set.xlsx"/>
+
+    <bean name="TestRange">
+        <var name="id" type="int"/>
+        <var name="f1" type="float#(range=[1.1, 2.2])"/>
+        <var name="f2" type="float#(range=[0.01, 0.02])"/>
+        <var name="d1" type="double#(range=[1.1, 2.2])"/>
+        <var name="d2" type="double#(range=[0.01, 0.02])"/>
+        <var name="i1" type="int#(range=[1, 10])"/>
+        <var name="i2" type="int#(range=(1, 10])"/>
+        <var name="i3" type="int#(range=(1, 10))"/>
+        <var name="i4" type="int#(range=[1, 10))"/>
+        <var name="l1" type="long#(range=[1, 10])"/>
+        <var name="l2" type="long#(range=(1, 10])"/>
+        <var name="l3" type="long#(range=(1, 10))"/>
+        <var name="l4" type="long#(range=[1, 10))"/>
+    </bean>
+    <table name="TbTestRange" value="TestRange" input="test/test_range.xlsx"/>
     
     <bean name="DetectEncoding">
         <var name="id" type="int"/>
