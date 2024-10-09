@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace editor.cfg
+namespace cfg
 {
     public enum AudioType
     {

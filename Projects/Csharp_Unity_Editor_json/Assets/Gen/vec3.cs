@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using SimpleJSON;
 using Luban;
 
-namespace editor.cfg
+namespace cfg
 {
 
 public sealed class vec3 :  Luban.EditorBeanBase 
@@ -82,3 +82,4 @@ public sealed class vec3 :  Luban.EditorBeanBase
 }
 
 }
+

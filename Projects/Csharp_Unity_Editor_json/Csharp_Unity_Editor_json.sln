@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luban.Runtime", "Luban.Runt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luban.Editor", "Luban.Editor.csproj", "{864617EB-2599-3432-5851-9CFB0F5268FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{6A74595F-DA90-2725-E9BA-7EE6224FDDCF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +25,6 @@ Global
 		{864617EB-2599-3432-5851-9CFB0F5268FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{864617EB-2599-3432-5851-9CFB0F5268FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{864617EB-2599-3432-5851-9CFB0F5268FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A74595F-DA90-2725-E9BA-7EE6224FDDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A74595F-DA90-2725-E9BA-7EE6224FDDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A74595F-DA90-2725-E9BA-7EE6224FDDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A74595F-DA90-2725-E9BA-7EE6224FDDCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
