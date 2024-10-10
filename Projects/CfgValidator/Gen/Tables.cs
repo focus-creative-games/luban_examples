@@ -46,6 +46,7 @@ public partial class Tables
     public test.TbTestRef TbTestRef {get; }
     public test.TbTestSize TbTestSize {get; }
     public test.TbTestSet TbTestSet {get; }
+    public test.TbTestRange TbTestRange {get; }
     public test.TbDetectCsvEncoding TbDetectCsvEncoding {get; }
     public test.TbItem2 TbItem2 {get; }
     public test.TbTestIndex TbTestIndex {get; }
@@ -57,8 +58,13 @@ public partial class Tables
     public test.TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow {get; }
     public test.TbTestScriptableObject TbTestScriptableObject {get; }
     public test.TbPath TbPath {get; }
+    public test.TbTestFieldAlias TbTestFieldAlias {get; }
+    public test.TbTestFieldVariant TbTestFieldVariant {get; }
+    public test.TbTestFieldVariant2 TbTestFieldVariant2 {get; }
     public test.TbTestMapper TbTestMapper {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
+    public TbAutoImport1 TbAutoImport1 {get; }
+    public test.TbAutoImport2 TbAutoImport2 {get; }
 
     public Tables(System.Func<string, JsonElement> loader)
     {
@@ -91,6 +97,7 @@ public partial class Tables
         TbTestRef = new test.TbTestRef(loader("test_tbtestref"));
         TbTestSize = new test.TbTestSize(loader("test_tbtestsize"));
         TbTestSet = new test.TbTestSet(loader("test_tbtestset"));
+        TbTestRange = new test.TbTestRange(loader("test_tbtestrange"));
         TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader("test_tbdetectcsvencoding"));
         TbItem2 = new test.TbItem2(loader("test_tbitem2"));
         TbTestIndex = new test.TbTestIndex(loader("test_tbtestindex"));
@@ -102,8 +109,13 @@ public partial class Tables
         TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader("test_tbexcelfromjsonmultirow"));
         TbTestScriptableObject = new test.TbTestScriptableObject(loader("test_tbtestscriptableobject"));
         TbPath = new test.TbPath(loader("test_tbpath"));
+        TbTestFieldAlias = new test.TbTestFieldAlias(loader("test_tbtestfieldalias"));
+        TbTestFieldVariant = new test.TbTestFieldVariant(loader("test_tbtestfieldvariant"));
+        TbTestFieldVariant2 = new test.TbTestFieldVariant2(loader("test_tbtestfieldvariant2"));
         TbTestMapper = new test.TbTestMapper(loader("test_tbtestmapper"));
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test_tbdefinefromexcel2"));
+        TbAutoImport1 = new TbAutoImport1(loader("tbautoimport1"));
+        TbAutoImport2 = new test.TbAutoImport2(loader("test_tbautoimport2"));
         ResolveRef();
     }
     
@@ -138,6 +150,7 @@ public partial class Tables
         TbTestRef.ResolveRef(this);
         TbTestSize.ResolveRef(this);
         TbTestSet.ResolveRef(this);
+        TbTestRange.ResolveRef(this);
         TbDetectCsvEncoding.ResolveRef(this);
         TbItem2.ResolveRef(this);
         TbTestIndex.ResolveRef(this);
@@ -149,8 +162,13 @@ public partial class Tables
         TbExcelFromJsonMultiRow.ResolveRef(this);
         TbTestScriptableObject.ResolveRef(this);
         TbPath.ResolveRef(this);
+        TbTestFieldAlias.ResolveRef(this);
+        TbTestFieldVariant.ResolveRef(this);
+        TbTestFieldVariant2.ResolveRef(this);
         TbTestMapper.ResolveRef(this);
         TbDefineFromExcel2.ResolveRef(this);
+        TbAutoImport1.ResolveRef(this);
+        TbAutoImport2.ResolveRef(this);
     }
 }
 

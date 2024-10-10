@@ -23,6 +23,7 @@ public sealed partial class Item : Luban.BeanBase
         Name = _buf.ReadString();
         MajorType = (item.EMajorType)_buf.ReadInt();
         MinorType = (item.EMinorType)_buf.ReadInt();
+        MaxPileNum = _buf.ReadInt();
         Quality = (item.EItemQuality)_buf.ReadInt();
         Icon = _buf.ReadString();
         IconBackgroud = _buf.ReadString();
@@ -43,6 +44,7 @@ public sealed partial class Item : Luban.BeanBase
     public readonly string Name;
     public readonly item.EMajorType MajorType;
     public readonly item.EMinorType MinorType;
+    public readonly int MaxPileNum;
     public readonly item.EItemQuality Quality;
     public readonly string Icon;
     public readonly string IconBackgroud;
@@ -64,6 +66,7 @@ public sealed partial class Item : Luban.BeanBase
         + "name:" + Name + ","
         + "majorType:" + MajorType + ","
         + "minorType:" + MinorType + ","
+        + "maxPileNum:" + MaxPileNum + ","
         + "quality:" + Quality + ","
         + "icon:" + Icon + ","
         + "iconBackgroud:" + IconBackgroud + ","

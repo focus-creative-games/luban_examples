@@ -32,8 +32,6 @@ public partial struct vec2
 
     public  void ResolveRef(Tables tables)
     {
-        
-        
     }
 
     public override string ToString()
@@ -46,3 +44,4 @@ public partial struct vec2
 }
 
 }
+
