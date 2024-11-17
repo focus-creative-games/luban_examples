@@ -20,13 +20,11 @@ pub struct RoleInfo {
 }
 
 impl RoleInfo{
-    pub fn new(json: &serde_json::Value) -> Result<RoleInfo, LubanError> {
+    pub fn new(json: &serde_json::Value) -> Result<DemoDynamic, LubanError> {
         let x1 = (json["x1"].as_i64().unwrap() as i32);
         let x3 = (json["x3"].as_i64().unwrap() as i32);
         let role_id = json["role_id"].as_i64().unwrap();
         
-        Ok(RoleInfo { x1, x3, role_id, })
+        Ok(DemoDynamic::RoleInfo(RoleInfo { x1, x3, role_id, }))
     }
 }
-
-

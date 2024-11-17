@@ -108,5 +108,3 @@ impl std::ops::Index<i32> for TbPatchDemo {
         &self.data_map.get(&index).unwrap()
     }
 }
-
-

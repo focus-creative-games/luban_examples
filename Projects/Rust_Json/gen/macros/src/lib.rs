@@ -18,7 +18,7 @@ pub fn base_try_from(item: TokenStream) -> TokenStream {
 
     let expanded = quote! {
         impl<'a> TryFrom<&'a AbstractBase> for &'a #ty_name {
-            type Error = String;
+            type Error = LubanError;
 
             fn try_from(value: &'a AbstractBase) -> Result<Self, Self::Error> {
                 let r = value.downcast_ref::<#ty_name>();
@@ -26,7 +26,7 @@ pub fn base_try_from(item: TokenStream) -> TokenStream {
                     return Ok(v);
                 }
 
-                Err(concat!("can not into to ", stringify!(#ty_name)).to_string())
+                Err(Self::Error::Polymorphic(concat!("can not into to ", stringify!(#ty_name)).to_string()))
             }
         }
     };
@@ -53,7 +53,8 @@ pub fn enum_from_num(input: TokenStream) -> TokenStream {
         format_ident!("f64"),
         format_ident!("f32"),
     ];
-    quote! {
+    
+    let expanded = quote! {
         #(
             impl From<#tokens> for #ty_name {
                 fn from(value: #tokens) -> Self {
@@ -61,5 +62,7 @@ pub fn enum_from_num(input: TokenStream) -> TokenStream {
                 }
             }            
         )*
-    }.into()
+    };
+
+    TokenStream::from(expanded)
 }

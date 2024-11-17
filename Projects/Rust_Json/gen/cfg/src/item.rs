@@ -311,5 +311,3 @@ impl std::ops::Index<i32> for TbItem {
         &self.data_map.get(&index).unwrap()
     }
 }
-
-
