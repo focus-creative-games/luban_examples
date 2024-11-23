@@ -39,7 +39,8 @@ namespace Luban
 
         public static string CollectionToString<TK, TV>(IDictionary<TK, TV> dic)
         {
-            var sb = new StringBuilder('{');
+            var sb = new StringBuilder();
+            sb.Append('{');
             foreach (var e in dic)
             {
                 sb.Append(e.Key).Append(':');
