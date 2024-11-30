@@ -104,7 +104,7 @@ impl ByteBuf {
         }
         if h < 0xf0 {
             self.ensure_read(4);
-            let x = ((h & 0x0f)<< 24) | ((self.bytes[self.reader_index + 1] as u32) << 16) | ((self.bytes[self.reader_index + 2] as u32) << 8) | (self.bytes[self.reader_index + 3] as u32);
+            let x = ((h & 0x0f) << 24) | ((self.bytes[self.reader_index + 1] as u32) << 16) | ((self.bytes[self.reader_index + 2] as u32) << 8) | (self.bytes[self.reader_index + 3] as u32);
             self.reader_index += 4;
             return x;
         } else {
@@ -187,37 +187,40 @@ impl ByteBuf {
     pub fn read_float(&mut self) -> f32 {
         self.ensure_read(4);
         let b = &self.bytes[self.reader_index] as *const u8;
-        let mut x = 0_f32;
+        let mut x = UnsafeCell::new(0_f32);
         unsafe {
             if (b as u64) % 8 == 0 {
-                x = *(b as *const f32)
+                *x.get() = *(b as *const f32)
             } else {
-                let c = UnsafeCell::new(x);
-                *(c.get() as *mut u32) = (*b.offset(0) as u32) | ((*b.offset(1) as u32) << 8) | ((*b.offset(2) as u32) << 16) | ((*b.offset(3) as u32) << 24);
+                let a1 = (*b.offset(0) as u32);
+                let a2 = ((*b.offset(1) as u32) << 8);
+                let a3 = ((*b.offset(2) as u32) << 16);
+                let a4 = ((*b.offset(3) as u32) << 24);
+                let a5 = (a1 | a2 | a3 | a4);
+                *x.get() = *(Box::into_raw(Box::new(a5)) as *const f32);
             }
         }
 
         self.reader_index += 4;
-        return x;
+        return x.into_inner();
     }
 
     pub fn read_double(&mut self) -> f64 {
         self.ensure_read(8);
         let b = &self.bytes[self.reader_index] as *const u8;
-        let mut x = 0_f64;
+        let mut x = UnsafeCell::new(0_f64);
         unsafe {
             if (b as u64) % 8 == 0 {
-                x = *(b as *const f64)
+                *x.get() = *(b as *const f64)
             } else {
                 let low = (*b.offset(0) as u64) | ((*b.offset(1) as u64) << 8) | ((*b.offset(2) as u64) << 16) | ((*b.offset(3) as u64) << 24);
                 let high = (*b.offset(4) as u64) | ((*b.offset(5) as u64) << 8) | ((*b.offset(6) as u64) << 16) | ((*b.offset(7) as u64) << 24);
-                let c = UnsafeCell::new(x);
-                *(c.get() as *mut u64) = ((high) << 32) | (low)
+                *x.get() = *(Box::into_raw(Box::new(((high) << 32) | (low))) as *const f64);
             }
         }
 
         self.reader_index += 8;
-        return x;
+        return x.into_inner();
     }
 
     pub fn read_size(&mut self) -> usize {
