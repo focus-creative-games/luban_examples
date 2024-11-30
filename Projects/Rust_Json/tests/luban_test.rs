@@ -49,26 +49,15 @@ pub fn test_flags() {
 
 #[test]
 pub fn test_polymorphic() {
-    // let row = TABLES.TbFullTypes.get(&30).unwrap().clone();
-    // println!("{:?}", row);
-    // assert!(row.x14.is::<DemoD2>());
-    // let a = DemoD2::try_from(&row.x14).unwrap();
-    // let item: &dyn DemoDynamic = row.x14.get_base().unwrap();
-    // assert_eq!(*item.get_x1(), 1);
+    let row = TABLES.TbFullTypes.get(&30).unwrap().clone();
+    println!("{:?}", row);
+    assert!(row.x14.is::<DemoD2>());
+    let item: &dyn TDemoDynamic = row.x14.get_base().unwrap();
+    assert_eq!(*item.get_x1(), 1);
 }
 
 #[test]
 pub fn test_array(){
     let row = TABLES.TbFullTypes.data_list[0].clone();
     println!("{:?}", row.k1)
-}
-
-#[test]
-pub fn test_ref(){
-    let row = TABLES.TbTestRef.data_list[0].clone();
-    println!("{:?}", row.s1);
-    let row = TABLES.TbTestRef.data_list[1].clone();
-    println!("{:?}", row.s1);
-    let row = TABLES.TbTestRef.data_list[2].clone();
-    println!("{:?}", row.s1);
 }

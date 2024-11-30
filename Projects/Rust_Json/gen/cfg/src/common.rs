@@ -52,3 +52,5 @@ impl TbGlobalConfig {
         Ok(std::sync::Arc::new(TbGlobalConfig { data }))
     }
 }
+
+
