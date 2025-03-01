@@ -9,6 +9,9 @@
 
 enum AccessFlag
 {
+    None(0),
+
+
     WRITE(1)  ,
 
     READ(2)  ,
@@ -25,7 +28,7 @@ enum AccessFlag
 
     static AccessFlag fromValue(int value)
     {
-       return AccessFlag.values.firstWhere((element) => element.value == value);
+       return AccessFlag.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

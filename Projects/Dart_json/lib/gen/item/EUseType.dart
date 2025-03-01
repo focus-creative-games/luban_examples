@@ -9,6 +9,8 @@
 
 enum EUseType
 {
+
+
     //手动
     MANUAL(0)  ,
 
@@ -21,7 +23,7 @@ enum EUseType
 
     static EUseType fromValue(int value)
     {
-       return EUseType.values.firstWhere((element) => element.value == value);
+       return EUseType.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

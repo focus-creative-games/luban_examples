@@ -10,6 +10,8 @@
 //道具品质
 enum EItemQuality
 {
+
+
     //白
     WHITE(0)  ,
 
@@ -31,7 +33,7 @@ enum EItemQuality
 
     static EItemQuality fromValue(int value)
     {
-       return EItemQuality.values.firstWhere((element) => element.value == value);
+       return EItemQuality.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

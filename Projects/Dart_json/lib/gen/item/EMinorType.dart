@@ -9,6 +9,9 @@
 
 enum EMinorType
 {
+    None(0),
+
+
     //钻石
     DIAMOND(101)  ,
 
@@ -162,7 +165,7 @@ enum EMinorType
 
     static EMinorType fromValue(int value)
     {
-       return EMinorType.values.firstWhere((element) => element.value == value);
+       return EMinorType.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

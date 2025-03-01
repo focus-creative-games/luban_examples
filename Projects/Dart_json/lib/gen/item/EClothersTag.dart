@@ -9,6 +9,9 @@
 
 enum EClothersTag
 {
+    None(0),
+
+
     //防晒
     FANG_SHAI(1)  ,
 
@@ -21,7 +24,7 @@ enum EClothersTag
 
     static EClothersTag fromValue(int value)
     {
-       return EClothersTag.values.firstWhere((element) => element.value == value);
+       return EClothersTag.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

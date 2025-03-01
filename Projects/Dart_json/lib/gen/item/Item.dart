@@ -23,15 +23,15 @@ import '/gen/item/EItemQuality.dart';
     {
     required this.id,
     required this.name,
-    required this.majorType,
-    required this.minorType,
-    required this.maxPileNum,
+    required this.major_type,
+    required this.minor_type,
+    required this.max_pile_num,
     required this.quality,
     required this.icon,
-    required this.iconBackgroud,
-    required this.iconMask,
+    required this.icon_backgroud,
+    required this.icon_mask,
     required this.desc,
-    required this.showOrder,
+    required this.show_order,
     }
     );
 
@@ -40,51 +40,51 @@ import '/gen/item/EItemQuality.dart';
         id = _buf['id'] as int;
         final name;
         name = _buf['name'] as String;
-        final majorType;
-        majorType = EMajorType.fromValue(_buf['major_type']);
-        final minorType;
-        minorType = EMinorType.fromValue(_buf['minor_type']);
-        final maxPileNum;
-        maxPileNum = _buf['max_pile_num'] as int;
+        final major_type;
+        major_type = EMajorType.fromValue(_buf['major_type']);
+        final minor_type;
+        minor_type = EMinorType.fromValue(_buf['minor_type']);
+        final max_pile_num;
+        max_pile_num = _buf['max_pile_num'] as int;
         final quality;
         quality = EItemQuality.fromValue(_buf['quality']);
         final icon;
         icon = _buf['icon'] as String;
-        final iconBackgroud;
-        iconBackgroud = _buf['icon_backgroud'] as String;
-        final iconMask;
-        iconMask = _buf['icon_mask'] as String;
+        final icon_backgroud;
+        icon_backgroud = _buf['icon_backgroud'] as String;
+        final icon_mask;
+        icon_mask = _buf['icon_mask'] as String;
         final desc;
         desc = _buf['desc'] as String;
-        final showOrder;
-        showOrder = _buf['show_order'] as int;
+        final show_order;
+        show_order = _buf['show_order'] as int;
         return Item(
             id:id,
             name:name,
-            majorType:majorType,
-            minorType:minorType,
-            maxPileNum:maxPileNum,
+            major_type:major_type,
+            minor_type:minor_type,
+            max_pile_num:max_pile_num,
             quality:quality,
             icon:icon,
-            iconBackgroud:iconBackgroud,
-            iconMask:iconMask,
+            icon_backgroud:icon_backgroud,
+            icon_mask:icon_mask,
             desc:desc,
-            showOrder:showOrder,
+            show_order:show_order,
        );
     }
 
     //道具id
     final int id;
     final String name;
-    final EMajorType majorType;
-    final EMinorType minorType;
-    final int maxPileNum;
+    final EMajorType major_type;
+    final EMinorType minor_type;
+    final int max_pile_num;
     final EItemQuality quality;
     final String icon;
-    final String iconBackgroud;
-    final String iconMask;
+    final String icon_backgroud;
+    final String icon_mask;
     final String desc;
-    final int showOrder;
+    final int show_order;
     static final int __ID__ = 2107285806;
      
     void resolveRef(Tables tables)
@@ -94,7 +94,7 @@ import '/gen/item/EItemQuality.dart';
 
     @override
     String toString() {
-        return 'Item(id:$id, name:$name, majorType:$majorType, minorType:$minorType, maxPileNum:$maxPileNum, quality:$quality, icon:$icon, iconBackgroud:$iconBackgroud, iconMask:$iconMask, desc:$desc, showOrder:$showOrder, )';
+        return 'Item(id:$id, name:$name, major_type:$major_type, minor_type:$minor_type, max_pile_num:$max_pile_num, quality:$quality, icon:$icon, icon_backgroud:$icon_backgroud, icon_mask:$icon_mask, desc:$desc, show_order:$show_order, )';
     }
 }
 

@@ -9,6 +9,9 @@
 
 enum EClothersStarQualityType
 {
+    None(0),
+
+
     //一星
     ONE(1)  ,
 
@@ -45,7 +48,7 @@ enum EClothersStarQualityType
 
     static EClothersStarQualityType fromValue(int value)
     {
-       return EClothersStarQualityType.values.firstWhere((element) => element.value == value);
+       return EClothersStarQualityType.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

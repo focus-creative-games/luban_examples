@@ -9,6 +9,8 @@
 
 enum EClothesHidePartType
 {
+
+
     //胸部
     CHEST(0)  ,
 
@@ -39,7 +41,7 @@ enum EClothesHidePartType
 
     static EClothesHidePartType fromValue(int value)
     {
-       return EClothesHidePartType.values.firstWhere((element) => element.value == value);
+       return EClothesHidePartType.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

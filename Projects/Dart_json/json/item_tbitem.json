@@ -154,5 +154,57 @@
     "icon_mask": "",
     "desc": "初始发饰",
     "show_order": 12
+  },
+  {
+    "id": 1022490000,
+    "name": "测试数据-包子",
+    "major_type": 4,
+    "minor_type": 403,
+    "max_pile_num": 100,
+    "quality": 2,
+    "icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "包子",
+    "show_order": 29
+  },
+  {
+    "id": 1022490001,
+    "name": "测试数据-铲子",
+    "major_type": 4,
+    "minor_type": 424,
+    "max_pile_num": 1,
+    "quality": 3,
+    "icon": "/Game/UI/UIText/UI_TestIcon_1.UI_TestIcon_1",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "一把铲子",
+    "show_order": 30
+  },
+  {
+    "id": 1021490001,
+    "name": "测试数据-不要动",
+    "major_type": 2,
+    "minor_type": 278,
+    "max_pile_num": 1,
+    "quality": 0,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0090FE_01_png.S0090FE_01_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始手持物",
+    "show_order": 19
+  },
+  {
+    "id": 1022490002,
+    "name": "测试数据-不要动",
+    "major_type": 2,
+    "minor_type": 290,
+    "max_pile_num": 1,
+    "quality": 2,
+    "icon": "/Game/UI/UIText/IocnResource/Frames/S0090D_png.S0090D_png",
+    "icon_backgroud": "",
+    "icon_mask": "",
+    "desc": "初始套装",
+    "show_order": 26
   }
 ]

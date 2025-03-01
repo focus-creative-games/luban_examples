@@ -9,6 +9,9 @@
 
 enum EClothesPropertyType
 {
+    None(0),
+
+
     //简约
     JIAN_YUE(1)  ,
 
@@ -45,7 +48,7 @@ enum EClothesPropertyType
 
     static EClothesPropertyType fromValue(int value)
     {
-       return EClothesPropertyType.values.firstWhere((element) => element.value == value);
+       return EClothesPropertyType.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

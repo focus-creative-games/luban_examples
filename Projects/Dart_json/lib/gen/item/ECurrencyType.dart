@@ -9,6 +9,9 @@
 
 enum ECurrencyType
 {
+    None(0),
+
+
     //钻石
     DIAMOND(1)  ,
 
@@ -30,7 +33,7 @@ enum ECurrencyType
 
     static ECurrencyType fromValue(int value)
     {
-       return ECurrencyType.values.firstWhere((element) => element.value == value);
+       return ECurrencyType.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

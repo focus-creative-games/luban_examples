@@ -9,6 +9,9 @@
 
 enum EMajorType
 {
+    None(0),
+
+
     //货币
     CURRENCY(1)  ,
 
@@ -48,7 +51,7 @@ enum EMajorType
 
     static EMajorType fromValue(int value)
     {
-       return EMajorType.values.firstWhere((element) => element.value == value);
+       return EMajorType.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 

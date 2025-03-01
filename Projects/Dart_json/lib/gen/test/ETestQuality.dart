@@ -7,9 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-//aabb
 enum ETestQuality
 {
+    None(0),
+
+
     //最高品质
     A(1)  ,
 
@@ -28,7 +30,7 @@ enum ETestQuality
 
     static ETestQuality fromValue(int value)
     {
-       return ETestQuality.values.firstWhere((element) => element.value == value);
+       return ETestQuality.values.firstWhere((element) => element.value == value, orElse: () => fromValue(0));
     }
 }
 
