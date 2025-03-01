@@ -21,6 +21,8 @@ import '/gen/Tbtestmulti.dart';
 
 import '/gen/Tbtestref.dart';
 
+import '/gen/Tbtestshape.dart';
+
 final class Tables
 {
     final Future<dynamic> Function(String filePath) _asyncloadFunction;
@@ -34,6 +36,7 @@ final class Tables
     Tbtestlist? _Tbtestlist;
     Tbtestmulti? _Tbtestmulti;
     Tbtestref? _Tbtestref;
+    Tbtestshape? _Tbtestshape;
 
     Future<void> waitLoad() async {
         var results = await Future.wait([
@@ -44,6 +47,7 @@ final class Tables
             _asyncloadFunction("tbtestlist"),
             _asyncloadFunction("tbtestmulti"),
             _asyncloadFunction("tbtestref"),
+            _asyncloadFunction("tbtestshape"),
         ]);
         
         _TbItem = TbItem(results[0]);
@@ -53,6 +57,7 @@ final class Tables
         _Tbtestlist = Tbtestlist(results[4]);
         _Tbtestmulti = Tbtestmulti(results[5]);
         _Tbtestref = Tbtestref(results[6]);
+        _Tbtestshape = Tbtestshape(results[7]);
         resolveRef();
     }
     TbItem? get tbItem => _TbItem;
@@ -62,6 +67,7 @@ final class Tables
     Tbtestlist? get tbtestlist => _Tbtestlist;
     Tbtestmulti? get tbtestmulti => _Tbtestmulti;
     Tbtestref? get tbtestref => _Tbtestref;
+    Tbtestshape? get tbtestshape => _Tbtestshape;
 
     void resolveRef(){
         _TbItem?.resolveRef(this);
@@ -71,6 +77,7 @@ final class Tables
         _Tbtestlist?.resolveRef(this);
         _Tbtestmulti?.resolveRef(this);
         _Tbtestref?.resolveRef(this);
+        _Tbtestshape?.resolveRef(this);
     }
 
 }

@@ -14,10 +14,10 @@ import '/gen/Tables.dart';
 import '/gen/vector2.dart';
 
 
-
  class testref 
 {
-    testref({
+    testref(
+    {
     required this.id,
     required this.tb,
     required this.tn,
@@ -27,10 +27,10 @@ import '/gen/vector2.dart';
     required this.rsss,
     required this.tmm,
     required this.tvvv,
-    });
+    }
+    );
 
-     factory testref.deserialize(dynamic _buf){
-        
+    factory testref.deserialize(dynamic _buf){
         final id;
         id = _buf['id'] as int;
         final tb;
@@ -59,8 +59,9 @@ import '/gen/vector2.dart';
             rsss:rsss,
             tmm:tmm,
             tvvv:tvvv,
-        );
+       );
     }
+
     //1AABBBCCCC形式<br/><br/>AA表示道具类别编号<br/>BBB表示道具子类编号<br/>CCCC表示编号
     final int id;
     final bool tb;
@@ -76,11 +77,10 @@ import '/gen/vector2.dart';
     final Map<int, int> tmm;
     Map<int, testref>? tmm_Ref;
     final List<vector2> tvvv;
-
     static final int __ID__ = -1422437695;
      
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
 
         rfff_Ref = tables.tbtestref?.getOrDefault(rfff);
         rccc_Ref = List<testref>.empty(growable: true);
@@ -95,10 +95,10 @@ import '/gen/vector2.dart';
         tmm_Ref = Map<int, testref>();
         for (var kvp in tmm.entries) { var ref= (tables.tbtestref?.getOrDefault(kvp.value))!;tmm_Ref?[kvp.key]= ref; }
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'testref(id:$id, tb:$tb, tn:$tn, rfff:$rfff, rccc:$rccc, rll:$rll, rsss:$rsss, tmm:$tmm, tvvv:$tvvv, )';
     }
 }

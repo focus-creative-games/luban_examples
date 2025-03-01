@@ -15,10 +15,10 @@ import '/gen/vector2.dart';
 import '/gen/vector2.dart';
 
 
-
  class testCfg 
 {
-    testCfg({
+    testCfg(
+    {
     required this.tb,
     required this.tn,
     required this.c,
@@ -26,10 +26,10 @@ import '/gen/vector2.dart';
     required this.e,
     required this.f,
     required this.g,
-    });
+    }
+    );
 
-     factory testCfg.deserialize(dynamic _buf){
-        
+    factory testCfg.deserialize(dynamic _buf){
         final tb;
         tb = _buf['tb'] as bool;
         final tn;
@@ -52,8 +52,9 @@ import '/gen/vector2.dart';
             e:e,
             f:f,
             g:g,
-        );
+       );
     }
+
     final bool tb;
     final int? tn;
     final List<int> c;
@@ -61,16 +62,15 @@ import '/gen/vector2.dart';
     final vector2 e;
     final HashSet<int> f;
     final Map<int, vector2> g;
-
     static final int __ID__ = -1422482830;
      
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'testCfg(tb:$tb, tn:$tn, c:$c, d:$d, e:$e, f:$f, g:$g, )';
     }
 }

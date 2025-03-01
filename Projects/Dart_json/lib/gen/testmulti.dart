@@ -15,10 +15,10 @@ import '/gen/vector2.dart';
 import '/gen/vector2.dart';
 
 
-
  class testmulti 
 {
-    testmulti({
+    testmulti(
+    {
     required this.id1,
     required this.id2,
     required this.tb,
@@ -28,10 +28,10 @@ import '/gen/vector2.dart';
     required this.e,
     required this.f,
     required this.g,
-    });
+    }
+    );
 
-     factory testmulti.deserialize(dynamic _buf){
-        
+    factory testmulti.deserialize(dynamic _buf){
         final id1;
         id1 = _buf['id1'] as int;
         final id2;
@@ -60,8 +60,9 @@ import '/gen/vector2.dart';
             e:e,
             f:f,
             g:g,
-        );
+       );
     }
+
     //1AABBBCCCC形式<br/><br/>AA表示道具类别编号<br/>BBB表示道具子类编号<br/>CCCC表示编号
     final int id1;
     final int id2;
@@ -72,16 +73,15 @@ import '/gen/vector2.dart';
     final vector2 e;
     final HashSet<int> f;
     final Map<int, vector2> g;
-
     static final int __ID__ = -1167156249;
      
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'testmulti(id1:$id1, id2:$id2, tb:$tb, tn:$tn, c:$c, d:$d, e:$e, f:$f, g:$g, )';
     }
 }

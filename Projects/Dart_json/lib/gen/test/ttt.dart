@@ -12,38 +12,40 @@ import 'dart:collection';
 import '/gen/Tables.dart';
 
 
+import '/gen/test/Circle.dart';
 
- class vector2 
+ class ttt extends Circle
 {
-    vector2(
+    ttt(
     {
-    required this.x,
-    required this.y,
+    required super.radius, 
+    required this.b,
     }
     );
 
-    factory vector2.deserialize(dynamic _buf){
-        final x;
-        x = _buf['x'].toDouble();
-        final y;
-        y = _buf['y'].toDouble();
-        return vector2(
-            x:x,
-            y:y,
+    factory ttt.deserialize(dynamic _buf){
+        final radius;
+        radius = _buf['radius'].toDouble();
+        final b;
+        b = _buf['b'] as int;
+        return ttt(
+            radius:radius,
+            b:b,
        );
     }
 
-    final double x;
-    final double y;
-     
+    final int b;
+    static final int __ID__ = -1147906408;
+     @override
     void resolveRef(Tables tables)
     {
+        super.resolveRef(tables);
 
     }
 
     @override
     String toString() {
-        return 'vector2(x:$x, y:$y, )';
+        return 'ttt(radius:$radius, b:$b, )';
     }
 }
 

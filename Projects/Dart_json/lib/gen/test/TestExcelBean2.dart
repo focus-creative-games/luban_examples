@@ -13,18 +13,18 @@ import '/gen/Tables.dart';
 
 
 
-
 //这是个测试excel结构
  class TestExcelBean2 
 {
-    TestExcelBean2({
+    TestExcelBean2(
+    {
     required this.y1,
     required this.y2,
     required this.y3,
-    });
+    }
+    );
 
-     factory TestExcelBean2.deserialize(dynamic _buf){
-        
+    factory TestExcelBean2.deserialize(dynamic _buf){
         final y1;
         y1 = _buf['y1'] as int;
         final y2;
@@ -35,24 +35,24 @@ import '/gen/Tables.dart';
             y1:y1,
             y2:y2,
             y3:y3,
-        );
+       );
     }
+
     //最高品质
     final int y1;
     //黑色的
     final String y2;
     //蓝色的
     final double y3;
-
     static final int __ID__ = -1738345159;
      
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'TestExcelBean2(y1:$y1, y2:$y2, y3:$y3, )';
     }
 }

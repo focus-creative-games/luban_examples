@@ -13,17 +13,17 @@ import '/gen/Tables.dart';
 
 
 
-
  class vector3 
 {
-    vector3({
+    vector3(
+    {
     required this.x,
     required this.y,
     required this.z,
-    });
+    }
+    );
 
-     factory vector3.deserialize(dynamic _buf){
-        
+    factory vector3.deserialize(dynamic _buf){
         final x;
         x = _buf['x'].toDouble();
         final y;
@@ -34,21 +34,20 @@ import '/gen/Tables.dart';
             x:x,
             y:y,
             z:z,
-        );
+       );
     }
+
     final double x;
     final double y;
     final double z;
-
-    static final int __ID__ = 337790800;
      
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'vector3(x:$x, y:$y, z:$z, )';
     }
 }

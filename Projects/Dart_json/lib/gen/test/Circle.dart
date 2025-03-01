@@ -14,35 +14,36 @@ import '/gen/Tables.dart';
 
 import '/gen/test/Shape.dart';
 
+import '/gen/test/ttt.dart';
 
 //圆
- class Circle extends Shape
+abstract class Circle extends Shape
 {
-    Circle({
+    Circle(
+    {
     required this.radius,
-    });
-
-     factory Circle.deserialize(dynamic _buf){
-        
-        final radius;
-        radius = _buf['radius'].toDouble();
-        return Circle(
-            radius:radius,
-        );
     }
+    );
+
+    factory Circle.deserialize(dynamic _buf){
+      switch (_buf['\$type'])
+      {
+        case "ttt": return ttt.deserialize(_buf);
+        default: throw Exception('unknown type:$_buf[\$type]');
+      }
+    }
+
     //半径
     final double radius;
-
-    static final int __ID__ = 2131829196;
      @override
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
         super.resolveRef(tables);
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'Circle(radius:$radius, )';
     }
 }

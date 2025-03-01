@@ -16,11 +16,11 @@ import '/gen/item/EMinorType.dart';
 import '/gen/item/EItemQuality.dart';
 
 
-
 //道具
  class Item 
 {
-    Item({
+    Item(
+    {
     required this.id,
     required this.name,
     required this.majorType,
@@ -32,10 +32,10 @@ import '/gen/item/EItemQuality.dart';
     required this.iconMask,
     required this.desc,
     required this.showOrder,
-    });
+    }
+    );
 
-     factory Item.deserialize(dynamic _buf){
-        
+    factory Item.deserialize(dynamic _buf){
         final id;
         id = _buf['id'] as int;
         final name;
@@ -70,8 +70,9 @@ import '/gen/item/EItemQuality.dart';
             iconMask:iconMask,
             desc:desc,
             showOrder:showOrder,
-        );
+       );
     }
+
     //道具id
     final int id;
     final String name;
@@ -84,16 +85,15 @@ import '/gen/item/EItemQuality.dart';
     final String iconMask;
     final String desc;
     final int showOrder;
-
     static final int __ID__ = 2107285806;
      
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'Item(id:$id, name:$name, majorType:$majorType, minorType:$minorType, maxPileNum:$maxPileNum, quality:$quality, icon:$icon, iconBackgroud:$iconBackgroud, iconMask:$iconMask, desc:$desc, showOrder:$showOrder, )';
     }
 }

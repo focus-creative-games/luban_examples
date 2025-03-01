@@ -13,19 +13,19 @@ import '/gen/Tables.dart';
 
 
 
-
 //这是个测试excel结构
  class TestExcelBean1 
 {
-    TestExcelBean1({
+    TestExcelBean1(
+    {
     required this.x1,
     required this.x2,
     required this.x3,
     required this.x4,
-    });
+    }
+    );
 
-     factory TestExcelBean1.deserialize(dynamic _buf){
-        
+    factory TestExcelBean1.deserialize(dynamic _buf){
         final x1;
         x1 = _buf['x1'] as int;
         final x2;
@@ -39,8 +39,9 @@ import '/gen/Tables.dart';
             x2:x2,
             x3:x3,
             x4:x4,
-        );
+       );
     }
+
     //最高品质
     final int x1;
     //黑色的
@@ -49,16 +50,15 @@ import '/gen/Tables.dart';
     final int x3;
     //最差品质
     final double x4;
-
     static final int __ID__ = -1738345160;
      
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'TestExcelBean1(x1:$x1, x2:$x2, x3:$x3, x4:$x4, )';
     }
 }

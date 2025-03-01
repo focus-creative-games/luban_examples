@@ -15,10 +15,10 @@ import '/gen/vector2.dart';
 import '/gen/vector2.dart';
 
 
-
  class Example 
 {
-    Example({
+    Example(
+    {
     required this.id,
     required this.tb,
     required this.tn,
@@ -27,10 +27,10 @@ import '/gen/vector2.dart';
     required this.e,
     required this.f,
     required this.g,
-    });
+    }
+    );
 
-     factory Example.deserialize(dynamic _buf){
-        
+    factory Example.deserialize(dynamic _buf){
         final id;
         id = _buf['id'] as int;
         final tb;
@@ -56,8 +56,9 @@ import '/gen/vector2.dart';
             e:e,
             f:f,
             g:g,
-        );
+       );
     }
+
     //1AABBBCCCC形式<br/><br/>AA表示道具类别编号<br/>BBB表示道具子类编号<br/>CCCC表示编号
     final int id;
     final bool tb;
@@ -67,16 +68,15 @@ import '/gen/vector2.dart';
     final vector2 e;
     final HashSet<int> f;
     final Map<int, vector2> g;
-
     static final int __ID__ = 341682506;
      
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'Example(id:$id, tb:$tb, tn:$tn, c:$c, d:$d, e:$e, f:$f, g:$g, )';
     }
 }

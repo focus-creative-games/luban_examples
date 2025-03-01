@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "shape": {
+      "$type": "test2.Rectangle",
+      "width": 2,
+      "height": 3
+    }
+  },
+  {
+    "id": 2,
+    "shape": {
+      "$type": "ttt",
+      "radius": 2,
+      "b": 9
+    }
+  }
+]

@@ -13,18 +13,32 @@ import '/gen/Tables.dart';
 
 
 
+import '/gen/test/ttt.dart';
+
+import '/gen/test2/Rectangle.dart';
 
 abstract class Shape 
 {
+    Shape(
+    );
+
+    factory Shape.deserialize(dynamic _buf){
+      switch (_buf['\$type'])
+      {
+        case "ttt": return ttt.deserialize(_buf);
+        case "test2.Rectangle": return Rectangle.deserialize(_buf);
+        default: throw Exception('unknown type:$_buf[\$type]');
+      }
+    }
 
      
-     void resolveRef(Tables tables)
-     {
+    void resolveRef(Tables tables)
+    {
 
-     }
+    }
 
-     @override
-     String toString() {
+    @override
+    String toString() {
         return 'Shape()';
     }
 }
