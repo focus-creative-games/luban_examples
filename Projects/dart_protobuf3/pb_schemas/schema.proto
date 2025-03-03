@@ -668,18 +668,17 @@ message TestDefineFromExcel2 {
      string x10 = 6 ;
      TestDemoEnum x13 = 7 ;
      TestDemoFlag x13_2 = 8 ;
-     TestDemoFlag x13_3 = 9 ;
-     TestDemoDynamic x14 = 10 ;
-     TestShape x15 = 11 ;
-     vec2 v2 = 12 ;
-     int64 t1 = 13 ;
-    repeated int32 k1 = 14 [packed = true];
-    repeated int32 k2 = 15 [packed = true];
-     map<int32, int32> k8 = 16 ;
-    repeated TestDemoE2 k9 = 17 [packed = false];
-    repeated vec3 k10 = 18 [packed = false];
-    repeated vec4 k11 = 19 [packed = false];
-    optional vec3 v11 = 20 ;
+     TestDemoDynamic x14 = 9 ;
+     TestShape x15 = 10 ;
+     vec2 v2 = 11 ;
+     int64 t1 = 12 ;
+    repeated int32 k1 = 13 [packed = true];
+    repeated int32 k2 = 14 [packed = true];
+     map<int32, int32> k8 = 15 ;
+    repeated TestDemoE2 k9 = 16 [packed = false];
+    repeated vec3 k10 = 17 [packed = false];
+    repeated vec4 k11 = 18 [packed = false];
+    optional vec3 v11 = 19 ;
 }
 message TestDemoDynamic {
     oneof value {

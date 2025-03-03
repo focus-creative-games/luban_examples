@@ -13,6 +13,7 @@ import '/gen/Tables.dart';
 
 import '/gen/test/DemoEnum.dart';
 import '/gen/test/DemoFlag.dart';
+import '/gen/test/DemoFlag.dart';
 import '/gen/test/DemoDynamic.dart';
 import '/gen/test/Shape.dart';
 import '/gen/vec2.dart';
@@ -34,6 +35,7 @@ import '/gen/vec3.dart';
     required this.x10,
     required this.x13,
     required this.x13_2,
+    required this.x13_3,
     required this.x14,
     required this.x15,
     required this.v2,
@@ -65,6 +67,8 @@ import '/gen/vec3.dart';
         x13 = DemoEnum.fromValue(_buf['x13']);
         final x13_2;
         x13_2 = DemoFlag.fromValue(_buf['x13_2']);
+        final x13_3;
+        x13_3 = DemoFlag.fromValue(_buf['x13_3']);
         final x14;
         x14 = DemoDynamic.deserialize(_buf['x14']);
         final x15;
@@ -96,6 +100,7 @@ import '/gen/vec3.dart';
             x10:x10,
             x13:x13,
             x13_2:x13_2,
+            x13_3:x13_3,
             x14:x14,
             x15:x15,
             v2:v2,
@@ -120,6 +125,7 @@ import '/gen/vec3.dart';
     final String x10;
     final DemoEnum x13;
     final DemoFlag x13_2;
+    final DemoFlag x13_3;
     final DemoDynamic x14;
     final Shape x15;
     final vec2 v2;
@@ -142,7 +148,7 @@ import '/gen/vec3.dart';
 
     @override
     String toString() {
-        return 'DefineFromExcel2(id:$id, x1:$x1, x5:$x5, x6:$x6, x8:$x8, x10:$x10, x13:$x13, x13_2:$x13_2, x14:$x14, x15:$x15, v2:$v2, t1:$t1, k1:$k1, k2:$k2, k8:$k8, k9:$k9, k10:$k10, k11:$k11, v11:$v11, )';
+        return 'DefineFromExcel2(id:$id, x1:$x1, x5:$x5, x6:$x6, x8:$x8, x10:$x10, x13:$x13, x13_2:$x13_2, x13_3:$x13_3, x14:$x14, x15:$x15, v2:$v2, t1:$t1, k1:$k1, k2:$k2, k8:$k8, k9:$k9, k10:$k10, k11:$k11, v11:$v11, )';
     }
 }
 
