@@ -9,7 +9,7 @@
 
 enum ETestEmptyEnum
 {
-    None(0);
+    empty_placeholder(0);
 
 
     final int value;
