@@ -20,10 +20,20 @@ func loader(file string) ([]map[string]interface{}, error) {
 }
 
 func main() {
+	cfg.ItemTbItemLoader = ItemTbItemLoader
+	cfg.ItemTbItemPostLoader = ItemTbItemPostLoader
 	if tables, err := cfg.NewTables(loader); err != nil {
 		println(err.Error())
 	} else {
 		fmt.Printf("%v", tables.TbItem.GetDataList()[0])
 	}
 
+}
+
+func ItemTbItemLoader(data *cfg.ItemItem) {
+	fmt.Println("item", data.Id, "loaded")
+}
+
+func ItemTbItemPostLoader(datas []*cfg.ItemItem) {
+	fmt.Println(len(datas), "items loaded")
 }
