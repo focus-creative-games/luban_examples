@@ -300,7 +300,7 @@
         },
         "runtime": {
           "Luban.Core.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -315,7 +315,7 @@
         },
         "runtime": {
           "Luban.DataLoader.Builtin.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -327,7 +327,7 @@
         },
         "runtime": {
           "Luban.DataTarget.Builtin.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
