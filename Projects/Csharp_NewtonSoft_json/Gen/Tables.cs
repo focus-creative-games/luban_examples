@@ -64,6 +64,7 @@ public partial class Tables
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public TbAutoImport1 TbAutoImport1 {get; }
     public test.TbAutoImport2 TbAutoImport2 {get; }
+    public test.TbTestFormat TbTestFormat {get; }
 
 
       public Tables(System.Func<string, JArray> loader)
@@ -116,6 +117,7 @@ public partial class Tables
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test_tbdefinefromexcel2"));
         TbAutoImport1 = new TbAutoImport1(loader("tbautoimport1"));
         TbAutoImport2 = new test.TbAutoImport2(loader("test_tbautoimport2"));
+        TbTestFormat = new test.TbTestFormat(loader("test_tbtestformat"));
         ResolveRef();
     }
     
@@ -169,6 +171,7 @@ public partial class Tables
         TbDefineFromExcel2.ResolveRef(this);
         TbAutoImport1.ResolveRef(this);
         TbAutoImport2.ResolveRef(this);
+        TbTestFormat.ResolveRef(this);
     }
 }
 
