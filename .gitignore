@@ -343,3 +343,5 @@ out/
 /Projects/Csharp_DotNet_json/Gen
 /Projects/Csharp_NewtonSoft_json/Gen
 /Projects/Csharp_DotNet_bin/Gen
+/Projects/Csharp_Protobuf/pb_datas
+/Projects/Csharp_Protobuf/PbGen
