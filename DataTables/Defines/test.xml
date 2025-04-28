@@ -267,6 +267,8 @@
         <var name="s2" type="string#escape=1"/>
         <var name="cs1" type="CompactString"/>
         <var name="cs2" type="CompactString"/>
+        <var name="css" type="(list#sep=,),string"/>
+        <var name="css2" type="(list#sep=,),string"/>
     </bean>
     
     <table name="TbTestString" value="TestString" input="test/test_string.xlsx"/>
