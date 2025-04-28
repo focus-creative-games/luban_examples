@@ -15,20 +15,211 @@ namespace Cfg
 {
 public partial class Tables
 {
+    public AiTbBlackboard TbBlackboard { get; }
+
+    public AiTbBehaviorTree TbBehaviorTree { get; }
+
+    public CommonTbGlobalConfig TbGlobalConfig { get; }
+
+    /// <summary>
+    /// 道具表
+    /// </summary>
     public ItemTbItem TbItem { get; }
 
-    public CollisionCfgs CollisionCfgs { get; }
+    public L10nTbL10NDemo TbL10NDemo { get; }
+
+    public L10nTbPatchDemo TbPatchDemo { get; }
+
+    public TagTbTestTag TbTestTag { get; }
+
+    public TestTbFullTypes TbFullTypes { get; }
+
+    public TestTbSingleton TbSingleton { get; }
+
+    public TestTbNotIndexList TbNotIndexList { get; }
+
+    public TestTbMultiUnionIndexList TbMultiUnionIndexList { get; }
+
+    public TestTbMultiIndexList TbMultiIndexList { get; }
+
+    public TestTbDataFromMisc TbDataFromMisc { get; }
+
+    public TestTbMultiRowRecord TbMultiRowRecord { get; }
+
+    public TestTbTestMultiColumn TbTestMultiColumn { get; }
+
+    public TestTbMultiRowTitle TbMultiRowTitle { get; }
+
+    public TestTbTestNull TbTestNull { get; }
+
+    public TestTbDemoPrimitive TbDemoPrimitive { get; }
+
+    public TestTbTestString TbTestString { get; }
+
+    public TestTbDemoGroup TbDemoGroup { get; }
+
+    public TestTbDemoGroup_C TbDemoGroup_C { get; }
+
+    public TestTbDemoGroup_S TbDemoGroup_S { get; }
+
+    public TestTbDemoGroup_E TbDemoGroup_E { get; }
+
+    public TestTbTestGlobal TbTestGlobal { get; }
+
+    public TestTbTestBeRef TbTestBeRef { get; }
+
+    public TestTbTestBeRef2 TbTestBeRef2 { get; }
+
+    public TestTbTestRef TbTestRef { get; }
+
+    public TestTbTestSize TbTestSize { get; }
+
+    public TestTbTestSet TbTestSet { get; }
+
+    public TestTbTestRange TbTestRange { get; }
+
+    public TestTbDetectCsvEncoding TbDetectCsvEncoding { get; }
+
+    public TestTbItem2 TbItem2 { get; }
+
+    public TestTbTestIndex TbTestIndex { get; }
+
+    public TestTbTestMap TbTestMap { get; }
+
+    public TestTbExcelFromJson TbExcelFromJson { get; }
+
+    public TestTbCompositeJsonTable1 TbCompositeJsonTable1 { get; }
+
+    public TestTbCompositeJsonTable2 TbCompositeJsonTable2 { get; }
+
+    public TestTbCompositeJsonTable3 TbCompositeJsonTable3 { get; }
+
+    public TestTbExcelFromJsonMultiRow TbExcelFromJsonMultiRow { get; }
+
+    public TestTbTestScriptableObject TbTestScriptableObject { get; }
+
+    public TestTbPath TbPath { get; }
+
+    public TestTbTestFieldAlias TbTestFieldAlias { get; }
+
+    public TestTbTestFieldVariant TbTestFieldVariant { get; }
+
+    public TestTbTestFieldVariant2 TbTestFieldVariant2 { get; }
+
+    public TestTbTestMapper TbTestMapper { get; }
+
+    public TestTbDefineFromExcel2 TbDefineFromExcel2 { get; }
+
+    public TbAutoImport1 TbAutoImport1 { get; }
+
+    public TestTbAutoImport2 TbAutoImport2 { get; }
+
+    public TestTbTestFormat TbTestFormat { get; }
 
 
     public Tables(System.Func<string, byte[]> loader)
     {
+        TbBlackboard = AiTbBlackboard.Parser.ParseFrom(loader("ai_tbblackboard"));
+        TbBehaviorTree = AiTbBehaviorTree.Parser.ParseFrom(loader("ai_tbbehaviortree"));
+        TbGlobalConfig = CommonTbGlobalConfig.Parser.ParseFrom(loader("common_tbglobalconfig"));
         TbItem = ItemTbItem.Parser.ParseFrom(loader("item_tbitem"));
-        CollisionCfgs = CollisionCfgs.Parser.ParseFrom(loader("collisioncfgs"));
+        TbL10NDemo = L10nTbL10NDemo.Parser.ParseFrom(loader("l10n_tbl10ndemo"));
+        TbPatchDemo = L10nTbPatchDemo.Parser.ParseFrom(loader("l10n_tbpatchdemo"));
+        TbTestTag = TagTbTestTag.Parser.ParseFrom(loader("tag_tbtesttag"));
+        TbFullTypes = TestTbFullTypes.Parser.ParseFrom(loader("test_tbfulltypes"));
+        TbSingleton = TestTbSingleton.Parser.ParseFrom(loader("test_tbsingleton"));
+        TbNotIndexList = TestTbNotIndexList.Parser.ParseFrom(loader("test_tbnotindexlist"));
+        TbMultiUnionIndexList = TestTbMultiUnionIndexList.Parser.ParseFrom(loader("test_tbmultiunionindexlist"));
+        TbMultiIndexList = TestTbMultiIndexList.Parser.ParseFrom(loader("test_tbmultiindexlist"));
+        TbDataFromMisc = TestTbDataFromMisc.Parser.ParseFrom(loader("test_tbdatafrommisc"));
+        TbMultiRowRecord = TestTbMultiRowRecord.Parser.ParseFrom(loader("test_tbmultirowrecord"));
+        TbTestMultiColumn = TestTbTestMultiColumn.Parser.ParseFrom(loader("test_tbtestmulticolumn"));
+        TbMultiRowTitle = TestTbMultiRowTitle.Parser.ParseFrom(loader("test_tbmultirowtitle"));
+        TbTestNull = TestTbTestNull.Parser.ParseFrom(loader("test_tbtestnull"));
+        TbDemoPrimitive = TestTbDemoPrimitive.Parser.ParseFrom(loader("test_tbdemoprimitive"));
+        TbTestString = TestTbTestString.Parser.ParseFrom(loader("test_tbteststring"));
+        TbDemoGroup = TestTbDemoGroup.Parser.ParseFrom(loader("test_tbdemogroup"));
+        TbDemoGroup_C = TestTbDemoGroup_C.Parser.ParseFrom(loader("test_tbdemogroup_c"));
+        TbDemoGroup_S = TestTbDemoGroup_S.Parser.ParseFrom(loader("test_tbdemogroup_s"));
+        TbDemoGroup_E = TestTbDemoGroup_E.Parser.ParseFrom(loader("test_tbdemogroup_e"));
+        TbTestGlobal = TestTbTestGlobal.Parser.ParseFrom(loader("test_tbtestglobal"));
+        TbTestBeRef = TestTbTestBeRef.Parser.ParseFrom(loader("test_tbtestberef"));
+        TbTestBeRef2 = TestTbTestBeRef2.Parser.ParseFrom(loader("test_tbtestberef2"));
+        TbTestRef = TestTbTestRef.Parser.ParseFrom(loader("test_tbtestref"));
+        TbTestSize = TestTbTestSize.Parser.ParseFrom(loader("test_tbtestsize"));
+        TbTestSet = TestTbTestSet.Parser.ParseFrom(loader("test_tbtestset"));
+        TbTestRange = TestTbTestRange.Parser.ParseFrom(loader("test_tbtestrange"));
+        TbDetectCsvEncoding = TestTbDetectCsvEncoding.Parser.ParseFrom(loader("test_tbdetectcsvencoding"));
+        TbItem2 = TestTbItem2.Parser.ParseFrom(loader("test_tbitem2"));
+        TbTestIndex = TestTbTestIndex.Parser.ParseFrom(loader("test_tbtestindex"));
+        TbTestMap = TestTbTestMap.Parser.ParseFrom(loader("test_tbtestmap"));
+        TbExcelFromJson = TestTbExcelFromJson.Parser.ParseFrom(loader("test_tbexcelfromjson"));
+        TbCompositeJsonTable1 = TestTbCompositeJsonTable1.Parser.ParseFrom(loader("test_tbcompositejsontable1"));
+        TbCompositeJsonTable2 = TestTbCompositeJsonTable2.Parser.ParseFrom(loader("test_tbcompositejsontable2"));
+        TbCompositeJsonTable3 = TestTbCompositeJsonTable3.Parser.ParseFrom(loader("test_tbcompositejsontable3"));
+        TbExcelFromJsonMultiRow = TestTbExcelFromJsonMultiRow.Parser.ParseFrom(loader("test_tbexcelfromjsonmultirow"));
+        TbTestScriptableObject = TestTbTestScriptableObject.Parser.ParseFrom(loader("test_tbtestscriptableobject"));
+        TbPath = TestTbPath.Parser.ParseFrom(loader("test_tbpath"));
+        TbTestFieldAlias = TestTbTestFieldAlias.Parser.ParseFrom(loader("test_tbtestfieldalias"));
+        TbTestFieldVariant = TestTbTestFieldVariant.Parser.ParseFrom(loader("test_tbtestfieldvariant"));
+        TbTestFieldVariant2 = TestTbTestFieldVariant2.Parser.ParseFrom(loader("test_tbtestfieldvariant2"));
+        TbTestMapper = TestTbTestMapper.Parser.ParseFrom(loader("test_tbtestmapper"));
+        TbDefineFromExcel2 = TestTbDefineFromExcel2.Parser.ParseFrom(loader("test_tbdefinefromexcel2"));
+        TbAutoImport1 = TbAutoImport1.Parser.ParseFrom(loader("tbautoimport1"));
+        TbAutoImport2 = TestTbAutoImport2.Parser.ParseFrom(loader("test_tbautoimport2"));
+        TbTestFormat = TestTbTestFormat.Parser.ParseFrom(loader("test_tbtestformat"));
     }
     public Tables(System.Func<string, string> loader)
     {
+        TbBlackboard = AiTbBlackboard.Parser.ParseJson(loader("ai_tbblackboard"));
+        TbBehaviorTree = AiTbBehaviorTree.Parser.ParseJson(loader("ai_tbbehaviortree"));
+        TbGlobalConfig = CommonTbGlobalConfig.Parser.ParseJson(loader("common_tbglobalconfig"));
         TbItem = ItemTbItem.Parser.ParseJson(loader("item_tbitem"));
-        CollisionCfgs = CollisionCfgs.Parser.ParseJson(loader("collisioncfgs"));
+        TbL10NDemo = L10nTbL10NDemo.Parser.ParseJson(loader("l10n_tbl10ndemo"));
+        TbPatchDemo = L10nTbPatchDemo.Parser.ParseJson(loader("l10n_tbpatchdemo"));
+        TbTestTag = TagTbTestTag.Parser.ParseJson(loader("tag_tbtesttag"));
+        TbFullTypes = TestTbFullTypes.Parser.ParseJson(loader("test_tbfulltypes"));
+        TbSingleton = TestTbSingleton.Parser.ParseJson(loader("test_tbsingleton"));
+        TbNotIndexList = TestTbNotIndexList.Parser.ParseJson(loader("test_tbnotindexlist"));
+        TbMultiUnionIndexList = TestTbMultiUnionIndexList.Parser.ParseJson(loader("test_tbmultiunionindexlist"));
+        TbMultiIndexList = TestTbMultiIndexList.Parser.ParseJson(loader("test_tbmultiindexlist"));
+        TbDataFromMisc = TestTbDataFromMisc.Parser.ParseJson(loader("test_tbdatafrommisc"));
+        TbMultiRowRecord = TestTbMultiRowRecord.Parser.ParseJson(loader("test_tbmultirowrecord"));
+        TbTestMultiColumn = TestTbTestMultiColumn.Parser.ParseJson(loader("test_tbtestmulticolumn"));
+        TbMultiRowTitle = TestTbMultiRowTitle.Parser.ParseJson(loader("test_tbmultirowtitle"));
+        TbTestNull = TestTbTestNull.Parser.ParseJson(loader("test_tbtestnull"));
+        TbDemoPrimitive = TestTbDemoPrimitive.Parser.ParseJson(loader("test_tbdemoprimitive"));
+        TbTestString = TestTbTestString.Parser.ParseJson(loader("test_tbteststring"));
+        TbDemoGroup = TestTbDemoGroup.Parser.ParseJson(loader("test_tbdemogroup"));
+        TbDemoGroup_C = TestTbDemoGroup_C.Parser.ParseJson(loader("test_tbdemogroup_c"));
+        TbDemoGroup_S = TestTbDemoGroup_S.Parser.ParseJson(loader("test_tbdemogroup_s"));
+        TbDemoGroup_E = TestTbDemoGroup_E.Parser.ParseJson(loader("test_tbdemogroup_e"));
+        TbTestGlobal = TestTbTestGlobal.Parser.ParseJson(loader("test_tbtestglobal"));
+        TbTestBeRef = TestTbTestBeRef.Parser.ParseJson(loader("test_tbtestberef"));
+        TbTestBeRef2 = TestTbTestBeRef2.Parser.ParseJson(loader("test_tbtestberef2"));
+        TbTestRef = TestTbTestRef.Parser.ParseJson(loader("test_tbtestref"));
+        TbTestSize = TestTbTestSize.Parser.ParseJson(loader("test_tbtestsize"));
+        TbTestSet = TestTbTestSet.Parser.ParseJson(loader("test_tbtestset"));
+        TbTestRange = TestTbTestRange.Parser.ParseJson(loader("test_tbtestrange"));
+        TbDetectCsvEncoding = TestTbDetectCsvEncoding.Parser.ParseJson(loader("test_tbdetectcsvencoding"));
+        TbItem2 = TestTbItem2.Parser.ParseJson(loader("test_tbitem2"));
+        TbTestIndex = TestTbTestIndex.Parser.ParseJson(loader("test_tbtestindex"));
+        TbTestMap = TestTbTestMap.Parser.ParseJson(loader("test_tbtestmap"));
+        TbExcelFromJson = TestTbExcelFromJson.Parser.ParseJson(loader("test_tbexcelfromjson"));
+        TbCompositeJsonTable1 = TestTbCompositeJsonTable1.Parser.ParseJson(loader("test_tbcompositejsontable1"));
+        TbCompositeJsonTable2 = TestTbCompositeJsonTable2.Parser.ParseJson(loader("test_tbcompositejsontable2"));
+        TbCompositeJsonTable3 = TestTbCompositeJsonTable3.Parser.ParseJson(loader("test_tbcompositejsontable3"));
+        TbExcelFromJsonMultiRow = TestTbExcelFromJsonMultiRow.Parser.ParseJson(loader("test_tbexcelfromjsonmultirow"));
+        TbTestScriptableObject = TestTbTestScriptableObject.Parser.ParseJson(loader("test_tbtestscriptableobject"));
+        TbPath = TestTbPath.Parser.ParseJson(loader("test_tbpath"));
+        TbTestFieldAlias = TestTbTestFieldAlias.Parser.ParseJson(loader("test_tbtestfieldalias"));
+        TbTestFieldVariant = TestTbTestFieldVariant.Parser.ParseJson(loader("test_tbtestfieldvariant"));
+        TbTestFieldVariant2 = TestTbTestFieldVariant2.Parser.ParseJson(loader("test_tbtestfieldvariant2"));
+        TbTestMapper = TestTbTestMapper.Parser.ParseJson(loader("test_tbtestmapper"));
+        TbDefineFromExcel2 = TestTbDefineFromExcel2.Parser.ParseJson(loader("test_tbdefinefromexcel2"));
+        TbAutoImport1 = TbAutoImport1.Parser.ParseJson(loader("tbautoimport1"));
+        TbAutoImport2 = TestTbAutoImport2.Parser.ParseJson(loader("test_tbautoimport2"));
+        TbTestFormat = TestTbTestFormat.Parser.ParseJson(loader("test_tbtestformat"));
     }
 }
 
