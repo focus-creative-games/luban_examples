@@ -63,7 +63,7 @@ class {{name}}{{if bean.parent_def_type}} extends {{full_name bean.parent_def_ty
 {{~if table.comment != '' ~}}
 ## {{table.comment | html.escape}}
 {{~end~}}
-class {{full_name table}}:
+class _{{full_name table}}:
     {{~if table.is_map_table ~}}
     var _data_list: Array[{{value_type_name}}]
     var _data_map: Dictionary
@@ -158,10 +158,10 @@ class {{str_full_name __full_name}}:
     {{~if table.comment != ''~}}
     ## {{table.comment | html.escape}}
     {{~end~}}
-    var {{format_method_name __code_style table.name}}: {{full_name table}}
+    var {{format_method_name __code_style table.name}}: _{{full_name table}}
     {{~end~}}
     
     func _init(loader: Callable) -> void:
         {{~for table in __tables ~}}
-        self.{{format_method_name __code_style table.name}} = {{full_name table}}.new(loader.call('{{table.output_data_file}}'))
+        self.{{format_method_name __code_style table.name}} = _{{full_name table}}.new(loader.call('{{table.output_data_file}}'))
         {{~end~}}
