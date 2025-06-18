@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-import ByteBuf from '../bright/serialization/ByteBuf'
+import ByteBuf from '../luban/ByteBuf'
 
 export namespace ai { 
 export enum EExecutor {
@@ -641,10 +641,10 @@ export namespace ai {
 export class BehaviorTree {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
-        this.desc = _buf_.ReadString()
-        this.blackboardId = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
+        this.desc = _buf_.readString()
+        this.blackboardId = _buf_.readString()
         this.root = ai.ComposeNode.constructorFrom(_buf_)
     }
 
@@ -671,10 +671,10 @@ export namespace ai {
 export class Blackboard {
 
     constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString()
-        this.desc = _buf_.ReadString()
-        this.parentName = _buf_.ReadString()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.keys = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new ai.BlackboardKey(_buf_); this.keys.push(_e0);}}
+        this.name = _buf_.readString()
+        this.desc = _buf_.readString()
+        this.parentName = _buf_.readString()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.keys = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new ai.BlackboardKey(_buf_); this.keys.push(_e0);}}
     }
 
     readonly name: string
@@ -698,11 +698,11 @@ export namespace ai {
 export class BlackboardKey {
 
     constructor(_buf_: ByteBuf) {
-        this.name = _buf_.ReadString()
-        this.desc = _buf_.ReadString()
-        this.isStatic = _buf_.ReadBool()
-        this.keyType = _buf_.ReadInt()
-        this.typeClassName = _buf_.ReadString()
+        this.name = _buf_.readString()
+        this.desc = _buf_.readString()
+        this.isStatic = _buf_.readBool()
+        this.keyType = _buf_.readInt()
+        this.typeClassName = _buf_.readString()
     }
 
     readonly name: string
@@ -726,7 +726,7 @@ export class BlackboardKey {
 export namespace ai {
 export abstract class KeyData {
     static constructorFrom(_buf_: ByteBuf): KeyData{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case -719747885: return new ai.FloatKeyData(_buf_)
             case -342751904: return new ai.IntKeyData(_buf_)
             case -307888654: return new ai.StringKeyData(_buf_)
@@ -751,7 +751,7 @@ export class BlackboardKeyData extends ai.KeyData {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.value = _buf_.ReadString()
+        this.value = _buf_.readString()
     }
 
     readonly value: string
@@ -770,7 +770,7 @@ export class FloatKeyData extends ai.KeyData {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.value = _buf_.ReadFloat()
+        this.value = _buf_.readFloat()
     }
 
     readonly value: number
@@ -789,7 +789,7 @@ export class IntKeyData extends ai.KeyData {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.value = _buf_.ReadInt()
+        this.value = _buf_.readInt()
     }
 
     readonly value: number
@@ -808,7 +808,7 @@ export class StringKeyData extends ai.KeyData {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.value = _buf_.ReadString()
+        this.value = _buf_.readString()
     }
 
     readonly value: string
@@ -825,7 +825,7 @@ export class StringKeyData extends ai.KeyData {
 export namespace ai {
 export abstract class KeyQueryOperator {
     static constructorFrom(_buf_: ByteBuf): KeyQueryOperator{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case -843729664: return new ai.IsSet2(_buf_)
             case 790736255: return new ai.IsNotSet(_buf_)
             case -979891605: return new ai.BinaryOperator(_buf_)
@@ -849,7 +849,7 @@ export class BinaryOperator extends ai.KeyQueryOperator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.oper = _buf_.ReadInt()
+        this.oper = _buf_.readInt()
         this.data = ai.KeyData.constructorFrom(_buf_)
     }
 
@@ -901,7 +901,7 @@ export class IsSet2 extends ai.KeyQueryOperator {
 export namespace ai {
 export abstract class Node {
     static constructorFrom(_buf_: ByteBuf): Node{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case 1812449155: return new ai.UeSetDefaultFocus(_buf_)
             case 990693812: return new ai.ExecuteTimeStatistic(_buf_)
             case 1601247918: return new ai.ChooseTarget(_buf_)
@@ -930,8 +930,8 @@ export abstract class Node {
     }
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.nodeName = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.nodeName = _buf_.readString()
     }
 
     readonly id: number
@@ -949,7 +949,7 @@ export abstract class Node {
 export namespace ai {
 export abstract class Decorator extends ai.Node {
     static constructorFrom(_buf_: ByteBuf): Decorator{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case -513308166: return new ai.UeLoop(_buf_)
             case -951439423: return new ai.UeCooldown(_buf_)
             case 338469720: return new ai.UeTimeLimit(_buf_)
@@ -963,7 +963,7 @@ export abstract class Decorator extends ai.Node {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.flowAbortMode = _buf_.ReadInt()
+        this.flowAbortMode = _buf_.readInt()
     }
 
     readonly flowAbortMode: ai.EFlowAbortMode
@@ -982,10 +982,10 @@ export class DistanceLessThan extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.actor1Key = _buf_.ReadString()
-        this.actor2Key = _buf_.ReadString()
-        this.distance = _buf_.ReadFloat()
-        this.reverseResult = _buf_.ReadBool()
+        this.actor1Key = _buf_.readString()
+        this.actor2Key = _buf_.readString()
+        this.distance = _buf_.readFloat()
+        this.reverseResult = _buf_.readBool()
     }
 
     readonly actor1Key: string
@@ -1010,9 +1010,9 @@ export class IsAtLocation extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.acceptableRadius = _buf_.ReadFloat()
-        this.keyboardKey = _buf_.ReadString()
-        this.inverseCondition = _buf_.ReadBool()
+        this.acceptableRadius = _buf_.readFloat()
+        this.keyboardKey = _buf_.readString()
+        this.inverseCondition = _buf_.readBool()
     }
 
     readonly acceptableRadius: number
@@ -1035,8 +1035,8 @@ export class UeBlackboard extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.notifyObserver = _buf_.ReadInt()
-        this.blackboardKey = _buf_.ReadString()
+        this.notifyObserver = _buf_.readInt()
+        this.blackboardKey = _buf_.readString()
         this.keyQuery = ai.KeyQueryOperator.constructorFrom(_buf_)
     }
 
@@ -1060,7 +1060,7 @@ export class UeCooldown extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.cooldownTime = _buf_.ReadFloat()
+        this.cooldownTime = _buf_.readFloat()
     }
 
     readonly cooldownTime: number
@@ -1095,9 +1095,9 @@ export class UeLoop extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.numLoops = _buf_.ReadInt()
-        this.infiniteLoop = _buf_.ReadBool()
-        this.infiniteLoopTimeoutTime = _buf_.ReadFloat()
+        this.numLoops = _buf_.readInt()
+        this.infiniteLoop = _buf_.readBool()
+        this.infiniteLoopTimeoutTime = _buf_.readFloat()
     }
 
     readonly numLoops: number
@@ -1120,7 +1120,7 @@ export class UeTimeLimit extends ai.Decorator {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.limitTime = _buf_.ReadFloat()
+        this.limitTime = _buf_.readFloat()
     }
 
     readonly limitTime: number
@@ -1137,7 +1137,7 @@ export class UeTimeLimit extends ai.Decorator {
 export namespace ai {
 export abstract class FlowNode extends ai.Node {
     static constructorFrom(_buf_: ByteBuf): FlowNode{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case -1789006105: return new ai.Sequence(_buf_)
             case -1946981627: return new ai.Selector(_buf_)
             case -1952582529: return new ai.SimpleParallel(_buf_)
@@ -1154,8 +1154,8 @@ export abstract class FlowNode extends ai.Node {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.decorators = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.Decorator.constructorFrom(_buf_); this.decorators.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.services = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.Service.constructorFrom(_buf_); this.services.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.decorators = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.Decorator.constructorFrom(_buf_); this.decorators.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.services = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.Service.constructorFrom(_buf_); this.services.push(_e0);}}
     }
 
     readonly decorators: ai.Decorator[]
@@ -1174,7 +1174,7 @@ export abstract class FlowNode extends ai.Node {
 export namespace ai {
 export abstract class ComposeNode extends ai.FlowNode {
     static constructorFrom(_buf_: ByteBuf): ComposeNode{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case -1789006105: return new ai.Sequence(_buf_)
             case -1946981627: return new ai.Selector(_buf_)
             case -1952582529: return new ai.SimpleParallel(_buf_)
@@ -1200,7 +1200,7 @@ export class Selector extends ai.ComposeNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.children = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.children = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e0);}}
     }
 
     readonly children: ai.FlowNode[]
@@ -1219,7 +1219,7 @@ export class Sequence extends ai.ComposeNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.children = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.children = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = ai.FlowNode.constructorFrom(_buf_); this.children.push(_e0);}}
     }
 
     readonly children: ai.FlowNode[]
@@ -1238,7 +1238,7 @@ export class SimpleParallel extends ai.ComposeNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.finishMode = _buf_.ReadInt()
+        this.finishMode = _buf_.readInt()
         this.mainTask = ai.Task.constructorFrom(_buf_)
         this.backgroundNode = ai.FlowNode.constructorFrom(_buf_)
     }
@@ -1261,7 +1261,7 @@ export class SimpleParallel extends ai.ComposeNode {
 export namespace ai {
 export abstract class Task extends ai.FlowNode {
     static constructorFrom(_buf_: ByteBuf): Task{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case -512994101: return new ai.UeWait(_buf_)
             case 1215378271: return new ai.UeWaitBlackboardTime(_buf_)
             case 514987779: return new ai.MoveToTarget(_buf_)
@@ -1275,7 +1275,7 @@ export abstract class Task extends ai.FlowNode {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.ignoreRestartSelf = _buf_.ReadBool()
+        this.ignoreRestartSelf = _buf_.readBool()
     }
 
     readonly ignoreRestartSelf: boolean
@@ -1294,8 +1294,8 @@ export class ChooseSkill extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.targetActorKey = _buf_.ReadString()
-        this.resultSkillIdKey = _buf_.ReadString()
+        this.targetActorKey = _buf_.readString()
+        this.resultSkillIdKey = _buf_.readString()
     }
 
     readonly targetActorKey: string
@@ -1316,7 +1316,7 @@ export class DebugPrint extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.text = _buf_.ReadString()
+        this.text = _buf_.readString()
     }
 
     readonly text: string
@@ -1335,7 +1335,7 @@ export class MoveToLocation extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.acceptableRadius = _buf_.ReadFloat()
+        this.acceptableRadius = _buf_.readFloat()
     }
 
     readonly acceptableRadius: number
@@ -1354,8 +1354,8 @@ export class MoveToRandomLocation extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.originPositionKey = _buf_.ReadString()
-        this.radius = _buf_.ReadFloat()
+        this.originPositionKey = _buf_.readString()
+        this.radius = _buf_.readFloat()
     }
 
     readonly originPositionKey: string
@@ -1376,8 +1376,8 @@ export class MoveToTarget extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.targetActorKey = _buf_.ReadString()
-        this.acceptableRadius = _buf_.ReadFloat()
+        this.targetActorKey = _buf_.readString()
+        this.acceptableRadius = _buf_.readFloat()
     }
 
     readonly targetActorKey: string
@@ -1398,8 +1398,8 @@ export class UeWait extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.waitTime = _buf_.ReadFloat()
-        this.randomDeviation = _buf_.ReadFloat()
+        this.waitTime = _buf_.readFloat()
+        this.randomDeviation = _buf_.readFloat()
     }
 
     readonly waitTime: number
@@ -1420,7 +1420,7 @@ export class UeWaitBlackboardTime extends ai.Task {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.blackboardKey = _buf_.ReadString()
+        this.blackboardKey = _buf_.readString()
     }
 
     readonly blackboardKey: string
@@ -1437,7 +1437,7 @@ export class UeWaitBlackboardTime extends ai.Task {
 export namespace ai {
 export abstract class Service extends ai.Node {
     static constructorFrom(_buf_: ByteBuf): Service{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case 1812449155: return new ai.UeSetDefaultFocus(_buf_)
             case 990693812: return new ai.ExecuteTimeStatistic(_buf_)
             case 1601247918: return new ai.ChooseTarget(_buf_)
@@ -1466,7 +1466,7 @@ export class ChooseTarget extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.resultTargetKey = _buf_.ReadString()
+        this.resultTargetKey = _buf_.readString()
     }
 
     readonly resultTargetKey: string
@@ -1501,7 +1501,7 @@ export class GetOwnerPlayer extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.playerActorKey = _buf_.ReadString()
+        this.playerActorKey = _buf_.readString()
     }
 
     readonly playerActorKey: string
@@ -1520,7 +1520,7 @@ export class KeepFaceTarget extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.targetActorKey = _buf_.ReadString()
+        this.targetActorKey = _buf_.readString()
     }
 
     readonly targetActorKey: string
@@ -1539,7 +1539,7 @@ export class UeSetDefaultFocus extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.keyboardKey = _buf_.ReadString()
+        this.keyboardKey = _buf_.readString()
     }
 
     readonly keyboardKey: string
@@ -1558,15 +1558,15 @@ export class UpdateDailyBehaviorProps extends ai.Service {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.satietyKey = _buf_.ReadString()
-        this.energyKey = _buf_.ReadString()
-        this.moodKey = _buf_.ReadString()
-        this.satietyLowerThresholdKey = _buf_.ReadString()
-        this.satietyUpperThresholdKey = _buf_.ReadString()
-        this.energyLowerThresholdKey = _buf_.ReadString()
-        this.energyUpperThresholdKey = _buf_.ReadString()
-        this.moodLowerThresholdKey = _buf_.ReadString()
-        this.moodUpperThresholdKey = _buf_.ReadString()
+        this.satietyKey = _buf_.readString()
+        this.energyKey = _buf_.readString()
+        this.moodKey = _buf_.readString()
+        this.satietyLowerThresholdKey = _buf_.readString()
+        this.satietyUpperThresholdKey = _buf_.readString()
+        this.energyLowerThresholdKey = _buf_.readString()
+        this.energyUpperThresholdKey = _buf_.readString()
+        this.moodLowerThresholdKey = _buf_.readString()
+        this.moodUpperThresholdKey = _buf_.readString()
     }
 
     readonly satietyKey: string
@@ -1596,12 +1596,89 @@ export class UpdateDailyBehaviorProps extends ai.Service {
 }
 
 
+
+export class AutoImport1 {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        this.x1 = _buf_.readBool()
+        this.x5 = _buf_.readLongAsNumber()
+        this.x6 = _buf_.readFloat()
+        this.x8 = _buf_.readInt()
+        this.x10 = _buf_.readString()
+        this.x13 = _buf_.readInt()
+        this.x132 = _buf_.readInt()
+        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
+        this.x15 = test.Shape.constructorFrom(_buf_)
+        this.v2 = new vec2(_buf_)
+        this.t1 = _buf_.readLongAsNumber()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.k2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k10 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec3(_buf_); this.k10.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k11 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec4(_buf_); this.k11.push(_e0);}}
+        if(_buf_.readBool()) { this.v11 = new vec3(_buf_) } else { this.v11 = null; }
+    }
+
+    /**
+     * 这是id
+     */
+    readonly id: number
+    /**
+     * 字段x1
+     */
+    readonly x1: boolean
+    readonly x5: number
+    readonly x6: number
+    readonly x8: number
+    readonly x10: string
+    readonly x13: test.DemoEnum
+    readonly x132: test.DemoFlag
+    readonly x14: test.DemoDynamic
+    readonly x15: test.Shape
+    readonly v2: vec2
+    readonly t1: number
+    readonly k1: number[]
+    readonly k2: number[]
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+    readonly k10: vec3[]
+    readonly k11: vec4[]
+    readonly v11: vec3|undefined
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        this.x14?.resolve(tables);
+        this.x15?.resolve(tables);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+
+
+
 export namespace common {
 export class DateTimeRange {
 
     constructor(_buf_: ByteBuf) {
-        if(_buf_.ReadBool()) { this.startTime = _buf_.ReadLongAsNumber() } else { this.startTime = null; }
-        if(_buf_.ReadBool()) { this.endTime = _buf_.ReadLongAsNumber() } else { this.endTime = null; }
+        if(_buf_.readBool()) { this.startTime = _buf_.readLongAsNumber() } else { this.startTime = null; }
+        if(_buf_.readBool()) { this.endTime = _buf_.readLongAsNumber() } else { this.endTime = null; }
     }
 
     readonly startTime: number|undefined
@@ -1620,8 +1697,8 @@ export namespace common {
 export class FloatRange {
 
     constructor(_buf_: ByteBuf) {
-        this.min = _buf_.ReadFloat()
-        this.max = _buf_.ReadFloat()
+        this.min = _buf_.readFloat()
+        this.max = _buf_.readFloat()
     }
 
     readonly min: number
@@ -1640,13 +1717,13 @@ export namespace common {
 export class GlobalConfig {
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadInt()
-        this.x2 = _buf_.ReadInt()
-        this.x3 = _buf_.ReadInt()
-        this.x4 = _buf_.ReadInt()
-        this.x5 = _buf_.ReadInt()
-        this.x6 = _buf_.ReadInt()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x7 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x7.push(_e0);}}
+        this.x1 = _buf_.readInt()
+        this.x2 = _buf_.readInt()
+        this.x3 = _buf_.readInt()
+        this.x4 = _buf_.readInt()
+        this.x5 = _buf_.readInt()
+        this.x6 = _buf_.readInt()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x7 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.x7.push(_e0);}}
     }
 
     /**
@@ -1678,8 +1755,8 @@ export namespace common {
 export class IntRange {
 
     constructor(_buf_: ByteBuf) {
-        this.min = _buf_.ReadInt()
-        this.max = _buf_.ReadInt()
+        this.min = _buf_.readInt()
+        this.max = _buf_.readInt()
     }
 
     readonly min: number
@@ -1718,9 +1795,9 @@ export namespace common {
 export class TimeOfDay {
 
     constructor(_buf_: ByteBuf) {
-        this.hour = _buf_.ReadInt()
-        this.minute = _buf_.ReadInt()
-        this.second = _buf_.ReadInt()
+        this.hour = _buf_.readInt()
+        this.minute = _buf_.readInt()
+        this.second = _buf_.readInt()
     }
 
     readonly hour: number
@@ -1744,17 +1821,17 @@ export namespace item {
 export class Item {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
-        this.majorType = _buf_.ReadInt()
-        this.minorType = _buf_.ReadInt()
-        this.maxPileNum = _buf_.ReadInt()
-        this.quality = _buf_.ReadInt()
-        this.icon = _buf_.ReadString()
-        this.iconBackgroud = _buf_.ReadString()
-        this.iconMask = _buf_.ReadString()
-        this.desc = _buf_.ReadString()
-        this.showOrder = _buf_.ReadInt()
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
+        this.majorType = _buf_.readInt()
+        this.minorType = _buf_.readInt()
+        this.maxPileNum = _buf_.readInt()
+        this.quality = _buf_.readInt()
+        this.icon = _buf_.readString()
+        this.iconBackgroud = _buf_.readString()
+        this.iconMask = _buf_.readString()
+        this.desc = _buf_.readString()
+        this.showOrder = _buf_.readInt()
     }
 
     /**
@@ -1794,8 +1871,8 @@ export namespace l10n {
 export class L10NDemo {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.text = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.text = _buf_.readString()
     }
 
     readonly id: number
@@ -1814,8 +1891,8 @@ export namespace l10n {
 export class PatchDemo {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.value = _buf_.ReadInt()
+        this.id = _buf_.readInt()
+        this.value = _buf_.readInt()
     }
 
     readonly id: number
@@ -1834,8 +1911,8 @@ export namespace tag {
 export class TestTag {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.value = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.value = _buf_.readString()
     }
 
     readonly id: number
@@ -1851,131 +1928,28 @@ export class TestTag {
 
 
 export namespace test {
-export class CompactString {
+export class AutoImport2 {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.s2 = _buf_.ReadString()
-        this.s3 = _buf_.ReadString()
-    }
-
-    readonly id: number
-    readonly s2: string
-    readonly s3: string
-
-    resolve(tables:Tables) {
-        
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class CompositeJsonTable1 {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x = _buf_.ReadString()
-    }
-
-    readonly id: number
-    readonly x: string
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class CompositeJsonTable2 {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.y = _buf_.ReadInt()
-    }
-
-    readonly id: number
-    readonly y: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class CompositeJsonTable3 {
-
-    constructor(_buf_: ByteBuf) {
-        this.a = _buf_.ReadInt()
-        this.b = _buf_.ReadInt()
-    }
-
-    readonly a: number
-    readonly b: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class DateTimeRange {
-
-    constructor(_buf_: ByteBuf) {
-        this.startTime = _buf_.ReadLongAsNumber()
-        this.endTime = _buf_.ReadLongAsNumber()
-    }
-
-    readonly startTime: number
-    readonly endTime: number
-
-    resolve(tables:Tables) {
-        
-        
-    }
-}
-
-}
-
-
-export namespace test {
-export class DefineFromExcel2 {
-
-    constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x1 = _buf_.ReadBool()
-        this.x5 = _buf_.ReadLongAsNumber()
-        this.x6 = _buf_.ReadFloat()
-        this.x8 = _buf_.ReadInt()
-        this.x10 = _buf_.ReadString()
-        this.x13 = _buf_.ReadInt()
-        this.x132 = _buf_.ReadInt()
+        this.id = _buf_.readInt()
+        this.x1 = _buf_.readBool()
+        this.x5 = _buf_.readLongAsNumber()
+        this.x6 = _buf_.readFloat()
+        this.x8 = _buf_.readInt()
+        this.x10 = _buf_.readString()
+        this.x13 = _buf_.readInt()
+        this.x132 = _buf_.readInt()
         this.x14 = test.DemoDynamic.constructorFrom(_buf_)
         this.x15 = test.Shape.constructorFrom(_buf_)
         this.v2 = new vec2(_buf_)
-        this.t1 = _buf_.ReadLongAsNumber()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k1.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k2.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.k8.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k10 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec3(_buf_); this.k10.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k11 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec4(_buf_); this.k11.push(_e0);}}
-        if(_buf_.ReadBool()) { this.v11 = new vec3(_buf_) } else { this.v11 = null; }
+        this.t1 = _buf_.readLongAsNumber()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.k2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k10 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec3(_buf_); this.k10.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k11 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec4(_buf_); this.k11.push(_e0);}}
+        if(_buf_.readBool()) { this.v11 = new vec3(_buf_) } else { this.v11 = null; }
     }
 
     /**
@@ -2031,9 +2005,192 @@ export class DefineFromExcel2 {
 
 
 export namespace test {
+export class CompactString {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        this.s2 = _buf_.readString()
+        this.s3 = _buf_.readString()
+    }
+
+    readonly id: number
+    readonly s2: string
+    readonly s3: string
+
+    resolve(tables:Tables) {
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class CompositeJsonTable1 {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        this.x = _buf_.readString()
+    }
+
+    readonly id: number
+    readonly x: string
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class CompositeJsonTable2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        this.y = _buf_.readInt()
+    }
+
+    readonly id: number
+    readonly y: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class CompositeJsonTable3 {
+
+    constructor(_buf_: ByteBuf) {
+        this.a = _buf_.readInt()
+        this.b = _buf_.readInt()
+    }
+
+    readonly a: number
+    readonly b: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DateTimeRange {
+
+    constructor(_buf_: ByteBuf) {
+        this.startTime = _buf_.readLongAsNumber()
+        this.endTime = _buf_.readLongAsNumber()
+    }
+
+    readonly startTime: number
+    readonly endTime: number
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class DefineFromExcel2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        this.x1 = _buf_.readBool()
+        this.x5 = _buf_.readLongAsNumber()
+        this.x6 = _buf_.readFloat()
+        this.x8 = _buf_.readInt()
+        this.x10 = _buf_.readString()
+        this.x13 = _buf_.readInt()
+        this.x132 = _buf_.readInt()
+        this.x133 = _buf_.readInt()
+        this.x14 = test.DemoDynamic.constructorFrom(_buf_)
+        this.x15 = test.Shape.constructorFrom(_buf_)
+        this.v2 = new vec2(_buf_)
+        this.t1 = _buf_.readLongAsNumber()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.k2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k10 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec3(_buf_); this.k10.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k11 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec4(_buf_); this.k11.push(_e0);}}
+        if(_buf_.readBool()) { this.v11 = new vec3(_buf_) } else { this.v11 = null; }
+    }
+
+    /**
+     * 这是id
+     */
+    readonly id: number
+    /**
+     * 字段x1
+     */
+    readonly x1: boolean
+    readonly x5: number
+    readonly x6: number
+    readonly x8: number
+    readonly x10: string
+    readonly x13: test.DemoEnum
+    readonly x132: test.DemoFlag
+    readonly x133: test.DemoFlag
+    readonly x14: test.DemoDynamic
+    readonly x15: test.Shape
+    readonly v2: vec2
+    readonly t1: number
+    readonly k1: number[]
+    readonly k2: number[]
+    readonly k8: Map<number, number>
+    readonly k9: test.DemoE2[]
+    readonly k10: vec3[]
+    readonly k11: vec4[]
+    readonly v11: vec3|undefined
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        this.x14?.resolve(tables);
+        this.x15?.resolve(tables);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
 export abstract class DemoDynamic {
     static constructorFrom(_buf_: ByteBuf): DemoDynamic{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case -2138341747: return new test.DemoD2(_buf_)
             case -2138341717: return new test.DemoE1(_buf_)
             case -989153243: return new test.login.RoleInfo(_buf_)
@@ -2043,7 +2200,7 @@ export abstract class DemoDynamic {
     }
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadInt()
+        this.x1 = _buf_.readInt()
     }
 
     readonly x1: number
@@ -2061,7 +2218,7 @@ export class DemoD2 extends test.DemoDynamic {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.x2 = _buf_.ReadInt()
+        this.x2 = _buf_.readInt()
     }
 
     readonly x2: number
@@ -2078,7 +2235,7 @@ export class DemoD2 extends test.DemoDynamic {
 export namespace test {
 export abstract class DemoD3 extends test.DemoDynamic {
     static constructorFrom(_buf_: ByteBuf): DemoD3{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case -2138341717: return new test.DemoE1(_buf_)
             case -989153243: return new test.login.RoleInfo(_buf_)
             default: throw new Error()
@@ -2087,7 +2244,7 @@ export abstract class DemoD3 extends test.DemoDynamic {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.x3 = _buf_.ReadInt()
+        this.x3 = _buf_.readInt()
     }
 
     readonly x3: number
@@ -2106,7 +2263,7 @@ export class DemoE1 extends test.DemoD3 {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.x4 = _buf_.ReadInt()
+        this.x4 = _buf_.readInt()
     }
 
     readonly x4: number
@@ -2125,7 +2282,7 @@ export class RoleInfo extends test.DemoD3 {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.roleId = _buf_.ReadLongAsNumber()
+        this.roleId = _buf_.readLongAsNumber()
     }
 
     readonly roleId: number
@@ -2162,8 +2319,8 @@ export namespace test {
 export class DemoE2 {
 
     constructor(_buf_: ByteBuf) {
-        if(_buf_.ReadBool()) { this.y1 = _buf_.ReadInt() } else { this.y1 = null; }
-        this.y2 = _buf_.ReadBool()
+        if(_buf_.readBool()) { this.y1 = _buf_.readInt() } else { this.y1 = null; }
+        this.y2 = _buf_.readBool()
     }
 
     readonly y1: number|undefined
@@ -2182,13 +2339,13 @@ export namespace test {
 export class DemoExplicitType {
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadByte()
-        this.x2 = _buf_.ReadShort()
-        this.x3 = _buf_.ReadInt()
-        this.x4 = _buf_.ReadLongAsNumber()
-        this.x5 = _buf_.ReadFloat()
-        this.x6 = _buf_.ReadDouble()
-        this.x7 = _buf_.ReadLong()
+        this.x1 = _buf_.readByte()
+        this.x2 = _buf_.readShort()
+        this.x3 = _buf_.readInt()
+        this.x4 = _buf_.readLongAsNumber()
+        this.x5 = _buf_.readFloat()
+        this.x6 = _buf_.readDouble()
+        this.x7 = _buf_.readLong()
     }
 
     readonly x1: number
@@ -2217,11 +2374,11 @@ export namespace test {
 export class DemoGroup {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x1 = _buf_.ReadInt()
-        this.x2 = _buf_.ReadInt()
-        this.x3 = _buf_.ReadInt()
-        this.x4 = _buf_.ReadInt()
+        this.id = _buf_.readInt()
+        this.x1 = _buf_.readInt()
+        this.x2 = _buf_.readInt()
+        this.x3 = _buf_.readInt()
+        this.x4 = _buf_.readInt()
         this.x5 = new test.InnerGroup(_buf_)
     }
 
@@ -2252,19 +2409,19 @@ export namespace test {
 export class DemoPrimitiveTypesTable {
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadBool()
-        this.x2 = _buf_.ReadByte()
-        this.x3 = _buf_.ReadShort()
-        this.x4 = _buf_.ReadInt()
-        this.x5 = _buf_.ReadLongAsNumber()
-        this.x6 = _buf_.ReadFloat()
-        this.x7 = _buf_.ReadDouble()
-        this.s1 = _buf_.ReadString()
-        this.s2 = _buf_.ReadString()
+        this.x1 = _buf_.readBool()
+        this.x2 = _buf_.readByte()
+        this.x3 = _buf_.readShort()
+        this.x4 = _buf_.readInt()
+        this.x5 = _buf_.readLongAsNumber()
+        this.x6 = _buf_.readFloat()
+        this.x7 = _buf_.readDouble()
+        this.s1 = _buf_.readString()
+        this.s2 = _buf_.readString()
         this.v2 = new vec2(_buf_)
         this.v3 = new vec3(_buf_)
         this.v4 = new vec4(_buf_)
-        this.t1 = _buf_.ReadLongAsNumber()
+        this.t1 = _buf_.readLongAsNumber()
     }
 
     readonly x1: boolean
@@ -2305,8 +2462,8 @@ export namespace test {
 export class DemoSingletonType {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
         this.date = test.DemoDynamic.constructorFrom(_buf_)
     }
 
@@ -2328,7 +2485,7 @@ export namespace test {
 export class DemoType1 {
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadInt()
+        this.x1 = _buf_.readInt()
     }
 
     readonly x1: number
@@ -2345,28 +2502,28 @@ export namespace test {
 export class DemoType2 {
 
     constructor(_buf_: ByteBuf) {
-        this.x4 = _buf_.ReadInt()
-        this.x1 = _buf_.ReadBool()
-        this.x2 = _buf_.ReadByte()
-        this.x3 = _buf_.ReadShort()
-        this.x5 = _buf_.ReadLongAsNumber()
-        this.x6 = _buf_.ReadFloat()
-        this.x7 = _buf_.ReadDouble()
-        this.x80 = _buf_.ReadShort()
-        this.x8 = _buf_.ReadInt()
-        this.x9 = _buf_.ReadLongAsNumber()
-        this.x10 = _buf_.ReadString()
+        this.x4 = _buf_.readInt()
+        this.x1 = _buf_.readBool()
+        this.x2 = _buf_.readByte()
+        this.x3 = _buf_.readShort()
+        this.x5 = _buf_.readLongAsNumber()
+        this.x6 = _buf_.readFloat()
+        this.x7 = _buf_.readDouble()
+        this.x80 = _buf_.readShort()
+        this.x8 = _buf_.readInt()
+        this.x9 = _buf_.readLongAsNumber()
+        this.x10 = _buf_.readString()
         this.x12 = new test.DemoType1(_buf_)
-        this.x13 = _buf_.ReadInt()
+        this.x13 = _buf_.readInt()
         this.x14 = test.DemoDynamic.constructorFrom(_buf_)
-        this.s1 = _buf_.ReadString()
-        this.t1 = _buf_.ReadLongAsNumber()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k1.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.k2.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k5 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.k5.add(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.k8.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e0);}}
+        this.s1 = _buf_.readString()
+        this.t1 = _buf_.readLongAsNumber()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.k2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k5 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.k5.add(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e0);}}
     }
 
     readonly x4: number
@@ -2425,8 +2582,8 @@ export namespace test {
 export class DetectEncoding {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
     }
 
     readonly id: number
@@ -2445,20 +2602,20 @@ export namespace test {
 export class ExcelFromJson {
 
     constructor(_buf_: ByteBuf) {
-        this.x4 = _buf_.ReadInt()
-        this.x1 = _buf_.ReadBool()
-        this.x5 = _buf_.ReadLongAsNumber()
-        this.x6 = _buf_.ReadFloat()
-        this.s1 = _buf_.ReadString()
-        this.s2 = _buf_.ReadString()
-        this.t1 = _buf_.ReadLongAsNumber()
+        this.x4 = _buf_.readInt()
+        this.x1 = _buf_.readBool()
+        this.x5 = _buf_.readLongAsNumber()
+        this.x6 = _buf_.readFloat()
+        this.s1 = _buf_.readString()
+        this.s2 = _buf_.readString()
+        this.t1 = _buf_.readLongAsNumber()
         this.x12 = new test.DemoType1(_buf_)
-        this.x13 = _buf_.ReadInt()
+        this.x13 = _buf_.readInt()
         this.x14 = test.DemoDynamic.constructorFrom(_buf_)
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k1.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.k8.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k15 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = test.DemoDynamic.constructorFrom(_buf_); this.k15.push(_e0);}}
     }
 
     readonly x4: number
@@ -2501,9 +2658,9 @@ export namespace test {
 export class ExcelFromJsonMultiRow {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x = _buf_.ReadInt()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.items = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.TestRow(_buf_); this.items.push(_e0);}}
+        this.id = _buf_.readInt()
+        this.x = _buf_.readInt()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.items = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.TestRow(_buf_); this.items.push(_e0);}}
     }
 
     readonly id: number
@@ -2524,9 +2681,9 @@ export namespace test {
 export class Foo {
 
     constructor(_buf_: ByteBuf) {
-        this.y1 = _buf_.ReadInt()
-        this.y2 = _buf_.ReadInt()
-        this.y3 = _buf_.ReadInt()
+        this.y1 = _buf_.readInt()
+        this.y2 = _buf_.readInt()
+        this.y3 = _buf_.readInt()
     }
 
     readonly y1: number
@@ -2548,7 +2705,7 @@ export class H1 {
 
     constructor(_buf_: ByteBuf) {
         this.y2 = new test.H2(_buf_)
-        this.y3 = _buf_.ReadInt()
+        this.y3 = _buf_.readInt()
     }
 
     readonly y2: test.H2
@@ -2567,8 +2724,8 @@ export namespace test {
 export class H2 {
 
     constructor(_buf_: ByteBuf) {
-        this.z2 = _buf_.ReadInt()
-        this.z3 = _buf_.ReadInt()
+        this.z2 = _buf_.readInt()
+        this.z3 = _buf_.readInt()
     }
 
     readonly z2: number
@@ -2587,10 +2744,10 @@ export namespace test {
 export class InnerGroup {
 
     constructor(_buf_: ByteBuf) {
-        this.y1 = _buf_.ReadInt()
-        this.y2 = _buf_.ReadInt()
-        this.y3 = _buf_.ReadInt()
-        this.y4 = _buf_.ReadInt()
+        this.y1 = _buf_.readInt()
+        this.y2 = _buf_.readInt()
+        this.y3 = _buf_.readInt()
+        this.y4 = _buf_.readInt()
     }
 
     readonly y1: number
@@ -2612,7 +2769,7 @@ export class InnerGroup {
 export namespace test {
 export abstract class ItemBase {
     static constructorFrom(_buf_: ByteBuf): ItemBase{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case -1226641649: return new test.Item(_buf_)
             case -76837102: return new test.Equipment(_buf_)
             case -625155649: return new test.Decorator(_buf_)
@@ -2621,9 +2778,9 @@ export abstract class ItemBase {
     }
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
-        this.desc = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
+        this.desc = _buf_.readString()
     }
 
     readonly id: number
@@ -2645,7 +2802,7 @@ export class Decorator extends test.ItemBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.duration = _buf_.ReadInt()
+        this.duration = _buf_.readInt()
     }
 
     readonly duration: number
@@ -2664,8 +2821,8 @@ export class Equipment extends test.ItemBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.attr = _buf_.ReadInt()
-        this.value = _buf_.ReadInt()
+        this.attr = _buf_.readInt()
+        this.value = _buf_.readInt()
     }
 
     readonly attr: test.DemoEnum
@@ -2686,8 +2843,8 @@ export class Item extends test.ItemBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.num = _buf_.ReadInt()
-        this.price = _buf_.ReadInt()
+        this.num = _buf_.readInt()
+        this.price = _buf_.readInt()
     }
 
     readonly num: number
@@ -2707,11 +2864,11 @@ export namespace test {
 export class MultiIndexList {
 
     constructor(_buf_: ByteBuf) {
-        this.id1 = _buf_.ReadInt()
-        this.id2 = _buf_.ReadLongAsNumber()
-        this.id3 = _buf_.ReadString()
-        this.num = _buf_.ReadInt()
-        this.desc = _buf_.ReadString()
+        this.id1 = _buf_.readInt()
+        this.id2 = _buf_.readLongAsNumber()
+        this.id3 = _buf_.readString()
+        this.num = _buf_.readInt()
+        this.desc = _buf_.readString()
     }
 
     readonly id1: number
@@ -2736,15 +2893,15 @@ export namespace test {
 export class MultiRowRecord {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.oneRows = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType1(_buf_); this.oneRows.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType1(_buf_); this.multiRows1.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = new test.MultiRowType1(_buf_); this.multiRows2.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = new test.MultiRowType2(_buf_); this.multiRows4.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows5 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType3(_buf_); this.multiRows5.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows6 = new Map<number, test.MultiRowType2>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = new test.MultiRowType2(_buf_); this.multiRows6.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.multiRows7 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.multiRows7.set(_k0, _v0);  } }
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.oneRows = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType1(_buf_); this.oneRows.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.multiRows1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType1(_buf_); this.multiRows1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.multiRows2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = new test.MultiRowType1(_buf_); this.multiRows2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.multiRows4 = new Map<number, test.MultiRowType2>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = new test.MultiRowType2(_buf_); this.multiRows4.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.multiRows5 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType3(_buf_); this.multiRows5.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.multiRows6 = new Map<number, test.MultiRowType2>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = new test.MultiRowType2(_buf_); this.multiRows6.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.multiRows7 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.multiRows7.set(_k0, _v0);  } }
     }
 
     readonly id: number
@@ -2777,13 +2934,13 @@ export namespace test {
 export class MultiRowTitle {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.name = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
         this.x1 = new test.H1(_buf_)
-        if(_buf_.ReadBool()) { this.x20 = new test.H2(_buf_) } else { this.x20 = null; }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.H2(_buf_); this.x2.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = new test.H2(_buf_); this.x3.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = new test.H2(_buf_); this.x4.push(_e0);}}
+        if(_buf_.readBool()) { this.x20 = new test.H2(_buf_) } else { this.x20 = null; }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.H2(_buf_); this.x2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = new test.H2(_buf_); this.x3.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x4 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = new test.H2(_buf_); this.x4.push(_e0);}}
     }
 
     readonly id: number
@@ -2812,8 +2969,8 @@ export namespace test {
 export class MultiRowType1 {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x = _buf_.ReadInt()
+        this.id = _buf_.readInt()
+        this.x = _buf_.readInt()
     }
 
     readonly id: number
@@ -2832,9 +2989,9 @@ export namespace test {
 export class MultiRowType2 {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadFloat()
+        this.id = _buf_.readInt()
+        this.x = _buf_.readInt()
+        this.y = _buf_.readFloat()
     }
 
     readonly id: number
@@ -2855,8 +3012,8 @@ export namespace test {
 export class MultiRowType3 {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.items = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType1(_buf_); this.items.push(_e0);}}
+        this.id = _buf_.readInt()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.items = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.MultiRowType1(_buf_); this.items.push(_e0);}}
     }
 
     readonly id: number
@@ -2875,11 +3032,11 @@ export namespace test {
 export class MultiUnionIndexList {
 
     constructor(_buf_: ByteBuf) {
-        this.id1 = _buf_.ReadInt()
-        this.id2 = _buf_.ReadLongAsNumber()
-        this.id3 = _buf_.ReadString()
-        this.num = _buf_.ReadInt()
-        this.desc = _buf_.ReadString()
+        this.id1 = _buf_.readInt()
+        this.id2 = _buf_.readLongAsNumber()
+        this.id3 = _buf_.readString()
+        this.num = _buf_.readInt()
+        this.desc = _buf_.readString()
     }
 
     readonly id1: number
@@ -2904,8 +3061,8 @@ export namespace test {
 export class NotIndexList {
 
     constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadInt()
+        this.x = _buf_.readInt()
+        this.y = _buf_.readInt()
     }
 
     readonly x: number
@@ -2924,8 +3081,8 @@ export namespace test {
 export class Path {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.res = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.res = _buf_.readString()
     }
 
     readonly id: number
@@ -2943,14 +3100,14 @@ export class Path {
 export namespace test {
 export abstract class RefDynamicBase {
     static constructorFrom(_buf_: ByteBuf): RefDynamicBase{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case 1963260263: return new test.RefBean(_buf_)
             default: throw new Error()
         }
     }
 
     constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadInt()
+        this.x = _buf_.readInt()
     }
 
     readonly x: number
@@ -2969,7 +3126,7 @@ export class RefBean extends test.RefDynamicBase {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.arr = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.arr.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.arr = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.arr.push(_e0);}}
     }
 
     readonly arr: number[]
@@ -2987,9 +3144,9 @@ export namespace test {
 export class SepBean1 {
 
     constructor(_buf_: ByteBuf) {
-        this.a = _buf_.ReadInt()
-        this.b = _buf_.ReadInt()
-        this.c = _buf_.ReadString()
+        this.a = _buf_.readInt()
+        this.b = _buf_.readInt()
+        this.c = _buf_.readString()
     }
 
     readonly a: number
@@ -3010,9 +3167,9 @@ export namespace test {
 export class SepVector {
 
     constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadInt()
-        this.z = _buf_.ReadInt()
+        this.x = _buf_.readInt()
+        this.y = _buf_.readInt()
+        this.z = _buf_.readInt()
     }
 
     readonly x: number
@@ -3032,7 +3189,7 @@ export class SepVector {
 export namespace test {
 export abstract class Shape {
     static constructorFrom(_buf_: ByteBuf): Shape{
-        switch (_buf_.ReadInt()) {
+        switch (_buf_.readInt()) {
             case 2131829196: return new test.Circle(_buf_)
             case 694982337: return new test2.Rectangle(_buf_)
             default: throw new Error()
@@ -3058,7 +3215,7 @@ export class Circle extends test.Shape {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.radius = _buf_.ReadFloat()
+        this.radius = _buf_.readFloat()
     }
 
     /**
@@ -3083,8 +3240,8 @@ export class Rectangle extends test.Shape {
 
     constructor(_buf_: ByteBuf) {
         super(_buf_)
-        this.width = _buf_.ReadFloat()
-        this.height = _buf_.ReadFloat()
+        this.width = _buf_.readFloat()
+        this.height = _buf_.readFloat()
     }
 
     /**
@@ -3110,8 +3267,8 @@ export namespace test {
 export class Test3 {
 
     constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadInt()
+        this.x = _buf_.readInt()
+        this.y = _buf_.readInt()
     }
 
     readonly x: number
@@ -3130,8 +3287,8 @@ export namespace test {
 export class TestBeRef {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.count = _buf_.ReadInt()
+        this.id = _buf_.readInt()
+        this.count = _buf_.readInt()
     }
 
     readonly id: number
@@ -3153,10 +3310,10 @@ export namespace test {
 export class TestExcelBean1 {
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadInt()
-        this.x2 = _buf_.ReadString()
-        this.x3 = _buf_.ReadInt()
-        this.x4 = _buf_.ReadFloat()
+        this.x1 = _buf_.readInt()
+        this.x2 = _buf_.readString()
+        this.x3 = _buf_.readInt()
+        this.x4 = _buf_.readFloat()
     }
 
     /**
@@ -3194,9 +3351,9 @@ export namespace test {
 export class TestExcelBean2 {
 
     constructor(_buf_: ByteBuf) {
-        this.y1 = _buf_.ReadInt()
-        this.y2 = _buf_.ReadString()
-        this.y3 = _buf_.ReadFloat()
+        this.y1 = _buf_.readInt()
+        this.y2 = _buf_.readString()
+        this.y3 = _buf_.readFloat()
     }
 
     /**
@@ -3223,11 +3380,160 @@ export class TestExcelBean2 {
 
 
 export namespace test {
+export class TestFieldAlias {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
+    }
+
+    readonly id: number
+    readonly name: string
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestFieldVariant {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
+    }
+
+    readonly id: number
+    readonly name: string
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestFieldVariant2 {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        this.name = _buf_.readString()
+    }
+
+    readonly id: number
+    readonly name: string
+
+    resolve(tables:Tables) {
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
+export class TestFormat {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.a1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.a1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.a2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.a2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.a3 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.a3.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.a4 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.a4.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.b1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.b1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.b2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.b2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.b3 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.b3.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.b4 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.b4.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.c1 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.c1.add(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.c2 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.c2.add(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.c3 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.c3.add(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.c4 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.c4.add(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.m1 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.m1.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.m2 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.m2.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.m3 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.m3.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.m4 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.m4.set(_k0, _v0);  } }
+        this.v31 = new vec3(_buf_)
+        this.v32 = new vec3(_buf_)
+        this.v33 = new vec3(_buf_)
+        this.v34 = new vec3(_buf_)
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.v41 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec3(_buf_); this.v41.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.v42 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec3(_buf_); this.v42.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.v43 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec3(_buf_); this.v43.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.v44 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new vec3(_buf_); this.v44.push(_e0);}}
+    }
+
+    readonly id: number
+    readonly a1: number[]
+    readonly a2: number[]
+    readonly a3: number[]
+    readonly a4: number[]
+    readonly b1: number[]
+    readonly b2: number[]
+    readonly b3: number[]
+    readonly b4: number[]
+    readonly c1: Set<number>
+    readonly c2: Set<number>
+    readonly c3: Set<number>
+    readonly c4: Set<number>
+    readonly m1: Map<number, number>
+    readonly m2: Map<number, number>
+    readonly m3: Map<number, number>
+    readonly m4: Map<number, number>
+    readonly v31: vec3
+    readonly v32: vec3
+    readonly v33: vec3
+    readonly v34: vec3
+    readonly v41: vec3[]
+    readonly v42: vec3[]
+    readonly v43: vec3[]
+    readonly v44: vec3[]
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
 export class TestGlobal {
 
     constructor(_buf_: ByteBuf) {
-        this.unlockEquip = _buf_.ReadInt()
-        this.unlockHero = _buf_.ReadInt()
+        this.unlockEquip = _buf_.readInt()
+        this.unlockHero = _buf_.readInt()
     }
 
     readonly unlockEquip: number
@@ -3246,8 +3552,8 @@ export namespace test {
 export class TestIndex {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.eles = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoType1(_buf_); this.eles.push(_e0);}}
+        this.id = _buf_.readInt()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.eles = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoType1(_buf_); this.eles.push(_e0);}}
     }
 
     readonly id: number
@@ -3266,11 +3572,11 @@ export namespace test {
 export class TestMap {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x1 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.x1.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x2 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadLongAsNumber();  let _v0;  _v0 = _buf_.ReadInt(); this.x2.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = new Map<string, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadString();  let _v0;  _v0 = _buf_.ReadInt(); this.x3.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = new Map<test.DemoEnum, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.x4.set(_k0, _v0);  } }
+        this.id = _buf_.readInt()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x1 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.x1.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x2 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readLongAsNumber();  let _v0;  _v0 = _buf_.readInt(); this.x2.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x3 = new Map<string, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readString();  let _v0;  _v0 = _buf_.readInt(); this.x3.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x4 = new Map<test.DemoEnum, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.x4.set(_k0, _v0);  } }
     }
 
     readonly id: number
@@ -3296,8 +3602,8 @@ export namespace test {
 export class TestMapper {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.audioType = _buf_.ReadInt()
+        this.id = _buf_.readInt()
+        this.audioType = _buf_.readInt()
         this.v2 = new vec2(_buf_)
     }
 
@@ -3319,7 +3625,7 @@ export namespace test {
 export class TestMultiColumn {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
+        this.id = _buf_.readInt()
         this.a = new test.Foo(_buf_)
         this.b = new test.Foo(_buf_)
         this.c = new test.Foo(_buf_)
@@ -3345,13 +3651,13 @@ export namespace test {
 export class TestNull {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        if(_buf_.ReadBool()) { this.x1 = _buf_.ReadInt() } else { this.x1 = null; }
-        if(_buf_.ReadBool()) { this.x2 = _buf_.ReadInt() } else { this.x2 = null; }
-        if(_buf_.ReadBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = null; }
-        if(_buf_.ReadBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = null; }
-        if(_buf_.ReadBool()) { this.s1 = _buf_.ReadString() } else { this.s1 = null; }
-        if(_buf_.ReadBool()) { this.s2 = _buf_.ReadString() } else { this.s2 = null; }
+        this.id = _buf_.readInt()
+        if(_buf_.readBool()) { this.x1 = _buf_.readInt() } else { this.x1 = null; }
+        if(_buf_.readBool()) { this.x2 = _buf_.readInt() } else { this.x2 = null; }
+        if(_buf_.readBool()) { this.x3 = new test.DemoType1(_buf_) } else { this.x3 = null; }
+        if(_buf_.readBool()) { this.x4 = test.DemoDynamic.constructorFrom(_buf_) } else { this.x4 = null; }
+        if(_buf_.readBool()) { this.s1 = _buf_.readString() } else { this.s1 = null; }
+        if(_buf_.readBool()) { this.s2 = _buf_.readString() } else { this.s2 = null; }
     }
 
     readonly id: number
@@ -3377,29 +3683,82 @@ export class TestNull {
 
 
 export namespace test {
+export class TestRange {
+
+    constructor(_buf_: ByteBuf) {
+        this.id = _buf_.readInt()
+        this.f1 = _buf_.readFloat()
+        this.f2 = _buf_.readFloat()
+        this.d1 = _buf_.readDouble()
+        this.d2 = _buf_.readDouble()
+        this.i1 = _buf_.readInt()
+        this.i2 = _buf_.readInt()
+        this.i3 = _buf_.readInt()
+        this.i4 = _buf_.readInt()
+        this.l1 = _buf_.readLongAsNumber()
+        this.l2 = _buf_.readLongAsNumber()
+        this.l3 = _buf_.readLongAsNumber()
+        this.l4 = _buf_.readLongAsNumber()
+    }
+
+    readonly id: number
+    readonly f1: number
+    readonly f2: number
+    readonly d1: number
+    readonly d2: number
+    readonly i1: number
+    readonly i2: number
+    readonly i3: number
+    readonly i4: number
+    readonly l1: number
+    readonly l2: number
+    readonly l3: number
+    readonly l4: number
+
+    resolve(tables:Tables) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
+
+}
+
+
+export namespace test {
 export class TestRef {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x1 = _buf_.ReadInt()
-        this.x12 = _buf_.ReadInt()
-        this.x2 = _buf_.ReadInt()
-        this.x3 = _buf_.ReadInt()
-        this.x4 = _buf_.ReadInt()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.a1.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.a2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.a2.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.b1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.b1.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.b2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.b2.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.c1 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.c1.add(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.c2 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.c2.add(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.d1 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.d1.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.d2 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.d2.set(_k0, _v0);  } }
-        this.e1 = _buf_.ReadInt()
-        this.e2 = _buf_.ReadLongAsNumber()
-        this.e3 = _buf_.ReadString()
-        this.f1 = _buf_.ReadInt()
-        this.f2 = _buf_.ReadLongAsNumber()
-        this.f3 = _buf_.ReadString()
+        this.id = _buf_.readInt()
+        this.x1 = _buf_.readInt()
+        this.x12 = _buf_.readInt()
+        this.x2 = _buf_.readInt()
+        this.x3 = _buf_.readInt()
+        this.x4 = _buf_.readInt()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.a1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.a1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.a2 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.a2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.b1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.b1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.b2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.b2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.c1 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.c1.add(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.c2 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.c2.add(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.d1 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.d1.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.d2 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.d2.set(_k0, _v0);  } }
+        this.e1 = _buf_.readInt()
+        this.e2 = _buf_.readLongAsNumber()
+        this.e3 = _buf_.readString()
+        this.f1 = _buf_.readInt()
+        this.f2 = _buf_.readLongAsNumber()
+        this.f3 = _buf_.readString()
         this.s1 = test.RefDynamicBase.constructorFrom(_buf_)
     }
 
@@ -3460,11 +3819,11 @@ export namespace test {
 export class TestRow {
 
     constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadInt()
-        this.y = _buf_.ReadBool()
-        this.z = _buf_.ReadString()
+        this.x = _buf_.readInt()
+        this.y = _buf_.readBool()
+        this.z = _buf_.readString()
         this.a = new test.Test3(_buf_)
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.b = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.b.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.b = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.b.push(_e0);}}
     }
 
     readonly x: number
@@ -3489,10 +3848,10 @@ export namespace test {
 export class TestScriptableObject {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.desc = _buf_.ReadString()
-        this.rate = _buf_.ReadFloat()
-        this.num = _buf_.ReadInt()
+        this.id = _buf_.readInt()
+        this.desc = _buf_.readString()
+        this.rate = _buf_.readFloat()
+        this.num = _buf_.readInt()
         this.v2 = new vec2(_buf_)
         this.v3 = new vec3(_buf_)
         this.v4 = new vec4(_buf_)
@@ -3524,12 +3883,12 @@ export namespace test {
 export class TestSet {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        this.x0 = _buf_.ReadString()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x1.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadLongAsNumber(); this.x2.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadString(); this.x3.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x4.push(_e0);}}
+        this.id = _buf_.readInt()
+        this.x0 = _buf_.readString()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x1 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.x1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readLongAsNumber(); this.x2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x3 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readString(); this.x3.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x4 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.x4.push(_e0);}}
     }
 
     readonly id: number
@@ -3556,11 +3915,11 @@ export namespace test {
 export class TestSize {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadInt()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.x1.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x2.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x3 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.x3.add(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.x4 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.x4.set(_k0, _v0);  } }
+        this.id = _buf_.readInt()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.x1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.x2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x3 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.x3.add(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.x4 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.x4.set(_k0, _v0);  } }
     }
 
     readonly id: number
@@ -3585,11 +3944,13 @@ export namespace test {
 export class TestString {
 
     constructor(_buf_: ByteBuf) {
-        this.id = _buf_.ReadString()
-        this.s1 = _buf_.ReadString()
-        this.s2 = _buf_.ReadString()
+        this.id = _buf_.readString()
+        this.s1 = _buf_.readString()
+        this.s2 = _buf_.readString()
         this.cs1 = new test.CompactString(_buf_)
         this.cs2 = new test.CompactString(_buf_)
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.css = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readString(); this.css.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.css2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readString(); this.css2.push(_e0);}}
     }
 
     readonly id: string
@@ -3597,6 +3958,8 @@ export class TestString {
     readonly s2: string
     readonly cs1: test.CompactString
     readonly cs2: test.CompactString
+    readonly css: string[]
+    readonly css2: string[]
 
     resolve(tables:Tables) {
         
@@ -3604,6 +3967,8 @@ export class TestString {
         
         this.cs1?.resolve(tables);
         this.cs2?.resolve(tables);
+        
+        
     }
 }
 
@@ -3614,21 +3979,21 @@ export namespace test {
 export class TestUeType {
 
     constructor(_buf_: ByteBuf) {
-        this.x1 = _buf_.ReadBool()
-        this.x2 = _buf_.ReadByte()
-        this.x3 = _buf_.ReadShort()
-        this.x4 = _buf_.ReadInt()
-        this.x5 = _buf_.ReadLongAsNumber()
-        this.x6 = _buf_.ReadFloat()
-        this.x10 = _buf_.ReadString()
+        this.x1 = _buf_.readBool()
+        this.x2 = _buf_.readByte()
+        this.x3 = _buf_.readShort()
+        this.x4 = _buf_.readInt()
+        this.x5 = _buf_.readLongAsNumber()
+        this.x6 = _buf_.readFloat()
+        this.x10 = _buf_.readString()
         this.x12 = new test.DemoType1(_buf_)
-        this.x13 = _buf_.ReadInt()
-        this.t1 = _buf_.ReadLongAsNumber()
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.ReadInt(); this.k1.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.k2.push(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k5 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.ReadInt(); this.k5.add(_e0);}}
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.ReadInt();  let _v0;  _v0 = _buf_.ReadInt(); this.k8.set(_k0, _v0);  } }
-        { let n = Math.min(_buf_.ReadSize(), _buf_.Size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
+        this.x13 = _buf_.readInt()
+        this.t1 = _buf_.readLongAsNumber()
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k1 = []; for(let i = 0 ; i < n ; i++) { let _e0 ;_e0 = _buf_.readInt(); this.k1.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k2 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.k2.push(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k5 = new Set<number>(); for(let i = 0 ; i < n ; i++) { let _e0; _e0 = _buf_.readInt(); this.k5.add(_e0);}}
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k8 = new Map<number, number>(); for(let i = 0 ; i < n ; i++) { let _k0; _k0 = _buf_.readInt();  let _v0;  _v0 = _buf_.readInt(); this.k8.set(_k0, _v0);  } }
+        { let n = Math.min(_buf_.readSize(), _buf_.size); this.k9 = []; for(let i = 0 ; i < n ; i++) { let _e0; _e0 = new test.DemoE2(_buf_); this.k9.push(_e0);}}
     }
 
     readonly x1: boolean
@@ -3673,8 +4038,8 @@ export class TestUeType {
 export class vec2 {
 
     constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadFloat()
-        this.y = _buf_.ReadFloat()
+        this.x = _buf_.readFloat()
+        this.y = _buf_.readFloat()
     }
 
     readonly x: number
@@ -3693,9 +4058,9 @@ export class vec2 {
 export class vec3 {
 
     constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadFloat()
-        this.y = _buf_.ReadFloat()
-        this.z = _buf_.ReadFloat()
+        this.x = _buf_.readFloat()
+        this.y = _buf_.readFloat()
+        this.z = _buf_.readFloat()
     }
 
     readonly x: number
@@ -3716,10 +4081,10 @@ export class vec3 {
 export class vec4 {
 
     constructor(_buf_: ByteBuf) {
-        this.x = _buf_.ReadFloat()
-        this.y = _buf_.ReadFloat()
-        this.z = _buf_.ReadFloat()
-        this.w = _buf_.ReadFloat()
+        this.x = _buf_.readFloat()
+        this.y = _buf_.readFloat()
+        this.z = _buf_.readFloat()
+        this.w = _buf_.readFloat()
     }
 
     readonly x: number
@@ -3746,7 +4111,7 @@ export class TbBlackboard {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<string, ai.Blackboard>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: ai.Blackboard
             _v = new ai.Blackboard(_buf_)
             this._dataList.push(_v)
@@ -3779,7 +4144,7 @@ export class TbBehaviorTree {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, ai.BehaviorTree>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: ai.BehaviorTree
             _v = new ai.BehaviorTree(_buf_)
             this._dataList.push(_v)
@@ -3810,7 +4175,7 @@ export class TbGlobalConfig {
 
     private _data: common.GlobalConfig
     constructor(_buf_: ByteBuf) {
-        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        if (_buf_.readInt() != 1) throw new Error('table mode=one, but size != 1')
         this._data = new common.GlobalConfig(_buf_)
     }
 
@@ -3845,7 +4210,7 @@ export class TbItem {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, item.Item>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: item.Item
             _v = new item.Item(_buf_)
             this._dataList.push(_v)
@@ -3878,7 +4243,7 @@ export class TbL10NDemo {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, l10n.L10NDemo>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: l10n.L10NDemo
             _v = new l10n.L10NDemo(_buf_)
             this._dataList.push(_v)
@@ -3911,7 +4276,7 @@ export class TbPatchDemo {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, l10n.PatchDemo>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: l10n.PatchDemo
             _v = new l10n.PatchDemo(_buf_)
             this._dataList.push(_v)
@@ -3944,7 +4309,7 @@ export class TbTestTag {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, tag.TestTag>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: tag.TestTag
             _v = new tag.TestTag(_buf_)
             this._dataList.push(_v)
@@ -3977,7 +4342,7 @@ export class TbFullTypes {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoType2>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.DemoType2
             _v = new test.DemoType2(_buf_)
             this._dataList.push(_v)
@@ -4008,7 +4373,7 @@ export class TbSingleton {
 
     private _data: test.DemoSingletonType
     constructor(_buf_: ByteBuf) {
-        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        if (_buf_.readInt() != 1) throw new Error('table mode=one, but size != 1')
         this._data = new test.DemoSingletonType(_buf_)
     }
 
@@ -4032,7 +4397,7 @@ export class TbNotIndexList {
     
     constructor(_buf_: ByteBuf) {
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.NotIndexList
             _v = new test.NotIndexList(_buf_)
             this._dataList.push(_v)
@@ -4060,7 +4425,7 @@ export class TbMultiUnionIndexList {
     
     constructor(_buf_: ByteBuf) {
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.MultiUnionIndexList
             _v = new test.MultiUnionIndexList(_buf_)
             this._dataList.push(_v)
@@ -4088,7 +4453,7 @@ export class TbMultiIndexList {
     
     constructor(_buf_: ByteBuf) {
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.MultiIndexList
             _v = new test.MultiIndexList(_buf_)
             this._dataList.push(_v)
@@ -4117,7 +4482,7 @@ export class TbDataFromMisc {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoType2>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.DemoType2
             _v = new test.DemoType2(_buf_)
             this._dataList.push(_v)
@@ -4150,7 +4515,7 @@ export class TbMultiRowRecord {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.MultiRowRecord>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.MultiRowRecord
             _v = new test.MultiRowRecord(_buf_)
             this._dataList.push(_v)
@@ -4183,7 +4548,7 @@ export class TbTestMultiColumn {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestMultiColumn>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestMultiColumn
             _v = new test.TestMultiColumn(_buf_)
             this._dataList.push(_v)
@@ -4216,7 +4581,7 @@ export class TbMultiRowTitle {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.MultiRowTitle>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.MultiRowTitle
             _v = new test.MultiRowTitle(_buf_)
             this._dataList.push(_v)
@@ -4249,7 +4614,7 @@ export class TbTestNull {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestNull>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestNull
             _v = new test.TestNull(_buf_)
             this._dataList.push(_v)
@@ -4282,7 +4647,7 @@ export class TbDemoPrimitive {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoPrimitiveTypesTable>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.DemoPrimitiveTypesTable
             _v = new test.DemoPrimitiveTypesTable(_buf_)
             this._dataList.push(_v)
@@ -4315,7 +4680,7 @@ export class TbTestString {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<string, test.TestString>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestString
             _v = new test.TestString(_buf_)
             this._dataList.push(_v)
@@ -4348,7 +4713,7 @@ export class TbDemoGroup {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoGroup>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.DemoGroup
             _v = new test.DemoGroup(_buf_)
             this._dataList.push(_v)
@@ -4381,7 +4746,7 @@ export class TbDemoGroup_C {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoGroup>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.DemoGroup
             _v = new test.DemoGroup(_buf_)
             this._dataList.push(_v)
@@ -4414,7 +4779,7 @@ export class TbDemoGroup_S {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoGroup>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.DemoGroup
             _v = new test.DemoGroup(_buf_)
             this._dataList.push(_v)
@@ -4447,7 +4812,7 @@ export class TbDemoGroup_E {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DemoGroup>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.DemoGroup
             _v = new test.DemoGroup(_buf_)
             this._dataList.push(_v)
@@ -4478,7 +4843,7 @@ export class TbTestGlobal {
 
     private _data: test.TestGlobal
     constructor(_buf_: ByteBuf) {
-        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        if (_buf_.readInt() != 1) throw new Error('table mode=one, but size != 1')
         this._data = new test.TestGlobal(_buf_)
     }
 
@@ -4502,7 +4867,7 @@ export class TbTestBeRef {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestBeRef>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestBeRef
             _v = new test.TestBeRef(_buf_)
             this._dataList.push(_v)
@@ -4535,7 +4900,7 @@ export class TbTestBeRef2 {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestBeRef>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestBeRef
             _v = new test.TestBeRef(_buf_)
             this._dataList.push(_v)
@@ -4568,7 +4933,7 @@ export class TbTestRef {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestRef>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestRef
             _v = new test.TestRef(_buf_)
             this._dataList.push(_v)
@@ -4601,7 +4966,7 @@ export class TbTestSize {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestSize>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestSize
             _v = new test.TestSize(_buf_)
             this._dataList.push(_v)
@@ -4634,7 +4999,7 @@ export class TbTestSet {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestSet>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestSet
             _v = new test.TestSet(_buf_)
             this._dataList.push(_v)
@@ -4661,13 +5026,46 @@ export class TbTestSet {
 
 
 export namespace test {
+export class TbTestRange {
+    private _dataMap: Map<number, test.TestRange>
+    private _dataList: test.TestRange[]
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestRange>()
+        this._dataList = []
+        for(let n = _buf_.readInt(); n > 0; n--) {
+            let _v: test.TestRange
+            _v = new test.TestRange(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestRange> { return this._dataMap; }
+    getDataList(): test.TestRange[] { return this._dataList; }
+
+    get(key: number): test.TestRange | undefined {
+        return this._dataMap.get(key); 
+    }
+
+    resolve(tables:Tables) {
+        for(let  data of this._dataList)
+        {
+            data.resolve(tables)
+        }
+    }
+
+}
+}
+
+
+export namespace test {
 export class TbDetectCsvEncoding {
     private _dataMap: Map<number, test.DetectEncoding>
     private _dataList: test.DetectEncoding[]
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DetectEncoding>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.DetectEncoding
             _v = new test.DetectEncoding(_buf_)
             this._dataList.push(_v)
@@ -4700,7 +5098,7 @@ export class TbItem2 {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.ItemBase>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.ItemBase
             _v = test.ItemBase.constructorFrom(_buf_)
             this._dataList.push(_v)
@@ -4733,7 +5131,7 @@ export class TbTestIndex {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestIndex>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestIndex
             _v = new test.TestIndex(_buf_)
             this._dataList.push(_v)
@@ -4766,7 +5164,7 @@ export class TbTestMap {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestMap>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestMap
             _v = new test.TestMap(_buf_)
             this._dataList.push(_v)
@@ -4799,7 +5197,7 @@ export class TbExcelFromJson {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.ExcelFromJson>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.ExcelFromJson
             _v = new test.ExcelFromJson(_buf_)
             this._dataList.push(_v)
@@ -4832,7 +5230,7 @@ export class TbCompositeJsonTable1 {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.CompositeJsonTable1>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.CompositeJsonTable1
             _v = new test.CompositeJsonTable1(_buf_)
             this._dataList.push(_v)
@@ -4865,7 +5263,7 @@ export class TbCompositeJsonTable2 {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.CompositeJsonTable2>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.CompositeJsonTable2
             _v = new test.CompositeJsonTable2(_buf_)
             this._dataList.push(_v)
@@ -4896,7 +5294,7 @@ export class TbCompositeJsonTable3 {
 
     private _data: test.CompositeJsonTable3
     constructor(_buf_: ByteBuf) {
-        if (_buf_.ReadInt() != 1) throw new Error('table mode=one, but size != 1')
+        if (_buf_.readInt() != 1) throw new Error('table mode=one, but size != 1')
         this._data = new test.CompositeJsonTable3(_buf_)
     }
 
@@ -4920,7 +5318,7 @@ export class TbExcelFromJsonMultiRow {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.ExcelFromJsonMultiRow>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.ExcelFromJsonMultiRow
             _v = new test.ExcelFromJsonMultiRow(_buf_)
             this._dataList.push(_v)
@@ -4953,7 +5351,7 @@ export class TbTestScriptableObject {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestScriptableObject>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestScriptableObject
             _v = new test.TestScriptableObject(_buf_)
             this._dataList.push(_v)
@@ -4986,7 +5384,7 @@ export class TbPath {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.Path>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.Path
             _v = new test.Path(_buf_)
             this._dataList.push(_v)
@@ -5013,13 +5411,112 @@ export class TbPath {
 
 
 export namespace test {
+export class TbTestFieldAlias {
+    private _dataMap: Map<number, test.TestFieldAlias>
+    private _dataList: test.TestFieldAlias[]
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestFieldAlias>()
+        this._dataList = []
+        for(let n = _buf_.readInt(); n > 0; n--) {
+            let _v: test.TestFieldAlias
+            _v = new test.TestFieldAlias(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestFieldAlias> { return this._dataMap; }
+    getDataList(): test.TestFieldAlias[] { return this._dataList; }
+
+    get(key: number): test.TestFieldAlias | undefined {
+        return this._dataMap.get(key); 
+    }
+
+    resolve(tables:Tables) {
+        for(let  data of this._dataList)
+        {
+            data.resolve(tables)
+        }
+    }
+
+}
+}
+
+
+export namespace test {
+export class TbTestFieldVariant {
+    private _dataMap: Map<number, test.TestFieldVariant>
+    private _dataList: test.TestFieldVariant[]
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestFieldVariant>()
+        this._dataList = []
+        for(let n = _buf_.readInt(); n > 0; n--) {
+            let _v: test.TestFieldVariant
+            _v = new test.TestFieldVariant(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestFieldVariant> { return this._dataMap; }
+    getDataList(): test.TestFieldVariant[] { return this._dataList; }
+
+    get(key: number): test.TestFieldVariant | undefined {
+        return this._dataMap.get(key); 
+    }
+
+    resolve(tables:Tables) {
+        for(let  data of this._dataList)
+        {
+            data.resolve(tables)
+        }
+    }
+
+}
+}
+
+
+export namespace test {
+export class TbTestFieldVariant2 {
+    private _dataMap: Map<number, test.TestFieldVariant2>
+    private _dataList: test.TestFieldVariant2[]
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestFieldVariant2>()
+        this._dataList = []
+        for(let n = _buf_.readInt(); n > 0; n--) {
+            let _v: test.TestFieldVariant2
+            _v = new test.TestFieldVariant2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestFieldVariant2> { return this._dataMap; }
+    getDataList(): test.TestFieldVariant2[] { return this._dataList; }
+
+    get(key: number): test.TestFieldVariant2 | undefined {
+        return this._dataMap.get(key); 
+    }
+
+    resolve(tables:Tables) {
+        for(let  data of this._dataList)
+        {
+            data.resolve(tables)
+        }
+    }
+
+}
+}
+
+
+export namespace test {
 export class TbTestMapper {
     private _dataMap: Map<number, test.TestMapper>
     private _dataList: test.TestMapper[]
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.TestMapper>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.TestMapper
             _v = new test.TestMapper(_buf_)
             this._dataList.push(_v)
@@ -5052,7 +5549,7 @@ export class TbDefineFromExcel2 {
     constructor(_buf_: ByteBuf) {
         this._dataMap = new Map<number, test.DefineFromExcel2>()
         this._dataList = []
-        for(let n = _buf_.ReadInt(); n > 0; n--) {
+        for(let n = _buf_.readInt(); n > 0; n--) {
             let _v: test.DefineFromExcel2
             _v = new test.DefineFromExcel2(_buf_)
             this._dataList.push(_v)
@@ -5064,6 +5561,105 @@ export class TbDefineFromExcel2 {
     getDataList(): test.DefineFromExcel2[] { return this._dataList; }
 
     get(key: number): test.DefineFromExcel2 | undefined {
+        return this._dataMap.get(key); 
+    }
+
+    resolve(tables:Tables) {
+        for(let  data of this._dataList)
+        {
+            data.resolve(tables)
+        }
+    }
+
+}
+}
+
+
+
+export class TbAutoImport1 {
+    private _dataMap: Map<number, AutoImport1>
+    private _dataList: AutoImport1[]
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, AutoImport1>()
+        this._dataList = []
+        for(let n = _buf_.readInt(); n > 0; n--) {
+            let _v: AutoImport1
+            _v = new AutoImport1(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, AutoImport1> { return this._dataMap; }
+    getDataList(): AutoImport1[] { return this._dataList; }
+
+    get(key: number): AutoImport1 | undefined {
+        return this._dataMap.get(key); 
+    }
+
+    resolve(tables:Tables) {
+        for(let  data of this._dataList)
+        {
+            data.resolve(tables)
+        }
+    }
+
+}
+
+
+
+export namespace test {
+export class TbAutoImport2 {
+    private _dataMap: Map<number, test.AutoImport2>
+    private _dataList: test.AutoImport2[]
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.AutoImport2>()
+        this._dataList = []
+        for(let n = _buf_.readInt(); n > 0; n--) {
+            let _v: test.AutoImport2
+            _v = new test.AutoImport2(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.AutoImport2> { return this._dataMap; }
+    getDataList(): test.AutoImport2[] { return this._dataList; }
+
+    get(key: number): test.AutoImport2 | undefined {
+        return this._dataMap.get(key); 
+    }
+
+    resolve(tables:Tables) {
+        for(let  data of this._dataList)
+        {
+            data.resolve(tables)
+        }
+    }
+
+}
+}
+
+
+export namespace test {
+export class TbTestFormat {
+    private _dataMap: Map<number, test.TestFormat>
+    private _dataList: test.TestFormat[]
+    constructor(_buf_: ByteBuf) {
+        this._dataMap = new Map<number, test.TestFormat>()
+        this._dataList = []
+        for(let n = _buf_.readInt(); n > 0; n--) {
+            let _v: test.TestFormat
+            _v = new test.TestFormat(_buf_)
+            this._dataList.push(_v)
+            this._dataMap.set(_v.id, _v)
+        }
+    }
+
+    getDataMap(): Map<number, test.TestFormat> { return this._dataMap; }
+    getDataList(): test.TestFormat[] { return this._dataList; }
+
+    get(key: number): test.TestFormat | undefined {
         return this._dataMap.get(key); 
     }
 
@@ -5143,6 +5739,8 @@ export class Tables {
     get TbTestSize(): test.TbTestSize  { return this._TbTestSize;}
     private _TbTestSet: test.TbTestSet
     get TbTestSet(): test.TbTestSet  { return this._TbTestSet;}
+    private _TbTestRange: test.TbTestRange
+    get TbTestRange(): test.TbTestRange  { return this._TbTestRange;}
     private _TbDetectCsvEncoding: test.TbDetectCsvEncoding
     get TbDetectCsvEncoding(): test.TbDetectCsvEncoding  { return this._TbDetectCsvEncoding;}
     private _TbItem2: test.TbItem2
@@ -5165,10 +5763,22 @@ export class Tables {
     get TbTestScriptableObject(): test.TbTestScriptableObject  { return this._TbTestScriptableObject;}
     private _TbPath: test.TbPath
     get TbPath(): test.TbPath  { return this._TbPath;}
+    private _TbTestFieldAlias: test.TbTestFieldAlias
+    get TbTestFieldAlias(): test.TbTestFieldAlias  { return this._TbTestFieldAlias;}
+    private _TbTestFieldVariant: test.TbTestFieldVariant
+    get TbTestFieldVariant(): test.TbTestFieldVariant  { return this._TbTestFieldVariant;}
+    private _TbTestFieldVariant2: test.TbTestFieldVariant2
+    get TbTestFieldVariant2(): test.TbTestFieldVariant2  { return this._TbTestFieldVariant2;}
     private _TbTestMapper: test.TbTestMapper
     get TbTestMapper(): test.TbTestMapper  { return this._TbTestMapper;}
     private _TbDefineFromExcel2: test.TbDefineFromExcel2
     get TbDefineFromExcel2(): test.TbDefineFromExcel2  { return this._TbDefineFromExcel2;}
+    private _TbAutoImport1: TbAutoImport1
+    get TbAutoImport1(): TbAutoImport1  { return this._TbAutoImport1;}
+    private _TbAutoImport2: test.TbAutoImport2
+    get TbAutoImport2(): test.TbAutoImport2  { return this._TbAutoImport2;}
+    private _TbTestFormat: test.TbTestFormat
+    get TbTestFormat(): test.TbTestFormat  { return this._TbTestFormat;}
 
     static getTableNames(): string[] {
         let names: string[] = [];
@@ -5201,6 +5811,7 @@ export class Tables {
         names.push('test_tbtestref');
         names.push('test_tbtestsize');
         names.push('test_tbtestset');
+        names.push('test_tbtestrange');
         names.push('test_tbdetectcsvencoding');
         names.push('test_tbitem2');
         names.push('test_tbtestindex');
@@ -5212,8 +5823,14 @@ export class Tables {
         names.push('test_tbexcelfromjsonmultirow');
         names.push('test_tbtestscriptableobject');
         names.push('test_tbpath');
+        names.push('test_tbtestfieldalias');
+        names.push('test_tbtestfieldvariant');
+        names.push('test_tbtestfieldvariant2');
         names.push('test_tbtestmapper');
         names.push('test_tbdefinefromexcel2');
+        names.push('tbautoimport1');
+        names.push('test_tbautoimport2');
+        names.push('test_tbtestformat');
         return names;
     }
 
@@ -5247,6 +5864,7 @@ export class Tables {
         this._TbTestRef = new test.TbTestRef(loader('test_tbtestref'))
         this._TbTestSize = new test.TbTestSize(loader('test_tbtestsize'))
         this._TbTestSet = new test.TbTestSet(loader('test_tbtestset'))
+        this._TbTestRange = new test.TbTestRange(loader('test_tbtestrange'))
         this._TbDetectCsvEncoding = new test.TbDetectCsvEncoding(loader('test_tbdetectcsvencoding'))
         this._TbItem2 = new test.TbItem2(loader('test_tbitem2'))
         this._TbTestIndex = new test.TbTestIndex(loader('test_tbtestindex'))
@@ -5258,8 +5876,14 @@ export class Tables {
         this._TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader('test_tbexcelfromjsonmultirow'))
         this._TbTestScriptableObject = new test.TbTestScriptableObject(loader('test_tbtestscriptableobject'))
         this._TbPath = new test.TbPath(loader('test_tbpath'))
+        this._TbTestFieldAlias = new test.TbTestFieldAlias(loader('test_tbtestfieldalias'))
+        this._TbTestFieldVariant = new test.TbTestFieldVariant(loader('test_tbtestfieldvariant'))
+        this._TbTestFieldVariant2 = new test.TbTestFieldVariant2(loader('test_tbtestfieldvariant2'))
         this._TbTestMapper = new test.TbTestMapper(loader('test_tbtestmapper'))
         this._TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader('test_tbdefinefromexcel2'))
+        this._TbAutoImport1 = new TbAutoImport1(loader('tbautoimport1'))
+        this._TbAutoImport2 = new test.TbAutoImport2(loader('test_tbautoimport2'))
+        this._TbTestFormat = new test.TbTestFormat(loader('test_tbtestformat'))
 
         this._TbBlackboard.resolve(this)
         this._TbBehaviorTree.resolve(this)
@@ -5290,6 +5914,7 @@ export class Tables {
         this._TbTestRef.resolve(this)
         this._TbTestSize.resolve(this)
         this._TbTestSet.resolve(this)
+        this._TbTestRange.resolve(this)
         this._TbDetectCsvEncoding.resolve(this)
         this._TbItem2.resolve(this)
         this._TbTestIndex.resolve(this)
@@ -5301,8 +5926,14 @@ export class Tables {
         this._TbExcelFromJsonMultiRow.resolve(this)
         this._TbTestScriptableObject.resolve(this)
         this._TbPath.resolve(this)
+        this._TbTestFieldAlias.resolve(this)
+        this._TbTestFieldVariant.resolve(this)
+        this._TbTestFieldVariant2.resolve(this)
         this._TbTestMapper.resolve(this)
         this._TbDefineFromExcel2.resolve(this)
+        this._TbAutoImport1.resolve(this)
+        this._TbAutoImport2.resolve(this)
+        this._TbTestFormat.resolve(this)
     }
 }
 

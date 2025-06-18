@@ -1,2 +1,0 @@
-typescript-bin示例
-Cocos只识别.bin文件所以加了一个rename_to_bin.bat

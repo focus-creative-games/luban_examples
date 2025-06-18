@@ -1,5 +1,5 @@
 
-import ByteBuf from "./bright/serialization/ByteBuf";
+import ByteBuf from "./luban/ByteBuf";
 import * as cfg from "./Gen/schema";
 import {readFileSync} from 'fs'
 
