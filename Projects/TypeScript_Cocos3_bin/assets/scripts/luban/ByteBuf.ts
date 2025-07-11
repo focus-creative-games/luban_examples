@@ -1,4 +1,5 @@
-
+import b from "buffer/index.js";
+const { Buffer } = b;
 
 export enum EDeserializeError {
     OK,

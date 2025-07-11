@@ -1,5 +1,5 @@
 import { _decorator, resources, BufferAsset, Component } from 'cc';
-import ByteBuf from "./bright/serialization/ByteBuf";
+import ByteBuf from "./luban/ByteBuf";
 import * as cfg from './schema/schema';
 
 const { ccclass, property } = _decorator;
