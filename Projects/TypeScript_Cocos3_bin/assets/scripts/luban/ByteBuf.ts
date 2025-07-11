@@ -1,3 +1,5 @@
+import b from "buffer/index.js";
+const { Buffer } = b;
 
 
 export enum EDeserializeError {
@@ -175,7 +177,7 @@ export default class ByteBuf {
 
     readFint(): number {
         this.ensureRead(4)
-        const x = this._bytes.readInt32LE()
+        const x = this._bytes.readInt32LE(this._readerIndex)
         this._readerIndex += 4
         return x
     }
@@ -250,7 +252,7 @@ export default class ByteBuf {
         }
     }
 
-    readLong(): bigint {
+    readLong(): BigInt {
         const buf = this._bytes
         ///
         this.ensureRead(1)
