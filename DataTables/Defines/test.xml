@@ -1,4 +1,5 @@
 <module name="test">
+
     <enum name="DemoEnum">
         <var name="NONE" value="0"/>
         <var name="A" alias="aa" value="1"/>
@@ -552,6 +553,21 @@
     </bean>
 
     <table name="TbTestMapper" value="TestMapper" input="test/type_mapper.xlsx"/>
+    
+    
+    <constalias name="ITEM0" value="1001"/>
+    <constalias name="ITEM1" value="1002"/>
+    <constalias name="FLOAT1" value="1.5"/>
+    <constalias name="FLOAT2" value="2.5"/>
+    
+    <bean name="TestConstAlias">
+        <var name="id" type="int"/>
+        <var name="x1" type="int"/>
+        <var name="x2" type="long"/>
+        <var name="x3" type="float"/>
+        <var name="x4" type="double"/>
+    </bean>
+    <table name="TbTestConstAlias" value="TestConstAlias" input="test/test_constalias.xlsx"/>
 
     <enum name="AudioType2">
         <var name="UNKNOWN" value="0"/>
