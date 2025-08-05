@@ -1,0 +1,22 @@
+{
+  "name": "demo-js",
+  "version": "0.0.0",
+  "description": "DemoJs",
+  "main": "app.js",
+  "type":"module",
+  "author": {
+    "name": ""
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "devDependencies": {
+    "@types/node": "^15.14.9",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "node": "^16.4.1",
+    "nodejs": "^0.0.0"
+  }
+}
