@@ -8,7 +8,7 @@ set CONF_ROOT=%WORKSPACE%\DataTables
 
 dotnet %LUBAN_DLL% ^
     -t all ^
-    -d yaml  ^
+    -d yml  ^
     --conf %CONF_ROOT%\luban.conf ^
     -x outputDataDir=yaml
 
