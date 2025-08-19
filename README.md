@@ -1,6 +1,6 @@
 # luban_examples
 
-luban对应的示例工程，更多文档请参见 [Document](https://luban.doc.code-philosophy.com/docs/intro)。
+luban对应的示例工程，更多文档请参见 [Document](https://www.datable.cn/docs/intro)。
 
 示例工程包含：
 
