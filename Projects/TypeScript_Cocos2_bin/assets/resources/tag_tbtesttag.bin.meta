@@ -1,12 +1,6 @@
 {
-  "ver": "1.0.3",
-  "importer": "buffer",
-  "imported": true,
+  "ver": "1.0.2",
   "uuid": "2b32fa76-72d8-48d7-b048-0deb5bb664c6",
-  "files": [
-    ".bin",
-    ".json"
-  ],
-  "subMetas": {},
-  "userData": {}
+  "importer": "buffer",
+  "subMetas": {}
 }

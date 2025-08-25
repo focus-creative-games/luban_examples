@@ -1,12 +1,20 @@
 {
-  /* Base configuration. Do not edit this field. */
-  "extends": "./temp/tsconfig.cocos.json",
-
-  /* Add your custom configuration here. */
   "compilerOptions": {
-    "strict": false,
-    "types":["node"],
-    "lib": [ "dom", "es6", "es2020", "es2015.promise" ],
-    "target": "es6"
-  }
+    "module": "commonjs",
+    "lib": [ "es2015", "es2017", "dom", "es2020"],
+    "target": "es5",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "outDir": "temp/vscode-dist",
+    "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true
+  },
+  "exclude": [
+    "node_modules",
+    "library",
+    "local",
+    "temp",
+    "build",
+    "settings"
+  ]
 }

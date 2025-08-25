@@ -1,4 +1,4 @@
-
+import { Buffer } from "buffer"
 
 export enum EDeserializeError {
     OK,
@@ -29,9 +29,9 @@ export default class ByteBuf {
     }
 
     Replace2(bytes: Uint8Array, beginPos: number, endPos: number) {
-        this._bytes = Buffer.from(bytes, beginPos, endPos - beginPos)
-        this._readerIndex = beginPos
-        this._writerIndex = endPos
+        this._bytes = Buffer.from(bytes.subarray(beginPos, endPos))
+        this._readerIndex = 0
+        this._writerIndex = endPos - beginPos
     }
 
     private _bytes: Buffer
@@ -175,7 +175,7 @@ export default class ByteBuf {
 
     readFint(): number {
         this.ensureRead(4)
-        const x = this._bytes.readInt32LE()
+        const x = this._bytes.readInt32LE(this._readerIndex)
         this._readerIndex += 4
         return x
     }
@@ -242,9 +242,11 @@ export default class ByteBuf {
         }
         else {
             this.ensureRead(9)
-            const x = buf.readBigInt64BE(this._readerIndex + 1)
-            // const xl = buf.readUInt32BE(this._readerIndex + 5)
-            // const xh = buf.readInt32BE(this._readerIndex + 1)
+            // 手动读取 64 位大端序 BigInt
+            const offset = this._readerIndex + 1
+            const xh = buf.readInt32BE(offset)
+            const xl = buf.readUInt32BE(offset + 4)
+            const x = (BigInt(xh) << BigInt(32)) | BigInt(xl)
             this._readerIndex += 9
             return Number(x)
         }
@@ -309,11 +311,13 @@ export default class ByteBuf {
         }
         else {
             this.ensureRead(9)
-            const x = buf.readBigInt64BE(this._readerIndex + 1)
-            // const xl = buf.readUInt32BE(this._readerIndex + 5)
-            // const xh = buf.readInt32BE(this._readerIndex + 1)
+            // 手动读取 64 位大端序 BigInt
+            const offset = this._readerIndex + 1
+            const xh = buf.readInt32BE(offset)
+            const xl = buf.readUInt32BE(offset + 4)
+            const x = (BigInt(xh) << BigInt(32)) | BigInt(xl)
             this._readerIndex += 9
-            return x
+            return x as bigint
         }
     }
 
@@ -398,7 +402,16 @@ export default class ByteBuf {
     }
 
     readArrayBuffer(): ArrayBuffer {
-        return this.readBytes().buffer
+        const bytes = this.readBytes()
+        if (bytes.buffer instanceof ArrayBuffer) {
+            return bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength)
+        } else {
+            // 如果是 SharedArrayBuffer，转换为 ArrayBuffer
+            const arrayBuffer = new ArrayBuffer(bytes.byteLength)
+            const view = new Uint8Array(arrayBuffer)
+            view.set(bytes)
+            return arrayBuffer
+        }
     }
 
     SkipBytes() {
