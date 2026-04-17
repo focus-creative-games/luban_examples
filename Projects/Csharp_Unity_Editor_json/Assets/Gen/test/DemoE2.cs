@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class DemoE2 :  Luban.EditorBeanBase 
@@ -20,7 +20,7 @@ public sealed class DemoE2 :  Luban.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["y1"];
@@ -40,7 +40,7 @@ public sealed class DemoE2 :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
 
         if (y1 != null)
@@ -52,16 +52,16 @@ public sealed class DemoE2 :  Luban.EditorBeanBase
         }
     }
 
-    public static DemoE2 LoadJsonDemoE2(SimpleJSON.JSONNode _json)
+    public static DemoE2 LoadJsonDemoE2(JSONNode _json)
     {
         DemoE2 obj = new test.DemoE2();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonDemoE2(DemoE2 _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonDemoE2(DemoE2 _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int? y1;
@@ -69,6 +69,5 @@ public sealed class DemoE2 :  Luban.EditorBeanBase
     public bool y2;
 
 }
-
 }
 

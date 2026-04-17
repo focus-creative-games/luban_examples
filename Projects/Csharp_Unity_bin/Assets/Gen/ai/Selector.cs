@@ -16,7 +16,7 @@ public sealed partial class Selector : ai.ComposeNode
 {
     public Selector(ByteBuf _buf)  : base(_buf) 
     {
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Children = new System.Collections.Generic.List<ai.FlowNode>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.FlowNode _e0;  _e0 = ai.FlowNode.DeserializeFlowNode(_buf); Children.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); Children = new System.Collections.Generic.List<ai.FlowNode>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.FlowNode _e0;  _e0 = global::cfg.ai.FlowNode.DeserializeFlowNode(_buf); Children.Add(_e0);}}
     }
 
     public static Selector DeserializeSelector(ByteBuf _buf)
@@ -46,6 +46,5 @@ public sealed partial class Selector : ai.ComposeNode
         + "}";
     }
 }
-
 }
 

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class DemoSingletonType :  Luban.EditorBeanBase 
@@ -21,7 +21,7 @@ public sealed class DemoSingletonType :  Luban.EditorBeanBase
             name = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -49,7 +49,7 @@ public sealed class DemoSingletonType :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -66,16 +66,16 @@ public sealed class DemoSingletonType :  Luban.EditorBeanBase
         }
     }
 
-    public static DemoSingletonType LoadJsonDemoSingletonType(SimpleJSON.JSONNode _json)
+    public static DemoSingletonType LoadJsonDemoSingletonType(JSONNode _json)
     {
         DemoSingletonType obj = new test.DemoSingletonType();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonDemoSingletonType(DemoSingletonType _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonDemoSingletonType(DemoSingletonType _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -85,6 +85,5 @@ public sealed class DemoSingletonType :  Luban.EditorBeanBase
     public test.DemoDynamic date;
 
 }
-
 }
 

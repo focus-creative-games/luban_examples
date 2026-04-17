@@ -25,21 +25,21 @@ public sealed partial class TestRef : Luban.BeanBase
         X3 = _buf.ReadInt();
         X4 = _buf.ReadInt();
         X4_Ref = null;
-        {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);A1 = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); A1[__index0] = __e0;}}
-        {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);A2 = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); A2[__index0] = __e0;}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);B1 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); B1.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);B2 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); B2.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);C1 = new System.Collections.Generic.HashSet<int>(/*n0 * 3 / 2*/);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); C1.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);C2 = new System.Collections.Generic.HashSet<int>(/*n0 * 3 / 2*/);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); C2.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);D1 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     D1.Add(_k0, _v0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);D2 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     D2.Add(_k0, _v0);}}
+        {int __n0 = _buf.ReadSize(); A1 = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); A1[__index0] = __e0;}}
+        {int __n0 = _buf.ReadSize(); A2 = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); A2[__index0] = __e0;}}
+        {int n0 = _buf.ReadSize(); B1 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); B1.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); B2 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); B2.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); C1 = new System.Collections.Generic.HashSet<int>(/*n0 * 3 / 2*/);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); C1.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); C2 = new System.Collections.Generic.HashSet<int>(/*n0 * 3 / 2*/);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); C2.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); D1 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     D1.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); D2 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     D2.Add(_k0, _v0);}}
         E1 = _buf.ReadInt();
         E2 = _buf.ReadLong();
         E3 = _buf.ReadString();
         F1 = _buf.ReadInt();
         F2 = _buf.ReadLong();
         F3 = _buf.ReadString();
-        S1 = test.RefDynamicBase.DeserializeRefDynamicBase(_buf);
+        S1 = global::cfg.test.RefDynamicBase.DeserializeRefDynamicBase(_buf);
     }
 
     public static TestRef DeserializeTestRef(ByteBuf _buf)
@@ -142,6 +142,5 @@ public sealed partial class TestRef : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

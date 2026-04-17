@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace cfg.test
+namespace editor.cfg.test
 {
     public enum ETestUeType
     {

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class ExcelFromJson :  Luban.EditorBeanBase 
@@ -29,7 +29,7 @@ public sealed class ExcelFromJson :  Luban.EditorBeanBase
             k15 = System.Array.Empty<test.DemoDynamic>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["x4"];
@@ -115,7 +115,7 @@ public sealed class ExcelFromJson :  Luban.EditorBeanBase
             var _fieldJson = _json["k1"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k1 = new int[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k1[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k1 = new int[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k1[_index0++] = __v0; }  
             }
         }
         
@@ -139,13 +139,13 @@ public sealed class ExcelFromJson :  Luban.EditorBeanBase
             var _fieldJson = _json["k15"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k15 = new test.DemoDynamic[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { test.DemoDynamic __v0;  if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = test.DemoDynamic.LoadJsonDemoDynamic(__e0);  k15[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k15 = new test.DemoDynamic[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { test.DemoDynamic __v0;  if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = test.DemoDynamic.LoadJsonDemoDynamic(__e0);  k15[_index0++] = __v0; }  
             }
         }
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["x4"] = new JSONNumber(x4);
@@ -207,16 +207,16 @@ public sealed class ExcelFromJson :  Luban.EditorBeanBase
         }
     }
 
-    public static ExcelFromJson LoadJsonExcelFromJson(SimpleJSON.JSONNode _json)
+    public static ExcelFromJson LoadJsonExcelFromJson(JSONNode _json)
     {
         ExcelFromJson obj = new test.ExcelFromJson();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonExcelFromJson(ExcelFromJson _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonExcelFromJson(ExcelFromJson _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int x4;
@@ -248,6 +248,5 @@ public sealed class ExcelFromJson :  Luban.EditorBeanBase
     public test.DemoDynamic[] k15;
 
 }
-
 }
 

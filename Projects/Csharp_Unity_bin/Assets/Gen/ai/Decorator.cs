@@ -51,6 +51,5 @@ public abstract partial class Decorator : ai.Node
         + "}";
     }
 }
-
 }
 

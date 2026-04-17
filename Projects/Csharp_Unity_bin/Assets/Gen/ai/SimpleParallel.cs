@@ -17,8 +17,8 @@ public sealed partial class SimpleParallel : ai.ComposeNode
     public SimpleParallel(ByteBuf _buf)  : base(_buf) 
     {
         FinishMode = (ai.EFinishMode)_buf.ReadInt();
-        MainTask = ai.Task.DeserializeTask(_buf);
-        BackgroundNode = ai.FlowNode.DeserializeFlowNode(_buf);
+        MainTask = global::cfg.ai.Task.DeserializeTask(_buf);
+        BackgroundNode = global::cfg.ai.FlowNode.DeserializeFlowNode(_buf);
     }
 
     public static SimpleParallel DeserializeSimpleParallel(ByteBuf _buf)
@@ -53,6 +53,5 @@ public sealed partial class SimpleParallel : ai.ComposeNode
         + "}";
     }
 }
-
 }
 

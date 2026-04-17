@@ -18,7 +18,7 @@ public sealed partial class DemoSingletonType : Luban.BeanBase
     {
         Id = _buf.ReadInt();
         Name = _buf.ReadString();
-        Date = test.DemoDynamic.DeserializeDemoDynamic(_buf);
+        Date = global::cfg.test.DemoDynamic.DeserializeDemoDynamic(_buf);
     }
 
     public static DemoSingletonType DeserializeDemoSingletonType(ByteBuf _buf)
@@ -47,6 +47,5 @@ public sealed partial class DemoSingletonType : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

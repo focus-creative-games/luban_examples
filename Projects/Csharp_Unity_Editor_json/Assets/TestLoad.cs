@@ -1,4 +1,4 @@
-using cfg.test;
+using editor.cfg.test;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;

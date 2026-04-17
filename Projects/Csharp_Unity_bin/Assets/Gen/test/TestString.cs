@@ -19,8 +19,10 @@ public sealed partial class TestString : Luban.BeanBase
         Id = _buf.ReadString();
         S1 = _buf.ReadString();
         S2 = _buf.ReadString();
-        Cs1 = test.CompactString.DeserializeCompactString(_buf);
-        Cs2 = test.CompactString.DeserializeCompactString(_buf);
+        Cs1 = global::cfg.test.CompactString.DeserializeCompactString(_buf);
+        Cs2 = global::cfg.test.CompactString.DeserializeCompactString(_buf);
+        {int n0 = _buf.ReadSize(); Css = new System.Collections.Generic.List<string>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { string _e0;  _e0 = _buf.ReadString(); Css.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); Css2 = new System.Collections.Generic.List<string>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { string _e0;  _e0 = _buf.ReadString(); Css2.Add(_e0);}}
     }
 
     public static TestString DeserializeTestString(ByteBuf _buf)
@@ -33,6 +35,8 @@ public sealed partial class TestString : Luban.BeanBase
     public readonly string S2;
     public readonly test.CompactString Cs1;
     public readonly test.CompactString Cs2;
+    public readonly System.Collections.Generic.List<string> Css;
+    public readonly System.Collections.Generic.List<string> Css2;
    
     public const int __ID__ = 338485823;
     public override int GetTypeId() => __ID__;
@@ -51,9 +55,10 @@ public sealed partial class TestString : Luban.BeanBase
         + "s2:" + S2 + ","
         + "cs1:" + Cs1 + ","
         + "cs2:" + Cs2 + ","
+        + "css:" + Luban.StringUtil.CollectionToString(Css) + ","
+        + "css2:" + Luban.StringUtil.CollectionToString(Css2) + ","
         + "}";
     }
 }
-
 }
 

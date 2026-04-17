@@ -19,22 +19,22 @@ public partial class TbPatchDemo
     
     public TbPatchDemo(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, l10n.PatchDemo>();
-        _dataList = new System.Collections.Generic.List<l10n.PatchDemo>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, l10n.PatchDemo>(n);
+        _dataList = new System.Collections.Generic.List<l10n.PatchDemo>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             l10n.PatchDemo _v;
-            _v = l10n.PatchDemo.DeserializePatchDemo(_buf);
+            _v = global::cfg.l10n.PatchDemo.DeserializePatchDemo(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, l10n.PatchDemo> DataMap => _dataMap;
-    public System.Collections.Generic.List<l10n.PatchDemo> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, l10n.PatchDemo> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<l10n.PatchDemo> DataList => _dataList;
 
-    public l10n.PatchDemo GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public l10n.PatchDemo GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public l10n.PatchDemo Get(int key) => _dataMap[key];
     public l10n.PatchDemo this[int key] => _dataMap[key];
 

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class BlackboardKeyData :  ai.KeyData 
@@ -21,7 +21,7 @@ public sealed class BlackboardKeyData :  ai.KeyData
             value = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["value"];
@@ -33,7 +33,7 @@ public sealed class BlackboardKeyData :  ai.KeyData
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
 
@@ -42,21 +42,20 @@ public sealed class BlackboardKeyData :  ai.KeyData
         }
     }
 
-    public static BlackboardKeyData LoadJsonBlackboardKeyData(SimpleJSON.JSONNode _json)
+    public static BlackboardKeyData LoadJsonBlackboardKeyData(JSONNode _json)
     {
         BlackboardKeyData obj = new ai.BlackboardKeyData();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonBlackboardKeyData(BlackboardKeyData _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonBlackboardKeyData(BlackboardKeyData _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public string value;
 
 }
-
 }
 

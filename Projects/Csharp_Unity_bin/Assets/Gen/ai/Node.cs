@@ -67,6 +67,5 @@ public abstract partial class Node : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -45,6 +45,5 @@ public abstract partial class DemoD3 : test.DemoDynamic
         + "}";
     }
 }
-
 }
 

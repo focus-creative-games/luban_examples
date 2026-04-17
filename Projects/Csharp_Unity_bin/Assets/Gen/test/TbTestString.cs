@@ -19,22 +19,22 @@ public partial class TbTestString
     
     public TbTestString(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<string, test.TestString>();
-        _dataList = new System.Collections.Generic.List<test.TestString>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<string, test.TestString>(n);
+        _dataList = new System.Collections.Generic.List<test.TestString>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.TestString _v;
-            _v = test.TestString.DeserializeTestString(_buf);
+            _v = global::cfg.test.TestString.DeserializeTestString(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<string, test.TestString> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.TestString> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<string, test.TestString> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.TestString> DataList => _dataList;
 
-    public test.TestString GetOrDefault(string key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestString GetOrDefault(string key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.TestString Get(string key) => _dataMap[key];
     public test.TestString this[string key] => _dataMap[key];
 

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class MultiRowRecord :  Luban.EditorBeanBase 
@@ -28,7 +28,7 @@ public sealed class MultiRowRecord :  Luban.EditorBeanBase
             multiRows7 = new System.Collections.Generic.Dictionary<int,int>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -66,7 +66,7 @@ public sealed class MultiRowRecord :  Luban.EditorBeanBase
             var _fieldJson = _json["multi_rows2"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; multiRows2 = new test.MultiRowType1[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { test.MultiRowType1 __v0;  if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = test.MultiRowType1.LoadJsonMultiRowType1(__e0);  multiRows2[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; multiRows2 = new test.MultiRowType1[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { test.MultiRowType1 __v0;  if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = test.MultiRowType1.LoadJsonMultiRowType1(__e0);  multiRows2[_index0++] = __v0; }  
             }
         }
         
@@ -104,7 +104,7 @@ public sealed class MultiRowRecord :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -151,16 +151,16 @@ public sealed class MultiRowRecord :  Luban.EditorBeanBase
         }
     }
 
-    public static MultiRowRecord LoadJsonMultiRowRecord(SimpleJSON.JSONNode _json)
+    public static MultiRowRecord LoadJsonMultiRowRecord(JSONNode _json)
     {
         MultiRowRecord obj = new test.MultiRowRecord();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonMultiRowRecord(MultiRowRecord _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonMultiRowRecord(MultiRowRecord _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -182,6 +182,5 @@ public sealed class MultiRowRecord :  Luban.EditorBeanBase
     public System.Collections.Generic.Dictionary<int, int> multiRows7;
 
 }
-
 }
 

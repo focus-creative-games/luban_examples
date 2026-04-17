@@ -22,7 +22,7 @@ public sealed partial class GlobalConfig : Luban.BeanBase
         X4 = _buf.ReadInt();
         X5 = _buf.ReadInt();
         X6 = _buf.ReadInt();
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X7 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); X7.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); X7 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); X7.Add(_e0);}}
     }
 
     public static GlobalConfig DeserializeGlobalConfig(ByteBuf _buf)
@@ -61,6 +61,5 @@ public sealed partial class GlobalConfig : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

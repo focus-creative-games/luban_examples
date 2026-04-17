@@ -58,6 +58,5 @@ public sealed partial class DemoExplicitType : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

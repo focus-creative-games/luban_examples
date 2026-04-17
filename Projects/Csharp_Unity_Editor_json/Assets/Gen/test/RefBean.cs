@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class RefBean :  test.RefDynamicBase 
@@ -21,7 +21,7 @@ public sealed class RefBean :  test.RefDynamicBase
             arr = new System.Collections.Generic.List<int>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["x"];
@@ -41,7 +41,7 @@ public sealed class RefBean :  test.RefDynamicBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["x"] = new JSONNumber(x);
@@ -53,21 +53,20 @@ public sealed class RefBean :  test.RefDynamicBase
         }
     }
 
-    public static RefBean LoadJsonRefBean(SimpleJSON.JSONNode _json)
+    public static RefBean LoadJsonRefBean(JSONNode _json)
     {
         RefBean obj = new test.RefBean();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonRefBean(RefBean _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonRefBean(RefBean _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public System.Collections.Generic.List<int> arr;
 
 }
-
 }
 

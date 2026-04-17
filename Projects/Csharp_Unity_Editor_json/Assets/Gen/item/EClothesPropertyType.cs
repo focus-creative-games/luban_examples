@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace cfg.item
+namespace editor.cfg.item
 {
     public enum EClothesPropertyType
     {

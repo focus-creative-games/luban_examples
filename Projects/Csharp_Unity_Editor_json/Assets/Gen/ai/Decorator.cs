@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public abstract class Decorator :  ai.Node 
@@ -22,7 +22,7 @@ public abstract class Decorator :  ai.Node
     }
 
 
-    public static Decorator LoadJsonDecorator(SimpleJSON.JSONNode _json)
+    public static Decorator LoadJsonDecorator(JSONNode _json)
     {
         string type = _json["$type"];
         Decorator obj;
@@ -44,19 +44,18 @@ public abstract class Decorator :  ai.Node
             case "DistanceLessThan":obj = new ai.DistanceLessThan(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonDecorator(Decorator _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonDecorator(Decorator _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public ai.EFlowAbortMode flowAbortMode;
 
 }
-
 }
 

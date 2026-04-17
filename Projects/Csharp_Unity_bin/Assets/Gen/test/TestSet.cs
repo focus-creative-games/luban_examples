@@ -18,10 +18,10 @@ public sealed partial class TestSet : Luban.BeanBase
     {
         Id = _buf.ReadInt();
         X0 = _buf.ReadString();
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X1 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); X1.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X2 = new System.Collections.Generic.List<long>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { long _e0;  _e0 = _buf.ReadLong(); X2.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new System.Collections.Generic.List<string>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { string _e0;  _e0 = _buf.ReadString(); X3.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X4 = new System.Collections.Generic.List<test.DemoEnum>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoEnum _e0;  _e0 = (test.DemoEnum)_buf.ReadInt(); X4.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); X1 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); X1.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); X2 = new System.Collections.Generic.List<long>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { long _e0;  _e0 = _buf.ReadLong(); X2.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); X3 = new System.Collections.Generic.List<string>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { string _e0;  _e0 = _buf.ReadString(); X3.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); X4 = new System.Collections.Generic.List<test.DemoEnum>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoEnum _e0;  _e0 = (test.DemoEnum)_buf.ReadInt(); X4.Add(_e0);}}
     }
 
     public static TestSet DeserializeTestSet(ByteBuf _buf)
@@ -55,6 +55,5 @@ public sealed partial class TestSet : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

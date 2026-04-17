@@ -19,22 +19,22 @@ public partial class TbTestBeRef2
     
     public TbTestBeRef2(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestBeRef>();
-        _dataList = new System.Collections.Generic.List<test.TestBeRef>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestBeRef>(n);
+        _dataList = new System.Collections.Generic.List<test.TestBeRef>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.TestBeRef _v;
-            _v = test.TestBeRef.DeserializeTestBeRef(_buf);
+            _v = global::cfg.test.TestBeRef.DeserializeTestBeRef(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.TestBeRef> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.TestBeRef> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.TestBeRef> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.TestBeRef> DataList => _dataList;
 
-    public test.TestBeRef GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestBeRef GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.TestBeRef Get(int key) => _dataMap[key];
     public test.TestBeRef this[int key] => _dataMap[key];
 

@@ -20,7 +20,7 @@ public sealed partial class Blackboard : Luban.BeanBase
         Desc = _buf.ReadString();
         ParentName = _buf.ReadString();
         ParentName_Ref = null;
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Keys = new System.Collections.Generic.List<ai.BlackboardKey>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.BlackboardKey _e0;  _e0 = ai.BlackboardKey.DeserializeBlackboardKey(_buf); Keys.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); Keys = new System.Collections.Generic.List<ai.BlackboardKey>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.BlackboardKey _e0;  _e0 = global::cfg.ai.BlackboardKey.DeserializeBlackboardKey(_buf); Keys.Add(_e0);}}
     }
 
     public static Blackboard DeserializeBlackboard(ByteBuf _buf)
@@ -53,6 +53,5 @@ public sealed partial class Blackboard : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

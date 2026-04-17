@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class DistanceLessThan :  ai.Decorator 
@@ -22,7 +22,7 @@ public sealed class DistanceLessThan :  ai.Decorator
             actor2Key = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -82,7 +82,7 @@ public sealed class DistanceLessThan :  ai.Decorator
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -113,16 +113,16 @@ public sealed class DistanceLessThan :  ai.Decorator
         }
     }
 
-    public static DistanceLessThan LoadJsonDistanceLessThan(SimpleJSON.JSONNode _json)
+    public static DistanceLessThan LoadJsonDistanceLessThan(JSONNode _json)
     {
         DistanceLessThan obj = new ai.DistanceLessThan();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonDistanceLessThan(DistanceLessThan _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonDistanceLessThan(DistanceLessThan _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public string actor1Key;
@@ -134,6 +134,5 @@ public sealed class DistanceLessThan :  ai.Decorator
     public bool reverseResult;
 
 }
-
 }
 

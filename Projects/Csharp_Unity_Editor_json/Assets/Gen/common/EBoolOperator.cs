@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace cfg.common
+namespace editor.cfg.common
 {
     public enum EBoolOperator
     {

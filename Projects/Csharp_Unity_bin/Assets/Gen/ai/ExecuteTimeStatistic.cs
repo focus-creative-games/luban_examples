@@ -40,6 +40,5 @@ public sealed partial class ExecuteTimeStatistic : ai.Service
         + "}";
     }
 }
-
 }
 

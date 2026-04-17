@@ -50,6 +50,5 @@ public abstract partial class ItemBase : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

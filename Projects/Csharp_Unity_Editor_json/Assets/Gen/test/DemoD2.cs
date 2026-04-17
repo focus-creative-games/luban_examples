@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class DemoD2 :  test.DemoDynamic 
@@ -20,7 +20,7 @@ public sealed class DemoD2 :  test.DemoDynamic
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["x1"];
@@ -40,7 +40,7 @@ public sealed class DemoD2 :  test.DemoDynamic
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["x1"] = new JSONNumber(x1);
@@ -50,21 +50,20 @@ public sealed class DemoD2 :  test.DemoDynamic
         }
     }
 
-    public static DemoD2 LoadJsonDemoD2(SimpleJSON.JSONNode _json)
+    public static DemoD2 LoadJsonDemoD2(JSONNode _json)
     {
         DemoD2 obj = new test.DemoD2();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonDemoD2(DemoD2 _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonDemoD2(DemoD2 _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int x2;
 
 }
-
 }
 

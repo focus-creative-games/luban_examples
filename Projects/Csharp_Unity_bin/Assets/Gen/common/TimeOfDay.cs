@@ -46,6 +46,5 @@ public sealed partial class TimeOfDay : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

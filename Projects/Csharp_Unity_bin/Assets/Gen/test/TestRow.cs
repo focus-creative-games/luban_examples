@@ -19,8 +19,8 @@ public sealed partial class TestRow : Luban.BeanBase
         X = _buf.ReadInt();
         Y = _buf.ReadBool();
         Z = _buf.ReadString();
-        A = test.Test3.DeserializeTest3(_buf);
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);B = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); B.Add(_e0);}}
+        A = global::cfg.test.Test3.DeserializeTest3(_buf);
+        {int n0 = _buf.ReadSize(); B = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); B.Add(_e0);}}
     }
 
     public static TestRow DeserializeTestRow(ByteBuf _buf)
@@ -53,6 +53,5 @@ public sealed partial class TestRow : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

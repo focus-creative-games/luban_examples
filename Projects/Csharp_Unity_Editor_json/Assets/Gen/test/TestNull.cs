@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class TestNull :  Luban.EditorBeanBase 
@@ -20,7 +20,7 @@ public sealed class TestNull :  Luban.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -80,7 +80,7 @@ public sealed class TestNull :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -117,16 +117,16 @@ public sealed class TestNull :  Luban.EditorBeanBase
         }
     }
 
-    public static TestNull LoadJsonTestNull(SimpleJSON.JSONNode _json)
+    public static TestNull LoadJsonTestNull(JSONNode _json)
     {
         TestNull obj = new test.TestNull();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonTestNull(TestNull _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonTestNull(TestNull _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -144,6 +144,5 @@ public sealed class TestNull :  Luban.EditorBeanBase
     public string s2;
 
 }
-
 }
 

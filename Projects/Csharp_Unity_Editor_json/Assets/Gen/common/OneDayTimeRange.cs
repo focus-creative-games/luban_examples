@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.common
+namespace editor.cfg.common
 {
 
 public sealed class OneDayTimeRange :  Luban.EditorBeanBase 
@@ -22,7 +22,7 @@ public sealed class OneDayTimeRange :  Luban.EditorBeanBase
             endTime = new common.TimeOfDay();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["start_time"];
@@ -42,7 +42,7 @@ public sealed class OneDayTimeRange :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
 
@@ -56,16 +56,16 @@ public sealed class OneDayTimeRange :  Luban.EditorBeanBase
         }
     }
 
-    public static OneDayTimeRange LoadJsonOneDayTimeRange(SimpleJSON.JSONNode _json)
+    public static OneDayTimeRange LoadJsonOneDayTimeRange(JSONNode _json)
     {
         OneDayTimeRange obj = new common.OneDayTimeRange();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonOneDayTimeRange(OneDayTimeRange _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonOneDayTimeRange(OneDayTimeRange _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public common.TimeOfDay startTime;
@@ -73,6 +73,5 @@ public sealed class OneDayTimeRange :  Luban.EditorBeanBase
     public common.TimeOfDay endTime;
 
 }
-
 }
 

@@ -19,22 +19,22 @@ public partial class TbDemoGroup
     
     public TbDemoGroup(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.DemoGroup>();
-        _dataList = new System.Collections.Generic.List<test.DemoGroup>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.DemoGroup>(n);
+        _dataList = new System.Collections.Generic.List<test.DemoGroup>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.DemoGroup _v;
-            _v = test.DemoGroup.DeserializeDemoGroup(_buf);
+            _v = global::cfg.test.DemoGroup.DeserializeDemoGroup(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.DemoGroup> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.DemoGroup> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.DemoGroup> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.DemoGroup> DataList => _dataList;
 
-    public test.DemoGroup GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.DemoGroup GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.DemoGroup Get(int key) => _dataMap[key];
     public test.DemoGroup this[int key] => _dataMap[key];
 

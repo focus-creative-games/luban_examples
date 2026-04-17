@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class MoveToRandomLocation :  ai.Task 
@@ -21,7 +21,7 @@ public sealed class MoveToRandomLocation :  ai.Task
             originPositionKey = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -81,7 +81,7 @@ public sealed class MoveToRandomLocation :  ai.Task
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -114,16 +114,16 @@ public sealed class MoveToRandomLocation :  ai.Task
         }
     }
 
-    public static MoveToRandomLocation LoadJsonMoveToRandomLocation(SimpleJSON.JSONNode _json)
+    public static MoveToRandomLocation LoadJsonMoveToRandomLocation(JSONNode _json)
     {
         MoveToRandomLocation obj = new ai.MoveToRandomLocation();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonMoveToRandomLocation(MoveToRandomLocation _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonMoveToRandomLocation(MoveToRandomLocation _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public string originPositionKey;
@@ -131,6 +131,5 @@ public sealed class MoveToRandomLocation :  ai.Task
     public float radius;
 
 }
-
 }
 

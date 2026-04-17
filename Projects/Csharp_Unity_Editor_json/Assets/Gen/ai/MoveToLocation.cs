@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class MoveToLocation :  ai.Task 
@@ -20,7 +20,7 @@ public sealed class MoveToLocation :  ai.Task
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -72,7 +72,7 @@ public sealed class MoveToLocation :  ai.Task
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -100,21 +100,20 @@ public sealed class MoveToLocation :  ai.Task
         }
     }
 
-    public static MoveToLocation LoadJsonMoveToLocation(SimpleJSON.JSONNode _json)
+    public static MoveToLocation LoadJsonMoveToLocation(JSONNode _json)
     {
         MoveToLocation obj = new ai.MoveToLocation();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonMoveToLocation(MoveToLocation _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonMoveToLocation(MoveToLocation _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public float acceptableRadius;
 
 }
-
 }
 

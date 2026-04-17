@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 /// <summary>
@@ -24,7 +24,7 @@ public sealed class TestExcelBean2 :  Luban.EditorBeanBase
             y2 = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["y1"];
@@ -52,7 +52,7 @@ public sealed class TestExcelBean2 :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["y1"] = new JSONNumber(y1);
@@ -67,16 +67,16 @@ public sealed class TestExcelBean2 :  Luban.EditorBeanBase
         }
     }
 
-    public static TestExcelBean2 LoadJsonTestExcelBean2(SimpleJSON.JSONNode _json)
+    public static TestExcelBean2 LoadJsonTestExcelBean2(JSONNode _json)
     {
         TestExcelBean2 obj = new test.TestExcelBean2();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonTestExcelBean2(TestExcelBean2 _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonTestExcelBean2(TestExcelBean2 _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     /// <summary>
@@ -95,6 +95,5 @@ public sealed class TestExcelBean2 :  Luban.EditorBeanBase
     public float y3;
 
 }
-
 }
 

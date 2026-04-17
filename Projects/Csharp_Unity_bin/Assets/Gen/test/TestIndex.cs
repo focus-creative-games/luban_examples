@@ -17,7 +17,7 @@ public sealed partial class TestIndex : Luban.BeanBase
     public TestIndex(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Eles = new System.Collections.Generic.List<test.DemoType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoType1 _e0;  _e0 = test.DemoType1.DeserializeDemoType1(_buf); Eles.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); Eles = new System.Collections.Generic.List<test.DemoType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoType1 _e0;  _e0 = global::cfg.test.DemoType1.DeserializeDemoType1(_buf); Eles.Add(_e0);}}
         foreach(var _v in Eles)
         { 
             Eles_Index.Add(_v.X1, _v);
@@ -49,6 +49,5 @@ public sealed partial class TestIndex : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -23,7 +23,7 @@ public partial class TbCompositeJsonTable3
     {
         int n = _buf.ReadSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = test.CompositeJsonTable3.DeserializeCompositeJsonTable3(_buf);
+        _data = global::cfg.test.CompositeJsonTable3.DeserializeCompositeJsonTable3(_buf);
     }
 
 

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
     public enum EExecutor
     {

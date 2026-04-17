@@ -16,7 +16,7 @@ public sealed partial class H1 : Luban.BeanBase
 {
     public H1(ByteBuf _buf) 
     {
-        Y2 = test.H2.DeserializeH2(_buf);
+        Y2 = global::cfg.test.H2.DeserializeH2(_buf);
         Y3 = _buf.ReadInt();
     }
 
@@ -44,6 +44,5 @@ public sealed partial class H1 : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -16,7 +16,7 @@ public sealed partial class DemoD5 : test.DemoDynamic
 {
     public DemoD5(ByteBuf _buf)  : base(_buf) 
     {
-        Time = test.DateTimeRange.DeserializeDateTimeRange(_buf);
+        Time = global::cfg.test.DateTimeRange.DeserializeDateTimeRange(_buf);
     }
 
     public static DemoD5 DeserializeDemoD5(ByteBuf _buf)
@@ -43,6 +43,5 @@ public sealed partial class DemoD5 : test.DemoDynamic
         + "}";
     }
 }
-
 }
 

@@ -37,8 +37,6 @@ public partial class Tables
     public test.TbTestString TbTestString {get; }
     public test.TbDemoGroup TbDemoGroup {get; }
     public test.TbDemoGroup_C TbDemoGroupC {get; }
-    public test.TbDemoGroup_S TbDemoGroupS {get; }
-    public test.TbDemoGroup_E TbDemoGroupE {get; }
     public test.TbTestGlobal TbTestGlobal {get; }
     public test.TbTestBeRef TbTestBeRef {get; }
     public test.TbTestBeRef2 TbTestBeRef2 {get; }
@@ -55,15 +53,22 @@ public partial class Tables
     public test.TbCompositeJsonTable2 TbCompositeJsonTable2 {get; }
     public test.TbCompositeJsonTable3 TbCompositeJsonTable3 {get; }
     public test.TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow {get; }
+    public test.TbTestSep TbTestSep {get; }
     public test.TbTestScriptableObject TbTestScriptableObject {get; }
     public test.TbPath TbPath {get; }
     public test.TbTestFieldAlias TbTestFieldAlias {get; }
     public test.TbTestFieldVariant TbTestFieldVariant {get; }
     public test.TbTestFieldVariant2 TbTestFieldVariant2 {get; }
     public test.TbTestMapper TbTestMapper {get; }
+    public test.TbTestConstAlias TbTestConstAlias {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
     public TbAutoImport1 TbAutoImport1 {get; }
     public test.TbAutoImport2 TbAutoImport2 {get; }
+    /// <summary>
+    /// 自动导入的表
+    /// </summary>
+    public test.TbAutoImport3 TbAutoImport3 {get; }
+    public test.TbTestFormat TbTestFormat {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -88,8 +93,6 @@ public partial class Tables
         TbTestString = new test.TbTestString(loader("test_tbteststring"));
         TbDemoGroup = new test.TbDemoGroup(loader("test_tbdemogroup"));
         TbDemoGroupC = new test.TbDemoGroup_C(loader("test_tbdemogroup_c"));
-        TbDemoGroupS = new test.TbDemoGroup_S(loader("test_tbdemogroup_s"));
-        TbDemoGroupE = new test.TbDemoGroup_E(loader("test_tbdemogroup_e"));
         TbTestGlobal = new test.TbTestGlobal(loader("test_tbtestglobal"));
         TbTestBeRef = new test.TbTestBeRef(loader("test_tbtestberef"));
         TbTestBeRef2 = new test.TbTestBeRef2(loader("test_tbtestberef2"));
@@ -106,15 +109,19 @@ public partial class Tables
         TbCompositeJsonTable2 = new test.TbCompositeJsonTable2(loader("test_tbcompositejsontable2"));
         TbCompositeJsonTable3 = new test.TbCompositeJsonTable3(loader("test_tbcompositejsontable3"));
         TbExcelFromJsonMultiRow = new test.TbExcelFromJsonMultiRow(loader("test_tbexcelfromjsonmultirow"));
+        TbTestSep = new test.TbTestSep(loader("test_tbtestsep"));
         TbTestScriptableObject = new test.TbTestScriptableObject(loader("test_tbtestscriptableobject"));
         TbPath = new test.TbPath(loader("test_tbpath"));
         TbTestFieldAlias = new test.TbTestFieldAlias(loader("test_tbtestfieldalias"));
         TbTestFieldVariant = new test.TbTestFieldVariant(loader("test_tbtestfieldvariant"));
         TbTestFieldVariant2 = new test.TbTestFieldVariant2(loader("test_tbtestfieldvariant2"));
         TbTestMapper = new test.TbTestMapper(loader("test_tbtestmapper"));
+        TbTestConstAlias = new test.TbTestConstAlias(loader("test_tbtestconstalias"));
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test_tbdefinefromexcel2"));
         TbAutoImport1 = new TbAutoImport1(loader("tbautoimport1"));
         TbAutoImport2 = new test.TbAutoImport2(loader("test_tbautoimport2"));
+        TbAutoImport3 = new test.TbAutoImport3(loader("test_tbautoimport3"));
+        TbTestFormat = new test.TbTestFormat(loader("test_tbtestformat"));
         ResolveRef();
     }
     
@@ -141,8 +148,6 @@ public partial class Tables
         TbTestString.ResolveRef(this);
         TbDemoGroup.ResolveRef(this);
         TbDemoGroupC.ResolveRef(this);
-        TbDemoGroupS.ResolveRef(this);
-        TbDemoGroupE.ResolveRef(this);
         TbTestGlobal.ResolveRef(this);
         TbTestBeRef.ResolveRef(this);
         TbTestBeRef2.ResolveRef(this);
@@ -159,15 +164,19 @@ public partial class Tables
         TbCompositeJsonTable2.ResolveRef(this);
         TbCompositeJsonTable3.ResolveRef(this);
         TbExcelFromJsonMultiRow.ResolveRef(this);
+        TbTestSep.ResolveRef(this);
         TbTestScriptableObject.ResolveRef(this);
         TbPath.ResolveRef(this);
         TbTestFieldAlias.ResolveRef(this);
         TbTestFieldVariant.ResolveRef(this);
         TbTestFieldVariant2.ResolveRef(this);
         TbTestMapper.ResolveRef(this);
+        TbTestConstAlias.ResolveRef(this);
         TbDefineFromExcel2.ResolveRef(this);
         TbAutoImport1.ResolveRef(this);
         TbAutoImport2.ResolveRef(this);
+        TbAutoImport3.ResolveRef(this);
+        TbTestFormat.ResolveRef(this);
     }
 }
 

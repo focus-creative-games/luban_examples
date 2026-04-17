@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class MultiRowTitle :  Luban.EditorBeanBase 
@@ -25,7 +25,7 @@ public sealed class MultiRowTitle :  Luban.EditorBeanBase
             x4 = System.Array.Empty<test.H2>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -71,7 +71,7 @@ public sealed class MultiRowTitle :  Luban.EditorBeanBase
             var _fieldJson = _json["x3"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; x3 = new test.H2[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { test.H2 __v0;  if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = test.H2.LoadJsonH2(__e0);  x3[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; x3 = new test.H2[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { test.H2 __v0;  if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = test.H2.LoadJsonH2(__e0);  x3[_index0++] = __v0; }  
             }
         }
         
@@ -79,13 +79,13 @@ public sealed class MultiRowTitle :  Luban.EditorBeanBase
             var _fieldJson = _json["x4"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; x4 = new test.H2[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { test.H2 __v0;  if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = test.H2.LoadJsonH2(__e0);  x4[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; x4 = new test.H2[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { test.H2 __v0;  if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = test.H2.LoadJsonH2(__e0);  x4[_index0++] = __v0; }  
             }
         }
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -122,16 +122,16 @@ public sealed class MultiRowTitle :  Luban.EditorBeanBase
         }
     }
 
-    public static MultiRowTitle LoadJsonMultiRowTitle(SimpleJSON.JSONNode _json)
+    public static MultiRowTitle LoadJsonMultiRowTitle(JSONNode _json)
     {
         MultiRowTitle obj = new test.MultiRowTitle();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonMultiRowTitle(MultiRowTitle _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonMultiRowTitle(MultiRowTitle _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -149,6 +149,5 @@ public sealed class MultiRowTitle :  Luban.EditorBeanBase
     public test.H2[] x4;
 
 }
-
 }
 

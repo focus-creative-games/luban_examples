@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public abstract class Service :  ai.Node 
@@ -21,7 +21,7 @@ public abstract class Service :  ai.Node
     }
 
 
-    public static Service LoadJsonService(SimpleJSON.JSONNode _json)
+    public static Service LoadJsonService(JSONNode _json)
     {
         string type = _json["$type"];
         Service obj;
@@ -41,17 +41,16 @@ public abstract class Service :  ai.Node
             case "UpdateDailyBehaviorProps":obj = new ai.UpdateDailyBehaviorProps(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonService(Service _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonService(Service _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
 }
-
 }
 

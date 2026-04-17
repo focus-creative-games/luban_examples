@@ -19,22 +19,22 @@ public partial class TbCompositeJsonTable2
     
     public TbCompositeJsonTable2(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.CompositeJsonTable2>();
-        _dataList = new System.Collections.Generic.List<test.CompositeJsonTable2>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.CompositeJsonTable2>(n);
+        _dataList = new System.Collections.Generic.List<test.CompositeJsonTable2>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.CompositeJsonTable2 _v;
-            _v = test.CompositeJsonTable2.DeserializeCompositeJsonTable2(_buf);
+            _v = global::cfg.test.CompositeJsonTable2.DeserializeCompositeJsonTable2(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.CompositeJsonTable2> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.CompositeJsonTable2> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.CompositeJsonTable2> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.CompositeJsonTable2> DataList => _dataList;
 
-    public test.CompositeJsonTable2 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.CompositeJsonTable2 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.CompositeJsonTable2 Get(int key) => _dataMap[key];
     public test.CompositeJsonTable2 this[int key] => _dataMap[key];
 

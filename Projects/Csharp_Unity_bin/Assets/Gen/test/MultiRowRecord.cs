@@ -18,13 +18,13 @@ public sealed partial class MultiRowRecord : Luban.BeanBase
     {
         Id = _buf.ReadInt();
         Name = _buf.ReadString();
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);OneRows = new System.Collections.Generic.List<test.MultiRowType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType1 _e0;  _e0 = test.MultiRowType1.DeserializeMultiRowType1(_buf); OneRows.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);MultiRows1 = new System.Collections.Generic.List<test.MultiRowType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType1 _e0;  _e0 = test.MultiRowType1.DeserializeMultiRowType1(_buf); MultiRows1.Add(_e0);}}
-        {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);MultiRows2 = new test.MultiRowType1[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { test.MultiRowType1 __e0;__e0 = test.MultiRowType1.DeserializeMultiRowType1(_buf); MultiRows2[__index0] = __e0;}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);MultiRows4 = new System.Collections.Generic.Dictionary<int, test.MultiRowType2>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); test.MultiRowType2 _v0;  _v0 = test.MultiRowType2.DeserializeMultiRowType2(_buf);     MultiRows4.Add(_k0, _v0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);MultiRows5 = new System.Collections.Generic.List<test.MultiRowType3>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType3 _e0;  _e0 = test.MultiRowType3.DeserializeMultiRowType3(_buf); MultiRows5.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);MultiRows6 = new System.Collections.Generic.Dictionary<int, test.MultiRowType2>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); test.MultiRowType2 _v0;  _v0 = test.MultiRowType2.DeserializeMultiRowType2(_buf);     MultiRows6.Add(_k0, _v0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);MultiRows7 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     MultiRows7.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); OneRows = new System.Collections.Generic.List<test.MultiRowType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType1 _e0;  _e0 = global::cfg.test.MultiRowType1.DeserializeMultiRowType1(_buf); OneRows.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); MultiRows1 = new System.Collections.Generic.List<test.MultiRowType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType1 _e0;  _e0 = global::cfg.test.MultiRowType1.DeserializeMultiRowType1(_buf); MultiRows1.Add(_e0);}}
+        {int __n0 = _buf.ReadSize(); MultiRows2 = new test.MultiRowType1[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { test.MultiRowType1 __e0;__e0 = global::cfg.test.MultiRowType1.DeserializeMultiRowType1(_buf); MultiRows2[__index0] = __e0;}}
+        {int n0 = _buf.ReadSize(); MultiRows4 = new System.Collections.Generic.Dictionary<int, test.MultiRowType2>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); test.MultiRowType2 _v0;  _v0 = global::cfg.test.MultiRowType2.DeserializeMultiRowType2(_buf);     MultiRows4.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); MultiRows5 = new System.Collections.Generic.List<test.MultiRowType3>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType3 _e0;  _e0 = global::cfg.test.MultiRowType3.DeserializeMultiRowType3(_buf); MultiRows5.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); MultiRows6 = new System.Collections.Generic.Dictionary<int, test.MultiRowType2>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); test.MultiRowType2 _v0;  _v0 = global::cfg.test.MultiRowType2.DeserializeMultiRowType2(_buf);     MultiRows6.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); MultiRows7 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     MultiRows7.Add(_k0, _v0);}}
     }
 
     public static MultiRowRecord DeserializeMultiRowRecord(ByteBuf _buf)
@@ -70,6 +70,5 @@ public sealed partial class MultiRowRecord : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public abstract class FlowNode :  ai.Node 
@@ -23,7 +23,7 @@ public abstract class FlowNode :  ai.Node
     }
 
 
-    public static FlowNode LoadJsonFlowNode(SimpleJSON.JSONNode _json)
+    public static FlowNode LoadJsonFlowNode(JSONNode _json)
     {
         string type = _json["$type"];
         FlowNode obj;
@@ -51,14 +51,14 @@ public abstract class FlowNode :  ai.Node
             case "DebugPrint":obj = new ai.DebugPrint(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonFlowNode(FlowNode _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonFlowNode(FlowNode _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public System.Collections.Generic.List<ai.Decorator> decorators;
@@ -66,6 +66,5 @@ public abstract class FlowNode :  ai.Node
     public System.Collections.Generic.List<ai.Service> services;
 
 }
-
 }
 

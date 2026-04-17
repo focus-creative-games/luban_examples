@@ -47,6 +47,5 @@ public partial struct vec4
         + "}";
     }
 }
-
 }
 

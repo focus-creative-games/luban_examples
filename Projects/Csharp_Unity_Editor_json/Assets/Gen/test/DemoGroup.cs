@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class DemoGroup :  Luban.EditorBeanBase 
@@ -21,7 +21,7 @@ public sealed class DemoGroup :  Luban.EditorBeanBase
             x5 = new test.InnerGroup();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -73,7 +73,7 @@ public sealed class DemoGroup :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -97,16 +97,16 @@ public sealed class DemoGroup :  Luban.EditorBeanBase
         }
     }
 
-    public static DemoGroup LoadJsonDemoGroup(SimpleJSON.JSONNode _json)
+    public static DemoGroup LoadJsonDemoGroup(JSONNode _json)
     {
         DemoGroup obj = new test.DemoGroup();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonDemoGroup(DemoGroup _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonDemoGroup(DemoGroup _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -122,6 +122,5 @@ public sealed class DemoGroup :  Luban.EditorBeanBase
     public test.InnerGroup x5;
 
 }
-
 }
 

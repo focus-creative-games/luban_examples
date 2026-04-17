@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class DefineFromExcel2 :  Luban.EditorBeanBase 
@@ -21,6 +21,7 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
             x10 = "";
             x13 = test.DemoEnum.NONE;
             x132 = test.DemoFlag.A;
+            x133 = test.DemoFlag.A;
             v2 = new vec2();
             t1 = "1970-01-01 00:00:00";
             k1 = System.Array.Empty<int>();
@@ -31,7 +32,7 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
             k11 = new System.Collections.Generic.List<vec4>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -98,6 +99,14 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
         }
         
         { 
+            var _fieldJson = _json["x13_3"];
+            if (_fieldJson != null)
+            {
+                if(_fieldJson.IsString) { x133 = (test.DemoFlag)System.Enum.Parse(typeof(test.DemoFlag), _fieldJson); } else if(_fieldJson.IsNumber) { x133 = (test.DemoFlag)(int)_fieldJson; } else { throw new SerializationException(); }  
+            }
+        }
+        
+        { 
             var _fieldJson = _json["x14"];
             if (_fieldJson != null)
             {
@@ -133,7 +142,7 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
             var _fieldJson = _json["k1"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k1 = new int[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k1[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k1 = new int[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k1[_index0++] = __v0; }  
             }
         }
         
@@ -141,7 +150,7 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
             var _fieldJson = _json["k2"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k2 = new int[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k2[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k2 = new int[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k2[_index0++] = __v0; }  
             }
         }
         
@@ -187,7 +196,7 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -214,6 +223,9 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
         }
         {
             _json["x13_2"] = new JSONNumber((int)x132);
+        }
+        {
+            _json["x13_3"] = new JSONNumber((int)x133);
         }
         {
 
@@ -268,16 +280,16 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
         }
     }
 
-    public static DefineFromExcel2 LoadJsonDefineFromExcel2(SimpleJSON.JSONNode _json)
+    public static DefineFromExcel2 LoadJsonDefineFromExcel2(JSONNode _json)
     {
         DefineFromExcel2 obj = new test.DefineFromExcel2();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonDefineFromExcel2(DefineFromExcel2 _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonDefineFromExcel2(DefineFromExcel2 _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     /// <summary>
@@ -302,6 +314,8 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
 
     public test.DemoFlag x132;
 
+    public test.DemoFlag x133;
+
     public test.DemoDynamic x14;
 
     public test.Shape x15;
@@ -325,6 +339,5 @@ public sealed class DefineFromExcel2 :  Luban.EditorBeanBase
     public vec3? v11;
 
 }
-
 }
 

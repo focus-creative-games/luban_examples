@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 /// <summary>
@@ -23,7 +23,7 @@ public sealed class Circle :  Shape
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["radius"];
@@ -35,23 +35,23 @@ public sealed class Circle :  Shape
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["radius"] = new JSONNumber(radius);
         }
     }
 
-    public static Circle LoadJsonCircle(SimpleJSON.JSONNode _json)
+    public static Circle LoadJsonCircle(JSONNode _json)
     {
         Circle obj = new test.Circle();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonCircle(Circle _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonCircle(Circle _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     /// <summary>
@@ -60,6 +60,5 @@ public sealed class Circle :  Shape
     public float radius;
 
 }
-
 }
 

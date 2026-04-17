@@ -49,6 +49,5 @@ public sealed partial class UeWait : ai.Task
         + "}";
     }
 }
-
 }
 

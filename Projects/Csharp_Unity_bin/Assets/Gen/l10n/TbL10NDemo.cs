@@ -19,22 +19,22 @@ public partial class TbL10NDemo
     
     public TbL10NDemo(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, l10n.L10NDemo>();
-        _dataList = new System.Collections.Generic.List<l10n.L10NDemo>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, l10n.L10NDemo>(n);
+        _dataList = new System.Collections.Generic.List<l10n.L10NDemo>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             l10n.L10NDemo _v;
-            _v = l10n.L10NDemo.DeserializeL10NDemo(_buf);
+            _v = global::cfg.l10n.L10NDemo.DeserializeL10NDemo(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, l10n.L10NDemo> DataMap => _dataMap;
-    public System.Collections.Generic.List<l10n.L10NDemo> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, l10n.L10NDemo> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<l10n.L10NDemo> DataList => _dataList;
 
-    public l10n.L10NDemo GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public l10n.L10NDemo GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public l10n.L10NDemo Get(int key) => _dataMap[key];
     public l10n.L10NDemo this[int key] => _dataMap[key];
 

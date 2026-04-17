@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class TestMapper :  Luban.EditorBeanBase 
@@ -22,7 +22,7 @@ public sealed class TestMapper :  Luban.EditorBeanBase
             v2 = new vec2();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -50,7 +50,7 @@ public sealed class TestMapper :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -63,16 +63,16 @@ public sealed class TestMapper :  Luban.EditorBeanBase
         }
     }
 
-    public static TestMapper LoadJsonTestMapper(SimpleJSON.JSONNode _json)
+    public static TestMapper LoadJsonTestMapper(JSONNode _json)
     {
         TestMapper obj = new test.TestMapper();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonTestMapper(TestMapper _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonTestMapper(TestMapper _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -82,6 +82,5 @@ public sealed class TestMapper :  Luban.EditorBeanBase
     public vec2 v2;
 
 }
-
 }
 

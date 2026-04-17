@@ -49,6 +49,5 @@ public sealed partial class ChooseSkill : ai.Task
         + "}";
     }
 }
-
 }
 

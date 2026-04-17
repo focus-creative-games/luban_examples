@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public abstract class Shape :  Luban.EditorBeanBase 
@@ -21,7 +21,7 @@ public abstract class Shape :  Luban.EditorBeanBase
     }
 
 
-    public static Shape LoadJsonShape(SimpleJSON.JSONNode _json)
+    public static Shape LoadJsonShape(JSONNode _json)
     {
         string type = _json["$type"];
         Shape obj;
@@ -32,17 +32,16 @@ public abstract class Shape :  Luban.EditorBeanBase
             case "test2.Rectangle":obj = new test2.Rectangle(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonShape(Shape _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonShape(Shape _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
 }
-
 }
 

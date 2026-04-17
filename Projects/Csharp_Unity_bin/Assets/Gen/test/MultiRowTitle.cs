@@ -18,11 +18,11 @@ public sealed partial class MultiRowTitle : Luban.BeanBase
     {
         Id = _buf.ReadInt();
         Name = _buf.ReadString();
-        X1 = test.H1.DeserializeH1(_buf);
-        if(_buf.ReadBool()){ X20 = test.H2.DeserializeH2(_buf); } else { X20 = null; }
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X2 = new System.Collections.Generic.List<test.H2>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.H2 _e0;  _e0 = test.H2.DeserializeH2(_buf); X2.Add(_e0);}}
-        {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new test.H2[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { test.H2 __e0;__e0 = test.H2.DeserializeH2(_buf); X3[__index0] = __e0;}}
-        {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X4 = new test.H2[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { test.H2 __e0;__e0 = test.H2.DeserializeH2(_buf); X4[__index0] = __e0;}}
+        X1 = global::cfg.test.H1.DeserializeH1(_buf);
+        if(_buf.ReadBool()){ X20 = global::cfg.test.H2.DeserializeH2(_buf); } else { X20 = null; }
+        {int n0 = _buf.ReadSize(); X2 = new System.Collections.Generic.List<test.H2>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.H2 _e0;  _e0 = global::cfg.test.H2.DeserializeH2(_buf); X2.Add(_e0);}}
+        {int __n0 = _buf.ReadSize(); X3 = new test.H2[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { test.H2 __e0;__e0 = global::cfg.test.H2.DeserializeH2(_buf); X3[__index0] = __e0;}}
+        {int __n0 = _buf.ReadSize(); X4 = new test.H2[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { test.H2 __e0;__e0 = global::cfg.test.H2.DeserializeH2(_buf); X4[__index0] = __e0;}}
     }
 
     public static MultiRowTitle DeserializeMultiRowTitle(ByteBuf _buf)
@@ -63,6 +63,5 @@ public sealed partial class MultiRowTitle : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

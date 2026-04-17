@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class IsSet2 :  ai.KeyQueryOperator 
@@ -20,27 +20,26 @@ public sealed class IsSet2 :  ai.KeyQueryOperator
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
     }
 
-    public static IsSet2 LoadJsonIsSet2(SimpleJSON.JSONNode _json)
+    public static IsSet2 LoadJsonIsSet2(JSONNode _json)
     {
         IsSet2 obj = new ai.IsSet2();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonIsSet2(IsSet2 _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonIsSet2(IsSet2 _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
 }
-
 }
 

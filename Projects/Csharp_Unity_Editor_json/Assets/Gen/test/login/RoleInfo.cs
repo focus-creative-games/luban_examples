@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test.login
+namespace editor.cfg.test.login
 {
 
 public sealed class RoleInfo :  test.DemoD3 
@@ -20,7 +20,7 @@ public sealed class RoleInfo :  test.DemoD3
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["x1"];
@@ -48,7 +48,7 @@ public sealed class RoleInfo :  test.DemoD3
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["x1"] = new JSONNumber(x1);
@@ -61,21 +61,20 @@ public sealed class RoleInfo :  test.DemoD3
         }
     }
 
-    public static RoleInfo LoadJsonRoleInfo(SimpleJSON.JSONNode _json)
+    public static RoleInfo LoadJsonRoleInfo(JSONNode _json)
     {
         RoleInfo obj = new test.login.RoleInfo();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonRoleInfo(RoleInfo _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonRoleInfo(RoleInfo _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public long roleId;
 
 }
-
 }
 

@@ -18,10 +18,10 @@ public sealed partial class TestMap : Luban.BeanBase
     {
         Id = _buf.ReadInt();
         Id_Ref = null;
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X1 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     X1.Add(_k0, _v0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X2 = new System.Collections.Generic.Dictionary<long, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { long _k0;  _k0 = _buf.ReadLong(); int _v0;  _v0 = _buf.ReadInt();     X2.Add(_k0, _v0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X3 = new System.Collections.Generic.Dictionary<string, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { string _k0;  _k0 = _buf.ReadString(); int _v0;  _v0 = _buf.ReadInt();     X3.Add(_k0, _v0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);X4 = new System.Collections.Generic.Dictionary<test.DemoEnum, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoEnum _k0;  _k0 = (test.DemoEnum)_buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     X4.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); X1 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     X1.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); X2 = new System.Collections.Generic.Dictionary<long, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { long _k0;  _k0 = _buf.ReadLong(); int _v0;  _v0 = _buf.ReadInt();     X2.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); X3 = new System.Collections.Generic.Dictionary<string, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { string _k0;  _k0 = _buf.ReadString(); int _v0;  _v0 = _buf.ReadInt();     X3.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); X4 = new System.Collections.Generic.Dictionary<test.DemoEnum, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoEnum _k0;  _k0 = (test.DemoEnum)_buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     X4.Add(_k0, _v0);}}
     }
 
     public static TestMap DeserializeTestMap(ByteBuf _buf)
@@ -55,6 +55,5 @@ public sealed partial class TestMap : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

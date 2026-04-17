@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class Blackboard :  Luban.EditorBeanBase 
@@ -24,7 +24,7 @@ public sealed class Blackboard :  Luban.EditorBeanBase
             keys = new System.Collections.Generic.List<ai.BlackboardKey>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["name"];
@@ -60,7 +60,7 @@ public sealed class Blackboard :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
 
@@ -84,16 +84,16 @@ public sealed class Blackboard :  Luban.EditorBeanBase
         }
     }
 
-    public static Blackboard LoadJsonBlackboard(SimpleJSON.JSONNode _json)
+    public static Blackboard LoadJsonBlackboard(JSONNode _json)
     {
         Blackboard obj = new ai.Blackboard();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonBlackboard(Blackboard _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonBlackboard(Blackboard _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public string name;
@@ -105,6 +105,5 @@ public sealed class Blackboard :  Luban.EditorBeanBase
     public System.Collections.Generic.List<ai.BlackboardKey> keys;
 
 }
-
 }
 

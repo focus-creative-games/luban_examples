@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public abstract class ComposeNode :  ai.FlowNode 
@@ -21,7 +21,7 @@ public abstract class ComposeNode :  ai.FlowNode
     }
 
 
-    public static ComposeNode LoadJsonComposeNode(SimpleJSON.JSONNode _json)
+    public static ComposeNode LoadJsonComposeNode(JSONNode _json)
     {
         string type = _json["$type"];
         ComposeNode obj;
@@ -35,17 +35,16 @@ public abstract class ComposeNode :  ai.FlowNode
             case "SimpleParallel":obj = new ai.SimpleParallel(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonComposeNode(ComposeNode _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonComposeNode(ComposeNode _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
 }
-
 }
 

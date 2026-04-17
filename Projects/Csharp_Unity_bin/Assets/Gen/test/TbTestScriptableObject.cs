@@ -19,22 +19,22 @@ public partial class TbTestScriptableObject
     
     public TbTestScriptableObject(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestScriptableObject>();
-        _dataList = new System.Collections.Generic.List<test.TestScriptableObject>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestScriptableObject>(n);
+        _dataList = new System.Collections.Generic.List<test.TestScriptableObject>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.TestScriptableObject _v;
-            _v = test.TestScriptableObject.DeserializeTestScriptableObject(_buf);
+            _v = global::cfg.test.TestScriptableObject.DeserializeTestScriptableObject(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.TestScriptableObject> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.TestScriptableObject> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.TestScriptableObject> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.TestScriptableObject> DataList => _dataList;
 
-    public test.TestScriptableObject GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestScriptableObject GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.TestScriptableObject Get(int key) => _dataMap[key];
     public test.TestScriptableObject this[int key] => _dataMap[key];
 

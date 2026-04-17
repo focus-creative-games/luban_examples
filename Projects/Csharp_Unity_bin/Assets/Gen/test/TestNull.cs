@@ -19,8 +19,8 @@ public sealed partial class TestNull : Luban.BeanBase
         Id = _buf.ReadInt();
         if(_buf.ReadBool()){ X1 = _buf.ReadInt(); } else { X1 = null; }
         if(_buf.ReadBool()){ X2 = (test.DemoEnum)_buf.ReadInt(); } else { X2 = null; }
-        if(_buf.ReadBool()){ X3 = test.DemoType1.DeserializeDemoType1(_buf); } else { X3 = null; }
-        if(_buf.ReadBool()){ X4 = test.DemoDynamic.DeserializeDemoDynamic(_buf); } else { X4 = null; }
+        if(_buf.ReadBool()){ X3 = global::cfg.test.DemoType1.DeserializeDemoType1(_buf); } else { X3 = null; }
+        if(_buf.ReadBool()){ X4 = global::cfg.test.DemoDynamic.DeserializeDemoDynamic(_buf); } else { X4 = null; }
         if(_buf.ReadBool()){ S1 = _buf.ReadString(); } else { S1 = null; }
         if(_buf.ReadBool()){ S2 = _buf.ReadString(); } else { S2 = null; }
     }
@@ -60,6 +60,5 @@ public sealed partial class TestNull : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

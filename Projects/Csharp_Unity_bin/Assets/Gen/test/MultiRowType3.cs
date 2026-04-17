@@ -17,7 +17,7 @@ public sealed partial class MultiRowType3 : Luban.BeanBase
     public MultiRowType3(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Items = new System.Collections.Generic.List<test.MultiRowType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType1 _e0;  _e0 = test.MultiRowType1.DeserializeMultiRowType1(_buf); Items.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); Items = new System.Collections.Generic.List<test.MultiRowType1>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.MultiRowType1 _e0;  _e0 = global::cfg.test.MultiRowType1.DeserializeMultiRowType1(_buf); Items.Add(_e0);}}
     }
 
     public static MultiRowType3 DeserializeMultiRowType3(ByteBuf _buf)
@@ -44,6 +44,5 @@ public sealed partial class MultiRowType3 : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -19,22 +19,22 @@ public partial class TbBlackboard
     
     public TbBlackboard(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<string, ai.Blackboard>();
-        _dataList = new System.Collections.Generic.List<ai.Blackboard>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<string, ai.Blackboard>(n);
+        _dataList = new System.Collections.Generic.List<ai.Blackboard>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             ai.Blackboard _v;
-            _v = ai.Blackboard.DeserializeBlackboard(_buf);
+            _v = global::cfg.ai.Blackboard.DeserializeBlackboard(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<string, ai.Blackboard> DataMap => _dataMap;
-    public System.Collections.Generic.List<ai.Blackboard> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<string, ai.Blackboard> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<ai.Blackboard> DataList => _dataList;
 
-    public ai.Blackboard GetOrDefault(string key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public ai.Blackboard GetOrDefault(string key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public ai.Blackboard Get(string key) => _dataMap[key];
     public ai.Blackboard this[string key] => _dataMap[key];
 

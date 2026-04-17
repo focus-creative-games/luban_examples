@@ -43,6 +43,5 @@ public sealed partial class TestFieldVariant2 : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

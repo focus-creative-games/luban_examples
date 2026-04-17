@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public abstract class Node :  Luban.EditorBeanBase 
@@ -22,7 +22,7 @@ public abstract class Node :  Luban.EditorBeanBase
     }
 
 
-    public static Node LoadJsonNode(SimpleJSON.JSONNode _json)
+    public static Node LoadJsonNode(JSONNode _json)
     {
         string type = _json["$type"];
         Node obj;
@@ -76,14 +76,14 @@ public abstract class Node :  Luban.EditorBeanBase
             case "DebugPrint":obj = new ai.DebugPrint(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonNode(Node _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonNode(Node _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -91,6 +91,5 @@ public abstract class Node :  Luban.EditorBeanBase
     public string nodeName;
 
 }
-
 }
 

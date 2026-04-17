@@ -23,7 +23,7 @@ public partial class TbSingleton
     {
         int n = _buf.ReadSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = test.DemoSingletonType.DeserializeDemoSingletonType(_buf);
+        _data = global::cfg.test.DemoSingletonType.DeserializeDemoSingletonType(_buf);
     }
 
 

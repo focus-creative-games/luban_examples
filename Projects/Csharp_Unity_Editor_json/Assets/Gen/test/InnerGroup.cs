@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class InnerGroup :  Luban.EditorBeanBase 
@@ -20,7 +20,7 @@ public sealed class InnerGroup :  Luban.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["y1"];
@@ -56,7 +56,7 @@ public sealed class InnerGroup :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["y1"] = new JSONNumber(y1);
@@ -72,16 +72,16 @@ public sealed class InnerGroup :  Luban.EditorBeanBase
         }
     }
 
-    public static InnerGroup LoadJsonInnerGroup(SimpleJSON.JSONNode _json)
+    public static InnerGroup LoadJsonInnerGroup(JSONNode _json)
     {
         InnerGroup obj = new test.InnerGroup();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonInnerGroup(InnerGroup _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonInnerGroup(InnerGroup _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int y1;
@@ -93,6 +93,5 @@ public sealed class InnerGroup :  Luban.EditorBeanBase
     public int y4;
 
 }
-
 }
 

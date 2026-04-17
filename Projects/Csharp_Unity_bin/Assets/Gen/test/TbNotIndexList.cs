@@ -19,17 +19,17 @@ public partial class TbNotIndexList
 
     public TbNotIndexList(ByteBuf _buf)
     {
-        _dataList = new System.Collections.Generic.List<test.NotIndexList>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataList = new System.Collections.Generic.List<test.NotIndexList>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.NotIndexList _v;
-            _v = test.NotIndexList.DeserializeNotIndexList(_buf);
+            _v = global::cfg.test.NotIndexList.DeserializeNotIndexList(_buf);
             _dataList.Add(_v);
         }
     }
 
-    public System.Collections.Generic.List<test.NotIndexList> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyList<test.NotIndexList> DataList => _dataList;
 
     
     public void ResolveRef(Tables tables)

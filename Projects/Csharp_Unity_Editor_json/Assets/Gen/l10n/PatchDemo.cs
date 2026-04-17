@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.l10n
+namespace editor.cfg.l10n
 {
 
 public sealed class PatchDemo :  Luban.EditorBeanBase 
@@ -20,7 +20,7 @@ public sealed class PatchDemo :  Luban.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -40,7 +40,7 @@ public sealed class PatchDemo :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -50,16 +50,16 @@ public sealed class PatchDemo :  Luban.EditorBeanBase
         }
     }
 
-    public static PatchDemo LoadJsonPatchDemo(SimpleJSON.JSONNode _json)
+    public static PatchDemo LoadJsonPatchDemo(JSONNode _json)
     {
         PatchDemo obj = new l10n.PatchDemo();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonPatchDemo(PatchDemo _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonPatchDemo(PatchDemo _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -67,6 +67,5 @@ public sealed class PatchDemo :  Luban.EditorBeanBase
     public int value;
 
 }
-
 }
 

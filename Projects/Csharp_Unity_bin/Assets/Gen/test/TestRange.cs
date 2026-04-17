@@ -76,6 +76,5 @@ public sealed partial class TestRange : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

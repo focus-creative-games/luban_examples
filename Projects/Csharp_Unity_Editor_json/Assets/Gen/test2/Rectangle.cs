@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test2
+namespace editor.cfg.test2
 {
 
 /// <summary>
@@ -23,7 +23,7 @@ public sealed class Rectangle :  test.Shape
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["width"];
@@ -43,7 +43,7 @@ public sealed class Rectangle :  test.Shape
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["width"] = new JSONNumber(width);
@@ -53,16 +53,16 @@ public sealed class Rectangle :  test.Shape
         }
     }
 
-    public static Rectangle LoadJsonRectangle(SimpleJSON.JSONNode _json)
+    public static Rectangle LoadJsonRectangle(JSONNode _json)
     {
         Rectangle obj = new test2.Rectangle();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonRectangle(Rectangle _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonRectangle(Rectangle _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     /// <summary>
@@ -76,6 +76,5 @@ public sealed class Rectangle :  test.Shape
     public float height;
 
 }
-
 }
 

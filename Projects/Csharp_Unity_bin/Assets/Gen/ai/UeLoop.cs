@@ -50,6 +50,5 @@ public sealed partial class UeLoop : ai.Decorator
         + "}";
     }
 }
-
 }
 

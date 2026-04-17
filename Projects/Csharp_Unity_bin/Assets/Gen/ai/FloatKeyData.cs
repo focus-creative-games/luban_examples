@@ -41,6 +41,5 @@ public sealed partial class FloatKeyData : ai.KeyData
         + "}";
     }
 }
-
 }
 

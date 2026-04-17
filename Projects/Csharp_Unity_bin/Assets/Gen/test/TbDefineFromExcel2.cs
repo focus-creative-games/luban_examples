@@ -19,22 +19,22 @@ public partial class TbDefineFromExcel2
     
     public TbDefineFromExcel2(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.DefineFromExcel2>();
-        _dataList = new System.Collections.Generic.List<test.DefineFromExcel2>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.DefineFromExcel2>(n);
+        _dataList = new System.Collections.Generic.List<test.DefineFromExcel2>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.DefineFromExcel2 _v;
-            _v = test.DefineFromExcel2.DeserializeDefineFromExcel2(_buf);
+            _v = global::cfg.test.DefineFromExcel2.DeserializeDefineFromExcel2(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.DefineFromExcel2> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.DefineFromExcel2> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.DefineFromExcel2> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.DefineFromExcel2> DataList => _dataList;
 
-    public test.DefineFromExcel2 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.DefineFromExcel2 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.DefineFromExcel2 Get(int key) => _dataMap[key];
     public test.DefineFromExcel2 this[int key] => _dataMap[key];
 

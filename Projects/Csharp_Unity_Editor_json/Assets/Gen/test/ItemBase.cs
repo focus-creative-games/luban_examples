@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public abstract class ItemBase :  Luban.EditorBeanBase 
@@ -23,7 +23,7 @@ public abstract class ItemBase :  Luban.EditorBeanBase
     }
 
 
-    public static ItemBase LoadJsonItemBase(SimpleJSON.JSONNode _json)
+    public static ItemBase LoadJsonItemBase(JSONNode _json)
     {
         string type = _json["$type"];
         ItemBase obj;
@@ -37,14 +37,14 @@ public abstract class ItemBase :  Luban.EditorBeanBase
             case "Decorator":obj = new test.Decorator(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonItemBase(ItemBase _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonItemBase(ItemBase _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -54,6 +54,5 @@ public abstract class ItemBase :  Luban.EditorBeanBase
     public string desc;
 
 }
-
 }
 

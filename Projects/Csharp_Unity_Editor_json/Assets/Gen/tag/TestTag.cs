@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.tag
+namespace editor.cfg.tag
 {
 
 public sealed class TestTag :  Luban.EditorBeanBase 
@@ -21,7 +21,7 @@ public sealed class TestTag :  Luban.EditorBeanBase
             value = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -41,7 +41,7 @@ public sealed class TestTag :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -53,16 +53,16 @@ public sealed class TestTag :  Luban.EditorBeanBase
         }
     }
 
-    public static TestTag LoadJsonTestTag(SimpleJSON.JSONNode _json)
+    public static TestTag LoadJsonTestTag(JSONNode _json)
     {
         TestTag obj = new tag.TestTag();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonTestTag(TestTag _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonTestTag(TestTag _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -70,6 +70,5 @@ public sealed class TestTag :  Luban.EditorBeanBase
     public string value;
 
 }
-
 }
 

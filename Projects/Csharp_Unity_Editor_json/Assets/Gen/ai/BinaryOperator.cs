@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class BinaryOperator :  ai.KeyQueryOperator 
@@ -21,7 +21,7 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
             oper = ai.EOperator.IS_EQUAL_TO;
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["oper"];
@@ -41,7 +41,7 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["oper"] = new JSONNumber((int)oper);
@@ -53,16 +53,16 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
         }
     }
 
-    public static BinaryOperator LoadJsonBinaryOperator(SimpleJSON.JSONNode _json)
+    public static BinaryOperator LoadJsonBinaryOperator(JSONNode _json)
     {
         BinaryOperator obj = new ai.BinaryOperator();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonBinaryOperator(BinaryOperator _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonBinaryOperator(BinaryOperator _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public ai.EOperator oper;
@@ -70,6 +70,5 @@ public sealed class BinaryOperator :  ai.KeyQueryOperator
     public ai.KeyData data;
 
 }
-
 }
 

@@ -16,8 +16,8 @@ public abstract partial class FlowNode : ai.Node
 {
     public FlowNode(ByteBuf _buf)  : base(_buf) 
     {
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Decorators = new System.Collections.Generic.List<ai.Decorator>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.Decorator _e0;  _e0 = ai.Decorator.DeserializeDecorator(_buf); Decorators.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Services = new System.Collections.Generic.List<ai.Service>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.Service _e0;  _e0 = ai.Service.DeserializeService(_buf); Services.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); Decorators = new System.Collections.Generic.List<ai.Decorator>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.Decorator _e0;  _e0 = global::cfg.ai.Decorator.DeserializeDecorator(_buf); Decorators.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); Services = new System.Collections.Generic.List<ai.Service>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { ai.Service _e0;  _e0 = global::cfg.ai.Service.DeserializeService(_buf); Services.Add(_e0);}}
     }
 
     public static FlowNode DeserializeFlowNode(ByteBuf _buf)
@@ -59,6 +59,5 @@ public abstract partial class FlowNode : ai.Node
         + "}";
     }
 }
-
 }
 

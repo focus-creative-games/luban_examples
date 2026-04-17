@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class ExcelFromJsonMultiRow :  Luban.EditorBeanBase 
@@ -21,7 +21,7 @@ public sealed class ExcelFromJsonMultiRow :  Luban.EditorBeanBase
             items = new System.Collections.Generic.List<test.TestRow>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -49,7 +49,7 @@ public sealed class ExcelFromJsonMultiRow :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -64,16 +64,16 @@ public sealed class ExcelFromJsonMultiRow :  Luban.EditorBeanBase
         }
     }
 
-    public static ExcelFromJsonMultiRow LoadJsonExcelFromJsonMultiRow(SimpleJSON.JSONNode _json)
+    public static ExcelFromJsonMultiRow LoadJsonExcelFromJsonMultiRow(JSONNode _json)
     {
         ExcelFromJsonMultiRow obj = new test.ExcelFromJsonMultiRow();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonExcelFromJsonMultiRow(ExcelFromJsonMultiRow _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonExcelFromJsonMultiRow(ExcelFromJsonMultiRow _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -83,6 +83,5 @@ public sealed class ExcelFromJsonMultiRow :  Luban.EditorBeanBase
     public System.Collections.Generic.List<test.TestRow> items;
 
 }
-
 }
 

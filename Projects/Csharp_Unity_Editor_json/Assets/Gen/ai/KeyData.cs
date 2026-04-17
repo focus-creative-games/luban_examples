@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public abstract class KeyData :  Luban.EditorBeanBase 
@@ -21,7 +21,7 @@ public abstract class KeyData :  Luban.EditorBeanBase
     }
 
 
-    public static KeyData LoadJsonKeyData(SimpleJSON.JSONNode _json)
+    public static KeyData LoadJsonKeyData(JSONNode _json)
     {
         string type = _json["$type"];
         KeyData obj;
@@ -37,17 +37,16 @@ public abstract class KeyData :  Luban.EditorBeanBase
             case "BlackboardKeyData":obj = new ai.BlackboardKeyData(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonKeyData(KeyData _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonKeyData(KeyData _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
 }
-
 }
 

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class DemoPrimitiveTypesTable :  Luban.EditorBeanBase 
@@ -26,7 +26,7 @@ public sealed class DemoPrimitiveTypesTable :  Luban.EditorBeanBase
             t1 = "1970-01-01 00:00:00";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["x1"];
@@ -134,7 +134,7 @@ public sealed class DemoPrimitiveTypesTable :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["x1"] = new JSONBool(x1);
@@ -181,16 +181,16 @@ public sealed class DemoPrimitiveTypesTable :  Luban.EditorBeanBase
         }
     }
 
-    public static DemoPrimitiveTypesTable LoadJsonDemoPrimitiveTypesTable(SimpleJSON.JSONNode _json)
+    public static DemoPrimitiveTypesTable LoadJsonDemoPrimitiveTypesTable(JSONNode _json)
     {
         DemoPrimitiveTypesTable obj = new test.DemoPrimitiveTypesTable();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonDemoPrimitiveTypesTable(DemoPrimitiveTypesTable _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonDemoPrimitiveTypesTable(DemoPrimitiveTypesTable _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public bool x1;
@@ -220,6 +220,5 @@ public sealed class DemoPrimitiveTypesTable :  Luban.EditorBeanBase
     public string t1;
 
 }
-
 }
 

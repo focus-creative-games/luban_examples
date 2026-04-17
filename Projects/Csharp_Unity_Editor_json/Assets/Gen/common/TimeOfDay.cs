@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.common
+namespace editor.cfg.common
 {
 
 public sealed class TimeOfDay :  Luban.EditorBeanBase 
@@ -20,7 +20,7 @@ public sealed class TimeOfDay :  Luban.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["hour"];
@@ -48,7 +48,7 @@ public sealed class TimeOfDay :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["hour"] = new JSONNumber(hour);
@@ -61,16 +61,16 @@ public sealed class TimeOfDay :  Luban.EditorBeanBase
         }
     }
 
-    public static TimeOfDay LoadJsonTimeOfDay(SimpleJSON.JSONNode _json)
+    public static TimeOfDay LoadJsonTimeOfDay(JSONNode _json)
     {
         TimeOfDay obj = new common.TimeOfDay();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonTimeOfDay(TimeOfDay _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonTimeOfDay(TimeOfDay _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int hour;
@@ -80,6 +80,5 @@ public sealed class TimeOfDay :  Luban.EditorBeanBase
     public int second;
 
 }
-
 }
 

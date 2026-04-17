@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class TestRef :  Luban.EditorBeanBase 
@@ -30,7 +30,7 @@ public sealed class TestRef :  Luban.EditorBeanBase
             f3 = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -84,7 +84,7 @@ public sealed class TestRef :  Luban.EditorBeanBase
             var _fieldJson = _json["a1"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; a1 = new int[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  a1[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; a1 = new int[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  a1[_index0++] = __v0; }  
             }
         }
         
@@ -92,7 +92,7 @@ public sealed class TestRef :  Luban.EditorBeanBase
             var _fieldJson = _json["a2"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; a2 = new int[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  a2[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; a2 = new int[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  a2[_index0++] = __v0; }  
             }
         }
         
@@ -202,7 +202,7 @@ public sealed class TestRef :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -291,16 +291,16 @@ public sealed class TestRef :  Luban.EditorBeanBase
         }
     }
 
-    public static TestRef LoadJsonTestRef(SimpleJSON.JSONNode _json)
+    public static TestRef LoadJsonTestRef(JSONNode _json)
     {
         TestRef obj = new test.TestRef();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonTestRef(TestRef _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonTestRef(TestRef _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int id;
@@ -346,6 +346,5 @@ public sealed class TestRef :  Luban.EditorBeanBase
     public test.RefDynamicBase s1;
 
 }
-
 }
 

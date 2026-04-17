@@ -21,7 +21,7 @@ public sealed partial class BehaviorTree : Luban.BeanBase
         Desc = _buf.ReadString();
         BlackboardId = _buf.ReadString();
         BlackboardId_Ref = null;
-        Root = ai.ComposeNode.DeserializeComposeNode(_buf);
+        Root = global::cfg.ai.ComposeNode.DeserializeComposeNode(_buf);
     }
 
     public static BehaviorTree DeserializeBehaviorTree(ByteBuf _buf)
@@ -56,6 +56,5 @@ public sealed partial class BehaviorTree : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

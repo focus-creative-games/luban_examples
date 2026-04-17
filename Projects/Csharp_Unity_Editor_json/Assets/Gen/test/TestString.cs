@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class TestString :  Luban.EditorBeanBase 
@@ -23,9 +23,11 @@ public sealed class TestString :  Luban.EditorBeanBase
             s2 = "";
             cs1 = new test.CompactString();
             cs2 = new test.CompactString();
+            css = new System.Collections.Generic.List<string>();
+            css2 = new System.Collections.Generic.List<string>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -67,9 +69,25 @@ public sealed class TestString :  Luban.EditorBeanBase
             }
         }
         
+        { 
+            var _fieldJson = _json["css"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } css = new System.Collections.Generic.List<string>(); foreach(JSONNode __e0 in _fieldJson.Children) { string __v0;  if(!__e0.IsString) { throw new SerializationException(); }  __v0 = __e0;  css.Add(__v0); }  
+            }
+        }
+        
+        { 
+            var _fieldJson = _json["css2"];
+            if (_fieldJson != null)
+            {
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } css2 = new System.Collections.Generic.List<string>(); foreach(JSONNode __e0 in _fieldJson.Children) { string __v0;  if(!__e0.IsString) { throw new SerializationException(); }  __v0 = __e0;  css2.Add(__v0); }  
+            }
+        }
+        
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
 
@@ -96,18 +114,28 @@ public sealed class TestString :  Luban.EditorBeanBase
             if (cs2 == null) { throw new System.ArgumentNullException(); }
             { var __bjson0 = new JSONObject(); _json["cs2"] = __bjson0; test.CompactString.SaveJsonCompactString(cs2, __bjson0); }
         }
+        {
+
+            if (css == null) { throw new System.ArgumentNullException(); }
+            { var __cjson0 = new JSONArray(); _json["css"] = __cjson0; foreach(var _e0 in css) { JSONNode __v0; __v0 = new JSONString(_e0); __cjson0.Add(__v0); } }
+        }
+        {
+
+            if (css2 == null) { throw new System.ArgumentNullException(); }
+            { var __cjson0 = new JSONArray(); _json["css2"] = __cjson0; foreach(var _e0 in css2) { JSONNode __v0; __v0 = new JSONString(_e0); __cjson0.Add(__v0); } }
+        }
     }
 
-    public static TestString LoadJsonTestString(SimpleJSON.JSONNode _json)
+    public static TestString LoadJsonTestString(JSONNode _json)
     {
         TestString obj = new test.TestString();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonTestString(TestString _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonTestString(TestString _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public string id;
@@ -120,7 +148,10 @@ public sealed class TestString :  Luban.EditorBeanBase
 
     public test.CompactString cs2;
 
-}
+    public System.Collections.Generic.List<string> css;
 
+    public System.Collections.Generic.List<string> css2;
+
+}
 }
 

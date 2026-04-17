@@ -19,22 +19,22 @@ public partial class TbExcelFromJson
     
     public TbExcelFromJson(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.ExcelFromJson>();
-        _dataList = new System.Collections.Generic.List<test.ExcelFromJson>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.ExcelFromJson>(n);
+        _dataList = new System.Collections.Generic.List<test.ExcelFromJson>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.ExcelFromJson _v;
-            _v = test.ExcelFromJson.DeserializeExcelFromJson(_buf);
+            _v = global::cfg.test.ExcelFromJson.DeserializeExcelFromJson(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.X4, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.ExcelFromJson> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.ExcelFromJson> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.ExcelFromJson> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.ExcelFromJson> DataList => _dataList;
 
-    public test.ExcelFromJson GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.ExcelFromJson GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.ExcelFromJson Get(int key) => _dataMap[key];
     public test.ExcelFromJson this[int key] => _dataMap[key];
 

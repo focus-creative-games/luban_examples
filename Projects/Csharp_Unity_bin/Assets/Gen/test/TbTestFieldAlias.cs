@@ -19,22 +19,22 @@ public partial class TbTestFieldAlias
     
     public TbTestFieldAlias(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestFieldAlias>();
-        _dataList = new System.Collections.Generic.List<test.TestFieldAlias>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestFieldAlias>(n);
+        _dataList = new System.Collections.Generic.List<test.TestFieldAlias>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.TestFieldAlias _v;
-            _v = test.TestFieldAlias.DeserializeTestFieldAlias(_buf);
+            _v = global::cfg.test.TestFieldAlias.DeserializeTestFieldAlias(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.TestFieldAlias> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.TestFieldAlias> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.TestFieldAlias> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.TestFieldAlias> DataList => _dataList;
 
-    public test.TestFieldAlias GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestFieldAlias GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.TestFieldAlias Get(int key) => _dataMap[key];
     public test.TestFieldAlias this[int key] => _dataMap[key];
 

@@ -16,8 +16,8 @@ public sealed partial class OneDayTimeRange : Luban.BeanBase
 {
     public OneDayTimeRange(ByteBuf _buf) 
     {
-        StartTime = common.TimeOfDay.DeserializeTimeOfDay(_buf);
-        EndTime = common.TimeOfDay.DeserializeTimeOfDay(_buf);
+        StartTime = global::cfg.common.TimeOfDay.DeserializeTimeOfDay(_buf);
+        EndTime = global::cfg.common.TimeOfDay.DeserializeTimeOfDay(_buf);
     }
 
     public static OneDayTimeRange DeserializeOneDayTimeRange(ByteBuf _buf)
@@ -45,6 +45,5 @@ public sealed partial class OneDayTimeRange : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.common
+namespace editor.cfg.common
 {
 
 public sealed class GlobalConfig :  Luban.EditorBeanBase 
@@ -21,7 +21,7 @@ public sealed class GlobalConfig :  Luban.EditorBeanBase
             x7 = new System.Collections.Generic.List<int>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["x1"];
@@ -81,7 +81,7 @@ public sealed class GlobalConfig :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["x1"] = new JSONNumber(x1);
@@ -108,16 +108,16 @@ public sealed class GlobalConfig :  Luban.EditorBeanBase
         }
     }
 
-    public static GlobalConfig LoadJsonGlobalConfig(SimpleJSON.JSONNode _json)
+    public static GlobalConfig LoadJsonGlobalConfig(JSONNode _json)
     {
         GlobalConfig obj = new common.GlobalConfig();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonGlobalConfig(GlobalConfig _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonGlobalConfig(GlobalConfig _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     /// <summary>
@@ -138,6 +138,5 @@ public sealed class GlobalConfig :  Luban.EditorBeanBase
     public System.Collections.Generic.List<int> x7;
 
 }
-
 }
 

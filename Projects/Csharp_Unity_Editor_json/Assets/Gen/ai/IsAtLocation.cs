@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class IsAtLocation :  ai.Decorator 
@@ -21,7 +21,7 @@ public sealed class IsAtLocation :  ai.Decorator
             keyboardKey = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -73,7 +73,7 @@ public sealed class IsAtLocation :  ai.Decorator
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -99,16 +99,16 @@ public sealed class IsAtLocation :  ai.Decorator
         }
     }
 
-    public static IsAtLocation LoadJsonIsAtLocation(SimpleJSON.JSONNode _json)
+    public static IsAtLocation LoadJsonIsAtLocation(JSONNode _json)
     {
         IsAtLocation obj = new ai.IsAtLocation();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonIsAtLocation(IsAtLocation _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonIsAtLocation(IsAtLocation _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public float acceptableRadius;
@@ -118,6 +118,5 @@ public sealed class IsAtLocation :  ai.Decorator
     public bool inverseCondition;
 
 }
-
 }
 

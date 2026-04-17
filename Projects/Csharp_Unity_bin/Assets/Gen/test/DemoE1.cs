@@ -43,6 +43,5 @@ public sealed partial class DemoE1 : test.DemoD3
         + "}";
     }
 }
-
 }
 

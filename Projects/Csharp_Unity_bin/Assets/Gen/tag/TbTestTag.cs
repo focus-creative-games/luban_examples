@@ -19,22 +19,22 @@ public partial class TbTestTag
     
     public TbTestTag(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, tag.TestTag>();
-        _dataList = new System.Collections.Generic.List<tag.TestTag>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, tag.TestTag>(n);
+        _dataList = new System.Collections.Generic.List<tag.TestTag>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             tag.TestTag _v;
-            _v = tag.TestTag.DeserializeTestTag(_buf);
+            _v = global::cfg.tag.TestTag.DeserializeTestTag(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, tag.TestTag> DataMap => _dataMap;
-    public System.Collections.Generic.List<tag.TestTag> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, tag.TestTag> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<tag.TestTag> DataList => _dataList;
 
-    public tag.TestTag GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public tag.TestTag GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public tag.TestTag Get(int key) => _dataMap[key];
     public tag.TestTag this[int key] => _dataMap[key];
 

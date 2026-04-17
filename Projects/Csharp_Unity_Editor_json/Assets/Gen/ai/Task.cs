@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public abstract class Task :  ai.FlowNode 
@@ -21,7 +21,7 @@ public abstract class Task :  ai.FlowNode
     }
 
 
-    public static Task LoadJsonTask(SimpleJSON.JSONNode _json)
+    public static Task LoadJsonTask(JSONNode _json)
     {
         string type = _json["$type"];
         Task obj;
@@ -43,19 +43,18 @@ public abstract class Task :  ai.FlowNode
             case "DebugPrint":obj = new ai.DebugPrint(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonTask(Task _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonTask(Task _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public bool ignoreRestartSelf;
 
 }
-
 }
 

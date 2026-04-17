@@ -19,22 +19,22 @@ public partial class TbMultiRowTitle
     
     public TbMultiRowTitle(ByteBuf _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.MultiRowTitle>();
-        _dataList = new System.Collections.Generic.List<test.MultiRowTitle>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.MultiRowTitle>(n);
+        _dataList = new System.Collections.Generic.List<test.MultiRowTitle>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.MultiRowTitle _v;
-            _v = test.MultiRowTitle.DeserializeMultiRowTitle(_buf);
+            _v = global::cfg.test.MultiRowTitle.DeserializeMultiRowTitle(_buf);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.MultiRowTitle> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.MultiRowTitle> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.MultiRowTitle> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.MultiRowTitle> DataList => _dataList;
 
-    public test.MultiRowTitle GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.MultiRowTitle GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.MultiRowTitle Get(int key) => _dataMap[key];
     public test.MultiRowTitle this[int key] => _dataMap[key];
 

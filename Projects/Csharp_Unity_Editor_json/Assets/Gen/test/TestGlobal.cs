@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class TestGlobal :  Luban.EditorBeanBase 
@@ -20,7 +20,7 @@ public sealed class TestGlobal :  Luban.EditorBeanBase
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["unlock_equip"];
@@ -40,7 +40,7 @@ public sealed class TestGlobal :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["unlock_equip"] = new JSONNumber(unlockEquip);
@@ -50,16 +50,16 @@ public sealed class TestGlobal :  Luban.EditorBeanBase
         }
     }
 
-    public static TestGlobal LoadJsonTestGlobal(SimpleJSON.JSONNode _json)
+    public static TestGlobal LoadJsonTestGlobal(JSONNode _json)
     {
         TestGlobal obj = new test.TestGlobal();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonTestGlobal(TestGlobal _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonTestGlobal(TestGlobal _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int unlockEquip;
@@ -67,6 +67,5 @@ public sealed class TestGlobal :  Luban.EditorBeanBase
     public int unlockHero;
 
 }
-
 }
 

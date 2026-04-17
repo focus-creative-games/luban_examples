@@ -17,9 +17,9 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
     public TestMultiColumn(ByteBuf _buf) 
     {
         Id = _buf.ReadInt();
-        A = test.Foo.DeserializeFoo(_buf);
-        B = test.Foo.DeserializeFoo(_buf);
-        C = test.Foo.DeserializeFoo(_buf);
+        A = global::cfg.test.Foo.DeserializeFoo(_buf);
+        B = global::cfg.test.Foo.DeserializeFoo(_buf);
+        C = global::cfg.test.Foo.DeserializeFoo(_buf);
     }
 
     public static TestMultiColumn DeserializeTestMultiColumn(ByteBuf _buf)
@@ -52,6 +52,5 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

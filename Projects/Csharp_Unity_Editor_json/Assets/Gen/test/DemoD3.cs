@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public abstract class DemoD3 :  test.DemoDynamic 
@@ -21,7 +21,7 @@ public abstract class DemoD3 :  test.DemoDynamic
     }
 
 
-    public static DemoD3 LoadJsonDemoD3(SimpleJSON.JSONNode _json)
+    public static DemoD3 LoadJsonDemoD3(JSONNode _json)
     {
         string type = _json["$type"];
         DemoD3 obj;
@@ -32,19 +32,18 @@ public abstract class DemoD3 :  test.DemoDynamic
             case "test.login.RoleInfo":obj = new test.login.RoleInfo(); break;
             default: throw new SerializationException();
         }
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonDemoD3(DemoD3 _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonDemoD3(DemoD3 _obj, JSONNode _json)
     {
         _json["$type"] = _obj.GetType().Name;
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int x3;
 
 }
-
 }
 

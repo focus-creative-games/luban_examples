@@ -23,14 +23,14 @@ public sealed partial class TestUeType : Luban.BeanBase
         X5 = _buf.ReadLong();
         X6 = _buf.ReadFloat();
         X10 = _buf.ReadString();
-        X12 = test.DemoType1.DeserializeDemoType1(_buf);
+        X12 = global::cfg.test.DemoType1.DeserializeDemoType1(_buf);
         X13 = (test.ETestUeType)_buf.ReadInt();
         T1 = _buf.ReadLong();
-        {int __n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K1 = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); K1[__index0] = __e0;}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K2 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); K2.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K5 = new System.Collections.Generic.HashSet<int>(/*n0 * 3 / 2*/);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); K5.Add(_e0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K8 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     K8.Add(_k0, _v0);}}
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);K9 = new System.Collections.Generic.List<test.DemoE2>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoE2 _e0;  _e0 = test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e0);}}
+        {int __n0 = _buf.ReadSize(); K1 = new int[__n0];for(var __index0 = 0 ; __index0 < __n0 ; __index0++) { int __e0;__e0 = _buf.ReadInt(); K1[__index0] = __e0;}}
+        {int n0 = _buf.ReadSize(); K2 = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); K2.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); K5 = new System.Collections.Generic.HashSet<int>(/*n0 * 3 / 2*/);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); K5.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); K8 = new System.Collections.Generic.Dictionary<int, int>(n0 * 3 / 2);for(var i0 = 0 ; i0 < n0 ; i0++) { int _k0;  _k0 = _buf.ReadInt(); int _v0;  _v0 = _buf.ReadInt();     K8.Add(_k0, _v0);}}
+        {int n0 = _buf.ReadSize(); K9 = new System.Collections.Generic.List<test.DemoE2>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { test.DemoE2 _e0;  _e0 = global::cfg.test.DemoE2.DeserializeDemoE2(_buf); K9.Add(_e0);}}
     }
 
     public static TestUeType DeserializeTestUeType(ByteBuf _buf)
@@ -83,6 +83,5 @@ public sealed partial class TestUeType : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

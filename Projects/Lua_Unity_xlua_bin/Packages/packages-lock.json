@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.code-philosophy.luban": {
-      "version": "https://github.com/focus-creative-games/luban_unity.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "aa41b56501c9a7decf01dfd842a1e6ee894c85bb"
-    },
     "com.unity.collab-proxy": {
       "version": "1.15.15",
       "depth": 0,

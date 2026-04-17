@@ -41,6 +41,5 @@ public partial struct DemoE2
         + "}";
     }
 }
-
 }
 

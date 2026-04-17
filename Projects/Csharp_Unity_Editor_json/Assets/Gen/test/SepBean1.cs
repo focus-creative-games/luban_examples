@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.test
+namespace editor.cfg.test
 {
 
 public sealed class SepBean1 :  Luban.EditorBeanBase 
@@ -21,7 +21,7 @@ public sealed class SepBean1 :  Luban.EditorBeanBase
             c = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["a"];
@@ -49,7 +49,7 @@ public sealed class SepBean1 :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["a"] = new JSONNumber(a);
@@ -64,16 +64,16 @@ public sealed class SepBean1 :  Luban.EditorBeanBase
         }
     }
 
-    public static SepBean1 LoadJsonSepBean1(SimpleJSON.JSONNode _json)
+    public static SepBean1 LoadJsonSepBean1(JSONNode _json)
     {
         SepBean1 obj = new test.SepBean1();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonSepBean1(SepBean1 _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonSepBean1(SepBean1 _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public int a;
@@ -83,6 +83,5 @@ public sealed class SepBean1 :  Luban.EditorBeanBase
     public string c;
 
 }
-
 }
 

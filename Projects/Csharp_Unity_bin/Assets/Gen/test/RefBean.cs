@@ -16,7 +16,7 @@ public sealed partial class RefBean : test.RefDynamicBase
 {
     public RefBean(ByteBuf _buf)  : base(_buf) 
     {
-        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Arr = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); Arr.Add(_e0);}}
+        {int n0 = _buf.ReadSize(); Arr = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); Arr.Add(_e0);}}
     }
 
     public static RefBean DeserializeRefBean(ByteBuf _buf)
@@ -46,6 +46,5 @@ public sealed partial class RefBean : test.RefDynamicBase
         + "}";
     }
 }
-
 }
 

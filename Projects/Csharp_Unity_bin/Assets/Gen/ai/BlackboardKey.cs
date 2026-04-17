@@ -52,6 +52,5 @@ public sealed partial class BlackboardKey : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

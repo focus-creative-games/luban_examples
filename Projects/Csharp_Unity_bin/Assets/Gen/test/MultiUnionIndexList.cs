@@ -52,6 +52,5 @@ public sealed partial class MultiUnionIndexList : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

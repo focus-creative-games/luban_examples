@@ -17,7 +17,7 @@ public sealed partial class BinaryOperator : ai.KeyQueryOperator
     public BinaryOperator(ByteBuf _buf)  : base(_buf) 
     {
         Oper = (ai.EOperator)_buf.ReadInt();
-        Data = ai.KeyData.DeserializeKeyData(_buf);
+        Data = global::cfg.ai.KeyData.DeserializeKeyData(_buf);
     }
 
     public static BinaryOperator DeserializeBinaryOperator(ByteBuf _buf)
@@ -45,6 +45,5 @@ public sealed partial class BinaryOperator : ai.KeyQueryOperator
         + "}";
     }
 }
-
 }
 

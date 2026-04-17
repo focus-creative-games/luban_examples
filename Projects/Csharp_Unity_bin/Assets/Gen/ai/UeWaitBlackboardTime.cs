@@ -46,6 +46,5 @@ public sealed partial class UeWaitBlackboardTime : ai.Task
         + "}";
     }
 }
-
 }
 

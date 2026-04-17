@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class ChooseSkill :  ai.Task 
@@ -22,7 +22,7 @@ public sealed class ChooseSkill :  ai.Task
             resultSkillIdKey = "";
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -82,7 +82,7 @@ public sealed class ChooseSkill :  ai.Task
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -117,16 +117,16 @@ public sealed class ChooseSkill :  ai.Task
         }
     }
 
-    public static ChooseSkill LoadJsonChooseSkill(SimpleJSON.JSONNode _json)
+    public static ChooseSkill LoadJsonChooseSkill(JSONNode _json)
     {
         ChooseSkill obj = new ai.ChooseSkill();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonChooseSkill(ChooseSkill _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonChooseSkill(ChooseSkill _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public string targetActorKey;
@@ -134,6 +134,5 @@ public sealed class ChooseSkill :  ai.Task
     public string resultSkillIdKey;
 
 }
-
 }
 

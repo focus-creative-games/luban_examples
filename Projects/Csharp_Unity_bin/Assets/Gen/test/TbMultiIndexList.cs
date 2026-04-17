@@ -22,30 +22,30 @@ public partial class TbMultiIndexList
 
     public TbMultiIndexList(ByteBuf _buf)
     {
-        _dataList = new System.Collections.Generic.List<test.MultiIndexList>();
-        
-        for(int n = _buf.ReadSize() ; n > 0 ; --n)
+        int n = _buf.ReadSize();
+        _dataList = new System.Collections.Generic.List<test.MultiIndexList>(n);
+        for(int i = n ; i > 0 ; --i)
         {
             test.MultiIndexList _v;
-            _v = test.MultiIndexList.DeserializeMultiIndexList(_buf);
+            _v = global::cfg.test.MultiIndexList.DeserializeMultiIndexList(_buf);
             _dataList.Add(_v);
         }
-        _dataMap_id1 = new System.Collections.Generic.Dictionary<int, test.MultiIndexList>();
-        _dataMap_id2 = new System.Collections.Generic.Dictionary<long, test.MultiIndexList>();
-        _dataMap_id3 = new System.Collections.Generic.Dictionary<string, test.MultiIndexList>();
-    foreach(var _v in _dataList)
-    {
-        _dataMap_id1.Add(_v.Id1, _v);
-        _dataMap_id2.Add(_v.Id2, _v);
-        _dataMap_id3.Add(_v.Id3, _v);
-    }
+        _dataMap_id1 = new System.Collections.Generic.Dictionary<int, test.MultiIndexList>(n);
+        _dataMap_id2 = new System.Collections.Generic.Dictionary<long, test.MultiIndexList>(n);
+        _dataMap_id3 = new System.Collections.Generic.Dictionary<string, test.MultiIndexList>(n);
+        foreach(var _v in _dataList)
+        {
+            _dataMap_id1.Add(_v.Id1, _v);
+            _dataMap_id2.Add(_v.Id2, _v);
+            _dataMap_id3.Add(_v.Id3, _v);
+        }
     }
 
-    public System.Collections.Generic.List<test.MultiIndexList> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyList<test.MultiIndexList> DataList => _dataList;
 
-    public test.MultiIndexList GetById1(int key) => _dataMap_id1.TryGetValue(key, out test.MultiIndexList __v) ? __v : null;
-    public test.MultiIndexList GetById2(long key) => _dataMap_id2.TryGetValue(key, out test.MultiIndexList __v) ? __v : null;
-    public test.MultiIndexList GetById3(string key) => _dataMap_id3.TryGetValue(key, out test.MultiIndexList __v) ? __v : null;
+    public test.MultiIndexList GetById1(int key) => _dataMap_id1.TryGetValue(key, out test.MultiIndexList __v) ? __v : default;
+    public test.MultiIndexList GetById2(long key) => _dataMap_id2.TryGetValue(key, out test.MultiIndexList __v) ? __v : default;
+    public test.MultiIndexList GetById3(string key) => _dataMap_id3.TryGetValue(key, out test.MultiIndexList __v) ? __v : default;
     
     public void ResolveRef(Tables tables)
     {

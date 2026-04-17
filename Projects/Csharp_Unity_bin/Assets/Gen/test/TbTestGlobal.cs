@@ -23,7 +23,7 @@ public partial class TbTestGlobal
     {
         int n = _buf.ReadSize();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = test.TestGlobal.DeserializeTestGlobal(_buf);
+        _data = global::cfg.test.TestGlobal.DeserializeTestGlobal(_buf);
     }
 
 

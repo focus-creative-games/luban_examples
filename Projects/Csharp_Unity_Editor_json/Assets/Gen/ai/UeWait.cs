@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg.ai
+namespace editor.cfg.ai
 {
 
 public sealed class UeWait :  ai.Task 
@@ -20,7 +20,7 @@ public sealed class UeWait :  ai.Task
     {
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -80,7 +80,7 @@ public sealed class UeWait :  ai.Task
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -111,16 +111,16 @@ public sealed class UeWait :  ai.Task
         }
     }
 
-    public static UeWait LoadJsonUeWait(SimpleJSON.JSONNode _json)
+    public static UeWait LoadJsonUeWait(JSONNode _json)
     {
         UeWait obj = new ai.UeWait();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonUeWait(UeWait _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonUeWait(UeWait _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     public float waitTime;
@@ -128,6 +128,5 @@ public sealed class UeWait :  ai.Task
     public float randomDeviation;
 
 }
-
 }
 

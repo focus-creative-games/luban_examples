@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using SimpleJSON;
+using Luban.SimpleJSON;
 using Luban;
 
-namespace cfg
+namespace editor.cfg
 {
 
 public sealed class AutoImport1 :  Luban.EditorBeanBase 
@@ -31,7 +31,7 @@ public sealed class AutoImport1 :  Luban.EditorBeanBase
             k11 = new System.Collections.Generic.List<vec4>();
     }
 
-    public override void LoadJson(SimpleJSON.JSONObject _json)
+    public override void LoadJson(JSONObject _json)
     {
         { 
             var _fieldJson = _json["id"];
@@ -133,7 +133,7 @@ public sealed class AutoImport1 :  Luban.EditorBeanBase
             var _fieldJson = _json["k1"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k1 = new int[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k1[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k1 = new int[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k1[_index0++] = __v0; }  
             }
         }
         
@@ -141,7 +141,7 @@ public sealed class AutoImport1 :  Luban.EditorBeanBase
             var _fieldJson = _json["k2"];
             if (_fieldJson != null)
             {
-                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k2 = new int[_n0]; int _index0=0; foreach(SimpleJSON.JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k2[_index0++] = __v0; }  
+                if(!_fieldJson.IsArray) { throw new SerializationException(); } int _n0 = _fieldJson.Count; k2 = new int[_n0]; int _index0=0; foreach(JSONNode __e0 in _fieldJson.Children) { int __v0;  if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0;  k2[_index0++] = __v0; }  
             }
         }
         
@@ -187,7 +187,7 @@ public sealed class AutoImport1 :  Luban.EditorBeanBase
         
     }
 
-    public override void SaveJson(SimpleJSON.JSONObject _json)
+    public override void SaveJson(JSONObject _json)
     {
         {
             _json["id"] = new JSONNumber(id);
@@ -268,16 +268,16 @@ public sealed class AutoImport1 :  Luban.EditorBeanBase
         }
     }
 
-    public static AutoImport1 LoadJsonAutoImport1(SimpleJSON.JSONNode _json)
+    public static AutoImport1 LoadJsonAutoImport1(JSONNode _json)
     {
         AutoImport1 obj = new AutoImport1();
-        obj.LoadJson((SimpleJSON.JSONObject)_json);
+        obj.LoadJson((JSONObject)_json);
         return obj;
     }
         
-    public static void SaveJsonAutoImport1(AutoImport1 _obj, SimpleJSON.JSONNode _json)
+    public static void SaveJsonAutoImport1(AutoImport1 _obj, JSONNode _json)
     {
-        _obj.SaveJson((SimpleJSON.JSONObject)_json);
+        _obj.SaveJson((JSONObject)_json);
     }
 
     /// <summary>
@@ -325,6 +325,5 @@ public sealed class AutoImport1 :  Luban.EditorBeanBase
     public vec3? v11;
 
 }
-
 }
 
