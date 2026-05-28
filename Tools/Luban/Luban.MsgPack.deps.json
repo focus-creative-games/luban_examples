@@ -51,18 +51,18 @@
           }
         }
       },
-      "Scriban/7.1.0": {
+      "Scriban/7.2.1": {
         "runtime": {
           "lib/net8.0/Scriban.dll": {
             "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.1.0.0"
+            "fileVersion": "7.2.1.0"
           }
         }
       },
       "Luban.Core/1.0.0": {
         "dependencies": {
           "NLog": "5.3.4",
-          "Scriban": "7.1.0"
+          "Scriban": "7.2.1"
         },
         "runtime": {
           "Luban.Core.dll": {
@@ -107,12 +107,12 @@
       "path": "nlog/5.3.4",
       "hashPath": "nlog.5.3.4.nupkg.sha512"
     },
-    "Scriban/7.1.0": {
+    "Scriban/7.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8paijHmWYO7zxSRNLlbDzzaFT7By827wIgdOrAg9q64+XasUYK8RCT3Y4mbISxeQ3iNdaK7wGeDmT2GWRtqRBQ==",
-      "path": "scriban/7.1.0",
-      "hashPath": "scriban.7.1.0.nupkg.sha512"
+      "sha512": "sha512-5Jw6PyOiY6RBhC5XgtZbOO6ZbZOXlqUDS35IVhLdAPRZHclf3iW35Tdh4FCw1/gNCJ9ia1CGVQabypGPYVThbw==",
+      "path": "scriban/7.2.1",
+      "hashPath": "scriban.7.2.1.nupkg.sha512"
     },
     "Luban.Core/1.0.0": {
       "type": "project",
