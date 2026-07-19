@@ -20,22 +20,23 @@ public partial class TbBlackboard
     
     public TbBlackboard(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<string, ai.Blackboard>();
-        _dataList = new System.Collections.Generic.List<ai.Blackboard>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<string, ai.Blackboard>(count);
+        _dataList = new System.Collections.Generic.List<ai.Blackboard>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             ai.Blackboard _v;
-            _v = ai.Blackboard.DeserializeBlackboard(_ele);
+            _v = global::cfg.ai.Blackboard.DeserializeBlackboard(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Name, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<string, ai.Blackboard> DataMap => _dataMap;
-    public System.Collections.Generic.List<ai.Blackboard> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<string, ai.Blackboard> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<ai.Blackboard> DataList => _dataList;
 
-    public ai.Blackboard GetOrDefault(string key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public ai.Blackboard GetOrDefault(string key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public ai.Blackboard Get(string key) => _dataMap[key];
     public ai.Blackboard this[string key] => _dataMap[key];
 

@@ -7,7 +7,7 @@
 int main()
 {
     cfg::Tables tables;
-    if (tables.load([](::luban::ByteBuf& buf, const std::string& s) { return buf.loadFromFile("../GenerateDatas/bytes/" + s + ".bytes"); }))
+    if (tables.load([](::luban::ByteBuf& buf, const std::string& s) { return buf.loadFromFile("../GeneratedData/bytes/" + s + ".bytes"); }))
     {
         std::cout << "== load succ == " << std::endl;
     }

@@ -19,99 +19,56 @@ public struct CommonGlobalConfig : IFlatbufferObject
   public void __init(int _i, ByteBuffer _bb) { __p = new Table(_i, _bb); }
   public CommonGlobalConfig __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
-  public int BagCapacity { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int BagCapacitySpecial { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int BagTempExpendableCapacity { get { int o = __p.__offset(8); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int BagTempToolCapacity { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int BagInitCapacity { get { int o = __p.__offset(12); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int QuickBagCapacity { get { int o = __p.__offset(14); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int ClothBagCapacity { get { int o = __p.__offset(16); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int ClothBagInitCapacity { get { int o = __p.__offset(18); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int ClothBagCapacitySpecial { get { int o = __p.__offset(20); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int BagInitItemsDropId { get { int o = __p.__offset(22); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int MailBoxCapacity { get { int o = __p.__offset(24); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public float DamageParamC { get { int o = __p.__offset(26); return o != 0 ? __p.bb.GetFloat(o + __p.bb_pos) : (float)0.0f; } }
-  public float DamageParamE { get { int o = __p.__offset(28); return o != 0 ? __p.bb.GetFloat(o + __p.bb_pos) : (float)0.0f; } }
-  public float DamageParamF { get { int o = __p.__offset(30); return o != 0 ? __p.bb.GetFloat(o + __p.bb_pos) : (float)0.0f; } }
-  public float DamageParamD { get { int o = __p.__offset(32); return o != 0 ? __p.bb.GetFloat(o + __p.bb_pos) : (float)0.0f; } }
-  public float RoleSpeed { get { int o = __p.__offset(34); return o != 0 ? __p.bb.GetFloat(o + __p.bb_pos) : (float)0.0f; } }
-  public float MonsterSpeed { get { int o = __p.__offset(36); return o != 0 ? __p.bb.GetFloat(o + __p.bb_pos) : (float)0.0f; } }
-  public int InitEnergy { get { int o = __p.__offset(38); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int InitViality { get { int o = __p.__offset(40); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int MaxViality { get { int o = __p.__offset(42); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int PerVialityRecoveryTime { get { int o = __p.__offset(44); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public int X1 { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public int X2 { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public int X3 { get { int o = __p.__offset(8); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public int X4 { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public int X5 { get { int o = __p.__offset(12); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public int X6 { get { int o = __p.__offset(14); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public int X7(int j) { int o = __p.__offset(16); return o != 0 ? __p.bb.GetInt(__p.__vector(o) + j * 4) : (int)0; }
+  public int X7Length { get { int o = __p.__offset(16); return o != 0 ? __p.__vector_len(o) : 0; } }
+#if ENABLE_SPAN_T
+  public Span<int> GetX7Bytes() { return __p.__vector_as_span<int>(16, 4); }
+#else
+  public ArraySegment<byte>? GetX7Bytes() { return __p.__vector_as_arraysegment(16); }
+#endif
+  public int[] GetX7Array() { return __p.__vector_as_array<int>(16); }
 
   public static Offset<cfg.CommonGlobalConfig> CreateCommonGlobalConfig(FlatBufferBuilder builder,
-      int bag_capacity = 0,
-      int bag_capacity_special = 0,
-      int bag_temp_expendable_capacity = 0,
-      int bag_temp_tool_capacity = 0,
-      int bag_init_capacity = 0,
-      int quick_bag_capacity = 0,
-      int cloth_bag_capacity = 0,
-      int cloth_bag_init_capacity = 0,
-      int cloth_bag_capacity_special = 0,
-      int bag_init_items_drop_id = 0,
-      int mail_box_capacity = 0,
-      float damage_param_c = 0.0f,
-      float damage_param_e = 0.0f,
-      float damage_param_f = 0.0f,
-      float damage_param_d = 0.0f,
-      float role_speed = 0.0f,
-      float monster_speed = 0.0f,
-      int init_energy = 0,
-      int init_viality = 0,
-      int max_viality = 0,
-      int per_viality_recovery_time = 0) {
-    builder.StartTable(21);
-    CommonGlobalConfig.AddPerVialityRecoveryTime(builder, per_viality_recovery_time);
-    CommonGlobalConfig.AddMaxViality(builder, max_viality);
-    CommonGlobalConfig.AddInitViality(builder, init_viality);
-    CommonGlobalConfig.AddInitEnergy(builder, init_energy);
-    CommonGlobalConfig.AddMonsterSpeed(builder, monster_speed);
-    CommonGlobalConfig.AddRoleSpeed(builder, role_speed);
-    CommonGlobalConfig.AddDamageParamD(builder, damage_param_d);
-    CommonGlobalConfig.AddDamageParamF(builder, damage_param_f);
-    CommonGlobalConfig.AddDamageParamE(builder, damage_param_e);
-    CommonGlobalConfig.AddDamageParamC(builder, damage_param_c);
-    CommonGlobalConfig.AddMailBoxCapacity(builder, mail_box_capacity);
-    CommonGlobalConfig.AddBagInitItemsDropId(builder, bag_init_items_drop_id);
-    CommonGlobalConfig.AddClothBagCapacitySpecial(builder, cloth_bag_capacity_special);
-    CommonGlobalConfig.AddClothBagInitCapacity(builder, cloth_bag_init_capacity);
-    CommonGlobalConfig.AddClothBagCapacity(builder, cloth_bag_capacity);
-    CommonGlobalConfig.AddQuickBagCapacity(builder, quick_bag_capacity);
-    CommonGlobalConfig.AddBagInitCapacity(builder, bag_init_capacity);
-    CommonGlobalConfig.AddBagTempToolCapacity(builder, bag_temp_tool_capacity);
-    CommonGlobalConfig.AddBagTempExpendableCapacity(builder, bag_temp_expendable_capacity);
-    CommonGlobalConfig.AddBagCapacitySpecial(builder, bag_capacity_special);
-    CommonGlobalConfig.AddBagCapacity(builder, bag_capacity);
+      int x1 = 0,
+      int x2 = 0,
+      int x3 = 0,
+      int x4 = 0,
+      int x5 = 0,
+      int x6 = 0,
+      VectorOffset x7Offset = default(VectorOffset)) {
+    builder.StartTable(7);
+    CommonGlobalConfig.AddX7(builder, x7Offset);
+    CommonGlobalConfig.AddX6(builder, x6);
+    CommonGlobalConfig.AddX5(builder, x5);
+    CommonGlobalConfig.AddX4(builder, x4);
+    CommonGlobalConfig.AddX3(builder, x3);
+    CommonGlobalConfig.AddX2(builder, x2);
+    CommonGlobalConfig.AddX1(builder, x1);
     return CommonGlobalConfig.EndCommonGlobalConfig(builder);
   }
 
-  public static void StartCommonGlobalConfig(FlatBufferBuilder builder) { builder.StartTable(21); }
-  public static void AddBagCapacity(FlatBufferBuilder builder, int bagCapacity) { builder.AddInt(0, bagCapacity, 0); }
-  public static void AddBagCapacitySpecial(FlatBufferBuilder builder, int bagCapacitySpecial) { builder.AddInt(1, bagCapacitySpecial, 0); }
-  public static void AddBagTempExpendableCapacity(FlatBufferBuilder builder, int bagTempExpendableCapacity) { builder.AddInt(2, bagTempExpendableCapacity, 0); }
-  public static void AddBagTempToolCapacity(FlatBufferBuilder builder, int bagTempToolCapacity) { builder.AddInt(3, bagTempToolCapacity, 0); }
-  public static void AddBagInitCapacity(FlatBufferBuilder builder, int bagInitCapacity) { builder.AddInt(4, bagInitCapacity, 0); }
-  public static void AddQuickBagCapacity(FlatBufferBuilder builder, int quickBagCapacity) { builder.AddInt(5, quickBagCapacity, 0); }
-  public static void AddClothBagCapacity(FlatBufferBuilder builder, int clothBagCapacity) { builder.AddInt(6, clothBagCapacity, 0); }
-  public static void AddClothBagInitCapacity(FlatBufferBuilder builder, int clothBagInitCapacity) { builder.AddInt(7, clothBagInitCapacity, 0); }
-  public static void AddClothBagCapacitySpecial(FlatBufferBuilder builder, int clothBagCapacitySpecial) { builder.AddInt(8, clothBagCapacitySpecial, 0); }
-  public static void AddBagInitItemsDropId(FlatBufferBuilder builder, int bagInitItemsDropId) { builder.AddInt(9, bagInitItemsDropId, 0); }
-  public static void AddMailBoxCapacity(FlatBufferBuilder builder, int mailBoxCapacity) { builder.AddInt(10, mailBoxCapacity, 0); }
-  public static void AddDamageParamC(FlatBufferBuilder builder, float damageParamC) { builder.AddFloat(11, damageParamC, 0.0f); }
-  public static void AddDamageParamE(FlatBufferBuilder builder, float damageParamE) { builder.AddFloat(12, damageParamE, 0.0f); }
-  public static void AddDamageParamF(FlatBufferBuilder builder, float damageParamF) { builder.AddFloat(13, damageParamF, 0.0f); }
-  public static void AddDamageParamD(FlatBufferBuilder builder, float damageParamD) { builder.AddFloat(14, damageParamD, 0.0f); }
-  public static void AddRoleSpeed(FlatBufferBuilder builder, float roleSpeed) { builder.AddFloat(15, roleSpeed, 0.0f); }
-  public static void AddMonsterSpeed(FlatBufferBuilder builder, float monsterSpeed) { builder.AddFloat(16, monsterSpeed, 0.0f); }
-  public static void AddInitEnergy(FlatBufferBuilder builder, int initEnergy) { builder.AddInt(17, initEnergy, 0); }
-  public static void AddInitViality(FlatBufferBuilder builder, int initViality) { builder.AddInt(18, initViality, 0); }
-  public static void AddMaxViality(FlatBufferBuilder builder, int maxViality) { builder.AddInt(19, maxViality, 0); }
-  public static void AddPerVialityRecoveryTime(FlatBufferBuilder builder, int perVialityRecoveryTime) { builder.AddInt(20, perVialityRecoveryTime, 0); }
+  public static void StartCommonGlobalConfig(FlatBufferBuilder builder) { builder.StartTable(7); }
+  public static void AddX1(FlatBufferBuilder builder, int x1) { builder.AddInt(0, x1, 0); }
+  public static void AddX2(FlatBufferBuilder builder, int x2) { builder.AddInt(1, x2, 0); }
+  public static void AddX3(FlatBufferBuilder builder, int x3) { builder.AddInt(2, x3, 0); }
+  public static void AddX4(FlatBufferBuilder builder, int x4) { builder.AddInt(3, x4, 0); }
+  public static void AddX5(FlatBufferBuilder builder, int x5) { builder.AddInt(4, x5, 0); }
+  public static void AddX6(FlatBufferBuilder builder, int x6) { builder.AddInt(5, x6, 0); }
+  public static void AddX7(FlatBufferBuilder builder, VectorOffset x7Offset) { builder.AddOffset(6, x7Offset.Value, 0); }
+  public static VectorOffset CreateX7Vector(FlatBufferBuilder builder, int[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddInt(data[i]); return builder.EndVector(); }
+  public static VectorOffset CreateX7VectorBlock(FlatBufferBuilder builder, int[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateX7VectorBlock(FlatBufferBuilder builder, ArraySegment<int> data) { builder.StartVector(4, data.Count, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateX7VectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<int>(dataPtr, sizeInBytes); return builder.EndVector(); }
+  public static void StartX7Vector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
   public static Offset<cfg.CommonGlobalConfig> EndCommonGlobalConfig(FlatBufferBuilder builder) {
     int o = builder.EndTable();
+    builder.Required(o, 16);  // x7
     return new Offset<cfg.CommonGlobalConfig>(o);
   }
 }
@@ -122,27 +79,13 @@ static public class CommonGlobalConfigVerify
   static public bool Verify(Google.FlatBuffers.Verifier verifier, uint tablePos)
   {
     return verifier.VerifyTableStart(tablePos)
-      && verifier.VerifyField(tablePos, 4 /*BagCapacity*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 6 /*BagCapacitySpecial*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 8 /*BagTempExpendableCapacity*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 10 /*BagTempToolCapacity*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 12 /*BagInitCapacity*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 14 /*QuickBagCapacity*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 16 /*ClothBagCapacity*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 18 /*ClothBagInitCapacity*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 20 /*ClothBagCapacitySpecial*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 22 /*BagInitItemsDropId*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 24 /*MailBoxCapacity*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 26 /*DamageParamC*/, 4 /*float*/, 4, false)
-      && verifier.VerifyField(tablePos, 28 /*DamageParamE*/, 4 /*float*/, 4, false)
-      && verifier.VerifyField(tablePos, 30 /*DamageParamF*/, 4 /*float*/, 4, false)
-      && verifier.VerifyField(tablePos, 32 /*DamageParamD*/, 4 /*float*/, 4, false)
-      && verifier.VerifyField(tablePos, 34 /*RoleSpeed*/, 4 /*float*/, 4, false)
-      && verifier.VerifyField(tablePos, 36 /*MonsterSpeed*/, 4 /*float*/, 4, false)
-      && verifier.VerifyField(tablePos, 38 /*InitEnergy*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 40 /*InitViality*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 42 /*MaxViality*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 44 /*PerVialityRecoveryTime*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 4 /*X1*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 6 /*X2*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 8 /*X3*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 10 /*X4*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 12 /*X5*/, 4 /*int*/, 4, false)
+      && verifier.VerifyField(tablePos, 14 /*X6*/, 4 /*int*/, 4, false)
+      && verifier.VerifyVectorOfData(tablePos, 16 /*X7*/, 4 /*int*/, true)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

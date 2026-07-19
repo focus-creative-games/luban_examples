@@ -40,7 +40,7 @@ public sealed partial class TestRef : Luban.BeanBase
         F1 = _buf.GetProperty("f1").GetInt32();
         F2 = _buf.GetProperty("f2").GetInt64();
         F3 = _buf.GetProperty("f3").GetString();
-        S1 = test.RefDynamicBase.DeserializeRefDynamicBase(_buf.GetProperty("s1"));
+        S1 = global::cfg.test.RefDynamicBase.DeserializeRefDynamicBase(_buf.GetProperty("s1"));
     }
 
     public static TestRef DeserializeTestRef(JsonElement _buf)
@@ -143,6 +143,5 @@ public sealed partial class TestRef : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

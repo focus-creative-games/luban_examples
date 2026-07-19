@@ -20,22 +20,23 @@ public partial class TbTestRef
     
     public TbTestRef(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestRef>();
-        _dataList = new System.Collections.Generic.List<test.TestRef>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestRef>(count);
+        _dataList = new System.Collections.Generic.List<test.TestRef>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.TestRef _v;
-            _v = test.TestRef.DeserializeTestRef(_ele);
+            _v = global::cfg.test.TestRef.DeserializeTestRef(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.TestRef> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.TestRef> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.TestRef> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.TestRef> DataList => _dataList;
 
-    public test.TestRef GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestRef GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.TestRef Get(int key) => _dataMap[key];
     public test.TestRef this[int key] => _dataMap[key];
 

@@ -18,7 +18,7 @@ namespace Csharp_NewtonSoft_json
         private static JArray LoadJson(string file)
         {
             return JsonConvert.DeserializeObject(
-                System.IO.File.ReadAllText("../../../../GenerateDatas/json/" + file + ".json")) as JArray;
+                System.IO.File.ReadAllText("../../../../GeneratedData/json/" + file + ".json")) as JArray;
         }
     }
 }

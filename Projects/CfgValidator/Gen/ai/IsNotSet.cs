@@ -39,6 +39,5 @@ public sealed partial class IsNotSet : ai.KeyQueryOperator
         + "}";
     }
 }
-
 }
 

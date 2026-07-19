@@ -56,6 +56,5 @@ public sealed partial class TestSet : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

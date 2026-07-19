@@ -21,6 +21,6 @@ public class Main : MonoBehaviour
 
     private static ByteBuf LoadByteBuf(string file)
     {
-        return new ByteBuf(File.ReadAllBytes($"{Application.dataPath}/../../GenerateDatas/bytes/{file}.bytes"));
+        return new ByteBuf(File.ReadAllBytes($"{Application.dataPath}/../../GeneratedData/bytes/{file}.bytes"));
     }
 }

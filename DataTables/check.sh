@@ -10,4 +10,4 @@ dotnet $LUBAN_DLL \
 	-f \
     --conf $CONF_ROOT/luban.conf \
     -x pathValidator.rootDir=$WORKSPACE/Projects/Csharp_Unity_bin \
-    -x l10n.textProviderFile=$CONF_ROOT/Datas/l10n/texts.json
+    -x l10n.textProviderFile=$CONF_ROOT/Data/l10n/texts.json

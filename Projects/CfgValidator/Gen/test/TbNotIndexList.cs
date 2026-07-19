@@ -20,17 +20,18 @@ public partial class TbNotIndexList
 
     public TbNotIndexList(JsonElement _buf)
     {
-        _dataList = new System.Collections.Generic.List<test.NotIndexList>();
+        int count = _buf.GetArrayLength();
+        _dataList = new System.Collections.Generic.List<test.NotIndexList>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.NotIndexList _v;
-            _v = test.NotIndexList.DeserializeNotIndexList(_ele);
+            _v = global::cfg.test.NotIndexList.DeserializeNotIndexList(_ele);
             _dataList.Add(_v);
         }
     }
 
-    public System.Collections.Generic.List<test.NotIndexList> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyList<test.NotIndexList> DataList => _dataList;
 
     
     public void ResolveRef(Tables tables)

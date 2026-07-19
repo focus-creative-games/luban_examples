@@ -18,9 +18,9 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
     public TestMultiColumn(JsonElement _buf) 
     {
         Id = _buf.GetProperty("id").GetInt32();
-        A = test.Foo.DeserializeFoo(_buf.GetProperty("a"));
-        B = test.Foo.DeserializeFoo(_buf.GetProperty("b"));
-        C = test.Foo.DeserializeFoo(_buf.GetProperty("c"));
+        A = global::cfg.test.Foo.DeserializeFoo(_buf.GetProperty("a"));
+        B = global::cfg.test.Foo.DeserializeFoo(_buf.GetProperty("b"));
+        C = global::cfg.test.Foo.DeserializeFoo(_buf.GetProperty("c"));
     }
 
     public static TestMultiColumn DeserializeTestMultiColumn(JsonElement _buf)
@@ -53,6 +53,5 @@ public sealed partial class TestMultiColumn : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

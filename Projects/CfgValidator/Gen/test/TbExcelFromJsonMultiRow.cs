@@ -20,22 +20,23 @@ public partial class TbExcelFromJsonMultiRow
     
     public TbExcelFromJsonMultiRow(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.ExcelFromJsonMultiRow>();
-        _dataList = new System.Collections.Generic.List<test.ExcelFromJsonMultiRow>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.ExcelFromJsonMultiRow>(count);
+        _dataList = new System.Collections.Generic.List<test.ExcelFromJsonMultiRow>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.ExcelFromJsonMultiRow _v;
-            _v = test.ExcelFromJsonMultiRow.DeserializeExcelFromJsonMultiRow(_ele);
+            _v = global::cfg.test.ExcelFromJsonMultiRow.DeserializeExcelFromJsonMultiRow(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.ExcelFromJsonMultiRow> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.ExcelFromJsonMultiRow> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.ExcelFromJsonMultiRow> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.ExcelFromJsonMultiRow> DataList => _dataList;
 
-    public test.ExcelFromJsonMultiRow GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.ExcelFromJsonMultiRow GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.ExcelFromJsonMultiRow Get(int key) => _dataMap[key];
     public test.ExcelFromJsonMultiRow this[int key] => _dataMap[key];
 

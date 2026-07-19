@@ -19,7 +19,7 @@ public sealed partial class UeBlackboard : ai.Decorator
     {
         NotifyObserver = (ai.ENotifyObserverMode)_buf.GetProperty("notify_observer").GetInt32();
         BlackboardKey = _buf.GetProperty("blackboard_key").GetString();
-        KeyQuery = ai.KeyQueryOperator.DeserializeKeyQueryOperator(_buf.GetProperty("key_query"));
+        KeyQuery = global::cfg.ai.KeyQueryOperator.DeserializeKeyQueryOperator(_buf.GetProperty("key_query"));
     }
 
     public static UeBlackboard DeserializeUeBlackboard(JsonElement _buf)
@@ -52,6 +52,5 @@ public sealed partial class UeBlackboard : ai.Decorator
         + "}";
     }
 }
-
 }
 

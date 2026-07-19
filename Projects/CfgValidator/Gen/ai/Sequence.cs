@@ -17,7 +17,7 @@ public sealed partial class Sequence : ai.ComposeNode
 {
     public Sequence(JsonElement _buf)  : base(_buf) 
     {
-        { var __json0 = _buf.GetProperty("children"); Children = new System.Collections.Generic.List<ai.FlowNode>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.FlowNode __v0;  __v0 = ai.FlowNode.DeserializeFlowNode(__e0);  Children.Add(__v0); }   }
+        { var __json0 = _buf.GetProperty("children"); Children = new System.Collections.Generic.List<ai.FlowNode>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.FlowNode __v0;  __v0 = global::cfg.ai.FlowNode.DeserializeFlowNode(__e0);  Children.Add(__v0); }   }
     }
 
     public static Sequence DeserializeSequence(JsonElement _buf)
@@ -47,6 +47,5 @@ public sealed partial class Sequence : ai.ComposeNode
         + "}";
     }
 }
-
 }
 

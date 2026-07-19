@@ -19,7 +19,7 @@ public sealed partial class TestMapper : Luban.BeanBase
     {
         Id = _buf.GetProperty("id").GetInt32();
         AudioType = (AudioType)_buf.GetProperty("audio_type").GetInt32();
-        V2 = vec2.Deserializevec2(_buf.GetProperty("v2"));
+        V2 = global::cfg.vec2.Deserializevec2(_buf.GetProperty("v2"));
     }
 
     public static TestMapper DeserializeTestMapper(JsonElement _buf)
@@ -47,6 +47,5 @@ public sealed partial class TestMapper : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="msg_datas\**" />
+    <Compile Remove="msg_data\**" />
     <Compile Remove="pb_schemas\**" />
-    <EmbeddedResource Remove="msg_datas\**" />
+    <EmbeddedResource Remove="msg_data\**" />
     <EmbeddedResource Remove="pb_schemas\**" />
-    <None Remove="msg_datas\**" />
+    <None Remove="msg_data\**" />
     <None Remove="pb_schemas\**" />
   </ItemGroup>
 

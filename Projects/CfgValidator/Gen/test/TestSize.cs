@@ -53,6 +53,5 @@ public sealed partial class TestSize : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

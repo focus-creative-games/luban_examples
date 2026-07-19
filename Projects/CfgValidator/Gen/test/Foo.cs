@@ -47,6 +47,5 @@ public sealed partial class Foo : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -47,6 +47,5 @@ public sealed partial class MultiRowType2 : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

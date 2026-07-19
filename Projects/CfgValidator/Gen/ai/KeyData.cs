@@ -43,6 +43,5 @@ public abstract partial class KeyData : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

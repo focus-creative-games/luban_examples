@@ -20,22 +20,23 @@ public partial class TbMultiRowRecord
     
     public TbMultiRowRecord(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.MultiRowRecord>();
-        _dataList = new System.Collections.Generic.List<test.MultiRowRecord>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.MultiRowRecord>(count);
+        _dataList = new System.Collections.Generic.List<test.MultiRowRecord>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.MultiRowRecord _v;
-            _v = test.MultiRowRecord.DeserializeMultiRowRecord(_ele);
+            _v = global::cfg.test.MultiRowRecord.DeserializeMultiRowRecord(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.MultiRowRecord> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.MultiRowRecord> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.MultiRowRecord> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.MultiRowRecord> DataList => _dataList;
 
-    public test.MultiRowRecord GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.MultiRowRecord GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.MultiRowRecord Get(int key) => _dataMap[key];
     public test.MultiRowRecord this[int key] => _dataMap[key];
 

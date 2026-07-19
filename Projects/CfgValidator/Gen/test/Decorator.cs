@@ -45,6 +45,5 @@ public sealed partial class Decorator : test.ItemBase
         + "}";
     }
 }
-
 }
 

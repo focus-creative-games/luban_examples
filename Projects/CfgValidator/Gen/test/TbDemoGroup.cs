@@ -20,22 +20,23 @@ public partial class TbDemoGroup
     
     public TbDemoGroup(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.DemoGroup>();
-        _dataList = new System.Collections.Generic.List<test.DemoGroup>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.DemoGroup>(count);
+        _dataList = new System.Collections.Generic.List<test.DemoGroup>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.DemoGroup _v;
-            _v = test.DemoGroup.DeserializeDemoGroup(_ele);
+            _v = global::cfg.test.DemoGroup.DeserializeDemoGroup(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.DemoGroup> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.DemoGroup> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.DemoGroup> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.DemoGroup> DataList => _dataList;
 
-    public test.DemoGroup GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.DemoGroup GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.DemoGroup Get(int key) => _dataMap[key];
     public test.DemoGroup this[int key] => _dataMap[key];
 

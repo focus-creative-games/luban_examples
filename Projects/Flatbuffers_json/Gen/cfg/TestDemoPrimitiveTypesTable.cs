@@ -40,9 +40,9 @@ public struct TestDemoPrimitiveTypesTable : IFlatbufferObject
   public ArraySegment<byte>? GetS2Bytes() { return __p.__vector_as_arraysegment(20); }
 #endif
   public byte[] GetS2Array() { return __p.__vector_as_array<byte>(20); }
-  public cfg.vector2? V2 { get { int o = __p.__offset(22); return o != 0 ? (cfg.vector2?)(new cfg.vector2()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
-  public cfg.vector3? V3 { get { int o = __p.__offset(24); return o != 0 ? (cfg.vector3?)(new cfg.vector3()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
-  public cfg.vector4? V4 { get { int o = __p.__offset(26); return o != 0 ? (cfg.vector4?)(new cfg.vector4()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public cfg.vec2? V2 { get { int o = __p.__offset(22); return o != 0 ? (cfg.vec2?)(new cfg.vec2()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public cfg.vec3? V3 { get { int o = __p.__offset(24); return o != 0 ? (cfg.vec3?)(new cfg.vec3()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public cfg.vec4? V4 { get { int o = __p.__offset(26); return o != 0 ? (cfg.vec4?)(new cfg.vec4()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
   public long T1 { get { int o = __p.__offset(28); return o != 0 ? __p.bb.GetLong(o + __p.bb_pos) : (long)0; } }
 
   public static Offset<cfg.TestDemoPrimitiveTypesTable> CreateTestDemoPrimitiveTypesTable(FlatBufferBuilder builder,
@@ -55,9 +55,9 @@ public struct TestDemoPrimitiveTypesTable : IFlatbufferObject
       double x7 = 0.0,
       StringOffset s1Offset = default(StringOffset),
       StringOffset s2Offset = default(StringOffset),
-      Offset<cfg.vector2> v2Offset = default(Offset<cfg.vector2>),
-      Offset<cfg.vector3> v3Offset = default(Offset<cfg.vector3>),
-      Offset<cfg.vector4> v4Offset = default(Offset<cfg.vector4>),
+      Offset<cfg.vec2> v2Offset = default(Offset<cfg.vec2>),
+      Offset<cfg.vec3> v3Offset = default(Offset<cfg.vec3>),
+      Offset<cfg.vec4> v4Offset = default(Offset<cfg.vec4>),
       long t1 = 0) {
     builder.StartTable(13);
     TestDemoPrimitiveTypesTable.AddT1(builder, t1);
@@ -86,9 +86,9 @@ public struct TestDemoPrimitiveTypesTable : IFlatbufferObject
   public static void AddX7(FlatBufferBuilder builder, double x7) { builder.AddDouble(6, x7, 0.0); }
   public static void AddS1(FlatBufferBuilder builder, StringOffset s1Offset) { builder.AddOffset(7, s1Offset.Value, 0); }
   public static void AddS2(FlatBufferBuilder builder, StringOffset s2Offset) { builder.AddOffset(8, s2Offset.Value, 0); }
-  public static void AddV2(FlatBufferBuilder builder, Offset<cfg.vector2> v2Offset) { builder.AddOffset(9, v2Offset.Value, 0); }
-  public static void AddV3(FlatBufferBuilder builder, Offset<cfg.vector3> v3Offset) { builder.AddOffset(10, v3Offset.Value, 0); }
-  public static void AddV4(FlatBufferBuilder builder, Offset<cfg.vector4> v4Offset) { builder.AddOffset(11, v4Offset.Value, 0); }
+  public static void AddV2(FlatBufferBuilder builder, Offset<cfg.vec2> v2Offset) { builder.AddOffset(9, v2Offset.Value, 0); }
+  public static void AddV3(FlatBufferBuilder builder, Offset<cfg.vec3> v3Offset) { builder.AddOffset(10, v3Offset.Value, 0); }
+  public static void AddV4(FlatBufferBuilder builder, Offset<cfg.vec4> v4Offset) { builder.AddOffset(11, v4Offset.Value, 0); }
   public static void AddT1(FlatBufferBuilder builder, long t1) { builder.AddLong(12, t1, 0); }
   public static Offset<cfg.TestDemoPrimitiveTypesTable> EndTestDemoPrimitiveTypesTable(FlatBufferBuilder builder) {
     int o = builder.EndTable();
@@ -114,9 +114,9 @@ static public class TestDemoPrimitiveTypesTableVerify
       && verifier.VerifyField(tablePos, 16 /*X7*/, 8 /*double*/, 8, false)
       && verifier.VerifyString(tablePos, 18 /*S1*/, false)
       && verifier.VerifyString(tablePos, 20 /*S2*/, false)
-      && verifier.VerifyTable(tablePos, 22 /*V2*/, cfg.vector2Verify.Verify, true)
-      && verifier.VerifyTable(tablePos, 24 /*V3*/, cfg.vector3Verify.Verify, true)
-      && verifier.VerifyTable(tablePos, 26 /*V4*/, cfg.vector4Verify.Verify, true)
+      && verifier.VerifyTable(tablePos, 22 /*V2*/, cfg.vec2Verify.Verify, true)
+      && verifier.VerifyTable(tablePos, 24 /*V3*/, cfg.vec3Verify.Verify, true)
+      && verifier.VerifyTable(tablePos, 26 /*V4*/, cfg.vec4Verify.Verify, true)
       && verifier.VerifyField(tablePos, 28 /*T1*/, 8 /*long*/, 8, false)
       && verifier.VerifyTableEnd(tablePos);
   }

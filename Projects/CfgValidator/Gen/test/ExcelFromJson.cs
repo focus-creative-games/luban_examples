@@ -24,13 +24,13 @@ public sealed partial class ExcelFromJson : Luban.BeanBase
         S1 = _buf.GetProperty("s1").GetString();
         S2 = _buf.GetProperty("s2").GetString();
         T1 = _buf.GetProperty("t1").GetInt64();
-        X12 = test.DemoType1.DeserializeDemoType1(_buf.GetProperty("x12"));
+        X12 = global::cfg.test.DemoType1.DeserializeDemoType1(_buf.GetProperty("x12"));
         X13 = (test.DemoEnum)_buf.GetProperty("x13").GetInt32();
-        X14 = test.DemoDynamic.DeserializeDemoDynamic(_buf.GetProperty("x14"));
+        X14 = global::cfg.test.DemoDynamic.DeserializeDemoDynamic(_buf.GetProperty("x14"));
         { var __json0 = _buf.GetProperty("k1"); int _n0 = __json0.GetArrayLength(); K1 = new int[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  K1[__index0++] = __v0; }   }
         { var __json0 = _buf.GetProperty("k8"); K8 = new System.Collections.Generic.Dictionary<int, int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int _k0;  _k0 = __e0[0].GetInt32(); int _v0;  _v0 = __e0[1].GetInt32();  K8.Add(_k0, _v0); }   }
-        { var __json0 = _buf.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoE2 __v0;  __v0 = test.DemoE2.DeserializeDemoE2(__e0);  K9.Add(__v0); }   }
-        { var __json0 = _buf.GetProperty("k15"); int _n0 = __json0.GetArrayLength(); K15 = new test.DemoDynamic[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoDynamic __v0;  __v0 = test.DemoDynamic.DeserializeDemoDynamic(__e0);  K15[__index0++] = __v0; }   }
+        { var __json0 = _buf.GetProperty("k9"); K9 = new System.Collections.Generic.List<test.DemoE2>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoE2 __v0;  __v0 = global::cfg.test.DemoE2.DeserializeDemoE2(__e0);  K9.Add(__v0); }   }
+        { var __json0 = _buf.GetProperty("k15"); int _n0 = __json0.GetArrayLength(); K15 = new test.DemoDynamic[_n0]; int __index0=0; foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoDynamic __v0;  __v0 = global::cfg.test.DemoDynamic.DeserializeDemoDynamic(__e0);  K15[__index0++] = __v0; }   }
     }
 
     public static ExcelFromJson DeserializeExcelFromJson(JsonElement _buf)
@@ -83,6 +83,5 @@ public sealed partial class ExcelFromJson : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

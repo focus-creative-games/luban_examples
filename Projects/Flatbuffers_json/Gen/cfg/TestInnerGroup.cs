@@ -20,28 +20,16 @@ public struct TestInnerGroup : IFlatbufferObject
   public TestInnerGroup __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public int Y1 { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int Y2 { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int Y3 { get { int o = __p.__offset(8); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int Y4 { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
 
   public static Offset<cfg.TestInnerGroup> CreateTestInnerGroup(FlatBufferBuilder builder,
-      int y1 = 0,
-      int y2 = 0,
-      int y3 = 0,
-      int y4 = 0) {
-    builder.StartTable(4);
-    TestInnerGroup.AddY4(builder, y4);
-    TestInnerGroup.AddY3(builder, y3);
-    TestInnerGroup.AddY2(builder, y2);
+      int y1 = 0) {
+    builder.StartTable(1);
     TestInnerGroup.AddY1(builder, y1);
     return TestInnerGroup.EndTestInnerGroup(builder);
   }
 
-  public static void StartTestInnerGroup(FlatBufferBuilder builder) { builder.StartTable(4); }
+  public static void StartTestInnerGroup(FlatBufferBuilder builder) { builder.StartTable(1); }
   public static void AddY1(FlatBufferBuilder builder, int y1) { builder.AddInt(0, y1, 0); }
-  public static void AddY2(FlatBufferBuilder builder, int y2) { builder.AddInt(1, y2, 0); }
-  public static void AddY3(FlatBufferBuilder builder, int y3) { builder.AddInt(2, y3, 0); }
-  public static void AddY4(FlatBufferBuilder builder, int y4) { builder.AddInt(3, y4, 0); }
   public static Offset<cfg.TestInnerGroup> EndTestInnerGroup(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<cfg.TestInnerGroup>(o);
@@ -55,9 +43,6 @@ static public class TestInnerGroupVerify
   {
     return verifier.VerifyTableStart(tablePos)
       && verifier.VerifyField(tablePos, 4 /*Y1*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 6 /*Y2*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 8 /*Y3*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 10 /*Y4*/, 4 /*int*/, 4, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

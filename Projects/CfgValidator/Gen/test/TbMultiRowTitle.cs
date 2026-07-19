@@ -20,22 +20,23 @@ public partial class TbMultiRowTitle
     
     public TbMultiRowTitle(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.MultiRowTitle>();
-        _dataList = new System.Collections.Generic.List<test.MultiRowTitle>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.MultiRowTitle>(count);
+        _dataList = new System.Collections.Generic.List<test.MultiRowTitle>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.MultiRowTitle _v;
-            _v = test.MultiRowTitle.DeserializeMultiRowTitle(_ele);
+            _v = global::cfg.test.MultiRowTitle.DeserializeMultiRowTitle(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.MultiRowTitle> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.MultiRowTitle> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.MultiRowTitle> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.MultiRowTitle> DataList => _dataList;
 
-    public test.MultiRowTitle GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.MultiRowTitle GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.MultiRowTitle Get(int key) => _dataMap[key];
     public test.MultiRowTitle this[int key] => _dataMap[key];
 

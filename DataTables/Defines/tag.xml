@@ -3,7 +3,7 @@
 		<var name="id" type="int"/>
 		<var name="value" type="string"/>
 	</bean>
-	<table name="TbTestTag" value="TestTag" input="tag_datas"/>
+	<table name="TbTestTag" value="TestTag" input="tag_data"/>
     
     <!--bean name="TagSwitch">
 		<var name="unlock_equip" type="int"/>

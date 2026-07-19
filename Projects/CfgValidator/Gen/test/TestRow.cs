@@ -20,7 +20,7 @@ public sealed partial class TestRow : Luban.BeanBase
         X = _buf.GetProperty("x").GetInt32();
         Y = _buf.GetProperty("y").GetBoolean();
         Z = _buf.GetProperty("z").GetString();
-        A = test.Test3.DeserializeTest3(_buf.GetProperty("a"));
+        A = global::cfg.test.Test3.DeserializeTest3(_buf.GetProperty("a"));
         { var __json0 = _buf.GetProperty("b"); B = new System.Collections.Generic.List<int>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { int __v0;  __v0 = __e0.GetInt32();  B.Add(__v0); }   }
     }
 
@@ -54,6 +54,5 @@ public sealed partial class TestRow : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

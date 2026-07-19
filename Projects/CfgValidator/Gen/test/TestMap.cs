@@ -56,6 +56,5 @@ public sealed partial class TestMap : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

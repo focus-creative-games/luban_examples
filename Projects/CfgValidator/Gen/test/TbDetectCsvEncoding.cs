@@ -20,22 +20,23 @@ public partial class TbDetectCsvEncoding
     
     public TbDetectCsvEncoding(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.DetectEncoding>();
-        _dataList = new System.Collections.Generic.List<test.DetectEncoding>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.DetectEncoding>(count);
+        _dataList = new System.Collections.Generic.List<test.DetectEncoding>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.DetectEncoding _v;
-            _v = test.DetectEncoding.DeserializeDetectEncoding(_ele);
+            _v = global::cfg.test.DetectEncoding.DeserializeDetectEncoding(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.DetectEncoding> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.DetectEncoding> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.DetectEncoding> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.DetectEncoding> DataList => _dataList;
 
-    public test.DetectEncoding GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.DetectEncoding GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.DetectEncoding Get(int key) => _dataMap[key];
     public test.DetectEncoding this[int key] => _dataMap[key];
 

@@ -9,10 +9,10 @@ dotnet %LUBAN_DLL% ^
     -d json  ^
     --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=Gen ^
-    -x outputDataDir=..\GenerateDatas\json ^
+    -x outputDataDir=..\GeneratedData\json ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
     -x l10n.provider=default ^
-    -x l10n.textFile.path=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json ^
+    -x l10n.textFile.path=*@%WORKSPACE%\DataTables\Data\l10n\texts.json ^
     -x l10n.textFile.keyFieldName=key
 
 pause

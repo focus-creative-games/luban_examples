@@ -20,22 +20,23 @@ public partial class TbL10NDemo
     
     public TbL10NDemo(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, l10n.L10NDemo>();
-        _dataList = new System.Collections.Generic.List<l10n.L10NDemo>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, l10n.L10NDemo>(count);
+        _dataList = new System.Collections.Generic.List<l10n.L10NDemo>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             l10n.L10NDemo _v;
-            _v = l10n.L10NDemo.DeserializeL10NDemo(_ele);
+            _v = global::cfg.l10n.L10NDemo.DeserializeL10NDemo(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, l10n.L10NDemo> DataMap => _dataMap;
-    public System.Collections.Generic.List<l10n.L10NDemo> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, l10n.L10NDemo> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<l10n.L10NDemo> DataList => _dataList;
 
-    public l10n.L10NDemo GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public l10n.L10NDemo GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public l10n.L10NDemo Get(int key) => _dataMap[key];
     public l10n.L10NDemo this[int key] => _dataMap[key];
 

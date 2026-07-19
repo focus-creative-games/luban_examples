@@ -20,22 +20,23 @@ public partial class TbAutoImport2
     
     public TbAutoImport2(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.AutoImport2>();
-        _dataList = new System.Collections.Generic.List<test.AutoImport2>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.AutoImport2>(count);
+        _dataList = new System.Collections.Generic.List<test.AutoImport2>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.AutoImport2 _v;
-            _v = test.AutoImport2.DeserializeAutoImport2(_ele);
+            _v = global::cfg.test.AutoImport2.DeserializeAutoImport2(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.AutoImport2> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.AutoImport2> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.AutoImport2> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.AutoImport2> DataList => _dataList;
 
-    public test.AutoImport2 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.AutoImport2 GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.AutoImport2 Get(int key) => _dataMap[key];
     public test.AutoImport2 this[int key] => _dataMap[key];
 

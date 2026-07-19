@@ -8,7 +8,7 @@ import (
 )
 
 func loader(file string) (*luban.ByteBuf, error) {
-	if bytes, err := ioutil.ReadFile("../GenerateDatas/bytes/" + file + ".bytes"); err != nil {
+	if bytes, err := ioutil.ReadFile("../GeneratedData/bytes/" + file + ".bytes"); err != nil {
 		return nil, err
 	} else {
 		return luban.WrapByteBuf(bytes), nil

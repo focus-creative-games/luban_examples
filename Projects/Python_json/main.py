@@ -6,7 +6,7 @@ sys.path.append(os.path.abspath('gen'))
 import gen.schema as schema
 
 def loader(f):
-    return json.load(open('../GenerateDatas/json/' + f + ".json", 'r', encoding="utf-8"))
+    return json.load(open('../GeneratedData/json/' + f + ".json", 'r', encoding="utf-8"))
 
 tables = schema.cfg_Tables(loader)
 

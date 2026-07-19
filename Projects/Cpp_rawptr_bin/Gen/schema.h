@@ -754,22 +754,25 @@ namespace ai { struct GetOwnerPlayer; }
 namespace ai { struct KeepFaceTarget; }
 namespace ai { struct UeSetDefaultFocus; }
 namespace ai { struct UpdateDailyBehaviorProps; }
+ struct AutoImport1; 
 namespace common { struct DateTimeRange; }
 namespace common { struct FloatRange; }
 namespace common { struct GlobalConfig; }
 namespace common { struct IntRange; }
 namespace common { struct OneDayTimeRange; }
 namespace common { struct TimeOfDay; }
- struct DefineFromExcel2; 
 namespace item { struct Item; }
 namespace l10n { struct L10NDemo; }
 namespace l10n { struct PatchDemo; }
 namespace tag { struct TestTag; }
+namespace test { struct AutoImport2; }
+namespace test { struct AutoImport3; }
 namespace test { struct CompactString; }
 namespace test { struct CompositeJsonTable1; }
 namespace test { struct CompositeJsonTable2; }
 namespace test { struct CompositeJsonTable3; }
 namespace test { struct DateTimeRange; }
+namespace test { struct DefineFromExcel2; }
 namespace test { struct DemoDynamic; }
 namespace test { struct DemoD2; }
 namespace test { struct DemoD3; }
@@ -812,17 +815,24 @@ namespace test { struct Circle; }
 namespace test2 { struct Rectangle; }
 namespace test { struct Test3; }
 namespace test { struct TestBeRef; }
+namespace test { struct TestConstAlias; }
 namespace test { struct TestExcelBean1; }
 namespace test { struct TestExcelBean2; }
+namespace test { struct TestFieldAlias; }
+namespace test { struct TestFieldVariant; }
+namespace test { struct TestFieldVariant2; }
+namespace test { struct TestFormat; }
 namespace test { struct TestGlobal; }
 namespace test { struct TestIndex; }
 namespace test { struct TestMap; }
 namespace test { struct TestMapper; }
 namespace test { struct TestMultiColumn; }
 namespace test { struct TestNull; }
+namespace test { struct TestRange; }
 namespace test { struct TestRef; }
 namespace test { struct TestRow; }
 namespace test { struct TestScriptableObject; }
+namespace test { struct TestSep; }
 namespace test { struct TestSet; }
 namespace test { struct TestSize; }
 namespace test { struct TestString; }
@@ -1656,6 +1666,50 @@ struct UpdateDailyBehaviorProps : public ai::Service
 }
 
 
+
+
+struct AutoImport1 : public luban::CfgBean 
+{
+    static bool deserializeAutoImport1(::luban::ByteBuf& _buf, AutoImport1*& _out);
+
+    virtual ~AutoImport1() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    /**
+     * 这是id
+     */
+    ::luban::int32 id;
+    /**
+     * 字段x1
+     */
+    bool x1;
+    ::luban::int64 x5;
+    ::luban::float32 x6;
+    ::luban::int32 x8;
+    ::luban::String x10;
+    test::DemoEnum x13;
+    test::DemoFlag x132;
+    test::DemoDynamic* x14;
+    test::Shape* x15;
+    vec2* v2;
+    ::luban::datetime t1;
+    ::luban::Array<::luban::int32> k1;
+    ::luban::Array<::luban::int32> k2;
+    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
+    ::luban::Vector<test::DemoE2*> k9;
+    ::luban::Vector<vec3*> k10;
+    ::luban::Vector<vec4*> k11;
+    vec3* v11;
+
+    static constexpr int __ID__ = -2092142499;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+
+
+
 namespace common {
 
 struct DateTimeRange : public luban::CfgBean 
@@ -1791,50 +1845,6 @@ struct TimeOfDay : public luban::CfgBean
 }
 
 
-
-
-struct DefineFromExcel2 : public luban::CfgBean 
-{
-    static bool deserializeDefineFromExcel2(::luban::ByteBuf& _buf, DefineFromExcel2*& _out);
-
-    virtual ~DefineFromExcel2() {}
-
-    bool deserialize(::luban::ByteBuf& _buf);
-
-    /**
-     * 这是id
-     */
-    ::luban::int32 id;
-    /**
-     * 字段x1
-     */
-    bool x1;
-    ::luban::int64 x5;
-    ::luban::float32 x6;
-    ::luban::int32 x8;
-    ::luban::String x10;
-    test::DemoEnum x13;
-    test::DemoFlag x132;
-    test::DemoDynamic* x14;
-    test::Shape* x15;
-    vec2* v2;
-    ::luban::datetime t1;
-    ::luban::Array<::luban::int32> k1;
-    ::luban::Array<::luban::int32> k2;
-    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
-    ::luban::Vector<test::DemoE2*> k9;
-    ::luban::Vector<vec3*> k10;
-    ::luban::Vector<vec4*> k11;
-    vec3* v11;
-
-    static constexpr int __ID__ = 482045152;
-
-    int getTypeId() const override { return __ID__; }
-};
-
-
-
-
 namespace item {
 
 /**
@@ -1927,6 +1937,94 @@ struct TestTag : public luban::CfgBean
     ::luban::String value;
 
     static constexpr int __ID__ = 1742933812;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
+struct AutoImport2 : public luban::CfgBean 
+{
+    static bool deserializeAutoImport2(::luban::ByteBuf& _buf, AutoImport2*& _out);
+
+    virtual ~AutoImport2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    /**
+     * 这是id
+     */
+    ::luban::int32 id;
+    /**
+     * 字段x1
+     */
+    bool x1;
+    ::luban::int64 x5;
+    ::luban::float32 x6;
+    ::luban::int32 x8;
+    ::luban::String x10;
+    test::DemoEnum x13;
+    test::DemoFlag x132;
+    test::DemoDynamic* x14;
+    test::Shape* x15;
+    vec2* v2;
+    ::luban::datetime t1;
+    ::luban::Array<::luban::int32> k1;
+    ::luban::Array<::luban::int32> k2;
+    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
+    ::luban::Vector<test::DemoE2*> k9;
+    ::luban::Vector<vec3*> k10;
+    ::luban::Vector<vec4*> k11;
+    vec3* v11;
+
+    static constexpr int __ID__ = 417472770;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
+struct AutoImport3 : public luban::CfgBean 
+{
+    static bool deserializeAutoImport3(::luban::ByteBuf& _buf, AutoImport3*& _out);
+
+    virtual ~AutoImport3() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    /**
+     * 这是id
+     */
+    ::luban::int32 id;
+    /**
+     * 字段x1
+     */
+    bool x1;
+    ::luban::int64 x5;
+    ::luban::float32 x6;
+    ::luban::int32 x8;
+    ::luban::String x10;
+    test::DemoEnum x13;
+    test::DemoFlag x132;
+    test::DemoDynamic* x14;
+    test::Shape* x15;
+    vec2* v2;
+    ::luban::datetime t1;
+    ::luban::Array<::luban::int32> k1;
+    ::luban::Array<::luban::int32> k2;
+    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
+    ::luban::Vector<test::DemoE2*> k9;
+    ::luban::Vector<vec3*> k10;
+    ::luban::Vector<vec4*> k11;
+    vec3* v11;
+
+    static constexpr int __ID__ = 417472771;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -2033,6 +2131,51 @@ struct DateTimeRange : public luban::CfgBean
     ::luban::datetime endTime;
 
     static constexpr int __ID__ = 495315430;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
+struct DefineFromExcel2 : public luban::CfgBean 
+{
+    static bool deserializeDefineFromExcel2(::luban::ByteBuf& _buf, DefineFromExcel2*& _out);
+
+    virtual ~DefineFromExcel2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    /**
+     * 这是id
+     */
+    ::luban::int32 id;
+    /**
+     * 字段x1
+     */
+    bool x1;
+    ::luban::int64 x5;
+    ::luban::float32 x6;
+    ::luban::int32 x8;
+    ::luban::String x10;
+    test::DemoEnum x13;
+    test::DemoFlag x132;
+    test::DemoFlag x133;
+    test::DemoDynamic* x14;
+    test::Shape* x15;
+    vec2* v2;
+    ::luban::datetime t1;
+    ::luban::Array<::luban::int32> k1;
+    ::luban::Array<::luban::int32> k2;
+    ::luban::HashMap<::luban::int32, ::luban::int32> k8;
+    ::luban::Vector<test::DemoE2*> k9;
+    ::luban::Vector<vec3*> k10;
+    ::luban::Vector<vec4*> k11;
+    vec3* v11;
+
+    static constexpr int __ID__ = 688816828;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -2990,6 +3133,30 @@ struct TestBeRef : public luban::CfgBean
 
 namespace test {
 
+struct TestConstAlias : public luban::CfgBean 
+{
+    static bool deserializeTestConstAlias(::luban::ByteBuf& _buf, TestConstAlias*& _out);
+
+    virtual ~TestConstAlias() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::int32 x1;
+    ::luban::int64 x2;
+    ::luban::float32 x3;
+    ::luban::float64 x4;
+
+    static constexpr int __ID__ = -498577445;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
 /**
  * 这是个测试excel结构
  */
@@ -3053,6 +3220,113 @@ struct TestExcelBean2 : public luban::CfgBean
     ::luban::float32 y3;
 
     static constexpr int __ID__ = -1738345159;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
+struct TestFieldAlias : public luban::CfgBean 
+{
+    static bool deserializeTestFieldAlias(::luban::ByteBuf& _buf, TestFieldAlias*& _out);
+
+    virtual ~TestFieldAlias() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String name;
+
+    static constexpr int __ID__ = 285625508;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
+struct TestFieldVariant : public luban::CfgBean 
+{
+    static bool deserializeTestFieldVariant(::luban::ByteBuf& _buf, TestFieldVariant*& _out);
+
+    virtual ~TestFieldVariant() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String name;
+
+    static constexpr int __ID__ = 759529945;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
+struct TestFieldVariant2 : public luban::CfgBean 
+{
+    static bool deserializeTestFieldVariant2(::luban::ByteBuf& _buf, TestFieldVariant2*& _out);
+
+    virtual ~TestFieldVariant2() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::String name;
+
+    static constexpr int __ID__ = 2070591865;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
+struct TestFormat : public luban::CfgBean 
+{
+    static bool deserializeTestFormat(::luban::ByteBuf& _buf, TestFormat*& _out);
+
+    virtual ~TestFormat() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::Array<::luban::int32> a1;
+    ::luban::Array<::luban::int32> a2;
+    ::luban::Array<::luban::int32> a3;
+    ::luban::Array<::luban::int32> a4;
+    ::luban::Vector<::luban::int32> b1;
+    ::luban::Vector<::luban::int32> b2;
+    ::luban::Vector<::luban::int32> b3;
+    ::luban::Vector<::luban::int32> b4;
+    ::luban::HashSet<::luban::int32> c1;
+    ::luban::HashSet<::luban::int32> c2;
+    ::luban::HashSet<::luban::int32> c3;
+    ::luban::HashSet<::luban::int32> c4;
+    ::luban::HashMap<::luban::int32, ::luban::int32> m1;
+    ::luban::HashMap<::luban::int32, ::luban::int32> m2;
+    ::luban::HashMap<::luban::int32, ::luban::int32> m3;
+    ::luban::HashMap<::luban::int32, ::luban::int32> m4;
+    vec3* v31;
+    vec3* v32;
+    vec3* v33;
+    vec3* v34;
+    ::luban::Vector<vec3*> v41;
+    ::luban::Vector<vec3*> v42;
+    ::luban::Vector<vec3*> v43;
+    ::luban::Vector<vec3*> v44;
+
+    static constexpr int __ID__ = -38307291;
 
     int getTypeId() const override { return __ID__; }
 };
@@ -3199,6 +3473,38 @@ struct TestNull : public luban::CfgBean
 
 namespace test {
 
+struct TestRange : public luban::CfgBean 
+{
+    static bool deserializeTestRange(::luban::ByteBuf& _buf, TestRange*& _out);
+
+    virtual ~TestRange() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::float32 f1;
+    ::luban::float32 f2;
+    ::luban::float64 d1;
+    ::luban::float64 d2;
+    ::luban::int32 i1;
+    ::luban::int32 i2;
+    ::luban::int32 i3;
+    ::luban::int32 i4;
+    ::luban::int64 l1;
+    ::luban::int64 l2;
+    ::luban::int64 l3;
+    ::luban::int64 l4;
+
+    static constexpr int __ID__ = 1949088079;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
 struct TestRef : public luban::CfgBean 
 {
     static bool deserializeTestRef(::luban::ByteBuf& _buf, TestRef*& _out);
@@ -3289,6 +3595,42 @@ struct TestScriptableObject : public luban::CfgBean
 
 namespace test {
 
+struct TestSep : public luban::CfgBean 
+{
+    static bool deserializeTestSep(::luban::ByteBuf& _buf, TestSep*& _out);
+
+    virtual ~TestSep() {}
+
+    bool deserialize(::luban::ByteBuf& _buf);
+
+    ::luban::int32 id;
+    ::luban::Vector<::luban::int32> a1;
+    ::luban::Vector<::luban::int32> a2;
+    ::luban::Vector<::luban::int32> a3;
+    test::SepBean1* x2;
+    /**
+     * SepVector已经定义了sep=,属性
+     */
+    test::SepVector* x3;
+    /**
+     * 用;来分割数据，然后顺序读入SepVector
+     */
+    ::luban::Vector<test::SepVector*> x4;
+    /**
+     * 用;分割数据，然后再将每个数据用,分割，读入
+     */
+    ::luban::Vector<test::SepBean1*> x6;
+
+    static constexpr int __ID__ = -543221520;
+
+    int getTypeId() const override { return __ID__; }
+};
+
+}
+
+
+namespace test {
+
 struct TestSet : public luban::CfgBean 
 {
     static bool deserializeTestSet(::luban::ByteBuf& _buf, TestSet*& _out);
@@ -3351,6 +3693,8 @@ struct TestString : public luban::CfgBean
     ::luban::String s2;
     test::CompactString* cs1;
     test::CompactString* cs2;
+    ::luban::Vector<::luban::String> css;
+    ::luban::Vector<::luban::String> css2;
 
     static constexpr int __ID__ = 338485823;
 
@@ -4748,6 +5092,52 @@ class TbTestSet
 namespace test {
 
 
+class TbTestRange
+{
+    private:
+    ::luban::HashMap<::luban::int32, test::TestRange*> _dataMap;
+    ::luban::Vector<test::TestRange*> _dataList;
+    
+    public:
+    ~TbTestRange()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestRange* _v;
+            if(!test::TestRange::deserializeTestRange(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, test::TestRange*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::TestRange*>& getDataList() const { return _dataList; }
+
+    test::TestRange* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+
+namespace test {
+
+
 class TbDetectCsvEncoding
 {
     private:
@@ -5144,6 +5534,52 @@ class TbExcelFromJsonMultiRow
 namespace test {
 
 
+class TbTestSep
+{
+    private:
+    ::luban::HashMap<::luban::int32, test::TestSep*> _dataMap;
+    ::luban::Vector<test::TestSep*> _dataList;
+    
+    public:
+    ~TbTestSep()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestSep* _v;
+            if(!test::TestSep::deserializeTestSep(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, test::TestSep*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::TestSep*>& getDataList() const { return _dataList; }
+
+    test::TestSep* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+
+namespace test {
+
+
 class TbTestScriptableObject
 {
     private:
@@ -5236,6 +5672,144 @@ class TbPath
 namespace test {
 
 
+class TbTestFieldAlias
+{
+    private:
+    ::luban::HashMap<::luban::int32, test::TestFieldAlias*> _dataMap;
+    ::luban::Vector<test::TestFieldAlias*> _dataList;
+    
+    public:
+    ~TbTestFieldAlias()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestFieldAlias* _v;
+            if(!test::TestFieldAlias::deserializeTestFieldAlias(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, test::TestFieldAlias*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::TestFieldAlias*>& getDataList() const { return _dataList; }
+
+    test::TestFieldAlias* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+
+namespace test {
+
+
+class TbTestFieldVariant
+{
+    private:
+    ::luban::HashMap<::luban::int32, test::TestFieldVariant*> _dataMap;
+    ::luban::Vector<test::TestFieldVariant*> _dataList;
+    
+    public:
+    ~TbTestFieldVariant()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestFieldVariant* _v;
+            if(!test::TestFieldVariant::deserializeTestFieldVariant(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, test::TestFieldVariant*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::TestFieldVariant*>& getDataList() const { return _dataList; }
+
+    test::TestFieldVariant* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+
+namespace test {
+
+
+class TbTestFieldVariant2
+{
+    private:
+    ::luban::HashMap<::luban::int32, test::TestFieldVariant2*> _dataMap;
+    ::luban::Vector<test::TestFieldVariant2*> _dataList;
+    
+    public:
+    ~TbTestFieldVariant2()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestFieldVariant2* _v;
+            if(!test::TestFieldVariant2::deserializeTestFieldVariant2(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, test::TestFieldVariant2*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::TestFieldVariant2*>& getDataList() const { return _dataList; }
+
+    test::TestFieldVariant2* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+
+namespace test {
+
+
 class TbTestMapper
 {
     private:
@@ -5282,11 +5856,57 @@ class TbTestMapper
 namespace test {
 
 
+class TbTestConstAlias
+{
+    private:
+    ::luban::HashMap<::luban::int32, test::TestConstAlias*> _dataMap;
+    ::luban::Vector<test::TestConstAlias*> _dataList;
+    
+    public:
+    ~TbTestConstAlias()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestConstAlias* _v;
+            if(!test::TestConstAlias::deserializeTestConstAlias(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, test::TestConstAlias*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::TestConstAlias*>& getDataList() const { return _dataList; }
+
+    test::TestConstAlias* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+
+namespace test {
+
+
 class TbDefineFromExcel2
 {
     private:
-    ::luban::HashMap<::luban::int32, DefineFromExcel2*> _dataMap;
-    ::luban::Vector<DefineFromExcel2*> _dataList;
+    ::luban::HashMap<::luban::int32, test::DefineFromExcel2*> _dataMap;
+    ::luban::Vector<test::DefineFromExcel2*> _dataList;
     
     public:
     ~TbDefineFromExcel2()
@@ -5303,18 +5923,205 @@ class TbDefineFromExcel2
         if (!_buf.readSize(n)) return false;
         for(; n > 0 ; --n)
         {
-            DefineFromExcel2* _v;
-            if(!DefineFromExcel2::deserializeDefineFromExcel2(_buf, _v)) return false;
+            test::DefineFromExcel2* _v;
+            if(!test::DefineFromExcel2::deserializeDefineFromExcel2(_buf, _v)) return false;
             _dataList.push_back(_v);
             _dataMap[_v->id] = _v;
         }
         return true;
     }
 
-    const ::luban::HashMap<::luban::int32, DefineFromExcel2*>& getDataMap() const { return _dataMap; }
-    const ::luban::Vector<DefineFromExcel2*>& getDataList() const { return _dataList; }
+    const ::luban::HashMap<::luban::int32, test::DefineFromExcel2*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::DefineFromExcel2*>& getDataList() const { return _dataList; }
 
-    DefineFromExcel2* get(::luban::int32 key)
+    test::DefineFromExcel2* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+
+
+
+
+class TbAutoImport1
+{
+    private:
+    ::luban::HashMap<::luban::int32, AutoImport1*> _dataMap;
+    ::luban::Vector<AutoImport1*> _dataList;
+    
+    public:
+    ~TbAutoImport1()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            AutoImport1* _v;
+            if(!AutoImport1::deserializeAutoImport1(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, AutoImport1*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<AutoImport1*>& getDataList() const { return _dataList; }
+
+    AutoImport1* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+
+
+
+namespace test {
+
+
+class TbAutoImport2
+{
+    private:
+    ::luban::HashMap<::luban::int32, test::AutoImport2*> _dataMap;
+    ::luban::Vector<test::AutoImport2*> _dataList;
+    
+    public:
+    ~TbAutoImport2()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::AutoImport2* _v;
+            if(!test::AutoImport2::deserializeAutoImport2(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, test::AutoImport2*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::AutoImport2*>& getDataList() const { return _dataList; }
+
+    test::AutoImport2* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+
+namespace test {
+
+/**
+ * 自动导入的表
+ */
+
+class TbAutoImport3
+{
+    private:
+    ::luban::HashMap<::luban::int32, test::AutoImport3*> _dataMap;
+    ::luban::Vector<test::AutoImport3*> _dataList;
+    
+    public:
+    ~TbAutoImport3()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::AutoImport3* _v;
+            if(!test::AutoImport3::deserializeAutoImport3(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, test::AutoImport3*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::AutoImport3*>& getDataList() const { return _dataList; }
+
+    test::AutoImport3* get(::luban::int32 key)
+    { 
+        auto it = _dataMap.find(key);
+        return it != _dataMap.end() ? it->second : nullptr;
+    }
+
+};
+
+}
+
+
+namespace test {
+
+
+class TbTestFormat
+{
+    private:
+    ::luban::HashMap<::luban::int32, test::TestFormat*> _dataMap;
+    ::luban::Vector<test::TestFormat*> _dataList;
+    
+    public:
+    ~TbTestFormat()
+    {
+        for (auto& _v : _dataList)
+        {
+            LUBAN_FREE(_v);
+        }
+    }
+
+    bool load(::luban::ByteBuf& _buf)
+    {        
+        int n;
+        if (!_buf.readSize(n)) return false;
+        for(; n > 0 ; --n)
+        {
+            test::TestFormat* _v;
+            if(!test::TestFormat::deserializeTestFormat(_buf, _v)) return false;
+            _dataList.push_back(_v);
+            _dataMap[_v->id] = _v;
+        }
+        return true;
+    }
+
+    const ::luban::HashMap<::luban::int32, test::TestFormat*>& getDataMap() const { return _dataMap; }
+    const ::luban::Vector<test::TestFormat*>& getDataList() const { return _dataList; }
+
+    test::TestFormat* get(::luban::int32 key)
     { 
         auto it = _dataMap.find(key);
         return it != _dataMap.end() ? it->second : nullptr;
@@ -5360,6 +6167,7 @@ class Tables
      test::TbTestRef TbTestRef;
      test::TbTestSize TbTestSize;
      test::TbTestSet TbTestSet;
+     test::TbTestRange TbTestRange;
      test::TbDetectCsvEncoding TbDetectCsvEncoding;
      test::TbItem2 TbItem2;
      test::TbTestIndex TbTestIndex;
@@ -5369,10 +6177,22 @@ class Tables
      test::TbCompositeJsonTable2 TbCompositeJsonTable2;
      test::TbCompositeJsonTable3 TbCompositeJsonTable3;
      test::TbExcelFromJsonMultiRow TbExcelFromJsonMultiRow;
+     test::TbTestSep TbTestSep;
      test::TbTestScriptableObject TbTestScriptableObject;
      test::TbPath TbPath;
+     test::TbTestFieldAlias TbTestFieldAlias;
+     test::TbTestFieldVariant TbTestFieldVariant;
+     test::TbTestFieldVariant2 TbTestFieldVariant2;
      test::TbTestMapper TbTestMapper;
+     test::TbTestConstAlias TbTestConstAlias;
      test::TbDefineFromExcel2 TbDefineFromExcel2;
+     TbAutoImport1 TbAutoImport1;
+     test::TbAutoImport2 TbAutoImport2;
+    /**
+     * 自动导入的表
+     */
+     test::TbAutoImport3 TbAutoImport3;
+     test::TbTestFormat TbTestFormat;
 
     bool load(::luban::Loader<::luban::ByteBuf> loader)
     {
@@ -5465,6 +6285,9 @@ class Tables
         if (!loader(buf, "test_tbtestset")) return false;
         if (!TbTestSet.load(buf)) return false;
         buf.clear();
+        if (!loader(buf, "test_tbtestrange")) return false;
+        if (!TbTestRange.load(buf)) return false;
+        buf.clear();
         if (!loader(buf, "test_tbdetectcsvencoding")) return false;
         if (!TbDetectCsvEncoding.load(buf)) return false;
         buf.clear();
@@ -5492,17 +6315,44 @@ class Tables
         if (!loader(buf, "test_tbexcelfromjsonmultirow")) return false;
         if (!TbExcelFromJsonMultiRow.load(buf)) return false;
         buf.clear();
+        if (!loader(buf, "test_tbtestsep")) return false;
+        if (!TbTestSep.load(buf)) return false;
+        buf.clear();
         if (!loader(buf, "test_tbtestscriptableobject")) return false;
         if (!TbTestScriptableObject.load(buf)) return false;
         buf.clear();
         if (!loader(buf, "test_tbpath")) return false;
         if (!TbPath.load(buf)) return false;
         buf.clear();
+        if (!loader(buf, "test_tbtestfieldalias")) return false;
+        if (!TbTestFieldAlias.load(buf)) return false;
+        buf.clear();
+        if (!loader(buf, "test_tbtestfieldvariant")) return false;
+        if (!TbTestFieldVariant.load(buf)) return false;
+        buf.clear();
+        if (!loader(buf, "test_tbtestfieldvariant2")) return false;
+        if (!TbTestFieldVariant2.load(buf)) return false;
+        buf.clear();
         if (!loader(buf, "test_tbtestmapper")) return false;
         if (!TbTestMapper.load(buf)) return false;
         buf.clear();
+        if (!loader(buf, "test_tbtestconstalias")) return false;
+        if (!TbTestConstAlias.load(buf)) return false;
+        buf.clear();
         if (!loader(buf, "test_tbdefinefromexcel2")) return false;
         if (!TbDefineFromExcel2.load(buf)) return false;
+        buf.clear();
+        if (!loader(buf, "tbautoimport1")) return false;
+        if (!TbAutoImport1.load(buf)) return false;
+        buf.clear();
+        if (!loader(buf, "test_tbautoimport2")) return false;
+        if (!TbAutoImport2.load(buf)) return false;
+        buf.clear();
+        if (!loader(buf, "test_tbautoimport3")) return false;
+        if (!TbAutoImport3.load(buf)) return false;
+        buf.clear();
+        if (!loader(buf, "test_tbtestformat")) return false;
+        if (!TbTestFormat.load(buf)) return false;
         return true;
     }
 };

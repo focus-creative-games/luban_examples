@@ -9,7 +9,7 @@ import cfg.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         Tables tables = new Tables(file -> JsonParser.parseString(
-                new String(Files.readAllBytes(Paths.get("../GenerateDatas/json", file + ".json")), "UTF-8")));
+                new String(Files.readAllBytes(Paths.get("../GeneratedData/json", file + ".json")), "UTF-8")));
         System.out.println("== run == " + tables.getTbGlobalConfig().getX1());
     }
 }

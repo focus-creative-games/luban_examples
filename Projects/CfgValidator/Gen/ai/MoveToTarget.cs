@@ -50,6 +50,5 @@ public sealed partial class MoveToTarget : ai.Task
         + "}";
     }
 }
-
 }
 

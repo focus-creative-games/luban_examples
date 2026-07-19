@@ -24,7 +24,7 @@ public partial class TbGlobalConfig
     {
         int n = _buf.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = common.GlobalConfig.DeserializeGlobalConfig(_buf[0]);
+        _data = global::cfg.common.GlobalConfig.DeserializeGlobalConfig(_buf[0]);
     }
 
 

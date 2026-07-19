@@ -44,6 +44,5 @@ public sealed partial class CompositeJsonTable3 : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

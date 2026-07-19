@@ -21,9 +21,9 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
         Desc = _buf.GetProperty("desc").GetString();
         Rate = _buf.GetProperty("rate").GetSingle();
         Num = _buf.GetProperty("num").GetInt32();
-        V2 = vec2.Deserializevec2(_buf.GetProperty("v2"));
-        V3 = ExternalTypeUtil.NewVector3(vec3.Deserializevec3(_buf.GetProperty("v3")));
-        V4 = vec4.Deserializevec4(_buf.GetProperty("v4"));
+        V2 = global::cfg.vec2.Deserializevec2(_buf.GetProperty("v2"));
+        V3 = ExternalTypeUtil.NewVector3(global::cfg.vec3.Deserializevec3(_buf.GetProperty("v3")));
+        V4 = global::cfg.vec4.Deserializevec4(_buf.GetProperty("v4"));
     }
 
     public static TestScriptableObject DeserializeTestScriptableObject(JsonElement _buf)
@@ -59,6 +59,5 @@ public sealed partial class TestScriptableObject : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

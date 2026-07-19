@@ -14,7 +14,7 @@ class Program
 
     private static void TestNullable()
     {
-        var file = "../../../pb_datas/test_tbtestnull.bytes";
+        var file = "../../../pb_data/test_tbtestnull.bytes";
 
         var bytes = File.ReadAllBytes(file);
         //Console.WriteLine(string.Join(',', bytes.Select(b => b.ToString())));
@@ -25,14 +25,14 @@ class Program
 
     private static void TestFullTypes()
     {
-        //var bytes = File.ReadAllBytes("../../../pb_datas/item_tbitem.pb");
+        //var bytes = File.ReadAllBytes("../../../pb_data/item_tbitem.pb");
 
         //Console.WriteLine(string.Join(',', bytes.Select(b => b.ToString())));
-        //var tbItem = Cfg.ItemTbItem.Parser.ParseFrom(File.OpenRead("../../../pb_datas/item_tbitem.pb"));
+        //var tbItem = Cfg.ItemTbItem.Parser.ParseFrom(File.OpenRead("../../../pb_data/item_tbitem.pb"));
 
         //Console.WriteLine(tbItem);
 
-        var file = "../../../pb_datas/test_tbfulltypes.bytes";
+        var file = "../../../pb_data/test_tbfulltypes.bytes";
 
         var bytes = File.ReadAllBytes(file);
 

@@ -54,6 +54,5 @@ public sealed partial class DistanceLessThan : ai.Decorator
         + "}";
     }
 }
-
 }
 

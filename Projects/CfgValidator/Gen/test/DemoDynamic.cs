@@ -46,6 +46,5 @@ public abstract partial class DemoDynamic : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

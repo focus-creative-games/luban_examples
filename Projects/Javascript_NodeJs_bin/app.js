@@ -5,7 +5,7 @@ import * as cfg from "./Gen/schema.js";
 import {readFileSync} from 'fs'
 
 function loader(file) {
-    let data = readFileSync('../GenerateDatas/bytes/' + file + '.bytes');
+    let data = readFileSync('../GeneratedData/bytes/' + file + '.bytes');
     return new ByteBuf(data)
 }
 

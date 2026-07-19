@@ -25,7 +25,7 @@ public sealed partial class DemoGroup : Luban.BeanBase
         X3 = _buf.GetProperty("x3").GetInt32();
         X3_Ref = null;
         X4 = _buf.GetProperty("x4").GetInt32();
-        X5 = test.InnerGroup.DeserializeInnerGroup(_buf.GetProperty("x5"));
+        X5 = global::cfg.test.InnerGroup.DeserializeInnerGroup(_buf.GetProperty("x5"));
     }
 
     public static DemoGroup DeserializeDemoGroup(JsonElement _buf)
@@ -66,6 +66,5 @@ public sealed partial class DemoGroup : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

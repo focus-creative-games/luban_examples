@@ -8,13 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="datas\**" />
+    <Compile Remove="data\**" />
     <Compile Remove="pb_schemas\**" />
     <Compile Remove="schemas\**" />
-    <EmbeddedResource Remove="datas\**" />
+    <EmbeddedResource Remove="data\**" />
     <EmbeddedResource Remove="pb_schemas\**" />
     <EmbeddedResource Remove="schemas\**" />
-    <None Remove="datas\**" />
+    <None Remove="data\**" />
     <None Remove="pb_schemas\**" />
     <None Remove="schemas\**" />
   </ItemGroup>

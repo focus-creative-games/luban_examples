@@ -44,6 +44,5 @@ public sealed partial class H2 : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -12,6 +12,75 @@
 namespace cfg {
 
 
+bool test::Test3::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(x)) return false;
+    if(!_buf.readInt(y)) return false;
+
+    return true;
+}
+
+bool test::Test3::deserializeTest3(::luban::ByteBuf& _buf, test::Test3*& _out)
+{
+    _out = LUBAN_NEW(test::Test3);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::TestBeRef::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readInt(count)) return false;
+
+    return true;
+}
+
+bool test::TestBeRef::deserializeTestBeRef(::luban::ByteBuf& _buf, test::TestBeRef*& _out)
+{
+    _out = LUBAN_NEW(test::TestBeRef);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::TestConstAlias::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readInt(x1)) return false;
+    if(!_buf.readLong(x2)) return false;
+    if(!_buf.readFloat(x3)) return false;
+    if(!_buf.readDouble(x4)) return false;
+
+    return true;
+}
+
+bool test::TestConstAlias::deserializeTestConstAlias(::luban::ByteBuf& _buf, test::TestConstAlias*& _out)
+{
+    _out = LUBAN_NEW(test::TestConstAlias);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::TestExcelBean1::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(x1)) return false;
+    if(!_buf.readString(x2)) return false;
+    if(!_buf.readInt(x3)) return false;
+    if(!_buf.readFloat(x4)) return false;
+
+    return true;
+}
+
+bool test::TestExcelBean1::deserializeTestExcelBean1(::luban::ByteBuf& _buf, test::TestExcelBean1*& _out)
+{
+    _out = LUBAN_NEW(test::TestExcelBean1);
+    return _out->deserialize(_buf);
+}
+
+
 bool test::TestExcelBean2::deserialize(::luban::ByteBuf& _buf)
 {
 
@@ -25,6 +94,93 @@ bool test::TestExcelBean2::deserialize(::luban::ByteBuf& _buf)
 bool test::TestExcelBean2::deserializeTestExcelBean2(::luban::ByteBuf& _buf, test::TestExcelBean2*& _out)
 {
     _out = LUBAN_NEW(test::TestExcelBean2);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::TestFieldAlias::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(name)) return false;
+
+    return true;
+}
+
+bool test::TestFieldAlias::deserializeTestFieldAlias(::luban::ByteBuf& _buf, test::TestFieldAlias*& _out)
+{
+    _out = LUBAN_NEW(test::TestFieldAlias);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::TestFieldVariant::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(name)) return false;
+
+    return true;
+}
+
+bool test::TestFieldVariant::deserializeTestFieldVariant(::luban::ByteBuf& _buf, test::TestFieldVariant*& _out)
+{
+    _out = LUBAN_NEW(test::TestFieldVariant);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::TestFieldVariant2::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readString(name)) return false;
+
+    return true;
+}
+
+bool test::TestFieldVariant2::deserializeTestFieldVariant2(::luban::ByteBuf& _buf, test::TestFieldVariant2*& _out)
+{
+    _out = LUBAN_NEW(test::TestFieldVariant2);
+    return _out->deserialize(_buf);
+}
+
+
+bool test::TestFormat::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); a1.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; a1.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); a2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; a2.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); a3.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; a3.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); a4.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; a4.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); b1.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; b1.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); b2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; b2.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); b3.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; b3.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); b4.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; b4.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); c1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; c1.insert(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); c2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; c2.insert(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); c3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; c3.insert(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); c4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; c4.insert(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); m1.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; m1[_k] = _v;}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); m2.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; m2[_k] = _v;}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); m3.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; m3[_k] = _v;}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, (::luban::int32)_buf.size()); m4.reserve(n * 3 / 2);for(int i = 0 ; i < n ; i++) { ::luban::int32 _k; if(!_buf.readInt(_k)) return false; ::luban::int32 _v; if(!_buf.readInt(_v)) return false; m4[_k] = _v;}}
+    if(!vec3::deserializevec3(_buf, v31)) return false;
+    if(!vec3::deserializevec3(_buf, v32)) return false;
+    if(!vec3::deserializevec3(_buf, v33)) return false;
+    if(!vec3::deserializevec3(_buf, v34)) return false;
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); v41.reserve(n);for(int i = 0 ; i < n ; i++) { vec3* _e; if(!vec3::deserializevec3(_buf, _e)) return false; v41.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); v42.reserve(n);for(int i = 0 ; i < n ; i++) { vec3* _e; if(!vec3::deserializevec3(_buf, _e)) return false; v42.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); v43.reserve(n);for(int i = 0 ; i < n ; i++) { vec3* _e; if(!vec3::deserializevec3(_buf, _e)) return false; v43.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); v44.reserve(n);for(int i = 0 ; i < n ; i++) { vec3* _e; if(!vec3::deserializevec3(_buf, _e)) return false; v44.push_back(_e);}}
+
+    return true;
+}
+
+bool test::TestFormat::deserializeTestFormat(::luban::ByteBuf& _buf, test::TestFormat*& _out)
+{
+    _out = LUBAN_NEW(test::TestFormat);
     return _out->deserialize(_buf);
 }
 
@@ -136,6 +292,33 @@ bool test::TestNull::deserializeTestNull(::luban::ByteBuf& _buf, test::TestNull*
 }
 
 
+bool test::TestRange::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    if(!_buf.readFloat(f1)) return false;
+    if(!_buf.readFloat(f2)) return false;
+    if(!_buf.readDouble(d1)) return false;
+    if(!_buf.readDouble(d2)) return false;
+    if(!_buf.readInt(i1)) return false;
+    if(!_buf.readInt(i2)) return false;
+    if(!_buf.readInt(i3)) return false;
+    if(!_buf.readInt(i4)) return false;
+    if(!_buf.readLong(l1)) return false;
+    if(!_buf.readLong(l2)) return false;
+    if(!_buf.readLong(l3)) return false;
+    if(!_buf.readLong(l4)) return false;
+
+    return true;
+}
+
+bool test::TestRange::deserializeTestRange(::luban::ByteBuf& _buf, test::TestRange*& _out)
+{
+    _out = LUBAN_NEW(test::TestRange);
+    return _out->deserialize(_buf);
+}
+
+
 bool test::TestRef::deserialize(::luban::ByteBuf& _buf)
 {
 
@@ -211,6 +394,28 @@ bool test::TestScriptableObject::deserializeTestScriptableObject(::luban::ByteBu
 }
 
 
+bool test::TestSep::deserialize(::luban::ByteBuf& _buf)
+{
+
+    if(!_buf.readInt(id)) return false;
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); a1.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; a1.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); a2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; a2.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); a3.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::int32 _e; if(!_buf.readInt(_e)) return false; a3.push_back(_e);}}
+    if(!test::SepBean1::deserializeSepBean1(_buf, x2)) return false;
+    if(!test::SepVector::deserializeSepVector(_buf, x3)) return false;
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x4.reserve(n);for(int i = 0 ; i < n ; i++) { test::SepVector* _e; if(!test::SepVector::deserializeSepVector(_buf, _e)) return false; x4.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); x6.reserve(n);for(int i = 0 ; i < n ; i++) { test::SepBean1* _e; if(!test::SepBean1::deserializeSepBean1(_buf, _e)) return false; x6.push_back(_e);}}
+
+    return true;
+}
+
+bool test::TestSep::deserializeTestSep(::luban::ByteBuf& _buf, test::TestSep*& _out)
+{
+    _out = LUBAN_NEW(test::TestSep);
+    return _out->deserialize(_buf);
+}
+
+
 bool test::TestSet::deserialize(::luban::ByteBuf& _buf)
 {
 
@@ -258,6 +463,8 @@ bool test::TestString::deserialize(::luban::ByteBuf& _buf)
     if(!_buf.readString(s2)) return false;
     if(!test::CompactString::deserializeCompactString(_buf, cs1)) return false;
     if(!test::CompactString::deserializeCompactString(_buf, cs2)) return false;
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); css.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::String _e; if(!_buf.readString(_e)) return false; css.push_back(_e);}}
+    {::luban::int32 n; if(!_buf.readSize(n)) return false; n = std::min(n, ::luban::int32(_buf.size())); css2.reserve(n);for(int i = 0 ; i < n ; i++) { ::luban::String _e; if(!_buf.readString(_e)) return false; css2.push_back(_e);}}
 
     return true;
 }

@@ -18,8 +18,8 @@ public sealed partial class SimpleParallel : ai.ComposeNode
     public SimpleParallel(JsonElement _buf)  : base(_buf) 
     {
         FinishMode = (ai.EFinishMode)_buf.GetProperty("finish_mode").GetInt32();
-        MainTask = ai.Task.DeserializeTask(_buf.GetProperty("main_task"));
-        BackgroundNode = ai.FlowNode.DeserializeFlowNode(_buf.GetProperty("background_node"));
+        MainTask = global::cfg.ai.Task.DeserializeTask(_buf.GetProperty("main_task"));
+        BackgroundNode = global::cfg.ai.FlowNode.DeserializeFlowNode(_buf.GetProperty("background_node"));
     }
 
     public static SimpleParallel DeserializeSimpleParallel(JsonElement _buf)
@@ -54,6 +54,5 @@ public sealed partial class SimpleParallel : ai.ComposeNode
         + "}";
     }
 }
-
 }
 

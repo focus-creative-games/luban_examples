@@ -123,7 +123,7 @@
     <!-- index="id1|id2|id3" 表示这3个key分别都是唯一索引 -->
     <table name="TbMultiIndexList" value="MultiIndexList" mode="list" index="id1,id2,id3" input="multi_index@test/list.xlsx"/>
     
-    <table name="TbDataFromMisc" value="DemoType2" input="test/misc_datas"/> 普通表，不过数据从misc_datas目录递归读入各种类型的数据源
+    <table name="TbDataFromMisc" value="DemoType2" input="test/misc_data"/> 普通表，不过数据从misc_data目录递归读入各种类型的数据源
     
     <bean name="MultiRowType1">
         <var name="id" type="int"/>
@@ -235,7 +235,7 @@
         <var name="s1" type="string?"/>
         <var name="s2" type="text?"/>
     </bean>
-    <table name="TbTestNull" value="TestNull" input="test/test_null_datas"/>
+    <table name="TbTestNull" value="TestNull" input="test/test_null_data"/>
     
     <bean name="DemoPrimitiveTypesTable">
         <var name="x1" type="bool"/>

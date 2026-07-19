@@ -59,6 +59,5 @@ public sealed partial class TestExcelBean2 : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -19,7 +19,7 @@ public sealed partial class DemoSingletonType : Luban.BeanBase
     {
         Id = _buf.GetProperty("id").GetInt32();
         Name = _buf.GetProperty("name").GetString();
-        Date = test.DemoDynamic.DeserializeDemoDynamic(_buf.GetProperty("date"));
+        Date = global::cfg.test.DemoDynamic.DeserializeDemoDynamic(_buf.GetProperty("date"));
     }
 
     public static DemoSingletonType DeserializeDemoSingletonType(JsonElement _buf)
@@ -48,6 +48,5 @@ public sealed partial class DemoSingletonType : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

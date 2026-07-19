@@ -62,6 +62,5 @@ public sealed partial class GlobalConfig : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

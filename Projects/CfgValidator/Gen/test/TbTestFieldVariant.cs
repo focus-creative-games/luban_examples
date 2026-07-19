@@ -20,22 +20,23 @@ public partial class TbTestFieldVariant
     
     public TbTestFieldVariant(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestFieldVariant>();
-        _dataList = new System.Collections.Generic.List<test.TestFieldVariant>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestFieldVariant>(count);
+        _dataList = new System.Collections.Generic.List<test.TestFieldVariant>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.TestFieldVariant _v;
-            _v = test.TestFieldVariant.DeserializeTestFieldVariant(_ele);
+            _v = global::cfg.test.TestFieldVariant.DeserializeTestFieldVariant(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.TestFieldVariant> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.TestFieldVariant> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.TestFieldVariant> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.TestFieldVariant> DataList => _dataList;
 
-    public test.TestFieldVariant GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestFieldVariant GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.TestFieldVariant Get(int key) => _dataMap[key];
     public test.TestFieldVariant this[int key] => _dataMap[key];
 

@@ -18,7 +18,7 @@ public sealed partial class MultiRowType3 : Luban.BeanBase
     public MultiRowType3(JsonElement _buf) 
     {
         Id = _buf.GetProperty("id").GetInt32();
-        { var __json0 = _buf.GetProperty("items"); Items = new System.Collections.Generic.List<test.MultiRowType1>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.MultiRowType1 __v0;  __v0 = test.MultiRowType1.DeserializeMultiRowType1(__e0);  Items.Add(__v0); }   }
+        { var __json0 = _buf.GetProperty("items"); Items = new System.Collections.Generic.List<test.MultiRowType1>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.MultiRowType1 __v0;  __v0 = global::cfg.test.MultiRowType1.DeserializeMultiRowType1(__e0);  Items.Add(__v0); }   }
     }
 
     public static MultiRowType3 DeserializeMultiRowType3(JsonElement _buf)
@@ -45,6 +45,5 @@ public sealed partial class MultiRowType3 : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

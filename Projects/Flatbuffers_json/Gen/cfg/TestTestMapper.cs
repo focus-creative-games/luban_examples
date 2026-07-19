@@ -21,12 +21,12 @@ public struct TestTestMapper : IFlatbufferObject
 
   public int Id { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
   public cfg.AudioType AudioType { get { int o = __p.__offset(6); return o != 0 ? (cfg.AudioType)__p.bb.GetInt(o + __p.bb_pos) : cfg.AudioType.AudioType_UNKNOWN; } }
-  public cfg.vector2? V2 { get { int o = __p.__offset(8); return o != 0 ? (cfg.vector2?)(new cfg.vector2()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public cfg.vec2? V2 { get { int o = __p.__offset(8); return o != 0 ? (cfg.vec2?)(new cfg.vec2()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
 
   public static Offset<cfg.TestTestMapper> CreateTestTestMapper(FlatBufferBuilder builder,
       int id = 0,
       cfg.AudioType audio_type = cfg.AudioType.AudioType_UNKNOWN,
-      Offset<cfg.vector2> v2Offset = default(Offset<cfg.vector2>)) {
+      Offset<cfg.vec2> v2Offset = default(Offset<cfg.vec2>)) {
     builder.StartTable(3);
     TestTestMapper.AddV2(builder, v2Offset);
     TestTestMapper.AddAudioType(builder, audio_type);
@@ -37,7 +37,7 @@ public struct TestTestMapper : IFlatbufferObject
   public static void StartTestTestMapper(FlatBufferBuilder builder) { builder.StartTable(3); }
   public static void AddId(FlatBufferBuilder builder, int id) { builder.AddInt(0, id, 0); }
   public static void AddAudioType(FlatBufferBuilder builder, cfg.AudioType audioType) { builder.AddInt(1, (int)audioType, 0); }
-  public static void AddV2(FlatBufferBuilder builder, Offset<cfg.vector2> v2Offset) { builder.AddOffset(2, v2Offset.Value, 0); }
+  public static void AddV2(FlatBufferBuilder builder, Offset<cfg.vec2> v2Offset) { builder.AddOffset(2, v2Offset.Value, 0); }
   public static Offset<cfg.TestTestMapper> EndTestTestMapper(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     builder.Required(o, 8);  // v2
@@ -53,7 +53,7 @@ static public class TestTestMapperVerify
     return verifier.VerifyTableStart(tablePos)
       && verifier.VerifyField(tablePos, 4 /*Id*/, 4 /*int*/, 4, false)
       && verifier.VerifyField(tablePos, 6 /*AudioType*/, 4 /*cfg.AudioType*/, 4, false)
-      && verifier.VerifyTable(tablePos, 8 /*V2*/, cfg.vector2Verify.Verify, true)
+      && verifier.VerifyTable(tablePos, 8 /*V2*/, cfg.vec2Verify.Verify, true)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

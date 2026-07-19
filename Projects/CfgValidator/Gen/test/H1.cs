@@ -17,7 +17,7 @@ public sealed partial class H1 : Luban.BeanBase
 {
     public H1(JsonElement _buf) 
     {
-        Y2 = test.H2.DeserializeH2(_buf.GetProperty("y2"));
+        Y2 = global::cfg.test.H2.DeserializeH2(_buf.GetProperty("y2"));
         Y3 = _buf.GetProperty("y3").GetInt32();
     }
 
@@ -45,6 +45,5 @@ public sealed partial class H1 : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

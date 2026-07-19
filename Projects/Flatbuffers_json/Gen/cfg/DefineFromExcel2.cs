@@ -43,7 +43,7 @@ public struct DefineFromExcel2 : IFlatbufferObject
   public TTable? X15<TTable>() where TTable : struct, IFlatbufferObject { int o = __p.__offset(26); return o != 0 ? (TTable?)__p.__union<TTable>(o + __p.bb_pos) : null; }
   public cfg.TestCircle X15AsTestCircle() { return X15<cfg.TestCircle>().Value; }
   public cfg.Test2Rectangle X15AsTest2Rectangle() { return X15<cfg.Test2Rectangle>().Value; }
-  public cfg.vector2? V2 { get { int o = __p.__offset(28); return o != 0 ? (cfg.vector2?)(new cfg.vector2()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public cfg.vec2? V2 { get { int o = __p.__offset(28); return o != 0 ? (cfg.vec2?)(new cfg.vec2()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
   public long T1 { get { int o = __p.__offset(30); return o != 0 ? __p.bb.GetLong(o + __p.bb_pos) : (long)0; } }
   public int K1(int j) { int o = __p.__offset(32); return o != 0 ? __p.bb.GetInt(__p.__vector(o) + j * 4) : (int)0; }
   public int K1Length { get { int o = __p.__offset(32); return o != 0 ? __p.__vector_len(o) : 0; } }
@@ -65,9 +65,9 @@ public struct DefineFromExcel2 : IFlatbufferObject
   public int K8Length { get { int o = __p.__offset(36); return o != 0 ? __p.__vector_len(o) : 0; } }
   public cfg.TestDemoE2? K9(int j) { int o = __p.__offset(38); return o != 0 ? (cfg.TestDemoE2?)(new cfg.TestDemoE2()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
   public int K9Length { get { int o = __p.__offset(38); return o != 0 ? __p.__vector_len(o) : 0; } }
-  public cfg.vector3? K10(int j) { int o = __p.__offset(40); return o != 0 ? (cfg.vector3?)(new cfg.vector3()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
+  public cfg.vec3? K10(int j) { int o = __p.__offset(40); return o != 0 ? (cfg.vec3?)(new cfg.vec3()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
   public int K10Length { get { int o = __p.__offset(40); return o != 0 ? __p.__vector_len(o) : 0; } }
-  public cfg.vector4? K11(int j) { int o = __p.__offset(42); return o != 0 ? (cfg.vector4?)(new cfg.vector4()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
+  public cfg.vec4? K11(int j) { int o = __p.__offset(42); return o != 0 ? (cfg.vec4?)(new cfg.vec4()).__assign(__p.__indirect(__p.__vector(o) + j * 4), __p.bb) : null; }
   public int K11Length { get { int o = __p.__offset(42); return o != 0 ? __p.__vector_len(o) : 0; } }
 
   public static Offset<cfg.DefineFromExcel2> CreateDefineFromExcel2(FlatBufferBuilder builder,
@@ -83,7 +83,7 @@ public struct DefineFromExcel2 : IFlatbufferObject
       int x14Offset = 0,
       cfg.TestShape x15_type = cfg.TestShape.NONE,
       int x15Offset = 0,
-      Offset<cfg.vector2> v2Offset = default(Offset<cfg.vector2>),
+      Offset<cfg.vec2> v2Offset = default(Offset<cfg.vec2>),
       long t1 = 0,
       VectorOffset k1Offset = default(VectorOffset),
       VectorOffset k2Offset = default(VectorOffset),
@@ -128,7 +128,7 @@ public struct DefineFromExcel2 : IFlatbufferObject
   public static void AddX14(FlatBufferBuilder builder, int x14Offset) { builder.AddOffset(9, x14Offset, 0); }
   public static void AddX15Type(FlatBufferBuilder builder, cfg.TestShape x15Type) { builder.AddByte(10, (byte)x15Type, 0); }
   public static void AddX15(FlatBufferBuilder builder, int x15Offset) { builder.AddOffset(11, x15Offset, 0); }
-  public static void AddV2(FlatBufferBuilder builder, Offset<cfg.vector2> v2Offset) { builder.AddOffset(12, v2Offset.Value, 0); }
+  public static void AddV2(FlatBufferBuilder builder, Offset<cfg.vec2> v2Offset) { builder.AddOffset(12, v2Offset.Value, 0); }
   public static void AddT1(FlatBufferBuilder builder, long t1) { builder.AddLong(13, t1, 0); }
   public static void AddK1(FlatBufferBuilder builder, VectorOffset k1Offset) { builder.AddOffset(14, k1Offset.Value, 0); }
   public static VectorOffset CreateK1Vector(FlatBufferBuilder builder, int[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddInt(data[i]); return builder.EndVector(); }
@@ -155,16 +155,16 @@ public struct DefineFromExcel2 : IFlatbufferObject
   public static VectorOffset CreateK9VectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<Offset<cfg.TestDemoE2>>(dataPtr, sizeInBytes); return builder.EndVector(); }
   public static void StartK9Vector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
   public static void AddK10(FlatBufferBuilder builder, VectorOffset k10Offset) { builder.AddOffset(18, k10Offset.Value, 0); }
-  public static VectorOffset CreateK10Vector(FlatBufferBuilder builder, Offset<cfg.vector3>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
-  public static VectorOffset CreateK10VectorBlock(FlatBufferBuilder builder, Offset<cfg.vector3>[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
-  public static VectorOffset CreateK10VectorBlock(FlatBufferBuilder builder, ArraySegment<Offset<cfg.vector3>> data) { builder.StartVector(4, data.Count, 4); builder.Add(data); return builder.EndVector(); }
-  public static VectorOffset CreateK10VectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<Offset<cfg.vector3>>(dataPtr, sizeInBytes); return builder.EndVector(); }
+  public static VectorOffset CreateK10Vector(FlatBufferBuilder builder, Offset<cfg.vec3>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
+  public static VectorOffset CreateK10VectorBlock(FlatBufferBuilder builder, Offset<cfg.vec3>[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateK10VectorBlock(FlatBufferBuilder builder, ArraySegment<Offset<cfg.vec3>> data) { builder.StartVector(4, data.Count, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateK10VectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<Offset<cfg.vec3>>(dataPtr, sizeInBytes); return builder.EndVector(); }
   public static void StartK10Vector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
   public static void AddK11(FlatBufferBuilder builder, VectorOffset k11Offset) { builder.AddOffset(19, k11Offset.Value, 0); }
-  public static VectorOffset CreateK11Vector(FlatBufferBuilder builder, Offset<cfg.vector4>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
-  public static VectorOffset CreateK11VectorBlock(FlatBufferBuilder builder, Offset<cfg.vector4>[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
-  public static VectorOffset CreateK11VectorBlock(FlatBufferBuilder builder, ArraySegment<Offset<cfg.vector4>> data) { builder.StartVector(4, data.Count, 4); builder.Add(data); return builder.EndVector(); }
-  public static VectorOffset CreateK11VectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<Offset<cfg.vector4>>(dataPtr, sizeInBytes); return builder.EndVector(); }
+  public static VectorOffset CreateK11Vector(FlatBufferBuilder builder, Offset<cfg.vec4>[] data) { builder.StartVector(4, data.Length, 4); for (int i = data.Length - 1; i >= 0; i--) builder.AddOffset(data[i].Value); return builder.EndVector(); }
+  public static VectorOffset CreateK11VectorBlock(FlatBufferBuilder builder, Offset<cfg.vec4>[] data) { builder.StartVector(4, data.Length, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateK11VectorBlock(FlatBufferBuilder builder, ArraySegment<Offset<cfg.vec4>> data) { builder.StartVector(4, data.Count, 4); builder.Add(data); return builder.EndVector(); }
+  public static VectorOffset CreateK11VectorBlock(FlatBufferBuilder builder, IntPtr dataPtr, int sizeInBytes) { builder.StartVector(1, sizeInBytes, 1); builder.Add<Offset<cfg.vec4>>(dataPtr, sizeInBytes); return builder.EndVector(); }
   public static void StartK11Vector(FlatBufferBuilder builder, int numElems) { builder.StartVector(4, numElems, 4); }
   public static Offset<cfg.DefineFromExcel2> EndDefineFromExcel2(FlatBufferBuilder builder) {
     int o = builder.EndTable();
@@ -199,14 +199,14 @@ static public class DefineFromExcel2Verify
       && verifier.VerifyUnion(tablePos, 20, 22 /*X14*/, cfg.TestDemoDynamicVerify.Verify, true)
       && verifier.VerifyField(tablePos, 24 /*X15Type*/, 1 /*cfg.TestShape*/, 1, false)
       && verifier.VerifyUnion(tablePos, 24, 26 /*X15*/, cfg.TestShapeVerify.Verify, true)
-      && verifier.VerifyTable(tablePos, 28 /*V2*/, cfg.vector2Verify.Verify, true)
+      && verifier.VerifyTable(tablePos, 28 /*V2*/, cfg.vec2Verify.Verify, true)
       && verifier.VerifyField(tablePos, 30 /*T1*/, 8 /*long*/, 8, false)
       && verifier.VerifyVectorOfData(tablePos, 32 /*K1*/, 4 /*int*/, true)
       && verifier.VerifyVectorOfData(tablePos, 34 /*K2*/, 4 /*int*/, true)
       && verifier.VerifyVectorOfTables(tablePos, 36 /*K8*/, cfg.KeyValue_int32_int32Verify.Verify, true)
       && verifier.VerifyVectorOfTables(tablePos, 38 /*K9*/, cfg.TestDemoE2Verify.Verify, true)
-      && verifier.VerifyVectorOfTables(tablePos, 40 /*K10*/, cfg.vector3Verify.Verify, true)
-      && verifier.VerifyVectorOfTables(tablePos, 42 /*K11*/, cfg.vector4Verify.Verify, true)
+      && verifier.VerifyVectorOfTables(tablePos, 40 /*K10*/, cfg.vec3Verify.Verify, true)
+      && verifier.VerifyVectorOfTables(tablePos, 42 /*K11*/, cfg.vec4Verify.Verify, true)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

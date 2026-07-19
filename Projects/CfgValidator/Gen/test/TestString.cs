@@ -20,8 +20,10 @@ public sealed partial class TestString : Luban.BeanBase
         Id = _buf.GetProperty("id").GetString();
         S1 = _buf.GetProperty("s1").GetString();
         S2 = _buf.GetProperty("s2").GetString();
-        Cs1 = test.CompactString.DeserializeCompactString(_buf.GetProperty("cs1"));
-        Cs2 = test.CompactString.DeserializeCompactString(_buf.GetProperty("cs2"));
+        Cs1 = global::cfg.test.CompactString.DeserializeCompactString(_buf.GetProperty("cs1"));
+        Cs2 = global::cfg.test.CompactString.DeserializeCompactString(_buf.GetProperty("cs2"));
+        { var __json0 = _buf.GetProperty("css"); Css = new System.Collections.Generic.List<string>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { string __v0;  __v0 = __e0.GetString();  Css.Add(__v0); }   }
+        { var __json0 = _buf.GetProperty("css2"); Css2 = new System.Collections.Generic.List<string>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { string __v0;  __v0 = __e0.GetString();  Css2.Add(__v0); }   }
     }
 
     public static TestString DeserializeTestString(JsonElement _buf)
@@ -34,6 +36,8 @@ public sealed partial class TestString : Luban.BeanBase
     public readonly string S2;
     public readonly test.CompactString Cs1;
     public readonly test.CompactString Cs2;
+    public readonly System.Collections.Generic.List<string> Css;
+    public readonly System.Collections.Generic.List<string> Css2;
    
     public const int __ID__ = 338485823;
     public override int GetTypeId() => __ID__;
@@ -52,9 +56,10 @@ public sealed partial class TestString : Luban.BeanBase
         + "s2:" + S2 + ","
         + "cs1:" + Cs1 + ","
         + "cs2:" + Cs2 + ","
+        + "css:" + Luban.StringUtil.CollectionToString(Css) + ","
+        + "css2:" + Luban.StringUtil.CollectionToString(Css2) + ","
         + "}";
     }
 }
-
 }
 

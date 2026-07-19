@@ -20,22 +20,23 @@ public partial class TbTestNull
     
     public TbTestNull(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestNull>();
-        _dataList = new System.Collections.Generic.List<test.TestNull>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestNull>(count);
+        _dataList = new System.Collections.Generic.List<test.TestNull>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.TestNull _v;
-            _v = test.TestNull.DeserializeTestNull(_ele);
+            _v = global::cfg.test.TestNull.DeserializeTestNull(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.TestNull> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.TestNull> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.TestNull> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.TestNull> DataList => _dataList;
 
-    public test.TestNull GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestNull GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.TestNull Get(int key) => _dataMap[key];
     public test.TestNull this[int key] => _dataMap[key];
 

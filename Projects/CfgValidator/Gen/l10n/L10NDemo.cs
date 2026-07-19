@@ -44,6 +44,5 @@ public sealed partial class L10NDemo : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

@@ -22,14 +22,14 @@ class Program
     
     static byte[] Loader(string name)
     {
-        var file = string.Format("../../../pb_datas/{0}.bytes", name);
+        var file = string.Format("../../../pb_data/{0}.bytes", name);
 
         return File.ReadAllBytes(file);
     }
 
     static string LoadJson(string name)
     {
-        var file = string.Format("../../../pb_datas/{0}.json", name);
+        var file = string.Format("../../../pb_data/{0}.json", name);
 
         return File.ReadAllText(file);
     }

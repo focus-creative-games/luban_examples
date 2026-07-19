@@ -24,7 +24,7 @@ public partial class TbCompositeJsonTable3
     {
         int n = _buf.GetArrayLength();
         if (n != 1) throw new SerializationException("table mode=one, but size != 1");
-        _data = test.CompositeJsonTable3.DeserializeCompositeJsonTable3(_buf[0]);
+        _data = global::cfg.test.CompositeJsonTable3.DeserializeCompositeJsonTable3(_buf[0]);
     }
 
 

@@ -44,6 +44,5 @@ public sealed partial class DateTimeRange : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

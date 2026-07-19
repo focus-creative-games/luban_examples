@@ -19,7 +19,7 @@ public sealed partial class ExcelFromJsonMultiRow : Luban.BeanBase
     {
         Id = _buf.GetProperty("id").GetInt32();
         X = _buf.GetProperty("x").GetInt32();
-        { var __json0 = _buf.GetProperty("items"); Items = new System.Collections.Generic.List<test.TestRow>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.TestRow __v0;  __v0 = test.TestRow.DeserializeTestRow(__e0);  Items.Add(__v0); }   }
+        { var __json0 = _buf.GetProperty("items"); Items = new System.Collections.Generic.List<test.TestRow>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.TestRow __v0;  __v0 = global::cfg.test.TestRow.DeserializeTestRow(__e0);  Items.Add(__v0); }   }
     }
 
     public static ExcelFromJsonMultiRow DeserializeExcelFromJsonMultiRow(JsonElement _buf)
@@ -48,6 +48,5 @@ public sealed partial class ExcelFromJsonMultiRow : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

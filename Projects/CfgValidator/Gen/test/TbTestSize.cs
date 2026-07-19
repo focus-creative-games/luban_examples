@@ -20,22 +20,23 @@ public partial class TbTestSize
     
     public TbTestSize(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestSize>();
-        _dataList = new System.Collections.Generic.List<test.TestSize>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, test.TestSize>(count);
+        _dataList = new System.Collections.Generic.List<test.TestSize>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.TestSize _v;
-            _v = test.TestSize.DeserializeTestSize(_ele);
+            _v = global::cfg.test.TestSize.DeserializeTestSize(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, test.TestSize> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.TestSize> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, test.TestSize> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.TestSize> DataList => _dataList;
 
-    public test.TestSize GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestSize GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.TestSize Get(int key) => _dataMap[key];
     public test.TestSize this[int key] => _dataMap[key];
 

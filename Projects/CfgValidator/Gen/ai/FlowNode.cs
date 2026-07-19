@@ -17,8 +17,8 @@ public abstract partial class FlowNode : ai.Node
 {
     public FlowNode(JsonElement _buf)  : base(_buf) 
     {
-        { var __json0 = _buf.GetProperty("decorators"); Decorators = new System.Collections.Generic.List<ai.Decorator>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.Decorator __v0;  __v0 = ai.Decorator.DeserializeDecorator(__e0);  Decorators.Add(__v0); }   }
-        { var __json0 = _buf.GetProperty("services"); Services = new System.Collections.Generic.List<ai.Service>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.Service __v0;  __v0 = ai.Service.DeserializeService(__e0);  Services.Add(__v0); }   }
+        { var __json0 = _buf.GetProperty("decorators"); Decorators = new System.Collections.Generic.List<ai.Decorator>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.Decorator __v0;  __v0 = global::cfg.ai.Decorator.DeserializeDecorator(__e0);  Decorators.Add(__v0); }   }
+        { var __json0 = _buf.GetProperty("services"); Services = new System.Collections.Generic.List<ai.Service>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { ai.Service __v0;  __v0 = global::cfg.ai.Service.DeserializeService(__e0);  Services.Add(__v0); }   }
     }
 
     public static FlowNode DeserializeFlowNode(JsonElement _buf)
@@ -60,6 +60,5 @@ public abstract partial class FlowNode : ai.Node
         + "}";
     }
 }
-
 }
 

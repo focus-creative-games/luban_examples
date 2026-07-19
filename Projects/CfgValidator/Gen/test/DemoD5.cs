@@ -17,7 +17,7 @@ public sealed partial class DemoD5 : test.DemoDynamic
 {
     public DemoD5(JsonElement _buf)  : base(_buf) 
     {
-        Time = test.DateTimeRange.DeserializeDateTimeRange(_buf.GetProperty("time"));
+        Time = global::cfg.test.DateTimeRange.DeserializeDateTimeRange(_buf.GetProperty("time"));
     }
 
     public static DemoD5 DeserializeDemoD5(JsonElement _buf)
@@ -44,6 +44,5 @@ public sealed partial class DemoD5 : test.DemoDynamic
         + "}";
     }
 }
-
 }
 

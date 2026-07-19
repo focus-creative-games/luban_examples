@@ -43,6 +43,5 @@ public sealed partial class DemoD2 : test.DemoDynamic
         + "}";
     }
 }
-
 }
 

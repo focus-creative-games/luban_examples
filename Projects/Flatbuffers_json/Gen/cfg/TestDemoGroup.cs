@@ -20,39 +20,23 @@ public struct TestDemoGroup : IFlatbufferObject
   public TestDemoGroup __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public int Id { get { int o = __p.__offset(4); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int X1 { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int X2 { get { int o = __p.__offset(8); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int X3 { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public int X4 { get { int o = __p.__offset(12); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public cfg.TestInnerGroup? X5 { get { int o = __p.__offset(14); return o != 0 ? (cfg.TestInnerGroup?)(new cfg.TestInnerGroup()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public cfg.TestInnerGroup? X5 { get { int o = __p.__offset(6); return o != 0 ? (cfg.TestInnerGroup?)(new cfg.TestInnerGroup()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
 
   public static Offset<cfg.TestDemoGroup> CreateTestDemoGroup(FlatBufferBuilder builder,
       int id = 0,
-      int x1 = 0,
-      int x2 = 0,
-      int x3 = 0,
-      int x4 = 0,
       Offset<cfg.TestInnerGroup> x5Offset = default(Offset<cfg.TestInnerGroup>)) {
-    builder.StartTable(6);
+    builder.StartTable(2);
     TestDemoGroup.AddX5(builder, x5Offset);
-    TestDemoGroup.AddX4(builder, x4);
-    TestDemoGroup.AddX3(builder, x3);
-    TestDemoGroup.AddX2(builder, x2);
-    TestDemoGroup.AddX1(builder, x1);
     TestDemoGroup.AddId(builder, id);
     return TestDemoGroup.EndTestDemoGroup(builder);
   }
 
-  public static void StartTestDemoGroup(FlatBufferBuilder builder) { builder.StartTable(6); }
+  public static void StartTestDemoGroup(FlatBufferBuilder builder) { builder.StartTable(2); }
   public static void AddId(FlatBufferBuilder builder, int id) { builder.AddInt(0, id, 0); }
-  public static void AddX1(FlatBufferBuilder builder, int x1) { builder.AddInt(1, x1, 0); }
-  public static void AddX2(FlatBufferBuilder builder, int x2) { builder.AddInt(2, x2, 0); }
-  public static void AddX3(FlatBufferBuilder builder, int x3) { builder.AddInt(3, x3, 0); }
-  public static void AddX4(FlatBufferBuilder builder, int x4) { builder.AddInt(4, x4, 0); }
-  public static void AddX5(FlatBufferBuilder builder, Offset<cfg.TestInnerGroup> x5Offset) { builder.AddOffset(5, x5Offset.Value, 0); }
+  public static void AddX5(FlatBufferBuilder builder, Offset<cfg.TestInnerGroup> x5Offset) { builder.AddOffset(1, x5Offset.Value, 0); }
   public static Offset<cfg.TestDemoGroup> EndTestDemoGroup(FlatBufferBuilder builder) {
     int o = builder.EndTable();
-    builder.Required(o, 14);  // x5
+    builder.Required(o, 6);  // x5
     return new Offset<cfg.TestDemoGroup>(o);
   }
 }
@@ -64,11 +48,7 @@ static public class TestDemoGroupVerify
   {
     return verifier.VerifyTableStart(tablePos)
       && verifier.VerifyField(tablePos, 4 /*Id*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 6 /*X1*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 8 /*X2*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 10 /*X3*/, 4 /*int*/, 4, false)
-      && verifier.VerifyField(tablePos, 12 /*X4*/, 4 /*int*/, 4, false)
-      && verifier.VerifyTable(tablePos, 14 /*X5*/, cfg.TestInnerGroupVerify.Verify, true)
+      && verifier.VerifyTable(tablePos, 6 /*X5*/, cfg.TestInnerGroupVerify.Verify, true)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

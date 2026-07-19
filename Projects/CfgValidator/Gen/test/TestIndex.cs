@@ -18,7 +18,7 @@ public sealed partial class TestIndex : Luban.BeanBase
     public TestIndex(JsonElement _buf) 
     {
         Id = _buf.GetProperty("id").GetInt32();
-        { var __json0 = _buf.GetProperty("eles"); Eles = new System.Collections.Generic.List<test.DemoType1>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoType1 __v0;  __v0 = test.DemoType1.DeserializeDemoType1(__e0);  Eles.Add(__v0); }   }
+        { var __json0 = _buf.GetProperty("eles"); Eles = new System.Collections.Generic.List<test.DemoType1>(__json0.GetArrayLength()); foreach(JsonElement __e0 in __json0.EnumerateArray()) { test.DemoType1 __v0;  __v0 = global::cfg.test.DemoType1.DeserializeDemoType1(__e0);  Eles.Add(__v0); }   }
         foreach(var _v in Eles)
         { 
             Eles_Index.Add(_v.X1, _v);
@@ -50,6 +50,5 @@ public sealed partial class TestIndex : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

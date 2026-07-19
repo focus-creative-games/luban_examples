@@ -20,22 +20,23 @@ public partial class TbTestTag
     
     public TbTestTag(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, tag.TestTag>();
-        _dataList = new System.Collections.Generic.List<tag.TestTag>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, tag.TestTag>(count);
+        _dataList = new System.Collections.Generic.List<tag.TestTag>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             tag.TestTag _v;
-            _v = tag.TestTag.DeserializeTestTag(_ele);
+            _v = global::cfg.tag.TestTag.DeserializeTestTag(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, tag.TestTag> DataMap => _dataMap;
-    public System.Collections.Generic.List<tag.TestTag> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, tag.TestTag> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<tag.TestTag> DataList => _dataList;
 
-    public tag.TestTag GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public tag.TestTag GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public tag.TestTag Get(int key) => _dataMap[key];
     public tag.TestTag this[int key] => _dataMap[key];
 

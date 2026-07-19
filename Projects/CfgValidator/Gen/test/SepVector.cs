@@ -47,6 +47,5 @@ public sealed partial class SepVector : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

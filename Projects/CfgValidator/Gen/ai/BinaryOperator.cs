@@ -18,7 +18,7 @@ public sealed partial class BinaryOperator : ai.KeyQueryOperator
     public BinaryOperator(JsonElement _buf)  : base(_buf) 
     {
         Oper = (ai.EOperator)_buf.GetProperty("oper").GetInt32();
-        Data = ai.KeyData.DeserializeKeyData(_buf.GetProperty("data"));
+        Data = global::cfg.ai.KeyData.DeserializeKeyData(_buf.GetProperty("data"));
     }
 
     public static BinaryOperator DeserializeBinaryOperator(JsonElement _buf)
@@ -46,6 +46,5 @@ public sealed partial class BinaryOperator : ai.KeyQueryOperator
         + "}";
     }
 }
-
 }
 

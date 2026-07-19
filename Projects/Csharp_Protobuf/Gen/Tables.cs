@@ -96,6 +96,8 @@ public partial class Tables
 
     public TestTbExcelFromJsonMultiRow TbExcelFromJsonMultiRow { get; }
 
+    public TestTbTestSep TbTestSep { get; }
+
     public TestTbTestScriptableObject TbTestScriptableObject { get; }
 
     public TestTbPath TbPath { get; }
@@ -108,11 +110,18 @@ public partial class Tables
 
     public TestTbTestMapper TbTestMapper { get; }
 
+    public TestTbTestConstAlias TbTestConstAlias { get; }
+
     public TestTbDefineFromExcel2 TbDefineFromExcel2 { get; }
 
     public TbAutoImport1 TbAutoImport1 { get; }
 
     public TestTbAutoImport2 TbAutoImport2 { get; }
+
+    /// <summary>
+    /// 自动导入的表
+    /// </summary>
+    public TestTbAutoImport3 TbAutoImport3 { get; }
 
     public TestTbTestFormat TbTestFormat { get; }
 
@@ -158,15 +167,18 @@ public partial class Tables
         TbCompositeJsonTable2 = TestTbCompositeJsonTable2.Parser.ParseFrom(loader("test_tbcompositejsontable2"));
         TbCompositeJsonTable3 = TestTbCompositeJsonTable3.Parser.ParseFrom(loader("test_tbcompositejsontable3"));
         TbExcelFromJsonMultiRow = TestTbExcelFromJsonMultiRow.Parser.ParseFrom(loader("test_tbexcelfromjsonmultirow"));
+        TbTestSep = TestTbTestSep.Parser.ParseFrom(loader("test_tbtestsep"));
         TbTestScriptableObject = TestTbTestScriptableObject.Parser.ParseFrom(loader("test_tbtestscriptableobject"));
         TbPath = TestTbPath.Parser.ParseFrom(loader("test_tbpath"));
         TbTestFieldAlias = TestTbTestFieldAlias.Parser.ParseFrom(loader("test_tbtestfieldalias"));
         TbTestFieldVariant = TestTbTestFieldVariant.Parser.ParseFrom(loader("test_tbtestfieldvariant"));
         TbTestFieldVariant2 = TestTbTestFieldVariant2.Parser.ParseFrom(loader("test_tbtestfieldvariant2"));
         TbTestMapper = TestTbTestMapper.Parser.ParseFrom(loader("test_tbtestmapper"));
+        TbTestConstAlias = TestTbTestConstAlias.Parser.ParseFrom(loader("test_tbtestconstalias"));
         TbDefineFromExcel2 = TestTbDefineFromExcel2.Parser.ParseFrom(loader("test_tbdefinefromexcel2"));
         TbAutoImport1 = TbAutoImport1.Parser.ParseFrom(loader("tbautoimport1"));
         TbAutoImport2 = TestTbAutoImport2.Parser.ParseFrom(loader("test_tbautoimport2"));
+        TbAutoImport3 = TestTbAutoImport3.Parser.ParseFrom(loader("test_tbautoimport3"));
         TbTestFormat = TestTbTestFormat.Parser.ParseFrom(loader("test_tbtestformat"));
     }
     public Tables(System.Func<string, string> loader)
@@ -210,15 +222,18 @@ public partial class Tables
         TbCompositeJsonTable2 = TestTbCompositeJsonTable2.Parser.ParseJson(loader("test_tbcompositejsontable2"));
         TbCompositeJsonTable3 = TestTbCompositeJsonTable3.Parser.ParseJson(loader("test_tbcompositejsontable3"));
         TbExcelFromJsonMultiRow = TestTbExcelFromJsonMultiRow.Parser.ParseJson(loader("test_tbexcelfromjsonmultirow"));
+        TbTestSep = TestTbTestSep.Parser.ParseJson(loader("test_tbtestsep"));
         TbTestScriptableObject = TestTbTestScriptableObject.Parser.ParseJson(loader("test_tbtestscriptableobject"));
         TbPath = TestTbPath.Parser.ParseJson(loader("test_tbpath"));
         TbTestFieldAlias = TestTbTestFieldAlias.Parser.ParseJson(loader("test_tbtestfieldalias"));
         TbTestFieldVariant = TestTbTestFieldVariant.Parser.ParseJson(loader("test_tbtestfieldvariant"));
         TbTestFieldVariant2 = TestTbTestFieldVariant2.Parser.ParseJson(loader("test_tbtestfieldvariant2"));
         TbTestMapper = TestTbTestMapper.Parser.ParseJson(loader("test_tbtestmapper"));
+        TbTestConstAlias = TestTbTestConstAlias.Parser.ParseJson(loader("test_tbtestconstalias"));
         TbDefineFromExcel2 = TestTbDefineFromExcel2.Parser.ParseJson(loader("test_tbdefinefromexcel2"));
         TbAutoImport1 = TbAutoImport1.Parser.ParseJson(loader("tbautoimport1"));
         TbAutoImport2 = TestTbAutoImport2.Parser.ParseJson(loader("test_tbautoimport2"));
+        TbAutoImport3 = TestTbAutoImport3.Parser.ParseJson(loader("test_tbautoimport3"));
         TbTestFormat = TestTbTestFormat.Parser.ParseJson(loader("test_tbtestformat"));
     }
 }

@@ -12,7 +12,7 @@ dotnet %LUBAN_DLL% ^
     -x outputDataDir=json ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
     -x l10n.provider=default ^
-    -x l10n.textFile.path=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json ^
+    -x l10n.textFile.path=*@%WORKSPACE%\DataTables\Data\l10n\texts.json ^
     -x l10n.textFile.keyFieldName=key
 
 pause

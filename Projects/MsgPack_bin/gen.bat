@@ -7,9 +7,9 @@ dotnet %LUBAN_DLL% ^
     -t all ^
     -d msgpack  ^
     --conf %CONF_ROOT%\luban.conf ^
-    -x outputDataDir=msg_datas ^
+    -x outputDataDir=msg_data ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
-    -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Datas\l10n\texts.json
+    -x l10n.textProviderFile=*@%WORKSPACE%\DataTables\Data\l10n\texts.json
 
 
 pause

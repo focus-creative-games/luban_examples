@@ -23,22 +23,23 @@ public partial class TbItem
     
     public TbItem(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<int, item.Item>();
-        _dataList = new System.Collections.Generic.List<item.Item>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<int, item.Item>(count);
+        _dataList = new System.Collections.Generic.List<item.Item>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             item.Item _v;
-            _v = item.Item.DeserializeItem(_ele);
+            _v = global::cfg.item.Item.DeserializeItem(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<int, item.Item> DataMap => _dataMap;
-    public System.Collections.Generic.List<item.Item> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<int, item.Item> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<item.Item> DataList => _dataList;
 
-    public item.Item GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public item.Item GetOrDefault(int key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public item.Item Get(int key) => _dataMap[key];
     public item.Item this[int key] => _dataMap[key];
 

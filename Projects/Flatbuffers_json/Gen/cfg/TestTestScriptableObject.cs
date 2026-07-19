@@ -29,18 +29,18 @@ public struct TestTestScriptableObject : IFlatbufferObject
   public byte[] GetDescArray() { return __p.__vector_as_array<byte>(6); }
   public float Rate { get { int o = __p.__offset(8); return o != 0 ? __p.bb.GetFloat(o + __p.bb_pos) : (float)0.0f; } }
   public int Num { get { int o = __p.__offset(10); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
-  public cfg.vector2? V2 { get { int o = __p.__offset(12); return o != 0 ? (cfg.vector2?)(new cfg.vector2()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
-  public cfg.vector3? V3 { get { int o = __p.__offset(14); return o != 0 ? (cfg.vector3?)(new cfg.vector3()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
-  public cfg.vector4? V4 { get { int o = __p.__offset(16); return o != 0 ? (cfg.vector4?)(new cfg.vector4()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public cfg.vec2? V2 { get { int o = __p.__offset(12); return o != 0 ? (cfg.vec2?)(new cfg.vec2()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public cfg.vec3? V3 { get { int o = __p.__offset(14); return o != 0 ? (cfg.vec3?)(new cfg.vec3()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public cfg.vec4? V4 { get { int o = __p.__offset(16); return o != 0 ? (cfg.vec4?)(new cfg.vec4()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
 
   public static Offset<cfg.TestTestScriptableObject> CreateTestTestScriptableObject(FlatBufferBuilder builder,
       int id = 0,
       StringOffset descOffset = default(StringOffset),
       float rate = 0.0f,
       int num = 0,
-      Offset<cfg.vector2> v2Offset = default(Offset<cfg.vector2>),
-      Offset<cfg.vector3> v3Offset = default(Offset<cfg.vector3>),
-      Offset<cfg.vector4> v4Offset = default(Offset<cfg.vector4>)) {
+      Offset<cfg.vec2> v2Offset = default(Offset<cfg.vec2>),
+      Offset<cfg.vec3> v3Offset = default(Offset<cfg.vec3>),
+      Offset<cfg.vec4> v4Offset = default(Offset<cfg.vec4>)) {
     builder.StartTable(7);
     TestTestScriptableObject.AddV4(builder, v4Offset);
     TestTestScriptableObject.AddV3(builder, v3Offset);
@@ -57,9 +57,9 @@ public struct TestTestScriptableObject : IFlatbufferObject
   public static void AddDesc(FlatBufferBuilder builder, StringOffset descOffset) { builder.AddOffset(1, descOffset.Value, 0); }
   public static void AddRate(FlatBufferBuilder builder, float rate) { builder.AddFloat(2, rate, 0.0f); }
   public static void AddNum(FlatBufferBuilder builder, int num) { builder.AddInt(3, num, 0); }
-  public static void AddV2(FlatBufferBuilder builder, Offset<cfg.vector2> v2Offset) { builder.AddOffset(4, v2Offset.Value, 0); }
-  public static void AddV3(FlatBufferBuilder builder, Offset<cfg.vector3> v3Offset) { builder.AddOffset(5, v3Offset.Value, 0); }
-  public static void AddV4(FlatBufferBuilder builder, Offset<cfg.vector4> v4Offset) { builder.AddOffset(6, v4Offset.Value, 0); }
+  public static void AddV2(FlatBufferBuilder builder, Offset<cfg.vec2> v2Offset) { builder.AddOffset(4, v2Offset.Value, 0); }
+  public static void AddV3(FlatBufferBuilder builder, Offset<cfg.vec3> v3Offset) { builder.AddOffset(5, v3Offset.Value, 0); }
+  public static void AddV4(FlatBufferBuilder builder, Offset<cfg.vec4> v4Offset) { builder.AddOffset(6, v4Offset.Value, 0); }
   public static Offset<cfg.TestTestScriptableObject> EndTestTestScriptableObject(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     builder.Required(o, 12);  // v2
@@ -79,9 +79,9 @@ static public class TestTestScriptableObjectVerify
       && verifier.VerifyString(tablePos, 6 /*Desc*/, false)
       && verifier.VerifyField(tablePos, 8 /*Rate*/, 4 /*float*/, 4, false)
       && verifier.VerifyField(tablePos, 10 /*Num*/, 4 /*int*/, 4, false)
-      && verifier.VerifyTable(tablePos, 12 /*V2*/, cfg.vector2Verify.Verify, true)
-      && verifier.VerifyTable(tablePos, 14 /*V3*/, cfg.vector3Verify.Verify, true)
-      && verifier.VerifyTable(tablePos, 16 /*V4*/, cfg.vector4Verify.Verify, true)
+      && verifier.VerifyTable(tablePos, 12 /*V2*/, cfg.vec2Verify.Verify, true)
+      && verifier.VerifyTable(tablePos, 14 /*V3*/, cfg.vec3Verify.Verify, true)
+      && verifier.VerifyTable(tablePos, 16 /*V4*/, cfg.vec4Verify.Verify, true)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

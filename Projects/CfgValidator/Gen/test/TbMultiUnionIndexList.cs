@@ -21,24 +21,25 @@ public partial class TbMultiUnionIndexList
 
     public TbMultiUnionIndexList(JsonElement _buf)
     {
-        _dataList = new System.Collections.Generic.List<test.MultiUnionIndexList>();
+        int count = _buf.GetArrayLength();
+        _dataList = new System.Collections.Generic.List<test.MultiUnionIndexList>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.MultiUnionIndexList _v;
-            _v = test.MultiUnionIndexList.DeserializeMultiUnionIndexList(_ele);
+            _v = global::cfg.test.MultiUnionIndexList.DeserializeMultiUnionIndexList(_ele);
             _dataList.Add(_v);
         }
         _dataMapUnion = new System.Collections.Generic.Dictionary<(int, long, string), test.MultiUnionIndexList>();
-        foreach(var _v in _dataList)
-        {
-            _dataMapUnion.Add((_v.Id1, _v.Id2, _v.Id3), _v);
-        }
+            foreach(var _v in _dataList)
+            {
+                _dataMapUnion.Add((_v.Id1, _v.Id2, _v.Id3), _v);
+            }
     }
 
-    public System.Collections.Generic.List<test.MultiUnionIndexList> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyList<test.MultiUnionIndexList> DataList => _dataList;
 
-    public test.MultiUnionIndexList Get(int id1, long id2, string id3) => _dataMapUnion.TryGetValue((id1, id2, id3), out test.MultiUnionIndexList __v) ? __v : null;
+    public test.MultiUnionIndexList Get(int id1, long id2, string id3) => _dataMapUnion.TryGetValue((id1, id2, id3), out test.MultiUnionIndexList __v) ? __v : default;
     
     public void ResolveRef(Tables tables)
     {

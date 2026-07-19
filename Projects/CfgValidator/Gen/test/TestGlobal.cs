@@ -44,6 +44,5 @@ public sealed partial class TestGlobal : Luban.BeanBase
         + "}";
     }
 }
-
 }
 

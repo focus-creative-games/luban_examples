@@ -11,6 +11,6 @@ dotnet %GEN_CLIENT% ^
     -x outputCodeDir=schemas ^
     -x outputDataDir=json ^
     -x pathValidator.rootDir=D:\workspace2\luban_examples\Projects\Csharp_Unity_bin ^
-    -x l10n.textProviderFile=*@D:\workspace2\luban_examples\DataTables\Datas\l10n\texts.json
+    -x l10n.textProviderFile=*@D:\workspace2\luban_examples\DataTables\Data\l10n\texts.json
 
 pause

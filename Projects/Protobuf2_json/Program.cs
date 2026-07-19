@@ -14,7 +14,7 @@ class Program
 
     private static void TestNullable()
     {
-        var file = "../../../pb_datas/test_tbtestnull.json";
+        var file = "../../../pb_data/test_tbtestnull.json";
 
         var jsonText = File.ReadAllText(file, Encoding.UTF8);
         var tbTestNull = TestTbTestNull.Parser.ParseJson(jsonText);
@@ -24,7 +24,7 @@ class Program
 
     private static void TestFullTypes()
     {
-        var file = "../../../pb_datas/test_tbfulltypes.json";
+        var file = "../../../pb_data/test_tbfulltypes.json";
 
         var jsonText = File.ReadAllText(file, Encoding.UTF8);
         var tbFullTypes = TestTbFullTypes.Parser.ParseJson(jsonText);

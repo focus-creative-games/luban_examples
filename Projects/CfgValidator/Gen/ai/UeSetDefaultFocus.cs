@@ -44,6 +44,5 @@ public sealed partial class UeSetDefaultFocus : ai.Service
         + "}";
     }
 }
-
 }
 

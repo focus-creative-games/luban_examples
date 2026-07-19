@@ -20,22 +20,23 @@ public partial class TbTestString
     
     public TbTestString(JsonElement _buf)
     {
-        _dataMap = new System.Collections.Generic.Dictionary<string, test.TestString>();
-        _dataList = new System.Collections.Generic.List<test.TestString>();
+        int count = _buf.GetArrayLength();
+        _dataMap = new System.Collections.Generic.Dictionary<string, test.TestString>(count);
+        _dataList = new System.Collections.Generic.List<test.TestString>(count);
         
         foreach(JsonElement _ele in _buf.EnumerateArray())
         {
             test.TestString _v;
-            _v = test.TestString.DeserializeTestString(_ele);
+            _v = global::cfg.test.TestString.DeserializeTestString(_ele);
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }
     }
 
-    public System.Collections.Generic.Dictionary<string, test.TestString> DataMap => _dataMap;
-    public System.Collections.Generic.List<test.TestString> DataList => _dataList;
+    public System.Collections.Generic.IReadOnlyDictionary<string, test.TestString> DataMap => _dataMap;
+    public System.Collections.Generic.IReadOnlyList<test.TestString> DataList => _dataList;
 
-    public test.TestString GetOrDefault(string key) => _dataMap.TryGetValue(key, out var v) ? v : null;
+    public test.TestString GetOrDefault(string key) => _dataMap.TryGetValue(key, out var v) ? v : default;
     public test.TestString Get(string key) => _dataMap[key];
     public test.TestString this[string key] => _dataMap[key];
 
