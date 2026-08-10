@@ -10,7 +10,7 @@ dotnet $LUBAN_DLL \
     -c gdscript-bin \
     -d bin \
     --conf $CONF_ROOT/luban.conf \
-    -x outputDataDir=$PROJECT_ROOT/cfg_bin \
+    -x outputDataDir=$PROJECT_ROOT/config \
     -x outputCodeDir=$PROJECT_ROOT/gen \
     -x l10n.provider=default \
     -x "l10n.textFile.path=*@$WORKSPACE/DataTables/Data/l10n/texts.json" \

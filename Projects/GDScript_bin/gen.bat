@@ -9,7 +9,7 @@ dotnet %LUBAN_DLL% ^
     -d bin ^
     --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=gen ^
-    -x outputDataDir=cfg_bin ^
+    -x outputDataDir=config ^
     -x pathValidator.rootDir=%WORKSPACE%\Projects\Csharp_Unity_bin ^
     -x l10n.provider=default ^
     -x l10n.textFile.path=*@%WORKSPACE%\DataTables\Data\l10n\texts.json ^
