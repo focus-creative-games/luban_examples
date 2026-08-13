@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GDScript_json"
 run/main_scene="res://Scenes/node_2d.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
