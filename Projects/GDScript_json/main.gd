@@ -13,5 +13,5 @@ func _ready():
 	# load config
 	config = Schema.CfgTables.new(loader)
 	# just print a few config, confirm load success.
-	for i in config.TbItem.get_data_list():
-		print(i.id, i.name, i.desc)
+	for i in config.tbItem.get_data_list():
+		prints(i.id, i.name, i.desc)
