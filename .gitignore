@@ -329,6 +329,7 @@ Projects/Csharp_CustomTemplate_EncryptMemory/*.sln
 out/
 /Projects/GDScript_json/.godot
 /Projects/GDScript_json/json
+/Projects/GDScript_bin_gd/.godot
 /MiniTemplate/output_json
 /Projects/GenerateData/
 /Tools/*.7z

@@ -17,18 +17,10 @@ enum AiEExecutor
 }
 
 
-enum AiEKeyType
+enum AiEFinishMode
 {
-    BOOL = 1,
-    INT = 2,
-    FLOAT = 3,
-    STRING = 4,
-    VECTOR = 5,
-    ROTATOR = 6,
-    NAME = 7,
-    CLASS = 8,
-    ENUM = 9,
-    OBJECT = 10,
+    IMMEDIATE = 0,
+    DELAYED = 1,
 }
 
 
@@ -41,10 +33,18 @@ enum AiEFlowAbortMode
 }
 
 
-enum AiEFinishMode
+enum AiEKeyType
 {
-    IMMEDIATE = 0,
-    DELAYED = 1,
+    BOOL = 1,
+    INT = 2,
+    FLOAT = 3,
+    STRING = 4,
+    VECTOR = 5,
+    ROTATOR = 6,
+    NAME = 7,
+    CLASS1 = 8,
+    ENUM1 = 9,
+    OBJECT = 10,
 }
 
 
@@ -83,19 +83,83 @@ enum CommonEBoolOperator
 }
 
 
-## 道具品质
-enum ItemEItemQuality
+enum ItemEClothersStarQualityType
 {
-    ## 白
-    WHITE = 0,
-    ## 绿
-    GREEN = 1,
-    ## 蓝
-    BLUE = 2,
-    ## 紫
-    PURPLE = 3,
-    ## 金
-    GOLDEN = 4,
+    ## 一星
+    ONE = 1,
+    ## 二星
+    TWO = 2,
+    ## 三星
+    THREE = 3,
+    ## 四星
+    FOUR = 4,
+    ## 五星
+    FIVE = 5,
+    ## 六星
+    SIX = 6,
+    ## 七星
+    SEVEN = 7,
+    ## 八星
+    EIGHT = 8,
+    ## 九星
+    NINE = 9,
+    ## 十星
+    TEN = 10,
+}
+
+
+enum ItemEClothersTag
+{
+    ## 防晒
+    FANG_SHAI = 1,
+    ## 舞者
+    WU_ZHE = 2,
+}
+
+
+enum ItemEClothesHidePartType
+{
+    ## 胸部
+    CHEST = 0,
+    ## 手
+    HEAD = 1,
+    ## 脊柱上
+    SPINE_UPPER = 2,
+    ## 脊柱下
+    SPINE_LOWER = 3,
+    ## 臀部
+    HIP = 4,
+    ## 腿上
+    LEG_UPPER = 5,
+    ## 腿中
+    LEG_MIDDLE = 6,
+    ## 腿下
+    LEG_LOWER = 7,
+}
+
+
+enum ItemEClothesPropertyType
+{
+    ## 简约
+    JIAN_YUE = 1,
+    ## 华丽
+    HUA_LI = 2,
+    ## 可爱
+    KE_AI = 3,
+    ## 成熟
+    CHENG_SHU = 4,
+    ## 活泼
+    HUO_PO = 5,
+    ## 优雅
+    YOU_YA = 6,
+    ## 清纯
+    QING_CHUN = 7,
+    ## 性感
+    XING_GAN = 8,
+    ## 清凉
+    QING_LIANG = 9,
+    ## 保暖
+    BAO_NUAN = 10,
 }
 
 
@@ -111,6 +175,22 @@ enum ItemECurrencyType
     EXP = 4,
     ## 能量点
     POWER_POINT = 5,
+}
+
+
+## 道具品质
+enum ItemEItemQuality
+{
+    ## 白
+    WHITE = 0,
+    ## 绿
+    GREEN = 1,
+    ## 蓝
+    BLUE = 2,
+    ## 紫
+    PURPLE = 3,
+    ## 金
+    GOLDEN = 4,
 }
 
 
@@ -244,40 +324,6 @@ enum ItemEMinorType
 }
 
 
-enum ItemEClothersStarQualityType
-{
-    ## 一星
-    ONE = 1,
-    ## 二星
-    TWO = 2,
-    ## 三星
-    THREE = 3,
-    ## 四星
-    FOUR = 4,
-    ## 五星
-    FIVE = 5,
-    ## 六星
-    SIX = 6,
-    ## 七星
-    SEVEN = 7,
-    ## 八星
-    EIGHT = 8,
-    ## 九星
-    NINE = 9,
-    ## 十星
-    TEN = 10,
-}
-
-
-enum ItemEClothersTag
-{
-    ## 防晒
-    FANG_SHAI = 1,
-    ## 舞者
-    WU_ZHE = 2,
-}
-
-
 enum ItemEUseType
 {
     ## 手动
@@ -287,49 +333,21 @@ enum ItemEUseType
 }
 
 
-enum ItemEClothesHidePartType
+enum TestAccessFlag
 {
-    ## 胸部
-    CHEST = 0,
-    ## 手
-    HEAD = 1,
-    ## 脊柱上
-    SPINE_UPPER = 2,
-    ## 脊柱下
-    SPINE_LOWER = 3,
-    ## 臀部
-    HIP = 4,
-    ## 腿上
-    LEG_UPPER = 5,
-    ## 腿中
-    LEG_MIDDLE = 6,
-    ## 腿下
-    LEG_LOWER = 7,
+    WRITE = 1,
+    READ = 2,
+    TRUNCATE = 4,
+    NEW = 8,
+    READ_WRITE = WRITE|READ,
 }
 
 
-enum ItemEClothesPropertyType
+enum TestAudioType2
 {
-    ## 简约
-    JIAN_YUE = 1,
-    ## 华丽
-    HUA_LI = 2,
-    ## 可爱
-    KE_AI = 3,
-    ## 成熟
-    CHENG_SHU = 4,
-    ## 活泼
-    HUO_PO = 5,
-    ## 优雅
-    YOU_YA = 6,
-    ## 清纯
-    QING_CHUN = 7,
-    ## 性感
-    XING_GAN = 8,
-    ## 清凉
-    QING_LIANG = 9,
-    ## 保暖
-    BAO_NUAN = 10,
+    UNKNOWN = 0,
+    ACC = 1,
+    AIFF = 2,
 }
 
 
@@ -354,14 +372,6 @@ enum TestDemoFlag
     B = 2,
     C = 4,
     D = 8,
-}
-
-
-enum TestETestUeType
-{
-    ## 白
-    WHITE = 0,
-    BLACK = 1,
 }
 
 
@@ -391,72 +401,42 @@ enum TestETestQuality
 }
 
 
-enum TestAccessFlag
+enum TestETestUeType
 {
-    WRITE = 1,
-    READ = 2,
-    TRUNCATE = 4,
-    NEW = 8,
-    READ_WRITE = WRITE|READ,
+    ## 白
+    WHITE = 0,
+    BLACK = 1,
 }
 
 
-class Vec2:
-    var x: float
-    var y: float
+class AiBehaviorTree:
+    var id: int
+    var name: String
+    var desc: String
+    var blackboard_id: String
+    var root: AiComposeNode
+    
+    var __type_id__ = 159552822;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
-        self.x = _json_["x"]
-        self.y = _json_["y"]
-
-
-class Vec3:
-    var x: float
-    var y: float
-    var z: float
-
-    func _init(_json_) -> void:
-        self.x = _json_["x"]
-        self.y = _json_["y"]
-        self.z = _json_["z"]
-
-
-class Vec4:
-    var x: float
-    var y: float
-    var z: float
-    var w: float
-
-    func _init(_json_) -> void:
-        self.x = _json_["x"]
-        self.y = _json_["y"]
-        self.z = _json_["z"]
-        self.w = _json_["w"]
-
-
-## 这是个测试excel结构
-class TestTestExcelBean1:
-    ## 最高品质
-    var x1: int
-    ## 黑色的
-    var x2: String
-    ## 蓝色的
-    var x3: int
-    ## 最差品质
-    var x4: float
-
-    func _init(_json_) -> void:
-        self.x1 = _json_["x1"]
-        self.x2 = _json_["x2"]
-        self.x3 = _json_["x3"]
-        self.x4 = _json_["x4"]
+        self.id = _json_["id"]
+        self.name = _json_["name"]
+        self.desc = _json_["desc"]
+        self.blackboard_id = _json_["blackboard_id"]
+        self.root = AiComposeNode.fromJson(_json_["root"])
 
 
 class AiBlackboard:
     var name: String
     var desc: String
     var parent_name: String
-    var keys: Array[AiBlackboardKey]
+    var keys: Array
+    
+    var __type_id__ = 1576193005;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.name = _json_["name"]
@@ -470,30 +450,132 @@ class AiBlackboardKey:
     var name: String
     var desc: String
     var is_static: bool
-    var type: int
+    var key_type: int
     var type_class_name: String
+    
+    var __type_id__ = -511559886;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.name = _json_["name"]
         self.desc = _json_["desc"]
         self.is_static = _json_["is_static"]
-        self.type = _json_["type"]
+        self.key_type = _json_["key_type"]
         self.type_class_name = _json_["type_class_name"]
 
 
-class AiBehaviorTree:
-    var id: int
-    var name: String
-    var desc: String
-    var blackboard_id: String
-    var root: AiComposeNode
+class AiKeyData:
+
+    static func fromJson(_json_):
+        var type = _json_['$type']
+        match type:
+            "FloatKeyData": return AiFloatKeyData.new(_json_)
+            "IntKeyData": return AiIntKeyData.new(_json_)
+            "StringKeyData": return AiStringKeyData.new(_json_)
+            "BlackboardKeyData": return AiBlackboardKeyData.new(_json_)
+            _: assert(false)
 
     func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.name = _json_["name"]
-        self.desc = _json_["desc"]
-        self.blackboard_id = _json_["blackboard_id"]
-        self.root = AiComposeNode.fromJson(_json_["root"])
+        pass
+
+
+class AiBlackboardKeyData extends AiKeyData:
+    var value: String
+    
+    var __type_id__ = 1517269500;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.value = _json_["value"]
+
+
+class AiFloatKeyData extends AiKeyData:
+    var value: float
+    
+    var __type_id__ = -719747885;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.value = _json_["value"]
+
+
+class AiIntKeyData extends AiKeyData:
+    var value: int
+    
+    var __type_id__ = -342751904;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.value = _json_["value"]
+
+
+class AiStringKeyData extends AiKeyData:
+    var value: String
+    
+    var __type_id__ = -307888654;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.value = _json_["value"]
+
+
+class AiKeyQueryOperator:
+
+    static func fromJson(_json_):
+        var type = _json_['$type']
+        match type:
+            "IsSet2": return AiIsSet2.new(_json_)
+            "IsNotSet": return AiIsNotSet.new(_json_)
+            "BinaryOperator": return AiBinaryOperator.new(_json_)
+            _: assert(false)
+
+    func _init(_json_) -> void:
+        pass
+
+
+class AiBinaryOperator extends AiKeyQueryOperator:
+    var oper: int
+    var data: AiKeyData
+    
+    var __type_id__ = -979891605;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.oper = _json_["oper"]
+        self.data = AiKeyData.fromJson(_json_["data"])
+
+
+class AiIsNotSet extends AiKeyQueryOperator:
+    
+    var __type_id__ = 790736255;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        pass
+
+
+class AiIsSet2 extends AiKeyQueryOperator:
+    
+    var __type_id__ = -843729664;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        pass
 
 
 class AiNode:
@@ -533,87 +615,6 @@ class AiNode:
         self.node_name = _json_["node_name"]
 
 
-class AiService extends AiNode:
-
-    static func fromJson(_json_):
-        var type = _json_['$type']
-        match type:
-            "UeSetDefaultFocus": return AiUeSetDefaultFocus.new(_json_)
-            "ExecuteTimeStatistic": return AiExecuteTimeStatistic.new(_json_)
-            "ChooseTarget": return AiChooseTarget.new(_json_)
-            "KeepFaceTarget": return AiKeepFaceTarget.new(_json_)
-            "GetOwnerPlayer": return AiGetOwnerPlayer.new(_json_)
-            "UpdateDailyBehaviorProps": return AiUpdateDailyBehaviorProps.new(_json_)
-            _: assert(false)
-
-    func _init(_json_) -> void:
-        super(_json_)
-        pass
-
-
-class AiUeSetDefaultFocus extends AiService:
-    var keyboard_key: String
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.keyboard_key = _json_["keyboard_key"]
-
-
-class AiExecuteTimeStatistic extends AiService:
-
-    func _init(_json_) -> void:
-        super(_json_)
-        pass
-
-
-class AiChooseTarget extends AiService:
-    var result_target_key: String
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.result_target_key = _json_["result_target_key"]
-
-
-class AiKeepFaceTarget extends AiService:
-    var target_actor_key: String
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.target_actor_key = _json_["target_actor_key"]
-
-
-class AiGetOwnerPlayer extends AiService:
-    var player_actor_key: String
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.player_actor_key = _json_["player_actor_key"]
-
-
-class AiUpdateDailyBehaviorProps extends AiService:
-    var satiety_key: String
-    var energy_key: String
-    var mood_key: String
-    var satiety_lower_threshold_key: String
-    var satiety_upper_threshold_key: String
-    var energy_lower_threshold_key: String
-    var energy_upper_threshold_key: String
-    var mood_lower_threshold_key: String
-    var mood_upper_threshold_key: String
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.satiety_key = _json_["satiety_key"]
-        self.energy_key = _json_["energy_key"]
-        self.mood_key = _json_["mood_key"]
-        self.satiety_lower_threshold_key = _json_["satiety_lower_threshold_key"]
-        self.satiety_upper_threshold_key = _json_["satiety_upper_threshold_key"]
-        self.energy_lower_threshold_key = _json_["energy_lower_threshold_key"]
-        self.energy_upper_threshold_key = _json_["energy_upper_threshold_key"]
-        self.mood_lower_threshold_key = _json_["mood_lower_threshold_key"]
-        self.mood_upper_threshold_key = _json_["mood_upper_threshold_key"]
-
-
 class AiDecorator extends AiNode:
     var flow_abort_mode: int
 
@@ -634,155 +635,15 @@ class AiDecorator extends AiNode:
         self.flow_abort_mode = _json_["flow_abort_mode"]
 
 
-class AiUeLoop extends AiDecorator:
-    var num_loops: int
-    var infinite_loop: bool
-    var infinite_loop_timeout_time: float
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.num_loops = _json_["num_loops"]
-        self.infinite_loop = _json_["infinite_loop"]
-        self.infinite_loop_timeout_time = _json_["infinite_loop_timeout_time"]
-
-
-class AiUeCooldown extends AiDecorator:
-    var cooldown_time: float
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.cooldown_time = _json_["cooldown_time"]
-
-
-class AiUeTimeLimit extends AiDecorator:
-    var limit_time: float
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.limit_time = _json_["limit_time"]
-
-
-class AiUeBlackboard extends AiDecorator:
-    var notify_observer: int
-    var blackboard_key: String
-    var key_query: AiKeyQueryOperator
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.notify_observer = _json_["notify_observer"]
-        self.blackboard_key = _json_["blackboard_key"]
-        self.key_query = AiKeyQueryOperator.fromJson(_json_["key_query"])
-
-
-class AiKeyQueryOperator:
-
-    static func fromJson(_json_):
-        var type = _json_['$type']
-        match type:
-            "IsSet": return AiIsSet.new(_json_)
-            "IsNotSet": return AiIsNotSet.new(_json_)
-            "BinaryOperator": return AiBinaryOperator.new(_json_)
-            _: assert(false)
-
-    func _init(_json_) -> void:
-        pass
-
-
-class AiIsSet extends AiKeyQueryOperator:
-
-    func _init(_json_) -> void:
-        super(_json_)
-        pass
-
-
-class AiIsNotSet extends AiKeyQueryOperator:
-
-    func _init(_json_) -> void:
-        super(_json_)
-        pass
-
-
-class AiBinaryOperator extends AiKeyQueryOperator:
-    var oper: int
-    var data: AiKeyData
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.oper = _json_["oper"]
-        self.data = AiKeyData.fromJson(_json_["data"])
-
-
-class AiKeyData:
-
-    static func fromJson(_json_):
-        var type = _json_['$type']
-        match type:
-            "FloatKeyData": return AiFloatKeyData.new(_json_)
-            "IntKeyData": return AiIntKeyData.new(_json_)
-            "StringKeyData": return AiStringKeyData.new(_json_)
-            "BlackboardKeyData": return AiBlackboardKeyData.new(_json_)
-            _: assert(false)
-
-    func _init(_json_) -> void:
-        pass
-
-
-class AiFloatKeyData extends AiKeyData:
-    var value: float
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.value = _json_["value"]
-
-
-class AiIntKeyData extends AiKeyData:
-    var value: int
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.value = _json_["value"]
-
-
-class AiStringKeyData extends AiKeyData:
-    var value: String
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.value = _json_["value"]
-
-
-class AiBlackboardKeyData extends AiKeyData:
-    var value: String
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.value = _json_["value"]
-
-
-class AiUeForceSuccess extends AiDecorator:
-
-    func _init(_json_) -> void:
-        super(_json_)
-        pass
-
-
-class AiIsAtLocation extends AiDecorator:
-    var acceptable_radius: float
-    var keyboard_key: String
-    var inverse_condition: bool
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.acceptable_radius = _json_["acceptable_radius"]
-        self.keyboard_key = _json_["keyboard_key"]
-        self.inverse_condition = _json_["inverse_condition"]
-
-
 class AiDistanceLessThan extends AiDecorator:
     var actor1_key: String
     var actor2_key: String
     var distance: float
     var reverse_result: bool
+    
+    var __type_id__ = -1207170283;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         super(_json_)
@@ -792,9 +653,92 @@ class AiDistanceLessThan extends AiDecorator:
         self.reverse_result = _json_["reverse_result"]
 
 
+class AiIsAtLocation extends AiDecorator:
+    var acceptable_radius: float
+    var keyboard_key: String
+    var inverse_condition: bool
+    
+    var __type_id__ = 1255972344;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.acceptable_radius = _json_["acceptable_radius"]
+        self.keyboard_key = _json_["keyboard_key"]
+        self.inverse_condition = _json_["inverse_condition"]
+
+
+class AiUeBlackboard extends AiDecorator:
+    var notify_observer: int
+    var blackboard_key: String
+    var key_query: AiKeyQueryOperator
+    
+    var __type_id__ = -315297507;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.notify_observer = _json_["notify_observer"]
+        self.blackboard_key = _json_["blackboard_key"]
+        self.key_query = AiKeyQueryOperator.fromJson(_json_["key_query"])
+
+
+class AiUeCooldown extends AiDecorator:
+    var cooldown_time: float
+    
+    var __type_id__ = -951439423;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.cooldown_time = _json_["cooldown_time"]
+
+
+class AiUeForceSuccess extends AiDecorator:
+    
+    var __type_id__ = 195054574;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        pass
+
+
+class AiUeLoop extends AiDecorator:
+    var num_loops: int
+    var infinite_loop: bool
+    var infinite_loop_timeout_time: float
+    
+    var __type_id__ = -513308166;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.num_loops = _json_["num_loops"]
+        self.infinite_loop = _json_["infinite_loop"]
+        self.infinite_loop_timeout_time = _json_["infinite_loop_timeout_time"]
+
+
+class AiUeTimeLimit extends AiDecorator:
+    var limit_time: float
+    
+    var __type_id__ = 338469720;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.limit_time = _json_["limit_time"]
+
+
 class AiFlowNode extends AiNode:
-    var decorators: Array[AiDecorator]
-    var services: Array[AiService]
+    var decorators: Array
+    var services: Array
 
     static func fromJson(_json_):
         var type = _json_['$type']
@@ -834,8 +778,12 @@ class AiComposeNode extends AiFlowNode:
         pass
 
 
-class AiSequence extends AiComposeNode:
-    var children: Array[AiFlowNode]
+class AiSelector extends AiComposeNode:
+    var children: Array
+    
+    var __type_id__ = -1946981627;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         super(_json_)
@@ -843,8 +791,12 @@ class AiSequence extends AiComposeNode:
         for _ele in _json_["children"]: var _e: AiFlowNode; _e = AiFlowNode.fromJson(_ele); self.children.append(_e)
 
 
-class AiSelector extends AiComposeNode:
-    var children: Array[AiFlowNode]
+class AiSequence extends AiComposeNode:
+    var children: Array
+    
+    var __type_id__ = -1789006105;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         super(_json_)
@@ -856,6 +808,10 @@ class AiSimpleParallel extends AiComposeNode:
     var finish_mode: int
     var main_task: AiTask
     var background_node: AiFlowNode
+    
+    var __type_id__ = -1952582529;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         super(_json_)
@@ -884,9 +840,79 @@ class AiTask extends AiFlowNode:
         self.ignore_restart_self = _json_["ignore_restart_self"]
 
 
+class AiChooseSkill extends AiTask:
+    var target_actor_key: String
+    var result_skill_id_key: String
+    
+    var __type_id__ = -918812268;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.target_actor_key = _json_["target_actor_key"]
+        self.result_skill_id_key = _json_["result_skill_id_key"]
+
+
+class AiDebugPrint extends AiTask:
+    var text: String
+    
+    var __type_id__ = 1357409728;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.text = _json_["text"]
+
+
+class AiMoveToLocation extends AiTask:
+    var acceptable_radius: float
+    
+    var __type_id__ = -969953113;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.acceptable_radius = _json_["acceptable_radius"]
+
+
+class AiMoveToRandomLocation extends AiTask:
+    var origin_position_key: String
+    var radius: float
+    
+    var __type_id__ = -2140042998;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.origin_position_key = _json_["origin_position_key"]
+        self.radius = _json_["radius"]
+
+
+class AiMoveToTarget extends AiTask:
+    var target_actor_key: String
+    var acceptable_radius: float
+    
+    var __type_id__ = 514987779;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.target_actor_key = _json_["target_actor_key"]
+        self.acceptable_radius = _json_["acceptable_radius"]
+
+
 class AiUeWait extends AiTask:
     var wait_time: float
     var random_deviation: float
+    
+    var __type_id__ = -512994101;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         super(_json_)
@@ -896,56 +922,200 @@ class AiUeWait extends AiTask:
 
 class AiUeWaitBlackboardTime extends AiTask:
     var blackboard_key: String
+    
+    var __type_id__ = 1215378271;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         super(_json_)
         self.blackboard_key = _json_["blackboard_key"]
 
 
-class AiMoveToTarget extends AiTask:
+class AiService extends AiNode:
+
+    static func fromJson(_json_):
+        var type = _json_['$type']
+        match type:
+            "UeSetDefaultFocus": return AiUeSetDefaultFocus.new(_json_)
+            "ExecuteTimeStatistic": return AiExecuteTimeStatistic.new(_json_)
+            "ChooseTarget": return AiChooseTarget.new(_json_)
+            "KeepFaceTarget": return AiKeepFaceTarget.new(_json_)
+            "GetOwnerPlayer": return AiGetOwnerPlayer.new(_json_)
+            "UpdateDailyBehaviorProps": return AiUpdateDailyBehaviorProps.new(_json_)
+            _: assert(false)
+
+    func _init(_json_) -> void:
+        super(_json_)
+        pass
+
+
+class AiChooseTarget extends AiService:
+    var result_target_key: String
+    
+    var __type_id__ = 1601247918;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.result_target_key = _json_["result_target_key"]
+
+
+class AiExecuteTimeStatistic extends AiService:
+    
+    var __type_id__ = 990693812;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        pass
+
+
+class AiGetOwnerPlayer extends AiService:
+    var player_actor_key: String
+    
+    var __type_id__ = -999247644;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.player_actor_key = _json_["player_actor_key"]
+
+
+class AiKeepFaceTarget extends AiService:
     var target_actor_key: String
-    var acceptable_radius: float
+    
+    var __type_id__ = 1195270745;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         super(_json_)
         self.target_actor_key = _json_["target_actor_key"]
-        self.acceptable_radius = _json_["acceptable_radius"]
 
 
-class AiChooseSkill extends AiTask:
-    var target_actor_key: String
-    var result_skill_id_key: String
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.target_actor_key = _json_["target_actor_key"]
-        self.result_skill_id_key = _json_["result_skill_id_key"]
-
-
-class AiMoveToRandomLocation extends AiTask:
-    var origin_position_key: String
-    var radius: float
+class AiUeSetDefaultFocus extends AiService:
+    var keyboard_key: String
+    
+    var __type_id__ = 1812449155;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         super(_json_)
-        self.origin_position_key = _json_["origin_position_key"]
-        self.radius = _json_["radius"]
+        self.keyboard_key = _json_["keyboard_key"]
 
 
-class AiMoveToLocation extends AiTask:
-    var acceptable_radius: float
+class AiUpdateDailyBehaviorProps extends AiService:
+    var satiety_key: String
+    var energy_key: String
+    var mood_key: String
+    var satiety_lower_threshold_key: String
+    var satiety_upper_threshold_key: String
+    var energy_lower_threshold_key: String
+    var energy_upper_threshold_key: String
+    var mood_lower_threshold_key: String
+    var mood_upper_threshold_key: String
+    
+    var __type_id__ = -61887372;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         super(_json_)
-        self.acceptable_radius = _json_["acceptable_radius"]
+        self.satiety_key = _json_["satiety_key"]
+        self.energy_key = _json_["energy_key"]
+        self.mood_key = _json_["mood_key"]
+        self.satiety_lower_threshold_key = _json_["satiety_lower_threshold_key"]
+        self.satiety_upper_threshold_key = _json_["satiety_upper_threshold_key"]
+        self.energy_lower_threshold_key = _json_["energy_lower_threshold_key"]
+        self.energy_upper_threshold_key = _json_["energy_upper_threshold_key"]
+        self.mood_lower_threshold_key = _json_["mood_lower_threshold_key"]
+        self.mood_upper_threshold_key = _json_["mood_upper_threshold_key"]
 
 
-class AiDebugPrint extends AiTask:
-    var text: String
+class AutoImport1:
+    ## 这是id
+    var id: int
+    ## 字段x1
+    var x1: bool
+    var x5: int
+    var x6: float
+    var x8: int
+    var x10: String
+    var x13: int
+    var x13_2: int
+    var x14: TestDemoDynamic
+    var x15: TestShape
+    var v2: Vec2
+    var t1: int
+    var k1: Array
+    var k2: Array
+    var k8: Dictionary
+    var k9: Array
+    var k10: Array
+    var k11: Array
+    var v11: Vec3
+    
+    var __type_id__ = -2092142499;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
-        super(_json_)
-        self.text = _json_["text"]
+        self.id = _json_["id"]
+        self.x1 = _json_["x1"]
+        self.x5 = _json_["x5"]
+        self.x6 = _json_["x6"]
+        self.x8 = _json_["x8"]
+        self.x10 = _json_["x10"]
+        self.x13 = _json_["x13"]
+        self.x13_2 = _json_["x13_2"]
+        self.x14 = TestDemoDynamic.fromJson(_json_["x14"])
+        self.x15 = TestShape.fromJson(_json_["x15"])
+        self.v2 = Vec2.new(_json_["v2"])
+        self.t1 = _json_["t1"]
+        self.k1 = []
+        for _ele in _json_["k1"]: var _e: int; _e = _ele; self.k1.append(_e)
+        self.k2 = []
+        for _ele in _json_["k2"]: var _e: int; _e = _ele; self.k2.append(_e)
+        self.k8 = {}
+        for _e in _json_["k8"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.k8[_k] = _v
+        self.k9 = []
+        for _ele in _json_["k9"]: var _e: TestDemoE2; _e = TestDemoE2.new(_ele); self.k9.append(_e)
+        self.k10 = []
+        for _ele in _json_["k10"]: var _e: Vec3; _e = Vec3.new(_ele); self.k10.append(_e)
+        self.k11 = []
+        for _ele in _json_["k11"]: var _e: Vec4; _e = Vec4.new(_ele); self.k11.append(_e)
+        if _json_.get('v11') != null: self.v11 = Vec3.new(_json_["v11"])
+
+
+class CommonDateTimeRange:
+    var start_time: int
+    var end_time: int
+    
+    var __type_id__ = 1642200959;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        if _json_.get('start_time') != null: self.start_time = _json_["start_time"]
+        if _json_.get('end_time') != null: self.end_time = _json_["end_time"]
+
+
+class CommonFloatRange:
+    var min: float
+    var max: float
+    
+    var __type_id__ = 561922116;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.min = _json_["min"]
+        self.max = _json_["max"]
 
 
 class CommonGlobalConfig:
@@ -956,7 +1126,11 @@ class CommonGlobalConfig:
     var x4: int
     var x5: int
     var x6: int
-    var x7: Array[int]
+    var x7: Array
+    
+    var __type_id__ = -848234488;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.x1 = _json_["x1"]
@@ -967,6 +1141,47 @@ class CommonGlobalConfig:
         self.x6 = _json_["x6"]
         self.x7 = []
         for _ele in _json_["x7"]: var _e: int; _e = _ele; self.x7.append(_e)
+
+
+class CommonIntRange:
+    var min: int
+    var max: int
+    
+    var __type_id__ = -751013039;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.min = _json_["min"]
+        self.max = _json_["max"]
+
+
+class CommonOneDayTimeRange:
+    var start_time: CommonTimeOfDay
+    var end_time: CommonTimeOfDay
+    
+    var __type_id__ = 1628814743;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.start_time = CommonTimeOfDay.new(_json_["start_time"])
+        self.end_time = CommonTimeOfDay.new(_json_["end_time"])
+
+
+class CommonTimeOfDay:
+    var hour: int
+    var minute: int
+    var second: int
+    
+    var __type_id__ = -1728347371;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.hour = _json_["hour"]
+        self.minute = _json_["minute"]
+        self.second = _json_["second"]
 
 
 ## 道具
@@ -983,6 +1198,10 @@ class ItemItem:
     var icon_mask: String
     var desc: String
     var show_order: int
+    
+    var __type_id__ = 2107285806;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
@@ -1001,6 +1220,10 @@ class ItemItem:
 class L10nL10NDemo:
     var id: int
     var text: String
+    
+    var __type_id__ = -331195887;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
@@ -1010,6 +1233,10 @@ class L10nL10NDemo:
 class L10nPatchDemo:
     var id: int
     var value: int
+    
+    var __type_id__ = -1707294656;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
@@ -1019,10 +1246,441 @@ class L10nPatchDemo:
 class TagTestTag:
     var id: int
     var value: String
+    
+    var __type_id__ = 1742933812;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
         self.value = _json_["value"]
+
+
+class TestAutoImport2:
+    ## 这是id
+    var id: int
+    ## 字段x1
+    var x1: bool
+    var x5: int
+    var x6: float
+    var x8: int
+    var x10: String
+    var x13: int
+    var x13_2: int
+    var x14: TestDemoDynamic
+    var x15: TestShape
+    var v2: Vec2
+    var t1: int
+    var k1: Array
+    var k2: Array
+    var k8: Dictionary
+    var k9: Array
+    var k10: Array
+    var k11: Array
+    var v11: Vec3
+    
+    var __type_id__ = 417472770;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.x1 = _json_["x1"]
+        self.x5 = _json_["x5"]
+        self.x6 = _json_["x6"]
+        self.x8 = _json_["x8"]
+        self.x10 = _json_["x10"]
+        self.x13 = _json_["x13"]
+        self.x13_2 = _json_["x13_2"]
+        self.x14 = TestDemoDynamic.fromJson(_json_["x14"])
+        self.x15 = TestShape.fromJson(_json_["x15"])
+        self.v2 = Vec2.new(_json_["v2"])
+        self.t1 = _json_["t1"]
+        self.k1 = []
+        for _ele in _json_["k1"]: var _e: int; _e = _ele; self.k1.append(_e)
+        self.k2 = []
+        for _ele in _json_["k2"]: var _e: int; _e = _ele; self.k2.append(_e)
+        self.k8 = {}
+        for _e in _json_["k8"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.k8[_k] = _v
+        self.k9 = []
+        for _ele in _json_["k9"]: var _e: TestDemoE2; _e = TestDemoE2.new(_ele); self.k9.append(_e)
+        self.k10 = []
+        for _ele in _json_["k10"]: var _e: Vec3; _e = Vec3.new(_ele); self.k10.append(_e)
+        self.k11 = []
+        for _ele in _json_["k11"]: var _e: Vec4; _e = Vec4.new(_ele); self.k11.append(_e)
+        if _json_.get('v11') != null: self.v11 = Vec3.new(_json_["v11"])
+
+
+class TestAutoImport3:
+    ## 这是id
+    var id: int
+    ## 字段x1
+    var x1: bool
+    var x5: int
+    var x6: float
+    var x8: int
+    var x10: String
+    var x13: int
+    var x13_2: int
+    var x14: TestDemoDynamic
+    var x15: TestShape
+    var v2: Vec2
+    var t1: int
+    var k1: Array
+    var k2: Array
+    var k8: Dictionary
+    var k9: Array
+    var k10: Array
+    var k11: Array
+    var v11: Vec3
+    
+    var __type_id__ = 417472771;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.x1 = _json_["x1"]
+        self.x5 = _json_["x5"]
+        self.x6 = _json_["x6"]
+        self.x8 = _json_["x8"]
+        self.x10 = _json_["x10"]
+        self.x13 = _json_["x13"]
+        self.x13_2 = _json_["x13_2"]
+        self.x14 = TestDemoDynamic.fromJson(_json_["x14"])
+        self.x15 = TestShape.fromJson(_json_["x15"])
+        self.v2 = Vec2.new(_json_["v2"])
+        self.t1 = _json_["t1"]
+        self.k1 = []
+        for _ele in _json_["k1"]: var _e: int; _e = _ele; self.k1.append(_e)
+        self.k2 = []
+        for _ele in _json_["k2"]: var _e: int; _e = _ele; self.k2.append(_e)
+        self.k8 = {}
+        for _e in _json_["k8"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.k8[_k] = _v
+        self.k9 = []
+        for _ele in _json_["k9"]: var _e: TestDemoE2; _e = TestDemoE2.new(_ele); self.k9.append(_e)
+        self.k10 = []
+        for _ele in _json_["k10"]: var _e: Vec3; _e = Vec3.new(_ele); self.k10.append(_e)
+        self.k11 = []
+        for _ele in _json_["k11"]: var _e: Vec4; _e = Vec4.new(_ele); self.k11.append(_e)
+        if _json_.get('v11') != null: self.v11 = Vec3.new(_json_["v11"])
+
+
+class TestCompactString:
+    var id: int
+    var s2: String
+    var s3: String
+    
+    var __type_id__ = 1968089240;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.s2 = _json_["s2"]
+        self.s3 = _json_["s3"]
+
+
+class TestCompositeJsonTable1:
+    var id: int
+    var x: String
+    
+    var __type_id__ = 1566207894;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.x = _json_["x"]
+
+
+class TestCompositeJsonTable2:
+    var id: int
+    var y: int
+    
+    var __type_id__ = 1566207895;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.y = _json_["y"]
+
+
+class TestCompositeJsonTable3:
+    var a: int
+    var b: int
+    
+    var __type_id__ = 1566207896;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.a = _json_["a"]
+        self.b = _json_["b"]
+
+
+class TestDateTimeRange:
+    var start_time: int
+    var end_time: int
+    
+    var __type_id__ = 495315430;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.start_time = _json_["start_time"]
+        self.end_time = _json_["end_time"]
+
+
+class TestDefineFromExcel2:
+    ## 这是id
+    var id: int
+    ## 字段x1
+    var x1: bool
+    var x5: int
+    var x6: float
+    var x8: int
+    var x10: String
+    var x13: int
+    var x13_2: int
+    var x13_3: int
+    var x14: TestDemoDynamic
+    var x15: TestShape
+    var v2: Vec2
+    var t1: int
+    var k1: Array
+    var k2: Array
+    var k8: Dictionary
+    var k9: Array
+    var k10: Array
+    var k11: Array
+    var v11: Vec3
+    
+    var __type_id__ = 688816828;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.x1 = _json_["x1"]
+        self.x5 = _json_["x5"]
+        self.x6 = _json_["x6"]
+        self.x8 = _json_["x8"]
+        self.x10 = _json_["x10"]
+        self.x13 = _json_["x13"]
+        self.x13_2 = _json_["x13_2"]
+        self.x13_3 = _json_["x13_3"]
+        self.x14 = TestDemoDynamic.fromJson(_json_["x14"])
+        self.x15 = TestShape.fromJson(_json_["x15"])
+        self.v2 = Vec2.new(_json_["v2"])
+        self.t1 = _json_["t1"]
+        self.k1 = []
+        for _ele in _json_["k1"]: var _e: int; _e = _ele; self.k1.append(_e)
+        self.k2 = []
+        for _ele in _json_["k2"]: var _e: int; _e = _ele; self.k2.append(_e)
+        self.k8 = {}
+        for _e in _json_["k8"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.k8[_k] = _v
+        self.k9 = []
+        for _ele in _json_["k9"]: var _e: TestDemoE2; _e = TestDemoE2.new(_ele); self.k9.append(_e)
+        self.k10 = []
+        for _ele in _json_["k10"]: var _e: Vec3; _e = Vec3.new(_ele); self.k10.append(_e)
+        self.k11 = []
+        for _ele in _json_["k11"]: var _e: Vec4; _e = Vec4.new(_ele); self.k11.append(_e)
+        if _json_.get('v11') != null: self.v11 = Vec3.new(_json_["v11"])
+
+
+class TestDemoDynamic:
+    var x1: int
+
+    static func fromJson(_json_):
+        var type = _json_['$type']
+        match type:
+            "DemoD2": return TestDemoD2.new(_json_)
+            "DemoE1": return TestDemoE1.new(_json_)
+            "test.login.RoleInfo": return TestLoginRoleInfo.new(_json_)
+            "DemoD5": return TestDemoD5.new(_json_)
+            _: assert(false)
+
+    func _init(_json_) -> void:
+        self.x1 = _json_["x1"]
+
+
+class TestDemoD2 extends TestDemoDynamic:
+    var x2: int
+    
+    var __type_id__ = -2138341747;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.x2 = _json_["x2"]
+
+
+class TestDemoD3 extends TestDemoDynamic:
+    var x3: int
+
+    static func fromJson(_json_):
+        var type = _json_['$type']
+        match type:
+            "DemoE1": return TestDemoE1.new(_json_)
+            "test.login.RoleInfo": return TestLoginRoleInfo.new(_json_)
+            _: assert(false)
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.x3 = _json_["x3"]
+
+
+class TestDemoE1 extends TestDemoD3:
+    var x4: int
+    
+    var __type_id__ = -2138341717;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.x4 = _json_["x4"]
+
+
+class TestLoginRoleInfo extends TestDemoD3:
+    var role_id: int
+    
+    var __type_id__ = -989153243;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.role_id = _json_["role_id"]
+
+
+class TestDemoD5 extends TestDemoDynamic:
+    var time: TestDateTimeRange
+    
+    var __type_id__ = -2138341744;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.time = TestDateTimeRange.new(_json_["time"])
+
+
+class TestDemoE2:
+    var y1: int
+    var y2: bool
+
+    func _init(_json_) -> void:
+        if _json_.get('y1') != null: self.y1 = _json_["y1"]
+        self.y2 = _json_["y2"]
+
+
+class TestDemoExplicitType:
+    var x1: int
+    var x2: int
+    var x3: int
+    var x4: int
+    var x5: float
+    var x6: float
+    var x7: int
+    
+    var __type_id__ = 370351885;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.x1 = _json_["x1"]
+        self.x2 = _json_["x2"]
+        self.x3 = _json_["x3"]
+        self.x4 = _json_["x4"]
+        self.x5 = _json_["x5"]
+        self.x6 = _json_["x6"]
+        self.x7 = _json_["x7"]
+
+
+class TestDemoGroup:
+    var id: int
+    var x1: int
+    var x2: int
+    var x3: int
+    var x4: int
+    var x5: TestInnerGroup
+    
+    var __type_id__ = -379263008;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.x1 = _json_["x1"]
+        self.x2 = _json_["x2"]
+        self.x3 = _json_["x3"]
+        self.x4 = _json_["x4"]
+        self.x5 = TestInnerGroup.new(_json_["x5"])
+
+
+class TestDemoPrimitiveTypesTable:
+    var x1: bool
+    var x2: int
+    var x3: int
+    var x4: int
+    var x5: int
+    var x6: float
+    var x7: float
+    var s1: String
+    var s2: String
+    var v2: Vec2
+    var v3: Vec3
+    var v4: Vec4
+    var t1: int
+    
+    var __type_id__ = -370934083;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.x1 = _json_["x1"]
+        self.x2 = _json_["x2"]
+        self.x3 = _json_["x3"]
+        self.x4 = _json_["x4"]
+        self.x5 = _json_["x5"]
+        self.x6 = _json_["x6"]
+        self.x7 = _json_["x7"]
+        self.s1 = _json_["s1"]
+        self.s2 = _json_["s2"]
+        self.v2 = Vec2.new(_json_["v2"])
+        self.v3 = Vec3.new(_json_["v3"])
+        self.v4 = Vec4.new(_json_["v4"])
+        self.t1 = _json_["t1"]
+
+
+class TestDemoSingletonType:
+    var id: int
+    var name: String
+    var date: TestDemoDynamic
+    
+    var __type_id__ = 539196998;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.name = _json_["name"]
+        self.date = TestDemoDynamic.fromJson(_json_["date"])
+
+
+class TestDemoType1:
+    var x1: int
+    
+    var __type_id__ = -367048296;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.x1 = _json_["x1"]
 
 
 class TestDemoType2:
@@ -1042,12 +1700,16 @@ class TestDemoType2:
     var x14: TestDemoDynamic
     var s1: String
     var t1: int
-    var k1: Array[int]
-    var k2: Array[int]
-    var k5: Array[int]
+    var k1: Array
+    var k2: Array
+    var k5: Array
     var k8: Dictionary
-    var k9: Array[TestDemoE2]
-    var k15: Array[TestDemoDynamic]
+    var k9: Array
+    var k15: Array
+    
+    var __type_id__ = -367048295;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.x4 = _json_["x4"]
@@ -1080,127 +1742,191 @@ class TestDemoType2:
         for _ele in _json_["k15"]: var _e: TestDemoDynamic; _e = TestDemoDynamic.fromJson(_ele); self.k15.append(_e)
 
 
-class TestDemoType1:
-    var x1: int
-
-    func _init(_json_) -> void:
-        self.x1 = _json_["x1"]
-
-
-class TestDemoDynamic:
-    var x1: int
-
-    static func fromJson(_json_):
-        var type = _json_['$type']
-        match type:
-            "DemoD2": return TestDemoD2.new(_json_)
-            "DemoE1": return TestDemoE1.new(_json_)
-            "test.login.RoleInfo": return Test_loginRoleInfo.new(_json_)
-            "DemoD5": return TestDemoD5.new(_json_)
-            _: assert(false)
-
-    func _init(_json_) -> void:
-        self.x1 = _json_["x1"]
-
-
-class TestDemoD2 extends TestDemoDynamic:
-    var x2: int
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.x2 = _json_["x2"]
-
-
-class TestDemoD3 extends TestDemoDynamic:
-    var x3: int
-
-    static func fromJson(_json_):
-        var type = _json_['$type']
-        match type:
-            "DemoE1": return TestDemoE1.new(_json_)
-            "test.login.RoleInfo": return Test_loginRoleInfo.new(_json_)
-            _: assert(false)
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.x3 = _json_["x3"]
-
-
-class TestDemoE1 extends TestDemoD3:
-    var x4: int
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.x4 = _json_["x4"]
-
-
-class Test_loginRoleInfo extends TestDemoD3:
-    var role_id: int
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.role_id = _json_["role_id"]
-
-
-class TestDemoD5 extends TestDemoDynamic:
-    var time: TestDateTimeRange
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.time = TestDateTimeRange.new(_json_["time"])
-
-
-class TestDateTimeRange:
-    var start_time: int
-    var end_time: int
-
-    func _init(_json_) -> void:
-        self.start_time = _json_["start_time"]
-        self.end_time = _json_["end_time"]
-
-
-class TestDemoE2:
-    var y1: int
-    var y2: bool
-
-    func _init(_json_) -> void:
-        if _json_.get('y1') != null: self.y1 = _json_["y1"]
-        self.y2 = _json_["y2"]
-
-
-class TestDemoSingletonType:
+class TestDetectEncoding:
     var id: int
     var name: String
-    var date: TestDemoDynamic
+    
+    var __type_id__ = -1154609646;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
         self.name = _json_["name"]
-        self.date = TestDemoDynamic.fromJson(_json_["date"])
 
 
-class TestNotIndexList:
-    var x: int
-    var y: int
+class TestExcelFromJson:
+    var x4: int
+    var x1: bool
+    var x5: int
+    var x6: float
+    var s1: String
+    var s2: String
+    var t1: int
+    var x12: TestDemoType1
+    var x13: int
+    var x14: TestDemoDynamic
+    var k1: Array
+    var k8: Dictionary
+    var k9: Array
+    var k15: Array
+    
+    var __type_id__ = -1485706483;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
+        self.x4 = _json_["x4"]
+        self.x1 = _json_["x1"]
+        self.x5 = _json_["x5"]
+        self.x6 = _json_["x6"]
+        self.s1 = _json_["s1"]
+        self.s2 = _json_["s2"]
+        self.t1 = _json_["t1"]
+        self.x12 = TestDemoType1.new(_json_["x12"])
+        self.x13 = _json_["x13"]
+        self.x14 = TestDemoDynamic.fromJson(_json_["x14"])
+        self.k1 = []
+        for _ele in _json_["k1"]: var _e: int; _e = _ele; self.k1.append(_e)
+        self.k8 = {}
+        for _e in _json_["k8"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.k8[_k] = _v
+        self.k9 = []
+        for _ele in _json_["k9"]: var _e: TestDemoE2; _e = TestDemoE2.new(_ele); self.k9.append(_e)
+        self.k15 = []
+        for _ele in _json_["k15"]: var _e: TestDemoDynamic; _e = TestDemoDynamic.fromJson(_ele); self.k15.append(_e)
+
+
+class TestExcelFromJsonMultiRow:
+    var id: int
+    var x: int
+    var items: Array
+    
+    var __type_id__ = 715335694;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
         self.x = _json_["x"]
-        self.y = _json_["y"]
+        self.items = []
+        for _ele in _json_["items"]: var _e: TestTestRow; _e = TestTestRow.new(_ele); self.items.append(_e)
 
 
-class TestMultiUnionIndexList:
-    var id1: int
-    var id2: int
-    var id3: String
-    var num: int
+class TestFoo:
+    var y1: int
+    var y2: int
+    var y3: int
+    
+    var __type_id__ = -1147950774;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.y1 = _json_["y1"]
+        self.y2 = _json_["y2"]
+        self.y3 = _json_["y3"]
+
+
+class TestH1:
+    var y2: TestH2
+    var y3: int
+    
+    var __type_id__ = -1422503995;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.y2 = TestH2.new(_json_["y2"])
+        self.y3 = _json_["y3"]
+
+
+class TestH2:
+    var z2: int
+    var z3: int
+    
+    var __type_id__ = -1422503994;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.z2 = _json_["z2"]
+        self.z3 = _json_["z3"]
+
+
+class TestInnerGroup:
+    var y1: int
+    var y2: int
+    var y3: int
+    var y4: int
+    
+    var __type_id__ = -587873083;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.y1 = _json_["y1"]
+        self.y2 = _json_["y2"]
+        self.y3 = _json_["y3"]
+        self.y4 = _json_["y4"]
+
+
+class TestItemBase:
+    var id: int
+    var name: String
     var desc: String
 
+    static func fromJson(_json_):
+        var type = _json_['$type']
+        match type:
+            "Item": return TestItem.new(_json_)
+            "Equipment": return TestEquipment.new(_json_)
+            "Decorator": return TestDecorator.new(_json_)
+            _: assert(false)
+
     func _init(_json_) -> void:
-        self.id1 = _json_["id1"]
-        self.id2 = _json_["id2"]
-        self.id3 = _json_["id3"]
-        self.num = _json_["num"]
+        self.id = _json_["id"]
+        self.name = _json_["name"]
         self.desc = _json_["desc"]
+
+
+class TestDecorator extends TestItemBase:
+    var duration: int
+    
+    var __type_id__ = -625155649;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.duration = _json_["duration"]
+
+
+class TestEquipment extends TestItemBase:
+    var attr: int
+    var value: int
+    
+    var __type_id__ = -76837102;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.attr = _json_["attr"]
+        self.value = _json_["value"]
+
+
+class TestItem extends TestItemBase:
+    var num: int
+    var price: int
+    
+    var __type_id__ = -1226641649;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.num = _json_["num"]
+        self.price = _json_["price"]
 
 
 class TestMultiIndexList:
@@ -1209,6 +1935,10 @@ class TestMultiIndexList:
     var id3: String
     var num: int
     var desc: String
+    
+    var __type_id__ = 2016237651;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id1 = _json_["id1"]
@@ -1221,13 +1951,17 @@ class TestMultiIndexList:
 class TestMultiRowRecord:
     var id: int
     var name: String
-    var one_rows: Array[TestMultiRowType1]
-    var multi_rows1: Array[TestMultiRowType1]
-    var multi_rows2: Array[TestMultiRowType1]
+    var one_rows: Array
+    var multi_rows1: Array
+    var multi_rows2: Array
     var multi_rows4: Dictionary
-    var multi_rows5: Array[TestMultiRowType3]
+    var multi_rows5: Array
     var multi_rows6: Dictionary
     var multi_rows7: Dictionary
+    
+    var __type_id__ = -501249394;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
@@ -1248,68 +1982,18 @@ class TestMultiRowRecord:
         for _e in _json_["multi_rows7"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.multi_rows7[_k] = _v
 
 
-class TestMultiRowType1:
-    var id: int
-    var x: int
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.x = _json_["x"]
-
-
-class TestMultiRowType2:
-    var id: int
-    var x: int
-    var y: float
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.x = _json_["x"]
-        self.y = _json_["y"]
-
-
-class TestMultiRowType3:
-    var id: int
-    var items: Array[TestMultiRowType1]
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.items = []
-        for _ele in _json_["items"]: var _e: TestMultiRowType1; _e = TestMultiRowType1.new(_ele); self.items.append(_e)
-
-
-class TestTestMultiColumn:
-    var id: int
-    var a: TestFoo
-    var b: TestFoo
-    var c: TestFoo
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.a = TestFoo.new(_json_["a"])
-        self.b = TestFoo.new(_json_["b"])
-        self.c = TestFoo.new(_json_["c"])
-
-
-class TestFoo:
-    var y1: int
-    var y2: int
-    var y3: int
-
-    func _init(_json_) -> void:
-        self.y1 = _json_["y1"]
-        self.y2 = _json_["y2"]
-        self.y3 = _json_["y3"]
-
-
 class TestMultiRowTitle:
     var id: int
     var name: String
     var x1: TestH1
     var x2_0: TestH2
-    var x2: Array[TestH2]
-    var x3: Array[TestH2]
-    var x4: Array[TestH2]
+    var x2: Array
+    var x3: Array
+    var x4: Array
+    
+    var __type_id__ = 540002427;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
@@ -1324,22 +2008,477 @@ class TestMultiRowTitle:
         for _ele in _json_["x4"]: var _e: TestH2; _e = TestH2.new(_ele); self.x4.append(_e)
 
 
-class TestH1:
-    var y2: TestH2
-    var y3: int
+class TestMultiRowType1:
+    var id: int
+    var x: int
+    
+    var __type_id__ = 540474970;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
-        self.y2 = TestH2.new(_json_["y2"])
+        self.id = _json_["id"]
+        self.x = _json_["x"]
+
+
+class TestMultiRowType2:
+    var id: int
+    var x: int
+    var y: float
+    
+    var __type_id__ = 540474971;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.x = _json_["x"]
+        self.y = _json_["y"]
+
+
+class TestMultiRowType3:
+    var id: int
+    var items: Array
+    
+    var __type_id__ = 540474972;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.items = []
+        for _ele in _json_["items"]: var _e: TestMultiRowType1; _e = TestMultiRowType1.new(_ele); self.items.append(_e)
+
+
+class TestMultiUnionIndexList:
+    var id1: int
+    var id2: int
+    var id3: String
+    var num: int
+    var desc: String
+    
+    var __type_id__ = 1966847134;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id1 = _json_["id1"]
+        self.id2 = _json_["id2"]
+        self.id3 = _json_["id3"]
+        self.num = _json_["num"]
+        self.desc = _json_["desc"]
+
+
+class TestNotIndexList:
+    var x: int
+    var y: int
+    
+    var __type_id__ = -50446599;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.x = _json_["x"]
+        self.y = _json_["y"]
+
+
+class TestPath:
+    var id: int
+    var res: String
+    
+    var __type_id__ = -1226450911;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.res = _json_["res"]
+
+
+class TestRefDynamicBase:
+    var x: int
+
+    static func fromJson(_json_):
+        var type = _json_['$type']
+        match type:
+            "RefBean": return TestRefBean.new(_json_)
+            _: assert(false)
+
+    func _init(_json_) -> void:
+        self.x = _json_["x"]
+
+
+class TestRefBean extends TestRefDynamicBase:
+    var arr: Array
+    
+    var __type_id__ = 1963260263;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.arr = []
+        for _ele in _json_["arr"]: var _e: int; _e = _ele; self.arr.append(_e)
+
+
+class TestSepBean1:
+    var a: int
+    var b: int
+    var c: String
+    
+    var __type_id__ = -1534339393;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.a = _json_["a"]
+        self.b = _json_["b"]
+        self.c = _json_["c"]
+
+
+class TestSepVector:
+    var x: int
+    var y: int
+    var z: int
+    
+    var __type_id__ = 252769477;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.x = _json_["x"]
+        self.y = _json_["y"]
+        self.z = _json_["z"]
+
+
+class TestShape:
+
+    static func fromJson(_json_):
+        var type = _json_['$type']
+        match type:
+            "Circle": return TestCircle.new(_json_)
+            "test2.Rectangle": return Test2Rectangle.new(_json_)
+            _: assert(false)
+
+    func _init(_json_) -> void:
+        pass
+
+
+## 圆
+class TestCircle extends TestShape:
+    ## 半径
+    var radius: float
+    
+    var __type_id__ = 2131829196;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.radius = _json_["radius"]
+
+
+## 矩形
+class Test2Rectangle extends TestShape:
+    ## 宽度
+    var width: float
+    ## 高度
+    var height: float
+    
+    var __type_id__ = 694982337;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        super(_json_)
+        self.width = _json_["width"]
+        self.height = _json_["height"]
+
+
+class TestTest3:
+    var x: int
+    var y: int
+    
+    var __type_id__ = 638540133;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.x = _json_["x"]
+        self.y = _json_["y"]
+
+
+class TestTestBeRef:
+    var id: int
+    var count: int
+    
+    var __type_id__ = 1934403938;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.count = _json_["count"]
+
+
+class TestTestConstAlias:
+    var id: int
+    var x1: int
+    var x2: int
+    var x3: float
+    var x4: float
+    
+    var __type_id__ = -498577445;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.x1 = _json_["x1"]
+        self.x2 = _json_["x2"]
+        self.x3 = _json_["x3"]
+        self.x4 = _json_["x4"]
+
+
+## 这是个测试excel结构
+class TestTestExcelBean1:
+    ## 最高品质
+    var x1: int
+    ## 黑色的
+    var x2: String
+    ## 蓝色的
+    var x3: int
+    ## 最差品质
+    var x4: float
+    
+    var __type_id__ = -1738345160;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.x1 = _json_["x1"]
+        self.x2 = _json_["x2"]
+        self.x3 = _json_["x3"]
+        self.x4 = _json_["x4"]
+
+
+## 这是个测试excel结构
+class TestTestExcelBean2:
+    ## 最高品质
+    var y1: int
+    ## 黑色的
+    var y2: String
+    ## 蓝色的
+    var y3: float
+    
+    var __type_id__ = -1738345159;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.y1 = _json_["y1"]
+        self.y2 = _json_["y2"]
         self.y3 = _json_["y3"]
 
 
-class TestH2:
-    var z2: int
-    var z3: int
+class TestTestFieldAlias:
+    var id: int
+    var name: String
+    
+    var __type_id__ = 285625508;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
-        self.z2 = _json_["z2"]
-        self.z3 = _json_["z3"]
+        self.id = _json_["id"]
+        self.name = _json_["name"]
+
+
+class TestTestFieldVariant:
+    var id: int
+    var name: String
+    
+    var __type_id__ = 759529945;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.name = _json_["name"]
+
+
+class TestTestFieldVariant2:
+    var id: int
+    var name: String
+    
+    var __type_id__ = 2070591865;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.name = _json_["name"]
+
+
+class TestTestFormat:
+    var id: int
+    var a1: Array
+    var a2: Array
+    var a3: Array
+    var a4: Array
+    var b1: Array
+    var b2: Array
+    var b3: Array
+    var b4: Array
+    var c1: Array
+    var c2: Array
+    var c3: Array
+    var c4: Array
+    var m1: Dictionary
+    var m2: Dictionary
+    var m3: Dictionary
+    var m4: Dictionary
+    var v31: Vec3
+    var v32: Vec3
+    var v33: Vec3
+    var v34: Vec3
+    var v41: Array
+    var v42: Array
+    var v43: Array
+    var v44: Array
+    
+    var __type_id__ = -38307291;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.a1 = []
+        for _ele in _json_["a1"]: var _e: int; _e = _ele; self.a1.append(_e)
+        self.a2 = []
+        for _ele in _json_["a2"]: var _e: int; _e = _ele; self.a2.append(_e)
+        self.a3 = []
+        for _ele in _json_["a3"]: var _e: int; _e = _ele; self.a3.append(_e)
+        self.a4 = []
+        for _ele in _json_["a4"]: var _e: int; _e = _ele; self.a4.append(_e)
+        self.b1 = []
+        for _ele in _json_["b1"]: var _e: int; _e = _ele; self.b1.append(_e)
+        self.b2 = []
+        for _ele in _json_["b2"]: var _e: int; _e = _ele; self.b2.append(_e)
+        self.b3 = []
+        for _ele in _json_["b3"]: var _e: int; _e = _ele; self.b3.append(_e)
+        self.b4 = []
+        for _ele in _json_["b4"]: var _e: int; _e = _ele; self.b4.append(_e)
+        self.c1 = []
+        for _ele in _json_["c1"]: var _e: int; _e = _ele; self.c1.append(_e)
+        self.c2 = []
+        for _ele in _json_["c2"]: var _e: int; _e = _ele; self.c2.append(_e)
+        self.c3 = []
+        for _ele in _json_["c3"]: var _e: int; _e = _ele; self.c3.append(_e)
+        self.c4 = []
+        for _ele in _json_["c4"]: var _e: int; _e = _ele; self.c4.append(_e)
+        self.m1 = {}
+        for _e in _json_["m1"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.m1[_k] = _v
+        self.m2 = {}
+        for _e in _json_["m2"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.m2[_k] = _v
+        self.m3 = {}
+        for _e in _json_["m3"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.m3[_k] = _v
+        self.m4 = {}
+        for _e in _json_["m4"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.m4[_k] = _v
+        self.v31 = Vec3.new(_json_["v31"])
+        self.v32 = Vec3.new(_json_["v32"])
+        self.v33 = Vec3.new(_json_["v33"])
+        self.v34 = Vec3.new(_json_["v34"])
+        self.v41 = []
+        for _ele in _json_["v41"]: var _e: Vec3; _e = Vec3.new(_ele); self.v41.append(_e)
+        self.v42 = []
+        for _ele in _json_["v42"]: var _e: Vec3; _e = Vec3.new(_ele); self.v42.append(_e)
+        self.v43 = []
+        for _ele in _json_["v43"]: var _e: Vec3; _e = Vec3.new(_ele); self.v43.append(_e)
+        self.v44 = []
+        for _ele in _json_["v44"]: var _e: Vec3; _e = Vec3.new(_ele); self.v44.append(_e)
+
+
+class TestTestGlobal:
+    var unlock_equip: int
+    var unlock_hero: int
+    
+    var __type_id__ = -12548655;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.unlock_equip = _json_["unlock_equip"]
+        self.unlock_hero = _json_["unlock_hero"]
+
+
+class TestTestIndex:
+    var id: int
+    var eles: Array
+    
+    var __type_id__ = 1941154020;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.eles = []
+        for _ele in _json_["eles"]: var _e: TestDemoType1; _e = TestDemoType1.new(_ele); self.eles.append(_e)
+
+
+class TestTestMap:
+    var id: int
+    var x1: Dictionary
+    var x2: Dictionary
+    var x3: Dictionary
+    var x4: Dictionary
+    
+    var __type_id__ = -543227410;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.x1 = {}
+        for _e in _json_["x1"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.x1[_k] = _v
+        self.x2 = {}
+        for _e in _json_["x2"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.x2[_k] = _v
+        self.x3 = {}
+        for _e in _json_["x3"]: var _k: String; _k = _e[0]; var _v: int; _v = _e[1]; self.x3[_k] = _v
+        self.x4 = {}
+        for _e in _json_["x4"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.x4[_k] = _v
+
+
+class TestTestMapper:
+    var id: int
+    var audio_type: int
+    var v2: Vec2
+    
+    var __type_id__ = 149110895;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.audio_type = _json_["audio_type"]
+        self.v2 = Vec2.new(_json_["v2"])
+
+
+class TestTestMultiColumn:
+    var id: int
+    var a: TestFoo
+    var b: TestFoo
+    var c: TestFoo
+    
+    var __type_id__ = -294473599;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.a = TestFoo.new(_json_["a"])
+        self.b = TestFoo.new(_json_["b"])
+        self.c = TestFoo.new(_json_["c"])
 
 
 class TestTestNull:
@@ -1350,6 +2489,10 @@ class TestTestNull:
     var x4: TestDemoDynamic
     var s1: String
     var s2: String
+    
+    var __type_id__ = 339868469;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
@@ -1361,109 +2504,39 @@ class TestTestNull:
         if _json_.get('s2') != null: self.s2 = _json_["s2"]
 
 
-class TestDemoPrimitiveTypesTable:
-    var x1: bool
-    var x2: int
-    var x3: int
-    var x4: int
-    var x5: int
-    var x6: float
-    var x7: float
-    var s1: String
-    var s2: String
-    var v2: Vec2
-    var v3: Vec3
-    var v4: Vec4
-    var t1: int
-
-    func _init(_json_) -> void:
-        self.x1 = _json_["x1"]
-        self.x2 = _json_["x2"]
-        self.x3 = _json_["x3"]
-        self.x4 = _json_["x4"]
-        self.x5 = _json_["x5"]
-        self.x6 = _json_["x6"]
-        self.x7 = _json_["x7"]
-        self.s1 = _json_["s1"]
-        self.s2 = _json_["s2"]
-        self.v2 = Vec2.new(_json_["v2"])
-        self.v3 = Vec3.new(_json_["v3"])
-        self.v4 = Vec4.new(_json_["v4"])
-        self.t1 = _json_["t1"]
-
-
-class TestTestString:
-    var id: String
-    var s1: String
-    var s2: String
-    var cs1: TestCompactString
-    var cs2: TestCompactString
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.s1 = _json_["s1"]
-        self.s2 = _json_["s2"]
-        self.cs1 = TestCompactString.new(_json_["cs1"])
-        self.cs2 = TestCompactString.new(_json_["cs2"])
-
-
-class TestCompactString:
+class TestTestRange:
     var id: int
-    var s2: String
-    var s3: String
+    var f1: float
+    var f2: float
+    var d1: float
+    var d2: float
+    var i1: int
+    var i2: int
+    var i3: int
+    var i4: int
+    var l1: int
+    var l2: int
+    var l3: int
+    var l4: int
+    
+    var __type_id__ = 1949088079;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
-        self.s2 = _json_["s2"]
-        self.s3 = _json_["s3"]
-
-
-class TestDemoGroup:
-    var id: int
-    var x1: int
-    var x2: int
-    var x3: int
-    var x4: int
-    var x5: TestInnerGroup
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.x1 = _json_["x1"]
-        self.x2 = _json_["x2"]
-        self.x3 = _json_["x3"]
-        self.x4 = _json_["x4"]
-        self.x5 = TestInnerGroup.new(_json_["x5"])
-
-
-class TestInnerGroup:
-    var y1: int
-    var y2: int
-    var y3: int
-    var y4: int
-
-    func _init(_json_) -> void:
-        self.y1 = _json_["y1"]
-        self.y2 = _json_["y2"]
-        self.y3 = _json_["y3"]
-        self.y4 = _json_["y4"]
-
-
-class TestTestGlobal:
-    var unlock_equip: int
-    var unlock_hero: int
-
-    func _init(_json_) -> void:
-        self.unlock_equip = _json_["unlock_equip"]
-        self.unlock_hero = _json_["unlock_hero"]
-
-
-class TestTestBeRef:
-    var id: int
-    var count: int
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.count = _json_["count"]
+        self.f1 = _json_["f1"]
+        self.f2 = _json_["f2"]
+        self.d1 = _json_["d1"]
+        self.d2 = _json_["d2"]
+        self.i1 = _json_["i1"]
+        self.i2 = _json_["i2"]
+        self.i3 = _json_["i3"]
+        self.i4 = _json_["i4"]
+        self.l1 = _json_["l1"]
+        self.l2 = _json_["l2"]
+        self.l3 = _json_["l3"]
+        self.l4 = _json_["l4"]
 
 
 class TestTestRef:
@@ -1473,12 +2546,12 @@ class TestTestRef:
     var x2: int
     var x3: int
     var x4: int
-    var a1: Array[int]
-    var a2: Array[int]
-    var b1: Array[int]
-    var b2: Array[int]
-    var c1: Array[int]
-    var c2: Array[int]
+    var a1: Array
+    var a2: Array
+    var b1: Array
+    var b2: Array
+    var c1: Array
+    var c2: Array
     var d1: Dictionary
     var d2: Dictionary
     var e1: int
@@ -1488,6 +2561,10 @@ class TestTestRef:
     var f2: int
     var f3: String
     var s1: TestRefDynamicBase
+    
+    var __type_id__ = -543222491;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
@@ -1521,54 +2598,93 @@ class TestTestRef:
         self.s1 = TestRefDynamicBase.fromJson(_json_["s1"])
 
 
-class TestRefDynamicBase:
+class TestTestRow:
     var x: int
-
-    static func fromJson(_json_):
-        var type = _json_['$type']
-        match type:
-            "RefBean": return TestRefBean.new(_json_)
-            _: assert(false)
+    var y: bool
+    var z: String
+    var a: TestTest3
+    var b: Array
+    
+    var __type_id__ = -543222164;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.x = _json_["x"]
+        self.y = _json_["y"]
+        self.z = _json_["z"]
+        self.a = TestTest3.new(_json_["a"])
+        self.b = []
+        for _ele in _json_["b"]: var _e: int; _e = _ele; self.b.append(_e)
 
 
-class TestRefBean extends TestRefDynamicBase:
-    var arr: Array[int]
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.arr = []
-        for _ele in _json_["arr"]: var _e: int; _e = _ele; self.arr.append(_e)
-
-
-class TestTestSize:
+class TestTestScriptableObject:
     var id: int
-    var x1: Array[int]
-    var x2: Array[int]
-    var x3: Array[int]
-    var x4: Dictionary
+    var desc: String
+    var rate: float
+    var num: int
+    var v2: Vec2
+    var v3: Vec3
+    var v4: Vec4
+    
+    var __type_id__ = -1896814350;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
-        self.x1 = []
-        for _ele in _json_["x1"]: var _e: int; _e = _ele; self.x1.append(_e)
-        self.x2 = []
-        for _ele in _json_["x2"]: var _e: int; _e = _ele; self.x2.append(_e)
-        self.x3 = []
-        for _ele in _json_["x3"]: var _e: int; _e = _ele; self.x3.append(_e)
-        self.x4 = {}
-        for _e in _json_["x4"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.x4[_k] = _v
+        self.desc = _json_["desc"]
+        self.rate = _json_["rate"]
+        self.num = _json_["num"]
+        self.v2 = Vec2.new(_json_["v2"])
+        self.v3 = Vec3.new(_json_["v3"])
+        self.v4 = Vec4.new(_json_["v4"])
+
+
+class TestTestSep:
+    var id: int
+    var a1: Array
+    var a2: Array
+    var a3: Array
+    var x2: TestSepBean1
+    ## SepVector已经定义了sep=,属性
+    var x3: TestSepVector
+    ## 用;来分割数据，然后顺序读入SepVector
+    var x4: Array
+    ## 用;分割数据，然后再将每个数据用,分割，读入
+    var x6: Array
+    
+    var __type_id__ = -543221520;
+    func get_type_id() : return __type_id__;
+    
+
+    func _init(_json_) -> void:
+        self.id = _json_["id"]
+        self.a1 = []
+        for _ele in _json_["a1"]: var _e: int; _e = _ele; self.a1.append(_e)
+        self.a2 = []
+        for _ele in _json_["a2"]: var _e: int; _e = _ele; self.a2.append(_e)
+        self.a3 = []
+        for _ele in _json_["a3"]: var _e: int; _e = _ele; self.a3.append(_e)
+        self.x2 = TestSepBean1.new(_json_["x2"])
+        self.x3 = TestSepVector.new(_json_["x3"])
+        self.x4 = []
+        for _ele in _json_["x4"]: var _e: TestSepVector; _e = TestSepVector.new(_ele); self.x4.append(_e)
+        self.x6 = []
+        for _ele in _json_["x6"]: var _e: TestSepBean1; _e = TestSepBean1.new(_ele); self.x6.append(_e)
 
 
 class TestTestSet:
     var id: int
     var x0: String
-    var x1: Array[int]
-    var x2: Array[int]
-    var x3: Array[String]
-    var x4: Array[int]
+    var x1: Array
+    var x2: Array
+    var x3: Array
+    var x4: Array
+    
+    var __type_id__ = -543221516;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
@@ -1583,314 +2699,129 @@ class TestTestSet:
         for _ele in _json_["x4"]: var _e: int; _e = _ele; self.x4.append(_e)
 
 
-class TestDetectEncoding:
+class TestTestSize:
     var id: int
-    var name: String
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.name = _json_["name"]
-
-
-class TestItemBase:
-    var id: int
-    var name: String
-    var desc: String
-
-    static func fromJson(_json_):
-        var type = _json_['$type']
-        match type:
-            "Item": return TestItem.new(_json_)
-            "Equipment": return TestEquipment.new(_json_)
-            "Decorator": return TestDecorator.new(_json_)
-            _: assert(false)
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.name = _json_["name"]
-        self.desc = _json_["desc"]
-
-
-class TestItem extends TestItemBase:
-    var num: int
-    var price: int
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.num = _json_["num"]
-        self.price = _json_["price"]
-
-
-class TestEquipment extends TestItemBase:
-    var attr: int
-    var value: int
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.attr = _json_["attr"]
-        self.value = _json_["value"]
-
-
-class TestDecorator extends TestItemBase:
-    var duration: int
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.duration = _json_["duration"]
-
-
-class TestTestIndex:
-    var id: int
-    var eles: Array[TestDemoType1]
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.eles = []
-        for _ele in _json_["eles"]: var _e: TestDemoType1; _e = TestDemoType1.new(_ele); self.eles.append(_e)
-
-
-class TestTestMap:
-    var id: int
-    var x1: Dictionary
-    var x2: Dictionary
-    var x3: Dictionary
+    var x1: Array
+    var x2: Array
+    var x3: Array
     var x4: Dictionary
+    
+    var __type_id__ = 340006319;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
         self.id = _json_["id"]
-        self.x1 = {}
-        for _e in _json_["x1"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.x1[_k] = _v
-        self.x2 = {}
-        for _e in _json_["x2"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.x2[_k] = _v
-        self.x3 = {}
-        for _e in _json_["x3"]: var _k: String; _k = _e[0]; var _v: int; _v = _e[1]; self.x3[_k] = _v
+        self.x1 = []
+        for _ele in _json_["x1"]: var _e: int; _e = _ele; self.x1.append(_e)
+        self.x2 = []
+        for _ele in _json_["x2"]: var _e: int; _e = _ele; self.x2.append(_e)
+        self.x3 = []
+        for _ele in _json_["x3"]: var _e: int; _e = _ele; self.x3.append(_e)
         self.x4 = {}
         for _e in _json_["x4"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.x4[_k] = _v
 
 
-class TestExcelFromJson:
-    var x4: int
-    var x1: bool
-    var x5: int
-    var x6: float
+class TestTestString:
+    var id: String
     var s1: String
     var s2: String
-    var t1: int
-    var x12: TestDemoType1
-    var x13: int
-    var x14: TestDemoDynamic
-    var k1: Array[int]
-    var k8: Dictionary
-    var k9: Array[TestDemoE2]
-    var k15: Array[TestDemoDynamic]
+    var cs1: TestCompactString
+    var cs2: TestCompactString
+    var css: Array
+    var css2: Array
+    
+    var __type_id__ = 338485823;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
-        self.x4 = _json_["x4"]
-        self.x1 = _json_["x1"]
-        self.x5 = _json_["x5"]
-        self.x6 = _json_["x6"]
+        self.id = _json_["id"]
         self.s1 = _json_["s1"]
         self.s2 = _json_["s2"]
-        self.t1 = _json_["t1"]
-        self.x12 = TestDemoType1.new(_json_["x12"])
-        self.x13 = _json_["x13"]
-        self.x14 = TestDemoDynamic.fromJson(_json_["x14"])
-        self.k1 = []
-        for _ele in _json_["k1"]: var _e: int; _e = _ele; self.k1.append(_e)
-        self.k8 = {}
-        for _e in _json_["k8"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.k8[_k] = _v
-        self.k9 = []
-        for _ele in _json_["k9"]: var _e: TestDemoE2; _e = TestDemoE2.new(_ele); self.k9.append(_e)
-        self.k15 = []
-        for _ele in _json_["k15"]: var _e: TestDemoDynamic; _e = TestDemoDynamic.fromJson(_ele); self.k15.append(_e)
+        self.cs1 = TestCompactString.new(_json_["cs1"])
+        self.cs2 = TestCompactString.new(_json_["cs2"])
+        self.css = []
+        for _ele in _json_["css"]: var _e: String; _e = _ele; self.css.append(_e)
+        self.css2 = []
+        for _ele in _json_["css2"]: var _e: String; _e = _ele; self.css2.append(_e)
 
 
-class TestCompositeJsonTable1:
-    var id: int
-    var x: String
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.x = _json_["x"]
-
-
-class TestCompositeJsonTable2:
-    var id: int
-    var y: int
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.y = _json_["y"]
-
-
-class TestCompositeJsonTable3:
-    var a: int
-    var b: int
-
-    func _init(_json_) -> void:
-        self.a = _json_["a"]
-        self.b = _json_["b"]
-
-
-class TestExcelFromJsonMultiRow:
-    var id: int
-    var x: int
-    var items: Array[TestTestRow]
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.x = _json_["x"]
-        self.items = []
-        for _ele in _json_["items"]: var _e: TestTestRow; _e = TestTestRow.new(_ele); self.items.append(_e)
-
-
-class TestTestRow:
-    var x: int
-    var y: bool
-    var z: String
-    var a: TestTest3
-    var b: Array[int]
-
-    func _init(_json_) -> void:
-        self.x = _json_["x"]
-        self.y = _json_["y"]
-        self.z = _json_["z"]
-        self.a = TestTest3.new(_json_["a"])
-        self.b = []
-        for _ele in _json_["b"]: var _e: int; _e = _ele; self.b.append(_e)
-
-
-class TestTest3:
-    var x: int
-    var y: int
-
-    func _init(_json_) -> void:
-        self.x = _json_["x"]
-        self.y = _json_["y"]
-
-
-class TestTestScriptableObject:
-    var id: int
-    var desc: String
-    var rate: float
-    var num: int
-    var v2: Vec2
-    var v3: Vec3
-    var v4: Vec4
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.desc = _json_["desc"]
-        self.rate = _json_["rate"]
-        self.num = _json_["num"]
-        self.v2 = Vec2.new(_json_["v2"])
-        self.v3 = Vec3.new(_json_["v3"])
-        self.v4 = Vec4.new(_json_["v4"])
-
-
-class TestPath:
-    var id: int
-    var res: String
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.res = _json_["res"]
-
-
-class TestTestMapper:
-    var id: int
-    var audio_type: int
-    var v2: Vec2
-
-    func _init(_json_) -> void:
-        self.id = _json_["id"]
-        self.audio_type = _json_["audio_type"]
-        self.v2 = Vec2.new(_json_["v2"])
-
-
-class DefineFromExcel2:
-    ## 这是id
-    var id: int
-    ## 字段x1
+class TestTestUeType:
     var x1: bool
+    var x2: int
+    var x3: int
+    var x4: int
     var x5: int
     var x6: float
-    var x8: int
     var x10: String
+    var x12: TestDemoType1
     var x13: int
-    var x13_2: int
-    var x14: TestDemoDynamic
-    var x15: TestShape
-    var v2: Vec2
     var t1: int
-    var k1: Array[int]
-    var k2: Array[int]
+    var k1: Array
+    var k2: Array
+    var k5: Array
     var k8: Dictionary
-    var k9: Array[TestDemoE2]
-    var k10: Array[Vec3]
-    var k11: Array[Vec4]
+    var k9: Array
+    
+    var __type_id__ = 381013016;
+    func get_type_id() : return __type_id__;
+    
 
     func _init(_json_) -> void:
-        self.id = _json_["id"]
         self.x1 = _json_["x1"]
+        self.x2 = _json_["x2"]
+        self.x3 = _json_["x3"]
+        self.x4 = _json_["x4"]
         self.x5 = _json_["x5"]
         self.x6 = _json_["x6"]
-        self.x8 = _json_["x8"]
         self.x10 = _json_["x10"]
+        self.x12 = TestDemoType1.new(_json_["x12"])
         self.x13 = _json_["x13"]
-        self.x13_2 = _json_["x13_2"]
-        self.x14 = TestDemoDynamic.fromJson(_json_["x14"])
-        self.x15 = TestShape.fromJson(_json_["x15"])
-        self.v2 = Vec2.new(_json_["v2"])
         self.t1 = _json_["t1"]
         self.k1 = []
         for _ele in _json_["k1"]: var _e: int; _e = _ele; self.k1.append(_e)
         self.k2 = []
         for _ele in _json_["k2"]: var _e: int; _e = _ele; self.k2.append(_e)
+        self.k5 = []
+        for _ele in _json_["k5"]: var _e: int; _e = _ele; self.k5.append(_e)
         self.k8 = {}
         for _e in _json_["k8"]: var _k: int; _k = _e[0]; var _v: int; _v = _e[1]; self.k8[_k] = _v
         self.k9 = []
         for _ele in _json_["k9"]: var _e: TestDemoE2; _e = TestDemoE2.new(_ele); self.k9.append(_e)
-        self.k10 = []
-        for _ele in _json_["k10"]: var _e: Vec3; _e = Vec3.new(_ele); self.k10.append(_e)
-        self.k11 = []
-        for _ele in _json_["k11"]: var _e: Vec4; _e = Vec4.new(_ele); self.k11.append(_e)
 
 
-class TestShape:
-
-    static func fromJson(_json_):
-        var type = _json_['$type']
-        match type:
-            "Circle": return TestCircle.new(_json_)
-            "test2.Rectangle": return Test2Rectangle.new(_json_)
-            _: assert(false)
+class Vec2:
+    var x: float
+    var y: float
 
     func _init(_json_) -> void:
-        pass
+        self.x = _json_["x"]
+        self.y = _json_["y"]
 
 
-## 圆
-class TestCircle extends TestShape:
-    ## 半径
-    var radius: float
-
-    func _init(_json_) -> void:
-        super(_json_)
-        self.radius = _json_["radius"]
-
-
-## 矩形
-class Test2Rectangle extends TestShape:
-    ## 宽度
-    var width: float
-    ## 高度
-    var height: float
+class Vec3:
+    var x: float
+    var y: float
+    var z: float
 
     func _init(_json_) -> void:
-        super(_json_)
-        self.width = _json_["width"]
-        self.height = _json_["height"]
+        self.x = _json_["x"]
+        self.y = _json_["y"]
+        self.z = _json_["z"]
+
+
+class Vec4:
+    var x: float
+    var y: float
+    var z: float
+    var w: float
+
+    func _init(_json_) -> void:
+        self.x = _json_["x"]
+        self.y = _json_["y"]
+        self.z = _json_["z"]
+        self.w = _json_["w"]
 
 
 class AiTbBlackboard:
@@ -1964,7 +2895,7 @@ class CommonTbGlobalConfig:
     var x6: int:
         get: return self._data.x6
 
-    var x7: Array[int]:
+    var x7: Array:
         get: return self._data.x7
 
 
@@ -2095,7 +3026,7 @@ class TestTbSingleton:
 
 
 class TestTbNotIndexList:
-    var _data_list: Array[TestNotIndexList] ## 数据数组
+    var _data_list: Array[TestNotIndexList]
     
     func _init(_json_) -> void:
         for _json2_ in _json_:
@@ -2110,7 +3041,7 @@ class TestTbNotIndexList:
         return self._data_list[index]
 
 class TestTbMultiUnionIndexList:
-    var _data_list: Array[TestMultiUnionIndexList] ## 数据数组
+    var _data_list: Array[TestMultiUnionIndexList]
     
     func _init(_json_) -> void:
         for _json2_ in _json_:
@@ -2126,10 +3057,9 @@ class TestTbMultiUnionIndexList:
 
 class TestTbMultiIndexList:
     var _data_list: Array[TestMultiIndexList]
-    var _data_map: Dictionary
-    var _id1_data_map: Dictionary ## 以id1为key的数据字典
-    var _id2_data_map: Dictionary ## 以id2为key的数据字典
-    var _id3_data_map: Dictionary ## 以id3为key的数据字典
+    var _id1_data_map: Dictionary
+    var _id2_data_map: Dictionary
+    var _id3_data_map: Dictionary
 
     func _init(_json_) -> void:
         self._id1_data_map = {}
@@ -2140,7 +3070,6 @@ class TestTbMultiIndexList:
             var _v: TestMultiIndexList
             _v = TestMultiIndexList.new(_json2_)
             self._data_list.append(_v)
-            self._data_map[_v.id1] = _v
             self._id1_data_map[_v.id1] = _v
             self._id2_data_map[_v.id2] = _v
             self._id3_data_map[_v.id3] = _v
@@ -2148,20 +3077,12 @@ class TestTbMultiIndexList:
     func get_data_list() -> Array[TestMultiIndexList]:
         return self._data_list
 
-    func get_data_map() -> Dictionary:
-        return self._data_map
-
     func get_id1_data_map() -> Dictionary:
         return self._id1_data_map
-
     func get_id2_data_map() -> Dictionary:
         return self._id2_data_map
-
     func get_id3_data_map() -> Dictionary:
         return self._id3_data_map
-
-    func get_item(key) -> TestMultiIndexList:
-        return self._data_map.get(key)
 
     func get_item_by_id1(id1) -> TestMultiIndexList:
         return self._id1_data_map.get(id1)
@@ -2341,7 +3262,7 @@ class TestTbDemoGroup:
         return self._data_map.get(key)
 
 
-class TestTbDemoGroup_C:
+class TestTbDemoGroupC:
     var _data_list: Array[TestDemoGroup]
     var _data_map: Dictionary
     
@@ -2362,7 +3283,7 @@ class TestTbDemoGroup_C:
         return self._data_map.get(key)
 
 
-class TestTbDemoGroup_S:
+class TestTbDemoGroupS:
     var _data_list: Array[TestDemoGroup]
     var _data_map: Dictionary
     
@@ -2383,7 +3304,7 @@ class TestTbDemoGroup_S:
         return self._data_map.get(key)
 
 
-class TestTbDemoGroup_E:
+class TestTbDemoGroupE:
     var _data_list: Array[TestDemoGroup]
     var _data_map: Dictionary
     
@@ -2523,6 +3444,27 @@ class TestTbTestSet:
         return self._data_map
 
     func get_item(key) -> TestTestSet:
+        return self._data_map.get(key)
+
+
+class TestTbTestRange:
+    var _data_list: Array[TestTestRange]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: TestTestRange
+            _v = TestTestRange.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[TestTestRange]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> TestTestRange:
         return self._data_map.get(key)
 
 
@@ -2711,6 +3653,27 @@ class TestTbExcelFromJsonMultiRow:
         return self._data_map.get(key)
 
 
+class TestTbTestSep:
+    var _data_list: Array[TestTestSep]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: TestTestSep
+            _v = TestTestSep.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[TestTestSep]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> TestTestSep:
+        return self._data_map.get(key)
+
+
 class TestTbTestScriptableObject:
     var _data_list: Array[TestTestScriptableObject]
     var _data_map: Dictionary
@@ -2753,6 +3716,69 @@ class TestTbPath:
         return self._data_map.get(key)
 
 
+class TestTbTestFieldAlias:
+    var _data_list: Array[TestTestFieldAlias]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: TestTestFieldAlias
+            _v = TestTestFieldAlias.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[TestTestFieldAlias]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> TestTestFieldAlias:
+        return self._data_map.get(key)
+
+
+class TestTbTestFieldVariant:
+    var _data_list: Array[TestTestFieldVariant]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: TestTestFieldVariant
+            _v = TestTestFieldVariant.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[TestTestFieldVariant]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> TestTestFieldVariant:
+        return self._data_map.get(key)
+
+
+class TestTbTestFieldVariant2:
+    var _data_list: Array[TestTestFieldVariant2]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: TestTestFieldVariant2
+            _v = TestTestFieldVariant2.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[TestTestFieldVariant2]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> TestTestFieldVariant2:
+        return self._data_map.get(key)
+
+
 class TestTbTestMapper:
     var _data_list: Array[TestTestMapper]
     var _data_map: Dictionary
@@ -2774,113 +3800,240 @@ class TestTbTestMapper:
         return self._data_map.get(key)
 
 
-class TestTbDefineFromExcel2:
-    var _data_list: Array[DefineFromExcel2]
+class TestTbTestConstAlias:
+    var _data_list: Array[TestTestConstAlias]
     var _data_map: Dictionary
     
     func _init(_json_) -> void:
         for _json2_ in _json_:
-            var _v: DefineFromExcel2
-            _v = DefineFromExcel2.new(_json2_)
+            var _v: TestTestConstAlias
+            _v = TestTestConstAlias.new(_json2_)
             self._data_list.append(_v)
             self._data_map[_v.id] = _v
 
-    func get_data_list() -> Array[DefineFromExcel2]:
+    func get_data_list() -> Array[TestTestConstAlias]:
         return self._data_list
 
     func get_data_map() -> Dictionary:
         return self._data_map
 
-    func get_item(key) -> DefineFromExcel2:
+    func get_item(key) -> TestTestConstAlias:
+        return self._data_map.get(key)
+
+
+class TestTbDefineFromExcel2:
+    var _data_list: Array[TestDefineFromExcel2]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: TestDefineFromExcel2
+            _v = TestDefineFromExcel2.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[TestDefineFromExcel2]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> TestDefineFromExcel2:
+        return self._data_map.get(key)
+
+
+class TbAutoImport1:
+    var _data_list: Array[AutoImport1]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: AutoImport1
+            _v = AutoImport1.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[AutoImport1]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> AutoImport1:
+        return self._data_map.get(key)
+
+
+class TestTbTestFormat:
+    var _data_list: Array[TestTestFormat]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: TestTestFormat
+            _v = TestTestFormat.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[TestTestFormat]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> TestTestFormat:
+        return self._data_map.get(key)
+
+
+## 自动导入的表
+class TestTbAutoImport3:
+    var _data_list: Array[TestAutoImport3]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: TestAutoImport3
+            _v = TestAutoImport3.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[TestAutoImport3]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> TestAutoImport3:
+        return self._data_map.get(key)
+
+
+class TestTbAutoImport2:
+    var _data_list: Array[TestAutoImport2]
+    var _data_map: Dictionary
+    
+    func _init(_json_) -> void:
+        for _json2_ in _json_:
+            var _v: TestAutoImport2
+            _v = TestAutoImport2.new(_json2_)
+            self._data_list.append(_v)
+            self._data_map[_v.id] = _v
+
+    func get_data_list() -> Array[TestAutoImport2]:
+        return self._data_list
+
+    func get_data_map() -> Dictionary:
+        return self._data_map
+
+    func get_item(key) -> TestAutoImport2:
         return self._data_map.get(key)
 
 
 class CfgTables:
-    var TbBlackboard: AiTbBlackboard
-    var TbBehaviorTree: AiTbBehaviorTree
-    var TbGlobalConfig: CommonTbGlobalConfig
+    var tbBlackboard: AiTbBlackboard
+    var tbBehaviorTree: AiTbBehaviorTree
+    var tbGlobalConfig: CommonTbGlobalConfig
     ## 道具表
-    var TbItem: ItemTbItem
-    var TbL10NDemo: L10nTbL10NDemo
-    var TbPatchDemo: L10nTbPatchDemo
-    var TbTestTag: TagTbTestTag
-    var TbFullTypes: TestTbFullTypes
-    var TbSingleton: TestTbSingleton
-    var TbNotIndexList: TestTbNotIndexList
-    var TbMultiUnionIndexList: TestTbMultiUnionIndexList
-    var TbMultiIndexList: TestTbMultiIndexList
-    var TbDataFromMisc: TestTbDataFromMisc
-    var TbMultiRowRecord: TestTbMultiRowRecord
-    var TbTestMultiColumn: TestTbTestMultiColumn
-    var TbMultiRowTitle: TestTbMultiRowTitle
-    var TbTestNull: TestTbTestNull
-    var TbDemoPrimitive: TestTbDemoPrimitive
-    var TbTestString: TestTbTestString
-    var TbDemoGroup: TestTbDemoGroup
-    var TbDemoGroup_C: TestTbDemoGroup_C
-    var TbDemoGroup_S: TestTbDemoGroup_S
-    var TbDemoGroup_E: TestTbDemoGroup_E
-    var TbTestGlobal: TestTbTestGlobal
-    var TbTestBeRef: TestTbTestBeRef
-    var TbTestBeRef2: TestTbTestBeRef2
-    var TbTestRef: TestTbTestRef
-    var TbTestSize: TestTbTestSize
-    var TbTestSet: TestTbTestSet
-    var TbDetectCsvEncoding: TestTbDetectCsvEncoding
-    var TbItem2: TestTbItem2
-    var TbTestIndex: TestTbTestIndex
-    var TbTestMap: TestTbTestMap
-    var TbExcelFromJson: TestTbExcelFromJson
-    var TbCompositeJsonTable1: TestTbCompositeJsonTable1
-    var TbCompositeJsonTable2: TestTbCompositeJsonTable2
-    var TbCompositeJsonTable3: TestTbCompositeJsonTable3
-    var TbExcelFromJsonMultiRow: TestTbExcelFromJsonMultiRow
-    var TbTestScriptableObject: TestTbTestScriptableObject
-    var TbPath: TestTbPath
-    var TbTestMapper: TestTbTestMapper
-    var TbDefineFromExcel2: TestTbDefineFromExcel2
+    var tbItem: ItemTbItem
+    var tbL10NDemo: L10nTbL10NDemo
+    var tbPatchDemo: L10nTbPatchDemo
+    var tbTestTag: TagTbTestTag
+    var tbFullTypes: TestTbFullTypes
+    var tbSingleton: TestTbSingleton
+    var tbNotIndexList: TestTbNotIndexList
+    var tbMultiUnionIndexList: TestTbMultiUnionIndexList
+    var tbMultiIndexList: TestTbMultiIndexList
+    var tbDataFromMisc: TestTbDataFromMisc
+    var tbMultiRowRecord: TestTbMultiRowRecord
+    var tbTestMultiColumn: TestTbTestMultiColumn
+    var tbMultiRowTitle: TestTbMultiRowTitle
+    var tbTestNull: TestTbTestNull
+    var tbDemoPrimitive: TestTbDemoPrimitive
+    var tbTestString: TestTbTestString
+    var tbDemoGroup: TestTbDemoGroup
+    var tbDemoGroup_C: TestTbDemoGroupC
+    var tbDemoGroup_S: TestTbDemoGroupS
+    var tbDemoGroup_E: TestTbDemoGroupE
+    var tbTestGlobal: TestTbTestGlobal
+    var tbTestBeRef: TestTbTestBeRef
+    var tbTestBeRef2: TestTbTestBeRef2
+    var tbTestRef: TestTbTestRef
+    var tbTestSize: TestTbTestSize
+    var tbTestSet: TestTbTestSet
+    var tbTestRange: TestTbTestRange
+    var tbDetectCsvEncoding: TestTbDetectCsvEncoding
+    var tbItem2: TestTbItem2
+    var tbTestIndex: TestTbTestIndex
+    var tbTestMap: TestTbTestMap
+    var tbExcelFromJson: TestTbExcelFromJson
+    var tbCompositeJsonTable1: TestTbCompositeJsonTable1
+    var tbCompositeJsonTable2: TestTbCompositeJsonTable2
+    var tbCompositeJsonTable3: TestTbCompositeJsonTable3
+    var tbExcelFromJsonMultiRow: TestTbExcelFromJsonMultiRow
+    var tbTestSep: TestTbTestSep
+    var tbTestScriptableObject: TestTbTestScriptableObject
+    var tbPath: TestTbPath
+    var tbTestFieldAlias: TestTbTestFieldAlias
+    var tbTestFieldVariant: TestTbTestFieldVariant
+    var tbTestFieldVariant2: TestTbTestFieldVariant2
+    var tbTestMapper: TestTbTestMapper
+    var tbTestConstAlias: TestTbTestConstAlias
+    var tbDefineFromExcel2: TestTbDefineFromExcel2
+    var tbAutoImport1: TbAutoImport1
+    var tbTestFormat: TestTbTestFormat
+    ## 自动导入的表
+    var tbAutoImport3: TestTbAutoImport3
+    var tbAutoImport2: TestTbAutoImport2
     
     func _init(loader: Callable) -> void:
-        self.TbBlackboard = AiTbBlackboard.new(loader.call('ai_tbblackboard'))
-        self.TbBehaviorTree = AiTbBehaviorTree.new(loader.call('ai_tbbehaviortree'))
-        self.TbGlobalConfig = CommonTbGlobalConfig.new(loader.call('common_tbglobalconfig'))
-        self.TbItem = ItemTbItem.new(loader.call('item_tbitem'))
-        self.TbL10NDemo = L10nTbL10NDemo.new(loader.call('l10n_tbl10ndemo'))
-        self.TbPatchDemo = L10nTbPatchDemo.new(loader.call('l10n_tbpatchdemo'))
-        self.TbTestTag = TagTbTestTag.new(loader.call('tag_tbtesttag'))
-        self.TbFullTypes = TestTbFullTypes.new(loader.call('test_tbfulltypes'))
-        self.TbSingleton = TestTbSingleton.new(loader.call('test_tbsingleton'))
-        self.TbNotIndexList = TestTbNotIndexList.new(loader.call('test_tbnotindexlist'))
-        self.TbMultiUnionIndexList = TestTbMultiUnionIndexList.new(loader.call('test_tbmultiunionindexlist'))
-        self.TbMultiIndexList = TestTbMultiIndexList.new(loader.call('test_tbmultiindexlist'))
-        self.TbDataFromMisc = TestTbDataFromMisc.new(loader.call('test_tbdatafrommisc'))
-        self.TbMultiRowRecord = TestTbMultiRowRecord.new(loader.call('test_tbmultirowrecord'))
-        self.TbTestMultiColumn = TestTbTestMultiColumn.new(loader.call('test_tbtestmulticolumn'))
-        self.TbMultiRowTitle = TestTbMultiRowTitle.new(loader.call('test_tbmultirowtitle'))
-        self.TbTestNull = TestTbTestNull.new(loader.call('test_tbtestnull'))
-        self.TbDemoPrimitive = TestTbDemoPrimitive.new(loader.call('test_tbdemoprimitive'))
-        self.TbTestString = TestTbTestString.new(loader.call('test_tbteststring'))
-        self.TbDemoGroup = TestTbDemoGroup.new(loader.call('test_tbdemogroup'))
-        self.TbDemoGroup_C = TestTbDemoGroup_C.new(loader.call('test_tbdemogroup_c'))
-        self.TbDemoGroup_S = TestTbDemoGroup_S.new(loader.call('test_tbdemogroup_s'))
-        self.TbDemoGroup_E = TestTbDemoGroup_E.new(loader.call('test_tbdemogroup_e'))
-        self.TbTestGlobal = TestTbTestGlobal.new(loader.call('test_tbtestglobal'))
-        self.TbTestBeRef = TestTbTestBeRef.new(loader.call('test_tbtestberef'))
-        self.TbTestBeRef2 = TestTbTestBeRef2.new(loader.call('test_tbtestberef2'))
-        self.TbTestRef = TestTbTestRef.new(loader.call('test_tbtestref'))
-        self.TbTestSize = TestTbTestSize.new(loader.call('test_tbtestsize'))
-        self.TbTestSet = TestTbTestSet.new(loader.call('test_tbtestset'))
-        self.TbDetectCsvEncoding = TestTbDetectCsvEncoding.new(loader.call('test_tbdetectcsvencoding'))
-        self.TbItem2 = TestTbItem2.new(loader.call('test_tbitem2'))
-        self.TbTestIndex = TestTbTestIndex.new(loader.call('test_tbtestindex'))
-        self.TbTestMap = TestTbTestMap.new(loader.call('test_tbtestmap'))
-        self.TbExcelFromJson = TestTbExcelFromJson.new(loader.call('test_tbexcelfromjson'))
-        self.TbCompositeJsonTable1 = TestTbCompositeJsonTable1.new(loader.call('test_tbcompositejsontable1'))
-        self.TbCompositeJsonTable2 = TestTbCompositeJsonTable2.new(loader.call('test_tbcompositejsontable2'))
-        self.TbCompositeJsonTable3 = TestTbCompositeJsonTable3.new(loader.call('test_tbcompositejsontable3'))
-        self.TbExcelFromJsonMultiRow = TestTbExcelFromJsonMultiRow.new(loader.call('test_tbexcelfromjsonmultirow'))
-        self.TbTestScriptableObject = TestTbTestScriptableObject.new(loader.call('test_tbtestscriptableobject'))
-        self.TbPath = TestTbPath.new(loader.call('test_tbpath'))
-        self.TbTestMapper = TestTbTestMapper.new(loader.call('test_tbtestmapper'))
-        self.TbDefineFromExcel2 = TestTbDefineFromExcel2.new(loader.call('test_tbdefinefromexcel2'))
+        self.tbBlackboard = AiTbBlackboard.new(loader.call('ai_tbblackboard'))
+        self.tbBehaviorTree = AiTbBehaviorTree.new(loader.call('ai_tbbehaviortree'))
+        self.tbGlobalConfig = CommonTbGlobalConfig.new(loader.call('common_tbglobalconfig'))
+        self.tbItem = ItemTbItem.new(loader.call('item_tbitem'))
+        self.tbL10NDemo = L10nTbL10NDemo.new(loader.call('l10n_tbl10ndemo'))
+        self.tbPatchDemo = L10nTbPatchDemo.new(loader.call('l10n_tbpatchdemo'))
+        self.tbTestTag = TagTbTestTag.new(loader.call('tag_tbtesttag'))
+        self.tbFullTypes = TestTbFullTypes.new(loader.call('test_tbfulltypes'))
+        self.tbSingleton = TestTbSingleton.new(loader.call('test_tbsingleton'))
+        self.tbNotIndexList = TestTbNotIndexList.new(loader.call('test_tbnotindexlist'))
+        self.tbMultiUnionIndexList = TestTbMultiUnionIndexList.new(loader.call('test_tbmultiunionindexlist'))
+        self.tbMultiIndexList = TestTbMultiIndexList.new(loader.call('test_tbmultiindexlist'))
+        self.tbDataFromMisc = TestTbDataFromMisc.new(loader.call('test_tbdatafrommisc'))
+        self.tbMultiRowRecord = TestTbMultiRowRecord.new(loader.call('test_tbmultirowrecord'))
+        self.tbTestMultiColumn = TestTbTestMultiColumn.new(loader.call('test_tbtestmulticolumn'))
+        self.tbMultiRowTitle = TestTbMultiRowTitle.new(loader.call('test_tbmultirowtitle'))
+        self.tbTestNull = TestTbTestNull.new(loader.call('test_tbtestnull'))
+        self.tbDemoPrimitive = TestTbDemoPrimitive.new(loader.call('test_tbdemoprimitive'))
+        self.tbTestString = TestTbTestString.new(loader.call('test_tbteststring'))
+        self.tbDemoGroup = TestTbDemoGroup.new(loader.call('test_tbdemogroup'))
+        self.tbDemoGroup_C = TestTbDemoGroupC.new(loader.call('test_tbdemogroup_c'))
+        self.tbDemoGroup_S = TestTbDemoGroupS.new(loader.call('test_tbdemogroup_s'))
+        self.tbDemoGroup_E = TestTbDemoGroupE.new(loader.call('test_tbdemogroup_e'))
+        self.tbTestGlobal = TestTbTestGlobal.new(loader.call('test_tbtestglobal'))
+        self.tbTestBeRef = TestTbTestBeRef.new(loader.call('test_tbtestberef'))
+        self.tbTestBeRef2 = TestTbTestBeRef2.new(loader.call('test_tbtestberef2'))
+        self.tbTestRef = TestTbTestRef.new(loader.call('test_tbtestref'))
+        self.tbTestSize = TestTbTestSize.new(loader.call('test_tbtestsize'))
+        self.tbTestSet = TestTbTestSet.new(loader.call('test_tbtestset'))
+        self.tbTestRange = TestTbTestRange.new(loader.call('test_tbtestrange'))
+        self.tbDetectCsvEncoding = TestTbDetectCsvEncoding.new(loader.call('test_tbdetectcsvencoding'))
+        self.tbItem2 = TestTbItem2.new(loader.call('test_tbitem2'))
+        self.tbTestIndex = TestTbTestIndex.new(loader.call('test_tbtestindex'))
+        self.tbTestMap = TestTbTestMap.new(loader.call('test_tbtestmap'))
+        self.tbExcelFromJson = TestTbExcelFromJson.new(loader.call('test_tbexcelfromjson'))
+        self.tbCompositeJsonTable1 = TestTbCompositeJsonTable1.new(loader.call('test_tbcompositejsontable1'))
+        self.tbCompositeJsonTable2 = TestTbCompositeJsonTable2.new(loader.call('test_tbcompositejsontable2'))
+        self.tbCompositeJsonTable3 = TestTbCompositeJsonTable3.new(loader.call('test_tbcompositejsontable3'))
+        self.tbExcelFromJsonMultiRow = TestTbExcelFromJsonMultiRow.new(loader.call('test_tbexcelfromjsonmultirow'))
+        self.tbTestSep = TestTbTestSep.new(loader.call('test_tbtestsep'))
+        self.tbTestScriptableObject = TestTbTestScriptableObject.new(loader.call('test_tbtestscriptableobject'))
+        self.tbPath = TestTbPath.new(loader.call('test_tbpath'))
+        self.tbTestFieldAlias = TestTbTestFieldAlias.new(loader.call('test_tbtestfieldalias'))
+        self.tbTestFieldVariant = TestTbTestFieldVariant.new(loader.call('test_tbtestfieldvariant'))
+        self.tbTestFieldVariant2 = TestTbTestFieldVariant2.new(loader.call('test_tbtestfieldvariant2'))
+        self.tbTestMapper = TestTbTestMapper.new(loader.call('test_tbtestmapper'))
+        self.tbTestConstAlias = TestTbTestConstAlias.new(loader.call('test_tbtestconstalias'))
+        self.tbDefineFromExcel2 = TestTbDefineFromExcel2.new(loader.call('test_tbdefinefromexcel2'))
+        self.tbAutoImport1 = TbAutoImport1.new(loader.call('tbautoimport1'))
+        self.tbTestFormat = TestTbTestFormat.new(loader.call('test_tbtestformat'))
+        self.tbAutoImport3 = TestTbAutoImport3.new(loader.call('test_tbautoimport3'))
+        self.tbAutoImport2 = TestTbAutoImport2.new(loader.call('test_tbautoimport2'))
 

@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="GDScript_json"
-run/main_scene="res://Scenes/node_2d.tscn"
+config/name="gd-bin"
+run/main_scene="uid://dh0oj81pufivs"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[dotnet]
+[editor_plugins]
 
-project/assembly_name="GDScript_json"
+enabled=PackedStringArray("res://addons/godot-luban-bin-gd/plugin.cfg")
