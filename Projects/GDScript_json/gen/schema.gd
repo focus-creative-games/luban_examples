@@ -432,7 +432,7 @@ class AiBlackboard:
     var name: String
     var desc: String
     var parent_name: String
-    var keys: Array
+    var keys: Array[AiBlackboardKey]
     
     var __type_id__ = 1576193005;
     func get_type_id() : return __type_id__;
@@ -737,8 +737,8 @@ class AiUeTimeLimit extends AiDecorator:
 
 
 class AiFlowNode extends AiNode:
-    var decorators: Array
-    var services: Array
+    var decorators: Array[AiDecorator]
+    var services: Array[AiService]
 
     static func fromJson(_json_):
         var type = _json_['$type']
@@ -779,7 +779,7 @@ class AiComposeNode extends AiFlowNode:
 
 
 class AiSelector extends AiComposeNode:
-    var children: Array
+    var children: Array[AiFlowNode]
     
     var __type_id__ = -1946981627;
     func get_type_id() : return __type_id__;
@@ -792,7 +792,7 @@ class AiSelector extends AiComposeNode:
 
 
 class AiSequence extends AiComposeNode:
-    var children: Array
+    var children: Array[AiFlowNode]
     
     var __type_id__ = -1789006105;
     func get_type_id() : return __type_id__;
@@ -1037,6 +1037,7 @@ class AiUpdateDailyBehaviorProps extends AiService:
         self.mood_upper_threshold_key = _json_["mood_upper_threshold_key"]
 
 
+## 测试自动导入表1
 class AutoImport1:
     ## 这是id
     var id: int
@@ -1052,12 +1053,12 @@ class AutoImport1:
     var x15: TestShape
     var v2: Vec2
     var t1: int
-    var k1: Array
-    var k2: Array
-    var k8: Dictionary
-    var k9: Array
-    var k10: Array
-    var k11: Array
+    var k1: Array[int]
+    var k2: Array[int]
+    var k8: Dictionary[int, int]
+    var k9: Array[TestDemoE2]
+    var k10: Array[Vec3]
+    var k11: Array[Vec4]
     var v11: Vec3
     
     var __type_id__ = -2092142499;
@@ -1126,7 +1127,7 @@ class CommonGlobalConfig:
     var x4: int
     var x5: int
     var x6: int
-    var x7: Array
+    var x7: Array[int]
     
     var __type_id__ = -848234488;
     func get_type_id() : return __type_id__;
@@ -1271,12 +1272,12 @@ class TestAutoImport2:
     var x15: TestShape
     var v2: Vec2
     var t1: int
-    var k1: Array
-    var k2: Array
-    var k8: Dictionary
-    var k9: Array
-    var k10: Array
-    var k11: Array
+    var k1: Array[int]
+    var k2: Array[int]
+    var k8: Dictionary[int, int]
+    var k9: Array[TestDemoE2]
+    var k10: Array[Vec3]
+    var k11: Array[Vec4]
     var v11: Vec3
     
     var __type_id__ = 417472770;
@@ -1311,6 +1312,7 @@ class TestAutoImport2:
         if _json_.get('v11') != null: self.v11 = Vec3.new(_json_["v11"])
 
 
+## 自动导入的表
 class TestAutoImport3:
     ## 这是id
     var id: int
@@ -1326,12 +1328,12 @@ class TestAutoImport3:
     var x15: TestShape
     var v2: Vec2
     var t1: int
-    var k1: Array
-    var k2: Array
-    var k8: Dictionary
-    var k9: Array
-    var k10: Array
-    var k11: Array
+    var k1: Array[int]
+    var k2: Array[int]
+    var k8: Dictionary[int, int]
+    var k9: Array[TestDemoE2]
+    var k10: Array[Vec3]
+    var k11: Array[Vec4]
     var v11: Vec3
     
     var __type_id__ = 417472771;
@@ -1449,12 +1451,12 @@ class TestDefineFromExcel2:
     var x15: TestShape
     var v2: Vec2
     var t1: int
-    var k1: Array
-    var k2: Array
-    var k8: Dictionary
-    var k9: Array
-    var k10: Array
-    var k11: Array
+    var k1: Array[int]
+    var k2: Array[int]
+    var k8: Dictionary[int, int]
+    var k9: Array[TestDemoE2]
+    var k10: Array[Vec3]
+    var k11: Array[Vec4]
     var v11: Vec3
     
     var __type_id__ = 688816828;
@@ -1700,12 +1702,12 @@ class TestDemoType2:
     var x14: TestDemoDynamic
     var s1: String
     var t1: int
-    var k1: Array
-    var k2: Array
-    var k5: Array
-    var k8: Dictionary
-    var k9: Array
-    var k15: Array
+    var k1: Array[int]
+    var k2: Array[int]
+    var k5: Array[int]
+    var k8: Dictionary[int, int]
+    var k9: Array[TestDemoE2]
+    var k15: Array[TestDemoDynamic]
     
     var __type_id__ = -367048295;
     func get_type_id() : return __type_id__;
@@ -1766,10 +1768,10 @@ class TestExcelFromJson:
     var x12: TestDemoType1
     var x13: int
     var x14: TestDemoDynamic
-    var k1: Array
-    var k8: Dictionary
-    var k9: Array
-    var k15: Array
+    var k1: Array[int]
+    var k8: Dictionary[int, int]
+    var k9: Array[TestDemoE2]
+    var k15: Array[TestDemoDynamic]
     
     var __type_id__ = -1485706483;
     func get_type_id() : return __type_id__;
@@ -1799,7 +1801,7 @@ class TestExcelFromJson:
 class TestExcelFromJsonMultiRow:
     var id: int
     var x: int
-    var items: Array
+    var items: Array[TestTestRow]
     
     var __type_id__ = 715335694;
     func get_type_id() : return __type_id__;
@@ -1951,13 +1953,13 @@ class TestMultiIndexList:
 class TestMultiRowRecord:
     var id: int
     var name: String
-    var one_rows: Array
-    var multi_rows1: Array
-    var multi_rows2: Array
-    var multi_rows4: Dictionary
-    var multi_rows5: Array
-    var multi_rows6: Dictionary
-    var multi_rows7: Dictionary
+    var one_rows: Array[TestMultiRowType1]
+    var multi_rows1: Array[TestMultiRowType1]
+    var multi_rows2: Array[TestMultiRowType1]
+    var multi_rows4: Dictionary[int, TestMultiRowType2]
+    var multi_rows5: Array[TestMultiRowType3]
+    var multi_rows6: Dictionary[int, TestMultiRowType2]
+    var multi_rows7: Dictionary[int, int]
     
     var __type_id__ = -501249394;
     func get_type_id() : return __type_id__;
@@ -1987,9 +1989,9 @@ class TestMultiRowTitle:
     var name: String
     var x1: TestH1
     var x2_0: TestH2
-    var x2: Array
-    var x3: Array
-    var x4: Array
+    var x2: Array[TestH2]
+    var x3: Array[TestH2]
+    var x4: Array[TestH2]
     
     var __type_id__ = 540002427;
     func get_type_id() : return __type_id__;
@@ -2038,7 +2040,7 @@ class TestMultiRowType2:
 
 class TestMultiRowType3:
     var id: int
-    var items: Array
+    var items: Array[TestMultiRowType1]
     
     var __type_id__ = 540474972;
     func get_type_id() : return __type_id__;
@@ -2109,7 +2111,7 @@ class TestRefDynamicBase:
 
 
 class TestRefBean extends TestRefDynamicBase:
-    var arr: Array
+    var arr: Array[int]
     
     var __type_id__ = 1963260263;
     func get_type_id() : return __type_id__;
@@ -2322,30 +2324,30 @@ class TestTestFieldVariant2:
 
 class TestTestFormat:
     var id: int
-    var a1: Array
-    var a2: Array
-    var a3: Array
-    var a4: Array
-    var b1: Array
-    var b2: Array
-    var b3: Array
-    var b4: Array
-    var c1: Array
-    var c2: Array
-    var c3: Array
-    var c4: Array
-    var m1: Dictionary
-    var m2: Dictionary
-    var m3: Dictionary
-    var m4: Dictionary
+    var a1: Array[int]
+    var a2: Array[int]
+    var a3: Array[int]
+    var a4: Array[int]
+    var b1: Array[int]
+    var b2: Array[int]
+    var b3: Array[int]
+    var b4: Array[int]
+    var c1: Array[int]
+    var c2: Array[int]
+    var c3: Array[int]
+    var c4: Array[int]
+    var m1: Dictionary[int, int]
+    var m2: Dictionary[int, int]
+    var m3: Dictionary[int, int]
+    var m4: Dictionary[int, int]
     var v31: Vec3
     var v32: Vec3
     var v33: Vec3
     var v34: Vec3
-    var v41: Array
-    var v42: Array
-    var v43: Array
-    var v44: Array
+    var v41: Array[Vec3]
+    var v42: Array[Vec3]
+    var v43: Array[Vec3]
+    var v44: Array[Vec3]
     
     var __type_id__ = -38307291;
     func get_type_id() : return __type_id__;
@@ -2414,7 +2416,7 @@ class TestTestGlobal:
 
 class TestTestIndex:
     var id: int
-    var eles: Array
+    var eles: Array[TestDemoType1]
     
     var __type_id__ = 1941154020;
     func get_type_id() : return __type_id__;
@@ -2428,10 +2430,10 @@ class TestTestIndex:
 
 class TestTestMap:
     var id: int
-    var x1: Dictionary
-    var x2: Dictionary
-    var x3: Dictionary
-    var x4: Dictionary
+    var x1: Dictionary[int, int]
+    var x2: Dictionary[int, int]
+    var x3: Dictionary[String, int]
+    var x4: Dictionary[int, int]
     
     var __type_id__ = -543227410;
     func get_type_id() : return __type_id__;
@@ -2546,14 +2548,14 @@ class TestTestRef:
     var x2: int
     var x3: int
     var x4: int
-    var a1: Array
-    var a2: Array
-    var b1: Array
-    var b2: Array
-    var c1: Array
-    var c2: Array
-    var d1: Dictionary
-    var d2: Dictionary
+    var a1: Array[int]
+    var a2: Array[int]
+    var b1: Array[int]
+    var b2: Array[int]
+    var c1: Array[int]
+    var c2: Array[int]
+    var d1: Dictionary[int, int]
+    var d2: Dictionary[int, int]
     var e1: int
     var e2: int
     var e3: String
@@ -2603,7 +2605,7 @@ class TestTestRow:
     var y: bool
     var z: String
     var a: TestTest3
-    var b: Array
+    var b: Array[int]
     
     var __type_id__ = -543222164;
     func get_type_id() : return __type_id__;
@@ -2643,16 +2645,16 @@ class TestTestScriptableObject:
 
 class TestTestSep:
     var id: int
-    var a1: Array
-    var a2: Array
-    var a3: Array
+    var a1: Array[int]
+    var a2: Array[int]
+    var a3: Array[int]
     var x2: TestSepBean1
     ## SepVector已经定义了sep=,属性
     var x3: TestSepVector
     ## 用;来分割数据，然后顺序读入SepVector
-    var x4: Array
+    var x4: Array[TestSepVector]
     ## 用;分割数据，然后再将每个数据用,分割，读入
-    var x6: Array
+    var x6: Array[TestSepBean1]
     
     var __type_id__ = -543221520;
     func get_type_id() : return __type_id__;
@@ -2677,10 +2679,10 @@ class TestTestSep:
 class TestTestSet:
     var id: int
     var x0: String
-    var x1: Array
-    var x2: Array
-    var x3: Array
-    var x4: Array
+    var x1: Array[int]
+    var x2: Array[int]
+    var x3: Array[String]
+    var x4: Array[int]
     
     var __type_id__ = -543221516;
     func get_type_id() : return __type_id__;
@@ -2701,10 +2703,10 @@ class TestTestSet:
 
 class TestTestSize:
     var id: int
-    var x1: Array
-    var x2: Array
-    var x3: Array
-    var x4: Dictionary
+    var x1: Array[int]
+    var x2: Array[int]
+    var x3: Array[int]
+    var x4: Dictionary[int, int]
     
     var __type_id__ = 340006319;
     func get_type_id() : return __type_id__;
@@ -2728,8 +2730,8 @@ class TestTestString:
     var s2: String
     var cs1: TestCompactString
     var cs2: TestCompactString
-    var css: Array
-    var css2: Array
+    var css: Array[String]
+    var css2: Array[String]
     
     var __type_id__ = 338485823;
     func get_type_id() : return __type_id__;
@@ -2758,11 +2760,11 @@ class TestTestUeType:
     var x12: TestDemoType1
     var x13: int
     var t1: int
-    var k1: Array
-    var k2: Array
-    var k5: Array
-    var k8: Dictionary
-    var k9: Array
+    var k1: Array[int]
+    var k2: Array[int]
+    var k5: Array[int]
+    var k8: Dictionary[int, int]
+    var k9: Array[TestDemoE2]
     
     var __type_id__ = 381013016;
     func get_type_id() : return __type_id__;
@@ -2895,7 +2897,7 @@ class CommonTbGlobalConfig:
     var x6: int:
         get: return self._data.x6
 
-    var x7: Array:
+    var x7: Array[int]:
         get: return self._data.x7
 
 
@@ -3842,6 +3844,7 @@ class TestTbDefineFromExcel2:
         return self._data_map.get(key)
 
 
+## 测试自动导入表1
 class TbAutoImport1:
     var _data_list: Array[AutoImport1]
     var _data_map: Dictionary
@@ -3863,24 +3866,24 @@ class TbAutoImport1:
         return self._data_map.get(key)
 
 
-class TestTbTestFormat:
-    var _data_list: Array[TestTestFormat]
+class TestTbAutoImport2:
+    var _data_list: Array[TestAutoImport2]
     var _data_map: Dictionary
     
     func _init(_json_) -> void:
         for _json2_ in _json_:
-            var _v: TestTestFormat
-            _v = TestTestFormat.new(_json2_)
+            var _v: TestAutoImport2
+            _v = TestAutoImport2.new(_json2_)
             self._data_list.append(_v)
             self._data_map[_v.id] = _v
 
-    func get_data_list() -> Array[TestTestFormat]:
+    func get_data_list() -> Array[TestAutoImport2]:
         return self._data_list
 
     func get_data_map() -> Dictionary:
         return self._data_map
 
-    func get_item(key) -> TestTestFormat:
+    func get_item(key) -> TestAutoImport2:
         return self._data_map.get(key)
 
 
@@ -3906,24 +3909,24 @@ class TestTbAutoImport3:
         return self._data_map.get(key)
 
 
-class TestTbAutoImport2:
-    var _data_list: Array[TestAutoImport2]
+class TestTbTestFormat:
+    var _data_list: Array[TestTestFormat]
     var _data_map: Dictionary
     
     func _init(_json_) -> void:
         for _json2_ in _json_:
-            var _v: TestAutoImport2
-            _v = TestAutoImport2.new(_json2_)
+            var _v: TestTestFormat
+            _v = TestTestFormat.new(_json2_)
             self._data_list.append(_v)
             self._data_map[_v.id] = _v
 
-    func get_data_list() -> Array[TestAutoImport2]:
+    func get_data_list() -> Array[TestTestFormat]:
         return self._data_list
 
     func get_data_map() -> Dictionary:
         return self._data_map
 
-    func get_item(key) -> TestAutoImport2:
+    func get_item(key) -> TestTestFormat:
         return self._data_map.get(key)
 
 
@@ -3977,11 +3980,12 @@ class CfgTables:
     var tbTestMapper: TestTbTestMapper
     var tbTestConstAlias: TestTbTestConstAlias
     var tbDefineFromExcel2: TestTbDefineFromExcel2
+    ## 测试自动导入表1
     var tbAutoImport1: TbAutoImport1
-    var tbTestFormat: TestTbTestFormat
+    var tbAutoImport2: TestTbAutoImport2
     ## 自动导入的表
     var tbAutoImport3: TestTbAutoImport3
-    var tbAutoImport2: TestTbAutoImport2
+    var tbTestFormat: TestTbTestFormat
     
     func _init(loader: Callable) -> void:
         self.tbBlackboard = AiTbBlackboard.new(loader.call('ai_tbblackboard'))
@@ -4033,7 +4037,7 @@ class CfgTables:
         self.tbTestConstAlias = TestTbTestConstAlias.new(loader.call('test_tbtestconstalias'))
         self.tbDefineFromExcel2 = TestTbDefineFromExcel2.new(loader.call('test_tbdefinefromexcel2'))
         self.tbAutoImport1 = TbAutoImport1.new(loader.call('tbautoimport1'))
-        self.tbTestFormat = TestTbTestFormat.new(loader.call('test_tbtestformat'))
-        self.tbAutoImport3 = TestTbAutoImport3.new(loader.call('test_tbautoimport3'))
         self.tbAutoImport2 = TestTbAutoImport2.new(loader.call('test_tbautoimport2'))
+        self.tbAutoImport3 = TestTbAutoImport3.new(loader.call('test_tbautoimport3'))
+        self.tbTestFormat = TestTbTestFormat.new(loader.call('test_tbtestformat'))
 
