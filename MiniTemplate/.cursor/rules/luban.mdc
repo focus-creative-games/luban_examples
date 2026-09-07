@@ -1,0 +1,19 @@
+---
+description: Luban MiniTemplate conventions for AI agents
+globs:
+  - "Data/**"
+  - "Defines/**"
+  - "luban.conf"
+  - "gen.*"
+alwaysApply: true
+---
+
+# Luban MiniTemplate
+
+- Pipeline: Schema → Data → Generate → Runtime.
+- Never silently weaken schema to make invalid data pass.
+- Register new tables in `Data/__tables__.xlsx` before expecting export.
+- Excel sheets require A1 starting with `##`.
+- Groups: `c` client, `s` server, `e` editor.
+- Prefer `--errorFormat json` when diagnosing failures.
+- Prefer `-c schema-json` to inspect compiled schema.

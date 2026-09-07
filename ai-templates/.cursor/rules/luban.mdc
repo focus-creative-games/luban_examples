@@ -1,0 +1,18 @@
+---
+description: Luban project conventions for AI agents
+globs:
+  - "Data/**"
+  - "Defines/**"
+  - "Datas/**"
+  - "luban.conf"
+  - "gen.*"
+alwaysApply: true
+---
+
+# Luban project
+
+- Schema → Data → Generate → Runtime. Schema is a contract.
+- Register tables before export. Excel A1 must start with `##`.
+- Respect c/s/e groups from luban.conf.
+- Use `--errorFormat json` for failures; `-c schema-json` to inspect schema.
+- Do not point output dirs at handwritten source folders (outputs may be cleaned).

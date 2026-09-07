@@ -1,0 +1,18 @@
+---
+description: Luban DataTables conventions for AI agents
+globs:
+  - "Data/**"
+  - "Defines/**"
+  - "luban.conf"
+  - "check.*"
+alwaysApply: true
+---
+
+# Luban DataTables
+
+- Prefer extending existing XML modules under `Defines/` instead of dumping all types into one file.
+- Keep `#ref=` table full names in sync when renaming tables.
+- `t` group is test-oriented (not default export).
+- Use `--strict --errorFormat json` for validation-focused runs.
+- Study existing samples (polymorphism, variants, tags, multi-format inputs) before inventing new layouts.
+- Schema is a contract: fix data or explicitly evolve schema with review.
