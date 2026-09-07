@@ -1,0 +1,159 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Luban.DataTarget.Builtin/1.0.0": {
+        "dependencies": {
+          "Luban.Core": "1.0.0",
+          "Luban.DataLoader.Builtin": "1.0.0"
+        },
+        "runtime": {
+          "Luban.DataTarget.Builtin.dll": {}
+        }
+      },
+      "ExcelDataReader/3.7.0": {
+        "runtime": {
+          "lib/netstandard2.1/ExcelDataReader.dll": {
+            "assemblyVersion": "3.7.0.0",
+            "fileVersion": "3.7.0.0"
+          }
+        }
+      },
+      "NeoLua/1.3.14": {
+        "runtime": {
+          "lib/net5.0/Neo.Lua.dll": {
+            "assemblyVersion": "5.3.0.0",
+            "fileVersion": "1.3.14.0"
+          }
+        },
+        "resources": {
+          "lib/net5.0/de/Neo.Lua.resources.dll": {
+            "locale": "de"
+          }
+        }
+      },
+      "NLog/5.3.4": {
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.3.4.2778"
+          }
+        }
+      },
+      "Scriban/7.2.5": {
+        "runtime": {
+          "lib/net8.0/Scriban.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.2.5.0"
+          }
+        }
+      },
+      "Ude.NetStandard/1.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/Ude.NetStandard.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "YamlDotNet.NetCore/1.0.0": {
+        "runtime": {
+          "lib/netstandard1.0/YamlDotNet.NetCore.dll": {
+            "assemblyVersion": "0.0.1.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Luban.Core/1.0.0": {
+        "dependencies": {
+          "NLog": "5.3.4",
+          "Scriban": "7.2.5"
+        },
+        "runtime": {
+          "Luban.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Luban.DataLoader.Builtin/1.0.0": {
+        "dependencies": {
+          "ExcelDataReader": "3.7.0",
+          "Luban.Core": "1.0.0",
+          "NeoLua": "1.3.14",
+          "Ude.NetStandard": "1.2.0",
+          "YamlDotNet.NetCore": "1.0.0"
+        },
+        "runtime": {
+          "Luban.DataLoader.Builtin.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Luban.DataTarget.Builtin/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ExcelDataReader/3.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AMv3oDETRHSRyXC17rBtKH45qIfFyo433LMeaMB3u4RNr/c9Luuc0Z+JMP6+3Cx9n4wXqFqcrEIVxrf/GgYnZg==",
+      "path": "exceldatareader/3.7.0",
+      "hashPath": "exceldatareader.3.7.0.nupkg.sha512"
+    },
+    "NeoLua/1.3.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BXIUN+ePY2wx3ZGiSmR8KZKD85s01pXI690orrB3u/biB8R0nalziGw+iGbPBq1Cuz8Upggpw2ERF84POXWTCQ==",
+      "path": "neolua/1.3.14",
+      "hashPath": "neolua.1.3.14.nupkg.sha512"
+    },
+    "NLog/5.3.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gLy7+O1hEYJXIlcTr1/VWjGXrZTQFZzYNO18IWasD64pNwz0BreV+nHLxWKXWZzERRzoKnsk2XYtwLkTVk7J1A==",
+      "path": "nlog/5.3.4",
+      "hashPath": "nlog.5.3.4.nupkg.sha512"
+    },
+    "Scriban/7.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6HDyv0P6PVdx/prWM3Aw0QHAT/DCpkBxOovZ2iPIH4L4ZvJ13JNYJgyUI+xJ5K2agXreYTBe23AL5ZQNTqJQvA==",
+      "path": "scriban/7.2.5",
+      "hashPath": "scriban.7.2.5.nupkg.sha512"
+    },
+    "Ude.NetStandard/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zRWpPAxBg3lNdm4UiKixTe+DFPoNid9CILggTCy/0WR2WKETe17kTWhiiIpLB2k5IEgnvA0QLfKlvd6Tvu0pzA==",
+      "path": "ude.netstandard/1.2.0",
+      "hashPath": "ude.netstandard.1.2.0.nupkg.sha512"
+    },
+    "YamlDotNet.NetCore/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vPiKF4Yf02MS96Nzwcr8+WrvlhTx+camOgUzxhazU0hCzs2ESetWDCxaIT/MYdAw2oONYem1ow9PXWJjHkRUDw==",
+      "path": "yamldotnet.netcore/1.0.0",
+      "hashPath": "yamldotnet.netcore.1.0.0.nupkg.sha512"
+    },
+    "Luban.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Luban.DataLoader.Builtin/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
