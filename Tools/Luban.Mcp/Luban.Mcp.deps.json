@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "Luban.Mcp/1.0.0": {
+      "Luban.Mcp/5.1.0": {
         "dependencies": {
           "Microsoft.Extensions.Hosting": "10.0.11",
           "ModelContextProtocol": "2.2.0"
@@ -506,7 +506,7 @@
     }
   },
   "libraries": {
-    "Luban.Mcp/1.0.0": {
+    "Luban.Mcp/5.1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
