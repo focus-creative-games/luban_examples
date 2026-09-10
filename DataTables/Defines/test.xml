@@ -542,6 +542,16 @@
     <table name="TbTestFieldVariant" value="TestFieldVariant" input="test/field_variant"/>
     <table name="TbTestFieldVariant2" value="TestFieldVariant2" readSchemaFromFile="1" input="test/field_variant2.xlsx"/>
 
+    <!-- 表变体(自 v5.1.0)：同名表多份定义。导出时用命令行 variant 选择，例如 TbTestTableVariant=zh 或 default=zh -->
+    <bean name="TestTableVariant">
+        <var name="id" type="int"/>
+        <var name="name" type="string"/>
+        <var name="desc" type="string"/>
+    </bean>
+    <table name="TbTestTableVariant" value="TestTableVariant" input="test/table_variant.csv"/> fallback，未指定 variant 时使用
+    <table name="TbTestTableVariant" variant="zh" value="TestTableVariant" input="test/table_variant_zh.csv"/>
+    <table name="TbTestTableVariant" variant="en" value="TestTableVariant" input="test/table_variant_en.csv"/>
+
     <!--table name="TbMultiDimensionCollection" value="MultiDimensitionCollection" readSchemaFromFile="1" input="test/multi_dimension.xlsx"/-->
  
     <!--table name="TbTestExternalType" value="TestExternalType" define_from_file="1" input="test/external_type.xlsx"/-->

@@ -1,0 +1,5 @@
+##,id,name,desc
+##type,int,string,string
+,
+,1,default,fallback data
+,2,sword,a common sword

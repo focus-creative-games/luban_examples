@@ -1,0 +1,5 @@
+##,id,name,desc
+##type,int,string,string
+,
+,1,default,english fallback copy
+,2,long sword,a common long sword
